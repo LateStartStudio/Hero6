@@ -1,0 +1,7 @@
+source https://nuget.org/api/v2
+
+nuget MonoGame.Framework.Android
+nuget MonoGame.Framework.DesktopGL
+nuget MonoGame.Framework.WindowsDX
+nuget NUnit
+nuget OptimizedPriorityQueue

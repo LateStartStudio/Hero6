@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>df3851f5-aea2-4d44-bab1-88e63c470f30</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>LateStartStudio.Hero6</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Campaigns\CampaignHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Graphics\MonoGameGraphics.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Graphics\MonoGameTexture2D.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\MonoGameAssetHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\MonoGameEngine.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Game.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\TouchSurface\SurfacePressedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\TouchSurface\TouchHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IXnaGameLoop.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\InputHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\Keyboard\KeyboardHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\Keyboard\KeyPressedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\Mouse\MouseButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\Mouse\MouseButtonPressedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\Mouse\MouseHandler.cs" />
+  </ItemGroup>
+</Project>
