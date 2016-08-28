@@ -1,11 +1,11 @@
 #[Hero6 Readme](https://github.com/LateStartStudio/Hero6/blob/master/README.md)
-Welcome to the Hero6 project. This readme should be included in your copy of Hero6, it is also available in the [source code repository](https://github.com/LateStartStudio/Hero6/blob/master/README.md). The Hero6 project started in 1999, the project was shut down and the game files released to public in 2011, until it was rebooted by a new team in 2013.
+Welcome to the Hero6 project. This readme should be included in your copy of Hero6, it is also available in the [source code repository](https://github.com/LateStartStudio/Hero6). The Hero6 project started in 1999, the project was shut down and the game files released to public in 2011, until it was rebooted by a new team in 2013.
 
-* [Links](https://github.com/LateStartStudio/Hero6#helpful-links)
+* [Links](https://github.com/LateStartStudio/Hero6/blob/master/README.md#links)
 * [Build](https://github.com/LateStartStudio/Hero6#build)
 * [Contribution](https://github.com/LateStartStudio/Hero6#contribution)
-* [Changelog](https://github.com/LateStartStudio/Hero6#contribution)
-* [License](https://github.com/LateStartStudio/Hero6M#contribution)
+* [Changelog](https://github.com/LateStartStudio/Hero6/blob/master/README.md#links)
+* [License](https://github.com/LateStartStudio/Hero6/blob/master/README.md#links)
 
 ##Links
 * [Homepage](http://www.hero6.org/)
@@ -68,7 +68,7 @@ Theoretically, you should be able to build and run Hero6 on Linux and OS X, but 
 Theoretically the OpenGL Windows build should also work with Linux and OS X, but this goes unsupported and unmaintained for now. We also have a build configuration for Android but we do not maintain it.
 
 ##Contribution
-If you find a bug, want to suggest a new feature, or just suggest general ideas for improvement, please do so in our [bug tracker](https://github.com/persn/Hero6/issues).
+If you find a bug, want to suggest a new feature, or just suggest general ideas for improvement, please do so in our [bug tracker](https://github.com/LateStartStudio/Hero6/issues).
 
 If you have any general questions that are non development related about Hero6 you can reach us on our [forums](http://www.hero6.org/forum/), or [IM](http://www.hero6.org/?page_id=84). We're also available on [Facebook](https://www.facebook.com/hero6) and [Twitter](https://twitter.com/LateStartStudio).
 
