@@ -1,5 +1,7 @@
 source https://nuget.org/api/v2
 
+nuget EmptyKeysUI_Generator
+nuget EmptyKeysUI_MonoGame
 nuget MonoGame.Framework.Android
 nuget MonoGame.Framework.DesktopGL
 nuget MonoGame.Framework.WindowsDX
