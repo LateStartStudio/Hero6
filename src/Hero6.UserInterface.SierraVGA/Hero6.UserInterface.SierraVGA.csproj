@@ -87,6 +87,11 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <PropertyGroup>
+    <PreBuildEvent>CD "$(SolutionDir)packages\EmptyKeysUI_Generator*\tools"
+
+ekUIGen.exe -i="$(ProjectDir)View" -o="$(ProjectDir)View" -oa="$(SolutionDir)assets\EmptyKeysGenerated\GUI\SierraVGA" -ns="LateStartStudio.Hero6.UserInterface.SierraVGA.View" -rm=MonoGame</PreBuildEvent>
+  </PropertyGroup>
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3')">
       <ItemGroup>
@@ -124,9 +129,4 @@
       </ItemGroup>
     </When>
   </Choose>
-  <PropertyGroup>
-    <PreBuildEvent>CD "$(SolutionDir)packages\EmptyKeysUI_Generator*\tools"
-
-ekUIGen.exe -i="$(ProjectDir)View" -o="$(ProjectDir)View" -oa="$(SolutionDir)assets\EmptyKeysGenerated\GUI\SierraVGA" -ns="LateStartStudio.Hero6.UserInterface.SierraVGA.View" -rm=MonoGame</PreBuildEvent>
-  </PropertyGroup>
 </Project>

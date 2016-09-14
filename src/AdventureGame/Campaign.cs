@@ -14,6 +14,7 @@ namespace LateStartStudio.AdventureGame
     using System;
     using System.Collections.Generic;
     using Game;
+    using UI;
 
     /// <summary>
     /// A class that represents a campaign, scenario or story of a game. One game might have
@@ -33,10 +34,12 @@ namespace LateStartStudio.AdventureGame
         /// </summary>
         /// <param name="name">The name of the campaign.</param>
         /// <param name="engine">The engine that will run the campaign.</param>
-        protected Campaign(string name, Engine.Engine engine)
+        /// <param name="userInterface">The user interface that this campaign will use.</param>
+        protected Campaign(string name, Engine.Engine engine, UserInterface userInterface)
         {
             this.name = name;
             this.engine = engine;
+            this.UserInterface = userInterface;
             this.characters = new Dictionary<string, Character>();
             this.items = new Dictionary<string, Item>();
             this.inventoryItems = new Dictionary<string, InventoryItem>();
@@ -63,6 +66,17 @@ namespace LateStartStudio.AdventureGame
         public Engine.Engine Engine
         {
             get { return this.engine; }
+        }
+
+        /// <summary>
+        /// Gets or sets the user interface of this campaign.
+        /// </summary>
+        /// <value>
+        /// The user interface of the campaign.
+        /// </value>
+        public UserInterface UserInterface
+        {
+            get; set;
         }
 
         /// <summary>

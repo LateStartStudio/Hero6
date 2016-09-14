@@ -1,74 +1,76 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="CampaignHandler.cs" company="LateStartStudio">
+// <copyright file="UserInterfaceHandler.cs" company="LateStartStudio">
 //   Copyright (C) LateStartStudio
 //   This file is subject to the terms and conditions of the MIT license specified
 //   in the file 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 // <summary>
-//   Defines the CampaignHandler type.
+//   Defines the UserInterfaceHandler type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.Hero6.Campaigns
+namespace LateStartStudio.Hero6.UserInterface
 {
     using System.Collections.Generic;
-    using AdventureGame;
-    using AdventureGame.Engine;
+    using AdventureGame.UI;
+    using EmptyKeys.UserInterface;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
-    using UserInterface;
+    using SierraVGA;
+    using Engine = AdventureGame.Engine.Engine;
 
-    public class CampaignHandler : IXnaGameLoop
+    public class UserInterfaceHandler : IXnaGameLoop
     {
         private readonly Engine engine;
-        private readonly UserInterfaceHandler userInterface;
-        private readonly IList<Campaign> campaigns;
+        private readonly GraphicsDevice graphicsDevice;
+        private readonly IList<UserInterface> userInterfaces;
 
-        public CampaignHandler(Engine engine, UserInterfaceHandler userInterface)
+        public UserInterfaceHandler(Engine engine, GraphicsDevice graphicsDevice)
         {
             this.engine = engine;
-            this.userInterface = userInterface;
+            this.graphicsDevice = graphicsDevice;
 
-            this.campaigns = new List<Campaign>
+            this.userInterfaces = new List<UserInterface>
             {
-                new RitesOfPassage.RitesOfPassage(this.engine, this.userInterface.CurrentUI)
+                new SierraVGAController(this.engine)
             };
-            this.CurrentCampaign = this.campaigns[0];
+            this.CurrentUI = this.userInterfaces[0];
         }
 
-        public Campaign CurrentCampaign
+        public UserInterface CurrentUI
         {
             get; private set;
         }
 
         public void Initialize()
         {
+            this.CurrentUI.UserInterfaceEngine = new MonoGameEngine(this.graphicsDevice, 320, 240);
         }
 
         public void Load(ContentManager contentManager)
         {
-            this.CurrentCampaign.Load();
+            this.CurrentUI.Load();
         }
 
         public void Unload()
         {
-            this.CurrentCampaign.Unload();
+            this.CurrentUI.Unload();
         }
 
         public void Update(GameTime gameTime)
         {
-            this.CurrentCampaign.Update(
-                gameTime.ElapsedGameTime,
+            this.CurrentUI.Update(
                 gameTime.TotalGameTime,
+                gameTime.ElapsedGameTime,
                 gameTime.IsRunningSlowly);
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            this.CurrentCampaign.Draw(
-                gameTime.ElapsedGameTime,
+            this.CurrentUI.Draw(
                 gameTime.TotalGameTime,
+                gameTime.ElapsedGameTime,
                 gameTime.IsRunningSlowly);
         }
     }
