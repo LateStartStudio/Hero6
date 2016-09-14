@@ -104,5 +104,14 @@ namespace LateStartStudio.AdventureGame.Game
 
         /// <inheritdoc />
         public abstract void Draw(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly);
+
+        /// <summary>
+        /// Shows a box with the input text.
+        /// </summary>
+        /// <param name="text">The text to display within the box.</param>
+        public void Display(string text)
+        {
+            this.Campaign.UserInterface.ShowTextBox(text);
+        }
     }
 }
