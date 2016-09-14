@@ -121,12 +121,6 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Characters/Hero/HeroWalkRightUp.png
 
-#begin Sprites/GUIs/Fonts/DefaultFont.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/processorParam:TextureFormat=Compressed
-/build:Sprites/GUIs/Fonts/DefaultFont.spritefont
-
 #begin Backgrounds/Albion/Fountain.png
 /importer:TextureImporter
 /processor:TextureProcessor
