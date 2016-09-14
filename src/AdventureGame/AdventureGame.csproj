@@ -43,6 +43,7 @@
     <Compile Include="Engine\Graphics\GraphicsHandler.cs" />
     <Compile Include="Engine\Graphics\Point.cs" />
     <Compile Include="Engine\Graphics\Rectangle.cs" />
+    <Compile Include="Engine\Graphics\SpriteFont.cs" />
     <Compile Include="Engine\Graphics\Texture2D.cs" />
     <Compile Include="Engine\Graphics\Vector2.cs" />
     <Compile Include="Game\AdventureGameElement.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="Game\Room.cs" />
     <Compile Include="Game\SpriteSheet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\UserInterface.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Search\Search.csproj">

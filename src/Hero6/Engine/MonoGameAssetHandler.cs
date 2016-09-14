@@ -15,6 +15,7 @@ namespace LateStartStudio.Hero6.Engine
     using AdventureGame.Engine.Graphics;
     using Graphics;
     using Microsoft.Xna.Framework.Content;
+    using XnaSpriteFont = Microsoft.Xna.Framework.Graphics.SpriteFont;
     using XnaTexture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 
     public class MonoGameAssetHandler : AssetHandler
@@ -29,6 +30,11 @@ namespace LateStartStudio.Hero6.Engine
         public override Texture2D LoadTexture2D(string id)
         {
             return new MonoGameTexture2D(this.contentManager.Load<XnaTexture2D>(id));
+        }
+
+        public override SpriteFont LoadSpriteFont(string id)
+        {
+            return new MonoGameSpriteFont(this.contentManager.Load<XnaSpriteFont>(id));
         }
     }
 }
