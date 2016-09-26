@@ -36,6 +36,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{8FAAE2
 		paket.dependencies = paket.dependencies
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.UserInterface.SierraVGA", "src\Hero6.UserInterface.SierraVGA\Hero6.UserInterface.SierraVGA.csproj", "{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		src\Hero6\Hero6.projitems*{b0b2294d-fb45-47c3-a645-6c5884e7cfab}*SharedItemsImports = 4
@@ -270,6 +272,30 @@ Global
 		{18480A92-0609-481E-99AD-6C3346829573}.WindowsDX Release|Any CPU.Build.0 = Release|Any CPU
 		{18480A92-0609-481E-99AD-6C3346829573}.WindowsDX Release|x86.ActiveCfg = Release|Any CPU
 		{18480A92-0609-481E-99AD-6C3346829573}.WindowsDX Release|x86.Build.0 = Release|Any CPU
+		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}.Android Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}.Android Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}.Android Debug|x86.ActiveCfg = Debug|Any CPU
+		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}.Android Debug|x86.Build.0 = Debug|Any CPU
+		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}.Android Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}.Android Release|Any CPU.Build.0 = Release|Any CPU
+		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}.Android Release|x86.ActiveCfg = Release|Any CPU
+		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}.Android Release|x86.Build.0 = Release|Any CPU
+		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}.Debug|x86.Build.0 = Debug|Any CPU
+		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}.Release|x86.ActiveCfg = Release|Any CPU
+		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}.Release|x86.Build.0 = Release|Any CPU
+		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}.WindowsDX Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}.WindowsDX Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}.WindowsDX Debug|x86.ActiveCfg = Debug|Any CPU
+		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}.WindowsDX Debug|x86.Build.0 = Debug|Any CPU
+		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}.WindowsDX Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}.WindowsDX Release|Any CPU.Build.0 = Release|Any CPU
+		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}.WindowsDX Release|x86.ActiveCfg = Release|Any CPU
+		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}.WindowsDX Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -285,6 +311,7 @@ Global
 		{E49FF4CD-57A3-45A3-87F3-EDEF96923B20} = {887BCA83-96AC-4E83-BAF5-567626AF670B}
 		{6BEE8AAC-A058-40B2-9009-76416AA682BA} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
 		{18480A92-0609-481E-99AD-6C3346829573} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
+		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329} = {C7901A1A-E22C-468F-9E9A-9A891598E7D8}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0

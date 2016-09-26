@@ -13,11 +13,14 @@ namespace LateStartStudio.Hero6
 {
     using System;
     using Campaigns;
+    using Engine;
     using Input;
     using Input.Mouse;
     using Input.TouchSurface;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
+    using UserInterface;
+    using AdventureGameEngine = AdventureGame.Engine.Engine;
 
     /// <summary>
     /// This is the main type for your game.
@@ -26,9 +29,10 @@ namespace LateStartStudio.Hero6
     {
         private static readonly Vector2 NativeGameResolution = new Vector2(320, 240);
 
-        private readonly InputHandler input;
-
+        private AdventureGameEngine engine;
+        private UserInterfaceHandler ui;
         private CampaignHandler campaign;
+        private InputHandler input;
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
         private Matrix scale;
@@ -47,10 +51,6 @@ namespace LateStartStudio.Hero6
             };
 
             Content.RootDirectory = "Content";
-
-            this.input = new InputHandler();
-            this.input.Mouse.MouseButtonPressed += this.MouseButtonPressed;
-            this.input.Touch.SurfacePressed += this.SurfacePressed;
         }
 
         /// <summary>
@@ -63,7 +63,21 @@ namespace LateStartStudio.Hero6
         {
             Window.Title = "Hero6";
 
+            this.spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            this.engine = new MonoGameEngine(this.spriteBatch, this.Content);
+
+            this.ui = new UserInterfaceHandler(this.engine, this.GraphicsDevice);
+
+            this.campaign = new CampaignHandler(this.engine, this.ui);
+
+            this.input = new InputHandler();
+            this.input.Mouse.MouseButtonPressed += this.MouseButtonPressed;
+            this.input.Touch.SurfacePressed += this.SurfacePressed;
+
             this.input.Initialize();
+            this.ui.Initialize();
+            this.campaign.Initialize();
 
             this.SetScale();
 
@@ -76,11 +90,7 @@ namespace LateStartStudio.Hero6
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
-            this.spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            this.campaign = new CampaignHandler(this.spriteBatch, this.Content);
-
+            this.ui.Load(this.Content);
             this.input.Load(this.Content);
             this.campaign.Load(this.Content);
         }
@@ -93,6 +103,7 @@ namespace LateStartStudio.Hero6
         {
             Content.Unload();
 
+            this.ui.Unload();
             this.input.Unload();
             this.campaign.Unload();
 
@@ -107,6 +118,7 @@ namespace LateStartStudio.Hero6
         protected override void Update(GameTime gameTime)
         {
             this.input.Update(gameTime);
+            this.ui.Update(gameTime);
             this.campaign.Update(gameTime);
 
             base.Update(gameTime);
@@ -133,6 +145,9 @@ namespace LateStartStudio.Hero6
             this.input.Draw(gameTime, this.spriteBatch);
 
             this.spriteBatch.End();
+
+            // Independent draw
+            this.ui.Draw(gameTime, this.spriteBatch);
 
             base.Draw(gameTime);
         }

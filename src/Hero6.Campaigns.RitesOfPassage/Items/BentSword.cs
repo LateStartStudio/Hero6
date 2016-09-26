@@ -28,9 +28,8 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Items
         private void OnInteraction(object sender, EventArgs e)
         {
             this.IsVisible = false;
-            System.Diagnostics.Debug.WriteLine(
-                "You remove the twisted sword from the ground and take it with you. Let's hope your own sword does " +
-                "not end the same shape.");
+            this.Display("You remove the twisted sword from the ground and take it with you. Let's"
+                         + " hope your own sword does not end the same shape.");
             Campaign.Player.AddInventory(Campaign.GetInventoryItem(InventoryItems.BentSword.Name));
         }
     }

@@ -121,12 +121,6 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Characters/Hero/HeroWalkRightUp.png
 
-#begin Sprites/GUIs/Fonts/DefaultFont.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/processorParam:TextureFormat=Compressed
-/build:Sprites/GUIs/Fonts/DefaultFont.spritefont
-
 #begin Backgrounds/Albion/Fountain.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -222,4 +216,10 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/GUIs/Cursors/Arrow.png
+
+#begin EmptyKeysGenerated/GUI/SierraVGA/Segoe_UI_11.25_Regular.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:TextureFormat=Compressed
+/build:EmptyKeysGenerated/GUI/SierraVGA/Segoe_UI_11.25_Regular.spritefont
 

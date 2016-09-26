@@ -9,17 +9,31 @@ Executables may be included in the repository for various reasons (automating ta
 Paket is a tool for managing and organizing external projects in form of NuGet packages, git repos or single files by HTTP. It is licensed under the MIT-license.
 
 * [Homepage](https://fsprojects.github.io/Paket/index.html)
-* [Repository](https://github.com/fsprojects/Paket) 
+* [Repository](https://github.com/fsprojects/Paket)
 * [License](https://github.com/fsprojects/Paket/blob/master/LICENSE.txt)
 
 ### NuGet-packages
 The C# code base has dependencies on third-party frameworks that is downloaded before compilation via the NuGet system.
 
+#### EmptyKeys Engine
+EmptyKeys is a GUI development framework compatible with various game engines. It is licensed under the MIT license.
+
+* [Homepage](http://emptykeys.com/)
+* [Repository](https://github.com/EmptyKeys/UI_Engines)
+* [License](https://github.com/EmptyKeys/UI_Engines/blob/master/LICENSE)
+
+#### EmptyKeys Generator
+EmptyKeys is a GUI development framework compatible with various game engines. It is licensed under the MIT license.
+
+* [Homepage](http://emptykeys.com/)
+* [Repository](https://github.com/EmptyKeys/UI_Generator)
+* [License](https://github.com/EmptyKeys/UI_Generator/blob/master/LICENSE)
+
 #### MonoGame
 MonoGame is a game development framework. It is licensed under the Microsoft Public License (Ms-PL) and the MIT-license.
 
 * [Homepage](http://www.monogame.net/)
-* [Repository](https://github.com/mono/MonoGame) 
+* [Repository](https://github.com/mono/MonoGame)
 * [License](https://github.com/mono/MonoGame/blob/develop/LICENSE.txt)
 
 #### NUnit

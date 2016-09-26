@@ -24,12 +24,12 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Characters
         {
             this.Animation = new HeroWalk(campaign);
 
-            this.Interaction += OnInteraction;
+            this.Interaction += this.OnInteraction;
         }
 
-        private static void OnInteraction(object sender, EventArgs e)
+        private void OnInteraction(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("Clicked character " + Name);
+            this.Display("Clicked character " + Name);
         }
     }
 }

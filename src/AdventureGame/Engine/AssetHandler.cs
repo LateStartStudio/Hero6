@@ -24,5 +24,12 @@ namespace LateStartStudio.AdventureGame.Engine
         /// <param name="id">The ID of the 2D texture asset.</param>
         /// <returns>The 2D texture that was loaded.</returns>
         public abstract Texture2D LoadTexture2D(string id);
+
+        /// <summary>
+        /// Loads the font asset.
+        /// </summary>
+        /// <param name="id">The ID of the font asset.</param>
+        /// <returns>The font that was loaded.</returns>
+        public abstract SpriteFont LoadSpriteFont(string id);
     }
 }

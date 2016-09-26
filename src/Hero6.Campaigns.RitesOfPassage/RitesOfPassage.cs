@@ -13,13 +13,15 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage
 {
     using AdventureGame;
     using AdventureGame.Engine;
+    using AdventureGame.UI;
     using Characters;
     using Items;
     using Rooms.Albion;
 
     public sealed class RitesOfPassage : Campaign
     {
-        public RitesOfPassage(Engine engine) : base("Rites of Passage", engine)
+        public RitesOfPassage(Engine engine, UserInterface userInterface)
+            : base("Rites of Passage", engine, userInterface)
         {
             this.AddCharacters();
             this.AddItems();

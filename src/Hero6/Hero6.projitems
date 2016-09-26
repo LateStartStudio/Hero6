@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Campaigns\CampaignHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Graphics\MonoGameGraphics.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Graphics\MonoGameSpriteFont.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Graphics\MonoGameTexture2D.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\MonoGameAssetHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\MonoGameEngine.cs" />
@@ -24,5 +25,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Input\Mouse\MouseButton.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Input\Mouse\MouseButtonPressedEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Input\Mouse\MouseHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UserInterface\UserInterfaceHandler.cs" />
   </ItemGroup>
 </Project>
