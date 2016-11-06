@@ -24,7 +24,7 @@ namespace LateStartStudio.Hero6.Input.Mouse
         private Point position;
         private Texture2D texture;
 
-        public event EventHandler<MouseButtonPressedEventArgs> MouseButtonPressed;
+        public event EventHandler<MouseButtonUpEventArgs> MouseButtonUp;
 
         public Vector2 Scale
         {
@@ -53,20 +53,20 @@ namespace LateStartStudio.Hero6.Input.Mouse
 
             this.position = this.currentState.Position / this.Scale.ToPoint();
 
-            if (this.previousState.LeftButton != ButtonState.Pressed
-                && this.currentState.LeftButton == ButtonState.Pressed)
+            if (this.previousState.LeftButton == ButtonState.Pressed
+                && this.currentState.LeftButton != ButtonState.Pressed)
             {
-                this.InvokeMouseButtonPressed(MouseButton.Left);
+                this.InvokeMouseButtonUp(MouseButton.Left);
             }
-            else if (this.previousState.MiddleButton != ButtonState.Pressed
-                && this.currentState.MiddleButton == ButtonState.Pressed)
+            else if (this.previousState.MiddleButton == ButtonState.Pressed
+                && this.currentState.MiddleButton != ButtonState.Pressed)
             {
-                this.InvokeMouseButtonPressed(MouseButton.Middle);
+                this.InvokeMouseButtonUp(MouseButton.Middle);
             }
-            else if (this.previousState.RightButton != ButtonState.Pressed
-                     && this.currentState.RightButton == ButtonState.Pressed)
+            else if (this.previousState.RightButton == ButtonState.Pressed
+                     && this.currentState.RightButton != ButtonState.Pressed)
             {
-                this.InvokeMouseButtonPressed(MouseButton.Right);
+                this.InvokeMouseButtonUp(MouseButton.Right);
             }
         }
 
@@ -75,13 +75,13 @@ namespace LateStartStudio.Hero6.Input.Mouse
             spriteBatch.Draw(this.texture, this.position.ToVector2());
         }
 
-        private void InvokeMouseButtonPressed(MouseButton mouseButton)
+        private void InvokeMouseButtonUp(MouseButton mouseButton)
         {
-            if (this.MouseButtonPressed != null)
+            if (this.MouseButtonUp != null)
             {
-                this.MouseButtonPressed.Invoke(
+                this.MouseButtonUp.Invoke(
                     this,
-                    new MouseButtonPressedEventArgs(this.position, mouseButton));
+                    new MouseButtonUpEventArgs(this.position, mouseButton));
             }
         }
     }
