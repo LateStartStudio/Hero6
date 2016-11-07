@@ -38,9 +38,14 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVGA
             FontManager.DefaultFont = ((UserInterfaceEngine)this.UserInterfaceEngine).Renderer.CreateFont(
                 this.defaultFont.GetSpriteFont);
 
-            this.rootView = new RootView(320 * 3, 240 * 3);
             this.rootViewModel = new RootViewModel();
-            this.rootView.DataContext = this.rootViewModel;
+
+            this.rootView = new RootView(320 * 3, 240 * 3)
+            {
+                DataContext = this.rootViewModel
+            };
+
+            this.rootView.MouseUp += (s, a) => this.rootViewModel.TextBox.IsVisible = false;
         }
 
         public override void Unload()
@@ -60,7 +65,14 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVGA
 
         public override void ShowTextBox(string text)
         {
-            MessageBox.Show(text, null, false);
+            Size size = FontManager.DefaultFont.MeasureString(text, 1, 1);
+
+            this.rootViewModel.TextBox.Width = size.Width;
+            this.rootViewModel.TextBox.Height = size.Height;
+            this.rootViewModel.TextBox.Left = ((320 * 3) - size.Width) / 2;
+            this.rootViewModel.TextBox.Top = ((240 * 3) - size.Height) / 2;
+            this.rootViewModel.TextBox.Text = text;
+            this.rootViewModel.TextBox.IsVisible = true;
         }
     }
 }

@@ -4,8 +4,18 @@
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
            xmlns:ek="clr-namespace:EmptyKeys.UserInterface.Designer;assembly=EmptyKeys.UserInterface.Designer"
            mc:Ignorable="d"
+           OwnedWindowsContent="{Binding Windows}"
            d:DesignHeight="640"
            d:DesignWidth="800"
            Background="Transparent"
            FontSize="15">
+    <ek:UIRoot.Resources>
+        <ResourceDictionary>
+            <ControlTemplate x:Key="TextBoxWindow">
+                <Border Background="Black" >
+                    <TextBlock Text="{Binding Text}" />
+                </Border>
+            </ControlTemplate>
+        </ResourceDictionary>
+    </ek:UIRoot.Resources>
 </ek:UIRoot>

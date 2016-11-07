@@ -72,7 +72,7 @@ namespace LateStartStudio.Hero6
             this.campaign = new CampaignHandler(this.engine, this.ui);
 
             this.input = new InputHandler();
-            this.input.Mouse.MouseButtonPressed += this.MouseButtonPressed;
+            this.input.Mouse.MouseButtonUp += this.MouseButtonUp;
             this.input.Touch.SurfacePressed += this.SurfacePressed;
 
             this.input.Initialize();
@@ -117,8 +117,8 @@ namespace LateStartStudio.Hero6
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            this.input.Update(gameTime);
             this.ui.Update(gameTime);
+            this.input.Update(gameTime);
             this.campaign.Update(gameTime);
 
             base.Update(gameTime);
@@ -163,7 +163,7 @@ namespace LateStartStudio.Hero6
             this.input.Scale = new Vector2(this.scale.M11, this.scale.M22);
         }
 
-        private void MouseButtonPressed(object sender, MouseButtonPressedEventArgs e)
+        private void MouseButtonUp(object sender, MouseButtonUpEventArgs e)
         {
             switch (e.MouseButton)
             {

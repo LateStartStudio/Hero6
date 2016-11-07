@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="MouseButtonPressedEventArgs.cs" company="LateStartStudio">
+// <copyright file="MouseButtonUpEventArgs.cs" company="LateStartStudio">
 //   Copyright (C) LateStartStudio
 //   This file is subject to the terms and conditions of the MIT license specified
 //   in the file 'LICENSE.CODE.md', which is a part of this source code package.
@@ -14,9 +14,9 @@ namespace LateStartStudio.Hero6.Input.Mouse
     using System;
     using Microsoft.Xna.Framework;
 
-    public class MouseButtonPressedEventArgs : EventArgs
+    public class MouseButtonUpEventArgs : EventArgs
     {
-        public MouseButtonPressedEventArgs(Point position, MouseButton mouseButton)
+        public MouseButtonUpEventArgs(Point position, MouseButton mouseButton)
         {
             this.Position = position;
             this.MouseButton = mouseButton;
