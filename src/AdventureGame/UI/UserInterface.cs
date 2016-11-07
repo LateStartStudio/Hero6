@@ -13,6 +13,7 @@ namespace LateStartStudio.AdventureGame.UI
 {
     using System;
     using Engine;
+    using Engine.Graphics;
     using Game;
 
     /// <summary>
@@ -23,11 +24,17 @@ namespace LateStartStudio.AdventureGame.UI
         /// <summary>
         /// Initializes a new instance of the <see cref="UserInterface"/> class.
         /// </summary>
+        /// <param name="width">The native width to render the user interface.</param>
+        /// <param name="height">The native height to render the user interface.</param>
+        /// <param name="scale">The scale of the heigth and width.</param>
         /// <param name="adventureGameEngine">
         /// The adventure game engine that will render the user interface.
         /// </param>
-        protected UserInterface(Engine adventureGameEngine)
+        protected UserInterface(int width, int height, Vector2 scale, Engine adventureGameEngine)
         {
+            this.Width = width;
+            this.Height = height;
+            this.Scale = scale;
             this.AdventureGameEngine = adventureGameEngine;
         }
 
@@ -40,6 +47,39 @@ namespace LateStartStudio.AdventureGame.UI
         public Engine AdventureGameEngine
         {
             get; private set;
+        }
+
+        /// <summary>
+        /// Gets or sets the native width for rendering of the user interface.
+        /// </summary>
+        /// <value>
+        /// The native width of the user interface.
+        /// </value>
+        public int Width
+        {
+            get; set;
+        }
+
+        /// <summary>
+        /// Gets or sets the native height for rendering of the user interface.
+        /// </summary>
+        /// <value>
+        /// The native height of the user interface.
+        /// </value>
+        public int Height
+        {
+            get; set;
+        }
+
+        /// <summary>
+        /// Gets or sets the scaling of the width and height of the user interface.
+        /// </summary>
+        /// <value>
+        /// The scaling of the width and height of the user interface.
+        /// </value>
+        public Vector2 Scale
+        {
+            get; set;
         }
 
         /// <summary>

@@ -24,6 +24,12 @@ namespace LateStartStudio.Hero6.Input.Mouse
         private Point position;
         private Texture2D texture;
 
+        public MouseHandler()
+        {
+            this.position = Vector2.Zero.ToPoint();
+            this.Scale = Vector2.One;
+        }
+
         public event EventHandler<MouseButtonUpEventArgs> MouseButtonUp;
 
         public Vector2 Scale
@@ -33,8 +39,6 @@ namespace LateStartStudio.Hero6.Input.Mouse
 
         public void Initialize()
         {
-            this.position = Vector2.Zero.ToPoint();
-            this.Scale = Vector2.One;
         }
 
         public void Load(ContentManager contentManager)

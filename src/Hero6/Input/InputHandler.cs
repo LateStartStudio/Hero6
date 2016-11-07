@@ -22,11 +22,12 @@ namespace LateStartStudio.Hero6.Input
     {
         private Vector2 scale;
 
-        public InputHandler()
+        public InputHandler(Matrix scale)
         {
             this.Keyboard = new KeyboardHandler();
             this.Mouse = new MouseHandler();
             this.Touch = new TouchHandler();
+            this.Scale = new Vector2(scale.M11, scale.M22);
         }
 
         public Vector2 Scale
