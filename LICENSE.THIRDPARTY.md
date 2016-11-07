@@ -12,6 +12,13 @@ Paket is a tool for managing and organizing external projects in form of NuGet p
 * [Repository](https://github.com/fsprojects/Paket)
 * [License](https://github.com/fsprojects/Paket/blob/master/LICENSE.txt)
 
+#### WiX
+WiX is a development kit for creating .msi installers. It is licensed under the MS-RL-license.
+
+* [Homepage](http://wixtoolset.org/)
+* [Repository](https://github.com/wixtoolset/wix3)
+* [License](https://github.com/wixtoolset/wix3/blob/develop/LICENSE.TXT)
+
 ### NuGet-packages
 The C# code base has dependencies on third-party frameworks that is downloaded before compilation via the NuGet system.
 
