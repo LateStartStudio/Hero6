@@ -40,10 +40,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.UserInterface.SierraV
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Hero6.Installer.Windows", "src\Hero6.Installer.Windows\Hero6.Installer.Windows.wixproj", "{FC20ADDD-6655-49FE-9C8F-9AE16C08682F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.WindowsDX.Tests", "src\Hero6.WindowsDX.Tests\Hero6.WindowsDX.Tests.csproj", "{C42A8C34-3145-41B2-B16A-D93D796DB437}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Hero6.Tests", "src\Hero6.Tests\Hero6.Tests.shproj", "{B59E1A53-68B3-4D31-8B69-CEFC3D5CEBB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.DesktopGL.Tests", "src\Hero6.DesktopGL.Tests\Hero6.DesktopGL.Tests.csproj", "{104B4CAF-4818-45DC-A772-2F5279C73E5A}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		src\Hero6.Tests\Hero6.Tests.projitems*{104b4caf-4818-45dc-a772-2f5279c73e5a}*SharedItemsImports = 4
+		src\Hero6\Hero6.projitems*{104b4caf-4818-45dc-a772-2f5279c73e5a}*SharedItemsImports = 4
 		src\Hero6\Hero6.projitems*{b0b2294d-fb45-47c3-a645-6c5884e7cfab}*SharedItemsImports = 4
+		src\Hero6.Tests\Hero6.Tests.projitems*{b59e1a53-68b3-4d31-8b69-cefc3d5cebb4}*SharedItemsImports = 13
 		src\Hero6\Hero6.projitems*{bb1758db-3b4b-4f61-9272-f08f56e4c71c}*SharedItemsImports = 4
+		src\Hero6.Tests\Hero6.Tests.projitems*{c42a8c34-3145-41b2-b16a-d93d796db437}*SharedItemsImports = 4
+		src\Hero6\Hero6.projitems*{c42a8c34-3145-41b2-b16a-d93d796db437}*SharedItemsImports = 4
 		src\Hero6\Hero6.projitems*{df3851f5-aea2-4d44-bab1-88e63c470f30}*SharedItemsImports = 13
 		src\Hero6\Hero6.projitems*{e49ff4cd-57a3-45a3-87f3-edef96923b20}*SharedItemsImports = 4
 	EndGlobalSection
@@ -318,6 +329,54 @@ Global
 		{FC20ADDD-6655-49FE-9C8F-9AE16C08682F}.WindowsDX Release|Any CPU.Build.0 = Release|x86
 		{FC20ADDD-6655-49FE-9C8F-9AE16C08682F}.WindowsDX Release|x86.ActiveCfg = Release|x86
 		{FC20ADDD-6655-49FE-9C8F-9AE16C08682F}.WindowsDX Release|x86.Build.0 = Release|x86
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Android Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Android Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Android Debug|x86.ActiveCfg = Debug|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Android Debug|x86.Build.0 = Debug|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Android Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Android Release|Any CPU.Build.0 = Release|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Android Release|x86.ActiveCfg = Release|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Android Release|x86.Build.0 = Release|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Debug|x86.Build.0 = Debug|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Release|x86.ActiveCfg = Release|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Release|x86.Build.0 = Release|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.WindowsDX Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.WindowsDX Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.WindowsDX Debug|x86.ActiveCfg = Debug|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.WindowsDX Debug|x86.Build.0 = Debug|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.WindowsDX Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.WindowsDX Release|Any CPU.Build.0 = Release|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.WindowsDX Release|x86.ActiveCfg = Release|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.WindowsDX Release|x86.Build.0 = Release|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Android Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Android Debug|Any CPU.Build.0 = Debug|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Android Debug|x86.ActiveCfg = Debug|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Android Debug|x86.Build.0 = Debug|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Android Release|Any CPU.ActiveCfg = Release|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Android Release|Any CPU.Build.0 = Release|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Android Release|x86.ActiveCfg = Release|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Android Release|x86.Build.0 = Release|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Debug|x86.Build.0 = Debug|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Release|x86.ActiveCfg = Release|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Release|x86.Build.0 = Release|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.WindowsDX Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.WindowsDX Debug|Any CPU.Build.0 = Debug|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.WindowsDX Debug|x86.ActiveCfg = Debug|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.WindowsDX Debug|x86.Build.0 = Debug|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.WindowsDX Release|Any CPU.ActiveCfg = Release|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.WindowsDX Release|Any CPU.Build.0 = Release|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.WindowsDX Release|x86.ActiveCfg = Release|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.WindowsDX Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -335,6 +394,9 @@ Global
 		{18480A92-0609-481E-99AD-6C3346829573} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
 		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329} = {C7901A1A-E22C-468F-9E9A-9A891598E7D8}
 		{FC20ADDD-6655-49FE-9C8F-9AE16C08682F} = {887BCA83-96AC-4E83-BAF5-567626AF670B}
+		{C42A8C34-3145-41B2-B16A-D93D796DB437} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
+		{B59E1A53-68B3-4D31-8B69-CEFC3D5CEBB4} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
