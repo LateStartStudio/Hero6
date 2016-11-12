@@ -53,6 +53,29 @@ namespace LateStartStudio.Hero6
             Content.RootDirectory = "Content";
         }
 
+        private Matrix Scale
+        {
+            get
+            {
+                return this.scale;
+            }
+
+            set
+            {
+                this.scale = value;
+
+                if (this.input != null)
+                {
+                    this.input.Scale = new Vector2(value.M11, value.M22);
+                }
+
+                if (this.ui != null)
+                {
+                    this.ui.Scale = new AdventureGame.Engine.Graphics.Vector2(value.M11, value.M22);
+                }
+            }
+        }
+
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
         /// This is where it can query for any required services and load any non-graphic
@@ -63,23 +86,28 @@ namespace LateStartStudio.Hero6
         {
             Window.Title = "Hero6";
 
+            this.SetScale();
+
             this.spriteBatch = new SpriteBatch(GraphicsDevice);
 
             this.engine = new MonoGameEngine(this.spriteBatch, this.Content);
 
-            this.ui = new UserInterfaceHandler(this.engine, this.GraphicsDevice);
+            this.ui = new UserInterfaceHandler(
+                (int)NativeGameResolution.X,
+                (int)NativeGameResolution.Y,
+                this.Scale,
+                this.engine,
+                this.GraphicsDevice);
 
             this.campaign = new CampaignHandler(this.engine, this.ui);
 
-            this.input = new InputHandler();
+            this.input = new InputHandler(this.Scale);
             this.input.Mouse.MouseButtonUp += this.MouseButtonUp;
             this.input.Touch.SurfacePressed += this.SurfacePressed;
 
             this.input.Initialize();
             this.ui.Initialize();
             this.campaign.Initialize();
-
-            this.SetScale();
 
             base.Initialize();
         }
@@ -139,7 +167,7 @@ namespace LateStartStudio.Hero6
                 null,
                 null,
                 null,
-                this.scale);
+                this.Scale);
 
             this.campaign.Draw(gameTime, this.spriteBatch);
             this.input.Draw(gameTime, this.spriteBatch);
@@ -158,9 +186,7 @@ namespace LateStartStudio.Hero6
             float verScaling = GraphicsDevice.PresentationParameters.BackBufferHeight / NativeGameResolution.Y;
             Vector3 screenScalingFactor = new Vector3(horScaling, verScaling, 1);
 
-            this.scale = Matrix.CreateScale(screenScalingFactor);
-
-            this.input.Scale = new Vector2(this.scale.M11, this.scale.M22);
+            this.Scale = Matrix.CreateScale(screenScalingFactor);
         }
 
         private void MouseButtonUp(object sender, MouseButtonUpEventArgs e)

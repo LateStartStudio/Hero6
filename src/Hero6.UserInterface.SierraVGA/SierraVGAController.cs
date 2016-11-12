@@ -26,8 +26,12 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVGA
         private RootViewModel rootViewModel;
         private SpriteFont defaultFont;
 
-        public SierraVGAController(AdventureGameEngine adventureGameEngine)
-            : base(adventureGameEngine)
+        public SierraVGAController(
+            int width,
+            int height,
+            Vector2 scale,
+            AdventureGameEngine adventureGameEngine)
+            : base(width, height, scale, adventureGameEngine)
         {
         }
 
@@ -40,7 +44,9 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVGA
 
             this.rootViewModel = new RootViewModel();
 
-            this.rootView = new RootView(320 * 3, 240 * 3)
+            this.rootView = new RootView(
+                this.Width * (int)this.Scale.X,
+                this.Height * (int)this.Scale.Y)
             {
                 DataContext = this.rootViewModel
             };
@@ -69,8 +75,8 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVGA
 
             this.rootViewModel.TextBox.Width = size.Width;
             this.rootViewModel.TextBox.Height = size.Height;
-            this.rootViewModel.TextBox.Left = ((320 * 3) - size.Width) / 2;
-            this.rootViewModel.TextBox.Top = ((240 * 3) - size.Height) / 2;
+            this.rootViewModel.TextBox.Left = ((this.Width * this.Scale.X) - size.Width) / 2;
+            this.rootViewModel.TextBox.Top = ((this.Height * this.Scale.Y) - size.Height) / 2;
             this.rootViewModel.TextBox.Text = text;
             this.rootViewModel.TextBox.IsVisible = true;
         }

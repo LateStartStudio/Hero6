@@ -19,6 +19,7 @@ namespace LateStartStudio.Hero6.UserInterface
     using Microsoft.Xna.Framework.Graphics;
     using SierraVGA;
     using Engine = AdventureGame.Engine.Engine;
+    using Vector2 = AdventureGame.Engine.Graphics.Vector2;
 
     public class UserInterfaceHandler : IXnaGameLoop
     {
@@ -26,16 +27,39 @@ namespace LateStartStudio.Hero6.UserInterface
         private readonly GraphicsDevice graphicsDevice;
         private readonly IList<UserInterface> userInterfaces;
 
-        public UserInterfaceHandler(Engine engine, GraphicsDevice graphicsDevice)
+        public UserInterfaceHandler(
+            int width,
+            int height,
+            Matrix scale,
+            Engine engine,
+            GraphicsDevice graphicsDevice)
         {
+            this.Width = width;
+            this.Height = height;
+            this.Scale = new Vector2(scale.M11, scale.M22);
             this.engine = engine;
             this.graphicsDevice = graphicsDevice;
 
             this.userInterfaces = new List<UserInterface>
             {
-                new SierraVGAController(this.engine)
+                new SierraVGAController(this.Width, this.Height, this.Scale, this.engine)
             };
             this.CurrentUI = this.userInterfaces[0];
+        }
+
+        public int Width
+        {
+            get; set;
+        }
+
+        public int Height
+        {
+            get; set;
+        }
+
+        public Vector2 Scale
+        {
+            get; set;
         }
 
         public UserInterface CurrentUI
