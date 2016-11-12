@@ -72,11 +72,27 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVGA
         public override void ShowTextBox(string text)
         {
             Size size = FontManager.DefaultFont.MeasureString(text, 1, 1);
+            int screenWidth = this.Width * (int)this.Scale.X;
+            int screenHeight = this.Height * (int)this.Scale.Y;
+            int horizontalEmptySpace = screenWidth / 8;
+            int rowSize = screenWidth - (horizontalEmptySpace * 2);
+            int rowCount = (int)Math.Ceiling(size.Width / rowSize);
 
-            this.rootViewModel.TextBox.Width = size.Width;
-            this.rootViewModel.TextBox.Height = size.Height;
-            this.rootViewModel.TextBox.Left = ((this.Width * this.Scale.X) - size.Width) / 2;
-            this.rootViewModel.TextBox.Top = ((this.Height * this.Scale.Y) - size.Height) / 2;
+            if (rowCount == 1)
+            {
+                this.rootViewModel.TextBox.Left = (screenWidth - size.Width) / 2;
+                this.rootViewModel.TextBox.Top = (screenHeight - size.Height) / 2;
+                this.rootViewModel.TextBox.Width = size.Width;
+                this.rootViewModel.TextBox.Height = size.Height;
+            }
+            else
+            {
+                this.rootViewModel.TextBox.Left = horizontalEmptySpace;
+                this.rootViewModel.TextBox.Top = (screenHeight - size.Height) / 2;
+                this.rootViewModel.TextBox.Width = rowSize;
+                this.rootViewModel.TextBox.Height = size.Height * rowCount;
+            }
+
             this.rootViewModel.TextBox.Text = text;
             this.rootViewModel.TextBox.IsVisible = true;
         }

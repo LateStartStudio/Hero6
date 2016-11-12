@@ -13,7 +13,7 @@
         <ResourceDictionary>
             <ControlTemplate x:Key="TextBoxWindow">
                 <Border Background="Black" >
-                    <TextBlock Text="{Binding Text}" />
+                    <TextBlock Text="{Binding Text}" TextWrapping="Wrap" />
                 </Border>
             </ControlTemplate>
         </ResourceDictionary>
