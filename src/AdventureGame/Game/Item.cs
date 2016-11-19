@@ -77,7 +77,7 @@ namespace LateStartStudio.AdventureGame.Game
         /// <inheritdoc />
         public override sealed void Load()
         {
-            this.sprite = Campaign.Engine.Assets.LoadTexture2D(this.spriteID);
+            this.sprite = this.Content.LoadTexture2D(this.spriteID);
         }
 
         /// <inheritdoc />

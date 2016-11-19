@@ -12,13 +12,14 @@
 namespace LateStartStudio.Hero6.UserInterface.SierraVGA
 {
     using System;
+    using AdventureGame.Engine;
     using AdventureGame.Engine.Graphics;
     using AdventureGame.UI;
     using EmptyKeys.UserInterface;
     using View;
     using ViewModel;
     using AdventureGameEngine = AdventureGame.Engine.Engine;
-    using UserInterfaceEngine = EmptyKeys.UserInterface.Engine;
+    using UiEngine = EmptyKeys.UserInterface.Engine;
 
     public class SierraVGAController : UserInterface
     {
@@ -30,16 +31,17 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVGA
             int width,
             int height,
             Vector2 scale,
-            AdventureGameEngine adventureGameEngine)
-            : base(width, height, scale, adventureGameEngine)
+            AdventureGameEngine adventureGameEngine,
+            ContentManager content)
+            : base(width, height, scale, adventureGameEngine, content)
         {
         }
 
         public override void Load()
         {
-            this.defaultFont = this.AdventureGameEngine.Assets.LoadSpriteFont(
-                    "EmptyKeysGenerated/GUI/SierraVGA/Segoe_UI_11.25_Regular");
-            FontManager.DefaultFont = ((UserInterfaceEngine)this.UserInterfaceEngine).Renderer.CreateFont(
+            this.defaultFont = this.Content.LoadSpriteFont(
+                "EmptyKeysGenerated/GUI/SierraVGA/Segoe_UI_11.25_Regular");
+            FontManager.DefaultFont = ((UiEngine)this.UserInterfaceEngine).Renderer.CreateFont(
                 this.defaultFont.GetSpriteFont);
 
             this.rootViewModel = new RootViewModel();

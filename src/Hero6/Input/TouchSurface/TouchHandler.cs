@@ -13,7 +13,6 @@ namespace LateStartStudio.Hero6.Input.TouchSurface
 {
     using System;
     using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input.Touch;
 
@@ -33,7 +32,7 @@ namespace LateStartStudio.Hero6.Input.TouchSurface
             this.tc = TouchPanel.GetCapabilities();
         }
 
-        public void Load(ContentManager contentManager)
+        public void Load()
         {
         }
 

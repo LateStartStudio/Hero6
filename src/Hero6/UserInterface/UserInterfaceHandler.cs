@@ -13,13 +13,14 @@ namespace LateStartStudio.Hero6.UserInterface
 {
     using System.Collections.Generic;
     using AdventureGame.UI;
-    using EmptyKeys.UserInterface;
+    using Engine;
     using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
     using SierraVGA;
     using Engine = AdventureGame.Engine.Engine;
+    using MonoGameEngine = EmptyKeys.UserInterface.MonoGameEngine;
     using Vector2 = AdventureGame.Engine.Graphics.Vector2;
+    using XnaContentManager = Microsoft.Xna.Framework.Content.ContentManager;
 
     public class UserInterfaceHandler : IXnaGameLoop
     {
@@ -28,11 +29,12 @@ namespace LateStartStudio.Hero6.UserInterface
         private readonly IList<UserInterface> userInterfaces;
 
         public UserInterfaceHandler(
+            Engine engine,
+            GraphicsDevice graphicsDevice,
+            XnaContentManager content,
             int width,
             int height,
-            Matrix scale,
-            Engine engine,
-            GraphicsDevice graphicsDevice)
+            Matrix scale)
         {
             this.Width = width;
             this.Height = height;
@@ -42,7 +44,12 @@ namespace LateStartStudio.Hero6.UserInterface
 
             this.userInterfaces = new List<UserInterface>
             {
-                new SierraVGAController(this.Width, this.Height, this.Scale, this.engine)
+                new SierraVGAController(
+                    this.Width,
+                    this.Height,
+                    this.Scale,
+                    this.engine,
+                    new MonoGameContentManager(content))
             };
             this.CurrentUI = this.userInterfaces[0];
         }
@@ -72,7 +79,7 @@ namespace LateStartStudio.Hero6.UserInterface
             this.CurrentUI.UserInterfaceEngine = new MonoGameEngine(this.graphicsDevice, 320, 240);
         }
 
-        public void Load(ContentManager contentManager)
+        public void Load()
         {
             this.CurrentUI.Load();
         }

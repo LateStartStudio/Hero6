@@ -22,10 +22,10 @@ namespace LateStartStudio.Hero6.Input
     {
         private Vector2 scale;
 
-        public InputHandler(Matrix scale)
+        public InputHandler(Matrix scale, ContentManager content)
         {
             this.Keyboard = new KeyboardHandler();
-            this.Mouse = new MouseHandler();
+            this.Mouse = new MouseHandler(content);
             this.Touch = new TouchHandler();
             this.Scale = new Vector2(scale.M11, scale.M22);
         }
@@ -67,11 +67,11 @@ namespace LateStartStudio.Hero6.Input
             this.Touch.Initialize();
         }
 
-        public void Load(ContentManager contentManager)
+        public void Load()
         {
-            this.Keyboard.Load(contentManager);
-            this.Mouse.Load(contentManager);
-            this.Touch.Load(contentManager);
+            this.Keyboard.Load();
+            this.Mouse.Load();
+            this.Touch.Load();
         }
 
         public void Unload()
