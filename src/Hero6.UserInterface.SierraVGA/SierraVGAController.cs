@@ -16,7 +16,9 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
     using AdventureGame.Engine.Graphics;
     using AdventureGame.UI;
     using EmptyKeys.UserInterface;
+    using EmptyKeys.UserInterface.Input;
     using EmptyKeys.UserInterface.Media;
+    using EmptyKeys.UserInterface.Mvvm;
     using View;
     using ViewModel;
     using AdventureGameEngine = AdventureGame.Engine.Engine;
@@ -24,6 +26,8 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
 
     public class SierraVgaController : UserInterface
     {
+        private readonly MouseCursor mouseCursor;
+
         private RootView rootView;
         private RootViewModel rootViewModel;
         private FontBase defaultFont;
@@ -37,11 +41,17 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
             : base(width, height, scale, adventureGameEngine, content)
         {
             this.Content.RootDirectory = "Content/Gui/SierraVga";
+            this.mouseCursor = new MouseCursor(
+                this.Content.NativeContentManager,
+                this.Width,
+                this.Height,
+                this.Scale);
+            ServiceManager.Instance.AddService<ICursorService>(this.mouseCursor);
         }
 
         public override void Load()
         {
-            this.defaultFont = LoadFont("Segoe_UI_11.25_Regular");
+            this.defaultFont = this.LoadFont("Segoe_UI_11.25_Regular");
 
             FontManager.DefaultFont = this.defaultFont;
 
@@ -55,6 +65,8 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
             };
 
             this.rootView.MouseUp += (s, a) => this.rootViewModel.TextBox.Hide();
+
+            this.mouseCursor.Load();
         }
 
         public override void Unload()
@@ -63,6 +75,7 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
 
         public override void Update(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly)
         {
+            this.mouseCursor.Update(totalTime, elapsedTime, isRunningSlowly);
             this.rootView.UpdateInput(elapsedTime.TotalMilliseconds);
             this.rootView.UpdateLayout(elapsedTime.TotalMilliseconds);
         }
@@ -70,6 +83,7 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
         public override void Draw(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly)
         {
             this.rootView.Draw(elapsedTime.TotalMilliseconds);
+            this.mouseCursor.Draw(totalTime, elapsedTime, isRunningSlowly);
         }
 
         public override void ShowTextBox(string text)

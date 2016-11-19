@@ -25,7 +25,7 @@ namespace LateStartStudio.Hero6.Input
         public InputHandler(Matrix scale, ContentManager content)
         {
             this.Keyboard = new KeyboardHandler();
-            this.Mouse = new MouseHandler(content);
+            this.Mouse = new MouseHandler();
             this.Touch = new TouchHandler();
             this.Scale = new Vector2(scale.M11, scale.M22);
         }
