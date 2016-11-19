@@ -217,9 +217,9 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/GUIs/Cursors/Arrow.png
 
-#begin EmptyKeysGenerated/GUI/SierraVGA/Segoe_UI_11.25_Regular.spritefont
+#begin Gui/SierraVga/Segoe_UI_11.25_Regular.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
 /processorParam:TextureFormat=Compressed
-/build:EmptyKeysGenerated/GUI/SierraVGA/Segoe_UI_11.25_Regular.spritefont
+/build:Gui/SierraVga/Segoe_UI_11.25_Regular.spritefont
 

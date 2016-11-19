@@ -9,7 +9,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.Hero6.UserInterface.SierraVGA.ViewModel
+namespace LateStartStudio.Hero6.UserInterface.SierraVga.ViewModel
 {
     using System.Collections.ObjectModel;
     using EmptyKeys.UserInterface.Mvvm;

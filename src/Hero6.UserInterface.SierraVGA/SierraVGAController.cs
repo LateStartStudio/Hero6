@@ -9,25 +9,26 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.Hero6.UserInterface.SierraVGA
+namespace LateStartStudio.Hero6.UserInterface.SierraVga
 {
     using System;
     using AdventureGame.Engine;
     using AdventureGame.Engine.Graphics;
     using AdventureGame.UI;
     using EmptyKeys.UserInterface;
+    using EmptyKeys.UserInterface.Media;
     using View;
     using ViewModel;
     using AdventureGameEngine = AdventureGame.Engine.Engine;
     using UiEngine = EmptyKeys.UserInterface.Engine;
 
-    public class SierraVGAController : UserInterface
+    public class SierraVgaController : UserInterface
     {
         private RootView rootView;
         private RootViewModel rootViewModel;
-        private SpriteFont defaultFont;
+        private FontBase defaultFont;
 
-        public SierraVGAController(
+        public SierraVgaController(
             int width,
             int height,
             Vector2 scale,
@@ -35,14 +36,14 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVGA
             ContentManager content)
             : base(width, height, scale, adventureGameEngine, content)
         {
+            this.Content.RootDirectory = "Content/Gui/SierraVga";
         }
 
         public override void Load()
         {
-            this.defaultFont = this.Content.LoadSpriteFont(
-                "EmptyKeysGenerated/GUI/SierraVGA/Segoe_UI_11.25_Regular");
-            FontManager.DefaultFont = ((UiEngine)this.UserInterfaceEngine).Renderer.CreateFont(
-                this.defaultFont.GetSpriteFont);
+            this.defaultFont = LoadFont("Segoe_UI_11.25_Regular");
+
+            FontManager.DefaultFont = this.defaultFont;
 
             this.rootViewModel = new RootViewModel();
 
@@ -53,7 +54,7 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVGA
                 DataContext = this.rootViewModel
             };
 
-            this.rootView.MouseUp += (s, a) => this.rootViewModel.TextBox.IsVisible = false;
+            this.rootView.MouseUp += (s, a) => this.rootViewModel.TextBox.Hide();
         }
 
         public override void Unload()
@@ -73,30 +74,12 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVGA
 
         public override void ShowTextBox(string text)
         {
-            Size size = FontManager.DefaultFont.MeasureString(text, 1, 1);
-            int screenWidth = this.Width * (int)this.Scale.X;
-            int screenHeight = this.Height * (int)this.Scale.Y;
-            int horizontalEmptySpace = screenWidth / 8;
-            int rowSize = screenWidth - (horizontalEmptySpace * 2);
-            int rowCount = (int)Math.Ceiling(size.Width / rowSize);
+            this.rootViewModel.TextBox.Show(text, this.Width, this.Height, this.Scale);
+        }
 
-            if (rowCount == 1)
-            {
-                this.rootViewModel.TextBox.Left = (screenWidth - size.Width) / 2;
-                this.rootViewModel.TextBox.Top = (screenHeight - size.Height) / 2;
-                this.rootViewModel.TextBox.Width = size.Width;
-                this.rootViewModel.TextBox.Height = size.Height;
-            }
-            else
-            {
-                this.rootViewModel.TextBox.Left = horizontalEmptySpace;
-                this.rootViewModel.TextBox.Top = (screenHeight - size.Height) / 2;
-                this.rootViewModel.TextBox.Width = rowSize;
-                this.rootViewModel.TextBox.Height = size.Height * rowCount;
-            }
-
-            this.rootViewModel.TextBox.Text = text;
-            this.rootViewModel.TextBox.IsVisible = true;
+        private FontBase LoadFont(string id)
+        {
+            return UiEngine.Instance.AssetManager.LoadFont(this.Content.NativeContentManager, id);
         }
     }
 }

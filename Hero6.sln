@@ -36,7 +36,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{8FAAE2
 		paket.dependencies = paket.dependencies
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.UserInterface.SierraVGA", "src\Hero6.UserInterface.SierraVGA\Hero6.UserInterface.SierraVGA.csproj", "{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.UserInterface.SierraVga", "src\Hero6.UserInterface.SierraVGA\Hero6.UserInterface.SierraVga.csproj", "{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}"
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Hero6.Installer.Windows", "src\Hero6.Installer.Windows\Hero6.Installer.Windows.wixproj", "{FC20ADDD-6655-49FE-9C8F-9AE16C08682F}"
 EndProject

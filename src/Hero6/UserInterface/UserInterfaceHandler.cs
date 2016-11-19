@@ -16,7 +16,7 @@ namespace LateStartStudio.Hero6.UserInterface
     using Engine;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
-    using SierraVGA;
+    using SierraVga;
     using Engine = AdventureGame.Engine.Engine;
     using MonoGameEngine = EmptyKeys.UserInterface.MonoGameEngine;
     using Vector2 = AdventureGame.Engine.Graphics.Vector2;
@@ -44,7 +44,7 @@ namespace LateStartStudio.Hero6.UserInterface
 
             this.userInterfaces = new List<UserInterface>
             {
-                new SierraVGAController(
+                new SierraVgaController(
                     this.Width,
                     this.Height,
                     this.Scale,
