@@ -205,7 +205,13 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Characters/NPCs/Llewella/LlewellaWalkCenterDown.png
 
-#begin Sprites/GUIs/Cursors/Arrow.png
+#begin Gui/SierraVga/Segoe_UI_11.25_Regular.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:TextureFormat=Compressed
+/build:Gui/SierraVga/Segoe_UI_11.25_Regular.spritefont
+
+#begin Gui/SierraVga/MouseCursors/Arrow.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -215,11 +221,17 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Sprites/GUIs/Cursors/Arrow.png
+/build:Gui/SierraVga/MouseCursors/Arrow.png
 
-#begin Gui/SierraVga/Segoe_UI_11.25_Regular.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/processorParam:TextureFormat=Compressed
-/build:Gui/SierraVga/Segoe_UI_11.25_Regular.spritefont
+#begin Gui/SierraVga/MouseCursors/Wait.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Gui/SierraVga/MouseCursors/Wait.png
 

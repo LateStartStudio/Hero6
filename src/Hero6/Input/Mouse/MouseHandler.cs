@@ -13,22 +13,17 @@ namespace LateStartStudio.Hero6.Input.Mouse
 {
     using System;
     using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
 
     public class MouseHandler : IXnaGameLoop
     {
-        private readonly ContentManager content;
-
         private MouseState previousState;
         private MouseState currentState;
         private Point position;
-        private Texture2D texture;
 
-        public MouseHandler(ContentManager content)
+        public MouseHandler()
         {
-            this.content = content;
             this.position = Vector2.Zero.ToPoint();
             this.Scale = Vector2.One;
         }
@@ -46,7 +41,6 @@ namespace LateStartStudio.Hero6.Input.Mouse
 
         public void Load()
         {
-            this.texture = this.content.Load<Texture2D>("Sprites/GUIs/Cursors/Arrow");
         }
 
         public void Unload()
@@ -79,7 +73,6 @@ namespace LateStartStudio.Hero6.Input.Mouse
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(this.texture, this.position.ToVector2());
         }
 
         private void InvokeMouseButtonUp(MouseButton mouseButton)
