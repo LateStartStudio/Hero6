@@ -260,5 +260,5 @@ __pycache__/
 *.pyc
 
 # Empty Keys Generated
-assets/EmptyKeysGenerated/
+assets/Gui/
 src/Hero6.UserInterface.SierraVGA/View/*.xaml.cs

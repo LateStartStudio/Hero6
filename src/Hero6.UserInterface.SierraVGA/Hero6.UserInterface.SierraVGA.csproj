@@ -7,8 +7,8 @@
     <ProjectGuid>{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LateStartStudio.Hero6.UserInterface.SierraVGA</RootNamespace>
-    <AssemblyName>Hero6.UserInterface.SierraVGA</AssemblyName>
+    <RootNamespace>LateStartStudio.Hero6.UserInterface.SierraVga</RootNamespace>
+    <AssemblyName>Hero6.UserInterface.SierraVga</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -61,7 +61,7 @@
       <Paket>True</Paket>
     </Content>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SierraVGAController.cs" />
+    <Compile Include="SierraVgaController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="paket.references" />
@@ -92,7 +92,7 @@
   <PropertyGroup>
     <PreBuildEvent>CD "$(SolutionDir)packages\EmptyKeysUI_Generator*\tools"
 
-ekUIGen.exe -i="$(ProjectDir)View" -o="$(ProjectDir)View" -oa="$(SolutionDir)assets\EmptyKeysGenerated\GUI\SierraVGA" -ns="LateStartStudio.Hero6.UserInterface.SierraVGA.View" -rm=MonoGame</PreBuildEvent>
+ekUIGen.exe -i="$(ProjectDir)View" -o="$(ProjectDir)View" -oa="$(SolutionDir)assets\Gui\SierraVga" -ns="LateStartStudio.Hero6.UserInterface.SierraVga.View" -rm=MonoGame</PreBuildEvent>
   </PropertyGroup>
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3')">

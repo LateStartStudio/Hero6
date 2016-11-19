@@ -12,7 +12,7 @@
 namespace LateStartStudio.AdventureGame.Game
 {
     using System;
-    using AdventureGame;
+    using Engine;
     using Engine.Graphics;
 
     /// <summary>
@@ -20,18 +20,18 @@ namespace LateStartStudio.AdventureGame.Game
     /// </summary>
     public class SpriteSheet : IGameLoop
     {
-        private readonly Campaign campaign;
+        private readonly ContentManager content;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SpriteSheet"/> class.
         /// </summary>
-        /// <param name="campaign">The campaign this sprite sheet belongs to.</param>
+        /// <param name="campaign">The campaign associated with this sprite sheet.</param>
         /// <param name="sheetID">The ID of the sprite sheet.</param>
         /// <param name="rows">The amount of rows in the sprite sheet.</param>
         /// <param name="columns">The amount of columns in the sprite sheet.</param>
         public SpriteSheet(Campaign campaign, string sheetID, int rows, int columns)
         {
-            this.campaign = campaign;
+            this.content = campaign.Content;
             this.SheetID = sheetID;
             this.Rows = rows;
             this.Columns = columns;
@@ -86,7 +86,7 @@ namespace LateStartStudio.AdventureGame.Game
         {
             if (this.Sheet == null)
             {
-                this.Sheet = this.campaign.Engine.Assets.LoadTexture2D(this.SheetID);
+                this.Sheet = this.content.LoadTexture2D(this.SheetID);
             }
         }
 

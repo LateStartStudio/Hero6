@@ -25,13 +25,5 @@ namespace LateStartStudio.AdventureGame.Engine
         /// The graphics handler of the engine.
         /// </value>
         public abstract GraphicsHandler Graphics { get; }
-
-        /// <summary>
-        /// Gets the asset handler of the engine.
-        /// </summary>
-        /// <value>
-        /// The asset handler of the engine.
-        /// </value>
-        public abstract AssetHandler Assets { get; }
     }
 }

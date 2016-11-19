@@ -12,14 +12,13 @@
 namespace LateStartStudio.Hero6
 {
     using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
 
     public interface IXnaGameLoop
     {
         void Initialize();
 
-        void Load(ContentManager contentManager);
+        void Load();
 
         void Unload();
 

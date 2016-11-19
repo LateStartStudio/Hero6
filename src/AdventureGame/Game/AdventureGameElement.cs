@@ -13,6 +13,7 @@ namespace LateStartStudio.AdventureGame.Game
 {
     using System;
     using AdventureGame;
+    using Engine;
     using Engine.Graphics;
 
     /// <summary>
@@ -83,6 +84,19 @@ namespace LateStartStudio.AdventureGame.Game
         protected Campaign Campaign
         {
             get; private set;
+        }
+
+        /// <summary>
+        /// Gets the <see cref="ContentManager"/> associated with this
+        /// <see cref="AdventureGameElement"/> instance.
+        /// </summary>
+        /// <value>
+        /// The <see cref="ContentManager"/> associated with this
+        /// <see cref="AdventureGameElement"/> instance.
+        /// </value>
+        protected ContentManager Content
+        {
+            get { return this.Campaign.Content; }
         }
 
         /// <summary>

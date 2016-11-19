@@ -13,7 +13,6 @@ namespace LateStartStudio.Hero6.Input.Keyboard
 {
     using System;
     using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
 
@@ -30,7 +29,7 @@ namespace LateStartStudio.Hero6.Input.Keyboard
         {
         }
 
-        public void Load(ContentManager contentManager)
+        public void Load()
         {
         }
 

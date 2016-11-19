@@ -142,9 +142,9 @@ namespace LateStartStudio.AdventureGame.Game
         /// <inheritdoc />
         public override sealed void Load()
         {
-            this.background = Campaign.Engine.Assets.LoadTexture2D(this.backgroundID);
+            this.background = this.Content.LoadTexture2D(this.backgroundID);
 
-            this.walkAreaMask = Campaign.Engine.Assets.LoadTexture2D(this.walkAreaID);
+            this.walkAreaMask = this.Content.LoadTexture2D(this.walkAreaID);
             this.walkAreaBuffer = CopyTextureData(this.walkAreaMask);
             this.walkAreaNodes = this.CreateWalkNodes();
 
@@ -153,7 +153,7 @@ namespace LateStartStudio.AdventureGame.Game
                 walkAreaNode.Children = this.FindNeighbors(walkAreaNode);
             }
 
-            this.hotspotsMask = Campaign.Engine.Assets.LoadTexture2D(this.hotSpotMaskID);
+            this.hotspotsMask = this.Content.LoadTexture2D(this.hotSpotMaskID);
             this.hotspotMaskBuffer = this.FindHotspots(this.hotspotsMask);
 
             this.InitializeEvents();

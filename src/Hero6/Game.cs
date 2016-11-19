@@ -90,18 +90,19 @@ namespace LateStartStudio.Hero6
 
             this.spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            this.engine = new MonoGameEngine(this.spriteBatch, this.Content);
+            this.engine = new MonoGameEngine(this.spriteBatch);
 
             this.ui = new UserInterfaceHandler(
+                this.engine,
+                this.GraphicsDevice,
+                this.Content,
                 (int)NativeGameResolution.X,
                 (int)NativeGameResolution.Y,
-                this.Scale,
-                this.engine,
-                this.GraphicsDevice);
+                this.Scale);
 
-            this.campaign = new CampaignHandler(this.engine, this.ui);
+            this.campaign = new CampaignHandler(this.engine, this.Content, this.ui);
 
-            this.input = new InputHandler(this.Scale);
+            this.input = new InputHandler(this.Scale, this.Content);
             this.input.Mouse.MouseButtonUp += this.MouseButtonUp;
             this.input.Touch.SurfacePressed += this.SurfacePressed;
 
@@ -118,9 +119,9 @@ namespace LateStartStudio.Hero6
         /// </summary>
         protected override void LoadContent()
         {
-            this.ui.Load(this.Content);
-            this.input.Load(this.Content);
-            this.campaign.Load(this.Content);
+            this.ui.Load();
+            this.input.Load();
+            this.campaign.Load();
         }
 
         /// <summary>

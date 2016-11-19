@@ -13,6 +13,7 @@ namespace LateStartStudio.AdventureGame
 {
     using System;
     using System.Collections.Generic;
+    using Engine;
     using Game;
     using UI;
 
@@ -24,6 +25,7 @@ namespace LateStartStudio.AdventureGame
     {
         private readonly string name;
         private readonly Engine.Engine engine;
+        private readonly ContentManager content;
         private readonly IDictionary<string, Character> characters;
         private readonly IDictionary<string, Item> items;
         private readonly IDictionary<string, InventoryItem> inventoryItems;
@@ -34,11 +36,17 @@ namespace LateStartStudio.AdventureGame
         /// </summary>
         /// <param name="name">The name of the campaign.</param>
         /// <param name="engine">The engine that will run the campaign.</param>
+        /// <param name="content">The content manager that will load campaign assets.</param>
         /// <param name="userInterface">The user interface that this campaign will use.</param>
-        protected Campaign(string name, Engine.Engine engine, UserInterface userInterface)
+        protected Campaign(
+            string name,
+            Engine.Engine engine,
+            ContentManager content,
+            UserInterface userInterface)
         {
             this.name = name;
             this.engine = engine;
+            this.content = content;
             this.UserInterface = userInterface;
             this.characters = new Dictionary<string, Character>();
             this.items = new Dictionary<string, Item>();
@@ -66,6 +74,17 @@ namespace LateStartStudio.AdventureGame
         public Engine.Engine Engine
         {
             get { return this.engine; }
+        }
+
+        /// <summary>
+        /// Gets the <see cref="ContentManager"/> of the <see cref="Campaign"/> instance.
+        /// </summary>
+        /// <value>
+        /// The <see cref="ContentManager"/> of the <see cref="Campaign"/> instance.
+        /// </value>
+        public ContentManager Content
+        {
+            get { return this.content; }
         }
 
         /// <summary>

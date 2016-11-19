@@ -126,9 +126,9 @@
       <Project>{de807934-27ec-43a8-831f-15371284f11f}</Project>
       <Name>Hero6.Campaigns.RitesOfPassage</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Hero6.UserInterface.SierraVGA\Hero6.UserInterface.SierraVGA.csproj">
+    <ProjectReference Include="..\Hero6.UserInterface.SierraVGA\Hero6.UserInterface.SierraVga.csproj">
       <Project>{9c6a0da4-892e-45c0-afc7-b6d46f940329}</Project>
-      <Name>Hero6.UserInterface.SierraVGA</Name>
+      <Name>Hero6.UserInterface.SierraVga</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="..\Hero6\Hero6.projitems" Label="Shared" />

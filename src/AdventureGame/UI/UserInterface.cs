@@ -21,6 +21,8 @@ namespace LateStartStudio.AdventureGame.UI
     /// </summary>
     public abstract class UserInterface : IGameLoop
     {
+        private readonly ContentManager content;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="UserInterface"/> class.
         /// </summary>
@@ -30,12 +32,25 @@ namespace LateStartStudio.AdventureGame.UI
         /// <param name="adventureGameEngine">
         /// The adventure game engine that will render the user interface.
         /// </param>
-        protected UserInterface(int width, int height, Vector2 scale, Engine adventureGameEngine)
+        /// <param name="content">The content manager of this user interface.</param>
+        protected UserInterface(int width, int height, Vector2 scale, Engine adventureGameEngine, ContentManager content)
         {
             this.Width = width;
             this.Height = height;
             this.Scale = scale;
             this.AdventureGameEngine = adventureGameEngine;
+            this.content = content;
+        }
+
+        /// <summary>
+        /// Gets the <see cref="ContentManager"/> of the <see cref="UserInterface"/> instance.
+        /// </summary>
+        /// <value>
+        /// The <see cref="ContentManager"/> of the <see cref="UserInterface"/> instance.
+        /// </value>
+        public ContentManager Content
+        {
+            get { return this.content; }
         }
 
         /// <summary>
@@ -47,6 +62,17 @@ namespace LateStartStudio.AdventureGame.UI
         public Engine AdventureGameEngine
         {
             get; private set;
+        }
+
+        /// <summary>
+        /// Gets or sets the internal engine for the user interface.
+        /// </summary>
+        /// <value>
+        /// The internal engine for the user interface.
+        /// </value>
+        public object UserInterfaceEngine
+        {
+            get; set;
         }
 
         /// <summary>
@@ -78,17 +104,6 @@ namespace LateStartStudio.AdventureGame.UI
         /// The scaling of the width and height of the user interface.
         /// </value>
         public Vector2 Scale
-        {
-            get; set;
-        }
-
-        /// <summary>
-        /// Gets or sets the internal engine for the user interface.
-        /// </summary>
-        /// <value>
-        /// The internal engine for the user interface.
-        /// </value>
-        public object UserInterfaceEngine
         {
             get; set;
         }
