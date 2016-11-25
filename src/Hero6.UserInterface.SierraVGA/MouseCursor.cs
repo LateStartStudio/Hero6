@@ -87,8 +87,8 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
 
         public void Load()
         {
-            this.arrow = this.LoadTexture("MouseCursors/Arrow");
-            this.wait = this.LoadTexture("MouseCursors/Wait");
+            this.arrow = this.LoadTexture("Arrow");
+            this.wait = this.LoadTexture("Wait");
 
             this.Current = this.arrow;
         }
@@ -113,7 +113,9 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
 
         private TextureBase LoadTexture(string id)
         {
-            return Engine.Instance.AssetManager.LoadTexture(this.content, id);
+            return Engine.Instance.AssetManager.LoadTexture(
+                this.content,
+                string.Format("Cursors/{0}", id));
         }
     }
 }
