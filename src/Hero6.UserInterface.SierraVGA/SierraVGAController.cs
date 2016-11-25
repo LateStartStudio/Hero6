@@ -93,7 +93,9 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
 
         private FontBase LoadFont(string id)
         {
-            return UiEngine.Instance.AssetManager.LoadFont(this.Content.NativeContentManager, id);
+            return UiEngine.Instance.AssetManager.LoadFont(
+                this.Content.NativeContentManager,
+                string.Format("Fonts/{0}", id));
         }
     }
 }
