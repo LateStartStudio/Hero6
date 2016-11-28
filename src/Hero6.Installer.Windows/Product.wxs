@@ -36,9 +36,10 @@
               <Directory Id="BACKGROUNDSFOLDER" Name="Backgrounds">
                 <Directory Id="ALBIONFOLDER" Name="Albion"/>
               </Directory>
-              <Directory Id="EMPTYKEYSGENERATEDFOLDER" Name="EmptyKeysGenerated">
-                <Directory Id="GUIFOLDER" Name="GUI">
-                  <Directory Id="SIERRAVGAFOLDER" Name="SierraVGA"/>
+              <Directory Id="GUIFOLDER" Name="Gui">
+                <Directory Id="SIERRAVGAFOLDER" Name="SierraVga">
+                  <Directory Id="CURSORSFOLDER" Name="Cursors"/>
+                  <Directory Id="FONTSFOLDER" Name="Fonts"/>
                 </Directory>
               </Directory>
               <Directory Id="SPRITESFOLDER" Name="Sprites">
@@ -47,9 +48,6 @@
                   <Directory Id="NPCSFOLDER" Name="NPCs">
                     <Directory Id="LLEWELLAFOLDER" Name="Llewella"/>
                   </Directory>
-                </Directory>
-                <Directory Id="GUISFOLDER" Name="GUIs">
-                  <Directory Id="CURSORSFOLDER" Name="Cursors"/>
                 </Directory>
                 <Directory Id="OBJECTSFOLDER" Name="Objects">
                   <Directory Id="PICKUPSFOLDER" Name="Pick-Up">
@@ -189,12 +187,15 @@
     </ComponentGroup>
     <ComponentGroup Id="CursorSpriteComponents" Directory="CURSORSFOLDER">
       <Component Id="Arrow.xnb" Guid="13A2726A-12BC-4252-ACAB-0B4872F4D8C8">
-        <File Id="Arrow.xnb" Name="Arrow.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Sprites/GUIs/Cursors/Arrow.xnb" />
+        <File Id="Arrow.xnb" Name="Arrow.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Cursors/Arrow.xnb" />
+      </Component>
+      <Component Id="Wait.xnb" Guid="4F7F02F3-51D8-4335-BDB3-7BBE2D33C645">
+        <File Id="Wait.xnb" Name="Wait.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Cursors/Wait.xnb" />
       </Component>
     </ComponentGroup>
-    <ComponentGroup Id="FontComponents" Directory="SIERRAVGAFOLDER">
+    <ComponentGroup Id="FontComponents" Directory="FONTSFOLDER">
       <Component Id="Segoe_UI_11.25_Regular.xnb" Guid="7DCCCE3F-8701-47C3-BEB0-29281BE2A565">
-        <File Id="Segoe_UI_11.25_Regular.xnb" Name="Segoe_UI_11.25_Regular.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/EmptyKeysGenerated/GUI/SierraVGA/Segoe_UI_11.25_Regular.xnb" />
+        <File Id="Segoe_UI_11.25_Regular.xnb" Name="Segoe_UI_11.25_Regular.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Fonts/Segoe_UI_11.25_Regular.xnb" />
       </Component>
     </ComponentGroup>
     <ComponentGroup Id="BentSwordComponents" Directory="BENTSWORDFOLDER">
