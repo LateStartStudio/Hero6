@@ -23,8 +23,9 @@ Welcome to the Hero6 project. This readme should be included in your copy of Her
 ![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/3/badge)
 * WindowsDX Release: 
 ![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/4/badge)
-* Android Release: 
-![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/5/badge)
+[//]: # "* Android Release: "
+[//]: # "![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/5/badge)"
+[//]: # "Android Release is disabled until we decide to focus on Android development"
 
 ###Build Instructions
 Ideally, we want anyone to be able to build Hero6 on any OS with any IDE. This is an ongoing task and we continue our efforts to make that possible. Currently, we can guarantee that it will work on Windows with Visual Studio 2015.
