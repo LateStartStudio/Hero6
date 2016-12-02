@@ -19,10 +19,10 @@ Welcome to the Hero6 project. This readme should be included in your copy of Her
 ##Build
 
 ###Build Status
-* Release: 
-![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/3/badge)
-* WindowsDX Release: 
-![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/4/badge)
+||Debug|Release|
+|---|---|---|
+|Windows (DirectX)|![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/7/badge)|![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/4/badge)|
+|Windows (OpenGL)|![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/6/badge)|![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/3/badge)|
 [//]: # "* Android Release: "
 [//]: # "![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/5/badge)"
 [//]: # "Android Release is disabled until we decide to focus on Android development"
