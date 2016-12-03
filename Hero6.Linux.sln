@@ -32,7 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{8FAAE2
 		paket.dependencies = paket.dependencies
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.UserInterface.SierraVga", "src\Hero6.UserInterface.SierraVGA\Hero6.UserInterface.SierraVga.csproj", "{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.UserInterface.SierraVga", "src\Hero6.UserInterface.SierraVga\Hero6.UserInterface.SierraVga.csproj", "{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Hero6.Tests", "src\Hero6.Tests\Hero6.Tests.shproj", "{B59E1A53-68B3-4D31-8B69-CEFC3D5CEBB4}"
 EndProject
