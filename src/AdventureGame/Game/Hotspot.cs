@@ -29,10 +29,7 @@ namespace LateStartStudio.AdventureGame.Game
         /// <param name="character">The character standing in a hot spot.</param>
         public void InvokeWhileStandingIn(Character character)
         {
-            if (this.WhileStandingIn != null)
-            {
-                this.WhileStandingIn.Invoke(this, new HotspotWalkingEventArgs(character));
-            }
+            this.WhileStandingIn?.Invoke(this, new HotspotWalkingEventArgs(character));
         }
     }
 }

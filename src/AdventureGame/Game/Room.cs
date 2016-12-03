@@ -38,9 +38,6 @@ namespace LateStartStudio.AdventureGame.Game
         private readonly string backgroundID;
         private readonly string walkAreaID;
         private readonly string hotSpotMaskID;
-        private readonly IList<Character> characters;
-        private readonly IList<Item> items;
-        private readonly IDictionary<Color, Hotspot> hotspots;
 
         private Texture2D background;
         private Texture2D walkAreaMask;
@@ -67,9 +64,9 @@ namespace LateStartStudio.AdventureGame.Game
             this.backgroundID = backgroundID;
             this.walkAreaID = walkAreaID;
             this.hotSpotMaskID = hotSpotMaskID;
-            this.characters = new List<Character>();
-            this.items = new List<Item>();
-            this.hotspots = new Dictionary<Color, Hotspot>();
+            this.Characters = new List<Character>();
+            this.Items = new List<Item>();
+            this.Hotspots = new Dictionary<Color, Hotspot>();
         }
 
         /// <summary>
@@ -78,10 +75,7 @@ namespace LateStartStudio.AdventureGame.Game
         /// <value>
         /// A list of all characters conatined in this room.
         /// </value>
-        public IList<Character> Characters
-        {
-            get { return this.characters; }
-        }
+        public IList<Character> Characters { get; }
 
         /// <summary>
         /// Gets a list of all items contained in this room.
@@ -89,10 +83,7 @@ namespace LateStartStudio.AdventureGame.Game
         /// <value>
         /// A list of all items contained in this room.
         /// </value>
-        public IList<Item> Items
-        {
-            get { return this.items; }
-        }
+        public IList<Item> Items { get; }
 
         /// <summary>
         /// Gets a dictionary of all hotspots contained in this room.
@@ -100,27 +91,18 @@ namespace LateStartStudio.AdventureGame.Game
         /// <value>
         /// A dictionary of all hotspots contained in this room.
         /// </value>
-        public IDictionary<Color, Hotspot> Hotspots
-        {
-            get { return this.hotspots; }
-        }
+        public IDictionary<Color, Hotspot> Hotspots { get; }
 
         /// <inheritdoc />
-        public override sealed int Width
-        {
-            get { return this.background.Width; }
-        }
+        public override sealed int Width => this.background.Width;
 
         /// <inheritdoc />
-        public override sealed int Height
-        {
-            get { return this.background.Height; }
-        }
+        public override sealed int Height => this.background.Height;
 
         /// <inheritdoc />
         public override sealed bool Interact(int x, int y)
         {
-            foreach (Character character in this.characters)
+            foreach (Character character in this.Characters)
             {
                 if (character.Interact(x, y))
                 {
@@ -128,7 +110,7 @@ namespace LateStartStudio.AdventureGame.Game
                 }
             }
 
-            foreach (Item item in this.items)
+            foreach (Item item in this.Items)
             {
                 if (item.Interact(x, y))
                 {
@@ -196,12 +178,12 @@ namespace LateStartStudio.AdventureGame.Game
                 this.Campaign.Engine.Graphics.Draw(this.background, this.Location);
             }
 
-            foreach (Item pickUpItem in this.items)
+            foreach (Item pickUpItem in this.Items)
             {
                 pickUpItem.Draw(totalTime, elapsedTime, isRunningSlowly);
             }
 
-            foreach (Character character in this.characters)
+            foreach (Character character in this.Characters)
             {
                 character.Draw(totalTime, elapsedTime, isRunningSlowly);
             }
