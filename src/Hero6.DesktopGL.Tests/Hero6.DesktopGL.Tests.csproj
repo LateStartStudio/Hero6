@@ -9,8 +9,8 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LateStartStudio.Hero6.Tests</RootNamespace>
     <AssemblyName>Hero6.Tests</AssemblyName>
-	<MonoGamePlatform>DesktopGL</MonoGamePlatform>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MonoGamePlatform>DesktopGL</MonoGamePlatform>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -73,6 +73,9 @@
       <Project>{9c6a0da4-892e-45c0-afc7-b6d46f940329}</Project>
       <Name>Hero6.UserInterface.SierraVGA</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="..\Hero6\Hero6.projitems" Label="Shared" />
   <Import Project="..\Hero6.Tests\Hero6.Tests.projitems" Label="Shared" />
