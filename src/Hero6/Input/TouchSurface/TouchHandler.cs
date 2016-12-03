@@ -20,7 +20,17 @@ namespace LateStartStudio.Hero6.Input.TouchSurface
     {
         private TouchPanelCapabilities tc;
 
+        public TouchHandler()
+        {
+            this.IsTouchAvailable = TouchPanel.IsGestureAvailable;
+        }
+
         public event EventHandler<SurfacePressedEventArgs> SurfacePressed;
+
+        public bool IsTouchAvailable
+        {
+            get;
+        }
 
         public Vector2 Scale
         {
@@ -29,6 +39,11 @@ namespace LateStartStudio.Hero6.Input.TouchSurface
 
         public void Initialize()
         {
+            if (!this.IsTouchAvailable)
+            {
+                return;
+            }
+
             this.tc = TouchPanel.GetCapabilities();
         }
 
@@ -42,32 +57,26 @@ namespace LateStartStudio.Hero6.Input.TouchSurface
 
         public void Update(GameTime gameTime)
         {
-            if (!this.tc.IsConnected)
+            if (!this.IsTouchAvailable || !this.tc.IsConnected)
             {
                 return;
             }
 
             foreach (TouchLocation tl in TouchPanel.GetState())
             {
-                if (tl.State == TouchLocationState.Pressed)
+                if (tl.State != TouchLocationState.Pressed)
                 {
-                    Point positionScaled = (tl.Position / this.Scale).ToPoint();
-
-                    this.InvokeSurfacePressed(positionScaled);
+                    continue;
                 }
+
+                Point positionScaled = (tl.Position / this.Scale).ToPoint();
+
+                this.SurfacePressed?.Invoke(this, new SurfacePressedEventArgs(positionScaled));
             }
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-        }
-
-        private void InvokeSurfacePressed(Point position)
-        {
-            if (this.SurfacePressed != null)
-            {
-                this.SurfacePressed.Invoke(this, new SurfacePressedEventArgs(position));
-            }
         }
     }
 }
