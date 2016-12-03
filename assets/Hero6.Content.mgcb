@@ -205,12 +205,6 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Characters/NPCs/Llewella/LlewellaWalkCenterDown.png
 
-#begin Gui/SierraVga/Fonts/Segoe_UI_11.25_Regular.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/processorParam:TextureFormat=Compressed
-/build:Gui/SierraVga/Fonts/Segoe_UI_11.25_Regular.spritefont
-
 #begin Gui/SierraVga/Cursors/Arrow.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -234,4 +228,10 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Gui/SierraVga/Cursors/Wait.png
+
+#begin Gui/SierraVga/Fonts/Arial_11.25_Regular.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:TextureFormat=Compressed
+/build:Gui/SierraVga/Fonts/Arial_11.25_Regular.spritefont
 
