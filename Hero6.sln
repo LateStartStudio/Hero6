@@ -36,7 +36,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{8FAAE2
 		paket.dependencies = paket.dependencies
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.UserInterface.SierraVga", "src\Hero6.UserInterface.SierraVGA\Hero6.UserInterface.SierraVga.csproj", "{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.UserInterface.SierraVga", "src\Hero6.UserInterface.SierraVga\Hero6.UserInterface.SierraVga.csproj", "{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EE485FED-F27E-4463-B58E-C8D639A2E5BB} = {EE485FED-F27E-4463-B58E-C8D639A2E5BB}
+	EndProjectSection
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Hero6.Installer.Windows", "src\Hero6.Installer.Windows\Hero6.Installer.Windows.wixproj", "{FC20ADDD-6655-49FE-9C8F-9AE16C08682F}"
 EndProject
@@ -47,6 +50,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.DesktopGL.Tests", "src\Hero6.DesktopGL.Tests\Hero6.DesktopGL.Tests.csproj", "{104B4CAF-4818-45DC-A772-2F5279C73E5A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GUIs", "GUIs", "{863F4FF3-CB11-4C12-B99F-AA8CB0D9787D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.UserInterface.SierraVga.Xaml", "src\Hero6.UserInterface.SierraVga.Xaml\Hero6.UserInterface.SierraVga.Xaml.csproj", "{EE485FED-F27E-4463-B58E-C8D639A2E5BB}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -370,6 +375,30 @@ Global
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.WindowsDX Release|Any CPU.ActiveCfg = Release|Any CPU
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.WindowsDX Release|x86.ActiveCfg = Release|Any CPU
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.WindowsDX Release|x86.Build.0 = Release|Any CPU
+		{EE485FED-F27E-4463-B58E-C8D639A2E5BB}.Android Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE485FED-F27E-4463-B58E-C8D639A2E5BB}.Android Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE485FED-F27E-4463-B58E-C8D639A2E5BB}.Android Debug|x86.ActiveCfg = Debug|Any CPU
+		{EE485FED-F27E-4463-B58E-C8D639A2E5BB}.Android Debug|x86.Build.0 = Debug|Any CPU
+		{EE485FED-F27E-4463-B58E-C8D639A2E5BB}.Android Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE485FED-F27E-4463-B58E-C8D639A2E5BB}.Android Release|Any CPU.Build.0 = Release|Any CPU
+		{EE485FED-F27E-4463-B58E-C8D639A2E5BB}.Android Release|x86.ActiveCfg = Release|Any CPU
+		{EE485FED-F27E-4463-B58E-C8D639A2E5BB}.Android Release|x86.Build.0 = Release|Any CPU
+		{EE485FED-F27E-4463-B58E-C8D639A2E5BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE485FED-F27E-4463-B58E-C8D639A2E5BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE485FED-F27E-4463-B58E-C8D639A2E5BB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EE485FED-F27E-4463-B58E-C8D639A2E5BB}.Debug|x86.Build.0 = Debug|Any CPU
+		{EE485FED-F27E-4463-B58E-C8D639A2E5BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE485FED-F27E-4463-B58E-C8D639A2E5BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE485FED-F27E-4463-B58E-C8D639A2E5BB}.Release|x86.ActiveCfg = Release|Any CPU
+		{EE485FED-F27E-4463-B58E-C8D639A2E5BB}.Release|x86.Build.0 = Release|Any CPU
+		{EE485FED-F27E-4463-B58E-C8D639A2E5BB}.WindowsDX Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE485FED-F27E-4463-B58E-C8D639A2E5BB}.WindowsDX Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE485FED-F27E-4463-B58E-C8D639A2E5BB}.WindowsDX Debug|x86.ActiveCfg = Debug|Any CPU
+		{EE485FED-F27E-4463-B58E-C8D639A2E5BB}.WindowsDX Debug|x86.Build.0 = Debug|Any CPU
+		{EE485FED-F27E-4463-B58E-C8D639A2E5BB}.WindowsDX Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE485FED-F27E-4463-B58E-C8D639A2E5BB}.WindowsDX Release|Any CPU.Build.0 = Release|Any CPU
+		{EE485FED-F27E-4463-B58E-C8D639A2E5BB}.WindowsDX Release|x86.ActiveCfg = Release|Any CPU
+		{EE485FED-F27E-4463-B58E-C8D639A2E5BB}.WindowsDX Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -390,6 +419,7 @@ Global
 		{C42A8C34-3145-41B2-B16A-D93D796DB437} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
 		{B59E1A53-68B3-4D31-8B69-CEFC3D5CEBB4} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
+		{EE485FED-F27E-4463-B58E-C8D639A2E5BB} = {863F4FF3-CB11-4C12-B99F-AA8CB0D9787D}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
