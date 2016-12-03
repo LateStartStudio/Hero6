@@ -21,3 +21,8 @@ indent_size = 2
 [*.{wxs,wxi,wxl}]
 indent_style = space
 indent_size = 2
+
+# Shell script
+[*.sh]
+indent_style = space
+indent_size = 2
