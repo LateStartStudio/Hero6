@@ -23,9 +23,6 @@ namespace LateStartStudio.AdventureGame
     /// </summary>
     public abstract class Campaign : IGameLoop
     {
-        private readonly string name;
-        private readonly Engine.Engine engine;
-        private readonly ContentManager content;
         private readonly IDictionary<string, Character> characters;
         private readonly IDictionary<string, Item> items;
         private readonly IDictionary<string, InventoryItem> inventoryItems;
@@ -44,9 +41,9 @@ namespace LateStartStudio.AdventureGame
             ContentManager content,
             UserInterface userInterface)
         {
-            this.name = name;
-            this.engine = engine;
-            this.content = content;
+            this.Name = name;
+            this.Engine = engine;
+            this.Content = content;
             this.UserInterface = userInterface;
             this.characters = new Dictionary<string, Character>();
             this.items = new Dictionary<string, Item>();
@@ -60,10 +57,7 @@ namespace LateStartStudio.AdventureGame
         /// <value>
         /// The name of the campaign.
         /// </value>
-        public string Name
-        {
-            get { return this.name; }
-        }
+        public string Name { get; }
 
         /// <summary>
         /// Gets the engine of the campaign.
@@ -71,10 +65,7 @@ namespace LateStartStudio.AdventureGame
         /// <value>
         /// The engine of the campaign.
         /// </value>
-        public Engine.Engine Engine
-        {
-            get { return this.engine; }
-        }
+        public Engine.Engine Engine { get; }
 
         /// <summary>
         /// Gets the <see cref="ContentManager"/> of the <see cref="Campaign"/> instance.
@@ -82,10 +73,7 @@ namespace LateStartStudio.AdventureGame
         /// <value>
         /// The <see cref="ContentManager"/> of the <see cref="Campaign"/> instance.
         /// </value>
-        public ContentManager Content
-        {
-            get { return this.content; }
-        }
+        public ContentManager Content { get; }
 
         /// <summary>
         /// Gets or sets the user interface of this campaign.

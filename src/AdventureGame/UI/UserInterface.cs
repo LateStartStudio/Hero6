@@ -21,8 +21,6 @@ namespace LateStartStudio.AdventureGame.UI
     /// </summary>
     public abstract class UserInterface : IGameLoop
     {
-        private readonly ContentManager content;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="UserInterface"/> class.
         /// </summary>
@@ -39,7 +37,7 @@ namespace LateStartStudio.AdventureGame.UI
             this.Height = height;
             this.Scale = scale;
             this.AdventureGameEngine = adventureGameEngine;
-            this.content = content;
+            this.Content = content;
         }
 
         /// <summary>
@@ -48,10 +46,7 @@ namespace LateStartStudio.AdventureGame.UI
         /// <value>
         /// The <see cref="ContentManager"/> of the <see cref="UserInterface"/> instance.
         /// </value>
-        public ContentManager Content
-        {
-            get { return this.content; }
-        }
+        public ContentManager Content { get; }
 
         /// <summary>
         /// Gets the engine that will render the user interface.

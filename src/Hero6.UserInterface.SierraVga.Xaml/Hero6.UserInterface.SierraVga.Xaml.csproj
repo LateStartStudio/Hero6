@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5C4A5D3D-46CF-4DDD-A64D-D3043458E2D3}</ProjectGuid>
+    <ProjectGuid>{EE485FED-F27E-4463-B58E-C8D639A2E5BB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LateStartStudio.Search</RootNamespace>
-    <AssemblyName>Search</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <RootNamespace>LateStartStudio.Hero6.UserInterface.SierraVga.Xaml</RootNamespace>
+    <AssemblyName>Hero6.UserInterface.SierraVga.Xaml</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -21,9 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-    <DocumentationFile>bin\Debug\Search.XML</DocumentationFile>
-    <LangVersion>6</LangVersion>
+    <LangVersion>5</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -32,29 +30,50 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-    <DocumentationFile>bin\Release\Search.XML</DocumentationFile>
+    <LangVersion>5</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pathfinder\Dijkstra.cs" />
-    <Compile Include="Pathfinder\AStar.cs" />
-    <Compile Include="Pathfinder\IPathfinder.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Pathfinder\Node.cs" />
+    <Content Include="BehaviorsLicense.txt">
+      <Paket>True</Paket>
+    </Content>
+    <Content Include="license.txt">
+      <Paket>True</Paket>
+    </Content>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Collections\Collections.csproj">
-      <Project>{596686F9-B236-4626-9841-CBB303EA58C7}</Project>
-      <Name>Collections</Name>
-    </ProjectReference>
+    <Page Include="RootView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="paket.references" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>CD "$(SolutionDir)packages\EmptyKeysUI_Generator*\tools"
+
+ekUIGen.exe -i="$(ProjectDir)\" -o="$(ProjectDir)..\Hero6.UserInterface.SierraVga\View" -oa="$(SolutionDir)assets\Gui\SierraVga\Fonts" -ns="LateStartStudio.Hero6.UserInterface.SierraVga.View" -rm=MonoGame</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
@@ -63,28 +82,10 @@
   </Target>
   -->
   <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v2.0' Or $(TargetFrameworkVersion) == 'v3.0' Or $(TargetFrameworkVersion) == 'v3.5' Or $(TargetFrameworkVersion) == 'v4.0')">
-      <ItemGroup>
-        <Reference Include="Priority Queue">
-          <HintPath>..\..\packages\OptimizedPriorityQueue\lib\net20\Priority Queue.dll</HintPath>
-          <Private>True</Private>
-          <Paket>True</Paket>
-        </Reference>
-      </ItemGroup>
-    </When>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3')">
       <ItemGroup>
-        <Reference Include="Priority Queue">
-          <HintPath>..\..\packages\OptimizedPriorityQueue\lib\net45\Priority Queue.dll</HintPath>
-          <Private>True</Private>
-          <Paket>True</Paket>
-        </Reference>
-      </ItemGroup>
-    </When>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETCore'">
-      <ItemGroup>
-        <Reference Include="Priority Queue">
-          <HintPath>..\..\packages\OptimizedPriorityQueue\lib\netcore45\Priority Queue.dll</HintPath>
+        <Reference Include="EmptyKeys.UserInterface.Designer">
+          <HintPath>..\..\packages\EmptyKeysUI_Generator\lib\net45\EmptyKeys.UserInterface.Designer.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>

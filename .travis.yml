@@ -1,0 +1,36 @@
+# Travis-CI Build Script
+
+language: csharp
+
+solution: Hero6.Linux.sln
+
+os:
+  - linux
+#  - osx
+
+addons:
+  apt:
+    packages:
+      - monodevelop
+      - libopenal-dev
+      - ttf-mscorefonts-installer
+
+before_install:
+  # v3.5 doesn't work because of a bug that breaks compability with older versions of Ubuntu
+  # http://community.monogame.net/t/pipeline-tool-dllnotfoundexception/6852
+  #- wget http://www.monogame.net/releases/v3.5.1/monogame-sdk.run
+  #- chmod +x ./monogame-sdk.run
+
+  # Try previous stable build v3.4
+  - wget http://www.monogame.net/releases/v3.4/MonoGame.Linux.zip
+  - unzip MonoGame.Linux.zip
+  - find * -type f -exec chmod 777 {} \;
+
+  - chmod +x ./build.sh
+
+install:
+  #- yes | sudo ./monogame-sdk.run # v3.5
+  - sudo ./generate.sh && yes Y|sudo ./monogame-linux.run; #v3.5
+
+script:
+  - ./build.sh

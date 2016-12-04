@@ -138,16 +138,10 @@ namespace LateStartStudio.AdventureGame.Game
         }
 
         /// <inheritdoc />
-        public override sealed int Width
-        {
-            get { return this.CurrentSprite.Sheet.Width / this.CurrentSprite.Columns; }
-        }
+        public override sealed int Width => this.CurrentSprite.Sheet.Width / this.CurrentSprite.Columns;
 
         /// <inheritdoc />
-        public override sealed int Height
-        {
-            get { return this.CurrentSprite.Sheet.Height / this.CurrentSprite.Rows; }
-        }
+        public override sealed int Height => this.CurrentSprite.Sheet.Height / this.CurrentSprite.Rows;
 
         /// <summary>
         /// Gets or sets a value indicating whether the character holding this animation is moving.

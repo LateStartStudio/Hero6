@@ -46,11 +46,12 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.View {
         
         private void InitializeComponent() {
             this.Background = new SolidColorBrush(new ColorW(255, 255, 255, 0));
+            this.FontFamily = new FontFamily("Arial");
             this.FontSize = 15F;
             Binding binding__OwnedWindowsContent = new Binding("Windows");
             this.SetBinding(UIRoot.OwnedWindowsContentProperty, binding__OwnedWindowsContent);
             InitializeElementResources(this);
-            FontManager.Instance.AddFont("Segoe UI", 15F, FontStyle.Regular, "Segoe_UI_11.25_Regular");
+            FontManager.Instance.AddFont("Arial", 15F, FontStyle.Regular, "Arial_11.25_Regular");
         }
         
         private static void InitializeElementResources(UIElement elem) {

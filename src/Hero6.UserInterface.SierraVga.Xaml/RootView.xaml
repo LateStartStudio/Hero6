@@ -8,6 +8,7 @@
            d:DesignHeight="640"
            d:DesignWidth="800"
            Background="Transparent"
+           FontFamily="Arial"
            FontSize="15">
     <ek:UIRoot.Resources>
         <ResourceDictionary>

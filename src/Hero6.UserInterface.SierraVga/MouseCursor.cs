@@ -43,15 +43,9 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
             this.area = new Size();
         }
 
-        private static InputDeviceBase Input
-        {
-            get { return Engine.Instance.InputDevice; }
-        }
+        private static InputDeviceBase Input => Engine.Instance.InputDevice;
 
-        private static Renderer Renderer
-        {
-            get { return Engine.Instance.Renderer; }
-        }
+        private static Renderer Renderer => Engine.Instance.Renderer;
 
         private TextureBase Current
         {
@@ -79,9 +73,7 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
                     break;
                 default:
                     throw new NotSupportedException(
-                        string.Format(
-                            "Cursor {0} is not supported by the Hero6 UI module SierraVga",
-                            cursorType));
+                              $"Cursor {cursorType} is not supported by the Hero6 UI module SierraVga");
             }
         }
 
@@ -113,9 +105,7 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
 
         private TextureBase LoadTexture(string id)
         {
-            return Engine.Instance.AssetManager.LoadTexture(
-                this.content,
-                string.Format("Cursors/{0}", id));
+            return Engine.Instance.AssetManager.LoadTexture(this.content, $"Cursors/{id}");
         }
     }
 }

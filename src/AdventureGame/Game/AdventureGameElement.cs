@@ -94,10 +94,7 @@ namespace LateStartStudio.AdventureGame.Game
         /// The <see cref="ContentManager"/> associated with this
         /// <see cref="AdventureGameElement"/> instance.
         /// </value>
-        protected ContentManager Content
-        {
-            get { return this.Campaign.Content; }
-        }
+        protected ContentManager Content => this.Campaign.Content;
 
         /// <summary>
         /// Called on user interaction with the game at input coordinates.

@@ -51,7 +51,7 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
 
         public override void Load()
         {
-            this.defaultFont = this.LoadFont("Segoe_UI_11.25_Regular");
+            this.defaultFont = this.LoadFont("Arial_11.25_Regular");
 
             FontManager.DefaultFont = this.defaultFont;
 
@@ -93,9 +93,7 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
 
         private FontBase LoadFont(string id)
         {
-            return UiEngine.Instance.AssetManager.LoadFont(
-                this.Content.NativeContentManager,
-                string.Format("Fonts/{0}", id));
+            return UiEngine.Instance.AssetManager.LoadFont(this.Content.NativeContentManager, $"Fonts/{id}");
         }
     }
 }

@@ -40,16 +40,10 @@ namespace LateStartStudio.AdventureGame.Game
         public event EventHandler<EventArgs> Interaction;
 
         /// <inheritdoc />
-        public override sealed int Width
-        {
-            get { return this.sprite.Width; }
-        }
+        public override sealed int Width => this.sprite.Width;
 
         /// <inheritdoc />
-        public override sealed int Height
-        {
-            get { return this.sprite.Height; }
-        }
+        public override sealed int Height => this.sprite.Height;
 
         /// <inheritdoc />
         public override sealed bool Interact(int x, int y)
@@ -70,7 +64,7 @@ namespace LateStartStudio.AdventureGame.Game
                 return false;
             }
 
-            this.InteractionInvoke();
+            this.Interaction?.Invoke(this, EventArgs.Empty);
             return true;
         }
 
@@ -103,14 +97,6 @@ namespace LateStartStudio.AdventureGame.Game
             if (this.IsVisible)
             {
                 Campaign.Engine.Graphics.Draw(this.sprite, this.Location);
-            }
-        }
-
-        private void InteractionInvoke()
-        {
-            if (this.Interaction != null)
-            {
-                this.Interaction.Invoke(this, EventArgs.Empty);
             }
         }
     }

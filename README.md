@@ -41,7 +41,6 @@ Ideally, we want anyone to be able to build Hero6 on any OS with any IDE. This i
   * [Rider EAP](https://www.jetbrains.com/rider/) has been tested and works with Hero6. However, we will not maintain this compatibility until Rider receives a public release and its conditions for use are well defined.
   * If you want to run our unit tests and are also using Visual Studio you will need the [NUnit3 Test Adapter](https://visualstudiogallery.msdn.microsoft.com/0da0f6bd-9bb6-4ae3-87a8-537788622f2d).
   * If you want to build the Windows installer you will need Visual Studio with the [WiX Toolset](http://wixtoolset.org/).
-* If you are using Windows 10 you need to enable [.NET 2.0](http://anewdomain.net/2013/10/21/how-to-enable-net-framework-2-0-and-3-5-in-windows-8-1-for-older-programs/).
 
 #####Instructions
 

@@ -19,8 +19,6 @@ namespace LateStartStudio.Search.Pathfinder
     /// </summary>
     public class Node : FastPriorityQueueNode
     {
-        private readonly int id;
-
         /// <summary>
         /// Initializes a new instance of the Node class with default values.
         /// </summary>
@@ -38,7 +36,7 @@ namespace LateStartStudio.Search.Pathfinder
             int h = 0,
             int g = 0)
         {
-            this.id = id;
+            this.ID = id;
             this.IsBlocked = isBlocked;
             this.IsVisited = isVisited;
             this.Parent = parent;
@@ -53,10 +51,7 @@ namespace LateStartStudio.Search.Pathfinder
         /// <value>
         /// A unique ID value.
         /// </value>
-        public int ID
-        {
-            get { return this.id; }
-        }
+        public int ID { get; }
 
         /// <summary>
         /// Gets or sets a value indicating whether if the node can be passed or not.
@@ -108,10 +103,7 @@ namespace LateStartStudio.Search.Pathfinder
         /// <value>
         /// The total cost value.
         /// </value>
-        public int F
-        {
-            get { return this.G + this.H; }
-        }
+        public int F => this.G + this.H;
 
         /// <summary>
         /// Gets or sets the heuristic value.

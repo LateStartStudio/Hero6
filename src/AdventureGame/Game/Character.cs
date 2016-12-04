@@ -179,7 +179,7 @@ namespace LateStartStudio.AdventureGame.Game
                 return false;
             }
 
-            this.InvokeInteraction();
+            this.Interaction?.Invoke(this, EventArgs.Empty);
             return true;
         }
 
@@ -229,14 +229,6 @@ namespace LateStartStudio.AdventureGame.Game
             Vector2 newLocation = this.MovementPath.Dequeue();
             this.Animation.FacingDirection = newLocation - new Vector2(this.Location);
             this.Location = new Point(newLocation);
-        }
-
-        private void InvokeInteraction()
-        {
-            if (this.Interaction != null)
-            {
-                this.Interaction.Invoke(this, EventArgs.Empty);
-            }
         }
     }
 }
