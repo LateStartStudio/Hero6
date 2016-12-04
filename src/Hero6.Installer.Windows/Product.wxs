@@ -194,8 +194,8 @@
       </Component>
     </ComponentGroup>
     <ComponentGroup Id="FontComponents" Directory="FONTSFOLDER">
-      <Component Id="Segoe_UI_11.25_Regular.xnb" Guid="7DCCCE3F-8701-47C3-BEB0-29281BE2A565">
-        <File Id="Segoe_UI_11.25_Regular.xnb" Name="Segoe_UI_11.25_Regular.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Fonts/Segoe_UI_11.25_Regular.xnb" />
+      <Component Id="Arial_11.25_Regular.xnb" Guid="7DCCCE3F-8701-47C3-BEB0-29281BE2A565">
+        <File Id="Arial_11.25_Regular.xnb" Name="Arial_11.25_Regular.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Fonts/Arial_11.25_Regular.xnb" />
       </Component>
     </ComponentGroup>
     <ComponentGroup Id="BentSwordComponents" Directory="BENTSWORDFOLDER">
