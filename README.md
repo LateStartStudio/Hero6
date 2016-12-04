@@ -19,13 +19,27 @@ Welcome to the Hero6 project. This readme should be included in your copy of Her
 ##Build
 
 ###Build Status
+
+####Official Builds
 ||Debug|Release|
-|---|---|---|
+|:---|:---:|:---:|
+|**master**| - | - |
+|Windows (DirectX)| ? | ? |
+|Windows (OpenGL)| ? | ? |
+|**v0.1.0**| - | - |
 |Windows (DirectX)|![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/7/badge)|![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/4/badge)|
 |Windows (OpenGL)|![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/6/badge)|![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/3/badge)|
 [//]: # "* Android Release: "
 [//]: # "![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/5/badge)"
 [//]: # "Android Release is disabled until we decide to focus on Android development"
+
+####Experimental Builds
+||Debug|Release|
+|:---|:---:|:---:|
+|**master**| - | - |
+|Ubuntu 12.04.5 LTS|![](https://api.travis-ci.org/LateStartStudio/Hero6.svg?branch=master)| Same as Debug|
+|**v0.1.0**| - | - |
+|Ubuntu 12.04.5 LTS|![](https://api.travis-ci.org/LateStartStudio/Hero6.svg?branch=v0.1.0)| Same as Debug|
 
 ###Build Instructions
 Ideally, we want anyone to be able to build Hero6 on any OS with any IDE. This is an ongoing task and we continue our efforts to make that possible. Currently, we can guarantee that it will work on Windows with Visual Studio 2015.
