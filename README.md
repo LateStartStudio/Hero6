@@ -24,8 +24,8 @@ Welcome to the Hero6 project. This readme should be included in your copy of Her
 ||Debug|Release|
 |:---|:---:|:---:|
 |**master**| - | - |
-|Windows (DirectX)| ? | ? |
-|Windows (OpenGL)| ? | ? |
+|Windows (DirectX)|![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/11/badge)|![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/12/badge)|
+|Windows (OpenGL)|![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/9/badge)|![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/10/badge)|
 |**v0.1.0**| - | - |
 |Windows (DirectX)|![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/7/badge)|![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/4/badge)|
 |Windows (OpenGL)|![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/6/badge)|![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/3/badge)|
