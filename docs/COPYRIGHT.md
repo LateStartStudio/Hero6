@@ -1,4 +1,4 @@
-# [Copyright](https://github.com/LateStartStudio/Hero6/blob/master/COPYRIGHT.md)
+# [Copyright](https://github.com/LateStartStudio/Hero6/blob/master/docs/COPYRIGHT.md)
 
 If you have contributed to the Hero6 project in capacity with LateStartStudio you should be on
 this list. Contact the owners and we'll gladly add you.

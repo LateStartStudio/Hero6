@@ -20,12 +20,13 @@ install:
   - ps: Invoke-Command -ScriptBlock {C:\MonoGameSetup.exe /S /v/qn}
 
   # Paket
+  - cmd: cd src
   - cmd: .paket\paket.bootstrapper.exe
   - cmd: .paket\paket.exe restore
 
 build:
   parallel: true
-  project: Hero6.Windows.sln
+  project: src\Hero6.Windows.sln
 
 test:
   assemblies:

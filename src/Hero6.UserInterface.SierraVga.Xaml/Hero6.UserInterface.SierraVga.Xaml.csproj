@@ -72,7 +72,7 @@
   <PropertyGroup>
     <PostBuildEvent>CD "$(SolutionDir)packages\EmptyKeysUI_Generator*\tools"
 
-ekUIGen.exe -i="$(ProjectDir)\" -o="$(ProjectDir)..\Hero6.UserInterface.SierraVga\View" -oa="$(SolutionDir)assets\Gui\SierraVga\Fonts" -ns="LateStartStudio.Hero6.UserInterface.SierraVga.View" -rm=MonoGame</PostBuildEvent>
+ekUIGen.exe -i="$(ProjectDir)\" -o="$(ProjectDir)..\Hero6.UserInterface.SierraVga\View" -oa="$(SolutionDir)..\assets\Gui\SierraVga\Fonts" -ns="LateStartStudio.Hero6.UserInterface.SierraVga.View" -rm=MonoGame</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -85,7 +85,7 @@ ekUIGen.exe -i="$(ProjectDir)\" -o="$(ProjectDir)..\Hero6.UserInterface.SierraVg
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3')">
       <ItemGroup>
         <Reference Include="EmptyKeys.UserInterface.Designer">
-          <HintPath>..\..\packages\EmptyKeysUI_Generator\lib\net45\EmptyKeys.UserInterface.Designer.dll</HintPath>
+          <HintPath>..\packages\EmptyKeysUI_Generator\lib\net45\EmptyKeys.UserInterface.Designer.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>

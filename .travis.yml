@@ -26,11 +26,12 @@ before_install:
   - unzip MonoGame.Linux.zip
   - find * -type f -exec chmod 777 {} \;
 
-  - chmod +x ./build.sh
+  - chmod +x ./src/build.sh
 
 install:
   #- yes | sudo ./monogame-sdk.run # v3.5
   - sudo ./generate.sh && yes Y|sudo ./monogame-linux.run; #v3.5
 
 script:
+  - cd src
   - ./build.sh
