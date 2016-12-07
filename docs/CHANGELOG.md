@@ -1,4 +1,4 @@
-# [Changelog](https://github.com/LateStartStudio/Hero6/blob/master/CHANGELOG.md)
+# [Changelog](https://github.com/LateStartStudio/Hero6/blob/master/docs/CHANGELOG.md)
 
 ## v0.1.0
 

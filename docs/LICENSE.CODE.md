@@ -1,4 +1,4 @@
-# [License - Code](https://github.com/LateStartStudio/Hero6/blob/master/LICENSE.CODE.md)
+# [License - Code](https://github.com/LateStartStudio/Hero6/blob/master/docs/LICENSE.CODE.md)
 
 MIT License
 
