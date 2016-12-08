@@ -1,36 +1,38 @@
 # Travis-CI Build Script
+# MonoGame v3.5 doesn't work on Travis-CI, both on Linux and OS X because of a bug that breaks
+# compability with older versions of unix like systems
+# http://community.monogame.net/t/pipeline-tool-dllnotfoundexception/6852
 
 language: csharp
 
-solution: Hero6.Linux.sln
+notifications:
+  email: false
 
 os:
   - linux
-#  - osx
-
-addons:
-  apt:
-    packages:
-      - monodevelop
-      - libopenal-dev
-      - ttf-mscorefonts-installer
+  - osx
 
 before_install:
-  # v3.5 doesn't work because of a bug that breaks compability with older versions of Ubuntu
-  # http://community.monogame.net/t/pipeline-tool-dllnotfoundexception/6852
-  #- wget http://www.monogame.net/releases/v3.5.1/monogame-sdk.run
-  #- chmod +x ./monogame-sdk.run
+  - >
+    if [[ "$TRAVIS_OS_NAME" == "linux" ]];
+    then
+      wget http://www.monogame.net/releases/v3.4/MonoGame.Linux.zip;
+      unzip ./MonoGame.Linux.zip;
+    else
+      wget http://www.monogame.net/releases/v3.4/MonoGame.MacOS.pkg;
+    fi;
 
-  # Try previous stable build v3.4
-  - wget http://www.monogame.net/releases/v3.4/MonoGame.Linux.zip
-  - unzip MonoGame.Linux.zip
   - find * -type f -exec chmod 777 {} \;
 
-  - chmod +x ./src/build.sh
-
 install:
-  #- yes | sudo ./monogame-sdk.run # v3.5
-  - sudo ./generate.sh && yes Y|sudo ./monogame-linux.run; #v3.5
+  - >
+    if [[ "$TRAVIS_OS_NAME" == "linux" ]];
+    then
+      sudo ./generate.sh;
+      yes y | sudo ./monogame-linux.run;
+    else
+      sudo installer -allowUntrusted -verboseR -pkg ./MonoGame.MacOS.pkg -target /;
+    fi;
 
 script:
   - cd src

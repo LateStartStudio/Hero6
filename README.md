@@ -39,7 +39,7 @@ Welcome to the Hero6 project. This readme should be included in your copy of Her
 |**master**| - | - |
 |Ubuntu 12.04.5 LTS|![](https://api.travis-ci.org/LateStartStudio/Hero6.svg?branch=master)| Same as Debug|
 |**v0.1.0**| - | - |
-|Ubuntu 12.04.5 LTS|![](https://api.travis-ci.org/LateStartStudio/Hero6.svg?branch=v0.1.0)| Same as Debug|
+|Ubuntu 12.04.5 LTS and OS X 10.11.6 El Capitan|![](https://api.travis-ci.org/LateStartStudio/Hero6.svg?branch=v0.1.0)| Same as Debug|
 
 ###Build Instructions
 Ideally, we want anyone to be able to build Hero6 on any OS with any IDE. This is an ongoing task and we continue our efforts to make that possible. Currently, we can guarantee that it will work on Windows with Visual Studio 2015.

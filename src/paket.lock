@@ -2,6 +2,7 @@ NUGET
   remote: https://www.nuget.org/api/v2
     EmptyKeysUI_Generator (2.6)
     EmptyKeysUI_MonoGame (2.6)
+    FAKE (4.46)
     MonoGame.Framework.Android (3.5.1.1679)
     MonoGame.Framework.DesktopGL (3.5.1.1679)
     MonoGame.Framework.WindowsDX (3.5.1.1679)

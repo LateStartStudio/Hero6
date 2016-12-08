@@ -13,12 +13,21 @@ trim_trailing_whitespace = true
 indent_style = space
 indent_size = 4
 
+# F# script files
+indent_style = space
+indent_size = 4
+
 [*.fx]
 indent_style = tab
 indent_size = 2
 
 # WiX code files
 [*.{wxs,wxi,wxl}]
+indent_style = space
+indent_size = 2
+
+# Batch script
+[*.{bat,cmd}]
 indent_style = space
 indent_size = 2
 

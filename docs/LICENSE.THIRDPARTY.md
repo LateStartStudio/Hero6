@@ -12,6 +12,13 @@ Paket is a tool for managing and organizing external projects in form of NuGet p
 * [Repository](https://github.com/fsprojects/Paket)
 * [License](https://github.com/fsprojects/Paket/blob/master/LICENSE.txt)
 
+#### FAKE
+FAKE is a .NET utility tool for building .NET projects with F# scripts and Command-Line Interface, similar to make and makefiles. It is licensed under the Apache v2.0 license.
+
+* [Homepage](http://fsharp.github.io/FAKE/index.html)
+* [Repository](https://github.com/fsharp/FAKE)
+* [License](https://github.com/fsharp/FAKE/blob/master/License.txt)
+
 #### WiX
 WiX is a development kit for creating .msi installers. It is licensed under the MS-RL-license.
 
