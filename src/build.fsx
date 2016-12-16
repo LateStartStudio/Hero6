@@ -48,8 +48,6 @@ let testFile dir file =
     })
 
 let testBuild dir =
-    let isGpuAvailable = not (getEnvironmentVarAsBool "TRAVIS" || getEnvironmentVarAsBool "APPVEYOR")
-
     testFile dir "Collections.Tests.dll"
     testFile dir "Search.Tests.dll"
     if isGpuAvailable then
