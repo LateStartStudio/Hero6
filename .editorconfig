@@ -8,6 +8,10 @@ end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 
+# Markdown files
+[*.md]
+charset = utf-8
+
 # C# code files
 [*.cs]
 indent_style = space
