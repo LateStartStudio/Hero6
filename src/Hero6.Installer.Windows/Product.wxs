@@ -21,7 +21,7 @@
     </Feature>
 
     <Icon Id="Icon.ico" SourceFile="$(var.Hero6.WindowsDX.ProjectDir)Icon.ico"/>
-    <Property Id="ARPPRODUCTICON" Value="icon.ico" />
+    <Property Id="ARPPRODUCTICON" Value="Icon.ico" />
 
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER"/>
     <UIRef Id="WixUI_InstallDir"/>
@@ -60,7 +60,7 @@
         </Directory>
       </Directory>
       <Directory Id="ProgramMenuFolder">
-        <Directory Id="APPLICATIONPROGRAMFOLDER" Name="$(var.name)"/>
+        <Directory Id="ApplicationProgramsFolder" Name="$(var.name)"/>
       </Directory>
     </Directory>
   </Fragment>
@@ -232,9 +232,9 @@
   </Fragment>
 
   <Fragment>
-    <ComponentGroup Id="StartMenuComponents" Directory="APPLICATIONPROGRAMFOLDER">
-      <Component Id="ApplicationShortcut" Guid="A57B2622-070A-455E-A0E3-41E43DB80075">
-        <Shortcut Id="ApplicationStartMenuShortcut" Name="$(var.name)" Description="$(var.name).exe shortcut" Target="[#$(var.name).exe]" WorkingDirectory="TARGETDIR"/>
+    <ComponentGroup Id="StartMenuComponents" Directory="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcuts" Guid="A57B2622-070A-455E-A0E3-41E43DB80075">
+        <Shortcut Id="ApplicationStartMenuShortcut" Name="$(var.name)" Description="$(var.name).exe shortcut" Target="[!$(var.name).exe]" WorkingDirectory="APPLICATIONROOTDIRECTORY"/>
         <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
         <RegistryValue Root="HKCU" Key="Software\$(var.company)\$(var.name)" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
       </Component>
