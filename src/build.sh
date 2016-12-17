@@ -1,7 +1,7 @@
 # Build Script
 
 # Paket
-if [ -f "$./.paket/paket.exe" ]; the
+if [ -f "$./.paket/paket.exe" ]; then
   mono ./.paket/paket.bootstrapper.exe
   exit_code=$?
   if [ $exit_code -ne 0 ]; then
