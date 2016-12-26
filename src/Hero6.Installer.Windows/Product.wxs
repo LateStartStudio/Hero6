@@ -15,6 +15,8 @@
       <ComponentGroupRef Id="LlewellaSpriteComponents" />
       <ComponentGroupRef Id="CursorSpriteComponents" />
       <ComponentGroupRef Id="FontComponents" />
+      <ComponentGroupRef Id="TopBarComponents" />
+      <ComponentGroupRef Id="VerbBarComponents" />
       <ComponentGroupRef Id="BentSwordComponents" />
       <ComponentGroupRef Id="ProductDocuments" />
       <ComponentGroupRef Id="StartMenuComponents" />
@@ -40,6 +42,8 @@
                 <Directory Id="SIERRAVGAFOLDER" Name="SierraVga">
                   <Directory Id="CURSORSFOLDER" Name="Cursors"/>
                   <Directory Id="FONTSFOLDER" Name="Fonts"/>
+                  <Directory Id="TOPBARFOLDER" Name="Top Bar"/>
+                  <Directory Id="VERBBARFOLDER" Name="Verb Bar"/>
                 </Directory>
               </Directory>
               <Directory Id="SPRITESFOLDER" Name="Sprites">
@@ -189,13 +193,92 @@
       <Component Id="Arrow.xnb" Guid="13A2726A-12BC-4252-ACAB-0B4872F4D8C8">
         <File Id="Arrow.xnb" Name="Arrow.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Cursors/Arrow.xnb" />
       </Component>
+      <Component Id="Hand.xnb" Guid="76CC1913-2C30-49D4-8CB4-6BFA2D12A6C6">
+        <File Id="Hand.xnb" Name="Hand.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Cursors/Hand.xnb" />
+      </Component>
+      <Component Id="Look.xnb" Guid="A065344B-F32C-47F0-8861-8D403CDF9628">
+        <File Id="Look.xnb" Name="Look.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Cursors/Look.xnb" />
+      </Component>
+      <Component Id="Talk.xnb" Guid="8B77D6B9-EDCC-49AD-9B15-7AA5C7A1413E">
+        <File Id="Talk.xnb" Name="Talk.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Cursors/Talk.xnb" />
+      </Component>
       <Component Id="Wait.xnb" Guid="4F7F02F3-51D8-4335-BDB3-7BBE2D33C645">
         <File Id="Wait.xnb" Name="Wait.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Cursors/Wait.xnb" />
+      </Component>
+      <Component Id="Walk.xnb" Guid="B2CA1920-A174-4548-983F-244047FF1C19">
+        <File Id="Walk.xnb" Name="Walk.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Cursors/Walk.xnb" />
       </Component>
     </ComponentGroup>
     <ComponentGroup Id="FontComponents" Directory="FONTSFOLDER">
       <Component Id="Arial_11.25_Regular.xnb" Guid="7DCCCE3F-8701-47C3-BEB0-29281BE2A565">
         <File Id="Arial_11.25_Regular.xnb" Name="Arial_11.25_Regular.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Fonts/Arial_11.25_Regular.xnb" />
+      </Component>
+    </ComponentGroup>
+    <ComponentGroup Id="TopBarComponents" Directory="TOPBARFOLDER">
+      <Component Id="Background.xnb" Guid="228CC8E0-1C16-47CD-9980-B25BEFA705A5">
+        <File Id="Background.xnb" Name="Background.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Top Bar/Background.xnb" />
+      </Component>
+    </ComponentGroup>
+    <ComponentGroup Id="VerbBarComponents" Directory="VERBBARFOLDER">
+      <Component Id="CurrentItemDark.xnb" Guid="E6A8484C-9AD2-461C-BE3A-1FBBC2D88C0C">
+        <File Id="CurrentItemDark.xnb" Name="Current Item Dark.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Verb Bar/Current Item Dark.xnb" />
+      </Component>
+      <Component Id="CurrentItemLight.xnb" Guid="CBCA112A-158D-4123-84E3-41C3C334F8DA">
+        <File Id="CurrentItemLight.xnb" Name="Current Item Light.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Verb Bar/Current Item Light.xnb" />
+      </Component>
+      <Component Id="HandDark.xnb" Guid="16E8D2A1-BC9D-4715-8687-A2E408248263">
+        <File Id="HandDark.xnb" Name="Hand Dark.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Verb Bar/Hand Dark.xnb" />
+      </Component>
+      <Component Id="HandLight.xnb" Guid="246BA46E-66BA-4F06-AD66-3E2953930F55">
+        <File Id="HandLight.xnb" Name="Hand Light.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Verb Bar/Hand Light.xnb" />
+      </Component>
+      <Component Id="InventoryDark.xnb" Guid="B100B200-9860-4ACF-8EA4-2D5FFF547AEE">
+        <File Id="InventoryDark.xnb" Name="Inventory Dark.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Verb Bar/Inventory Dark.xnb" />
+      </Component>
+      <Component Id="InventoryLight.xnb" Guid="19E71D8C-1C81-4469-B41B-00CD41D3DB34">
+        <File Id="InventoryLight.xnb" Name="Inventory Light.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Verb Bar/Inventory Light.xnb" />
+      </Component>
+      <Component Id="LookDark.xnb" Guid="28F7EA93-FAC9-486D-B014-32BF9F7B13BF">
+        <File Id="LookDark.xnb" Name="Look Dark.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Verb Bar/Look Dark.xnb" />
+      </Component>
+      <Component Id="LookLight.xnb" Guid="0F2BB163-746D-4EED-9214-1F587CEC12BB">
+        <File Id="LookLight.xnb" Name="Look Light.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Verb Bar/Look Light.xnb" />
+      </Component>
+      <Component Id="MagicDark.xnb" Guid="C4E2A024-BC92-41A4-81B3-49B5BD0A1EAB">
+        <File Id="MagicDark.xnb" Name="Magic Dark.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Verb Bar/Magic Dark.xnb" />
+      </Component>
+      <Component Id="MagicLight.xnb" Guid="73C6A168-27D6-436A-8681-93B212138E62">
+        <File Id="MagicLight.xnb" Name="Magic Light.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Verb Bar/Magic Light.xnb" />
+      </Component>
+      <Component Id="OptionsDark.xnb" Guid="A5284739-2208-4C76-B423-F19B3812D5B6">
+        <File Id="OptionsDark.xnb" Name="Options Dark.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Verb Bar/Options Dark.xnb" />
+      </Component>
+      <Component Id="OptionsLight.xnb" Guid="A24F6F02-7074-4337-A0AA-3205B0BC8D0A">
+        <File Id="OptionsLight.xnb" Name="Options Light.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Verb Bar/Options Light.xnb" />
+      </Component>
+      <Component Id="SideLeft.xnb" Guid="9D8ADE41-71AF-479B-8464-822811259427">
+        <File Id="SideLeft.xnb" Name="Side Left.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Verb Bar/Side Left.xnb" />
+      </Component>
+      <Component Id="SideRight.xnb" Guid="9EDB25F2-4FCF-4844-BB56-478C6EE224B7">
+        <File Id="SideRight.xnb" Name="Side Right.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Verb Bar/Side Right.xnb" />
+      </Component>
+      <Component Id="SubMenuDark.xnb" Guid="B46767E2-613A-4F47-802B-216D05FA21F3">
+        <File Id="SubMenuDark.xnb" Name="Sub Menu Dark.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Verb Bar/Sub Menu Dark.xnb" />
+      </Component>
+      <Component Id="SubMenuLight.xnb" Guid="9844C7FA-C8E8-45BD-8584-1B2E6487E7AC">
+        <File Id="SubMenuLight.xnb" Name="Sub Menu Light.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Verb Bar/Sub Menu Light.xnb" />
+      </Component>
+      <Component Id="TalkDark.xnb" Guid="1BAB460E-F90F-46BE-8F22-617194D4582F">
+        <File Id="TalkDark.xnb" Name="Talk Dark.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Verb Bar/Talk Dark.xnb" />
+      </Component>
+      <Component Id="TalkLight.xnb" Guid="EFFFDCE3-4455-4033-A1E2-B5BBAC68FC77">
+        <File Id="TalkLight.xnb" Name="Talk Light.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Verb Bar/Talk Light.xnb" />
+      </Component>
+      <Component Id="WalkDark.xnb" Guid="81CCF24A-9FC7-4E47-B814-2DE2EE0D2675">
+        <File Id="WalkDark.xnb" Name="Walk Dark.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Verb Bar/Walk Dark.xnb" />
+      </Component>
+      <Component Id="WalkLight.xnb" Guid="99281FF2-0ECF-41E5-95F9-2760979A488D">
+        <File Id="WalkLight.xnb" Name="Walk Light.xnb" Source="$(var.Hero6.WindowsDX.TargetDir)Content/Gui/SierraVga/Verb Bar/Walk Light.xnb" />
       </Component>
     </ComponentGroup>
     <ComponentGroup Id="BentSwordComponents" Directory="BENTSWORDFOLDER">
