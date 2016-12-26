@@ -22,54 +22,97 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
     public class MouseCursor : ICursorService, IGameLoop
     {
         private readonly object content;
-        private readonly int screenWidth;
-        private readonly int screenHeight;
         private readonly Vector2 scale;
 
-        private PointF location;
         private Size area;
-        private TextureBase current;
+        private TextureBase walk;
+        private TextureBase look;
+        private TextureBase hand;
+        private TextureBase talk;
         private TextureBase arrow;
         private TextureBase wait;
 
-        public MouseCursor(object content, int screenWidth, int screenHeight, Vector2 scale)
+        public MouseCursor(object content, Vector2 scale)
         {
             this.content = content;
-            this.screenWidth = screenWidth;
-            this.screenHeight = screenHeight;
             this.scale = scale;
-
-            this.location = new PointF(0, 0);
-            this.area = new Size();
         }
 
-        private static InputDeviceBase Input => Engine.Instance.InputDevice;
-
-        private static Renderer Renderer => Engine.Instance.Renderer;
-
-        private TextureBase Current
+        public PointF Location
         {
             get
             {
-                return this.current;
+                return InputManager.Current.MouseDevice.GetPosition();
             }
 
             set
             {
-                this.current = value;
-                this.area = new Size(value.Width * this.scale.X, value.Height * this.scale.Y);
+                Engine.Instance.InputDevice.MouseState.SetPosition((int)value.X, (int)value.Y);
             }
+        }
+
+        public CursorType Current { get; private set; }
+
+        public CursorType Backup { get; set; }
+
+        private static Renderer Renderer => Engine.Instance.Renderer;
+
+        private TextureBase CurrentTexture
+        {
+            get
+            {
+                switch (this.Current)
+                {
+                    case CursorType.Custom1:
+                        return this.walk;
+                    case CursorType.Custom2:
+                        return this.look;
+                    case CursorType.Custom3:
+                        return this.hand;
+                    case CursorType.Custom4:
+                        return this.talk;
+                    case CursorType.Custom5:
+                        return this.arrow;
+                    case CursorType.Custom6:
+                        return this.wait;
+                    default:
+                        throw new NotSupportedException("Tried to get a cursor that doesn't exist.");
+                }
+            }
+        }
+
+        public void RestoreFromBackup()
+        {
+            this.SetCursorType(this.Backup);
         }
 
         public void SetCursorType(CursorType cursorType)
         {
             switch (cursorType)
             {
-                case CursorType.Arrow:
-                    this.Current = this.arrow;
+                case CursorType.Custom1:
+                    this.SetCursor(cursorType, this.walk);
                     break;
-                case CursorType.Wait:
-                    this.Current = this.wait;
+                case CursorType.Custom2:
+                    this.SetCursor(cursorType, this.look);
+                    break;
+                case CursorType.Custom3:
+                    this.SetCursor(cursorType, this.hand);
+                    break;
+                case CursorType.Custom4:
+                    this.SetCursor(cursorType, this.talk);
+                    break;
+                case CursorType.Custom5:
+                    this.SetCursor(cursorType, this.arrow);
+                    break;
+                case CursorType.Custom6:
+                    this.SetCursor(cursorType, this.wait);
+                    break;
+
+                // I'm unsure exactly why it's happening, but it seems that the system is making
+                // some default calls at certain events (mouse down) that overrides the custom
+                // mouse cursors, so we intercept them and abort. Hacky Hack.
+                case CursorType.Arrow:
                     break;
                 default:
                     throw new NotSupportedException(
@@ -80,9 +123,13 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
         public void Load()
         {
             this.arrow = this.LoadTexture("Arrow");
+            this.hand = this.LoadTexture("Hand");
+            this.look = this.LoadTexture("Look");
+            this.talk = this.LoadTexture("Talk");
             this.wait = this.LoadTexture("Wait");
+            this.walk = this.LoadTexture("Walk");
 
-            this.Current = this.arrow;
+            InputManager.Current.MouseDevice.CursorType = CursorType.Custom1;
         }
 
         public void Unload()
@@ -92,15 +139,20 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
 
         public void Update(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly)
         {
-            this.location.X = Input.MouseState.NormalizedX * this.screenWidth * this.scale.X;
-            this.location.Y = Input.MouseState.NormalizedY * this.screenHeight * this.scale.Y;
         }
 
         public void Draw(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly)
         {
             Renderer.Begin();
-            Renderer.Draw(this.Current, this.location, this.area, ColorW.White, false);
+            Renderer.Draw(this.CurrentTexture, this.Location, this.area, ColorW.White, false);
             Renderer.End();
+        }
+
+        private void SetCursor(CursorType cursor, TextureBase texture)
+        {
+            this.Current = cursor;
+            this.area.Width = texture.Width * this.scale.X;
+            this.area.Height = texture.Height * this.scale.Y;
         }
 
         private TextureBase LoadTexture(string id)

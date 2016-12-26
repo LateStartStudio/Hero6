@@ -49,6 +49,87 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\..\assets\Gui\SierraVga\Cursors\Arrow.png">
+      <Link>Cursors\Arrow.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Cursors\Hand.png">
+      <Link>Cursors\Hand.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Cursors\Look.png">
+      <Link>Cursors\Look.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Cursors\Talk.png">
+      <Link>Cursors\Talk.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Cursors\Wait.png">
+      <Link>Cursors\Wait.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Cursors\Walk.png">
+      <Link>Cursors\Walk.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Top Bar\Background.png">
+      <Link>Top Bar\Background.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Verb Bar\Current Item Dark.png">
+      <Link>Verb Bar\Current Item Dark.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Verb Bar\Current Item Light.png">
+      <Link>Verb Bar\Current Item Light.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Verb Bar\Hand Dark.png">
+      <Link>Verb Bar\Hand Dark.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Verb Bar\Hand Light.png">
+      <Link>Verb Bar\Hand Light.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Verb Bar\Inventory Dark.png">
+      <Link>Verb Bar\Inventory Dark.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Verb Bar\Inventory Light.png">
+      <Link>Verb Bar\Inventory Light.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Verb Bar\Look Dark.png">
+      <Link>Verb Bar\Look Dark.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Verb Bar\Look Light.png">
+      <Link>Verb Bar\Look Light.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Verb Bar\Magic Dark.png">
+      <Link>Verb Bar\Magic Dark.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Verb Bar\Magic Light.png">
+      <Link>Verb Bar\Magic Light.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Verb Bar\Options Dark.png">
+      <Link>Verb Bar\Options Dark.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Verb Bar\Options Light.png">
+      <Link>Verb Bar\Options Light.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Verb Bar\Side Left.png">
+      <Link>Verb Bar\Side Left.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Verb Bar\Side Right.png">
+      <Link>Verb Bar\Side Right.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Verb Bar\Sub Menu Dark.png">
+      <Link>Verb Bar\Sub Menu Dark.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Verb Bar\Sub Menu Light.png">
+      <Link>Verb Bar\Sub Menu Light.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Verb Bar\Talk Dark.png">
+      <Link>Verb Bar\Talk Dark.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Verb Bar\Talk Light.png">
+      <Link>Verb Bar\Talk Light.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Verb Bar\Walk Dark.png">
+      <Link>Verb Bar\Walk Dark.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Verb Bar\Walk Light.png">
+      <Link>Verb Bar\Walk Light.png</Link>
+    </Content>
     <Content Include="BehaviorsLicense.txt">
       <Paket>True</Paket>
     </Content>
@@ -68,11 +149,12 @@
   <ItemGroup>
     <None Include="paket.references" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>CD "$(SolutionDir)packages\EmptyKeysUI_Generator*\tools"
 
-ekUIGen.exe -i="$(ProjectDir)\" -o="$(ProjectDir)..\Hero6.UserInterface.SierraVga\View" -oa="$(SolutionDir)..\assets\Gui\SierraVga\Fonts" -ns="LateStartStudio.Hero6.UserInterface.SierraVga.View" -rm=MonoGame</PostBuildEvent>
+ekUIGen.exe -i="$(ProjectDir)\" -o="$(ProjectDir)..\Hero6.UserInterface.SierraVga\View" -oa="$(SolutionDir)..\assets\Gui\SierraVga\Fonts" -ns="LateStartStudio.Hero6.UserInterface.SierraVga.View" -rm=MonoGame -no-copy-images</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
