@@ -18,6 +18,7 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
     using EmptyKeys.UserInterface;
     using EmptyKeys.UserInterface.Input;
     using EmptyKeys.UserInterface.Media;
+    using EmptyKeys.UserInterface.Media.Effects;
     using EmptyKeys.UserInterface.Mvvm;
     using View;
     using ViewModel;
@@ -41,11 +42,7 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
             : base(width, height, scale, adventureGameEngine, content)
         {
             this.Content.RootDirectory = "Content/Gui/SierraVga";
-            this.mouseCursor = new MouseCursor(
-                this.Content.NativeContentManager,
-                this.Width,
-                this.Height,
-                this.Scale);
+            this.mouseCursor = new MouseCursor(this.Content.NativeContentManager, this.Scale);
             ServiceManager.Instance.AddService<ICursorService>(this.mouseCursor);
         }
 
@@ -55,7 +52,7 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
 
             FontManager.DefaultFont = this.defaultFont;
 
-            this.rootViewModel = new RootViewModel();
+            this.rootViewModel = new RootViewModel(this.mouseCursor, this.Scale);
 
             this.rootView = new RootView(
                 this.Width * (int)this.Scale.X,
@@ -63,8 +60,16 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
             {
                 DataContext = this.rootViewModel
             };
+            this.rootView.VerbBar.CursorType = CursorType.Custom5;
+
+            FontManager.Instance.LoadFonts(this.Content.NativeContentManager, "Fonts/");
+            ImageManager.Instance.LoadImages(this.Content.NativeContentManager);
+            SoundManager.Instance.LoadSounds(this.Content.NativeContentManager);
+            EffectManager.Instance.LoadEffects(this.Content.NativeContentManager);
 
             this.rootView.MouseUp += (s, a) => this.rootViewModel.TextBox.Hide();
+            this.rootView.TopBar.MouseEnter += this.OnMouseEnterTopBar;
+            this.rootView.VerbBar.MouseLeave += this.OnMouseLeaveVerbBar;
 
             this.mouseCursor.Load();
         }
@@ -94,6 +99,20 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
         private FontBase LoadFont(string id)
         {
             return UiEngine.Instance.AssetManager.LoadFont(this.Content.NativeContentManager, $"Fonts/{id}");
+        }
+
+        private void OnMouseEnterTopBar(object sender, MouseEventArgs args)
+        {
+            this.mouseCursor.Backup = this.mouseCursor.Current;
+            this.rootViewModel.IsVerbBarVisible = true;
+            this.rootViewModel.IsTopBarVisible = false;
+        }
+
+        private void OnMouseLeaveVerbBar(object sender, MouseEventArgs args)
+        {
+            this.mouseCursor.RestoreFromBackup();
+            this.rootViewModel.IsVerbBarVisible = false;
+            this.rootViewModel.IsTopBarVisible = true;
         }
     }
 }
