@@ -20,6 +20,7 @@ namespace LateStartStudio.Hero6
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using UserInterface;
+    using Utilities;
     using AdventureGameEngine = AdventureGame.Engine.Engine;
 
     /// <summary>
@@ -39,6 +40,8 @@ namespace LateStartStudio.Hero6
 
         public Game()
         {
+            Logger.Info("Creating Hero6 Game Instance.");
+
             this.graphics = new GraphicsDeviceManager(this)
             {
                 PreferredBackBufferWidth = (int)NativeGameResolution.X * 3,
@@ -49,8 +52,29 @@ namespace LateStartStudio.Hero6
                 SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight
 #endif
             };
+            this.graphics.DeviceCreated += this.GraphicsOnDeviceCreated;
 
             Content.RootDirectory = "Content";
+
+            Logger.Info("Hero6 Game Instance Created.");
+        }
+
+        public static ILogger Logger { get; } = new LogFourNet();
+
+        public static string GraphicsApi
+        {
+            get
+            {
+#if WINDOWSDX
+                return "WindowsDX";
+#elif DESKTOPGL
+                return "DesktopGL";
+#elif ANDROID
+                return "Android";
+#else
+                return "Invalid project config";
+#endif
+            }
         }
 
         private Matrix Scale
@@ -84,6 +108,8 @@ namespace LateStartStudio.Hero6
         /// </summary>
         protected override void Initialize()
         {
+            Logger.Info("Initializing Hero6 game instance.");
+
             Window.Title = "Hero6";
 
             this.SetScale();
@@ -110,6 +136,8 @@ namespace LateStartStudio.Hero6
             this.ui.Initialize();
             this.campaign.Initialize();
 
+            Logger.Info("Hero6 game instance initialized.");
+
             base.Initialize();
         }
 
@@ -119,9 +147,13 @@ namespace LateStartStudio.Hero6
         /// </summary>
         protected override void LoadContent()
         {
+            Logger.Info("Loading Hero6 game instance.");
+
             this.ui.Load();
             this.input.Load();
             this.campaign.Load();
+
+            Logger.Info("Hero6 game instance loaded.");
         }
 
         /// <summary>
@@ -130,11 +162,15 @@ namespace LateStartStudio.Hero6
         /// </summary>
         protected override void UnloadContent()
         {
+            Logger.Info("Unloading Hero6 game instance.");
+
             Content.Unload();
 
             this.ui.Unload();
             this.input.Unload();
             this.campaign.Unload();
+
+            Logger.Info("Hero6 game instance unloaded.");
 
             base.UnloadContent();
         }
@@ -208,6 +244,14 @@ namespace LateStartStudio.Hero6
         private void SurfacePressed(object sender, SurfacePressedEventArgs e)
         {
             this.campaign.CurrentCampaign.CurrentRoom.Interact(e.Position.X, e.Position.Y);
+        }
+
+        private void GraphicsOnDeviceCreated(object sender, EventArgs eventArgs)
+        {
+            Logger.Info("Graphics Device Created.");
+            Logger.Info($"Graphics Adapter Width {GraphicsDevice.Adapter.CurrentDisplayMode.Width}");
+            Logger.Info($"Graphics Adapter Height {GraphicsDevice.Adapter.CurrentDisplayMode.Height}");
+            Logger.Info($"Graphics Adapter Aspect Ratio {GraphicsDevice.Adapter.CurrentDisplayMode.AspectRatio}");
         }
     }
 }

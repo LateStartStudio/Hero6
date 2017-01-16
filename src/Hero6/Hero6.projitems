@@ -26,5 +26,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Input\Mouse\MouseButton.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Input\Mouse\MouseHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserInterface\UserInterfaceHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\ILogger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\LogFourNet.cs" />
   </ItemGroup>
 </Project>
