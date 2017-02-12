@@ -206,6 +206,11 @@ namespace LateStartStudio.AdventureGame
         /// <inheritdoc />
         public void Update(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly)
         {
+            if (this.Engine.IsGamePaused)
+            {
+                return;
+            }
+
             this.CurrentRoom.Update(totalTime, elapsedTime, isRunningSlowly);
         }
 

@@ -27,6 +27,10 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.ViewModel
             this.Text = string.Empty;
         }
 
+        public event EventHandler<EventArgs> OnShow;
+
+        public event EventHandler<EventArgs> OnHide;
+
         public string Text
         {
             get { return this.text; }
@@ -59,12 +63,14 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.ViewModel
 
             this.Text = input;
             this.IsVisible = true;
+            this.OnShow?.Invoke(this, EventArgs.Empty);
         }
 
         public void Hide()
         {
             this.IsVisible = false;
             this.Text = string.Empty;
+            this.OnHide?.Invoke(this, EventArgs.Empty);
         }
     }
 }
