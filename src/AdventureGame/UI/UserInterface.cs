@@ -103,6 +103,17 @@ namespace LateStartStudio.AdventureGame.UI
             get; set;
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether any dialogs are currently visible.
+        /// </summary>
+        /// <value>
+        /// A value indicating whether any dialogs are currently visible.
+        /// </value>
+        protected virtual bool IsDialogVisible
+        {
+            get; set;
+        }
+
         /// <inheritdoc />
         public abstract void Load();
 

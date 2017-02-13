@@ -46,6 +46,8 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
             ServiceManager.Instance.AddService<ICursorService>(this.mouseCursor);
         }
 
+        protected override bool IsDialogVisible => this.rootViewModel.TextBox.IsVisible;
+
         public override void Load()
         {
             this.defaultFont = this.LoadFont("Arial_11.25_Regular");
@@ -67,9 +69,11 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
             SoundManager.Instance.LoadSounds(this.Content.NativeContentManager);
             EffectManager.Instance.LoadEffects(this.Content.NativeContentManager);
 
-            this.rootView.MouseUp += (s, a) => this.rootViewModel.TextBox.Hide();
+            this.rootView.MouseUp += this.OnTextBoxHideOnClick;
             this.rootView.TopBar.MouseEnter += this.OnMouseEnterTopBar;
             this.rootView.VerbBar.MouseLeave += this.OnMouseLeaveVerbBar;
+            this.rootViewModel.TextBox.OnShow += (s, a) => this.AdventureGameEngine.IsGamePaused = true;
+            this.rootViewModel.TextBox.OnHide += (s, a) => this.AdventureGameEngine.IsGamePaused = false;
 
             this.mouseCursor.Load();
         }
@@ -101,8 +105,25 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
             return UiEngine.Instance.AssetManager.LoadFont(this.Content.NativeContentManager, $"Fonts/{id}");
         }
 
+        private void OnTextBoxHideOnClick(object sender, MouseButtonEventArgs args)
+        {
+            if (!this.rootViewModel.TextBox.IsVisible)
+            {
+                return;
+            }
+
+            this.rootViewModel.TextBox.Hide();
+            this.AdventureGameEngine.IsGamePaused = false;
+        }
+
         private void OnMouseEnterTopBar(object sender, MouseEventArgs args)
         {
+            if (this.IsDialogVisible)
+            {
+                return;
+            }
+
+            this.AdventureGameEngine.IsGamePaused = true;
             this.mouseCursor.Backup = this.mouseCursor.Current;
             this.rootViewModel.IsVerbBarVisible = true;
             this.rootViewModel.IsTopBarVisible = false;
@@ -110,9 +131,15 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
 
         private void OnMouseLeaveVerbBar(object sender, MouseEventArgs args)
         {
+            if (this.IsDialogVisible)
+            {
+                return;
+            }
+
             this.mouseCursor.RestoreFromBackup();
             this.rootViewModel.IsVerbBarVisible = false;
             this.rootViewModel.IsTopBarVisible = true;
+            this.AdventureGameEngine.IsGamePaused = false;
         }
     }
 }
