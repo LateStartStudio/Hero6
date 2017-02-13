@@ -459,6 +459,15 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.View {
             ImageManager.Instance.AddImage("Verb Bar/Sub Menu Light");
             ImageManager.Instance.AddImage("Verb Bar/Talk Dark");
             ImageManager.Instance.AddImage("Verb Bar/Talk Light");
+            ImageManager.Instance.AddImage("Text Box/Background");
+            ImageManager.Instance.AddImage("Text Box/Bottom Frame");
+            ImageManager.Instance.AddImage("Text Box/Left Bottom Frame");
+            ImageManager.Instance.AddImage("Text Box/Left Frame");
+            ImageManager.Instance.AddImage("Text Box/Left Top Frame");
+            ImageManager.Instance.AddImage("Text Box/Right Bottom Frame");
+            ImageManager.Instance.AddImage("Text Box/Right Frame");
+            ImageManager.Instance.AddImage("Text Box/Right Top Frame");
+            ImageManager.Instance.AddImage("Text Box/Top Frame");
             ImageManager.Instance.AddImage("Top Bar/Background");
             ImageManager.Instance.AddImage("Verb Bar/Walk Dark");
             ImageManager.Instance.AddImage("Verb Bar/Walk Light");
@@ -538,32 +547,68 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.View {
             BitmapImage r_17_bm = new BitmapImage();
             r_17_bm.TextureAsset = "Verb Bar/Talk Light";
             elem.Resources.Add("TalkLight", r_17_bm);
-            // Resource - [TextBoxWindow] ControlTemplate
-            Func<UIElement, UIElement> r_18_ctFunc = r_18_ctMethod;
-            ControlTemplate r_18_ct = new ControlTemplate(r_18_ctFunc);
-            elem.Resources.Add("TextBoxWindow", r_18_ct);
-            // Resource - [TopBarBackground] BitmapImage
+            // Resource - [TextBoxBackground] BitmapImage
+            BitmapImage r_18_bm = new BitmapImage();
+            r_18_bm.TextureAsset = "Text Box/Background";
+            elem.Resources.Add("TextBoxBackground", r_18_bm);
+            // Resource - [TextBoxBottomFrame] BitmapImage
             BitmapImage r_19_bm = new BitmapImage();
-            r_19_bm.TextureAsset = "Top Bar/Background";
-            elem.Resources.Add("TopBarBackground", r_19_bm);
-            // Resource - [VerbBarButtonStyle] Style
-            Style r_20_s = new Style(typeof(Button));
-            Func<UIElement, UIElement> r_20_s_S_0_ctFunc = r_20_s_S_0_ctMethod;
-            ControlTemplate r_20_s_S_0_ct = new ControlTemplate(typeof(Button), r_20_s_S_0_ctFunc);
-            Setter r_20_s_S_0 = new Setter(Button.TemplateProperty, r_20_s_S_0_ct);
-            r_20_s.Setters.Add(r_20_s_S_0);
-            elem.Resources.Add("VerbBarButtonStyle", r_20_s);
-            // Resource - [WalkDark] BitmapImage
+            r_19_bm.TextureAsset = "Text Box/Bottom Frame";
+            elem.Resources.Add("TextBoxBottomFrame", r_19_bm);
+            // Resource - [TextBoxLeftBottomFrame] BitmapImage
+            BitmapImage r_20_bm = new BitmapImage();
+            r_20_bm.TextureAsset = "Text Box/Left Bottom Frame";
+            elem.Resources.Add("TextBoxLeftBottomFrame", r_20_bm);
+            // Resource - [TextBoxLeftFrame] BitmapImage
             BitmapImage r_21_bm = new BitmapImage();
-            r_21_bm.TextureAsset = "Verb Bar/Walk Dark";
-            elem.Resources.Add("WalkDark", r_21_bm);
-            // Resource - [WalkLight] BitmapImage
+            r_21_bm.TextureAsset = "Text Box/Left Frame";
+            elem.Resources.Add("TextBoxLeftFrame", r_21_bm);
+            // Resource - [TextBoxLeftTopFrame] BitmapImage
             BitmapImage r_22_bm = new BitmapImage();
-            r_22_bm.TextureAsset = "Verb Bar/Walk Light";
-            elem.Resources.Add("WalkLight", r_22_bm);
+            r_22_bm.TextureAsset = "Text Box/Left Top Frame";
+            elem.Resources.Add("TextBoxLeftTopFrame", r_22_bm);
+            // Resource - [TextBoxRightBottomFrame] BitmapImage
+            BitmapImage r_23_bm = new BitmapImage();
+            r_23_bm.TextureAsset = "Text Box/Right Bottom Frame";
+            elem.Resources.Add("TextBoxRightBottomFrame", r_23_bm);
+            // Resource - [TextBoxRightFrame] BitmapImage
+            BitmapImage r_24_bm = new BitmapImage();
+            r_24_bm.TextureAsset = "Text Box/Right Frame";
+            elem.Resources.Add("TextBoxRightFrame", r_24_bm);
+            // Resource - [TextBoxRightTopFrame] BitmapImage
+            BitmapImage r_25_bm = new BitmapImage();
+            r_25_bm.TextureAsset = "Text Box/Right Top Frame";
+            elem.Resources.Add("TextBoxRightTopFrame", r_25_bm);
+            // Resource - [TextBoxTopFrame] BitmapImage
+            BitmapImage r_26_bm = new BitmapImage();
+            r_26_bm.TextureAsset = "Text Box/Top Frame";
+            elem.Resources.Add("TextBoxTopFrame", r_26_bm);
+            // Resource - [TextBoxWindow] ControlTemplate
+            Func<UIElement, UIElement> r_27_ctFunc = r_27_ctMethod;
+            ControlTemplate r_27_ct = new ControlTemplate(r_27_ctFunc);
+            elem.Resources.Add("TextBoxWindow", r_27_ct);
+            // Resource - [TopBarBackground] BitmapImage
+            BitmapImage r_28_bm = new BitmapImage();
+            r_28_bm.TextureAsset = "Top Bar/Background";
+            elem.Resources.Add("TopBarBackground", r_28_bm);
+            // Resource - [VerbBarButtonStyle] Style
+            Style r_29_s = new Style(typeof(Button));
+            Func<UIElement, UIElement> r_29_s_S_0_ctFunc = r_29_s_S_0_ctMethod;
+            ControlTemplate r_29_s_S_0_ct = new ControlTemplate(typeof(Button), r_29_s_S_0_ctFunc);
+            Setter r_29_s_S_0 = new Setter(Button.TemplateProperty, r_29_s_S_0_ct);
+            r_29_s.Setters.Add(r_29_s_S_0);
+            elem.Resources.Add("VerbBarButtonStyle", r_29_s);
+            // Resource - [WalkDark] BitmapImage
+            BitmapImage r_30_bm = new BitmapImage();
+            r_30_bm.TextureAsset = "Verb Bar/Walk Dark";
+            elem.Resources.Add("WalkDark", r_30_bm);
+            // Resource - [WalkLight] BitmapImage
+            BitmapImage r_31_bm = new BitmapImage();
+            r_31_bm.TextureAsset = "Verb Bar/Walk Light";
+            elem.Resources.Add("WalkLight", r_31_bm);
         }
         
-        private static UIElement r_18_ctMethod(UIElement parent) {
+        private static UIElement r_27_ctMethod(UIElement parent) {
             // e_0 element
             Border e_0 = new Border();
             e_0.Parent = parent;
@@ -579,7 +624,7 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.View {
             return e_0;
         }
         
-        private static UIElement r_20_s_S_0_ctMethod(UIElement parent) {
+        private static UIElement r_29_s_S_0_ctMethod(UIElement parent) {
             // e_2 element
             ContentPresenter e_2 = new ContentPresenter();
             e_2.Parent = parent;

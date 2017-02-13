@@ -14,6 +14,16 @@
         <ResourceDictionary>
             <BitmapImage x:Key="TopBarBackground" UriSource="Top Bar/Background.png"/>
 
+            <BitmapImage x:Key="TextBoxLeftTopFrame" UriSource="Text Box/Left Top Frame.png" />
+            <BitmapImage x:Key="TextBoxTopFrame" UriSource="Text Box/Top Frame.png" />
+            <BitmapImage x:Key="TextBoxRightTopFrame" UriSource="Text Box/Right Top Frame.png" />
+            <BitmapImage x:Key="TextBoxLeftFrame" UriSource="Text Box/Left Frame.png" />
+            <BitmapImage x:Key="TextBoxBackground" UriSource="Text Box/Background.png" />
+            <BitmapImage x:Key="TextBoxRightFrame" UriSource="Text Box/Right Frame.png" />
+            <BitmapImage x:Key="TextBoxLeftBottomFrame" UriSource="Text Box/Left Bottom Frame.png" />
+            <BitmapImage x:Key="TextBoxBottomFrame" UriSource="Text Box/Bottom Frame.png" />
+            <BitmapImage x:Key="TextBoxRightBottomFrame" UriSource="Text Box/Right Bottom Frame.png" />
+
             <BitmapImage x:Key="SideLeft" UriSource="Verb Bar/Side Left.png" />
             <BitmapImage x:Key="SideRight" UriSource="Verb Bar/Side Right.png" />
             <BitmapImage x:Key="WalkDark" UriSource="Verb Bar/Walk Dark.png" />
@@ -46,9 +56,36 @@
             </Style>
 
             <ControlTemplate x:Key="TextBoxWindow">
+                <!--<Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5*" />
+                        <RowDefinition Height="5*" />
+                        <RowDefinition Height="5*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="7*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="7*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Row="0" Grid.Column="0" Source="{StaticResource TextBoxLeftTopFrame}" />
+                    <Image Grid.Row="0" Grid.Column="1" Source="{StaticResource TextBoxTopFrame}" Stretch="Fill" />
+                    <Image Grid.Row="0" Grid.Column="2" Source="{StaticResource TextBoxRightTopFrame}" />
+                    --><!--<Image Grid.Row="1" Grid.Column="0" Source="{StaticResource TextBoxLeftFrame}" />-->
+                    <!--<Image Grid.Row="1" Grid.Column="1" Source="{StaticResource TextBoxBackground}" />-->
+                    <!--<Image Grid.Row="1" Grid.Column="2" Source="{StaticResource TextBoxRightFrame}" />-->
+                    <!--<Image Grid.Row="2" Grid.Column="0" Source="{StaticResource TextBoxLeftBottomFrame}" />-->
+                    <!--<Image Grid.Row="2" Grid.Column="1" Source="{StaticResource TextBoxBottomFrame}" />-->
+                    <!--<Image Grid.Row="2" Grid.Column="2" Source="{StaticResource TextBoxRightBottomFrame}" />-->
+
+                    <!--<TextBlock Grid.Row="1" Grid.Column="1" Text="Test" TextWrapping="Wrap" />--><!--
+                </Grid>-->
+
+
                 <Border Background="Black" >
                     <TextBlock Text="{Binding Text}" TextWrapping="Wrap" />
                 </Border>
+
             </ControlTemplate>
         </ResourceDictionary>
     </ek:UIRoot.Resources>

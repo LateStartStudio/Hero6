@@ -67,6 +67,33 @@
     <Content Include="..\..\assets\Gui\SierraVga\Cursors\Walk.png">
       <Link>Cursors\Walk.png</Link>
     </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Text Box\Background.png">
+      <Link>Text Box\Background.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Text Box\Bottom Frame.png">
+      <Link>Text Box\Bottom Frame.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Text Box\Left Bottom Frame.png">
+      <Link>Text Box\Left Bottom Frame.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Text Box\Left Frame.png">
+      <Link>Text Box\Left Frame.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Text Box\Left Top Frame.png">
+      <Link>Text Box\Left Top Frame.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Text Box\Right Bottom Frame.png">
+      <Link>Text Box\Right Bottom Frame.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Text Box\Right Frame.png">
+      <Link>Text Box\Right Frame.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Text Box\Right Top Frame.png">
+      <Link>Text Box\Right Top Frame.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\SierraVga\Text Box\Top Frame.png">
+      <Link>Text Box\Top Frame.png</Link>
+    </Content>
     <Content Include="..\..\assets\Gui\SierraVga\Top Bar\Background.png">
       <Link>Top Bar\Background.png</Link>
     </Content>
@@ -147,9 +174,11 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\assets\Gui\SierraVga\Fonts\Arial_11.25_Regular.spritefont">
+      <Link>Fonts\Arial_11.25_Regular.spritefont</Link>
+    </None>
     <None Include="paket.references" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>CD "$(SolutionDir)packages\EmptyKeysUI_Generator*\tools"
