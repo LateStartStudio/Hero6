@@ -74,9 +74,12 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
                     case CursorType.Custom5:
                         return this.arrow;
                     case CursorType.Custom6:
+                    // Cursor type None runs on unit tests so make case for it.
+                    case CursorType.None:
                         return this.wait;
                     default:
-                        throw new NotSupportedException("Tried to get a cursor that doesn't exist.");
+                        throw new NotSupportedException(
+                                  $"{typeof(CursorType)}.{this.Current} is not implemented in the UserInterface module SierraVga.");
                 }
             }
         }
