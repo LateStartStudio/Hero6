@@ -14,9 +14,6 @@ namespace LateStartStudio.Hero6
     using System;
     using Campaigns;
     using Engine;
-    using Input;
-    using Input.Mouse;
-    using Input.TouchSurface;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using UserInterface;
@@ -33,7 +30,6 @@ namespace LateStartStudio.Hero6
         private AdventureGameEngine engine;
         private UserInterfaceHandler ui;
         private CampaignHandler campaign;
-        private InputHandler input;
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
         private Matrix scale;
@@ -88,11 +84,6 @@ namespace LateStartStudio.Hero6
             {
                 this.scale = value;
 
-                if (this.input != null)
-                {
-                    this.input.Scale = new Vector2(value.M11, value.M22);
-                }
-
                 if (this.ui != null)
                 {
                     this.ui.Scale = new AdventureGame.Engine.Graphics.Vector2(value.M11, value.M22);
@@ -128,11 +119,6 @@ namespace LateStartStudio.Hero6
 
             this.campaign = new CampaignHandler(this.engine, this.Content, this.ui);
 
-            this.input = new InputHandler(this.Scale, this.Content);
-            this.input.Mouse.MouseButtonUp += this.MouseButtonUp;
-            this.input.Touch.SurfacePressed += this.SurfacePressed;
-
-            this.input.Initialize();
             this.ui.Initialize();
             this.campaign.Initialize();
 
@@ -150,7 +136,6 @@ namespace LateStartStudio.Hero6
             Logger.Info("Loading Hero6 game instance.");
 
             this.ui.Load();
-            this.input.Load();
             this.campaign.Load();
 
             Logger.Info("Hero6 game instance loaded.");
@@ -167,7 +152,6 @@ namespace LateStartStudio.Hero6
             Content.Unload();
 
             this.ui.Unload();
-            this.input.Unload();
             this.campaign.Unload();
 
             Logger.Info("Hero6 game instance unloaded.");
@@ -183,7 +167,6 @@ namespace LateStartStudio.Hero6
         protected override void Update(GameTime gameTime)
         {
             this.ui.Update(gameTime);
-            this.input.Update(gameTime);
             this.campaign.Update(gameTime);
 
             base.Update(gameTime);
@@ -207,7 +190,6 @@ namespace LateStartStudio.Hero6
                 this.Scale);
 
             this.campaign.Draw(gameTime, this.spriteBatch);
-            this.input.Draw(gameTime, this.spriteBatch);
 
             this.spriteBatch.End();
 
@@ -224,26 +206,6 @@ namespace LateStartStudio.Hero6
             Vector3 screenScalingFactor = new Vector3(horScaling, verScaling, 1);
 
             this.Scale = Matrix.CreateScale(screenScalingFactor);
-        }
-
-        private void MouseButtonUp(object sender, MouseButtonUpEventArgs e)
-        {
-            switch (e.MouseButton)
-            {
-                case MouseButton.Left:
-                    this.campaign.CurrentCampaign.CurrentRoom.Interact(e.Position.X, e.Position.Y);
-                    break;
-                case MouseButton.Middle:
-                case MouseButton.Right:
-                    break;
-                default:
-                    throw new NotSupportedException("Switch case reached somewhere unexpected.");
-            }
-        }
-
-        private void SurfacePressed(object sender, SurfacePressedEventArgs e)
-        {
-            this.campaign.CurrentCampaign.CurrentRoom.Interact(e.Position.X, e.Position.Y);
         }
 
         private void GraphicsOnDeviceCreated(object sender, EventArgs eventArgs)

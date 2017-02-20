@@ -44,7 +44,10 @@ namespace LateStartStudio.AdventureGame
             this.Name = name;
             this.Engine = engine;
             this.Content = content;
+
             this.UserInterface = userInterface;
+            this.UserInterface.MouseButtonClick += this.OnUserInteraction;
+
             this.characters = new Dictionary<string, Character>();
             this.items = new Dictionary<string, Item>();
             this.inventoryItems = new Dictionary<string, InventoryItem>();
@@ -258,6 +261,11 @@ namespace LateStartStudio.AdventureGame
         protected void AddRoom(string id, Room room)
         {
             this.rooms.Add(id, room);
+        }
+
+        private void OnUserInteraction(object sender, UserInteractionEventArgs args)
+        {
+            this.CurrentRoom.Interact(args.X, args.Y);
         }
     }
 }

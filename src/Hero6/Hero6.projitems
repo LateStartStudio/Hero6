@@ -16,15 +16,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Engine\MonoGameContentManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\MonoGameEngine.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Game.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Input\Mouse\MouseButtonUpEventArgs.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Input\TouchSurface\SurfacePressedEventArgs.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Input\TouchSurface\TouchHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IXnaGameLoop.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Input\InputHandler.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Input\Keyboard\KeyboardHandler.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Input\Keyboard\KeyPressedEventArgs.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Input\Mouse\MouseButton.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Input\Mouse\MouseHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserInterface\UserInterfaceHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\ILogger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\LogFourNet.cs" />
