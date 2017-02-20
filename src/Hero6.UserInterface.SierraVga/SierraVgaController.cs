@@ -69,7 +69,7 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
             SoundManager.Instance.LoadSounds(this.Content.NativeContentManager);
             EffectManager.Instance.LoadEffects(this.Content.NativeContentManager);
 
-            this.rootView.MouseUp += this.OnTextBoxHideOnClick;
+            this.rootView.MouseUp += this.OnMouseUp;
             this.rootView.TopBar.MouseEnter += this.OnMouseEnterTopBar;
             this.rootView.VerbBar.MouseLeave += this.OnMouseLeaveVerbBar;
             this.rootViewModel.TextBox.OnShow += (s, a) => this.AdventureGameEngine.IsGamePaused = true;
@@ -105,15 +105,21 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
             return UiEngine.Instance.AssetManager.LoadFont(this.Content.NativeContentManager, $"Fonts/{id}");
         }
 
-        private void OnTextBoxHideOnClick(object sender, MouseButtonEventArgs args)
+        private void OnMouseUp(object sender, MouseButtonEventArgs args)
         {
-            if (!this.rootViewModel.TextBox.IsVisible)
+            if (!this.IsDialogVisible)
             {
-                return;
+                this.InvokeMouseButtonClick(
+                    this,
+                    new UserInteractionEventArgs(
+                        (int)(this.mouseCursor.Location.X / Scale.X),
+                        (int)(this.mouseCursor.Location.Y / Scale.Y)));
             }
-
-            this.rootViewModel.TextBox.Hide();
-            this.AdventureGameEngine.IsGamePaused = false;
+            else if (this.rootViewModel.TextBox.IsVisible)
+            {
+                this.rootViewModel.TextBox.Hide();
+                this.AdventureGameEngine.IsGamePaused = false;
+            }
         }
 
         private void OnMouseEnterTopBar(object sender, MouseEventArgs args)

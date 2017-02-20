@@ -60,6 +60,7 @@
     <Compile Include="Game\Room.cs" />
     <Compile Include="Game\SpriteSheet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\UserInteractionEventArgs.cs" />
     <Compile Include="UI\UserInterface.cs" />
   </ItemGroup>
   <ItemGroup>

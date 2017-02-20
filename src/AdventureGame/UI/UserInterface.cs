@@ -41,6 +41,11 @@ namespace LateStartStudio.AdventureGame.UI
         }
 
         /// <summary>
+        /// Occurs when any mouse button is clicked.
+        /// </summary>
+        public event EventHandler<UserInteractionEventArgs> MouseButtonClick;
+
+        /// <summary>
         /// Gets the <see cref="ContentManager"/> of the <see cref="UserInterface"/> instance.
         /// </summary>
         /// <value>
@@ -134,5 +139,15 @@ namespace LateStartStudio.AdventureGame.UI
         /// </summary>
         /// <param name="text">The input text within the text box.</param>
         public abstract void ShowTextBox(string text);
+
+        /// <summary>
+        /// Invokes the MouseButtonClick event.
+        /// </summary>
+        /// <param name="sender">The sender of the event.</param>
+        /// <param name="args">The user interaction data of the event.</param>
+        protected void InvokeMouseButtonClick(object sender, UserInteractionEventArgs args)
+        {
+            this.MouseButtonClick?.Invoke(sender, args);
+        }
     }
 }
