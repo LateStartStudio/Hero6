@@ -101,8 +101,9 @@ namespace LateStartStudio.AdventureGame.Game
         /// </summary>
         /// <param name="x">The user input x coordinate.</param>
         /// <param name="y">The user input y coordinate.</param>
+        /// <param name="interaction">The interaction to perform.</param>
         /// <returns>True if the user interacted with this element; false otherwise.</returns>
-        public abstract bool Interact(int x, int y);
+        public abstract bool Interact(int x, int y, Interaction interaction);
 
         /// <inheritdoc />
         public abstract void Load();

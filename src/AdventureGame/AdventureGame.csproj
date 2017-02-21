@@ -55,6 +55,7 @@
     <Compile Include="Game\Hotspot.cs" />
     <Compile Include="Game\HotspotWalkingEventArgs.cs" />
     <Compile Include="Game\IGameLoop.cs" />
+    <Compile Include="Game\Interaction.cs" />
     <Compile Include="Game\InventoryItem.cs" />
     <Compile Include="Game\Item.cs" />
     <Compile Include="Game\Room.cs" />

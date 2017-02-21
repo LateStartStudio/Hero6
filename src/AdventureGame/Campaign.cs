@@ -263,9 +263,9 @@ namespace LateStartStudio.AdventureGame
             this.rooms.Add(id, room);
         }
 
-        private void OnUserInteraction(object sender, UserInteractionEventArgs args)
+        private void OnUserInteraction(object sender, UserInteractionEventArgs e)
         {
-            this.CurrentRoom.Interact(args.X, args.Y);
+            this.CurrentRoom.Interact(e.X, e.Y, e.Interaction);
         }
     }
 }
