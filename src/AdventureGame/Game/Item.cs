@@ -35,9 +35,22 @@ namespace LateStartStudio.AdventureGame.Game
         }
 
         /// <summary>
-        /// Raised when the user interacts with the item.
+        /// Raised when the player interacts with the item by looking, examining, or other
+        /// equivalents.
         /// </summary>
-        public event EventHandler<EventArgs> Interaction;
+        public event EventHandler<EventArgs> Look;
+
+        /// <summary>
+        /// Raised when the player interacts with the item by grabbing, taking, or other
+        /// equivalents.
+        /// </summary>
+        public event EventHandler<EventArgs> Grab;
+
+        /// <summary>
+        /// Raised when the player interacts with the item by talking, asking, or other
+        /// equivalents.
+        /// </summary>
+        public event EventHandler<EventArgs> Talk;
 
         /// <inheritdoc />
         public override sealed int Width => this.sprite.Width;
@@ -46,7 +59,7 @@ namespace LateStartStudio.AdventureGame.Game
         public override sealed int Height => this.sprite.Height;
 
         /// <inheritdoc />
-        public override sealed bool Interact(int x, int y)
+        public override sealed bool Interact(int x, int y, Interaction interaction)
         {
             if (!this.IsVisible)
             {
@@ -64,7 +77,22 @@ namespace LateStartStudio.AdventureGame.Game
                 return false;
             }
 
-            this.Interaction?.Invoke(this, EventArgs.Empty);
+            switch (interaction)
+            {
+                case Interaction.Eye:
+                    this.Look?.Invoke(this, EventArgs.Empty);
+                    break;
+                case Interaction.Hand:
+                    this.Grab?.Invoke(this, EventArgs.Empty);
+                    break;
+                case Interaction.Mouth:
+                    this.Talk?.Invoke(this, EventArgs.Empty);
+                    break;
+                default:
+                    throw new NotSupportedException(
+                              $"Interaction {interaction} is not supported on items.");
+            }
+
             return true;
         }
 

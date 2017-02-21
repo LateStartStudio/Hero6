@@ -13,6 +13,7 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.ViewModel
 {
     using System.Collections.ObjectModel;
     using AdventureGame.Engine.Graphics;
+    using AdventureGame.Game;
     using EmptyKeys.UserInterface;
     using EmptyKeys.UserInterface.Input;
     using EmptyKeys.UserInterface.Mvvm;
@@ -33,6 +34,7 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.ViewModel
             this.mouseCursor = mouseCursor;
             this.scale = scale;
 
+            this.Interaction = Interaction.Move;
             this.TextBox = new TextBoxViewModel();
 
             this.Windows = new ObservableCollection<WindowViewModel>
@@ -53,6 +55,8 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.ViewModel
             this.Inventory = new RelayCommand(this.OnInventoryClick);
             this.Options = new RelayCommand(this.OnOptionsClick);
         }
+
+        public Interaction Interaction { get; private set; }
 
         public TextBoxViewModel TextBox { get; }
 
@@ -95,21 +99,25 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.ViewModel
         private void OnWalkClick(object sender)
         {
             this.OnVerbClick(sender, CursorType.Custom1);
+            this.Interaction = Interaction.Move;
         }
 
         private void OnLookClick(object sender)
         {
             this.OnVerbClick(sender, CursorType.Custom2);
+            this.Interaction = Interaction.Eye;
         }
 
         private void OnHandClick(object sender)
         {
             this.OnVerbClick(sender, CursorType.Custom3);
+            this.Interaction = Interaction.Hand;
         }
 
         private void OnTalkClick(object sender)
         {
             this.OnVerbClick(sender, CursorType.Custom4);
+            this.Interaction = Interaction.Mouth;
         }
 
         private void OnSubMenuClick(object sender)

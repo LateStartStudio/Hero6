@@ -187,7 +187,7 @@ namespace LateStartStudio.AdventureGame.Game
         }
 
         /// <inheritdoc />
-        public override bool Interact(int x, int y)
+        public override bool Interact(int x, int y, Interaction interaction)
         {
             throw new NotImplementedException();
         }

@@ -113,7 +113,8 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
                     this,
                     new UserInteractionEventArgs(
                         (int)(this.mouseCursor.Location.X / Scale.X),
-                        (int)(this.mouseCursor.Location.Y / Scale.Y)));
+                        (int)(this.mouseCursor.Location.Y / Scale.Y),
+                        this.rootViewModel.Interaction));
             }
             else if (this.rootViewModel.TextBox.IsVisible)
             {
