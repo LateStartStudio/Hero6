@@ -28,9 +28,9 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Rooms.Albion
         public HillOverAlbion(Campaign campaign)
             : base(
                   campaign,
-                  "Backgrounds/Albion/HillOverAlbion",
-                  "Backgrounds/Albion/HillOverAlbionWalkArea",
-                  "Backgrounds/Albion/HillOverAlbionRegions")
+                  "Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Background",
+                  "Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Walk Area",
+                  "Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Hotspots")
         {
             Character hero = Campaign.GetCharacter(Hero.Name);
             hero.Location = new Point(250, 220);

@@ -27,9 +27,9 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Rooms.Albion
         public Fountain(Campaign campaign)
             : base(
                   campaign,
-                  "Backgrounds/Albion/Fountain",
-                  "Backgrounds/Albion/FountainWalkArea",
-                  "Backgrounds/Albion/FountainRegions")
+                  "Campaigns/Rites of Albion/Rooms/Albion/Fountain/Background",
+                  "Campaigns/Rites of Albion/Rooms/Albion/Fountain/Walk Area",
+                  "Campaigns/Rites of Albion/Rooms/Albion/Fountain/Hotspots")
         {
             Character llewella = Campaign.GetCharacter(Llewella.Name);
             llewella.Location = new Point(200, 150);

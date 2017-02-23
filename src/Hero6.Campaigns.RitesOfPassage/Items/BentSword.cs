@@ -20,7 +20,7 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Items
         public const string Name = "Bent Sword";
 
         public BentSword(Campaign campaign)
-            : base(campaign, "Sprites/Objects/Pick-Up/Bent Sword/BentSword")
+            : base(campaign, "Campaigns/Rites of Albion/Sprites/Items/Bent Sword")
         {
             this.Look += this.OnLook;
             this.Grab += this.OnGrab;

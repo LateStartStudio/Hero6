@@ -41,7 +41,7 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
             ContentManager content)
             : base(width, height, scale, adventureGameEngine, content)
         {
-            this.Content.RootDirectory = "Content/Gui/SierraVga";
+            this.Content.RootDirectory = "Content/Gui/Sierra Vga";
             this.mouseCursor = new MouseCursor(this.Content.NativeContentManager, this.Scale);
             ServiceManager.Instance.AddService<ICursorService>(this.mouseCursor);
         }
