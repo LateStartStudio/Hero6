@@ -41,7 +41,7 @@ namespace LateStartStudio.AdventureGame.Game
         public override int Height => this.sprite.Height;
 
         /// <inheritdoc />
-        public override bool Interact(int x, int y)
+        public override bool Interact(int x, int y, Interaction interaction)
         {
             throw new NotImplementedException();
         }

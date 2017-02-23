@@ -100,11 +100,16 @@ namespace LateStartStudio.AdventureGame.Game
         public override sealed int Height => this.background.Height;
 
         /// <inheritdoc />
-        public override sealed bool Interact(int x, int y)
+        public override sealed bool Interact(int x, int y, Interaction interaction)
         {
+            if (interaction == Interaction.Move)
+            {
+                return this.Walk(x, y, Campaign.Player);
+            }
+
             foreach (Character character in this.Characters)
             {
-                if (character.Interact(x, y))
+                if (character.Interact(x, y, interaction))
                 {
                     return true;
                 }
@@ -112,13 +117,32 @@ namespace LateStartStudio.AdventureGame.Game
 
             foreach (Item item in this.Items)
             {
-                if (item.Interact(x, y))
+                if (item.Interact(x, y, interaction))
                 {
                     return true;
                 }
             }
 
-            return this.Walk(x, y, Campaign.Player);
+            Color pixel = this.hotspotMaskBuffer[y, x];
+
+            if (interaction == Interaction.Eye)
+            {
+                this.Hotspots[pixel].InvokeLook(EventArgs.Empty);
+            }
+            else if (interaction == Interaction.Hand)
+            {
+                this.Hotspots[pixel].InvokeGrab(EventArgs.Empty);
+            }
+            else if (interaction == Interaction.Mouth)
+            {
+                this.Hotspots[pixel].InvokeTalk(EventArgs.Empty);
+            }
+            else
+            {
+                return false;
+            }
+
+            return true;
         }
 
         /// <inheritdoc />
@@ -164,7 +188,7 @@ namespace LateStartStudio.AdventureGame.Game
             }
 
             Color pixel = this.hotspotMaskBuffer[this.Campaign.Player.Location.Y, this.Campaign.Player.Location.X];
-            this.Hotspots[pixel].InvokeWhileStandingIn(Campaign.Player);
+            this.Hotspots[pixel].InvokeWhileStandingIn(new HotspotWalkingEventArgs(Campaign.Player));
         }
 
         /// <inheritdoc />

@@ -12,6 +12,7 @@
 namespace LateStartStudio.AdventureGame.UI
 {
     using System;
+    using Game;
 
     /// <summary>
     /// Event Args to provide information for user interaction.
@@ -23,10 +24,12 @@ namespace LateStartStudio.AdventureGame.UI
         /// </summary>
         /// <param name="x">The x coordinate of the user interaction.</param>
         /// <param name="y">The y coordinate of the user interaction.</param>
-        public UserInteractionEventArgs(int x, int y)
+        /// <param name="interaction">The interaction of the user interaction.</param>
+        public UserInteractionEventArgs(int x, int y, Interaction interaction)
         {
             this.X = x;
             this.Y = y;
+            this.Interaction = interaction;
         }
 
         /// <summary>
@@ -44,5 +47,13 @@ namespace LateStartStudio.AdventureGame.UI
         /// The y coordinate of the user interaction.
         /// </value>
         public int Y { get; private set; }
+
+        /// <summary>
+        /// Gets the interaction of the user interaction.
+        /// </summary>
+        /// <value>
+        /// The interaction of the user interaction.
+        /// </value>
+        public Interaction Interaction { get; private set; }
     }
 }

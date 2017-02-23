@@ -11,6 +11,7 @@
 
 namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Rooms.Albion
 {
+    using System;
     using AdventureGame;
     using AdventureGame.Engine.Graphics;
     using AdventureGame.Game;
@@ -22,6 +23,7 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Rooms.Albion
         public const string Name = "Hill Over Albion";
 
         private static readonly Color NorthExit = new Color(255, 255, 255, 255);
+        private static readonly Color AlbionSign = new Color(255, 0, 0, 255);
 
         public HillOverAlbion(Campaign campaign)
             : base(
@@ -41,12 +43,31 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Rooms.Albion
 
         protected override void InitializeEvents()
         {
-            this.Hotspots[NorthExit].WhileStandingIn += this.DummyTest;
+            this.Hotspots[NorthExit].WhileStandingIn += this.OnWhileStandingInNorthExit;
+
+            this.Hotspots[AlbionSign].Look += this.OnLookAlbionSign;
+            this.Hotspots[AlbionSign].Grab += this.OnGrabAlbionSign;
+            this.Hotspots[AlbionSign].Talk += this.OnTalkAlbionSign;
         }
 
-        private void DummyTest(object sender, HotspotWalkingEventArgs e)
+        private void OnWhileStandingInNorthExit(object sender, HotspotWalkingEventArgs e)
         {
             e.Character.ChangeRoom(Fountain.Name, 100, 210);
+        }
+
+        private void OnLookAlbionSign(object sender, EventArgs eventArgs)
+        {
+            this.Display("This must be Albion.");
+        }
+
+        private void OnGrabAlbionSign(object sender, EventArgs eventArgs)
+        {
+            this.Display("You can't quite reach it.");
+        }
+
+        private void OnTalkAlbionSign(object sender, EventArgs eventArgs)
+        {
+            this.Display("It talks as much as any other piece wood.");
         }
     }
 }
