@@ -23,7 +23,7 @@ namespace LateStartStudio.Hero6.Utilities
         public LogFourNet()
         {
             string dir = string.Format(
-                "{0}{1}Hero6{1}logs{1}",
+                "{0}{1}Hero6{1}Logs{1}",
                 Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
                 Path.DirectorySeparatorChar);
 
