@@ -9,6 +9,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+#if !ANDROID
 namespace LateStartStudio.Hero6.Utilities
 {
     using System;
@@ -144,3 +145,4 @@ namespace LateStartStudio.Hero6.Utilities
         }
     }
 }
+#endif
