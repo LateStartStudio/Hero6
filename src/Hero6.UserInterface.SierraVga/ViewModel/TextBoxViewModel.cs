@@ -18,10 +18,17 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.ViewModel
 
     public class TextBoxViewModel : WindowViewModel
     {
+        private readonly int nativeWidth;
+        private readonly int nativeHeight;
+        private readonly Vector2 scale;
+
         private string text;
 
-        public TextBoxViewModel() : base("TextBoxWindow")
+        public TextBoxViewModel(int nativeWidth, int nativeHeight, Vector2 scale) : base("TextBoxWindow")
         {
+            this.nativeWidth = nativeWidth;
+            this.nativeHeight = nativeHeight;
+            this.scale = scale;
             this.Opacity = 1.0f;
             this.IsOnTop = true;
             this.Text = string.Empty;
@@ -37,11 +44,11 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.ViewModel
             set { this.SetProperty(ref this.text, value); }
         }
 
-        public void Show(string input, int nativeWidth, int nativeHeight, Vector2 scale)
+        public void Show(string input)
         {
             Size size = FontManager.DefaultFont.MeasureString(input, 1, 1);
-            int screenWidth = nativeWidth * (int)scale.X;
-            int screenHeight = nativeHeight * (int)scale.Y;
+            int screenWidth = this.nativeWidth * (int)this.scale.X;
+            int screenHeight = this.nativeHeight * (int)this.scale.Y;
             int horizontalEmptySpace = screenWidth / 8;
             int rowSize = screenWidth - (horizontalEmptySpace * 2);
             int rowCount = (int)Math.Ceiling(size.Width / rowSize);
