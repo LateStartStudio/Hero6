@@ -13,7 +13,7 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin Sprites/Objects/Pick-Up/Bent Sword/BentSword.png
+#begin Gui/Sierra Vga/Cursors/Arrow.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -23,9 +23,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Sprites/Objects/Pick-Up/Bent Sword/BentSword.png
+/build:Gui/Sierra Vga/Cursors/Arrow.png
 
-#begin Sprites/Characters/Hero/HeroWalkCenterDown.png
+#begin Gui/Sierra Vga/Cursors/Wait.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -35,207 +35,15 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Sprites/Characters/Hero/HeroWalkCenterDown.png
+/build:Gui/Sierra Vga/Cursors/Wait.png
 
-#begin Sprites/Characters/Hero/HeroWalkCenterUp.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/Characters/Hero/HeroWalkCenterUp.png
-
-#begin Sprites/Characters/Hero/HeroWalkLeftCenter.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/Characters/Hero/HeroWalkLeftCenter.png
-
-#begin Sprites/Characters/Hero/HeroWalkLeftDown.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/Characters/Hero/HeroWalkLeftDown.png
-
-#begin Sprites/Characters/Hero/HeroWalkLeftUp.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/Characters/Hero/HeroWalkLeftUp.png
-
-#begin Sprites/Characters/Hero/HeroWalkRightCenter.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/Characters/Hero/HeroWalkRightCenter.png
-
-#begin Sprites/Characters/Hero/HeroWalkRightDown.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/Characters/Hero/HeroWalkRightDown.png
-
-#begin Sprites/Characters/Hero/HeroWalkRightUp.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/Characters/Hero/HeroWalkRightUp.png
-
-#begin Backgrounds/Albion/Fountain.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Backgrounds/Albion/Fountain.png
-
-#begin Backgrounds/Albion/HillOverAlbion.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Backgrounds/Albion/HillOverAlbion.png
-
-#begin Backgrounds/Albion/HillOverAlbionWalkArea.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Backgrounds/Albion/HillOverAlbionWalkArea.png
-
-#begin Backgrounds/Albion/FountainWalkArea.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Backgrounds/Albion/FountainWalkArea.png
-
-#begin Backgrounds/Albion/HillOverAlbionRegions.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Backgrounds/Albion/HillOverAlbionRegions.png
-
-#begin Backgrounds/Albion/FountainRegions.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Backgrounds/Albion/FountainRegions.png
-
-#begin Sprites/Characters/NPCs/Llewella/LlewellaWalkCenterDown.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/Characters/NPCs/Llewella/LlewellaWalkCenterDown.png
-
-#begin Gui/SierraVga/Cursors/Arrow.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Cursors/Arrow.png
-
-#begin Gui/SierraVga/Cursors/Wait.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Cursors/Wait.png
-
-#begin Gui/SierraVga/Fonts/Arial_11.25_Regular.spritefont
+#begin Gui/Sierra Vga/Fonts/Arial_11.25_Regular.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
 /processorParam:TextureFormat=Compressed
-/build:Gui/SierraVga/Fonts/Arial_11.25_Regular.spritefont
+/build:Gui/Sierra Vga/Fonts/Arial_11.25_Regular.spritefont
 
-#begin Gui/SierraVga/Cursors/Hand.png
+#begin Gui/Sierra Vga/Cursors/Hand.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -245,9 +53,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Cursors/Hand.png
+/build:Gui/Sierra Vga/Cursors/Hand.png
 
-#begin Gui/SierraVga/Cursors/Look.png
+#begin Gui/Sierra Vga/Cursors/Look.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -257,9 +65,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Cursors/Look.png
+/build:Gui/Sierra Vga/Cursors/Look.png
 
-#begin Gui/SierraVga/Cursors/Talk.png
+#begin Gui/Sierra Vga/Cursors/Talk.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -269,9 +77,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Cursors/Talk.png
+/build:Gui/Sierra Vga/Cursors/Talk.png
 
-#begin Gui/SierraVga/Cursors/Walk.png
+#begin Gui/Sierra Vga/Cursors/Walk.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -281,9 +89,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Cursors/Walk.png
+/build:Gui/Sierra Vga/Cursors/Walk.png
 
-#begin Gui/SierraVga/Top Bar/Background.png
+#begin Gui/Sierra Vga/Top Bar/Background.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -293,9 +101,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Top Bar/Background.png
+/build:Gui/Sierra Vga/Top Bar/Background.png
 
-#begin Gui/SierraVga/Verb Bar/Current Item Dark.png
+#begin Gui/Sierra Vga/Verb Bar/Current Item Dark.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -305,9 +113,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Verb Bar/Current Item Dark.png
+/build:Gui/Sierra Vga/Verb Bar/Current Item Dark.png
 
-#begin Gui/SierraVga/Verb Bar/Current Item Light.png
+#begin Gui/Sierra Vga/Verb Bar/Current Item Light.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -317,9 +125,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Verb Bar/Current Item Light.png
+/build:Gui/Sierra Vga/Verb Bar/Current Item Light.png
 
-#begin Gui/SierraVga/Verb Bar/Hand Dark.png
+#begin Gui/Sierra Vga/Verb Bar/Hand Dark.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -329,9 +137,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Verb Bar/Hand Dark.png
+/build:Gui/Sierra Vga/Verb Bar/Hand Dark.png
 
-#begin Gui/SierraVga/Verb Bar/Hand Light.png
+#begin Gui/Sierra Vga/Verb Bar/Hand Light.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -341,9 +149,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Verb Bar/Hand Light.png
+/build:Gui/Sierra Vga/Verb Bar/Hand Light.png
 
-#begin Gui/SierraVga/Verb Bar/Inventory Dark.png
+#begin Gui/Sierra Vga/Verb Bar/Inventory Dark.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -353,9 +161,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Verb Bar/Inventory Dark.png
+/build:Gui/Sierra Vga/Verb Bar/Inventory Dark.png
 
-#begin Gui/SierraVga/Verb Bar/Inventory Light.png
+#begin Gui/Sierra Vga/Verb Bar/Inventory Light.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -365,9 +173,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Verb Bar/Inventory Light.png
+/build:Gui/Sierra Vga/Verb Bar/Inventory Light.png
 
-#begin Gui/SierraVga/Verb Bar/Look Dark.png
+#begin Gui/Sierra Vga/Verb Bar/Look Dark.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -377,9 +185,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Verb Bar/Look Dark.png
+/build:Gui/Sierra Vga/Verb Bar/Look Dark.png
 
-#begin Gui/SierraVga/Verb Bar/Look Light.png
+#begin Gui/Sierra Vga/Verb Bar/Look Light.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -389,9 +197,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Verb Bar/Look Light.png
+/build:Gui/Sierra Vga/Verb Bar/Look Light.png
 
-#begin Gui/SierraVga/Verb Bar/Magic Dark.png
+#begin Gui/Sierra Vga/Verb Bar/Magic Dark.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -401,9 +209,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Verb Bar/Magic Dark.png
+/build:Gui/Sierra Vga/Verb Bar/Magic Dark.png
 
-#begin Gui/SierraVga/Verb Bar/Magic Light.png
+#begin Gui/Sierra Vga/Verb Bar/Magic Light.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -413,9 +221,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Verb Bar/Magic Light.png
+/build:Gui/Sierra Vga/Verb Bar/Magic Light.png
 
-#begin Gui/SierraVga/Verb Bar/Options Dark.png
+#begin Gui/Sierra Vga/Verb Bar/Options Dark.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -425,9 +233,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Verb Bar/Options Dark.png
+/build:Gui/Sierra Vga/Verb Bar/Options Dark.png
 
-#begin Gui/SierraVga/Verb Bar/Options Light.png
+#begin Gui/Sierra Vga/Verb Bar/Options Light.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -437,9 +245,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Verb Bar/Options Light.png
+/build:Gui/Sierra Vga/Verb Bar/Options Light.png
 
-#begin Gui/SierraVga/Verb Bar/Side Left.png
+#begin Gui/Sierra Vga/Verb Bar/Side Left.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -449,9 +257,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Verb Bar/Side Left.png
+/build:Gui/Sierra Vga/Verb Bar/Side Left.png
 
-#begin Gui/SierraVga/Verb Bar/Side Right.png
+#begin Gui/Sierra Vga/Verb Bar/Side Right.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -461,9 +269,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Verb Bar/Side Right.png
+/build:Gui/Sierra Vga/Verb Bar/Side Right.png
 
-#begin Gui/SierraVga/Verb Bar/Sub Menu Dark.png
+#begin Gui/Sierra Vga/Verb Bar/Sub Menu Dark.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -473,9 +281,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Verb Bar/Sub Menu Dark.png
+/build:Gui/Sierra Vga/Verb Bar/Sub Menu Dark.png
 
-#begin Gui/SierraVga/Verb Bar/Sub Menu Light.png
+#begin Gui/Sierra Vga/Verb Bar/Sub Menu Light.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -485,9 +293,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Verb Bar/Sub Menu Light.png
+/build:Gui/Sierra Vga/Verb Bar/Sub Menu Light.png
 
-#begin Gui/SierraVga/Verb Bar/Talk Dark.png
+#begin Gui/Sierra Vga/Verb Bar/Talk Dark.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -497,9 +305,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Verb Bar/Talk Dark.png
+/build:Gui/Sierra Vga/Verb Bar/Talk Dark.png
 
-#begin Gui/SierraVga/Verb Bar/Talk Light.png
+#begin Gui/Sierra Vga/Verb Bar/Talk Light.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -509,9 +317,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Verb Bar/Talk Light.png
+/build:Gui/Sierra Vga/Verb Bar/Talk Light.png
 
-#begin Gui/SierraVga/Verb Bar/Walk Dark.png
+#begin Gui/Sierra Vga/Verb Bar/Walk Dark.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -521,9 +329,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Verb Bar/Walk Dark.png
+/build:Gui/Sierra Vga/Verb Bar/Walk Dark.png
 
-#begin Gui/SierraVga/Verb Bar/Walk Light.png
+#begin Gui/Sierra Vga/Verb Bar/Walk Light.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -533,5 +341,197 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/SierraVga/Verb Bar/Walk Light.png
+/build:Gui/Sierra Vga/Verb Bar/Walk Light.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Center Down.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Center Down.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Center Up.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Center Up.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Left Center.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Left Center.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Left Down.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Left Down.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Left Up.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Left Up.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Right Center.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Right Center.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Right Down.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Right Down.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Right Up.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Right Up.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Llewella/Walk/Center Down.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Llewella/Walk/Center Down.png
+
+#begin Campaigns/Rites of Albion/Rooms/Albion/Fountain/Background.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Rooms/Albion/Fountain/Background.png
+
+#begin Campaigns/Rites of Albion/Rooms/Albion/Fountain/Hotspots.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Rooms/Albion/Fountain/Hotspots.png
+
+#begin Campaigns/Rites of Albion/Rooms/Albion/Fountain/Walk Area.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Rooms/Albion/Fountain/Walk Area.png
+
+#begin Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Background.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Background.png
+
+#begin Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Hotspots.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Hotspots.png
+
+#begin Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Walk Area.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Walk Area.png
+
+#begin Campaigns/Rites of Albion/Sprites/Items/Bent Sword.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Sprites/Items/Bent Sword.png
 
