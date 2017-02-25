@@ -58,7 +58,11 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
 
             FontManager.DefaultFont = this.defaultFont;
 
-            this.rootViewModel = new RootViewModel(this.mouseCursor, this.Scale);
+            this.rootViewModel = new RootViewModel(
+                this.mouseCursor,
+                this.Width,
+                this.Height,
+                this.Scale);
 
             this.rootView = new RootView(
                 this.Width * (int)this.Scale.X,
@@ -101,7 +105,7 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
 
         public override void ShowTextBox(string text)
         {
-            this.rootViewModel.TextBox.Show(text, this.Width, this.Height, this.Scale);
+            this.rootViewModel.TextBox.Show(text);
         }
 
         private FontBase LoadFont(string id)

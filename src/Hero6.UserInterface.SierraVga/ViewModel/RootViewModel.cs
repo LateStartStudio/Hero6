@@ -31,13 +31,17 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.ViewModel
         private bool isVerbBarVisible;
         private bool isTopBarVisible;
 
-        public RootViewModel(MouseCursor mouseCursor, Vector2 scale)
+        public RootViewModel(
+            MouseCursor mouseCursor,
+            int nativeWidth,
+            int nativeHeight,
+            Vector2 scale)
         {
             this.mouseCursor = mouseCursor;
             this.scale = scale;
 
             this.Interaction = Interaction.Move;
-            this.TextBox = new TextBoxViewModel();
+            this.TextBox = new TextBoxViewModel(nativeWidth, nativeHeight, scale);
 
             this.Windows = new ObservableCollection<WindowViewModel>
             {
@@ -159,27 +163,42 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.ViewModel
 
         private void OnSubMenuClick(object sender)
         {
-            System.Diagnostics.Debug.WriteLine("Test Sub Menu Click");
+            this.mouseCursor.Location = new PointF(
+                this.mouseCursor.Location.X,
+                VerbBarHeight * this.scale.Y);
+            this.TextBox.Show("Sub Menu not implemented.");
         }
 
         private void OnMagicClick(object sender)
         {
-            System.Diagnostics.Debug.WriteLine("Test Magic Click");
+            this.mouseCursor.Location = new PointF(
+                this.mouseCursor.Location.X,
+                VerbBarHeight * this.scale.Y);
+            this.TextBox.Show("Magic not implemented.");
         }
 
         private void OnCurrentItemClick(object sender)
         {
-            System.Diagnostics.Debug.WriteLine("Test Current Item Click");
+            this.mouseCursor.Location = new PointF(
+                this.mouseCursor.Location.X,
+                VerbBarHeight * this.scale.Y);
+            this.TextBox.Show("Current item not implemented.");
         }
 
         private void OnInventoryClick(object sender)
         {
-            System.Diagnostics.Debug.WriteLine("Test Inventory Click");
+            this.mouseCursor.Location = new PointF(
+                this.mouseCursor.Location.X,
+                VerbBarHeight * this.scale.Y);
+            this.TextBox.Show("Inventory not implemented.");
         }
 
         private void OnOptionsClick(object sender)
         {
-            System.Diagnostics.Debug.WriteLine("Test Options Click");
+            this.mouseCursor.Location = new PointF(
+                this.mouseCursor.Location.X,
+                VerbBarHeight * this.scale.Y);
+            this.TextBox.Show("Options not implemented.");
         }
 
         private void SetCursor(CursorType cursorType)
