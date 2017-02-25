@@ -55,7 +55,11 @@ namespace LateStartStudio.Hero6
             Logger.Info("Hero6 Game Instance Created.");
         }
 
+#if !ANDROID
         public static ILogger Logger { get; } = new LogFourNet();
+#else
+        public static ILogger Logger { get; } = new DummyLogger();
+#endif
 
         public static string GraphicsApi
         {

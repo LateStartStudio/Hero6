@@ -18,6 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Game.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IXnaGameLoop.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserInterface\UserInterfaceHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\DummyLogger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\ILogger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\LogFourNet.cs" />
   </ItemGroup>
