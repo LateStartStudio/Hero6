@@ -14,6 +14,7 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
     using System;
     using AdventureGame.Engine;
     using AdventureGame.Engine.Graphics;
+    using AdventureGame.Game;
     using AdventureGame.UI;
     using EmptyKeys.UserInterface;
     using EmptyKeys.UserInterface.Input;
@@ -46,7 +47,10 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
             ServiceManager.Instance.AddService<ICursorService>(this.mouseCursor);
         }
 
-        protected override bool IsDialogVisible => this.rootViewModel.TextBox.IsVisible;
+        protected override bool IsDialogVisible
+        {
+            get { return this.rootViewModel.TextBox.IsVisible || this.rootViewModel.IsVerbBarVisible; }
+        }
 
         public override void Load()
         {
@@ -105,21 +109,53 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
             return UiEngine.Instance.AssetManager.LoadFont(this.Content.NativeContentManager, $"Fonts/{id}");
         }
 
-        private void OnMouseUp(object sender, MouseButtonEventArgs args)
+        private void OnMouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (!this.IsDialogVisible)
+            switch (e.ChangedButton)
             {
-                this.InvokeMouseButtonClick(
-                    this,
-                    new UserInteractionEventArgs(
-                        (int)(this.mouseCursor.Location.X / Scale.X),
-                        (int)(this.mouseCursor.Location.Y / Scale.Y),
-                        this.rootViewModel.Interaction));
-            }
-            else if (this.rootViewModel.TextBox.IsVisible)
-            {
-                this.rootViewModel.TextBox.Hide();
-                this.AdventureGameEngine.IsGamePaused = false;
+                case MouseButton.Left:
+                    if (!this.IsDialogVisible)
+                    {
+                        this.InvokeMouseButtonClick(
+                            this,
+                            new UserInteractionEventArgs(
+                                (int)(this.mouseCursor.Location.X / Scale.X),
+                                (int)(this.mouseCursor.Location.Y / Scale.Y),
+                                this.rootViewModel.Interaction));
+                    }
+                    else if (this.rootViewModel.TextBox.IsVisible)
+                    {
+                        this.rootViewModel.TextBox.Hide();
+                        this.AdventureGameEngine.IsGamePaused = false;
+                    }
+
+                    break;
+                case MouseButton.Middle:
+                    if (this.IsDialogVisible)
+                    {
+                        return;
+                    }
+
+                    this.rootViewModel.Interaction = Interaction.Move;
+                    break;
+                case MouseButton.Right:
+                    if (this.IsDialogVisible)
+                    {
+                        return;
+                    }
+
+                    if (this.rootViewModel.Interaction == Interaction.Mouth)
+                    {
+                        this.rootViewModel.Interaction = Interaction.Move;
+                    }
+                    else
+                    {
+                        this.rootViewModel.Interaction++;
+                    }
+
+                    break;
+                default:
+                    throw new NotSupportedException("Switch case reached somewhere unexpected.");
             }
         }
 
@@ -138,11 +174,6 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
 
         private void OnMouseLeaveVerbBar(object sender, MouseEventArgs args)
         {
-            if (this.IsDialogVisible)
-            {
-                return;
-            }
-
             this.mouseCursor.RestoreFromBackup();
             this.rootViewModel.IsVerbBarVisible = false;
             this.rootViewModel.IsTopBarVisible = true;

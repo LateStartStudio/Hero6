@@ -11,6 +11,7 @@
 
 namespace LateStartStudio.Hero6.UserInterface.SierraVga.ViewModel
 {
+    using System;
     using System.Collections.ObjectModel;
     using AdventureGame.Engine.Graphics;
     using AdventureGame.Game;
@@ -25,6 +26,7 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.ViewModel
         private readonly MouseCursor mouseCursor;
         private readonly Vector2 scale;
 
+        private Interaction interaction;
         private ObservableCollection<WindowViewModel> windows;
         private bool isVerbBarVisible;
         private bool isTopBarVisible;
@@ -56,7 +58,46 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.ViewModel
             this.Options = new RelayCommand(this.OnOptionsClick);
         }
 
-        public Interaction Interaction { get; private set; }
+        public Interaction Interaction
+        {
+            get
+            {
+                return this.interaction;
+            }
+
+            set
+            {
+                switch (value)
+                {
+                    case Interaction.Move:
+                        this.SetCursor(CursorType.Custom1);
+                        break;
+                    case Interaction.Eye:
+                        this.SetCursor(CursorType.Custom2);
+                        break;
+                    case Interaction.Hand:
+                        this.SetCursor(CursorType.Custom3);
+                        break;
+                    case Interaction.Mouth:
+                        this.SetCursor(CursorType.Custom4);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(
+                            nameof(value),
+                            value,
+                            $"Enum value {(int)value} is out or range in enum type {typeof(Interaction)}.");
+                }
+
+                if (this.mouseCursor.Location.Y < VerbBarHeight * this.scale.Y)
+                {
+                    this.mouseCursor.Location = new PointF(
+                        this.mouseCursor.Location.X,
+                        VerbBarHeight * this.scale.Y);
+                }
+
+                this.interaction = value;
+            }
+        }
 
         public TextBoxViewModel TextBox { get; }
 
@@ -98,25 +139,21 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.ViewModel
 
         private void OnWalkClick(object sender)
         {
-            this.OnVerbClick(sender, CursorType.Custom1);
             this.Interaction = Interaction.Move;
         }
 
         private void OnLookClick(object sender)
         {
-            this.OnVerbClick(sender, CursorType.Custom2);
             this.Interaction = Interaction.Eye;
         }
 
         private void OnHandClick(object sender)
         {
-            this.OnVerbClick(sender, CursorType.Custom3);
             this.Interaction = Interaction.Hand;
         }
 
         private void OnTalkClick(object sender)
         {
-            this.OnVerbClick(sender, CursorType.Custom4);
             this.Interaction = Interaction.Mouth;
         }
 
@@ -145,13 +182,10 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.ViewModel
             System.Diagnostics.Debug.WriteLine("Test Options Click");
         }
 
-        private void OnVerbClick(object sender, CursorType cursorType)
+        private void SetCursor(CursorType cursorType)
         {
             InputManager.Current.MouseDevice.CursorType = cursorType;
             this.mouseCursor.Backup = cursorType; // Force overwrite any backup here
-            this.mouseCursor.Location = new PointF(
-                this.mouseCursor.Location.X,
-                VerbBarHeight * this.scale.Y);
         }
     }
 }
