@@ -68,6 +68,12 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.ViewModel
                 this.Height = size.Height * rowCount;
             }
 
+            // Hack: FontManager.DefaultFont.MeasureString doesn't seem to measure all strings
+            // perfectly. Causing UI containers with line breaks to glitch out. So add another
+            // pixel to dimensions for safe measure.
+            this.Width++;
+            this.Height++;
+
             this.Text = input;
             this.IsVisible = true;
             this.OnShow?.Invoke(this, EventArgs.Empty);
