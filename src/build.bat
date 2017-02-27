@@ -5,14 +5,16 @@ SETLOCAL
 CLS
 
 REM Paket
-.paket\paket.bootstrapper.exe
-if errorlevel 1 (
-  exit /b %errorlevel%
+IF NOT EXIST ".paket\paket.exe" (
+  .paket\paket.bootstrapper.exe
+  IF errorlevel 1 (
+    EXIT /b %errorlevel%
+  )
 )
 
 .paket\paket.exe restore
-if errorlevel 1 (
-  exit /b %errorlevel%
+IF errorlevel 1 (
+  EXIT /b %errorlevel%
 )
 
 REM Run FAKE - Default
