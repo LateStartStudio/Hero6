@@ -18,13 +18,13 @@ namespace LateStartStudio.Hero6.Utilities
     /// </summary>
     public class DummyLogger : IDisposable, ILogger
     {
-        public void Dispose()
-        {
-        }
-
         public string Filename => "Dummy Logger";
 
         public bool WillDeleteLogOnDispose { get; set; }
+
+        public void Dispose()
+        {
+        }
 
         public void Debug(string message)
         {
