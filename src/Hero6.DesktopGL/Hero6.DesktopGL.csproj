@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LateStartStudio.Hero6</RootNamespace>
-    <AssemblyName>Hero6</AssemblyName>
+    <AssemblyName>Hero6.DesktopGL</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MonoGamePlatform>DesktopGL</MonoGamePlatform>
     <MonoGameContentBuilderExe Condition=" '$(OS)' != 'Windows_NT' And Exists ('/opt/monogame-pipeline/MGCB.exe') ">/opt/monogame-pipeline/MGCB.exe</MonoGameContentBuilderExe>

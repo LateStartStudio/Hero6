@@ -535,3 +535,15 @@
 /processorParam:TextureFormat=Color
 /build:Campaigns/Rites of Albion/Sprites/Items/Bent Sword.png
 
+#begin MUSIC1.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:MUSIC1.ogg
+
+#begin SOUND1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SOUND1.wav
+

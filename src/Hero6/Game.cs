@@ -15,7 +15,10 @@ namespace LateStartStudio.Hero6
     using Campaigns;
     using Engine;
     using Microsoft.Xna.Framework;
+    using Microsoft.Xna.Framework.Audio;
     using Microsoft.Xna.Framework.Graphics;
+    using Microsoft.Xna.Framework.Media;
+
     using UserInterface;
     using Utilities;
     using AdventureGameEngine = AdventureGame.Engine.Engine;
@@ -26,6 +29,10 @@ namespace LateStartStudio.Hero6
     public class Game : Microsoft.Xna.Framework.Game
     {
         private static readonly Vector2 NativeGameResolution = new Vector2(320, 240);
+
+        //private Song testSong;
+
+        private SoundEffect soundEffect;
 
         private AdventureGameEngine engine;
         private UserInterfaceHandler ui;
@@ -131,6 +138,8 @@ namespace LateStartStudio.Hero6
             base.Initialize();
         }
 
+        private bool firstLoad = false;
+
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
@@ -138,6 +147,9 @@ namespace LateStartStudio.Hero6
         protected override void LoadContent()
         {
             Logger.Info("Loading Hero6 game instance.");
+
+            //this.testSong = Content.Load<Song>("MUSIC1");
+            this.soundEffect = Content.Load<SoundEffect>("SOUND1");
 
             this.ui.Load();
             this.campaign.Load();
@@ -170,6 +182,15 @@ namespace LateStartStudio.Hero6
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            if (!firstLoad)
+            {
+                this.firstLoad = !firstLoad;
+
+                // Dump all audio at startup for testing purposes
+                //MediaPlayer.Play(this.testSong);
+                this.soundEffect.Play();
+            }
+
             this.ui.Update(gameTime);
             this.campaign.Update(gameTime);
 
