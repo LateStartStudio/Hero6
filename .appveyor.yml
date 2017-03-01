@@ -16,7 +16,7 @@ configuration:
 
 install:
   # MonoGame
-  - ps: (new-object net.webclient).DownloadFile('http://www.monogame.net/releases/v3.5.1/MonoGameSetup.exe', 'C:\MonoGameSetup.exe')
+  - ps: (new-object net.webclient).DownloadFile('http://www.monogame.net/releases/v3.6/MonoGameSetup.exe', 'C:\MonoGameSetup.exe')
   - ps: Invoke-Command -ScriptBlock {C:\MonoGameSetup.exe /S /v/qn}
 
   # Advanced Installer

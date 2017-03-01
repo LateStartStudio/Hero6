@@ -2,10 +2,6 @@
 #
 # git-lfs isn't included to Travis image files so we have to install it ourselves and pull
 # https://github.com/travis-ci/travis-ci/issues/3634
-#
-# MonoGame v3.5 doesn't work on Travis-CI, both on Linux and OS X because of a bug that breaks
-# compability with older versions of unix like systems
-# http://community.monogame.net/t/pipeline-tool-dllnotfoundexception/6852
 
 language: csharp
 
@@ -28,14 +24,13 @@ before_install:
       export PATH=$PATH:$HOME/bin/;
 
       # MonoGame
-      wget http://www.monogame.net/releases/v3.4/MonoGame.Linux.zip;
-      unzip ./MonoGame.Linux.zip;
+      wget http://www.monogame.net/releases/v3.6/monogame-sdk.run;
     else
       # git-lfs
       brew update && brew install git-lfs;
 
       # MonoGame
-      wget http://www.monogame.net/releases/v3.4/MonoGame.MacOS.pkg;
+      wget http://www.monogame.net/releases/v3.6/MonoGame.pkg;
     fi;
 
   - find * -type f -exec chmod 777 {} \;
@@ -44,10 +39,9 @@ install:
   - >
     if [[ "$TRAVIS_OS_NAME" == "linux" ]];
     then
-      sudo ./generate.sh;
-      yes y | sudo ./monogame-linux.run;
+      yes y | sudo ./monogame-sdk.run;
     else
-      sudo installer -allowUntrusted -verboseR -pkg ./MonoGame.MacOS.pkg -target /;
+      sudo installer -allowUntrusted -verboseR -pkg ./MonoGame.pkg -target /;
     fi;
 
   - git lfs install
