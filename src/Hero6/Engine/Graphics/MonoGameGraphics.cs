@@ -33,7 +33,7 @@ namespace LateStartStudio.Hero6.Engine.Graphics
             XnaTexture2D xnaTexture = texture.GetTexture as XnaTexture2D;
             XnaPoint xnaPoint = new XnaPoint(point.X, point.Y);
 
-            this.spriteBatch.Draw(xnaTexture, xnaPoint.ToVector2());
+            this.spriteBatch.Draw(xnaTexture, xnaPoint.ToVector2(), XnaColor.White);
         }
 
         public override void Draw(
