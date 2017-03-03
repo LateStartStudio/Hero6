@@ -21,12 +21,12 @@ let buildWindowsDXReleaseConfig = "WindowsDX Release"
 let buildAndroidDebugConfig = "Android Debug"
 let buildeAndroidReleasConfig = "Android Release"
 
-let buildDesktopGLDebugDir = "../bin/DesktopGL/Debug/"
-let buildDesktopGLReleaseDir = "../bin/DesktopGL/Release/"
-let buildWindowsDXDebugDir = "../bin/WindowsDX/Debug/"
-let buildWindowsDXReleaseDir = "../bin/WindowsDX/Release/"
-let buildAndroidDebugDir = "../bin/Android/Debug/"
-let buildAndroidReleaseDir = "../bin/Android/Release/"
+let buildDesktopGLDebugDir = "Hero6.DesktopGL/bin/Debug/"
+let buildDesktopGLReleaseDir = "Hero6.DesktopGL/bin/Release/"
+let buildWindowsDXDebugDir = "Hero6.WindowsDX/bin/Debug/"
+let buildWindowsDXReleaseDir = "Hero6.WindowsDX/bin/Release/"
+let buildAndroidDebugDir = "Hero6.Android/bin/Debug/"
+let buildAndroidReleaseDir = "Hero6.Android/bin/Release/"
 
 let solutionFile = if getOS = Windows then "./Hero6.Windows.sln" else "./Hero6.Linux.sln"
 
