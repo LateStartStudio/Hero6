@@ -72,34 +72,6 @@
     </MonoGameContentReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\docs\CHANGELOG.md">
-      <Link>CHANGELOG.md</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="..\..\docs\COPYRIGHT.md">
-      <Link>COPYRIGHT.md</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="..\..\docs\LICENSE.ASSETS.md">
-      <Link>LICENSE.ASSETS.md</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="..\..\docs\LICENSE.CODE.md">
-      <Link>LICENSE.CODE.md</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="..\..\docs\LICENSE.md">
-      <Link>LICENSE.md</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="..\..\docs\LICENSE.THIRDPARTY.md">
-      <Link>LICENSE.THIRDPARTY.md</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="..\..\README.md">
-      <Link>README.md</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="app.config" />
     <EmbeddedResource Include="CrashDialog.xeto">
       <SubType>Designer</SubType>
