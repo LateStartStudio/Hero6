@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Padding.cs" />
     <Compile Include="MouseCursor.cs" />
     <Compile Include="ViewModel\RootViewModel.cs" />
     <Compile Include="ViewModel\TextBoxViewModel.cs" />
