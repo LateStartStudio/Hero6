@@ -15,12 +15,14 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.ViewModel
     using AdventureGame.Engine.Graphics;
     using EmptyKeys.UserInterface;
     using EmptyKeys.UserInterface.Mvvm;
+    using Entities;
 
     public class TextBoxViewModel : WindowViewModel
     {
         private readonly int nativeWidth;
         private readonly int nativeHeight;
         private readonly Vector2 scale;
+        private readonly Padding padding;
 
         private string text;
 
@@ -32,6 +34,7 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.ViewModel
             this.Opacity = 1.0f;
             this.IsOnTop = true;
             this.Text = string.Empty;
+            this.padding = new Padding(1f);
         }
 
         public event EventHandler<EventArgs> OnShow;
@@ -49,30 +52,25 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.ViewModel
             Size size = FontManager.DefaultFont.MeasureString(input, 1, 1);
             int screenWidth = this.nativeWidth * (int)this.scale.X;
             int screenHeight = this.nativeHeight * (int)this.scale.Y;
-            int horizontalEmptySpace = screenWidth / 8;
-            int rowSize = screenWidth - (horizontalEmptySpace * 2);
-            int rowCount = (int)Math.Ceiling(size.Width / rowSize);
+            int screenColumnWidth = screenWidth / 8;
+            int displayAreaColumnWidth = screenWidth - (screenColumnWidth * 2);
+            int rowCount = (int)Math.Ceiling(size.Width / (displayAreaColumnWidth - padding.Left - padding.Right));
+
+            this.MinHeight = size.Height + padding.Top + padding.Bottom;
+            this.MinWidth = size.Width + padding.Left + padding.Right;
+            this.Height = size.Height * rowCount;
+            this.Top = (screenHeight - this.Height) / 2;
 
             if (rowCount == 1)
             {
                 this.Left = (screenWidth - size.Width) / 2;
-                this.Top = (screenHeight - size.Height) / 2;
                 this.Width = size.Width;
-                this.Height = size.Height;
             }
             else
             {
-                this.Left = horizontalEmptySpace;
-                this.Top = (screenHeight - size.Height) / 2;
-                this.Width = rowSize;
-                this.Height = size.Height * rowCount;
+                this.Left = screenColumnWidth;
+                this.Width = displayAreaColumnWidth;
             }
-
-            // Hack: FontManager.DefaultFont.MeasureString doesn't seem to measure all strings
-            // perfectly. Causing UI containers with line breaks to glitch out. So add another
-            // pixel to dimensions for safe measure.
-            this.Width++;
-            this.Height++;
 
             this.Text = input;
             this.IsVisible = true;
