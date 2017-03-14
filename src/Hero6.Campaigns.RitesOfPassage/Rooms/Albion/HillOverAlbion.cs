@@ -17,6 +17,7 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Rooms.Albion
     using AdventureGame.Game;
     using Characters;
     using Items;
+    using Locales;
 
     public sealed class HillOverAlbion : Room
     {
@@ -57,17 +58,17 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Rooms.Albion
 
         private void OnLookAlbionSign(object sender, EventArgs eventArgs)
         {
-            this.Display("This must be Albion.");
+            this.Display(Strings.AlbionSignLook);
         }
 
         private void OnGrabAlbionSign(object sender, EventArgs eventArgs)
         {
-            this.Display("You can't quite reach it.");
+            this.Display(Strings.AlbionSignGrab);
         }
 
         private void OnTalkAlbionSign(object sender, EventArgs eventArgs)
         {
-            this.Display("It talks as much as any other piece wood.");
+            this.Display(Strings.AlbionSignTalk);
         }
     }
 }

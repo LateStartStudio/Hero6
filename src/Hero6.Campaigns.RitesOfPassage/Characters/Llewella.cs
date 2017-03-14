@@ -16,6 +16,7 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Characters
     using AdventureGame.Game;
     using Animations;
     using InventoryItems;
+    using Locales;
 
     public sealed class Llewella : Character
     {
@@ -34,12 +35,12 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Characters
 
         private void OnGrab(object sender, EventArgs e)
         {
-            this.Display("No! Bad Hero!");
+            this.Display(Strings.LlewellaGrab);
         }
 
         private void OnLook(object sender, EventArgs e)
         {
-            this.Display("It's a lady.");
+            this.Display(Strings.LlewellaLook);
         }
 
         private void OnTalk(object sender, EventArgs e)
@@ -48,18 +49,18 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Characters
             {
                 if (Campaign.Player.HasInventory(Campaign.GetInventoryItem(BentSword.Name)))
                 {
-                    this.Display("You found my sword! Thank you so much!");
+                    this.Display(Strings.LlewellaTalk1);
                     Campaign.Player.RemoveInventory(Campaign.GetInventoryItem(BentSword.Name));
                     this.swordReturned = true;
                 }
                 else
                 {
-                    this.Display("I've lost my sword oh great hero!");
+                    this.Display(Strings.LlewellaTalk2);
                 }
             }
             else
             {
-                this.Display("You're my hero!");
+                this.Display(Strings.LlewellaTalk3);
             }
         }
     }
