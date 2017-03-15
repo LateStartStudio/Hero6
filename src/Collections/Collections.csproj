@@ -24,6 +24,7 @@
     <DocumentationFile>bin\Debug\Collections.XML</DocumentationFile>
     <LangVersion>6</LangVersion>
     <Prefer32Bit>false</Prefer32Bit>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
