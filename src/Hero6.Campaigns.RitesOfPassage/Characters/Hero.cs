@@ -15,6 +15,7 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Characters
     using AdventureGame;
     using AdventureGame.Game;
     using Animations;
+    using Locales;
 
     public sealed class Hero : Character
     {
@@ -31,17 +32,17 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Characters
 
         private void OnLook(object sender, EventArgs e)
         {
-            this.Display("Just another Player Character.");
+            this.Display(Strings.HeroLook);
         }
 
         private void OnGrab(object sender, EventArgs e)
         {
-            this.Display("Touching yourself isn't very hero-like.");
+            this.Display(Strings.HeroGrab);
         }
 
         private void OnTalk(object sender, EventArgs e)
         {
-            this.Display("Did the Hero or the pizza come first you wonder...");
+            this.Display(Strings.HeroTalk);
         }
     }
 }

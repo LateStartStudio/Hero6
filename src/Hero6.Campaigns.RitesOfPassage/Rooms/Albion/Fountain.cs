@@ -16,6 +16,7 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Rooms.Albion
     using AdventureGame.Engine.Graphics;
     using AdventureGame.Game;
     using Characters;
+    using Locales;
 
     public sealed class Fountain : Room
     {
@@ -40,24 +41,24 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Rooms.Albion
         {
             this.Hotspots[SouthExit].WhileStandingIn += this.OnWhileStandingInSouthExit;
 
-            this.Hotspots[FountainSpot].Look += this.OnLook;
-            this.Hotspots[FountainSpot].Grab += this.OnGrab;
-            this.Hotspots[FountainSpot].Talk += this.OnTalk;
+            this.Hotspots[FountainSpot].Look += this.OnLookFountain;
+            this.Hotspots[FountainSpot].Grab += this.OnGrabFountain;
+            this.Hotspots[FountainSpot].Talk += this.OnTalkFountain;
         }
 
-        private void OnLook(object sender, EventArgs eventArgs)
+        private void OnLookFountain(object sender, EventArgs eventArgs)
         {
-            this.Display("Looks like a fountain.");
+            this.Display(Strings.FountainLook);
         }
 
-        private void OnGrab(object sender, EventArgs eventArgs)
+        private void OnGrabFountain(object sender, EventArgs eventArgs)
         {
-            this.Display("Feels like a fountain.");
+            this.Display(Strings.FountainGrab);
         }
 
-        private void OnTalk(object sender, EventArgs eventArgs)
+        private void OnTalkFountain(object sender, EventArgs eventArgs)
         {
-            this.Display("Speaks like a fountain.");
+            this.Display(Strings.FountainTalk);
         }
 
         private void OnWhileStandingInSouthExit(object sender, HotspotWalkingEventArgs e)

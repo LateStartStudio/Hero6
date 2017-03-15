@@ -14,6 +14,7 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Items
     using System;
     using AdventureGame;
     using AdventureGame.Game;
+    using Locales;
 
     public class BentSword : Item
     {
@@ -29,20 +30,19 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Items
 
         private void OnLook(object sender, EventArgs e)
         {
-            this.Display("It looks like a sword.");
+            this.Display(Strings.BentSwordLook);
         }
 
         private void OnGrab(object sender, EventArgs e)
         {
             this.IsVisible = false;
-            this.Display("You remove the twisted sword from the ground and take it with you. Let's"
-                         + " hope your own sword does not end the same shape.");
+            this.Display(Strings.BentSwordGrab);
             Campaign.Player.AddInventory(Campaign.GetInventoryItem(InventoryItems.BentSword.Name));
         }
 
         private void OnTalk(object sender, EventArgs e)
         {
-            this.Display("Talking to swords are we?");
+            this.Display(Strings.BentSwordTalk);
         }
     }
 }
