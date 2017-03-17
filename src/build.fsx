@@ -30,8 +30,6 @@ let buildAndroidReleaseDir = "Hero6.Android/bin/Release/"
 
 let solutionFile = if getOS = Windows then "./Hero6.Windows.sln" else "./Hero6.Linux.sln"
 
-let isGpuAvailable = not (getEnvironmentVarAsBool "TRAVIS" || getEnvironmentVarAsBool "APPVEYOR")
-
 let build dir config =
     !! solutionFile
     |> MSBuild dir "Build"
@@ -47,12 +45,7 @@ let testFile dir file =
         ToolPath = "packages/NUnit.ConsoleRunner/tools/nunit3-console.exe"
     })
 
-let testBuild dir =
-    testFile dir "Collections.Tests.dll"
-    testFile dir "Search.Tests.dll"
-    testFile dir "AdventureGame.Tests.dll"
-    if isGpuAvailable then
-        testFile dir "Hero6.Tests.dll"
+let testBuild dir = testFile dir "*.Tests.dll"
 
 // Targets - Clean
 Target "Clean DesktopGL Debug" (fun _ ->

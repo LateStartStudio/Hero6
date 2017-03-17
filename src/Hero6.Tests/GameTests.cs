@@ -16,42 +16,5 @@ namespace LateStartStudio.Hero6.Tests
     [TestFixture]
     public class GameTests
     {
-        private Game game;
-
-        [SetUp]
-        public void Init()
-        {
-            this.game = new Game();
-            this.game.RunOneFrame();
-        }
-
-        [TearDown]
-        public void CleanUp()
-        {
-            if (this.game != null)
-            {
-                this.game.Dispose();
-            }
-
-            this.game = null;
-        }
-
-        [Test]
-        public void InitSuccessful()
-        {
-            Assert.Pass();
-        }
-
-        [Test]
-        public void GameIsNotNull()
-        {
-            Assert.IsNotNull(this.game);
-        }
-
-        [Test]
-        public void GraphicsDeviceIsNotNull()
-        {
-            Assert.IsNotNull(this.game.GraphicsDevice);
-        }
     }
 }
