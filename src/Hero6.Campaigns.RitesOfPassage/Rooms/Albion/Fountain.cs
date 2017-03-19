@@ -15,6 +15,7 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Rooms.Albion
     using AdventureGame;
     using AdventureGame.Engine.Graphics;
     using AdventureGame.Game;
+    using AdventureGame.Game.Regions;
     using Characters;
     using Locales;
 
@@ -22,8 +23,8 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Rooms.Albion
     {
         public const string Name = "Fountain";
 
-        private static readonly Color SouthExit = new Color(255, 255, 255, 255);
-        private static readonly Color FountainSpot = new Color(255, 0, 0, 255);
+        private static readonly Color HotspotSouthExit = new Color(255, 255, 255, 255);
+        private static readonly Color HotspotFountainSpot = new Color(255, 0, 0, 255);
 
         public Fountain(Campaign campaign)
             : base(
@@ -39,11 +40,11 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Rooms.Albion
 
         protected override void InitializeEvents()
         {
-            this.Hotspots[SouthExit].WhileStandingIn += this.OnWhileStandingInSouthExit;
+            this.Hotspots[HotspotSouthExit].WhileStandingIn += this.OnWhileStandingInSouthExit;
 
-            this.Hotspots[FountainSpot].Look += this.OnLookFountain;
-            this.Hotspots[FountainSpot].Grab += this.OnGrabFountain;
-            this.Hotspots[FountainSpot].Talk += this.OnTalkFountain;
+            this.Hotspots[HotspotFountainSpot].Look += this.OnLookFountain;
+            this.Hotspots[HotspotFountainSpot].Grab += this.OnGrabFountain;
+            this.Hotspots[HotspotFountainSpot].Talk += this.OnTalkFountain;
         }
 
         private void OnLookFountain(object sender, EventArgs eventArgs)

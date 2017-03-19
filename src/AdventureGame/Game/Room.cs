@@ -15,6 +15,7 @@ namespace LateStartStudio.AdventureGame.Game
     using System.Collections.Generic;
     using AdventureGame;
     using Engine.Graphics;
+    using Regions;
     using Search.Pathfinder;
 
     /// <summary>
@@ -94,13 +95,13 @@ namespace LateStartStudio.AdventureGame.Game
         public IDictionary<Color, Hotspot> Hotspots { get; }
 
         /// <inheritdoc />
-        public override sealed int Width => this.background.Width;
+        public sealed override int Width => this.background.Width;
 
         /// <inheritdoc />
-        public override sealed int Height => this.background.Height;
+        public sealed override int Height => this.background.Height;
 
         /// <inheritdoc />
-        public override sealed bool Interact(int x, int y, Interaction interaction)
+        public sealed override bool Interact(int x, int y, Interaction interaction)
         {
             if (interaction == Interaction.Move)
             {
@@ -146,7 +147,7 @@ namespace LateStartStudio.AdventureGame.Game
         }
 
         /// <inheritdoc />
-        public override sealed void Load()
+        public sealed override void Load()
         {
             this.background = this.Content.LoadTexture2D(this.backgroundID);
 
@@ -166,13 +167,13 @@ namespace LateStartStudio.AdventureGame.Game
         }
 
         /// <inheritdoc />
-        public override sealed void Unload()
+        public sealed override void Unload()
         {
             throw new NotImplementedException();
         }
 
         /// <inheritdoc />
-        public override sealed void Update(
+        public sealed override void Update(
             TimeSpan totalTime,
             TimeSpan elapsedTime,
             bool isRunningSlowly)
@@ -192,7 +193,7 @@ namespace LateStartStudio.AdventureGame.Game
         }
 
         /// <inheritdoc />
-        public override sealed void Draw(
+        public sealed override void Draw(
             TimeSpan totalTime,
             TimeSpan elapsedTime,
             bool isRunningSlowly)
@@ -202,9 +203,9 @@ namespace LateStartStudio.AdventureGame.Game
                 this.Campaign.Engine.Graphics.Draw(this.background, this.Location);
             }
 
-            foreach (Item pickUpItem in this.Items)
+            foreach (Item item in this.Items)
             {
-                pickUpItem.Draw(totalTime, elapsedTime, isRunningSlowly);
+                item.Draw(totalTime, elapsedTime, isRunningSlowly);
             }
 
             foreach (Character character in this.Characters)
