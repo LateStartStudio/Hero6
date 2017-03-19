@@ -24,8 +24,8 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Rooms.Albion
     {
         public const string Name = "Hill Over Albion";
 
-        private static readonly Color NorthExit = new Color(255, 255, 255, 255);
-        private static readonly Color AlbionSign = new Color(255, 0, 0, 255);
+        private static readonly Color HotspotNorthExit = new Color(255, 255, 255, 255);
+        private static readonly Color HotspotAlbionSign = new Color(255, 0, 0, 255);
 
         public HillOverAlbion(Campaign campaign)
             : base(
@@ -45,11 +45,11 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Rooms.Albion
 
         protected override void InitializeEvents()
         {
-            this.Hotspots[NorthExit].WhileStandingIn += this.OnWhileStandingInNorthExit;
+            this.Hotspots[HotspotNorthExit].WhileStandingIn += this.OnWhileStandingInNorthExit;
 
-            this.Hotspots[AlbionSign].Look += this.OnLookAlbionSign;
-            this.Hotspots[AlbionSign].Grab += this.OnGrabAlbionSign;
-            this.Hotspots[AlbionSign].Talk += this.OnTalkAlbionSign;
+            this.Hotspots[HotspotAlbionSign].Look += this.OnLookAlbionSign;
+            this.Hotspots[HotspotAlbionSign].Grab += this.OnGrabAlbionSign;
+            this.Hotspots[HotspotAlbionSign].Talk += this.OnTalkAlbionSign;
         }
 
         private void OnWhileStandingInNorthExit(object sender, HotspotWalkingEventArgs e)
