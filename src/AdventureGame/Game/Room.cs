@@ -15,6 +15,7 @@ namespace LateStartStudio.AdventureGame.Game
     using System.Collections.Generic;
     using AdventureGame;
     using Engine.Graphics;
+    using Regions;
     using Search.Pathfinder;
 
     /// <summary>

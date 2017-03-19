@@ -53,8 +53,8 @@
     <Compile Include="Game\AdventureGameElement.cs" />
     <Compile Include="Game\Character.cs" />
     <Compile Include="Game\CharacterAnimation.cs" />
-    <Compile Include="Game\Hotspot.cs" />
-    <Compile Include="Game\HotspotWalkingEventArgs.cs" />
+    <Compile Include="Game\Regions\Hotspot.cs" />
+    <Compile Include="Game\Regions\HotspotWalkingEventArgs.cs" />
     <Compile Include="Game\IGameLoop.cs" />
     <Compile Include="Game\Interaction.cs" />
     <Compile Include="Game\InventoryItem.cs" />
