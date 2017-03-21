@@ -21,7 +21,7 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Rooms.Albion
 
     public sealed class Fountain : Room
     {
-        public const string Name = "Fountain";
+        public const string Id = "Fountain";
 
         private static readonly Color HotspotSouthExit = new Color(255, 255, 255, 255);
         private static readonly Color HotspotFountainSpot = new Color(255, 0, 0, 255);
@@ -33,7 +33,7 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Rooms.Albion
                   "Campaigns/Rites of Albion/Rooms/Albion/Fountain/Walk Area",
                   "Campaigns/Rites of Albion/Rooms/Albion/Fountain/Hotspots")
         {
-            Character llewella = Campaign.GetCharacter(Llewella.Name);
+            Character llewella = Campaign.GetCharacter(Llewella.Id);
             llewella.Location = new Point(200, 150);
             this.Characters.Add(llewella);
         }
@@ -64,7 +64,7 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Rooms.Albion
 
         private void OnWhileStandingInSouthExit(object sender, HotspotWalkingEventArgs e)
         {
-            e.Character.ChangeRoom(HillOverAlbion.Name, 220, 190);
+            e.Character.ChangeRoom(HillOverAlbion.Id, 220, 190);
         }
     }
 }

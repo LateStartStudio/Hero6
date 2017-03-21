@@ -19,7 +19,7 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Characters
 
     public sealed class Hero : Character
     {
-        public const string Name = "Hero";
+        public const string Id = "Hero";
 
         public Hero(Campaign campaign) : base(campaign)
         {

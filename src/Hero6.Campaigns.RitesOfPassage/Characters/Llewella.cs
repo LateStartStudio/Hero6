@@ -20,7 +20,7 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Characters
 
     public sealed class Llewella : Character
     {
-        public const string Name = "Llewella";
+        public const string Id = "Llewella";
 
         private bool swordReturned;
 
@@ -47,10 +47,10 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Characters
         {
             if (!this.swordReturned)
             {
-                if (Campaign.Player.HasInventory(Campaign.GetInventoryItem(BentSword.Name)))
+                if (Campaign.Player.HasInventory(Campaign.GetInventoryItem(BentSword.Id)))
                 {
                     this.Display(Strings.LlewellaTalk1);
-                    Campaign.Player.RemoveInventory(Campaign.GetInventoryItem(BentSword.Name));
+                    Campaign.Player.RemoveInventory(Campaign.GetInventoryItem(BentSword.Id));
                     this.swordReturned = true;
                 }
                 else

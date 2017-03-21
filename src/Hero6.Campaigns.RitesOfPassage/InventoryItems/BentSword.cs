@@ -16,7 +16,7 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.InventoryItems
 
     public sealed class BentSword : InventoryItem
     {
-        public const string Name = "Bent Sword";
+        public const string Id = "Bent Sword";
 
         public BentSword(Campaign campaign)
             : base(campaign, "Campaigns/Rites of Albion/Sprites/Items/Bent Sword")

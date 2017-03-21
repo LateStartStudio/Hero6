@@ -28,30 +28,30 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage
             this.AddInventoryItems();
             this.AddRooms();
 
-            this.CurrentRoom = this.GetRoom(HillOverAlbion.Name);
-            this.Player = this.GetCharacter(Hero.Name);
+            this.CurrentRoom = this.GetRoom(HillOverAlbion.Id);
+            this.Player = this.GetCharacter(Hero.Id);
         }
 
         private void AddCharacters()
         {
-            this.AddCharacter(Hero.Name, new Hero(this));
-            this.AddCharacter(Llewella.Name, new Llewella(this));
+            this.AddCharacter(Hero.Id, new Hero(this));
+            this.AddCharacter(Llewella.Id, new Llewella(this));
         }
 
         private void AddItems()
         {
-            this.AddItem(BentSword.Name, new BentSword(this));
+            this.AddItem(BentSword.Id, new BentSword(this));
         }
 
         private void AddInventoryItems()
         {
-            this.AddInventoryItem(InventoryItems.BentSword.Name, new InventoryItems.BentSword(this));
+            this.AddInventoryItem(InventoryItems.BentSword.Id, new InventoryItems.BentSword(this));
         }
 
         private void AddRooms()
         {
-            this.AddRoom(Fountain.Name, new Fountain(this));
-            this.AddRoom(HillOverAlbion.Name, new HillOverAlbion(this));
+            this.AddRoom(Fountain.Id, new Fountain(this));
+            this.AddRoom(HillOverAlbion.Id, new HillOverAlbion(this));
         }
     }
 }
