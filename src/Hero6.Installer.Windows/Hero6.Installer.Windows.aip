@@ -126,6 +126,7 @@
     <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="AdventureGame.Logger.config" Component_="Hero6.exe.config" FileName="ADVENT~1.CON|AdventureGame.Logger.config" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\AdventureGame.Logger.config" SelfReg="false"/>
     <ROW File="AdventureGame.dll" Component_="AdventureGame.dll" FileName="ADVENT~1.DLL|AdventureGame.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\AdventureGame.dll" SelfReg="false" NextFile="Collections.dll"/>
     <ROW File="AdventureGame.xml" Component_="Hero6.exe.config" FileName="ADVENT~1.XML|AdventureGame.xml" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\AdventureGame.xml" SelfReg="false" NextFile="Collections.xml"/>
     <ROW File="Arial_11.25_Regular.xnb" Component_="Arial_11.25_Regular.xnb" FileName="ARIAL_~1.XNB|Arial_11.25_Regular.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Fonts\Arial_11.25_Regular.xnb" SelfReg="false" NextFile="HeroWalkCenterDown.xnb"/>
@@ -190,7 +191,7 @@
     <ROW File="PriorityQueue.xml" Component_="Hero6.exe.config" FileName="PRIORI~1.XML|Priority Queue.xml" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Priority Queue.xml" SelfReg="false" NextFile="Search.xml"/>
     <ROW File="README.md" Component_="CHANGELOG.md" FileName="README.md" Attributes="0" SourcePath="..\..\README.md" SelfReg="false" NextFile="Fountain.xnb"/>
     <ROW File="Search.dll" Component_="Search.dll" FileName="Search.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Search.dll" SelfReg="false" NextFile="SharpDX.Direct2D1.dll"/>
-    <ROW File="Search.xml" Component_="Hero6.exe.config" FileName="Search.xml" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Search.xml" SelfReg="false"/>
+    <ROW File="Search.xml" Component_="Hero6.exe.config" FileName="Search.xml" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Search.xml" SelfReg="false" NextFile="AdventureGame.Logger.config"/>
     <ROW File="SharpDX.DXGI.dll" Component_="SharpDX.DXGI.dll" FileName="SHARPD~6.DLL|SharpDX.DXGI.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\SharpDX.DXGI.dll" SelfReg="false" NextFile="SharpDX.MediaFoundation.dll"/>
     <ROW File="SharpDX.Direct2D1.dll" Component_="SharpDX.Direct2D1.dll" FileName="SHARPD~3.DLL|SharpDX.Direct2D1.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\SharpDX.Direct2D1.dll" SelfReg="false" NextFile="SharpDX.Direct3D9.dll"/>
     <ROW File="SharpDX.Direct3D11.dll" Component_="SharpDX.Direct3D11.dll" FileName="SHARPD~7.DLL|SharpDX.Direct3D11.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\SharpDX.Direct3D11.dll" SelfReg="false" NextFile="SharpDX.dll"/>
