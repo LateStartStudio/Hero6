@@ -40,6 +40,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.DesktopGL.Tests", "He
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GUIs", "GUIs", "{863F4FF3-CB11-4C12-B99F-AA8CB0D9787D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureGame.Tests", "AdventureGame.Tests\AdventureGame.Tests.csproj", "{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Hero6.Tests\Hero6.Tests.projitems*{104b4caf-4818-45dc-a772-2f5279c73e5a}*SharedItemsImports = 4
@@ -127,6 +129,14 @@ Global
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Release|x86.ActiveCfg = Release|Any CPU
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Release|x86.Build.0 = Release|Any CPU
+		{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA}.Debug|x86.Build.0 = Debug|Any CPU
+		{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA}.Release|x86.ActiveCfg = Release|Any CPU
+		{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -143,6 +153,7 @@ Global
 		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329} = {863F4FF3-CB11-4C12-B99F-AA8CB0D9787D}
 		{B59E1A53-68B3-4D31-8B69-CEFC3D5CEBB4} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
+		{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
