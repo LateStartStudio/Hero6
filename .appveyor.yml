@@ -36,3 +36,4 @@ test:
   assemblies:
     - Collections.Tests.dll
     - Search.Tests.dll
+    - AdventureGame.Tests.dll

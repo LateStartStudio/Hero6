@@ -50,6 +50,7 @@ let testFile dir file =
 let testBuild dir =
     testFile dir "Collections.Tests.dll"
     testFile dir "Search.Tests.dll"
+    testFile dir "AdventureGame.Tests.dll"
     if isGpuAvailable then
         testFile dir "Hero6.Tests.dll"
 
