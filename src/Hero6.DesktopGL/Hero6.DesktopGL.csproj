@@ -42,6 +42,11 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Content Include="BehaviorsLicense.txt">
       <Paket>True</Paket>
     </Content>
@@ -73,11 +78,15 @@
     </MonoGameContentReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <EmbeddedResource Include="CrashDialog.xeto">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <None Include="App.config" />
     <None Include="paket.references" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AdventureGame\AdventureGame.csproj">

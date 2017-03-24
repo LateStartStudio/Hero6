@@ -53,12 +53,23 @@
     <Content Include="shaders\DirectionalBlurShader.fx">
       <Paket>True</Paket>
     </Content>
+    <Compile Include="..\Hero6.DesktopGL\Properties\Settings.Designer.cs">
+      <Link>Properties\Settings.Designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="..\..\assets\Hero6.Content.mgcb">
       <Link>Content\Hero6.Content.mgcb</Link>
     </MonoGameContentReference>
+    <None Include="..\Hero6.DesktopGL\Properties\Settings.settings">
+      <Link>Properties\Settings.settings</Link>
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>

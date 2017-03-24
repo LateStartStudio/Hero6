@@ -21,5 +21,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\DummyLogger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\ILogger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\LogFourNet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\Settings\UserSettings.Desktop.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\Settings\UserSettings.Android.cs" />
   </ItemGroup>
 </Project>
