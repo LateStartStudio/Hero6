@@ -9,7 +9,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.Collections.Tests.Generic
+namespace LateStartStudio.Collections.Generic
 {
     using Priority_Queue;
 

@@ -9,10 +9,9 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.Collections.Tests.Generic
+namespace LateStartStudio.Collections.Generic
 {
     using System.Collections;
-    using Collections.Generic;
     using NUnit.Framework;
 
     public abstract class PriorityQueueTests

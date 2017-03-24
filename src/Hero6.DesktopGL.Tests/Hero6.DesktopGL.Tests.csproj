@@ -6,7 +6,7 @@
     <ProjectGuid>{104B4CAF-4818-45DC-A772-2F5279C73E5A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LateStartStudio.Hero6.Tests</RootNamespace>
+    <RootNamespace>LateStartStudio.Hero6</RootNamespace>
     <AssemblyName>Hero6.Tests</AssemblyName>
     <MonoGamePlatform>DesktopGL</MonoGamePlatform>
     <MonoGameContentBuilderExe Condition=" '$(OS)' != 'Windows_NT' And Exists ('/opt/monogame-pipeline/MGCB.exe') ">/opt/monogame-pipeline/MGCB.exe</MonoGameContentBuilderExe>

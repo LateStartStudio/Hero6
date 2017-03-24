@@ -7,7 +7,7 @@
     <ProjectGuid>{C42A8C34-3145-41B2-B16A-D93D796DB437}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LateStartStudio.Hero6.Tests</RootNamespace>
+    <RootNamespace>LateStartStudio.Hero6</RootNamespace>
     <AssemblyName>Hero6.Tests</AssemblyName>
     <MonoGamePlatform>Windows</MonoGamePlatform>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
