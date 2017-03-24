@@ -17,6 +17,11 @@ charset = utf-8
 indent_style = space
 indent_size = 4
 
+# C/C++ code files
+[*.{h*,c*}]
+indent_style = tab
+indent_size = 1
+
 # F# script files
 [*.fsx]
 indent_style = space
