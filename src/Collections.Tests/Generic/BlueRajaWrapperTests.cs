@@ -9,9 +9,8 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.Collections.Tests.Generic
+namespace LateStartStudio.Collections.Generic
 {
-    using Collections.Generic;
     using NUnit.Framework;
 
     [TestFixture]

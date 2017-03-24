@@ -9,10 +9,9 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.Search.Tests.Pathfinder
+namespace LateStartStudio.Search.Pathfinder
 {
     using NUnit.Framework;
-    using Search.Pathfinder;
 
     [TestFixture]
     public class AStarTests : PathfinderTests

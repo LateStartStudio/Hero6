@@ -9,12 +9,11 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.Search.Tests.Pathfinder
+namespace LateStartStudio.Search.Pathfinder
 {
     using System;
     using System.Collections.Generic;
     using NUnit.Framework;
-    using Search.Pathfinder;
 
     [TestFixture]
     public abstract class PathfinderTests

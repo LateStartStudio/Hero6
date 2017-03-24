@@ -9,7 +9,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.Hero6.Tests
+namespace LateStartStudio.Hero6
 {
     using NUnit.Framework;
 

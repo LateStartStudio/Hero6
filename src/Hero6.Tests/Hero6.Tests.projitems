@@ -6,7 +6,7 @@
     <SharedGUID>b59e1a53-68b3-4d31-8b69-cefc3d5cebb4</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>LateStartStudio.Hero6.Tests</Import_RootNamespace>
+    <Import_RootNamespace>LateStartStudio.Hero6</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)GameTests.cs" />

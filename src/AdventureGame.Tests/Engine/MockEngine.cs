@@ -9,10 +9,9 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.AdventureGame.Tests.Engine
+namespace LateStartStudio.AdventureGame.Engine
 {
-    using AdventureGame.Engine;
-    using AdventureGame.Engine.Graphics;
+    using Graphics;
 
     public class MockEngine : Engine
     {

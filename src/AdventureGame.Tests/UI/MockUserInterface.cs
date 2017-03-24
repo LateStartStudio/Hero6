@@ -9,12 +9,11 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.AdventureGame.Tests.UI
+namespace LateStartStudio.AdventureGame.UI
 {
     using System;
-    using AdventureGame.Engine;
-    using AdventureGame.Engine.Graphics;
-    using AdventureGame.UI;
+    using Engine;
+    using Engine.Graphics;
 
     public class MockUserInterface : UserInterface
     {
