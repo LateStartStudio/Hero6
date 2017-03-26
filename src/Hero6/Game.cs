@@ -12,12 +12,14 @@
 namespace LateStartStudio.Hero6
 {
     using System;
+    using AdventureGame.Utilities;
     using Campaigns;
     using Engine;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using UserInterface;
     using Utilities;
+    using Utilities.Settings;
     using AdventureGameEngine = AdventureGame.Engine.Engine;
 
     /// <summary>
@@ -34,17 +36,22 @@ namespace LateStartStudio.Hero6
         private SpriteBatch spriteBatch;
         private Matrix scale;
 
+        static Game()
+        {
+            Util.UserSettings = new UserSettings();
+        }
+
         public Game()
         {
             Logger.Info("Creating Hero6 Game Instance.");
 
             this.graphics = new GraphicsDeviceManager(this)
             {
-                PreferredBackBufferWidth = (int)NativeGameResolution.X * 3,
-                PreferredBackBufferHeight = (int)NativeGameResolution.Y * 3,
+                PreferredBackBufferWidth = Util.UserSettings.WindowWidth,
+                PreferredBackBufferHeight = Util.UserSettings.WindowHeight,
+                IsFullScreen = Util.UserSettings.IsFullScreen,
                 GraphicsProfile = GraphicsProfile.Reach,
 #if ANDROID
-                IsFullScreen = true,
                 SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight
 #endif
             };
