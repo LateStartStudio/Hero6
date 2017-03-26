@@ -4,6 +4,5 @@ Eto.Platform.Gtk
 Eto.Platform.Gtk3
 Eto.Platform.Wpf
 Eto.Serialization.Xaml
-log4net
 MonoGame.Framework.DesktopGL
 Portable.Xaml

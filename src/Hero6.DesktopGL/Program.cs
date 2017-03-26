@@ -12,7 +12,7 @@
 namespace LateStartStudio.Hero6
 {
     using System;
-    using System.Diagnostics;
+    using AdventureGame.Utilities;
     using Eto;
     using Eto.Forms;
 
@@ -42,8 +42,8 @@ namespace LateStartStudio.Hero6
             }
             catch (Exception e)
             {
-                Game.Logger.Fatal("Hero6 has crashed, logging stack strace.", e);
-                Game.Logger.WillDeleteLogOnDispose = false;
+                Util.Logger.Fatal("Hero6 has crashed, logging stack strace.", e);
+                Util.Logger.WillDeleteLogOnDispose = false;
 
                 new Application(Platform.Detect).Run(new CrashDialog(e));
             }

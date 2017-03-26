@@ -12,13 +12,15 @@
 namespace LateStartStudio.Hero6
 {
     using System;
+    using System.IO;
+    using System.Reflection;
     using AdventureGame.Utilities;
+    using AdventureGame.Utilities.Logger;
     using Campaigns;
     using Engine;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using UserInterface;
-    using Utilities;
     using Utilities.Settings;
     using AdventureGameEngine = AdventureGame.Engine.Engine;
 
@@ -38,12 +40,18 @@ namespace LateStartStudio.Hero6
 
         static Game()
         {
+            Util.Logger = new LogFourNet(LogFileName);
+            Util.Logger.Info($"Hero6 {GraphicsApi} v{Assembly.GetExecutingAssembly().GetName().Version} Log");
+            Util.Logger.Info("Forums: http://www.hero6.org/forum/");
+            Util.Logger.Info("Bug Tracker: https://github.com/LateStartStudio/Hero6/issues");
+            Util.Logger.Info("E-mail: hero6lives@gmail.com");
+
             Util.UserSettings = new UserSettings();
         }
 
         public Game()
         {
-            Logger.Info("Creating Hero6 Game Instance.");
+            Util.Logger.Info("Creating Hero6 Game Instance.");
 
             this.graphics = new GraphicsDeviceManager(this)
             {
@@ -59,14 +67,26 @@ namespace LateStartStudio.Hero6
 
             Content.RootDirectory = "Content";
 
-            Logger.Info("Hero6 Game Instance Created.");
+            Util.Logger.Info("Hero6 Game Instance Created.");
         }
 
-#if !ANDROID
-        public static ILogger Logger { get; } = new LogFourNet();
-#else
-        public static ILogger Logger { get; } = new DummyLogger();
-#endif
+        public static string UserFilesDir => string.Format(
+            "{0}{1}Hero6{1}",
+            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+            Path.DirectorySeparatorChar);
+
+        public static string LogFilesDir => $"{UserFilesDir}Logs{Path.DirectorySeparatorChar}";
+
+        public static string LogFileName
+        {
+            get
+            {
+                DateTime date = DateTime.Now;
+                string filename = $"Hero6-Log-{date.Day}-{date.Month}-{date.Year}-{date.Hour}-{date.Minute}-{date.Second}.txt";
+
+                return $"{LogFilesDir}{filename}";
+            }
+        }
 
         public static string GraphicsApi
         {
@@ -110,7 +130,7 @@ namespace LateStartStudio.Hero6
         /// </summary>
         protected override void Initialize()
         {
-            Logger.Info("Initializing Hero6 game instance.");
+            Util.Logger.Info("Initializing Hero6 game instance.");
 
             Window.Title = "Hero6";
 
@@ -133,7 +153,7 @@ namespace LateStartStudio.Hero6
             this.ui.Initialize();
             this.campaign.Initialize();
 
-            Logger.Info("Hero6 game instance initialized.");
+            Util.Logger.Info("Hero6 game instance initialized.");
 
             base.Initialize();
         }
@@ -144,12 +164,12 @@ namespace LateStartStudio.Hero6
         /// </summary>
         protected override void LoadContent()
         {
-            Logger.Info("Loading Hero6 game instance.");
+            Util.Logger.Info("Loading Hero6 game instance.");
 
             this.ui.Load();
             this.campaign.Load();
 
-            Logger.Info("Hero6 game instance loaded.");
+            Util.Logger.Info("Hero6 game instance loaded.");
         }
 
         /// <summary>
@@ -158,14 +178,14 @@ namespace LateStartStudio.Hero6
         /// </summary>
         protected override void UnloadContent()
         {
-            Logger.Info("Unloading Hero6 game instance.");
+            Util.Logger.Info("Unloading Hero6 game instance.");
 
             Content.Unload();
 
             this.ui.Unload();
             this.campaign.Unload();
 
-            Logger.Info("Hero6 game instance unloaded.");
+            Util.Logger.Info("Hero6 game instance unloaded.");
 
             base.UnloadContent();
         }
@@ -221,10 +241,10 @@ namespace LateStartStudio.Hero6
 
         private void GraphicsOnDeviceCreated(object sender, EventArgs eventArgs)
         {
-            Logger.Info("Graphics Device Created.");
-            Logger.Info($"Graphics Adapter Width {GraphicsDevice.Adapter.CurrentDisplayMode.Width}");
-            Logger.Info($"Graphics Adapter Height {GraphicsDevice.Adapter.CurrentDisplayMode.Height}");
-            Logger.Info($"Graphics Adapter Aspect Ratio {GraphicsDevice.Adapter.CurrentDisplayMode.AspectRatio}");
+            Util.Logger.Info("Graphics Device Created.");
+            Util.Logger.Info($"Graphics Adapter Width {GraphicsDevice.Adapter.CurrentDisplayMode.Width}");
+            Util.Logger.Info($"Graphics Adapter Height {GraphicsDevice.Adapter.CurrentDisplayMode.Height}");
+            Util.Logger.Info($"Graphics Adapter Aspect Ratio {GraphicsDevice.Adapter.CurrentDisplayMode.AspectRatio}");
         }
     }
 }

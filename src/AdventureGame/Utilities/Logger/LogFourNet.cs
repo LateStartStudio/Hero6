@@ -9,53 +9,50 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-#if !ANDROID
-namespace LateStartStudio.Hero6.Utilities
+namespace LateStartStudio.AdventureGame.Utilities.Logger
 {
     using System;
     using System.IO;
-    using System.Reflection;
     using log4net;
 
+    /// <summary>
+    /// The LogFourNet class, wrapper around the popular framework log4net.
+    /// </summary>
     public class LogFourNet : IDisposable, ILogger
     {
         private readonly ILog log;
 
-        public LogFourNet()
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LogFourNet"/> class.
+        /// </summary>
+        /// <param name="filename">The filename the log will be stored to.</param>
+        public LogFourNet(string filename)
         {
-            string dir = string.Format(
-                "{0}{1}Hero6{1}Logs{1}",
-                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-                Path.DirectorySeparatorChar);
-
-            string filename = $"Hero6-Log-{DateTime.Now}.txt";
-            filename = filename.Replace(" ", "-");
-            filename = filename.Replace(":", "-");
-            filename = filename.Replace("/", "-");
-
-            this.Filename = $"{dir}{filename}";
-
+            this.Filename = filename;
             this.WillDeleteLogOnDispose = true;
-
-            GlobalContext.Properties["LogName"] = this.Filename;
-
             this.log = LogManager.GetLogger(typeof(LogFourNet).Name);
-
-            this.Info($"Hero6 {Game.GraphicsApi} v{Assembly.GetExecutingAssembly().GetName().Version} Log");
-            this.Info("Forums: http://www.hero6.org/forum/");
-            this.Info("Bug Tracker: https://github.com/LateStartStudio/Hero6/issues");
-            this.Info("E-mail: hero6lives@gmail.com");
         }
 
+        /// <summary>
+        /// Finalizes an instance of the <see cref="LogFourNet"/> class. Calls
+        /// IDisposable.Dispose().
+        /// </summary>
         ~LogFourNet()
         {
             this.Dispose();
         }
 
-        public string Filename { get; }
+        /// <inheritdoc />
+        public string Filename
+        {
+            get { return (string)GlobalContext.Properties["LogName"]; }
+            private set { GlobalContext.Properties["LogName"] = value; }
+        }
 
+        /// <inheritdoc />
         public bool WillDeleteLogOnDispose { get; set; }
 
+        /// <inheritdoc />
         public void Dispose()
         {
             if (this.WillDeleteLogOnDispose)
@@ -64,6 +61,7 @@ namespace LateStartStudio.Hero6.Utilities
             }
         }
 
+        /// <inheritdoc />
         public void Debug(string message)
         {
             if (this.log.IsDebugEnabled)
@@ -72,6 +70,7 @@ namespace LateStartStudio.Hero6.Utilities
             }
         }
 
+        /// <inheritdoc />
         public void Debug(string message, Exception e)
         {
             if (this.log.IsDebugEnabled)
@@ -80,6 +79,7 @@ namespace LateStartStudio.Hero6.Utilities
             }
         }
 
+        /// <inheritdoc />
         public void Info(string message)
         {
             if (this.log.IsInfoEnabled)
@@ -88,6 +88,7 @@ namespace LateStartStudio.Hero6.Utilities
             }
         }
 
+        /// <inheritdoc />
         public void Info(string message, Exception e)
         {
             if (this.log.IsInfoEnabled)
@@ -96,6 +97,7 @@ namespace LateStartStudio.Hero6.Utilities
             }
         }
 
+        /// <inheritdoc />
         public void Warning(string message)
         {
             if (this.log.IsWarnEnabled)
@@ -104,6 +106,7 @@ namespace LateStartStudio.Hero6.Utilities
             }
         }
 
+        /// <inheritdoc />
         public void Warning(string message, Exception e)
         {
             if (this.log.IsWarnEnabled)
@@ -112,6 +115,7 @@ namespace LateStartStudio.Hero6.Utilities
             }
         }
 
+        /// <inheritdoc />
         public void Error(string message)
         {
             if (this.log.IsErrorEnabled)
@@ -120,6 +124,7 @@ namespace LateStartStudio.Hero6.Utilities
             }
         }
 
+        /// <inheritdoc />
         public void Error(string message, Exception e)
         {
             if (this.log.IsErrorEnabled)
@@ -128,6 +133,7 @@ namespace LateStartStudio.Hero6.Utilities
             }
         }
 
+        /// <inheritdoc />
         public void Fatal(string message)
         {
             if (this.log.IsFatalEnabled)
@@ -136,6 +142,7 @@ namespace LateStartStudio.Hero6.Utilities
             }
         }
 
+        /// <inheritdoc />
         public void Fatal(string message, Exception e)
         {
             if (this.log.IsFatalEnabled)
@@ -145,4 +152,3 @@ namespace LateStartStudio.Hero6.Utilities
         }
     }
 }
-#endif
