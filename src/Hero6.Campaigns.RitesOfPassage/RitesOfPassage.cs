@@ -13,6 +13,7 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage
 {
     using AdventureGame;
     using AdventureGame.Engine;
+    using AdventureGame.Game;
     using AdventureGame.UI;
     using Characters;
     using Items;
@@ -21,37 +22,37 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage
     public sealed class RitesOfPassage : Campaign
     {
         public RitesOfPassage(Engine engine, ContentManager content, UserInterface userInterface)
-            : base("Rites of Passage", engine, content, userInterface)
+            : base("Rites of Passage", 100, engine, content, userInterface)
         {
             this.AddCharacters();
             this.AddItems();
             this.AddInventoryItems();
             this.AddRooms();
 
-            this.CurrentRoom = this.GetRoom(HillOverAlbion.Name);
-            this.Player = this.GetCharacter(Hero.Name);
+            this.CurrentRoom = this.GetRoom(HillOverAlbion.Id);
+            this.Player = (PlayerCharacter)this.GetCharacter(Hero.Id);
         }
 
         private void AddCharacters()
         {
-            this.AddCharacter(Hero.Name, new Hero(this));
-            this.AddCharacter(Llewella.Name, new Llewella(this));
+            this.AddCharacter(Hero.Id, new Hero(this));
+            this.AddCharacter(Llewella.Id, new Llewella(this));
         }
 
         private void AddItems()
         {
-            this.AddItem(BentSword.Name, new BentSword(this));
+            this.AddItem(BentSword.Id, new BentSword(this));
         }
 
         private void AddInventoryItems()
         {
-            this.AddInventoryItem(InventoryItems.BentSword.Name, new InventoryItems.BentSword(this));
+            this.AddInventoryItem(InventoryItems.BentSword.Id, new InventoryItems.BentSword(this));
         }
 
         private void AddRooms()
         {
-            this.AddRoom(Fountain.Name, new Fountain(this));
-            this.AddRoom(HillOverAlbion.Name, new HillOverAlbion(this));
+            this.AddRoom(Fountain.Id, new Fountain(this));
+            this.AddRoom(HillOverAlbion.Id, new HillOverAlbion(this));
         }
     }
 }

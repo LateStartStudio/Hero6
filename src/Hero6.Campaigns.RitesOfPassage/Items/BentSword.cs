@@ -18,7 +18,7 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Items
 
     public class BentSword : Item
     {
-        public const string Name = "Bent Sword";
+        public const string Id = "Bent Sword";
 
         public BentSword(Campaign campaign)
             : base(campaign, "Campaigns/Rites of Albion/Sprites/Items/Bent Sword")
@@ -37,7 +37,7 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Items
         {
             this.IsVisible = false;
             this.Display(Strings.BentSwordGrab);
-            Campaign.Player.AddInventory(Campaign.GetInventoryItem(InventoryItems.BentSword.Name));
+            Campaign.Player.AddInventory(Campaign.GetInventoryItem(InventoryItems.BentSword.Id));
         }
 
         private void OnTalk(object sender, EventArgs e)

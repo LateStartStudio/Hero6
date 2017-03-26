@@ -22,7 +22,7 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Rooms.Albion
 
     public sealed class HillOverAlbion : Room
     {
-        public const string Name = "Hill Over Albion";
+        public const string Id = "Hill Over Albion";
 
         private static readonly Color HotspotNorthExit = new Color(255, 255, 255, 255);
         private static readonly Color HotspotAlbionSign = new Color(255, 0, 0, 255);
@@ -34,11 +34,11 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Rooms.Albion
                   "Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Walk Area",
                   "Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Hotspots")
         {
-            Character hero = Campaign.GetCharacter(Hero.Name);
+            Character hero = Campaign.GetCharacter(Hero.Id);
             hero.Location = new Point(250, 220);
             this.Characters.Add(hero);
 
-            Item bentSword = Campaign.GetItem(BentSword.Name);
+            Item bentSword = Campaign.GetItem(BentSword.Id);
             bentSword.Location = new Point(150, 170);
             this.Items.Add(bentSword);
         }
@@ -54,7 +54,7 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Rooms.Albion
 
         private void OnWhileStandingInNorthExit(object sender, HotspotWalkingEventArgs e)
         {
-            e.Character.ChangeRoom(Fountain.Name, 100, 210);
+            e.Character.ChangeRoom(Fountain.Id, 100, 210);
         }
 
         private void OnLookAlbionSign(object sender, EventArgs eventArgs)

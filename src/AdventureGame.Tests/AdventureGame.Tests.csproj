@@ -41,18 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DummyTests.cs" />
     <Compile Include="Engine\MockContentManager.cs" />
     <Compile Include="Engine\MockEngine.cs" />
+    <Compile Include="Game\PlayerCharacterTests.cs" />
+    <Compile Include="Game\Stats\StatChangedEventArgsTests.cs" />
     <Compile Include="MockCampaign.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="UI\MockUserInterface.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Game\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\AdventureGame\AdventureGame.csproj">
       <Project>{0c0586a3-5a10-42ce-b609-cc80ee2cef7a}</Project>

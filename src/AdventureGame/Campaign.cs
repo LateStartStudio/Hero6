@@ -33,18 +33,21 @@ namespace LateStartStudio.AdventureGame
         /// Initializes a new instance of the <see cref="Campaign"/> class.
         /// </summary>
         /// <param name="name">The name of the campaign.</param>
+        /// <param name="statCap">The stat cap of this campaign instance.</param>
         /// <param name="engine">The engine that will run the campaign.</param>
         /// <param name="content">The content manager that will load campaign assets.</param>
         /// <param name="userInterface">The user interface that this campaign will use.</param>
         protected Campaign(
             string name,
+            int statCap,
             Engine.Engine engine,
             ContentManager content,
             UserInterface userInterface)
         {
-            Util.Logger.Info($"Creating Campaign instance. - {name}");
+            Util.Logger?.Info($"Creating Campaign instance. - {name}");
 
             this.Name = name;
+            this.StatCap = statCap;
             this.Engine = engine;
             this.Content = content;
 
@@ -56,7 +59,7 @@ namespace LateStartStudio.AdventureGame
             this.inventoryItems = new Dictionary<string, InventoryItem>();
             this.rooms = new Dictionary<string, Room>();
 
-            Util.Logger.Info("Campaign instance created. - " + name);
+            Util.Logger?.Info("Campaign instance created. - " + name);
         }
 
         /// <summary>
@@ -66,6 +69,14 @@ namespace LateStartStudio.AdventureGame
         /// The name of the campaign.
         /// </value>
         public string Name { get; }
+
+        /// <summary>
+        /// Gets the stat cap of this campaign instance.
+        /// </summary>
+        /// <value>
+        /// The stat cap of this campaign instance.
+        /// </value>
+        public int StatCap { get; }
 
         /// <summary>
         /// Gets the engine of the campaign.
@@ -111,7 +122,7 @@ namespace LateStartStudio.AdventureGame
         /// <value>
         /// The currently active player character of the campaign.
         /// </value>
-        public Character Player
+        public PlayerCharacter Player
         {
             get; set;
         }
@@ -185,7 +196,7 @@ namespace LateStartStudio.AdventureGame
         /// <inheritdoc />
         public void Load()
         {
-            Util.Logger.Info("Loading campaign.");
+            Util.Logger?.Info("Loading campaign.");
 
             foreach (KeyValuePair<string, Character> keyValuePair in this.characters)
             {
@@ -207,15 +218,15 @@ namespace LateStartStudio.AdventureGame
                 keyValuePair.Value.Load();
             }
 
-            Util.Logger.Info("Campaign Loaded.");
+            Util.Logger?.Info("Campaign Loaded.");
         }
 
         /// <inheritdoc />
         public void Unload()
         {
-            Util.Logger.Info("Unloading campaign.");
+            Util.Logger?.Info("Unloading campaign.");
 
-            Util.Logger.Info("Campaign unloaded.");
+            Util.Logger?.Info("Campaign unloaded.");
         }
 
         /// <inheritdoc />
