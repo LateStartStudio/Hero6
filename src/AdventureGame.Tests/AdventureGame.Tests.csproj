@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DummyTests.cs" />
     <Compile Include="Engine\MockContentManager.cs" />
     <Compile Include="Engine\MockEngine.cs" />
     <Compile Include="Game\PlayerCharacterTests.cs" />
