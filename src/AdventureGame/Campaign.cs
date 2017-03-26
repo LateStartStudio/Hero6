@@ -44,7 +44,7 @@ namespace LateStartStudio.AdventureGame
             ContentManager content,
             UserInterface userInterface)
         {
-            Util.Logger.Info($"Creating Campaign instance. - {name}");
+            Util.Logger?.Info($"Creating Campaign instance. - {name}");
 
             this.Name = name;
             this.StatCap = statCap;
@@ -59,7 +59,7 @@ namespace LateStartStudio.AdventureGame
             this.inventoryItems = new Dictionary<string, InventoryItem>();
             this.rooms = new Dictionary<string, Room>();
 
-            Util.Logger.Info("Campaign instance created. - " + name);
+            Util.Logger?.Info("Campaign instance created. - " + name);
         }
 
         /// <summary>
@@ -196,7 +196,7 @@ namespace LateStartStudio.AdventureGame
         /// <inheritdoc />
         public void Load()
         {
-            Util.Logger.Info("Loading campaign.");
+            Util.Logger?.Info("Loading campaign.");
 
             foreach (KeyValuePair<string, Character> keyValuePair in this.characters)
             {
@@ -218,15 +218,15 @@ namespace LateStartStudio.AdventureGame
                 keyValuePair.Value.Load();
             }
 
-            Util.Logger.Info("Campaign Loaded.");
+            Util.Logger?.Info("Campaign Loaded.");
         }
 
         /// <inheritdoc />
         public void Unload()
         {
-            Util.Logger.Info("Unloading campaign.");
+            Util.Logger?.Info("Unloading campaign.");
 
-            Util.Logger.Info("Campaign unloaded.");
+            Util.Logger?.Info("Campaign unloaded.");
         }
 
         /// <inheritdoc />
