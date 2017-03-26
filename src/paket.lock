@@ -1,7 +1,7 @@
 NUGET
   remote: https://www.nuget.org/api/v2
-    EmptyKeysUI_Generator (2.6)
-    EmptyKeysUI_MonoGame (2.6)
+    EmptyKeysUI_Generator (3.0)
+    EmptyKeysUI_MonoGame (3.0)
     Eto.Forms (2.3)
     Eto.Platform.Gtk (2.3)
       Eto.Forms (2.3)

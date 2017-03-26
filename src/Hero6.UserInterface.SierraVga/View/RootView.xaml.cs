@@ -24,7 +24,7 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.View {
     using EmptyKeys.UserInterface.Themes;
     
     
-    [GeneratedCodeAttribute("Empty Keys UI Generator", "2.6.0.0")]
+    [GeneratedCodeAttribute("Empty Keys UI Generator", "3.0.0.0")]
     public partial class RootView : UIRoot {
         
         private StackPanel e_3;
