@@ -17,7 +17,7 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Characters
     using Animations;
     using Locales;
 
-    public sealed class Hero : Character
+    public sealed class Hero : PlayerCharacter
     {
         public const string Id = "Hero";
 

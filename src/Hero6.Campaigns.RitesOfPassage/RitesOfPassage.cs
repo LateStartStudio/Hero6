@@ -13,6 +13,7 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage
 {
     using AdventureGame;
     using AdventureGame.Engine;
+    using AdventureGame.Game;
     using AdventureGame.UI;
     using Characters;
     using Items;
@@ -21,7 +22,7 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage
     public sealed class RitesOfPassage : Campaign
     {
         public RitesOfPassage(Engine engine, ContentManager content, UserInterface userInterface)
-            : base("Rites of Passage", engine, content, userInterface)
+            : base("Rites of Passage", 100, engine, content, userInterface)
         {
             this.AddCharacters();
             this.AddItems();
@@ -29,7 +30,7 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage
             this.AddRooms();
 
             this.CurrentRoom = this.GetRoom(HillOverAlbion.Id);
-            this.Player = this.GetCharacter(Hero.Id);
+            this.Player = (PlayerCharacter)this.GetCharacter(Hero.Id);
         }
 
         private void AddCharacters()

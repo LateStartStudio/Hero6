@@ -17,7 +17,7 @@ namespace LateStartStudio.AdventureGame.Game
     using Engine.Graphics;
 
     /// <summary>
-    /// A class that represents a character in a game, this character can be PC and NPC.
+    /// A class that represents a character in a game.
     /// </summary>
     public abstract class Character : AdventureGameElement
     {

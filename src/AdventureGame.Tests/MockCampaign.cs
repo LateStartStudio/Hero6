@@ -17,11 +17,12 @@ namespace LateStartStudio.AdventureGame
     public class MockCampaign : Campaign
     {
         private const string Id = "Mock Campaign";
+        private const int Cap = 100;
 
         private static MockCampaign instance;
 
         private MockCampaign(MockEngine engine, MockContentManager content, MockUserInterface ui)
-            : base(Id, engine, content, ui)
+            : base(Id, Cap, engine, content, ui)
         {
         }
 

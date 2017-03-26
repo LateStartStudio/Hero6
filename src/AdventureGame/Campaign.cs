@@ -33,11 +33,13 @@ namespace LateStartStudio.AdventureGame
         /// Initializes a new instance of the <see cref="Campaign"/> class.
         /// </summary>
         /// <param name="name">The name of the campaign.</param>
+        /// <param name="statCap">The stat cap of this campaign instance.</param>
         /// <param name="engine">The engine that will run the campaign.</param>
         /// <param name="content">The content manager that will load campaign assets.</param>
         /// <param name="userInterface">The user interface that this campaign will use.</param>
         protected Campaign(
             string name,
+            int statCap,
             Engine.Engine engine,
             ContentManager content,
             UserInterface userInterface)
@@ -45,6 +47,7 @@ namespace LateStartStudio.AdventureGame
             Util.Logger.Info($"Creating Campaign instance. - {name}");
 
             this.Name = name;
+            this.StatCap = statCap;
             this.Engine = engine;
             this.Content = content;
 
@@ -66,6 +69,14 @@ namespace LateStartStudio.AdventureGame
         /// The name of the campaign.
         /// </value>
         public string Name { get; }
+
+        /// <summary>
+        /// Gets the stat cap of this campaign instance.
+        /// </summary>
+        /// <value>
+        /// The stat cap of this campaign instance.
+        /// </value>
+        public int StatCap { get; }
 
         /// <summary>
         /// Gets the engine of the campaign.
@@ -111,7 +122,7 @@ namespace LateStartStudio.AdventureGame
         /// <value>
         /// The currently active player character of the campaign.
         /// </value>
-        public Character Player
+        public PlayerCharacter Player
         {
             get; set;
         }
