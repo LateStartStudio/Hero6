@@ -11,6 +11,7 @@
 
 namespace LateStartStudio.AdventureGame.Utilities
 {
+    using Logger;
     using Settings;
 
     /// <summary>
@@ -18,6 +19,14 @@ namespace LateStartStudio.AdventureGame.Utilities
     /// </summary>
     public class Util
     {
+        /// <summary>
+        /// Gets or sets the logger utility.
+        /// </summary>
+        /// <value>
+        /// The logger utility.
+        /// </value>
+        public static ILogger Logger { get; set; }
+        
         /// <summary>
         /// Gets or sets the user settings utility.
         /// </summary>

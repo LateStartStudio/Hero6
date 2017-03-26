@@ -16,6 +16,7 @@ namespace LateStartStudio.Hero6
 {
     using System;
     using System.Diagnostics;
+    using AdventureGame.Utilities;
     using Eto.Forms;
     using Eto.Serialization.Xaml;
 
@@ -31,13 +32,13 @@ namespace LateStartStudio.Hero6
             this.exception = exception;
             this.emailLink = this.FindChild<LinkButton>("EmailLink");
 
-            this.FindChild<LinkButton>("FilenameLink").Text = Game.Logger.Filename;
+            this.FindChild<LinkButton>("FilenameLink").Text = Util.Logger.Filename;
             this.FindChild<Label>("CrashMessage").Text = exception.Message;
         }
 
         public void FilenameLinkClick(object sender, EventArgs e)
         {
-            Process.Start(Game.Logger.Filename);
+            Process.Start(Util.Logger.Filename);
         }
 
         public void ForumLinkClick(object sender, EventArgs e)

@@ -16,6 +16,7 @@ namespace LateStartStudio.AdventureGame
     using Engine;
     using Game;
     using UI;
+    using Utilities;
 
     /// <summary>
     /// A class that represents a campaign, scenario or story of a game. One game might have
@@ -41,6 +42,8 @@ namespace LateStartStudio.AdventureGame
             ContentManager content,
             UserInterface userInterface)
         {
+            Util.Logger.Info($"Creating Campaign instance. - {name}");
+
             this.Name = name;
             this.Engine = engine;
             this.Content = content;
@@ -52,6 +55,8 @@ namespace LateStartStudio.AdventureGame
             this.items = new Dictionary<string, Item>();
             this.inventoryItems = new Dictionary<string, InventoryItem>();
             this.rooms = new Dictionary<string, Room>();
+
+            Util.Logger.Info("Campaign instance created. - " + name);
         }
 
         /// <summary>
@@ -180,6 +185,8 @@ namespace LateStartStudio.AdventureGame
         /// <inheritdoc />
         public void Load()
         {
+            Util.Logger.Info("Loading campaign.");
+
             foreach (KeyValuePair<string, Character> keyValuePair in this.characters)
             {
                 keyValuePair.Value.Load();
@@ -199,11 +206,16 @@ namespace LateStartStudio.AdventureGame
             {
                 keyValuePair.Value.Load();
             }
+
+            Util.Logger.Info("Campaign Loaded.");
         }
 
         /// <inheritdoc />
         public void Unload()
         {
+            Util.Logger.Info("Unloading campaign.");
+
+            Util.Logger.Info("Campaign unloaded.");
         }
 
         /// <inheritdoc />
