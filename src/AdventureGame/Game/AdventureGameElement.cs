@@ -15,6 +15,7 @@ namespace LateStartStudio.AdventureGame.Game
     using AdventureGame;
     using Engine;
     using Engine.Graphics;
+    using GameLoop;
 
     /// <summary>
     /// An abstract class with all common functionality for any game element.
@@ -30,6 +31,30 @@ namespace LateStartStudio.AdventureGame.Game
             this.Campaign = campaign;
             this.IsVisible = true;
         }
+
+        /// <inheritdoc />
+        public event EventHandler<LoadEventArgs> PreLoad;
+
+        /// <inheritdoc />
+        public event EventHandler<LoadEventArgs> PostLoad;
+
+        /// <inheritdoc />
+        public event EventHandler<UnloadEventArgs> PreUnload;
+
+        /// <inheritdoc />
+        public event EventHandler<UnloadEventArgs> PostUnload;
+
+        /// <inheritdoc />
+        public event EventHandler<UpdateEventArgs> PreUpdate;
+
+        /// <inheritdoc />
+        public event EventHandler<UpdateEventArgs> PostUpdate;
+
+        /// <inheritdoc />
+        public event EventHandler<DrawEventArgs> PreDraw;
+
+        /// <inheritdoc />
+        public event EventHandler<DrawEventArgs> PostDraw;
 
         /// <summary>
         /// Gets or sets the location of the element.
@@ -124,6 +149,86 @@ namespace LateStartStudio.AdventureGame.Game
         public void Display(string text)
         {
             this.Campaign.UserInterface.ShowTextBox(text);
+        }
+
+        /// <summary>
+        /// Invokes the pre load event.
+        /// </summary>
+        /// <param name="sender">The instance that invoked this event.</param>
+        /// <param name="args">The event args bundled with the invocation.</param>
+        protected void InvokePreLoad(object sender, LoadEventArgs args)
+        {
+            this.PreLoad?.Invoke(this, args);
+        }
+
+        /// <summary>
+        /// Invokes the post load event.
+        /// </summary>
+        /// <param name="sender">The instance that invoked this event.</param>
+        /// <param name="args">The event args bundled with the invocation.</param>
+        protected void InvokePostLoad(object sender, LoadEventArgs args)
+        {
+            this.PostLoad?.Invoke(this, args);
+        }
+
+        /// <summary>
+        /// Invokes the pre unload event.
+        /// </summary>
+        /// <param name="sender">The instance that invoked this event.</param>
+        /// <param name="args">The event args bundled with the invocation.</param>
+        protected void InvokePreUnload(object sender, UnloadEventArgs args)
+        {
+            this.PreUnload?.Invoke(this, args);
+        }
+
+        /// <summary>
+        /// Invokes the post unload event.
+        /// </summary>
+        /// <param name="sender">The instance that invoked this event.</param>
+        /// <param name="args">The event args bundled with the invocation.</param>
+        protected void InvokePostUnload(object sender, UnloadEventArgs args)
+        {
+            this.PostUnload?.Invoke(this, args);
+        }
+
+        /// <summary>
+        /// Invokes the pre update event.
+        /// </summary>
+        /// <param name="sender">The instance that invoked this event.</param>
+        /// <param name="args">The event args bundled with the invocation.</param>
+        protected void InvokePreUpdate(object sender, UpdateEventArgs args)
+        {
+            this.PreUpdate?.Invoke(this, args);
+        }
+
+        /// <summary>
+        /// Invokes the post update event.
+        /// </summary>
+        /// <param name="sender">The instance that invoked this event.</param>
+        /// <param name="args">The event args bundled with the invocation.</param>
+        protected void InvokePostUpdate(object sender, UpdateEventArgs args)
+        {
+            this.PostUpdate?.Invoke(this, args);
+        }
+
+        /// <summary>
+        /// Invokes the pre draw event.
+        /// </summary>
+        /// <param name="sender">The instance that invoked this event.</param>
+        /// <param name="args">The event args bundled with the invocation.</param>
+        protected void InvokePreDraw(object sender, DrawEventArgs args)
+        {
+            this.PreDraw?.Invoke(this, args);
+        }
+
+        /// <summary>
+        /// Invokes the post draw event.
+        /// </summary>
+        /// <param name="sender">The instance that invoked this event.</param>
+        /// <param name="args">The event args bundled with the invocation.</param>
+        protected void InvokePostDraw(object sender, DrawEventArgs args)
+        {
+            this.PostDraw?.Invoke(this, args);
         }
     }
 }

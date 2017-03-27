@@ -14,6 +14,7 @@ namespace LateStartStudio.AdventureGame.Game
     using System;
     using AdventureGame;
     using Engine.Graphics;
+    using GameLoop;
 
     /// <summary>
     /// A class that represents a character animation.
@@ -195,6 +196,8 @@ namespace LateStartStudio.AdventureGame.Game
         /// <inheritdoc />
         public override sealed void Load()
         {
+            this.InvokePreLoad(this, new LoadEventArgs(this.Content));
+
             this.CenterDownAnimation.Load();
             this.CenterUpAnimation.Load();
             this.LeftCenterAnimation.Load();
@@ -203,6 +206,8 @@ namespace LateStartStudio.AdventureGame.Game
             this.RightCenterAnimation.Load();
             this.RightDownAnimation.Load();
             this.RightUpAnimation.Load();
+
+            this.InvokePostLoad(this, new LoadEventArgs(this.Content));
         }
 
         /// <inheritdoc />
@@ -217,6 +222,8 @@ namespace LateStartStudio.AdventureGame.Game
             TimeSpan elapsedTime,
             bool isRunningSlowly)
         {
+            this.InvokePreUpdate(this, new UpdateEventArgs(totalTime, elapsedTime, isRunningSlowly));
+
             if (this.IsMoving)
             {
                 this.elapsedTime += (float)totalTime.TotalSeconds;
@@ -238,6 +245,8 @@ namespace LateStartStudio.AdventureGame.Game
             {
                 this.currentFrame = 0;
             }
+
+            this.InvokePostUpdate(this, new UpdateEventArgs(totalTime, elapsedTime, isRunningSlowly));
         }
 
         /// <inheritdoc />
@@ -246,6 +255,8 @@ namespace LateStartStudio.AdventureGame.Game
             TimeSpan elapsedTime,
             bool isRunningSlowly)
         {
+            this.InvokePreDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Campaign.Engine.Graphics));
+
             Rectangle destRectangle = new Rectangle(
                 this.Location.X,
                 this.Location.Y,
@@ -259,6 +270,8 @@ namespace LateStartStudio.AdventureGame.Game
                 this.Height);
 
             this.Campaign.Engine.Graphics.Draw(this.CurrentSprite.Sheet, destRectangle, sourceRectangle, Color.White);
+
+            this.InvokePostDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Campaign.Engine.Graphics));
         }
 
         private void ChangeCurrentSprite(Vector2 direction)

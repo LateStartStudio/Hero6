@@ -15,6 +15,7 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
     using AdventureGame.Engine;
     using AdventureGame.Engine.Graphics;
     using AdventureGame.Game;
+    using AdventureGame.GameLoop;
     using AdventureGame.UI;
     using EmptyKeys.UserInterface;
     using EmptyKeys.UserInterface.Input;
@@ -43,7 +44,7 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
             : base(width, height, scale, adventureGameEngine, content)
         {
             this.Content.RootDirectory = "Content/Gui/Sierra Vga";
-            this.mouseCursor = new MouseCursor(this.Content.NativeContentManager, this.Scale);
+            this.mouseCursor = new MouseCursor(adventureGameEngine, this.Content.NativeContentManager, this.Scale);
             ServiceManager.Instance.AddService<ICursorService>(this.mouseCursor);
         }
 
@@ -54,6 +55,8 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
 
         public override void Load()
         {
+            this.InvokePreLoad(this, new LoadEventArgs(this.Content));
+
             this.defaultFont = this.LoadFont("Arial_11.25_Regular");
 
             FontManager.DefaultFont = this.defaultFont;
@@ -84,23 +87,36 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga
             this.rootViewModel.TextBox.OnHide += (s, a) => this.AdventureGameEngine.IsGamePaused = false;
 
             this.mouseCursor.Load();
+
+            this.InvokePostLoad(this, new LoadEventArgs(this.Content));
         }
 
         public override void Unload()
         {
+            this.InvokePreUnload(this, new UnloadEventArgs());
+
+            this.InvokePostUnload(this, new UnloadEventArgs());
         }
 
         public override void Update(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly)
         {
+            this.InvokePreUpdate(this, new UpdateEventArgs(totalTime, elapsedTime, isRunningSlowly));
+
             this.mouseCursor.Update(totalTime, elapsedTime, isRunningSlowly);
             this.rootView.UpdateInput(elapsedTime.TotalMilliseconds);
             this.rootView.UpdateLayout(elapsedTime.TotalMilliseconds);
+
+            this.InvokePostUpdate(this, new UpdateEventArgs(totalTime, elapsedTime, isRunningSlowly));
         }
 
         public override void Draw(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly)
         {
+            this.InvokePreDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.AdventureGameEngine.Graphics));
+
             this.rootView.Draw(elapsedTime.TotalMilliseconds);
             this.mouseCursor.Draw(totalTime, elapsedTime, isRunningSlowly);
+
+            this.InvokePostDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.AdventureGameEngine.Graphics));
         }
 
         public override void ShowTextBox(string text)
