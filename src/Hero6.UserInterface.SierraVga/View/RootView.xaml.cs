@@ -581,6 +581,8 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.View {
             e_1.TextWrapping = TextWrapping.Wrap;
             Binding binding_e_1_Text = new Binding("Text");
             e_1.SetBinding(TextBlock.TextProperty, binding_e_1_Text);
+            Binding binding_e_1_Padding = new Binding("Padding");
+            e_1.SetBinding(TextBlock.PaddingProperty, binding_e_1_Padding);
             return e_0;
         }
         

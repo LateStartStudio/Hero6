@@ -43,12 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Padding.cs" />
     <Compile Include="MouseCursor.cs" />
     <Compile Include="ViewModel\RootViewModel.cs" />
     <Compile Include="ViewModel\TextBoxViewModel.cs" />
     <Compile Include="View\RootView.cs" />
-    <Compile Include="View\RootView.xaml.cs"/>
+    <Compile Include="View\RootView.xaml.cs" />
     <Content Include="shaders\DirectionalBlurShader.fx">
       <Paket>True</Paket>
     </Content>
