@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <MonoGamePlatform>DesktopGL</MonoGamePlatform>
     <MonoGameContentBuilderExe Condition=" '$(OS)' != 'Windows_NT' And Exists ('/opt/monogame-pipeline/MGCB.exe') ">/opt/monogame-pipeline/MGCB.exe</MonoGameContentBuilderExe>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>

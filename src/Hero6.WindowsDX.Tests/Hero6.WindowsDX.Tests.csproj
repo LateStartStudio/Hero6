@@ -10,7 +10,7 @@
     <RootNamespace>LateStartStudio.Hero6</RootNamespace>
     <AssemblyName>Hero6.Tests</AssemblyName>
     <MonoGamePlatform>Windows</MonoGamePlatform>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
