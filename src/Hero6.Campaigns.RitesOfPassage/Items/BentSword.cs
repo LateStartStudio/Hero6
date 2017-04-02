@@ -12,8 +12,7 @@
 namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Items
 {
     using System;
-    using AdventureGame;
-    using AdventureGame.Game;
+    using AdventureGame.Campaigns;
     using Locales;
 
     public class BentSword : Item

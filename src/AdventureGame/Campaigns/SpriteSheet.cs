@@ -9,7 +9,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.AdventureGame.Game
+namespace LateStartStudio.AdventureGame.Campaigns
 {
     using System;
     using Engine;

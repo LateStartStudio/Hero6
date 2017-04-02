@@ -13,8 +13,8 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga.ViewModel
 {
     using System;
     using System.Collections.ObjectModel;
+    using AdventureGame.Campaigns;
     using AdventureGame.Engine.Graphics;
-    using AdventureGame.Game;
     using EmptyKeys.UserInterface;
     using EmptyKeys.UserInterface.Input;
     using EmptyKeys.UserInterface.Mvvm;

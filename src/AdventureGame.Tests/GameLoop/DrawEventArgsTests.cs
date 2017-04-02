@@ -12,6 +12,7 @@
 namespace LateStartStudio.AdventureGame.GameLoop
 {
     using System;
+    using Campaigns;
     using Engine.Graphics;
     using NUnit.Framework;
 

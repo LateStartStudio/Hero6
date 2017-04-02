@@ -12,9 +12,9 @@
 namespace LateStartStudio.Hero6.UserInterfaces.SierraVga
 {
     using System;
+    using AdventureGame.Campaigns;
     using AdventureGame.Engine;
     using AdventureGame.Engine.Graphics;
-    using AdventureGame.Game;
     using AdventureGame.GameLoop;
     using AdventureGame.UserInterfaces;
     using EmptyKeys.UserInterface;

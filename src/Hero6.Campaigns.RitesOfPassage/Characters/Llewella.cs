@@ -12,8 +12,7 @@
 namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Characters
 {
     using System;
-    using AdventureGame;
-    using AdventureGame.Game;
+    using AdventureGame.Campaigns;
     using Animations;
     using InventoryItems;
     using Locales;

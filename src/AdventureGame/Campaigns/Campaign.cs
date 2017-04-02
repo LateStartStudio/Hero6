@@ -9,12 +9,11 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.AdventureGame
+namespace LateStartStudio.AdventureGame.Campaigns
 {
     using System;
     using System.Collections.Generic;
     using Engine;
-    using Game;
     using GameLoop;
     using UserInterfaces;
     using Utilities;
@@ -41,7 +40,7 @@ namespace LateStartStudio.AdventureGame
         protected Campaign(
             string name,
             int statCap,
-            Engine.Engine engine,
+            AdventureGame.Engine.Engine engine,
             ContentManager content,
             UserInterface userInterface)
         {
@@ -109,7 +108,7 @@ namespace LateStartStudio.AdventureGame
         /// <value>
         /// The engine of the campaign.
         /// </value>
-        public Engine.Engine Engine { get; }
+        public AdventureGame.Engine.Engine Engine { get; }
 
         /// <summary>
         /// Gets the <see cref="ContentManager"/> of the <see cref="Campaign"/> instance.
