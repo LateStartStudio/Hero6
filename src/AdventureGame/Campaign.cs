@@ -15,6 +15,7 @@ namespace LateStartStudio.AdventureGame
     using System.Collections.Generic;
     using Engine;
     using Game;
+    using GameLoop;
     using UI;
     using Utilities;
 
@@ -61,6 +62,30 @@ namespace LateStartStudio.AdventureGame
 
             Util.Logger?.Info("Campaign instance created. - " + name);
         }
+
+        /// <inheritdoc />
+        public event EventHandler<LoadEventArgs> PreLoad;
+
+        /// <inheritdoc />
+        public event EventHandler<LoadEventArgs> PostLoad;
+
+        /// <inheritdoc />
+        public event EventHandler<UnloadEventArgs> PreUnload;
+
+        /// <inheritdoc />
+        public event EventHandler<UnloadEventArgs> PostUnload;
+
+        /// <inheritdoc />
+        public event EventHandler<UpdateEventArgs> PreUpdate;
+
+        /// <inheritdoc />
+        public event EventHandler<UpdateEventArgs> PostUpdate;
+
+        /// <inheritdoc />
+        public event EventHandler<DrawEventArgs> PreDraw;
+
+        /// <inheritdoc />
+        public event EventHandler<DrawEventArgs> PostDraw;
 
         /// <summary>
         /// Gets the name of the campaign.
@@ -196,6 +221,7 @@ namespace LateStartStudio.AdventureGame
         /// <inheritdoc />
         public void Load()
         {
+            this.PreLoad?.Invoke(this, new LoadEventArgs(this.Content));
             Util.Logger?.Info("Loading campaign.");
 
             foreach (KeyValuePair<string, Character> keyValuePair in this.characters)
@@ -219,31 +245,42 @@ namespace LateStartStudio.AdventureGame
             }
 
             Util.Logger?.Info("Campaign Loaded.");
+            this.PostLoad?.Invoke(this, new LoadEventArgs(this.Content));
         }
 
         /// <inheritdoc />
         public void Unload()
         {
+            this.PreUnload?.Invoke(this, new UnloadEventArgs());
             Util.Logger?.Info("Unloading campaign.");
 
             Util.Logger?.Info("Campaign unloaded.");
+            this.PostUnload?.Invoke(this, new UnloadEventArgs());
         }
 
         /// <inheritdoc />
         public void Update(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly)
         {
+            this.PreUpdate?.Invoke(this, new UpdateEventArgs(totalTime, elapsedTime, isRunningSlowly));
+
             if (this.Engine.IsGamePaused)
             {
                 return;
             }
 
             this.CurrentRoom.Update(totalTime, elapsedTime, isRunningSlowly);
+
+            this.PostUpdate?.Invoke(this, new UpdateEventArgs(totalTime, elapsedTime, isRunningSlowly));
         }
 
         /// <inheritdoc />
         public void Draw(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly)
         {
+            this.PreDraw?.Invoke(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Engine.Graphics));
+
             this.CurrentRoom.Draw(totalTime, elapsedTime, isRunningSlowly);
+
+            this.PostDraw?.Invoke(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Engine.Graphics));
         }
 
         /// <summary>

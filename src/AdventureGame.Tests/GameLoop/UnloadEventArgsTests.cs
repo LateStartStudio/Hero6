@@ -1,27 +1,25 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="MockEngine.cs" company="LateStartStudio">
+// <copyright file="UnloadEventArgsTests.cs" company="LateStartStudio">
 //   Copyright (C) LateStartStudio
 //   This file is subject to the terms and conditions of the MIT license specified
 //   in the file 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 // <summary>
-//   Defines the MockEngine type.
+//   Defines the UnloadEventArgsTests unit tests.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.AdventureGame.Engine
+namespace LateStartStudio.AdventureGame.GameLoop
 {
-    using Graphics;
+    using NUnit.Framework;
 
-    public class MockEngine : Engine
+    [TestFixture]
+    public class UnloadEventArgsTests
     {
-        private readonly MockGraphicsHandler graphics;
-
-        public MockEngine()
+        [Test]
+        public void IsNotNull()
         {
-            this.graphics = new MockGraphicsHandler();
+            Assert.IsNotNull(new UnloadEventArgs());
         }
-
-        public override GraphicsHandler Graphics => this.graphics;
     }
 }

@@ -14,6 +14,7 @@ namespace LateStartStudio.AdventureGame.Game
     using System;
     using AdventureGame;
     using Engine.Graphics;
+    using GameLoop;
 
     /// <summary>
     /// A class that represents an inventory item a game.
@@ -49,7 +50,11 @@ namespace LateStartStudio.AdventureGame.Game
         /// <inheritdoc />
         public override void Load()
         {
+            this.InvokePreLoad(this, new LoadEventArgs(this.Content));
+
             this.sprite = this.Content.LoadTexture2D(this.spriteID);
+
+            this.InvokePostLoad(this, new LoadEventArgs(this.Content));
         }
 
         /// <inheritdoc />

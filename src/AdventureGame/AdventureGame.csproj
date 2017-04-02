@@ -53,10 +53,14 @@
     <Compile Include="Game\AdventureGameElement.cs" />
     <Compile Include="Game\Character.cs" />
     <Compile Include="Game\CharacterAnimation.cs" />
+    <Compile Include="GameLoop\DrawEventArgs.cs" />
+    <Compile Include="GameLoop\LoadEventArgs.cs" />
+    <Compile Include="GameLoop\UnloadEventArgs.cs" />
+    <Compile Include="GameLoop\UpdateEventArgs.cs" />
     <Compile Include="Game\PlayerCharacter.cs" />
     <Compile Include="Game\Regions\Hotspot.cs" />
     <Compile Include="Game\Regions\HotspotWalkingEventArgs.cs" />
-    <Compile Include="Game\IGameLoop.cs" />
+    <Compile Include="GameLoop\IGameLoop.cs" />
     <Compile Include="Game\Interaction.cs" />
     <Compile Include="Game\InventoryItem.cs" />
     <Compile Include="Game\Item.cs" />

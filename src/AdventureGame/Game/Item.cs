@@ -14,6 +14,7 @@ namespace LateStartStudio.AdventureGame.Game
     using System;
     using AdventureGame;
     using Engine.Graphics;
+    using GameLoop;
 
     /// <summary>
     /// A class that represents an item in a game.
@@ -99,7 +100,11 @@ namespace LateStartStudio.AdventureGame.Game
         /// <inheritdoc />
         public override sealed void Load()
         {
+            this.InvokePreLoad(this, new LoadEventArgs(this.Content));
+
             this.sprite = this.Content.LoadTexture2D(this.spriteID);
+
+            this.InvokePostLoad(this, new LoadEventArgs(this.Content));
         }
 
         /// <inheritdoc />
@@ -114,6 +119,9 @@ namespace LateStartStudio.AdventureGame.Game
             TimeSpan elapsedTime,
             bool isRunningSlowly)
         {
+            this.InvokePreUpdate(this, new UpdateEventArgs(totalTime, elapsedTime, isRunningSlowly));
+
+            this.InvokePostUpdate(this, new UpdateEventArgs(totalTime, elapsedTime, isRunningSlowly));
         }
 
         /// <inheritdoc />
@@ -122,10 +130,14 @@ namespace LateStartStudio.AdventureGame.Game
             TimeSpan elapsedTime,
             bool isRunningSlowly)
         {
+            this.InvokePreDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Campaign.Engine.Graphics));
+
             if (this.IsVisible)
             {
                 Campaign.Engine.Graphics.Draw(this.sprite, this.Location);
             }
+
+            this.InvokePostDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Campaign.Engine.Graphics));
         }
     }
 }

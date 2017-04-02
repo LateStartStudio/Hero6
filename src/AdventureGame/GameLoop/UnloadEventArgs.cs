@@ -1,27 +1,22 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="MockEngine.cs" company="LateStartStudio">
+// <copyright file="UnloadEventArgs.cs" company="LateStartStudio">
 //   Copyright (C) LateStartStudio
 //   This file is subject to the terms and conditions of the MIT license specified
 //   in the file 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 // <summary>
-//   Defines the MockEngine type.
+//   Defines the UnloadEventArgs event args.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.AdventureGame.Engine
+namespace LateStartStudio.AdventureGame.GameLoop
 {
-    using Graphics;
+    using System;
 
-    public class MockEngine : Engine
+    /// <summary>
+    /// Event Args for unload time of game loop.
+    /// </summary>
+    public class UnloadEventArgs : EventArgs
     {
-        private readonly MockGraphicsHandler graphics;
-
-        public MockEngine()
-        {
-            this.graphics = new MockGraphicsHandler();
-        }
-
-        public override GraphicsHandler Graphics => this.graphics;
     }
 }

@@ -15,6 +15,7 @@ namespace LateStartStudio.AdventureGame.Game
     using System.Collections.Generic;
     using AdventureGame;
     using Engine.Graphics;
+    using GameLoop;
 
     /// <summary>
     /// A class that represents a character in a game.
@@ -214,7 +215,11 @@ namespace LateStartStudio.AdventureGame.Game
         /// <inheritdoc />
         public override sealed void Load()
         {
+            this.InvokePreLoad(this, new LoadEventArgs(this.Content));
+
             this.Animation.Load();
+
+            this.InvokePostLoad(this, new LoadEventArgs(this.Content));
         }
 
         /// <inheritdoc />
@@ -229,10 +234,14 @@ namespace LateStartStudio.AdventureGame.Game
             TimeSpan elapsedTime,
             bool isRunningSlowly)
         {
+            this.InvokePreUpdate(this, new UpdateEventArgs(totalTime, elapsedTime, isRunningSlowly));
+
             this.Animation.IsMoving = this.MovementPath.Count > 0;
 
             this.MoveCharacter();
             this.Animation.Update(totalTime, elapsedTime, isRunningSlowly);
+
+            this.InvokePostUpdate(this, new UpdateEventArgs(totalTime, elapsedTime, isRunningSlowly));
         }
 
         /// <inheritdoc />
@@ -241,10 +250,14 @@ namespace LateStartStudio.AdventureGame.Game
             TimeSpan elapsedTime,
             bool isRunningSlowly)
         {
+            this.InvokePreDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Campaign.Engine.Graphics));
+
             if (this.IsVisible)
             {
                 this.Animation.Draw(totalTime, elapsedTime, isRunningSlowly);
             }
+
+            this.InvokePostDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Campaign.Engine.Graphics));
         }
 
         private void MoveCharacter()

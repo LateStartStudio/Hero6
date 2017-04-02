@@ -9,7 +9,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.AdventureGame.Game
+namespace LateStartStudio.AdventureGame.GameLoop
 {
     using System;
 
@@ -18,6 +18,46 @@ namespace LateStartStudio.AdventureGame.Game
     /// </summary>
     public interface IGameLoop
     {
+        /// <summary>
+        /// Occurs on pre loading of assets in the game loop.
+        /// </summary>
+        event EventHandler<LoadEventArgs> PreLoad;
+
+        /// <summary>
+        /// Occurs on post loading of assets in the game loop.
+        /// </summary>
+        event EventHandler<LoadEventArgs> PostLoad;
+
+        /// <summary>
+        /// Occurs on pre unloading of assets in the game loop.
+        /// </summary>
+        event EventHandler<UnloadEventArgs> PreUnload;
+
+        /// <summary>
+        /// Occurs on post unloading of assets in the game loop.
+        /// </summary>
+        event EventHandler<UnloadEventArgs> PostUnload;
+
+        /// <summary>
+        /// Occurs on pre update in the game loop.
+        /// </summary>
+        event EventHandler<UpdateEventArgs> PreUpdate;
+
+        /// <summary>
+        /// Occurs on post update in the game loop.
+        /// </summary>
+        event EventHandler<UpdateEventArgs> PostUpdate;
+
+        /// <summary>
+        /// Occurs on pre draw in the game loop.
+        /// </summary>
+        event EventHandler<DrawEventArgs> PreDraw;
+
+        /// <summary>
+        /// Occurs on post update in the game loop.
+        /// </summary>
+        event EventHandler<DrawEventArgs> PostDraw;
+
         /// <summary>
         /// Loads all assets.
         /// </summary>

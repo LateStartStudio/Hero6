@@ -14,6 +14,7 @@ namespace LateStartStudio.AdventureGame.Game
     using System;
     using Engine;
     using Engine.Graphics;
+    using GameLoop;
 
     /// <summary>
     /// A class representing a sprite sheet.
@@ -35,6 +36,54 @@ namespace LateStartStudio.AdventureGame.Game
             this.SheetID = sheetID;
             this.Rows = rows;
             this.Columns = columns;
+        }
+
+        /// <inheritdoc />
+        public event EventHandler<LoadEventArgs> PreLoad;
+
+        /// <inheritdoc />
+        public event EventHandler<LoadEventArgs> PostLoad;
+
+        /// <inheritdoc />
+        public event EventHandler<UnloadEventArgs> PreUnload
+        {
+            add { throw new NotImplementedException(); }
+            remove { }
+        }
+
+        /// <inheritdoc />
+        public event EventHandler<UnloadEventArgs> PostUnload
+        {
+            add { throw new NotImplementedException(); }
+            remove { }
+        }
+
+        /// <inheritdoc />
+        public event EventHandler<UpdateEventArgs> PreUpdate
+        {
+            add { throw new NotImplementedException(); }
+            remove { }
+        }
+
+        /// <inheritdoc />
+        public event EventHandler<UpdateEventArgs> PostUpdate
+        {
+            add { throw new NotImplementedException(); }
+            remove { }
+        }
+
+        /// <inheritdoc />
+        public event EventHandler<DrawEventArgs> PreDraw
+        {
+            add { throw new NotImplementedException(); }
+            remove { }
+        }
+
+        /// <inheritdoc />
+        public event EventHandler<DrawEventArgs> PostDraw
+        {
+            add { throw new NotImplementedException(); }
+            remove { }
         }
 
         /// <summary>
@@ -84,10 +133,14 @@ namespace LateStartStudio.AdventureGame.Game
         /// <inheritdoc />
         public void Load()
         {
+            this.PreLoad?.Invoke(this, new LoadEventArgs(this.content));
+
             if (this.Sheet == null)
             {
                 this.Sheet = this.content.LoadTexture2D(this.SheetID);
             }
+
+            this.PostLoad?.Invoke(this, new LoadEventArgs(this.content));
         }
 
         /// <inheritdoc />
