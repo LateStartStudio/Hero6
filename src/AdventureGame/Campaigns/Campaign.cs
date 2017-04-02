@@ -13,7 +13,7 @@ namespace LateStartStudio.AdventureGame.Campaigns
 {
     using System;
     using System.Collections.Generic;
-    using Engine;
+    using Assets;
     using GameLoop;
     using UserInterfaces;
     using Utilities;
@@ -34,22 +34,22 @@ namespace LateStartStudio.AdventureGame.Campaigns
         /// </summary>
         /// <param name="name">The name of the campaign.</param>
         /// <param name="statCap">The stat cap of this campaign instance.</param>
-        /// <param name="engine">The engine that will run the campaign.</param>
-        /// <param name="content">The content manager that will load campaign assets.</param>
+        /// <param name="renderer">The engine that will run the campaign.</param>
+        /// <param name="assets">The assets manager that will load campaign assets.</param>
         /// <param name="userInterface">The user interface that this campaign will use.</param>
         protected Campaign(
             string name,
             int statCap,
-            AdventureGame.Engine.Engine engine,
-            ContentManager content,
+            Renderer renderer,
+            AssetManager assets,
             UserInterface userInterface)
         {
             Util.Logger?.Info($"Creating Campaign instance. - {name}");
 
             this.Name = name;
             this.StatCap = statCap;
-            this.Engine = engine;
-            this.Content = content;
+            this.Renderer = renderer;
+            this.Assets = assets;
 
             this.UserInterface = userInterface;
             this.UserInterface.MouseButtonClick += this.OnUserInteraction;
@@ -87,6 +87,18 @@ namespace LateStartStudio.AdventureGame.Campaigns
         public event EventHandler<DrawEventArgs> PostDraw;
 
         /// <summary>
+        /// Gets or sets a value indicating whether the campaign is paused or not.
+        /// </summary>
+        /// <value>
+        /// A value indicating whether the campaign is paused or not.
+        /// </value>
+        public static bool IsPaused
+        {
+            get { return Renderer.IsPaused; }
+            set { Renderer.IsPaused = value; }
+        }
+
+        /// <summary>
         /// Gets the name of the campaign.
         /// </summary>
         /// <value>
@@ -108,15 +120,15 @@ namespace LateStartStudio.AdventureGame.Campaigns
         /// <value>
         /// The engine of the campaign.
         /// </value>
-        public AdventureGame.Engine.Engine Engine { get; }
+        public Renderer Renderer { get; }
 
         /// <summary>
-        /// Gets the <see cref="ContentManager"/> of the <see cref="Campaign"/> instance.
+        /// Gets the <see cref="AssetManager"/> of the <see cref="Campaign"/> instance.
         /// </summary>
         /// <value>
-        /// The <see cref="ContentManager"/> of the <see cref="Campaign"/> instance.
+        /// The <see cref="AssetManager"/> of the <see cref="Campaign"/> instance.
         /// </value>
-        public ContentManager Content { get; }
+        public AssetManager Assets { get; }
 
         /// <summary>
         /// Gets or sets the user interface of this campaign.
@@ -220,7 +232,7 @@ namespace LateStartStudio.AdventureGame.Campaigns
         /// <inheritdoc />
         public void Load()
         {
-            this.PreLoad?.Invoke(this, new LoadEventArgs(this.Content));
+            this.PreLoad?.Invoke(this, new LoadEventArgs(this.Assets));
             Util.Logger?.Info("Loading campaign.");
 
             foreach (KeyValuePair<string, Character> keyValuePair in this.characters)
@@ -244,7 +256,7 @@ namespace LateStartStudio.AdventureGame.Campaigns
             }
 
             Util.Logger?.Info("Campaign Loaded.");
-            this.PostLoad?.Invoke(this, new LoadEventArgs(this.Content));
+            this.PostLoad?.Invoke(this, new LoadEventArgs(this.Assets));
         }
 
         /// <inheritdoc />
@@ -262,7 +274,7 @@ namespace LateStartStudio.AdventureGame.Campaigns
         {
             this.PreUpdate?.Invoke(this, new UpdateEventArgs(totalTime, elapsedTime, isRunningSlowly));
 
-            if (this.Engine.IsGamePaused)
+            if (IsPaused)
             {
                 return;
             }
@@ -275,11 +287,11 @@ namespace LateStartStudio.AdventureGame.Campaigns
         /// <inheritdoc />
         public void Draw(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly)
         {
-            this.PreDraw?.Invoke(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Engine.Graphics));
+            this.PreDraw?.Invoke(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, Renderer));
 
             this.CurrentRoom.Draw(totalTime, elapsedTime, isRunningSlowly);
 
-            this.PostDraw?.Invoke(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Engine.Graphics));
+            this.PostDraw?.Invoke(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, Renderer));
         }
 
         /// <summary>

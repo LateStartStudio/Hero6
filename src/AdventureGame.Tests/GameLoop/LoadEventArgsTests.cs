@@ -20,13 +20,13 @@ namespace LateStartStudio.AdventureGame.GameLoop
         [Test]
         public void IsNotNull()
         {
-            Assert.IsNotNull(new LoadEventArgs(MockCampaign.Instance.Content));
+            Assert.IsNotNull(new LoadEventArgs(MockCampaign.Instance.Assets));
         }
 
         [Test]
         public void ContentGet()
         {
-            Assert.AreEqual(MockCampaign.Instance.Content, new LoadEventArgs(MockCampaign.Instance.Content).Content);
+            Assert.AreEqual(MockCampaign.Instance.Assets, new LoadEventArgs(MockCampaign.Instance.Assets).Assets);
         }
     }
 }

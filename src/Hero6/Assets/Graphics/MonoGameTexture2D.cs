@@ -9,11 +9,11 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.Hero6.Engine.Graphics
+namespace LateStartStudio.Hero6.Assets.Graphics
 {
     using Microsoft.Xna.Framework.Graphics;
 
-    public class MonoGameTexture2D : AdventureGame.Engine.Graphics.Texture2D
+    public class MonoGameTexture2D : AdventureGame.Assets.Graphics.Texture2D
     {
         private readonly Texture2D texture;
 

@@ -1,27 +1,28 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="MockEngine.cs" company="LateStartStudio">
+// <copyright file="MockRenderer.cs" company="LateStartStudio">
 //   Copyright (C) LateStartStudio
 //   This file is subject to the terms and conditions of the MIT license specified
 //   in the file 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 // <summary>
-//   Defines the MockEngine type.
+//   Defines the MockRenderer unit testing.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.AdventureGame.Engine
+namespace LateStartStudio.AdventureGame.Assets
 {
     using Graphics;
 
-    public class MockEngine : Engine
+    public class MockRenderer : Renderer
     {
-        private readonly MockGraphicsHandler graphics;
-
-        public MockEngine()
+        public override void Draw(Texture2D texture, Point point)
         {
-            this.graphics = new MockGraphicsHandler();
+            throw new System.NotImplementedException();
         }
 
-        public override GraphicsHandler Graphics => this.graphics;
+        public override void Draw(Texture2D texture, Rectangle destinationRectangle, Rectangle sourceRectangle, Color color)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

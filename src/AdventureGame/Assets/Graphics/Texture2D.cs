@@ -9,7 +9,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.AdventureGame.Engine.Graphics
+namespace LateStartStudio.AdventureGame.Assets.Graphics
 {
     /// <summary>
     /// An abstract class for a 2D texture.

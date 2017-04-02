@@ -12,7 +12,7 @@
 namespace LateStartStudio.AdventureGame.GameLoop
 {
     using System;
-    using Engine;
+    using Assets;
 
     /// <summary>
     /// Event Args for load time of game loop.
@@ -22,18 +22,18 @@ namespace LateStartStudio.AdventureGame.GameLoop
         /// <summary>
         /// Initializes a new instance of the <see cref="LoadEventArgs"/> class.
         /// </summary>
-        /// <param name="content">The content manager.</param>
-        public LoadEventArgs(ContentManager content)
+        /// <param name="assets">The asset manager.</param>
+        public LoadEventArgs(AssetManager assets)
         {
-            this.Content = content;
+            this.Assets = assets;
         }
 
         /// <summary>
-        /// Gets the content manager.
+        /// Gets the asset manager.
         /// </summary>
         /// <value>
-        /// The content manager.
+        /// The asset manager.
         /// </value>
-        public ContentManager Content { get; private set; }
+        public AssetManager Assets { get; private set; }
     }
 }

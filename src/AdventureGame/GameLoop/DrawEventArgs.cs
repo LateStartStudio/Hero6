@@ -12,7 +12,7 @@
 namespace LateStartStudio.AdventureGame.GameLoop
 {
     using System;
-    using Engine.Graphics;
+    using Assets;
 
     /// <summary>
     /// Event Args for draw time of game loop.
@@ -27,13 +27,13 @@ namespace LateStartStudio.AdventureGame.GameLoop
         /// <param name="isRunningSlowly">
         /// A value indicating whether game is running slowly, true if it is, false if else.
         /// </param>
-        /// <param name="graphics">The graphics handler.</param>
-        public DrawEventArgs(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly, GraphicsHandler graphics)
+        /// <param name="renderer">The graphics handler.</param>
+        public DrawEventArgs(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly, Renderer renderer)
         {
             this.TotalTime = totalTime;
             this.ElapsedTime = elapsedTime;
             this.IsRunningSlowly = isRunningSlowly;
-            this.Graphics = graphics;
+            this.Renderer = renderer;
         }
 
         /// <summary>
@@ -66,6 +66,6 @@ namespace LateStartStudio.AdventureGame.GameLoop
         /// <value>
         /// The graphics handler.
         /// </value>
-        public GraphicsHandler Graphics { get; private set; }
+        public Renderer Renderer { get; private set; }
     }
 }

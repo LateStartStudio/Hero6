@@ -12,19 +12,18 @@
 namespace LateStartStudio.Hero6.UserInterfaces.SierraVga
 {
     using System;
-    using AdventureGame.Engine;
-    using AdventureGame.Engine.Graphics;
+    using AdventureGame.Assets;
+    using AdventureGame.Assets.Graphics;
     using AdventureGame.GameLoop;
     using EmptyKeys.UserInterface;
     using EmptyKeys.UserInterface.Input;
     using EmptyKeys.UserInterface.Media;
-    using EmptyKeys.UserInterface.Renderers;
-    using AdventureGameEngine = AdventureGame.Engine.Engine;
+    using EmptyKeysRenderer = EmptyKeys.UserInterface.Renderers.Renderer;
     using Engine = EmptyKeys.UserInterface.Engine;
 
     public class MouseCursor : ICursorService, IGameLoop
     {
-        private readonly AdventureGameEngine adventureGameEngine;
+        private readonly Renderer renderer;
         private readonly object content;
         private readonly Vector2 scale;
 
@@ -36,9 +35,9 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga
         private TextureBase arrow;
         private TextureBase wait;
 
-        public MouseCursor(AdventureGameEngine adventureGameEngine, object content, Vector2 scale)
+        public MouseCursor(Renderer renderer, object content, Vector2 scale)
         {
-            this.adventureGameEngine = adventureGameEngine;
+            this.renderer = renderer;
             this.content = content;
             this.scale = scale;
         }
@@ -92,7 +91,7 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga
 
         public CursorType Backup { get; set; }
 
-        private static Renderer Renderer => Engine.Instance.Renderer;
+        private static EmptyKeysRenderer EmptyKeysRenderer => Engine.Instance.Renderer;
 
         private TextureBase CurrentTexture
         {
@@ -162,7 +161,7 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga
 
         public void Load()
         {
-            this.PreLoad?.Invoke(this, new LoadEventArgs((ContentManager)this.content));
+            this.PreLoad?.Invoke(this, new LoadEventArgs((AdventureGame.Assets.AssetManager)this.content));
 
             this.arrow = this.LoadTexture("Arrow");
             this.hand = this.LoadTexture("Hand");
@@ -173,7 +172,7 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga
 
             InputManager.Current.MouseDevice.CursorType = CursorType.Custom1;
 
-            this.PostLoad?.Invoke(this, new LoadEventArgs((ContentManager)this.content));
+            this.PostLoad?.Invoke(this, new LoadEventArgs((AdventureGame.Assets.AssetManager)this.content));
         }
 
         public void Unload()
@@ -190,13 +189,13 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga
 
         public void Draw(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly)
         {
-            this.PreDraw?.Invoke(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.adventureGameEngine.Graphics));
+            this.PreDraw?.Invoke(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.renderer));
 
-            Renderer.Begin();
-            Renderer.Draw(this.CurrentTexture, this.Location, this.area, ColorW.White, false);
-            Renderer.End();
+            EmptyKeysRenderer.Begin();
+            EmptyKeysRenderer.Draw(this.CurrentTexture, this.Location, this.area, ColorW.White, false);
+            EmptyKeysRenderer.End();
 
-            this.PostDraw?.Invoke(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.adventureGameEngine.Graphics));
+            this.PostDraw?.Invoke(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.renderer));
         }
 
         private void SetCursor(CursorType cursor, TextureBase texture)

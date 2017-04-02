@@ -13,7 +13,7 @@ namespace LateStartStudio.AdventureGame.Campaigns
 {
     using System;
     using System.Collections.Generic;
-    using Engine.Graphics;
+    using Assets.Graphics;
     using GameLoop;
 
     /// <summary>
@@ -214,11 +214,11 @@ namespace LateStartStudio.AdventureGame.Campaigns
         /// <inheritdoc />
         public override sealed void Load()
         {
-            this.InvokePreLoad(this, new LoadEventArgs(this.Content));
+            this.InvokePreLoad(this, new LoadEventArgs(this.Assets));
 
             this.Animation.Load();
 
-            this.InvokePostLoad(this, new LoadEventArgs(this.Content));
+            this.InvokePostLoad(this, new LoadEventArgs(this.Assets));
         }
 
         /// <inheritdoc />
@@ -249,14 +249,14 @@ namespace LateStartStudio.AdventureGame.Campaigns
             TimeSpan elapsedTime,
             bool isRunningSlowly)
         {
-            this.InvokePreDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Campaign.Engine.Graphics));
+            this.InvokePreDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Campaign.Renderer));
 
             if (this.IsVisible)
             {
                 this.Animation.Draw(totalTime, elapsedTime, isRunningSlowly);
             }
 
-            this.InvokePostDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Campaign.Engine.Graphics));
+            this.InvokePostDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Campaign.Renderer));
         }
 
         private void MoveCharacter()

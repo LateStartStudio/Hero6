@@ -1,15 +1,15 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ContentManager.cs" company="LateStartStudio">
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="AssetManager.cs" company="LateStartStudio">
 //   Copyright (C) LateStartStudio
 //   This file is subject to the terms and conditions of the MIT license specified
 //   in the file 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 // <summary>
-//   Defines the ContentManager type.
+//   Defines the AssetManager type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.AdventureGame.Engine
+namespace LateStartStudio.AdventureGame.Assets
 {
     using System;
     using Graphics;
@@ -17,10 +17,10 @@ namespace LateStartStudio.AdventureGame.Engine
     /// <summary>
     /// An abstract class for the asset handler of an adventure game engine.
     /// </summary>
-    public abstract class ContentManager : IDisposable
+    public abstract class AssetManager : IDisposable
     {
         /// <summary>
-        /// Gets or sets the root directory of the <see cref="ContentManager"/> instance.
+        /// Gets or sets the root directory of the <see cref="AssetManager"/> instance.
         /// </summary>
         /// <value>
         /// The root directory of the ContentManager instance.
@@ -31,12 +31,12 @@ namespace LateStartStudio.AdventureGame.Engine
         }
 
         /// <summary>
-        /// Gets the native Content Manager instance.
+        /// Gets the native Assets Manager instance.
         /// </summary>
         /// <value>
-        /// The native Content Manager instance.
+        /// The native Assets Manager instance.
         /// </value>
-        public abstract object NativeContentManager
+        public abstract object NativeAssetManager
         {
             get;
         }

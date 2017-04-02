@@ -9,11 +9,11 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.Hero6.Engine.Graphics
+namespace LateStartStudio.Hero6.Assets.Graphics
 {
     using Microsoft.Xna.Framework.Graphics;
 
-    public class MonoGameSpriteFont : AdventureGame.Engine.Graphics.SpriteFont
+    public class MonoGameSpriteFont : AdventureGame.Assets.Graphics.SpriteFont
     {
         private readonly SpriteFont spriteFont;
 

@@ -12,13 +12,13 @@
 namespace LateStartStudio.AdventureGame.UserInterfaces
 {
     using System;
-    using Engine;
-    using Engine.Graphics;
+    using Assets;
+    using Assets.Graphics;
 
     public class MockUserInterface : UserInterface
     {
-        public MockUserInterface(Engine adventureGameEngine, ContentManager content)
-            : base(0, 0, new Vector2(), adventureGameEngine, content)
+        public MockUserInterface(Renderer renderer, AssetManager assets)
+            : base(0, 0, new Vector2(), renderer, assets)
         {
         }
 

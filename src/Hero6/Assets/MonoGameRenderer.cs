@@ -1,29 +1,30 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="MonoGameGraphics.cs" company="LateStartStudio">
+// <copyright file="MonoGameRenderer.cs" company="LateStartStudio">
 //   Copyright (C) LateStartStudio
 //   This file is subject to the terms and conditions of the MIT license specified
 //   in the file 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 // <summary>
-//   Defines the MonoGameGraphics type.
+//   Defines the MonoGameRenderer type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.Hero6.Engine.Graphics
+namespace LateStartStudio.Hero6.Assets
 {
-    using AdventureGame.Engine.Graphics;
+    using AdventureGame.Assets;
+    using AdventureGame.Assets.Graphics;
     using Microsoft.Xna.Framework.Graphics;
-    using Texture2D = AdventureGame.Engine.Graphics.Texture2D;
+    using Texture2D = AdventureGame.Assets.Graphics.Texture2D;
     using XnaColor = Microsoft.Xna.Framework.Color;
     using XnaPoint = Microsoft.Xna.Framework.Point;
     using XnaRectangle = Microsoft.Xna.Framework.Rectangle;
     using XnaTexture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 
-    public class MonoGameGraphics : GraphicsHandler
+    public class MonoGameRenderer : Renderer
     {
         private readonly SpriteBatch spriteBatch;
 
-        public MonoGameGraphics(SpriteBatch spriteBatch)
+        public MonoGameRenderer(SpriteBatch spriteBatch)
         {
             this.spriteBatch = spriteBatch;
         }

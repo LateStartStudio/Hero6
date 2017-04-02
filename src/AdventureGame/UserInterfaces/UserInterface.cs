@@ -12,8 +12,8 @@
 namespace LateStartStudio.AdventureGame.UserInterfaces
 {
     using System;
-    using Engine;
-    using Engine.Graphics;
+    using Assets;
+    using Assets.Graphics;
     using GameLoop;
 
     /// <summary>
@@ -27,17 +27,15 @@ namespace LateStartStudio.AdventureGame.UserInterfaces
         /// <param name="width">The native width to render the user interface.</param>
         /// <param name="height">The native height to render the user interface.</param>
         /// <param name="scale">The scale of the heigth and width.</param>
-        /// <param name="adventureGameEngine">
-        /// The adventure game engine that will render the user interface.
-        /// </param>
-        /// <param name="content">The content manager of this user interface.</param>
-        protected UserInterface(int width, int height, Vector2 scale, Engine adventureGameEngine, ContentManager content)
+        /// <param name="renderer">The renderer for the user interface.</param>
+        /// <param name="assets">The assets manager of this user interface.</param>
+        protected UserInterface(int width, int height, Vector2 scale, Renderer renderer, AssetManager assets)
         {
             this.Width = width;
             this.Height = height;
             this.Scale = scale;
-            this.AdventureGameEngine = adventureGameEngine;
-            this.Content = content;
+            this.Renderer = renderer;
+            this.Assets = assets;
         }
 
         /// <inheritdoc />
@@ -70,20 +68,20 @@ namespace LateStartStudio.AdventureGame.UserInterfaces
         public event EventHandler<UserInteractionEventArgs> MouseButtonClick;
 
         /// <summary>
-        /// Gets the <see cref="ContentManager"/> of the <see cref="UserInterface"/> instance.
+        /// Gets the <see cref="AssetManager"/> of the <see cref="UserInterface"/> instance.
         /// </summary>
         /// <value>
-        /// The <see cref="ContentManager"/> of the <see cref="UserInterface"/> instance.
+        /// The <see cref="AssetManager"/> of the <see cref="UserInterface"/> instance.
         /// </value>
-        public ContentManager Content { get; }
+        public AssetManager Assets { get; }
 
         /// <summary>
-        /// Gets the engine that will render the user interface.
+        /// Gets the renderer for the user interface.
         /// </summary>
         /// <value>
-        /// The engine that will render the user interface.
+        /// The renderer for the user interface.
         /// </value>
-        public Engine AdventureGameEngine
+        public Renderer Renderer
         {
             get; private set;
         }

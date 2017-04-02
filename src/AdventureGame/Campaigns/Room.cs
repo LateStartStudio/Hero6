@@ -13,7 +13,7 @@ namespace LateStartStudio.AdventureGame.Campaigns
 {
     using System;
     using System.Collections.Generic;
-    using Engine.Graphics;
+    using Assets.Graphics;
     using GameLoop;
     using Regions;
     using Search.Pathfinder;
@@ -149,11 +149,11 @@ namespace LateStartStudio.AdventureGame.Campaigns
         /// <inheritdoc />
         public sealed override void Load()
         {
-            this.InvokePreLoad(this, new LoadEventArgs(this.Content));
+            this.InvokePreLoad(this, new LoadEventArgs(this.Assets));
 
-            this.background = this.Content.LoadTexture2D(this.backgroundID);
+            this.background = this.Assets.LoadTexture2D(this.backgroundID);
 
-            this.walkAreaMask = this.Content.LoadTexture2D(this.walkAreaID);
+            this.walkAreaMask = this.Assets.LoadTexture2D(this.walkAreaID);
             this.walkAreaBuffer = CopyTextureData(this.walkAreaMask);
             this.walkAreaNodes = this.CreateWalkNodes();
 
@@ -162,12 +162,12 @@ namespace LateStartStudio.AdventureGame.Campaigns
                 walkAreaNode.Children = this.FindNeighbors(walkAreaNode);
             }
 
-            this.hotspotsMask = this.Content.LoadTexture2D(this.hotSpotMaskID);
+            this.hotspotsMask = this.Assets.LoadTexture2D(this.hotSpotMaskID);
             this.hotspotMaskBuffer = this.FindHotspots(this.hotspotsMask);
 
             this.InitializeEvents();
 
-            this.InvokePostLoad(this, new LoadEventArgs(this.Content));
+            this.InvokePostLoad(this, new LoadEventArgs(this.Assets));
         }
 
         /// <inheritdoc />
@@ -206,11 +206,11 @@ namespace LateStartStudio.AdventureGame.Campaigns
             TimeSpan elapsedTime,
             bool isRunningSlowly)
         {
-            this.InvokePreDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Campaign.Engine.Graphics));
+            this.InvokePreDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Campaign.Renderer));
 
             if (this.IsVisible)
             {
-                this.Campaign.Engine.Graphics.Draw(this.background, this.Location);
+                this.Campaign.Renderer.Draw(this.background, this.Location);
             }
 
             foreach (Item item in this.Items)
@@ -223,7 +223,7 @@ namespace LateStartStudio.AdventureGame.Campaigns
                 character.Draw(totalTime, elapsedTime, isRunningSlowly);
             }
 
-            this.InvokePostDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Campaign.Engine.Graphics));
+            this.InvokePostDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Campaign.Renderer));
         }
 
         /// <summary>

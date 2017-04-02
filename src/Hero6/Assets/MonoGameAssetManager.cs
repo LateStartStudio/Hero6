@@ -1,28 +1,27 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="MonoGameContentManager.cs" company="LateStartStudio">
+// <copyright file="MonoGameAssetManager.cs" company="LateStartStudio">
 //   Copyright (C) LateStartStudio
 //   This file is subject to the terms and conditions of the MIT license specified
 //   in the file 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 // <summary>
-//   Defines the MonoGameContentManager type.
+//   Defines the MonoGameAssetManager type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.Hero6.Engine
+namespace LateStartStudio.Hero6.Assets
 {
-    using AdventureGame.Engine.Graphics;
+    using AdventureGame.Assets.Graphics;
     using Graphics;
-    using ContentManager = AdventureGame.Engine.ContentManager;
     using XnaContentManager = Microsoft.Xna.Framework.Content.ContentManager;
     using XnaSpriteFont = Microsoft.Xna.Framework.Graphics.SpriteFont;
     using XnaTexture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 
-    public class MonoGameContentManager : ContentManager
+    public class MonoGameAssetManager : AdventureGame.Assets.AssetManager
     {
         private readonly XnaContentManager content;
 
-        public MonoGameContentManager(XnaContentManager content)
+        public MonoGameAssetManager(XnaContentManager content)
         {
             this.content = new XnaContentManager(content.ServiceProvider, content.RootDirectory);
         }
@@ -33,7 +32,7 @@ namespace LateStartStudio.Hero6.Engine
             set { this.content.RootDirectory = value; }
         }
 
-        public override object NativeContentManager
+        public override object NativeAssetManager
         {
             get { return this.content; }
         }
