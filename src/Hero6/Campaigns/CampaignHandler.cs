@@ -12,7 +12,7 @@
 namespace LateStartStudio.Hero6.Campaigns
 {
     using System.Collections.Generic;
-    using AdventureGame;
+    using AdventureGame.Campaigns;
     using AdventureGame.Engine;
     using Engine;
     using Microsoft.Xna.Framework;

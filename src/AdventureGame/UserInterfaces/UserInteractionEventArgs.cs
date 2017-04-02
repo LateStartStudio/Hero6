@@ -12,7 +12,7 @@
 namespace LateStartStudio.AdventureGame.UserInterfaces
 {
     using System;
-    using Game;
+    using Campaigns;
 
     /// <summary>
     /// Event Args to provide information for user interaction.

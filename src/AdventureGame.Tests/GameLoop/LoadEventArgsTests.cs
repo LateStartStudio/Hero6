@@ -11,6 +11,7 @@
 
 namespace LateStartStudio.AdventureGame.GameLoop
 {
+    using Campaigns;
     using NUnit.Framework;
 
     [TestFixture]

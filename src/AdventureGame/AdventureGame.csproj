@@ -40,7 +40,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Campaign.cs" />
+    <Compile Include="Campaigns\Campaign.cs" />
     <Compile Include="Engine\ContentManager.cs" />
     <Compile Include="Engine\Engine.cs" />
     <Compile Include="Engine\Graphics\Color.cs" />
@@ -50,24 +50,24 @@
     <Compile Include="Engine\Graphics\SpriteFont.cs" />
     <Compile Include="Engine\Graphics\Texture2D.cs" />
     <Compile Include="Engine\Graphics\Vector2.cs" />
-    <Compile Include="Game\AdventureGameElement.cs" />
-    <Compile Include="Game\Character.cs" />
-    <Compile Include="Game\CharacterAnimation.cs" />
+    <Compile Include="Campaigns\AdventureGameElement.cs" />
+    <Compile Include="Campaigns\Character.cs" />
+    <Compile Include="Campaigns\CharacterAnimation.cs" />
     <Compile Include="GameLoop\DrawEventArgs.cs" />
     <Compile Include="GameLoop\LoadEventArgs.cs" />
     <Compile Include="GameLoop\UnloadEventArgs.cs" />
     <Compile Include="GameLoop\UpdateEventArgs.cs" />
-    <Compile Include="Game\PlayerCharacter.cs" />
-    <Compile Include="Game\Regions\Hotspot.cs" />
-    <Compile Include="Game\Regions\HotspotWalkingEventArgs.cs" />
+    <Compile Include="Campaigns\PlayerCharacter.cs" />
+    <Compile Include="Campaigns\Regions\Hotspot.cs" />
+    <Compile Include="Campaigns\Regions\HotspotWalkingEventArgs.cs" />
     <Compile Include="GameLoop\IGameLoop.cs" />
-    <Compile Include="Game\Interaction.cs" />
-    <Compile Include="Game\InventoryItem.cs" />
-    <Compile Include="Game\Item.cs" />
-    <Compile Include="Game\Room.cs" />
-    <Compile Include="Game\SpriteSheet.cs" />
-    <Compile Include="Game\Stats\Stat.cs" />
-    <Compile Include="Game\Stats\StatChangedEventArgs.cs" />
+    <Compile Include="Campaigns\Interaction.cs" />
+    <Compile Include="Campaigns\InventoryItem.cs" />
+    <Compile Include="Campaigns\Item.cs" />
+    <Compile Include="Campaigns\Room.cs" />
+    <Compile Include="Campaigns\SpriteSheet.cs" />
+    <Compile Include="Campaigns\Stats\Stat.cs" />
+    <Compile Include="Campaigns\Stats\StatChangedEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserInterfaces\UserInteractionEventArgs.cs" />
     <Compile Include="UserInterfaces\UserInterface.cs" />

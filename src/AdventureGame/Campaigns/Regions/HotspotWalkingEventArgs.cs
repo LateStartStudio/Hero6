@@ -9,7 +9,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.AdventureGame.Game.Regions
+namespace LateStartStudio.AdventureGame.Campaigns.Regions
 {
     /// <summary>
     /// A class with the Event Args for walking interactions with hot spots.

@@ -9,7 +9,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.AdventureGame.Game.Stats
+namespace LateStartStudio.AdventureGame.Campaigns.Stats
 {
     using NUnit.Framework;
 

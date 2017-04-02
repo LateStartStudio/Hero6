@@ -9,11 +9,10 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.AdventureGame.Game
+namespace LateStartStudio.AdventureGame.Campaigns
 {
     using System;
     using System.Collections.Generic;
-    using AdventureGame;
     using Engine.Graphics;
     using GameLoop;
 

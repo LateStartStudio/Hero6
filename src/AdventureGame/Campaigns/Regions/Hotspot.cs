@@ -9,7 +9,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.AdventureGame.Game.Regions
+namespace LateStartStudio.AdventureGame.Campaigns.Regions
 {
     using System;
 

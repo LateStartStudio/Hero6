@@ -11,8 +11,7 @@
 
 namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.InventoryItems
 {
-    using AdventureGame;
-    using AdventureGame.Game;
+    using AdventureGame.Campaigns;
 
     public sealed class BentSword : InventoryItem
     {
