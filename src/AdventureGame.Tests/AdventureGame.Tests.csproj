@@ -41,9 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Engine\Graphics\MockGraphicsHandler.cs" />
-    <Compile Include="Engine\MockContentManager.cs" />
-    <Compile Include="Engine\MockEngine.cs" />
+    <Compile Include="Assets\MockRenderer.cs" />
+    <Compile Include="Assets\MockAssetManager.cs" />
     <Compile Include="GameLoop\DrawEventArgsTests.cs" />
     <Compile Include="GameLoop\LoadEventArgsTests.cs" />
     <Compile Include="GameLoop\UnloadEventArgsTests.cs" />

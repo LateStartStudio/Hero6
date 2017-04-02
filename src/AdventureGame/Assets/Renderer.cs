@@ -1,21 +1,31 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="GraphicsHandler.cs" company="LateStartStudio">
+// <copyright file="Renderer.cs" company="LateStartStudio">
 //   Copyright (C) LateStartStudio
 //   This file is subject to the terms and conditions of the MIT license specified
 //   in the file 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 // <summary>
-//   Defines the GraphicsHandler type.
+//   Defines the Renderer type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.AdventureGame.Engine.Graphics
+namespace LateStartStudio.AdventureGame.Assets
 {
+    using Graphics;
+
     /// <summary>
     /// An abstract class for the graphics handler of the adventure game engine.
     /// </summary>
-    public abstract class GraphicsHandler
+    public abstract class Renderer
     {
+        /// <summary>
+        /// Gets or sets a value indicating whether the renderer should run or not.
+        /// </summary>
+        /// <value>
+        /// A value indicating whether the renderer should run or not.
+        /// </value>
+        public static bool IsPaused { get; set; }
+
         /// <summary>
         /// Draws sprites to screen.
         /// </summary>

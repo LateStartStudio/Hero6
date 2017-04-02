@@ -12,8 +12,8 @@
 namespace LateStartStudio.AdventureGame.Campaigns
 {
     using System;
-    using Engine;
-    using Engine.Graphics;
+    using Assets;
+    using Assets.Graphics;
     using GameLoop;
 
     /// <summary>
@@ -21,7 +21,7 @@ namespace LateStartStudio.AdventureGame.Campaigns
     /// </summary>
     public class SpriteSheet : IGameLoop
     {
-        private readonly ContentManager content;
+        private readonly AssetManager assets;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SpriteSheet"/> class.
@@ -32,7 +32,7 @@ namespace LateStartStudio.AdventureGame.Campaigns
         /// <param name="columns">The amount of columns in the sprite sheet.</param>
         public SpriteSheet(Campaign campaign, string sheetID, int rows, int columns)
         {
-            this.content = campaign.Content;
+            this.assets = campaign.Assets;
             this.SheetID = sheetID;
             this.Rows = rows;
             this.Columns = columns;
@@ -133,14 +133,14 @@ namespace LateStartStudio.AdventureGame.Campaigns
         /// <inheritdoc />
         public void Load()
         {
-            this.PreLoad?.Invoke(this, new LoadEventArgs(this.content));
+            this.PreLoad?.Invoke(this, new LoadEventArgs(this.assets));
 
             if (this.Sheet == null)
             {
-                this.Sheet = this.content.LoadTexture2D(this.SheetID);
+                this.Sheet = this.assets.LoadTexture2D(this.SheetID);
             }
 
-            this.PostLoad?.Invoke(this, new LoadEventArgs(this.content));
+            this.PostLoad?.Invoke(this, new LoadEventArgs(this.assets));
         }
 
         /// <inheritdoc />

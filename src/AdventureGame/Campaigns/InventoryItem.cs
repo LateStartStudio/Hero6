@@ -12,7 +12,7 @@
 namespace LateStartStudio.AdventureGame.Campaigns
 {
     using System;
-    using Engine.Graphics;
+    using Assets.Graphics;
     using GameLoop;
 
     /// <summary>
@@ -49,11 +49,11 @@ namespace LateStartStudio.AdventureGame.Campaigns
         /// <inheritdoc />
         public override void Load()
         {
-            this.InvokePreLoad(this, new LoadEventArgs(this.Content));
+            this.InvokePreLoad(this, new LoadEventArgs(this.Assets));
 
-            this.sprite = this.Content.LoadTexture2D(this.spriteID);
+            this.sprite = this.Assets.LoadTexture2D(this.spriteID);
 
-            this.InvokePostLoad(this, new LoadEventArgs(this.Content));
+            this.InvokePostLoad(this, new LoadEventArgs(this.Assets));
         }
 
         /// <inheritdoc />

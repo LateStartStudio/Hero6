@@ -9,7 +9,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.AdventureGame.Engine.Graphics
+namespace LateStartStudio.AdventureGame.Assets.Graphics
 {
     /// <summary>
     /// A struct for color type in the RGBA format.

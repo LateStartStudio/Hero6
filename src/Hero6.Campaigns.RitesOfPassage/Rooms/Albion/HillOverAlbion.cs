@@ -12,9 +12,9 @@
 namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Rooms.Albion
 {
     using System;
+    using AdventureGame.Assets.Graphics;
     using AdventureGame.Campaigns;
     using AdventureGame.Campaigns.Regions;
-    using AdventureGame.Engine.Graphics;
     using Characters;
     using Items;
     using Locales;

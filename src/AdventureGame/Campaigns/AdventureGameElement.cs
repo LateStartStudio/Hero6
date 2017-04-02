@@ -12,8 +12,8 @@
 namespace LateStartStudio.AdventureGame.Campaigns
 {
     using System;
-    using Engine;
-    using Engine.Graphics;
+    using Assets;
+    using Assets.Graphics;
     using GameLoop;
 
     /// <summary>
@@ -111,14 +111,14 @@ namespace LateStartStudio.AdventureGame.Campaigns
         }
 
         /// <summary>
-        /// Gets the <see cref="ContentManager"/> associated with this
+        /// Gets the <see cref="AssetManager"/> associated with this
         /// <see cref="AdventureGameElement"/> instance.
         /// </summary>
         /// <value>
-        /// The <see cref="ContentManager"/> associated with this
+        /// The <see cref="AssetManager"/> associated with this
         /// <see cref="AdventureGameElement"/> instance.
         /// </value>
-        protected ContentManager Content => this.Campaign.Content;
+        protected AssetManager Assets => this.Campaign.Assets;
 
         /// <summary>
         /// Called on user interaction with the game at input coordinates.

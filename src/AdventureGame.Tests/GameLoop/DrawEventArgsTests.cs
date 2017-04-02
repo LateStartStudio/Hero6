@@ -12,8 +12,8 @@
 namespace LateStartStudio.AdventureGame.GameLoop
 {
     using System;
+    using Assets;
     using Campaigns;
-    using Engine.Graphics;
     using NUnit.Framework;
 
     [TestFixture]
@@ -22,35 +22,35 @@ namespace LateStartStudio.AdventureGame.GameLoop
         [Test]
         public void IsNotNull()
         {
-            Assert.IsNotNull(new DrawEventArgs(TimeSpan.Zero, TimeSpan.Zero, false, MockCampaign.Instance.Engine.Graphics));
+            Assert.IsNotNull(new DrawEventArgs(TimeSpan.Zero, TimeSpan.Zero, false, MockCampaign.Instance.Renderer));
         }
 
         [Test]
         public void TotalTimeGet()
         {
             TimeSpan expected = TimeSpan.FromHours(4);
-            Assert.AreEqual(expected, new DrawEventArgs(expected, TimeSpan.Zero, false, MockCampaign.Instance.Engine.Graphics).TotalTime);
+            Assert.AreEqual(expected, new DrawEventArgs(expected, TimeSpan.Zero, false, MockCampaign.Instance.Renderer).TotalTime);
         }
 
         [Test]
         public void ElapsedTimeGet()
         {
             TimeSpan expected = TimeSpan.FromHours(4);
-            Assert.AreEqual(expected, new DrawEventArgs(TimeSpan.Zero, expected, false, MockCampaign.Instance.Engine.Graphics).ElapsedTime);
+            Assert.AreEqual(expected, new DrawEventArgs(TimeSpan.Zero, expected, false, MockCampaign.Instance.Renderer).ElapsedTime);
         }
 
         [Test]
         public void IsRunningSlowlyGet()
         {
             const bool Expected = false;
-            Assert.AreEqual(Expected, new DrawEventArgs(TimeSpan.Zero, TimeSpan.Zero, Expected, MockCampaign.Instance.Engine.Graphics).IsRunningSlowly);
+            Assert.AreEqual(Expected, new DrawEventArgs(TimeSpan.Zero, TimeSpan.Zero, Expected, MockCampaign.Instance.Renderer).IsRunningSlowly);
         }
 
         [Test]
         public void EngineGet()
         {
-            GraphicsHandler expected = MockCampaign.Instance.Engine.Graphics;
-            Assert.AreEqual(expected, new DrawEventArgs(TimeSpan.Zero, TimeSpan.Zero, false, expected).Graphics);
+            Renderer expected = MockCampaign.Instance.Renderer;
+            Assert.AreEqual(expected, new DrawEventArgs(TimeSpan.Zero, TimeSpan.Zero, false, expected).Renderer);
         }
     }
 }

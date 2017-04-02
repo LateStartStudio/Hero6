@@ -9,7 +9,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.AdventureGame.Engine.Graphics
+namespace LateStartStudio.AdventureGame.Assets.Graphics
 {
     /// <summary>
     /// A vector for a point in x and y coordinates.

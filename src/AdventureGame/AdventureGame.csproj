@@ -41,15 +41,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Campaigns\Campaign.cs" />
-    <Compile Include="Engine\ContentManager.cs" />
-    <Compile Include="Engine\Engine.cs" />
-    <Compile Include="Engine\Graphics\Color.cs" />
-    <Compile Include="Engine\Graphics\GraphicsHandler.cs" />
-    <Compile Include="Engine\Graphics\Point.cs" />
-    <Compile Include="Engine\Graphics\Rectangle.cs" />
-    <Compile Include="Engine\Graphics\SpriteFont.cs" />
-    <Compile Include="Engine\Graphics\Texture2D.cs" />
-    <Compile Include="Engine\Graphics\Vector2.cs" />
+    <Compile Include="Assets\AssetManager.cs" />
+    <Compile Include="Assets\Graphics\Color.cs" />
+    <Compile Include="Assets\Renderer.cs" />
+    <Compile Include="Assets\Graphics\Point.cs" />
+    <Compile Include="Assets\Graphics\Rectangle.cs" />
+    <Compile Include="Assets\Graphics\SpriteFont.cs" />
+    <Compile Include="Assets\Graphics\Texture2D.cs" />
+    <Compile Include="Assets\Graphics\Vector2.cs" />
     <Compile Include="Campaigns\AdventureGameElement.cs" />
     <Compile Include="Campaigns\Character.cs" />
     <Compile Include="Campaigns\CharacterAnimation.cs" />

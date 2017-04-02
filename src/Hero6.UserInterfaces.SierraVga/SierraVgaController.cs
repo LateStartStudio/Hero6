@@ -12,9 +12,9 @@
 namespace LateStartStudio.Hero6.UserInterfaces.SierraVga
 {
     using System;
+    using AdventureGame.Assets;
+    using AdventureGame.Assets.Graphics;
     using AdventureGame.Campaigns;
-    using AdventureGame.Engine;
-    using AdventureGame.Engine.Graphics;
     using AdventureGame.GameLoop;
     using AdventureGame.UserInterfaces;
     using EmptyKeys.UserInterface;
@@ -24,7 +24,6 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga
     using EmptyKeys.UserInterface.Mvvm;
     using View;
     using ViewModel;
-    using AdventureGameEngine = AdventureGame.Engine.Engine;
     using UiEngine = EmptyKeys.UserInterface.Engine;
 
     public class SierraVgaController : UserInterface
@@ -39,12 +38,12 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga
             int width,
             int height,
             Vector2 scale,
-            AdventureGameEngine adventureGameEngine,
-            ContentManager content)
-            : base(width, height, scale, adventureGameEngine, content)
+            Renderer renderer,
+            AdventureGame.Assets.AssetManager assets)
+            : base(width, height, scale, renderer, assets)
         {
-            this.Content.RootDirectory = "Content/Gui/Sierra Vga";
-            this.mouseCursor = new MouseCursor(adventureGameEngine, this.Content.NativeContentManager, this.Scale);
+            this.Assets.RootDirectory = "Content/Gui/Sierra Vga";
+            this.mouseCursor = new MouseCursor(Renderer, this.Assets.NativeAssetManager, this.Scale);
             ServiceManager.Instance.AddService<ICursorService>(this.mouseCursor);
         }
 
@@ -55,7 +54,7 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga
 
         public override void Load()
         {
-            this.InvokePreLoad(this, new LoadEventArgs(this.Content));
+            this.InvokePreLoad(this, new LoadEventArgs(this.Assets));
 
             this.defaultFont = this.LoadFont("Arial_11.25_Regular");
 
@@ -75,20 +74,20 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga
             };
             this.rootView.VerbBar.CursorType = CursorType.Custom5;
 
-            FontManager.Instance.LoadFonts(this.Content.NativeContentManager, "Fonts/");
-            ImageManager.Instance.LoadImages(this.Content.NativeContentManager);
-            SoundManager.Instance.LoadSounds(this.Content.NativeContentManager);
-            EffectManager.Instance.LoadEffects(this.Content.NativeContentManager);
+            FontManager.Instance.LoadFonts(this.Assets.NativeAssetManager, "Fonts/");
+            ImageManager.Instance.LoadImages(this.Assets.NativeAssetManager);
+            SoundManager.Instance.LoadSounds(this.Assets.NativeAssetManager);
+            EffectManager.Instance.LoadEffects(this.Assets.NativeAssetManager);
 
             this.rootView.MouseUp += this.OnMouseUp;
             this.rootView.TopBar.MouseEnter += this.OnMouseEnterTopBar;
             this.rootView.VerbBar.MouseLeave += this.OnMouseLeaveVerbBar;
-            this.rootViewModel.TextBox.OnShow += (s, a) => this.AdventureGameEngine.IsGamePaused = true;
-            this.rootViewModel.TextBox.OnHide += (s, a) => this.AdventureGameEngine.IsGamePaused = false;
+            this.rootViewModel.TextBox.OnShow += (s, a) => Renderer.IsPaused = true;
+            this.rootViewModel.TextBox.OnHide += (s, a) => Renderer.IsPaused = false;
 
             this.mouseCursor.Load();
 
-            this.InvokePostLoad(this, new LoadEventArgs(this.Content));
+            this.InvokePostLoad(this, new LoadEventArgs(this.Assets));
         }
 
         public override void Unload()
@@ -111,12 +110,12 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga
 
         public override void Draw(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly)
         {
-            this.InvokePreDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.AdventureGameEngine.Graphics));
+            this.InvokePreDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, Renderer));
 
             this.rootView.Draw(elapsedTime.TotalMilliseconds);
             this.mouseCursor.Draw(totalTime, elapsedTime, isRunningSlowly);
 
-            this.InvokePostDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.AdventureGameEngine.Graphics));
+            this.InvokePostDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, Renderer));
         }
 
         public override void ShowTextBox(string text)
@@ -126,7 +125,7 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga
 
         private FontBase LoadFont(string id)
         {
-            return UiEngine.Instance.AssetManager.LoadFont(this.Content.NativeContentManager, $"Fonts/{id}");
+            return UiEngine.Instance.AssetManager.LoadFont(this.Assets.NativeAssetManager, $"Fonts/{id}");
         }
 
         private void OnMouseUp(object sender, MouseButtonEventArgs e)
@@ -146,7 +145,7 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga
                     else if (this.rootViewModel.TextBox.IsVisible)
                     {
                         this.rootViewModel.TextBox.Hide();
-                        this.AdventureGameEngine.IsGamePaused = false;
+                        Renderer.IsPaused = false;
                     }
 
                     break;
@@ -186,7 +185,7 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga
                 return;
             }
 
-            this.AdventureGameEngine.IsGamePaused = true;
+            Renderer.IsPaused = true;
             this.mouseCursor.Backup = this.mouseCursor.Current;
             this.rootViewModel.IsVerbBarVisible = true;
             this.rootViewModel.IsTopBarVisible = false;
@@ -197,7 +196,7 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga
             this.mouseCursor.RestoreFromBackup();
             this.rootViewModel.IsVerbBarVisible = false;
             this.rootViewModel.IsTopBarVisible = true;
-            this.AdventureGameEngine.IsGamePaused = false;
+            Renderer.IsPaused = false;
         }
     }
 }

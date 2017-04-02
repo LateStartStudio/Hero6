@@ -11,7 +11,7 @@
 
 namespace LateStartStudio.AdventureGame.Campaigns
 {
-    using Engine;
+    using Assets;
     using UserInterfaces;
 
     public class MockCampaign : Campaign
@@ -21,8 +21,8 @@ namespace LateStartStudio.AdventureGame.Campaigns
 
         private static MockCampaign instance;
 
-        private MockCampaign(MockEngine engine, MockContentManager content, MockUserInterface ui)
-            : base(Id, Cap, engine, content, ui)
+        private MockCampaign(Renderer renderer, MockAssetManager assets, MockUserInterface ui)
+            : base(Id, Cap, renderer, assets, ui)
         {
         }
 
@@ -32,11 +32,11 @@ namespace LateStartStudio.AdventureGame.Campaigns
             {
                 if (instance == null)
                 {
-                    MockEngine engine = new MockEngine();
-                    MockContentManager content = new MockContentManager();
-                    MockUserInterface ui = new MockUserInterface(engine, content);
+                    MockRenderer renderer = new MockRenderer();
+                    MockAssetManager assets = new MockAssetManager();
+                    MockUserInterface ui = new MockUserInterface(renderer, assets);
 
-                    instance = new MockCampaign(engine, content, ui);
+                    instance = new MockCampaign(renderer, assets, ui);
                 }
 
                 return instance;

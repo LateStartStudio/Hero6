@@ -1,23 +1,23 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="MockContentManager.cs" company="LateStartStudio">
+// <copyright file="MockAssetManager.cs" company="LateStartStudio">
 //   Copyright (C) LateStartStudio
 //   This file is subject to the terms and conditions of the MIT license specified
 //   in the file 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 // <summary>
-//   Defines the MockContentManager type.
+//   Defines the MockAssetManager type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.AdventureGame.Engine
+namespace LateStartStudio.AdventureGame.Assets
 {
     using Graphics;
 
-    public class MockContentManager : ContentManager
+    public class MockAssetManager : AssetManager
     {
         public override string RootDirectory { get; set; }
 
-        public override object NativeContentManager => null;
+        public override object NativeAssetManager => null;
 
         public override void Dispose()
         {

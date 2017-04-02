@@ -12,7 +12,7 @@
 namespace LateStartStudio.AdventureGame.Campaigns
 {
     using System;
-    using Engine.Graphics;
+    using Assets.Graphics;
     using GameLoop;
 
     /// <summary>
@@ -195,7 +195,7 @@ namespace LateStartStudio.AdventureGame.Campaigns
         /// <inheritdoc />
         public override sealed void Load()
         {
-            this.InvokePreLoad(this, new LoadEventArgs(this.Content));
+            this.InvokePreLoad(this, new LoadEventArgs(this.Assets));
 
             this.CenterDownAnimation.Load();
             this.CenterUpAnimation.Load();
@@ -206,7 +206,7 @@ namespace LateStartStudio.AdventureGame.Campaigns
             this.RightDownAnimation.Load();
             this.RightUpAnimation.Load();
 
-            this.InvokePostLoad(this, new LoadEventArgs(this.Content));
+            this.InvokePostLoad(this, new LoadEventArgs(this.Assets));
         }
 
         /// <inheritdoc />
@@ -254,7 +254,7 @@ namespace LateStartStudio.AdventureGame.Campaigns
             TimeSpan elapsedTime,
             bool isRunningSlowly)
         {
-            this.InvokePreDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Campaign.Engine.Graphics));
+            this.InvokePreDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Campaign.Renderer));
 
             Rectangle destRectangle = new Rectangle(
                 this.Location.X,
@@ -268,9 +268,9 @@ namespace LateStartStudio.AdventureGame.Campaigns
                 this.Width,
                 this.Height);
 
-            this.Campaign.Engine.Graphics.Draw(this.CurrentSprite.Sheet, destRectangle, sourceRectangle, Color.White);
+            this.Campaign.Renderer.Draw(this.CurrentSprite.Sheet, destRectangle, sourceRectangle, Color.White);
 
-            this.InvokePostDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Campaign.Engine.Graphics));
+            this.InvokePostDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Campaign.Renderer));
         }
 
         private void ChangeCurrentSprite(Vector2 direction)

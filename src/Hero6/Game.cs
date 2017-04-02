@@ -14,15 +14,15 @@ namespace LateStartStudio.Hero6
     using System;
     using System.IO;
     using System.Reflection;
+    using AdventureGame.Assets;
     using AdventureGame.Utilities;
     using AdventureGame.Utilities.Logger;
+    using Assets;
     using Campaigns;
-    using Engine;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using UserInterfaces;
     using Utilities.Settings;
-    using AdventureGameEngine = AdventureGame.Engine.Engine;
 
     /// <summary>
     /// This is the main type for your game.
@@ -31,7 +31,7 @@ namespace LateStartStudio.Hero6
     {
         private static readonly Vector2 NativeGameResolution = new Vector2(320, 240);
 
-        private AdventureGameEngine engine;
+        private Renderer renderer;
         private UserInterfaceHandler ui;
         private CampaignHandler campaign;
         private GraphicsDeviceManager graphics;
@@ -117,7 +117,7 @@ namespace LateStartStudio.Hero6
 
                 if (this.ui != null)
                 {
-                    this.ui.Scale = new AdventureGame.Engine.Graphics.Vector2(value.M11, value.M22);
+                    this.ui.Scale = new AdventureGame.Assets.Graphics.Vector2(value.M11, value.M22);
                 }
             }
         }
@@ -138,17 +138,17 @@ namespace LateStartStudio.Hero6
 
             this.spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            this.engine = new MonoGameEngine(this.spriteBatch);
+            this.renderer = new MonoGameRenderer(this.spriteBatch);
 
             this.ui = new UserInterfaceHandler(
-                this.engine,
+                this.renderer,
                 this.GraphicsDevice,
                 this.Content,
                 (int)NativeGameResolution.X,
                 (int)NativeGameResolution.Y,
                 this.Scale);
 
-            this.campaign = new CampaignHandler(this.engine, this.Content, this.ui);
+            this.campaign = new CampaignHandler(this.renderer, this.Content, this.ui);
 
             this.ui.Initialize();
             this.campaign.Initialize();
