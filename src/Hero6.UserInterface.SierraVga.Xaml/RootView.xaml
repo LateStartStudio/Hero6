@@ -47,7 +47,7 @@
 
             <ControlTemplate x:Key="TextBoxWindow">
                 <Border Background="Black" >
-                    <TextBlock Text="{Binding Text}" TextWrapping="Wrap" />
+                    <TextBlock Text="{Binding Text}" TextWrapping="Wrap" Padding="{Binding Padding}" />
                 </Border>
             </ControlTemplate>
         </ResourceDictionary>

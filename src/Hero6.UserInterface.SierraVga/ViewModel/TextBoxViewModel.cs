@@ -15,16 +15,15 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.ViewModel
     using AdventureGame.Engine.Graphics;
     using EmptyKeys.UserInterface;
     using EmptyKeys.UserInterface.Mvvm;
-    using Entities;
 
     public class TextBoxViewModel : WindowViewModel
     {
         private readonly int nativeWidth;
         private readonly int nativeHeight;
         private readonly Vector2 scale;
-        private readonly Padding padding;
 
         private string text;
+        private Thickness padding;
 
         public TextBoxViewModel(int nativeWidth, int nativeHeight, Vector2 scale) : base("TextBoxWindow")
         {
@@ -34,7 +33,7 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.ViewModel
             this.Opacity = 1.0f;
             this.IsOnTop = true;
             this.Text = string.Empty;
-            this.padding = new Padding(1f);
+            this.Padding = new Thickness(1f);
         }
 
         public event EventHandler<EventArgs> OnShow;
@@ -47,6 +46,12 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.ViewModel
             set { this.SetProperty(ref this.text, value); }
         }
 
+        public Thickness Padding
+        {
+            get { return this.padding; }
+            set { this.SetProperty(ref this.padding, value); }
+        }
+
         public void Show(string input)
         {
             Size size = FontManager.DefaultFont.MeasureString(input, 1, 1);
@@ -54,10 +59,10 @@ namespace LateStartStudio.Hero6.UserInterface.SierraVga.ViewModel
             int screenHeight = this.nativeHeight * (int)this.scale.Y;
             int screenColumnWidth = screenWidth / 8;
             int displayAreaColumnWidth = screenWidth - (screenColumnWidth * 2);
-            int rowCount = (int)Math.Ceiling(size.Width / (displayAreaColumnWidth - padding.Left - padding.Right));
+            int rowCount = (int)Math.Ceiling(size.Width / (displayAreaColumnWidth - this.Padding.Left - this.Padding.Right));
 
-            this.MinHeight = size.Height + padding.Top + padding.Bottom;
-            this.MinWidth = size.Width + padding.Left + padding.Right;
+            this.MinHeight = size.Height + this.Padding.Top + this.Padding.Bottom;
+            this.MinWidth = size.Width + this.Padding.Left + this.Padding.Right;
             this.Height = size.Height * rowCount;
             this.Top = (screenHeight - this.Height) / 2;
 
