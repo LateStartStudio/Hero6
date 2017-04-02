@@ -36,7 +36,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{8FAAE2
 		paket.dependencies = paket.dependencies
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.UserInterface.SierraVga", "Hero6.UserInterface.SierraVga\Hero6.UserInterface.SierraVga.csproj", "{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.UserInterfaces.SierraVga", "Hero6.UserInterfaces.SierraVga\Hero6.UserInterfaces.SierraVga.csproj", "{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}"
 	ProjectSection(ProjectDependencies) = postProject
 		{EE485FED-F27E-4463-B58E-C8D639A2E5BB} = {EE485FED-F27E-4463-B58E-C8D639A2E5BB}
 	EndProjectSection
@@ -49,7 +49,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.DesktopGL.Tests", "He
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GUIs", "GUIs", "{863F4FF3-CB11-4C12-B99F-AA8CB0D9787D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.UserInterface.SierraVga.Xaml", "Hero6.UserInterface.SierraVga.Xaml\Hero6.UserInterface.SierraVga.Xaml.csproj", "{EE485FED-F27E-4463-B58E-C8D639A2E5BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.UserInterfaces.SierraVga.Xaml", "Hero6.UserInterfaces.SierraVga.Xaml\Hero6.UserInterfaces.SierraVga.Xaml.csproj", "{EE485FED-F27E-4463-B58E-C8D639A2E5BB}"
 EndProject
 Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "Hero6.Installer.Windows", "Hero6.Installer.Windows\Hero6.Installer.Windows.aiproj", "{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}"
 	ProjectSection(ProjectDependencies) = postProject

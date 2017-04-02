@@ -14,7 +14,7 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage
     using AdventureGame;
     using AdventureGame.Engine;
     using AdventureGame.Game;
-    using AdventureGame.UI;
+    using AdventureGame.UserInterfaces;
     using Characters;
     using Items;
     using Rooms.Albion;

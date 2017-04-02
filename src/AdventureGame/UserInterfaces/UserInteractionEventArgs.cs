@@ -9,7 +9,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.AdventureGame.UI
+namespace LateStartStudio.AdventureGame.UserInterfaces
 {
     using System;
     using Game;

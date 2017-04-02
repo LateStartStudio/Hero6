@@ -9,10 +9,10 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.Hero6.UserInterface
+namespace LateStartStudio.Hero6.UserInterfaces
 {
     using System.Collections.Generic;
-    using AdventureGame.UI;
+    using AdventureGame.UserInterfaces;
     using Engine;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;

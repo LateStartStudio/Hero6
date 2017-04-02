@@ -20,7 +20,7 @@ namespace LateStartStudio.Hero6
     using Engine;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
-    using UserInterface;
+    using UserInterfaces;
     using Utilities.Settings;
     using AdventureGameEngine = AdventureGame.Engine.Engine;
 

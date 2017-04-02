@@ -9,7 +9,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.Hero6.UserInterface.SierraVga.View
+namespace LateStartStudio.Hero6.UserInterfaces.SierraVga.View
 {
     using EmptyKeys.UserInterface.Controls;
 
