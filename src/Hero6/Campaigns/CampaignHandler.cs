@@ -17,7 +17,7 @@ namespace LateStartStudio.Hero6.Campaigns
     using Engine;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
-    using UserInterface;
+    using UserInterfaces;
     using XnaContentManager = Microsoft.Xna.Framework.Content.ContentManager;
 
     public class CampaignHandler : IXnaGameLoop

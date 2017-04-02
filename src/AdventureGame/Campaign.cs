@@ -16,7 +16,7 @@ namespace LateStartStudio.AdventureGame
     using Engine;
     using Game;
     using GameLoop;
-    using UI;
+    using UserInterfaces;
     using Utilities;
 
     /// <summary>

@@ -9,7 +9,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.Hero6.UserInterface.SierraVga
+namespace LateStartStudio.Hero6.UserInterfaces.SierraVga
 {
     using System;
     using AdventureGame.Engine;

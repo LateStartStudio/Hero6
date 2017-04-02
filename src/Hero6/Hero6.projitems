@@ -17,7 +17,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Engine\MonoGameEngine.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Game.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IXnaGameLoop.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)UserInterface\UserInterfaceHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UserInterfaces\UserInterfaceHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\Settings\UserSettings.Desktop.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\Settings\UserSettings.Android.cs" />
   </ItemGroup>

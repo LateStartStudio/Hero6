@@ -155,7 +155,7 @@
   <PropertyGroup>
     <PostBuildEvent>CD "$(SolutionDir)packages\EmptyKeysUI_Generator*\tools"
 
-ekUIGen.exe -i="$(ProjectDir)\" -o="$(ProjectDir)..\Hero6.UserInterface.SierraVga\View" -oa="$(SolutionDir)..\assets\Gui\Sierra Vga\Fonts" -ns="LateStartStudio.Hero6.UserInterface.SierraVga.View" -rm=MonoGame -header="$(ProjectDir)\Header.txt" -no-copy-images</PostBuildEvent>
+ekUIGen.exe -i="$(ProjectDir)\" -o="$(ProjectDir)..\Hero6.UserInterfaces.SierraVga\View" -oa="$(SolutionDir)..\assets\Gui\Sierra Vga\Fonts" -ns="LateStartStudio.Hero6.UserInterfaces.SierraVga.View" -rm=MonoGame -header="$(ProjectDir)\Header.txt" -no-copy-images</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

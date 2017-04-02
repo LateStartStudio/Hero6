@@ -12,7 +12,7 @@
 namespace LateStartStudio.AdventureGame
 {
     using Engine;
-    using UI;
+    using UserInterfaces;
 
     public class MockCampaign : Campaign
     {

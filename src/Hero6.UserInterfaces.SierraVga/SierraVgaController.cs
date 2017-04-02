@@ -9,14 +9,14 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.Hero6.UserInterface.SierraVga
+namespace LateStartStudio.Hero6.UserInterfaces.SierraVga
 {
     using System;
     using AdventureGame.Engine;
     using AdventureGame.Engine.Graphics;
     using AdventureGame.Game;
     using AdventureGame.GameLoop;
-    using AdventureGame.UI;
+    using AdventureGame.UserInterfaces;
     using EmptyKeys.UserInterface;
     using EmptyKeys.UserInterface.Input;
     using EmptyKeys.UserInterface.Media;
