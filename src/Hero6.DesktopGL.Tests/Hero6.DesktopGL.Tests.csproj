@@ -73,17 +73,17 @@
     <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AdventureGame\AdventureGame.csproj">
+    <ProjectReference Include="..\Hero6.Engine\Hero6.Engine.csproj">
       <Project>{0c0586a3-5a10-42ce-b609-cc80ee2cef7a}</Project>
-      <Name>AdventureGame</Name>
+      <Name>Hero6.Engine</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Hero6.Campaigns.RitesOfPassage\Hero6.Campaigns.RitesOfPassage.csproj">
+    <ProjectReference Include="..\Hero6.Engine.Campaigns.RitesOfPassage\Hero6.Engine.Campaigns.RitesOfPassage.csproj">
       <Project>{de807934-27ec-43a8-831f-15371284f11f}</Project>
-      <Name>Hero6.Campaigns.RitesOfPassage</Name>
+      <Name>Hero6.Engine.Campaigns.RitesOfPassage</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Hero6.UserInterfaces.SierraVga\Hero6.UserInterfaces.SierraVga.csproj">
+    <ProjectReference Include="..\Hero6.Engine.UserInterfaces.SierraVga\Hero6.Engine.UserInterfaces.SierraVga.csproj">
       <Project>{9c6a0da4-892e-45c0-afc7-b6d46f940329}</Project>
-      <Name>Hero6.UserInterfaces.SierraVga</Name>
+      <Name>Hero6.Engine.UserInterfaces.SierraVga</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
