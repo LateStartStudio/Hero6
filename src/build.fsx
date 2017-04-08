@@ -234,11 +234,12 @@ Target "Default Linux" (fun _ ->
 "WindowsDX Release"
     ==> "Default Windows"
 
-"Android Debug"
-    ==> "Default Windows"
+// Android is not supported or maintained so it is commented out for now
+// "Android Debug"
+//     ==> "Default Windows"
 
-"Android Release"
-    ==> "Default Windows"
+// "Android Release"
+//     ==> "Default Windows"
 
 // Dependencies - Linux Developer Environment
 "DesktopGL Debug"
