@@ -16,6 +16,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using SierraVga;
+    using Game = Game;
     using MonoGameEngine = EmptyKeys.UserInterface.MonoGameEngine;
     using Vector2 = Assets.Graphics.Vector2;
     using XnaContentManager = Microsoft.Xna.Framework.Content.ContentManager;
@@ -31,13 +32,12 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
             GraphicsDevice graphicsDevice,
             XnaContentManager content,
             int width,
-            int height,
-            Matrix scale)
+            int height)
         {
             this.Width = width;
             this.Height = height;
             this.renderer = renderer;
-            this.Scale = new Vector2(scale.M11, scale.M22);
+            this.Scale = new Vector2(Game.Transform.Scale.X, Game.Transform.Scale.Y);
             this.graphicsDevice = graphicsDevice;
 
             this.userInterfaces = new List<UserInterface>
