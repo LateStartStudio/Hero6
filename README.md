@@ -35,9 +35,6 @@ The Windows Installer is made with [Advanced Installer](http://www.advancedinsta
 |**v0.1.0**| - | - |
 |Windows (DirectX)|![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/7/badge)|![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/4/badge)|
 |Windows (OpenGL)|![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/6/badge)|![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/3/badge)|
-[//]: # "* Android Release: "
-[//]: # "![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/5/badge)"
-[//]: # "Android Release is disabled until we decide to focus on Android development"
 
 #### Experimental Builds
 ||Debug|Release|
