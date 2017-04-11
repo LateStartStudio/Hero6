@@ -115,6 +115,7 @@ namespace LateStartStudio.Collections.Generic
             return this.pq.GetEnumerator();
         }
 
+        /// <inheritdoc />
         IEnumerator IEnumerable.GetEnumerator()
         {
             return this.GetEnumerator();
