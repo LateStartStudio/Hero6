@@ -35,7 +35,6 @@ namespace LateStartStudio.Hero6
         private CampaignHandler campaign;
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
-        private Matrix scale;
 
         static Game()
         {
@@ -103,23 +102,7 @@ namespace LateStartStudio.Hero6
             }
         }
 
-        private Matrix Scale
-        {
-            get
-            {
-                return this.scale;
-            }
-
-            set
-            {
-                this.scale = value;
-
-                if (this.ui != null)
-                {
-                    this.ui.Scale = new Engine.Assets.Graphics.Vector2(value.M11, value.M22);
-                }
-            }
-        }
+        public static Matrix Transform { get; set; } = Matrix.Identity;
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -144,8 +127,7 @@ namespace LateStartStudio.Hero6
                 this.GraphicsDevice,
                 this.Content,
                 (int)NativeGameResolution.X,
-                (int)NativeGameResolution.Y,
-                this.Scale);
+                (int)NativeGameResolution.Y);
 
             this.campaign = new CampaignHandler(this.renderer, this.Content, this.ui);
 
@@ -217,7 +199,7 @@ namespace LateStartStudio.Hero6
                 null,
                 null,
                 null,
-                this.Scale);
+                Transform);
 
             this.campaign.Draw(gameTime, this.spriteBatch);
 
@@ -235,7 +217,7 @@ namespace LateStartStudio.Hero6
             float verScaling = GraphicsDevice.PresentationParameters.BackBufferHeight / NativeGameResolution.Y;
             Vector3 screenScalingFactor = new Vector3(horScaling, verScaling, 1);
 
-            this.Scale = Matrix.CreateScale(screenScalingFactor);
+            Transform = Matrix.CreateScale(screenScalingFactor);
         }
 
         private void GraphicsOnDeviceCreated(object sender, EventArgs eventArgs)
