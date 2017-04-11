@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EE485FED-F27E-4463-B58E-C8D639A2E5BB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LateStartStudio.Engine.Hero6.UserInterface.SierraVga.Xaml</RootNamespace>
+    <AssemblyName>Hero6.Engine.UserInterface.SierraVga.Xaml</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>5</LangVersion>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>5</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Cursors\Arrow.png">
+      <Link>Cursors\Arrow.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Cursors\Hand.png">
+      <Link>Cursors\Hand.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Cursors\Look.png">
+      <Link>Cursors\Look.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Cursors\Talk.png">
+      <Link>Cursors\Talk.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Cursors\Wait.png">
+      <Link>Cursors\Wait.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Cursors\Walk.png">
+      <Link>Cursors\Walk.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Top Bar\Background.png">
+      <Link>Top Bar\Background.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Verb Bar\Current Item Dark.png">
+      <Link>Verb Bar\Current Item Dark.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Verb Bar\Current Item Light.png">
+      <Link>Verb Bar\Current Item Light.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Verb Bar\Hand Dark.png">
+      <Link>Verb Bar\Hand Dark.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Verb Bar\Hand Light.png">
+      <Link>Verb Bar\Hand Light.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Verb Bar\Inventory Dark.png">
+      <Link>Verb Bar\Inventory Dark.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Verb Bar\Inventory Light.png">
+      <Link>Verb Bar\Inventory Light.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Verb Bar\Look Dark.png">
+      <Link>Verb Bar\Look Dark.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Verb Bar\Look Light.png">
+      <Link>Verb Bar\Look Light.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Verb Bar\Magic Dark.png">
+      <Link>Verb Bar\Magic Dark.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Verb Bar\Magic Light.png">
+      <Link>Verb Bar\Magic Light.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Verb Bar\Options Dark.png">
+      <Link>Verb Bar\Options Dark.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Verb Bar\Options Light.png">
+      <Link>Verb Bar\Options Light.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Verb Bar\Side Left.png">
+      <Link>Verb Bar\Side Left.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Verb Bar\Side Right.png">
+      <Link>Verb Bar\Side Right.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Verb Bar\Sub Menu Dark.png">
+      <Link>Verb Bar\Sub Menu Dark.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Verb Bar\Sub Menu Light.png">
+      <Link>Verb Bar\Sub Menu Light.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Verb Bar\Talk Dark.png">
+      <Link>Verb Bar\Talk Dark.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Verb Bar\Talk Light.png">
+      <Link>Verb Bar\Talk Light.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Verb Bar\Walk Dark.png">
+      <Link>Verb Bar\Walk Dark.png</Link>
+    </Content>
+    <Content Include="..\..\assets\Gui\Sierra Vga\Verb Bar\Walk Light.png">
+      <Link>Verb Bar\Walk Light.png</Link>
+    </Content>
+    <Content Include="BehaviorsLicense.txt">
+      <Paket>True</Paket>
+    </Content>
+    <Content Include="Header.txt" />
+    <Content Include="license.txt">
+      <Paket>True</Paket>
+    </Content>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="RootView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="paket.references" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>CD "$(SolutionDir)packages\EmptyKeysUI_Generator*\tools"
+
+ekUIGen.exe -i="$(ProjectDir)\" -o="$(ProjectDir)..\Hero6.Engine.UserInterfaces.SierraVga\View" -oa="$(SolutionDir)..\assets\Gui\Sierra Vga\Fonts" -ns="LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.View" -rm=MonoGame -header="$(ProjectDir)\Header.txt" -no-copy-images</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3')">
+      <ItemGroup>
+        <Reference Include="EmptyKeys.UserInterface.Designer">
+          <HintPath>..\packages\EmptyKeysUI_Generator\lib\net45\EmptyKeys.UserInterface.Designer.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+</Project>

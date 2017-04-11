@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Locales {
+namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Locales {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Locales {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LateStartStudio.Hero6.Campaigns.RitesOfPassage.Locales.Strings", typeof(Strings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Locales.Strings", typeof(Strings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Application
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Campaigns", "Campaigns", "{EBCC2EA9-CA3F-4409-A052-58D4AE69E967}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.Campaigns.RitesOfPassage", "Hero6.Campaigns.RitesOfPassage\Hero6.Campaigns.RitesOfPassage.csproj", "{DE807934-27EC-43A8-831F-15371284F11F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.Engine.Campaigns.RitesOfPassage", "Hero6.Engine.Campaigns.RitesOfPassage\Hero6.Engine.Campaigns.RitesOfPassage.csproj", "{DE807934-27EC-43A8-831F-15371284F11F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{C7901A1A-E22C-468F-9E9A-9A891598E7D8}"
 EndProject
@@ -21,7 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{CB9FBBED
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Hero6", "Hero6\Hero6.shproj", "{DF3851F5-AEA2-4D44-BAB1-88E63C470F30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureGame", "AdventureGame\AdventureGame.csproj", "{0C0586A3-5A10-42CE-B609-CC80EE2CEF7A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.Engine", "Hero6.Engine\Hero6.Engine.csproj", "{0C0586A3-5A10-42CE-B609-CC80EE2CEF7A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collections.Tests", "Collections.Tests\Collections.Tests.csproj", "{6BEE8AAC-A058-40B2-9009-76416AA682BA}"
 EndProject
@@ -32,7 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{8FAAE2
 		paket.dependencies = paket.dependencies
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.UserInterfaces.SierraVga", "Hero6.UserInterfaces.SierraVga\Hero6.UserInterfaces.SierraVga.csproj", "{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.Engine.UserInterfaces.SierraVga", "Hero6.Engine.UserInterfaces.SierraVga\Hero6.Engine.UserInterfaces.SierraVga.csproj", "{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Hero6.Tests", "Hero6.Tests\Hero6.Tests.shproj", "{B59E1A53-68B3-4D31-8B69-CEFC3D5CEBB4}"
 EndProject
@@ -40,7 +40,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.DesktopGL.Tests", "He
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GUIs", "GUIs", "{863F4FF3-CB11-4C12-B99F-AA8CB0D9787D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureGame.Tests", "AdventureGame.Tests\AdventureGame.Tests.csproj", "{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.Engine.Tests", "Hero6.Engine.Tests\Hero6.Engine.Tests.csproj", "{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution

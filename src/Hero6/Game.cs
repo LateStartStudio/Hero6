@@ -14,15 +14,14 @@ namespace LateStartStudio.Hero6
     using System;
     using System.IO;
     using System.Reflection;
-    using AdventureGame.Assets;
-    using AdventureGame.Utilities;
-    using AdventureGame.Utilities.Logger;
-    using Assets;
-    using Campaigns;
+    using Engine.Assets;
+    using Engine.Campaigns;
+    using Engine.UserInterfaces;
+    using Engine.Utilities;
+    using Engine.Utilities.Logger;
+    using Engine.Utilities.Settings;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
-    using UserInterfaces;
-    using Utilities.Settings;
 
     /// <summary>
     /// This is the main type for your game.
@@ -117,7 +116,7 @@ namespace LateStartStudio.Hero6
 
                 if (this.ui != null)
                 {
-                    this.ui.Scale = new AdventureGame.Assets.Graphics.Vector2(value.M11, value.M22);
+                    this.ui.Scale = new Engine.Assets.Graphics.Vector2(value.M11, value.M22);
                 }
             }
         }
