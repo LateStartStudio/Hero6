@@ -1,13 +1,8 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="DrawEventArgs.cs" company="LateStartStudio">
-//   Copyright (C) LateStartStudio
-//   This file is subject to the terms and conditions of the MIT license specified
-//   in the file 'LICENSE.CODE.md', which is a part of this source code package.
+﻿// <copyright file="DrawEventArgs.cs" company="Late Start Studio">
+// Copyright (C) Late Start Studio
+// This file is subject to the terms and conditions of the MIT license specified in the file
+// 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
-// <summary>
-//   Defines the DrawEventArgs event args.
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
 
 namespace LateStartStudio.Hero6.Engine.GameLoop
 {
