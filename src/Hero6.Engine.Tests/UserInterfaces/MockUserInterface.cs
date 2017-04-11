@@ -13,7 +13,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
     public class MockUserInterface : UserInterface
     {
         public MockUserInterface(Renderer renderer, AssetManager assets)
-            : base(0, 0, new Vector2(), renderer, assets)
+            : base(0, 0, default(Vector2), renderer, assets)
         {
         }
 
