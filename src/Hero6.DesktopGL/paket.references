@@ -6,3 +6,4 @@ Eto.Platform.Wpf
 Eto.Serialization.Xaml
 MonoGame.Framework.DesktopGL
 Portable.Xaml
+StyleCop.Analyzers
