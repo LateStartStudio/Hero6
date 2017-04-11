@@ -131,12 +131,12 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
                 case MouseButton.Left:
                     if (!this.IsDialogVisible)
                     {
-                        this.InvokeMouseButtonClick(
-                            this,
-                            new UserInteractionEventArgs(
-                                (int)(this.mouseCursor.Location.X / Scale.X),
-                                (int)(this.mouseCursor.Location.Y / Scale.Y),
-                                this.rootViewModel.Interaction));
+                        UserInteractionEventArgs args = new UserInteractionEventArgs(
+                            (int)(this.mouseCursor.Location.X / Scale.X),
+                            (int)(this.mouseCursor.Location.Y / Scale.Y),
+                            this.rootViewModel.Interaction);
+
+                        this.InvokeMouseButtonClick(this, args);
                     }
                     else if (this.rootViewModel.TextBox.IsVisible)
                     {
