@@ -1,4 +1,6 @@
 # [Hero6 Readme](https://github.com/LateStartStudio/Hero6/blob/master/README.md)
+[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/fold_left.svg?style=social&label=Follow%20%40Hero6)](https://twitter.com/Hero6)
+
 Welcome to the Hero6 project. This readme should be included in your copy of Hero6, it is also available in the [source code repository](https://github.com/LateStartStudio/Hero6). The Hero6 project started in 1999, the project was shut down and the game files released to public in 2011, until it was rebooted by a new team in 2013.
 
 * [Links](https://github.com/LateStartStudio/Hero6/blob/master/README.md#links)
