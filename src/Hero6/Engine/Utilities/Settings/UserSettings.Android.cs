@@ -3,8 +3,6 @@
 // This file is subject to the terms and conditions of the MIT license specified in the file
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
-// StyleCop doesn't like *.*.cs naming
-[module: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1649:FileHeaderFileNameDocumentationMustMatchTypeName", Justification = "Reviewed.")]
 
 #if ANDROID
 namespace LateStartStudio.Hero6.Engine.Utilities.Settings
