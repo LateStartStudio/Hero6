@@ -113,30 +113,24 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         }
 
         /// <inheritdoc />
-        public override sealed void Update(
-            TimeSpan totalTime,
-            TimeSpan elapsedTime,
-            bool isRunningSlowly)
+        public override sealed void Update(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            this.InvokePreUpdate(this, new UpdateEventArgs(totalTime, elapsedTime, isRunningSlowly));
+            this.InvokePreUpdate(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
 
-            this.InvokePostUpdate(this, new UpdateEventArgs(totalTime, elapsedTime, isRunningSlowly));
+            this.InvokePostUpdate(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
         }
 
         /// <inheritdoc />
-        public override sealed void Draw(
-            TimeSpan totalTime,
-            TimeSpan elapsedTime,
-            bool isRunningSlowly)
+        public override sealed void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            this.InvokePreDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Campaign.Renderer));
+            this.InvokePreDraw(this, new DrawEventArgs(total, elapsed, isRunningSlowly, this.Campaign.Renderer));
 
             if (this.IsVisible)
             {
                 Campaign.Renderer.Draw(this.sprite, this.Location);
             }
 
-            this.InvokePostDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Campaign.Renderer));
+            this.InvokePostDraw(this, new DrawEventArgs(total, elapsed, isRunningSlowly, this.Campaign.Renderer));
         }
     }
 }

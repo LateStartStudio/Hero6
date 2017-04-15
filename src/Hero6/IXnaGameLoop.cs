@@ -22,8 +22,8 @@ namespace LateStartStudio.Hero6
 
         void Unload();
 
-        void Update(GameTime gameTime);
+        void Update(GameTime time);
 
-        void Draw(GameTime gameTime, SpriteBatch spriteBatch);
+        void Draw(GameTime time, SpriteBatch spriteBatch);
     }
 }

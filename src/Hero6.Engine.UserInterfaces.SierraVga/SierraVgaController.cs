@@ -98,25 +98,25 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
             this.InvokePostUnload(this, new UnloadEventArgs());
         }
 
-        public override void Update(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly)
+        public override void Update(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            this.InvokePreUpdate(this, new UpdateEventArgs(totalTime, elapsedTime, isRunningSlowly));
+            this.InvokePreUpdate(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
 
-            this.mouseCursor.Update(totalTime, elapsedTime, isRunningSlowly);
-            this.rootView.UpdateInput(elapsedTime.TotalMilliseconds);
-            this.rootView.UpdateLayout(elapsedTime.TotalMilliseconds);
+            this.mouseCursor.Update(total, elapsed, isRunningSlowly);
+            this.rootView.UpdateInput(elapsed.TotalMilliseconds);
+            this.rootView.UpdateLayout(elapsed.TotalMilliseconds);
 
-            this.InvokePostUpdate(this, new UpdateEventArgs(totalTime, elapsedTime, isRunningSlowly));
+            this.InvokePostUpdate(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
         }
 
-        public override void Draw(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly)
+        public override void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            this.InvokePreDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, Renderer));
+            this.InvokePreDraw(this, new DrawEventArgs(total, elapsed, isRunningSlowly, Renderer));
 
-            this.rootView.Draw(elapsedTime.TotalMilliseconds);
-            this.mouseCursor.Draw(totalTime, elapsedTime, isRunningSlowly);
+            this.rootView.Draw(elapsed.TotalMilliseconds);
+            this.mouseCursor.Draw(total, elapsed, isRunningSlowly);
 
-            this.InvokePostDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, Renderer));
+            this.InvokePostDraw(this, new DrawEventArgs(total, elapsed, isRunningSlowly, Renderer));
         }
 
         public override void ShowTextBox(string text)

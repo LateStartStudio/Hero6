@@ -30,11 +30,11 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         {
         }
 
-        public override void Update(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly)
+        public override void Update(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
         }
 
-        public override void Draw(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly)
+        public override void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
         }
 

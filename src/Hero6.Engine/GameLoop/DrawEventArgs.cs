@@ -22,16 +22,16 @@ namespace LateStartStudio.Hero6.Engine.GameLoop
         /// <summary>
         /// Initializes a new instance of the <see cref="DrawEventArgs"/> class.
         /// </summary>
-        /// <param name="totalTime">The total time span since first update loop.</param>
-        /// <param name="elapsedTime">The time span since previous update loop.</param>
+        /// <param name="total">The total time span since first update loop.</param>
+        /// <param name="elapsed">The time span since previous update loop.</param>
         /// <param name="isRunningSlowly">
         /// A value indicating whether game is running slowly, true if it is, false if else.
         /// </param>
         /// <param name="renderer">The graphics handler.</param>
-        public DrawEventArgs(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly, Renderer renderer)
+        public DrawEventArgs(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly, Renderer renderer)
         {
-            this.TotalTime = totalTime;
-            this.ElapsedTime = elapsedTime;
+            this.TotalTime = total;
+            this.ElapsedTime = elapsed;
             this.IsRunningSlowly = isRunningSlowly;
             this.Renderer = renderer;
         }

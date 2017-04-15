@@ -270,28 +270,28 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         }
 
         /// <inheritdoc />
-        public void Update(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly)
+        public void Update(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            this.PreUpdate?.Invoke(this, new UpdateEventArgs(totalTime, elapsedTime, isRunningSlowly));
+            this.PreUpdate?.Invoke(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
 
             if (IsPaused)
             {
                 return;
             }
 
-            this.CurrentRoom.Update(totalTime, elapsedTime, isRunningSlowly);
+            this.CurrentRoom.Update(total, elapsed, isRunningSlowly);
 
-            this.PostUpdate?.Invoke(this, new UpdateEventArgs(totalTime, elapsedTime, isRunningSlowly));
+            this.PostUpdate?.Invoke(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
         }
 
         /// <inheritdoc />
-        public void Draw(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly)
+        public void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            this.PreDraw?.Invoke(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, Renderer));
+            this.PreDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly, Renderer));
 
-            this.CurrentRoom.Draw(totalTime, elapsedTime, isRunningSlowly);
+            this.CurrentRoom.Draw(total, elapsed, isRunningSlowly);
 
-            this.PostDraw?.Invoke(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, Renderer));
+            this.PostDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly, Renderer));
         }
 
         /// <summary>

@@ -216,16 +216,13 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         }
 
         /// <inheritdoc />
-        public override sealed void Update(
-            TimeSpan totalTime,
-            TimeSpan elapsedTime,
-            bool isRunningSlowly)
+        public override sealed void Update(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            this.InvokePreUpdate(this, new UpdateEventArgs(totalTime, elapsedTime, isRunningSlowly));
+            this.InvokePreUpdate(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
 
             if (this.IsMoving)
             {
-                this.elapsedTime += (float)totalTime.TotalSeconds;
+                this.elapsedTime += (float)total.TotalSeconds;
 
                 if (this.elapsedTime < (float)1 / 16)
                 {
@@ -245,16 +242,13 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
                 this.currentFrame = 0;
             }
 
-            this.InvokePostUpdate(this, new UpdateEventArgs(totalTime, elapsedTime, isRunningSlowly));
+            this.InvokePostUpdate(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
         }
 
         /// <inheritdoc />
-        public override sealed void Draw(
-            TimeSpan totalTime,
-            TimeSpan elapsedTime,
-            bool isRunningSlowly)
+        public override sealed void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            this.InvokePreDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Campaign.Renderer));
+            this.InvokePreDraw(this, new DrawEventArgs(total, elapsed, isRunningSlowly, this.Campaign.Renderer));
 
             Rectangle destRectangle = new Rectangle(
                 this.Location.X,
@@ -270,7 +264,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
 
             this.Campaign.Renderer.Draw(this.CurrentSprite.Sheet, destRectangle, sourceRectangle, Color.White);
 
-            this.InvokePostDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Campaign.Renderer));
+            this.InvokePostDraw(this, new DrawEventArgs(total, elapsed, isRunningSlowly, this.Campaign.Renderer));
         }
 
         private void ChangeCurrentSprite(Vector2 direction)

@@ -150,13 +150,13 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         }
 
         /// <inheritdoc />
-        public void Update(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly)
+        public void Update(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
             throw new NotImplementedException();
         }
 
         /// <inheritdoc />
-        public void Draw(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly)
+        public void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
             throw new NotImplementedException();
         }

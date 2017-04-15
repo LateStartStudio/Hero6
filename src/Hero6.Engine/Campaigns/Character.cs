@@ -228,35 +228,29 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         }
 
         /// <inheritdoc />
-        public override sealed void Update(
-            TimeSpan totalTime,
-            TimeSpan elapsedTime,
-            bool isRunningSlowly)
+        public override sealed void Update(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            this.InvokePreUpdate(this, new UpdateEventArgs(totalTime, elapsedTime, isRunningSlowly));
+            this.InvokePreUpdate(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
 
             this.Animation.IsMoving = this.MovementPath.Count > 0;
 
             this.MoveCharacter();
-            this.Animation.Update(totalTime, elapsedTime, isRunningSlowly);
+            this.Animation.Update(total, elapsed, isRunningSlowly);
 
-            this.InvokePostUpdate(this, new UpdateEventArgs(totalTime, elapsedTime, isRunningSlowly));
+            this.InvokePostUpdate(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
         }
 
         /// <inheritdoc />
-        public override sealed void Draw(
-            TimeSpan totalTime,
-            TimeSpan elapsedTime,
-            bool isRunningSlowly)
+        public override sealed void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            this.InvokePreDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Campaign.Renderer));
+            this.InvokePreDraw(this, new DrawEventArgs(total, elapsed, isRunningSlowly, this.Campaign.Renderer));
 
             if (this.IsVisible)
             {
-                this.Animation.Draw(totalTime, elapsedTime, isRunningSlowly);
+                this.Animation.Draw(total, elapsed, isRunningSlowly);
             }
 
-            this.InvokePostDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Campaign.Renderer));
+            this.InvokePostDraw(this, new DrawEventArgs(total, elapsed, isRunningSlowly, this.Campaign.Renderer));
         }
 
         private void MoveCharacter()

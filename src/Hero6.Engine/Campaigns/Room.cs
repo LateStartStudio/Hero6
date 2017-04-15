@@ -177,36 +177,30 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         }
 
         /// <inheritdoc />
-        public sealed override void Update(
-            TimeSpan totalTime,
-            TimeSpan elapsedTime,
-            bool isRunningSlowly)
+        public sealed override void Update(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            this.InvokePreUpdate(this, new UpdateEventArgs(totalTime, elapsedTime, isRunningSlowly));
+            this.InvokePreUpdate(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
 
             foreach (Item item in this.Items)
             {
-                item.Update(totalTime, elapsedTime, isRunningSlowly);
+                item.Update(total, elapsed, isRunningSlowly);
             }
 
             foreach (Character character in this.Characters)
             {
-                character.Update(totalTime, elapsedTime, isRunningSlowly);
+                character.Update(total, elapsed, isRunningSlowly);
             }
 
             Color pixel = this.hotspotMaskBuffer[this.Campaign.Player.Location.Y, this.Campaign.Player.Location.X];
             this.Hotspots[pixel].InvokeWhileStandingIn(new HotspotWalkingEventArgs(Campaign.Player));
 
-            this.InvokePostUpdate(this, new UpdateEventArgs(totalTime, elapsedTime, isRunningSlowly));
+            this.InvokePostUpdate(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
         }
 
         /// <inheritdoc />
-        public sealed override void Draw(
-            TimeSpan totalTime,
-            TimeSpan elapsedTime,
-            bool isRunningSlowly)
+        public sealed override void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            this.InvokePreDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Campaign.Renderer));
+            this.InvokePreDraw(this, new DrawEventArgs(total, elapsed, isRunningSlowly, this.Campaign.Renderer));
 
             if (this.IsVisible)
             {
@@ -215,15 +209,15 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
 
             foreach (Item item in this.Items)
             {
-                item.Draw(totalTime, elapsedTime, isRunningSlowly);
+                item.Draw(total, elapsed, isRunningSlowly);
             }
 
             foreach (Character character in this.Characters)
             {
-                character.Draw(totalTime, elapsedTime, isRunningSlowly);
+                character.Draw(total, elapsed, isRunningSlowly);
             }
 
-            this.InvokePostDraw(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.Campaign.Renderer));
+            this.InvokePostDraw(this, new DrawEventArgs(total, elapsed, isRunningSlowly, this.Campaign.Renderer));
         }
 
         /// <summary>
