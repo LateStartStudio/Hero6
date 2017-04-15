@@ -33,7 +33,6 @@ namespace LateStartStudio.Hero6
         private Renderer renderer;
         private UserInterfaceHandler ui;
         private CampaignHandler campaign;
-        private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
 
         static Game()
@@ -51,7 +50,7 @@ namespace LateStartStudio.Hero6
         {
             Util.Logger.Info("Creating Hero6 Game Instance.");
 
-            this.graphics = new GraphicsDeviceManager(this)
+            Graphics = new GraphicsDeviceManager(this)
             {
                 PreferredBackBufferWidth = Util.UserSettings.WindowWidth,
                 PreferredBackBufferHeight = Util.UserSettings.WindowHeight,
@@ -61,7 +60,7 @@ namespace LateStartStudio.Hero6
                 SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight
 #endif
             };
-            this.graphics.DeviceCreated += this.GraphicsOnDeviceCreated;
+            Graphics.DeviceCreated += this.GraphicsOnDeviceCreated;
 
             Content.RootDirectory = "Content";
 
@@ -101,6 +100,8 @@ namespace LateStartStudio.Hero6
 #endif
             }
         }
+
+        public static GraphicsDeviceManager Graphics { get; private set; }
 
         public static Matrix Transform { get; set; } = Matrix.Identity;
 
