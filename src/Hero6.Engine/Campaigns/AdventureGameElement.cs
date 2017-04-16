@@ -131,10 +131,10 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         public abstract void Unload();
 
         /// <inheritdoc />
-        public abstract void Update(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly);
+        public abstract void Update(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly);
 
         /// <inheritdoc />
-        public abstract void Draw(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly);
+        public abstract void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly);
 
         /// <summary>
         /// Shows a box with the input text.

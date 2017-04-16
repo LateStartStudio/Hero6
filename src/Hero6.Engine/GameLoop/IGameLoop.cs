@@ -66,25 +66,25 @@ namespace LateStartStudio.Hero6.Engine.GameLoop
         /// <summary>
         /// Updates game logic.
         /// </summary>
-        /// <param name="totalTime">The amount of game time since the start of the game.</param>
-        /// <param name="elapsedTime">
+        /// <param name="total">The amount of game time since the start of the game.</param>
+        /// <param name="elapsed">
         /// The amount of elapsed game time since the last update.
         /// </param>
         /// <param name="isRunningSlowly">
         /// Whether the game is running multiple updates this frame.
         /// </param>
-        void Update(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly);
+        void Update(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly);
 
         /// <summary>
         /// Draws the game to the screen.
         /// </summary>
-        /// <param name="totalTime">The amount of game time since the start of the game.</param>
-        /// <param name="elapsedTime">
+        /// <param name="total">The amount of game time since the start of the game.</param>
+        /// <param name="elapsed">
         /// The amount of elapsed game time since the last update.
         /// </param>
         /// <param name="isRunningSlowly">
         /// Whether the game is running multiple updates this frame.
         /// </param>
-        void Draw(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly);
+        void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly);
     }
 }

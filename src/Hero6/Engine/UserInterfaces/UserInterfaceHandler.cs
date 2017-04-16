@@ -82,20 +82,14 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
             this.CurrentUI.Unload();
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime time)
         {
-            this.CurrentUI.Update(
-                gameTime.TotalGameTime,
-                gameTime.ElapsedGameTime,
-                gameTime.IsRunningSlowly);
+            this.CurrentUI.Update(time.TotalGameTime, time.ElapsedGameTime, time.IsRunningSlowly);
         }
 
-        public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        public void Draw(GameTime time, SpriteBatch spriteBatch)
         {
-            this.CurrentUI.Draw(
-                gameTime.TotalGameTime,
-                gameTime.ElapsedGameTime,
-                gameTime.IsRunningSlowly);
+            this.CurrentUI.Draw(time.TotalGameTime, time.ElapsedGameTime, time.IsRunningSlowly);
         }
     }
 }

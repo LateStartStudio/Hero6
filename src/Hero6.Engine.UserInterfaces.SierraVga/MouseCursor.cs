@@ -176,22 +176,22 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
             throw new NotImplementedException();
         }
 
-        public void Update(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly)
+        public void Update(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            this.PreUpdate?.Invoke(this, new UpdateEventArgs(totalTime, elapsedTime, isRunningSlowly));
+            this.PreUpdate?.Invoke(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
 
-            this.PostUpdate?.Invoke(this, new UpdateEventArgs(totalTime, elapsedTime, isRunningSlowly));
+            this.PostUpdate?.Invoke(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
         }
 
-        public void Draw(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly)
+        public void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            this.PreDraw?.Invoke(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.renderer));
+            this.PreDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly, this.renderer));
 
             EmptyKeysRenderer.Begin();
             EmptyKeysRenderer.Draw(this.CurrentTexture, this.Location, this.area, ColorW.White, false);
             EmptyKeysRenderer.End();
 
-            this.PostDraw?.Invoke(this, new DrawEventArgs(totalTime, elapsedTime, isRunningSlowly, this.renderer));
+            this.PostDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly, this.renderer));
         }
 
         private void SetCursor(CursorType cursor, TextureBase texture)
