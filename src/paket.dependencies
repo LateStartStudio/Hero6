@@ -16,3 +16,4 @@ nuget NUnit
 nuget NUnit.Runners
 nuget OptimizedPriorityQueue
 nuget Portable.Xaml
+nuget StyleCop.Analyzers

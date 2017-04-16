@@ -2,3 +2,4 @@ EmptyKeysUI_MonoGame
 log4net
 MonoGame.Framework.WindowsDX
 NUnit
+StyleCop.Analyzers

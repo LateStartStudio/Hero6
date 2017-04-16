@@ -1,13 +1,8 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="MockUserInterface.cs" company="LateStartStudio">
-//   Copyright (C) LateStartStudio
-//   This file is subject to the terms and conditions of the MIT license specified
-//   in the file 'LICENSE.CODE.md', which is a part of this source code package.
+﻿// <copyright file="MockUserInterface.cs" company="Late Start Studio">
+// Copyright (C) Late Start Studio
+// This file is subject to the terms and conditions of the MIT license specified in the file
+// 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
-// <summary>
-//   Defines the MockUserInterface type.
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
 
 namespace LateStartStudio.Hero6.Engine.UserInterfaces
 {
@@ -18,7 +13,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
     public class MockUserInterface : UserInterface
     {
         public MockUserInterface(Renderer renderer, AssetManager assets)
-            : base(0, 0, new Vector2(), renderer, assets)
+            : base(0, 0, default(Vector2), renderer, assets)
         {
         }
 

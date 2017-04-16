@@ -1,13 +1,8 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="SierraVGAController.cs" company="LateStartStudio">
-//   Copyright (C) LateStartStudio
-//   This file is subject to the terms and conditions of the MIT license specified
-//   in the file 'LICENSE.CODE.md', which is a part of this source code package.
+﻿// <copyright file="SierraVgaController.cs" company="Late Start Studio">
+// Copyright (C) Late Start Studio
+// This file is subject to the terms and conditions of the MIT license specified in the file
+// 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
-// <summary>
-//   Defines the SierraVGAController type.
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
 
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
 {
@@ -136,12 +131,12 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
                 case MouseButton.Left:
                     if (!this.IsDialogVisible)
                     {
-                        this.InvokeMouseButtonClick(
-                            this,
-                            new UserInteractionEventArgs(
-                                (int)(this.mouseCursor.Location.X / Scale.X),
-                                (int)(this.mouseCursor.Location.Y / Scale.Y),
-                                this.rootViewModel.Interaction));
+                        UserInteractionEventArgs args = new UserInteractionEventArgs(
+                            (int)(this.mouseCursor.Location.X / Scale.X),
+                            (int)(this.mouseCursor.Location.Y / Scale.Y),
+                            this.rootViewModel.Interaction);
+
+                        this.InvokeMouseButtonClick(this, args);
                     }
                     else if (this.rootViewModel.TextBox.IsVisible)
                     {
