@@ -10,9 +10,9 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
     using System.ComponentModel;
     using Stats;
 
-    /// <summary> 
-    /// A class that represents a player character in a game. 
-    /// </summary> 
+    /// <summary>
+    /// A class that represents a player character in a game.
+    /// </summary>
     public class PlayerCharacter : Character
     {
         private uint health;
@@ -37,34 +37,34 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         private uint sidhe;
         private uint giants;
 
-        /// <summary> 
-        /// Initializes a new instance of the <see cref="PlayerCharacter"/> class. 
-        /// </summary> 
-        /// <param name="campaign">The campaign this is instance is associated with.</param> 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PlayerCharacter"/> class.
+        /// </summary>
+        /// <param name="campaign">The campaign this is instance is associated with.</param>
         public PlayerCharacter(Campaign campaign) : base(campaign)
         {
             this.Name = string.Empty;
         }
 
-        /// <summary> 
-        /// Occurs on stat changed. 
-        /// </summary> 
+        /// <summary>
+        /// Occurs on stat changed.
+        /// </summary>
         public event EventHandler<StatChangedEventArgs> StatChanged;
 
-        /// <summary> 
-        /// Gets or sets the name of the player character. 
-        /// </summary> 
-        /// <value> 
-        /// The name of the player character. 
-        /// </value> 
+        /// <summary>
+        /// Gets or sets the name of the player character.
+        /// </summary>
+        /// <value>
+        /// The name of the player character.
+        /// </value>
         public string Name { get; set; }
 
-        /// <summary> 
-        /// Gets or sets the health of the player character. 
-        /// </summary> 
-        /// <value> 
-        /// The health of the player character. 
-        /// </value> 
+        /// <summary>
+        /// Gets or sets the health of the player character.
+        /// </summary>
+        /// <value>
+        /// The health of the player character.
+        /// </value>
         public uint Health
         {
             get
@@ -87,12 +87,12 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
             }
         }
 
-        /// <summary> 
-        /// Gets or sets the stamina of the player character. 
-        /// </summary> 
-        /// <value> 
-        /// The stamina of the player character. 
-        /// </value> 
+        /// <summary>
+        /// Gets or sets the stamina of the player character.
+        /// </summary>
+        /// <value>
+        /// The stamina of the player character.
+        /// </value>
         public uint Stamina
         {
             get
@@ -115,12 +115,12 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
             }
         }
 
-        /// <summary> 
-        /// Gets or sets the mana of the player character. 
-        /// </summary> 
-        /// <value> 
-        /// The mana of the player character. 
-        /// </value> 
+        /// <summary>
+        /// Gets or sets the mana of the player character.
+        /// </summary>
+        /// <value>
+        /// The mana of the player character.
+        /// </value>
         public uint Mana
         {
             get
@@ -143,28 +143,28 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
             }
         }
 
-        /// <summary> 
-        /// Gets the max health of the player character. 
-        /// </summary> 
-        /// <value> 
-        /// The max health of the player character. 
-        /// </value> 
+        /// <summary>
+        /// Gets the max health of the player character.
+        /// </summary>
+        /// <value>
+        /// The max health of the player character.
+        /// </value>
         public uint HealthMax => (uint)((this.Strength * 0.4) + (this.Vitality * 0.6));
 
-        /// <summary> 
-        /// Gets the max stamina of the player character. 
-        /// </summary> 
-        /// <value> 
-        /// The max stamina of the player character. 
-        /// </value> 
+        /// <summary>
+        /// Gets the max stamina of the player character.
+        /// </summary>
+        /// <value>
+        /// The max stamina of the player character.
+        /// </value>
         public uint StaminaMax => (uint)((this.Vitality * 0.4) + (this.Agility * 0.6));
 
-        /// <summary> 
-        /// Gets the max mana of the player character. 
-        /// </summary> 
-        /// <value> 
-        /// The max mana of the player character. 
-        /// </value> 
+        /// <summary>
+        /// Gets the max mana of the player character.
+        /// </summary>
+        /// <value>
+        /// The max mana of the player character.
+        /// </value>
         public uint ManaMax
         {
             get
@@ -178,116 +178,116 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
             }
         }
 
-        /// <summary> 
-        /// Gets the strength of the player character. 
-        /// </summary> 
-        /// <value> 
-        /// The strength of the player character. 
-        /// </value> 
+        /// <summary>
+        /// Gets the strength of the player character.
+        /// </summary>
+        /// <value>
+        /// The strength of the player character.
+        /// </value>
         public uint Strength => TriangularNumberReverse(this.strength);
 
-        /// <summary> 
-        /// Gets the intelligence of the player character. 
-        /// </summary> 
-        /// <value> 
-        /// The intelligence of the player character. 
-        /// </value> 
+        /// <summary>
+        /// Gets the intelligence of the player character.
+        /// </summary>
+        /// <value>
+        /// The intelligence of the player character.
+        /// </value>
         public uint Intelligence => TriangularNumberReverse(this.intelligence);
 
-        /// <summary> 
-        /// Gets the agility of the player character. 
-        /// </summary> 
-        /// <value> 
-        /// The agility of the player character. 
-        /// </value> 
+        /// <summary>
+        /// Gets the agility of the player character.
+        /// </summary>
+        /// <value>
+        /// The agility of the player character.
+        /// </value>
         public uint Agility => TriangularNumberReverse(this.agility);
 
-        /// <summary> 
-        /// Gets the vitality of the player character. 
-        /// </summary> 
-        /// <value> 
-        /// The vitality of the player character. 
-        /// </value> 
+        /// <summary>
+        /// Gets the vitality of the player character.
+        /// </summary>
+        /// <value>
+        /// The vitality of the player character.
+        /// </value>
         public uint Vitality => TriangularNumberReverse(this.vitality);
 
-        /// <summary> 
-        /// Gets the luck of the player character. 
-        /// </summary> 
-        /// <value> 
-        /// The luck of the player character. 
-        /// </value> 
+        /// <summary>
+        /// Gets the luck of the player character.
+        /// </summary>
+        /// <value>
+        /// The luck of the player character.
+        /// </value>
         public uint Luck => TriangularNumberReverse(this.luck);
 
-        /// <summary> 
-        /// Gets the weapon use of the player character. 
-        /// </summary> 
-        /// <value> 
-        /// The weapon use of the player character. 
-        /// </value> 
+        /// <summary>
+        /// Gets the weapon use of the player character.
+        /// </summary>
+        /// <value>
+        /// The weapon use of the player character.
+        /// </value>
         public uint WeaponUse => TriangularNumberReverse(this.weaponUse);
 
-        /// <summary> 
-        /// Gets the parry of the player character. 
-        /// </summary> 
-        /// <value> 
-        /// The parry of the player character. 
-        /// </value> 
+        /// <summary>
+        /// Gets the parry of the player character.
+        /// </summary>
+        /// <value>
+        /// The parry of the player character.
+        /// </value>
         public uint Parry => TriangularNumberReverse(this.parry);
 
-        /// <summary> 
-        /// Gets the dodge of the player character. 
-        /// </summary> 
-        /// <value> 
-        /// The dodge of the player character. 
-        /// </value> 
+        /// <summary>
+        /// Gets the dodge of the player character.
+        /// </summary>
+        /// <value>
+        /// The dodge of the player character.
+        /// </value>
         public uint Dodge => TriangularNumberReverse(this.dodge);
 
-        /// <summary> 
-        /// Gets the stealth of the player character. 
-        /// </summary> 
-        /// <value> 
-        /// The stealth of the player character. 
-        /// </value> 
+        /// <summary>
+        /// Gets the stealth of the player character.
+        /// </summary>
+        /// <value>
+        /// The stealth of the player character.
+        /// </value>
         public uint Stealth => TriangularNumberReverse(this.stealth);
 
-        /// <summary> 
-        /// Gets the lock picking of the player character. 
-        /// </summary> 
-        /// <value> 
-        /// The lock picking of the player character. 
-        /// </value> 
+        /// <summary>
+        /// Gets the lock picking of the player character.
+        /// </summary>
+        /// <value>
+        /// The lock picking of the player character.
+        /// </value>
         public uint LockPicking => TriangularNumberReverse(this.lockPicking);
 
-        /// <summary> 
-        /// Gets the throwing of the player character. 
-        /// </summary> 
-        /// <value> 
-        /// The throwing of the player character. 
-        /// </value> 
+        /// <summary>
+        /// Gets the throwing of the player character.
+        /// </summary>
+        /// <value>
+        /// The throwing of the player character.
+        /// </value>
         public uint Throwing => TriangularNumberReverse(this.throwing);
 
-        /// <summary> 
-        /// Gets the climbing of the player character. 
-        /// </summary> 
-        /// <value> 
-        /// The climbing of the player character. 
-        /// </value> 
+        /// <summary>
+        /// Gets the climbing of the player character.
+        /// </summary>
+        /// <value>
+        /// The climbing of the player character.
+        /// </value>
         public uint Climbing => TriangularNumberReverse(this.climbing);
 
-        /// <summary> 
-        /// Gets the magic of the player character. 
-        /// </summary> 
-        /// <value> 
-        /// The magic of the player character. 
-        /// </value> 
+        /// <summary>
+        /// Gets the magic of the player character.
+        /// </summary>
+        /// <value>
+        /// The magic of the player character.
+        /// </value>
         public uint Magic => TriangularNumberReverse(this.magic);
 
-        /// <summary> 
-        /// Gets or sets the relationship between the player character and the Humans. 
-        /// </summary> 
-        /// <value> 
-        /// The relationship between the player character and the Humans. 
-        /// </value> 
+        /// <summary>
+        /// Gets or sets the relationship between the player character and the Humans.
+        /// </summary>
+        /// <value>
+        /// The relationship between the player character and the Humans.
+        /// </value>
         public uint Humans
         {
             get
@@ -310,12 +310,12 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
             }
         }
 
-        /// <summary> 
-        /// Gets or sets the relationship between the player character and the Sidhe. 
-        /// </summary> 
-        /// <value> 
-        /// The relationship between the player character and the Sidhe. 
-        /// </value> 
+        /// <summary>
+        /// Gets or sets the relationship between the player character and the Sidhe.
+        /// </summary>
+        /// <value>
+        /// The relationship between the player character and the Sidhe.
+        /// </value>
         public uint Sidhe
         {
             get
@@ -338,12 +338,12 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
             }
         }
 
-        /// <summary> 
-        /// Gets or sets the relationship between the player character and the Giants. 
-        /// </summary> 
-        /// <value> 
-        /// The relationship between the player character and the Giants. 
-        /// </value> 
+        /// <summary>
+        /// Gets or sets the relationship between the player character and the Giants.
+        /// </summary>
+        /// <value>
+        /// The relationship between the player character and the Giants.
+        /// </value>
         public uint Giants
         {
             get
@@ -366,14 +366,14 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
             }
         }
 
-        /// <summary>  
-        /// Increases the stat of the player character. The increase will go with the Triangular 
-        /// number formula, n(n + 1) / 2, so to increase the stat from 0 to 5, you would need to 
-        /// input 15 into the function. Any remainding numbers will be stored into a buffer and 
-        /// included in the computation on the next time the stat is increased.  
-        /// </summary> 
-        /// <param name="stat">The stat to increase.</param> 
-        /// <param name="value">The factor in which to increase the stat.</param>  
+        /// <summary>
+        /// Increases the stat of the player character. The increase will go with the Triangular
+        /// number formula, n(n + 1) / 2, so to increase the stat from 0 to 5, you would need to
+        /// input 15 into the function. Any remainding numbers will be stored into a buffer and
+        /// included in the computation on the next time the stat is increased.
+        /// </summary>
+        /// <param name="stat">The stat to increase.</param>
+        /// <param name="value">The factor in which to increase the stat.</param>
         public void IncreaseStat(Stat stat, uint value)
         {
             StatChangedEventArgs e;
@@ -470,26 +470,26 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
             }
         }
 
-        /// <summary>  
-        /// Increases the stat of the player character. The increase will go with the Triangular 
-        /// number formula, n(n + 1) / 2, so to increase the stat from 0 to 5, you would need to 
-        /// input 15 into the function. Any remainding numbers will be stored into a buffer and 
-        /// included in the computation on the next time the stat is increased.  
-        /// </summary> 
-        /// <param name="stat">The stat to increase.</param> 
-        /// <param name="value">The factor in which to increase the stat.</param>  
+        /// <summary>
+        /// Increases the stat of the player character. The increase will go with the Triangular
+        /// number formula, n(n + 1) / 2, so to increase the stat from 0 to 5, you would need to
+        /// input 15 into the function. Any remainding numbers will be stored into a buffer and
+        /// included in the computation on the next time the stat is increased.
+        /// </summary>
+        /// <param name="stat">The stat to increase.</param>
+        /// <param name="value">The factor in which to increase the stat.</param>
         public void IncreaseStat(Stat stat, int value)
         {
             this.IncreaseStat(stat, (uint)value);
         }
 
-        // https://en.wikipedia.org/wiki/Triangular_number 
+        // https://en.wikipedia.org/wiki/Triangular_number
         private static uint TriangularNumber(uint n)
         {
             return (n * (n + 1)) / 2;
         }
 
-        // https://en.wikipedia.org/wiki/Triangular_number 
+        // https://en.wikipedia.org/wiki/Triangular_number
         private static uint TriangularNumberReverse(uint n)
         {
             return (uint)(Math.Sqrt((8.0 * n) + 1.0) / 2.0);

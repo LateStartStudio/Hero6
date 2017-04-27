@@ -59,7 +59,9 @@
     </Compile>
     <Compile Include="UserInterfaces\MockUserInterface.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hero6.Engine\Hero6.Engine.csproj">
       <Project>{0c0586a3-5a10-42ce-b609-cc80ee2cef7a}</Project>
