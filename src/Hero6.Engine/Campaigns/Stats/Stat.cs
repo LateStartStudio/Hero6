@@ -6,119 +6,119 @@
 
 namespace LateStartStudio.Hero6.Engine.Campaigns.Stats
 {
-    /// <summary> 
-    /// Enum with all the different stat types. 
-    /// </summary> 
+    /// <summary>
+    /// Enum with all the different stat types.
+    /// </summary>
     public enum Stat
     {
-        /// <summary> 
-        /// The health stat. 
-        /// </summary> 
+        /// <summary>
+        /// The health stat.
+        /// </summary>
         Health,
 
-        /// <summary> 
-        /// The stamina stat. 
-        /// </summary> 
+        /// <summary>
+        /// The stamina stat.
+        /// </summary>
         Stamina,
 
-        /// <summary> 
-        /// The mana stat. 
-        /// </summary> 
+        /// <summary>
+        /// The mana stat.
+        /// </summary>
         Mana,
 
-        /// <summary> 
-        /// The max health stat. 
-        /// </summary> 
+        /// <summary>
+        /// The max health stat.
+        /// </summary>
         HealthMax,
 
-        /// <summary> 
-        /// The max stamina stat. 
-        /// </summary> 
+        /// <summary>
+        /// The max stamina stat.
+        /// </summary>
         StaminaMax,
 
-        /// <summary> 
-        /// The max mana stat. 
-        /// </summary> 
+        /// <summary>
+        /// The max mana stat.
+        /// </summary>
         ManaMax,
 
-        /// <summary> 
-        /// The strength stat. 
-        /// </summary> 
+        /// <summary>
+        /// The strength stat.
+        /// </summary>
         Strength,
 
-        /// <summary> 
-        /// The intelligence stat. 
-        /// </summary> 
+        /// <summary>
+        /// The intelligence stat.
+        /// </summary>
         Intelligence,
 
-        /// <summary> 
-        /// The agility stat. 
-        /// </summary> 
+        /// <summary>
+        /// The agility stat.
+        /// </summary>
         Agility,
 
-        /// <summary> 
-        /// The vitality stat. 
-        /// </summary> 
+        /// <summary>
+        /// The vitality stat.
+        /// </summary>
         Vitality,
 
-        /// <summary> 
-        /// The luck stat. 
-        /// </summary> 
+        /// <summary>
+        /// The luck stat.
+        /// </summary>
         Luck,
 
-        /// <summary> 
-        /// The weapon use. 
-        /// </summary> 
+        /// <summary>
+        /// The weapon use.
+        /// </summary>
         WeaponUse,
 
-        /// <summary> 
-        /// The parry stat. 
-        /// </summary> 
+        /// <summary>
+        /// The parry stat.
+        /// </summary>
         Parry,
 
-        /// <summary> 
-        /// The dodge stat. 
-        /// </summary> 
+        /// <summary>
+        /// The dodge stat.
+        /// </summary>
         Dodge,
 
-        /// <summary> 
-        /// The stealth stat. 
-        /// </summary> 
+        /// <summary>
+        /// The stealth stat.
+        /// </summary>
         Stealth,
 
-        /// <summary> 
-        /// The lock picking stat. 
-        /// </summary> 
+        /// <summary>
+        /// The lock picking stat.
+        /// </summary>
         LockPicking,
 
-        /// <summary> 
-        /// The throwing stat. 
-        /// </summary> 
+        /// <summary>
+        /// The throwing stat.
+        /// </summary>
         Throwing,
 
-        /// <summary> 
-        /// The climbing stat. 
-        /// </summary> 
+        /// <summary>
+        /// The climbing stat.
+        /// </summary>
         Climbing,
 
-        /// <summary> 
-        /// The magic stat. 
-        /// </summary> 
+        /// <summary>
+        /// The magic stat.
+        /// </summary>
         Magic,
 
-        /// <summary> 
-        /// The humans stat. 
-        /// </summary> 
+        /// <summary>
+        /// The humans stat.
+        /// </summary>
         Humans,
 
-        /// <summary> 
-        /// The sidhe stat. 
-        /// </summary> 
+        /// <summary>
+        /// The sidhe stat.
+        /// </summary>
         Sidhe,
 
-        /// <summary> 
-        /// The giants stat. 
-        /// </summary> 
+        /// <summary>
+        /// The giants stat.
+        /// </summary>
         Giants
     }
 }

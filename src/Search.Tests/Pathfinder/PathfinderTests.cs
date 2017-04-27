@@ -62,7 +62,7 @@ namespace LateStartStudio.Search.Pathfinder
         /// <summary>
         /// O = Open Node
         /// B = Blocked Node
-        /// 
+        ///
         /// Start = 4, 4
         /// End = 0, 0
         /// </summary>
