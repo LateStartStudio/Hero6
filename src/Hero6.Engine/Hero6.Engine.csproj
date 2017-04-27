@@ -24,7 +24,7 @@
     <DocumentationFile>bin\Debug\Hero6.Engine.XML</DocumentationFile>
     <LangVersion>6</LangVersion>
     <Prefer32Bit>false</Prefer32Bit>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <CodeAnalysisRuleSet>..\Hero6.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -36,7 +36,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\Hero6.Engine.XML</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <CodeAnalysisRuleSet>..\Hero6.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
