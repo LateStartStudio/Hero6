@@ -18,6 +18,11 @@ namespace LateStartStudio.Hero6.Engine.Assets
         {
         }
 
+        public override Texture2D CreateTexture2D(int width, int height)
+        {
+            return null;
+        }
+
         public override Texture2D LoadTexture2D(string id)
         {
             return null;
