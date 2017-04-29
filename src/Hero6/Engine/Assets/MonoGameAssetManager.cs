@@ -22,18 +22,20 @@ namespace LateStartStudio.Hero6.Engine.Assets
 
         public override string RootDirectory
         {
-            get { return this.content.RootDirectory; }
+            get { return content.RootDirectory; }
             set { this.content.RootDirectory = value; }
         }
 
-        public override object NativeAssetManager
-        {
-            get { return this.content; }
-        }
+        public override object NativeAssetManager => content;
 
         public override void Dispose()
         {
-            this.content.Dispose();
+            content.Dispose();
+        }
+
+        public override Texture2D CreateTexture2D(int width, int height)
+        {
+            return new MonoGameTexture2D(new XnaTexture2D(Game.Graphics.GraphicsDevice, width, height));
         }
 
         public override Texture2D LoadTexture2D(string id)
