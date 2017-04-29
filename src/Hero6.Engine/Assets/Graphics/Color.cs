@@ -17,6 +17,11 @@ namespace LateStartStudio.Hero6.Engine.Assets.Graphics
         public static readonly Color White = new Color(255, 255, 255, 255);
 
         /// <summary>
+        /// An instance for the color black.
+        /// </summary>
+        public static readonly Color Black = new Color(0, 0, 0, 255);
+
+        /// <summary>
         /// An instance for transparancy.
         /// </summary>
         public static readonly Color Transparent = new Color(0, 0, 0, 0);
