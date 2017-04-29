@@ -31,6 +31,16 @@ namespace LateStartStudio.Hero6.Engine.Assets
         /// <summary>
         /// Draws sprites to screen.
         /// </summary>
+        /// <param name="texture">The sprite.</param>
+        /// <param name="destinationRectangle">
+        /// A rectangle that specifies the desination to draw the sprite.
+        /// </param>
+        /// <param name="color">The color to tint the sprite.</param>
+        public abstract void Draw(Texture2D texture, Rectangle destinationRectangle, Color color);
+
+        /// <summary>
+        /// Draws sprites to screen.
+        /// </summary>
         /// <param name="texture">The 2D sprite.</param>
         /// <param name="destinationRectangle">
         /// A rectangle that specifies the desination to draw the sprite.
@@ -44,5 +54,14 @@ namespace LateStartStudio.Hero6.Engine.Assets
             Rectangle destinationRectangle,
             Rectangle sourceRectangle,
             Color color);
+
+        /// <summary>
+        /// Draw text to screen.
+        /// </summary>
+        /// <param name="font">The font to draw the string with.</param>
+        /// <param name="text">The text to draw.</param>
+        /// <param name="position">The position to draw.</param>
+        /// <param name="color">The color of the text.</param>
+        public abstract void DrawString(SpriteFont font, string text, Point position, Color color);
     }
 }
