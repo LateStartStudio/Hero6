@@ -18,16 +18,11 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
 
     public class UserInterfaceHandler : IXnaGameLoop
     {
-        private readonly Renderer renderer;
         private readonly GraphicsDevice graphicsDevice;
         private readonly IList<UserInterface> userInterfaces;
 
-        public UserInterfaceHandler(
-            Renderer renderer,
-            GraphicsDevice graphicsDevice,
-            XnaContentManager content)
+        public UserInterfaceHandler(GraphicsDevice graphicsDevice, XnaContentManager content)
         {
-            this.renderer = renderer;
             this.Scale = new Vector2(Game.Transform.Scale.X, Game.Transform.Scale.Y);
             this.graphicsDevice = graphicsDevice;
 
@@ -37,7 +32,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
                     (int)Game.NativeGameResolution.X,
                     (int)Game.NativeGameResolution.Y,
                     this.Scale,
-                    this.renderer,
+                    Game.Renderer,
                     new MonoGameAssetManager(content))
             };
             this.CurrentUI = this.userInterfaces[0];

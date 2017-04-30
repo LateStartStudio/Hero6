@@ -23,7 +23,6 @@ namespace LateStartStudio.Hero6
     /// </summary>
     public class Game : Microsoft.Xna.Framework.Game
     {
-        private Renderer renderer;
         private UserInterfaceHandler ui;
         private CampaignHandler campaign;
         private SpriteBatch spriteBatch;
@@ -98,6 +97,8 @@ namespace LateStartStudio.Hero6
 
         public static GraphicsDeviceManager Graphics { get; private set; }
 
+        public static Renderer Renderer { get; private set; }
+
         public static Matrix Transform { get; set; } = Matrix.Identity;
 
         /// <summary>
@@ -116,11 +117,11 @@ namespace LateStartStudio.Hero6
 
             this.spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            this.renderer = new MonoGameRenderer(this.spriteBatch);
+            Renderer = new MonoGameRenderer(this.spriteBatch);
 
-            this.ui = new UserInterfaceHandler(this.renderer, this.GraphicsDevice, this.Content);
+            this.ui = new UserInterfaceHandler(this.GraphicsDevice, this.Content);
 
-            this.campaign = new CampaignHandler(this.renderer, this.Content, this.ui);
+            this.campaign = new CampaignHandler(this.Content, this.ui);
 
             this.ui.Initialize();
             this.campaign.Initialize();
