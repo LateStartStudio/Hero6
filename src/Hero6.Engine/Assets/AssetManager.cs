@@ -42,6 +42,14 @@ namespace LateStartStudio.Hero6.Engine.Assets
         public abstract void Dispose();
 
         /// <summary>
+        /// Create a new empty texture.
+        /// </summary>
+        /// <param name="width">The width of the texture.</param>
+        /// <param name="height">The height of the texture.</param>
+        /// <returns>The texture that was created.</returns>
+        public abstract Texture2D CreateTexture2D(int width, int height);
+
+        /// <summary>
         /// Loads the 2D texture asset.
         /// </summary>
         /// <param name="id">The ID of the 2D texture asset.</param>

@@ -41,5 +41,12 @@ namespace LateStartStudio.Hero6.Engine.Assets.Graphics
         /// <typeparam name="T">The type of elements in the array.</typeparam>
         /// <param name="data">The array of data within the texture.</param>
         public abstract void GetData<T>(T[] data) where T : struct;
+
+        /// <summary>
+        /// Sets the data within the texture.
+        /// </summary>
+        /// <typeparam name="T">The type of elements in the array.</typeparam>
+        /// <param name="data">The array of data to set into the texture.</param>
+        public abstract void SetData<T>(T[] data) where T : struct;
     }
 }

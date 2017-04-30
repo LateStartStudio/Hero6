@@ -15,7 +15,17 @@ namespace LateStartStudio.Hero6.Engine.Assets
             throw new System.NotImplementedException();
         }
 
+        public override void Draw(Texture2D texture, Rectangle destinationRectangle, Color color)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public override void Draw(Texture2D texture, Rectangle destinationRectangle, Rectangle sourceRectangle, Color color)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void DrawString(SpriteFont font, string text, Point position, Color color)
         {
             throw new System.NotImplementedException();
         }

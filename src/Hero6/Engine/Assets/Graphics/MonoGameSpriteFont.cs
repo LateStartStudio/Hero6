@@ -6,7 +6,10 @@
 
 namespace LateStartStudio.Hero6.Engine.Assets.Graphics
 {
+    using System.Text;
+
     using XnaSpriteFont = Microsoft.Xna.Framework.Graphics.SpriteFont;
+    using XnaVector2 = Microsoft.Xna.Framework.Vector2;
 
     public class MonoGameSpriteFont : SpriteFont
     {
@@ -17,9 +20,20 @@ namespace LateStartStudio.Hero6.Engine.Assets.Graphics
             this.spriteFont = spriteFont;
         }
 
-        public override object GetSpriteFont
+        public override object GetSpriteFont => spriteFont;
+
+        public override Vector2 MeasureString(string text)
         {
-            get { return this.spriteFont; }
+            XnaVector2 vector = spriteFont.MeasureString(text);
+
+            return new Vector2(vector.X, vector.Y);
+        }
+
+        public override Vector2 MeasureString(StringBuilder text)
+        {
+            XnaVector2 vector = spriteFont.MeasureString(text);
+
+            return new Vector2(vector.X, vector.Y);
         }
     }
 }

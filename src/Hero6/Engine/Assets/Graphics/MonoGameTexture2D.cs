@@ -17,24 +17,20 @@ namespace LateStartStudio.Hero6.Engine.Assets.Graphics
             this.texture = texture;
         }
 
-        public override int Width
-        {
-            get { return this.texture.Width; }
-        }
+        public override int Width => texture.Width;
 
-        public override int Height
-        {
-            get { return this.texture.Height; }
-        }
+        public override int Height => texture.Height;
 
-        public override object GetTexture
-        {
-            get { return this.texture; }
-        }
+        public override object GetTexture => texture;
 
         public override void GetData<T>(T[] data)
         {
-            this.texture.GetData(data);
+            texture.GetData(data);
+        }
+
+        public override void SetData<T>(T[] data)
+        {
+            texture.SetData(data);
         }
     }
 }

@@ -11,6 +11,7 @@ namespace LateStartStudio.Hero6.Engine.Assets
     using XnaPoint = Microsoft.Xna.Framework.Point;
     using XnaRectangle = Microsoft.Xna.Framework.Rectangle;
     using XnaSpriteBatch = Microsoft.Xna.Framework.Graphics.SpriteBatch;
+    using XnaSpriteFont = Microsoft.Xna.Framework.Graphics.SpriteFont;
     using XnaTexture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 
     public class MonoGameRenderer : Renderer
@@ -28,6 +29,19 @@ namespace LateStartStudio.Hero6.Engine.Assets
             XnaPoint xnaPoint = new XnaPoint(point.X, point.Y);
 
             this.spriteBatch.Draw(xnaTexture, xnaPoint.ToVector2());
+        }
+
+        public override void Draw(Texture2D texture, Rectangle destinationRectangle, Color color)
+        {
+            XnaTexture2D xnaTexture = texture.GetTexture as XnaTexture2D;
+            XnaRectangle xnaDestination = new XnaRectangle(
+                destinationRectangle.X,
+                destinationRectangle.Y,
+                destinationRectangle.Width,
+                destinationRectangle.Height);
+            XnaColor xnaColor = new XnaColor(color.R, color.G, color.B, color.A);
+
+            this.spriteBatch.Draw(xnaTexture, xnaDestination, xnaColor);
         }
 
         public override void Draw(
@@ -50,6 +64,15 @@ namespace LateStartStudio.Hero6.Engine.Assets
             XnaColor xnaColor = new XnaColor(color.R, color.G, color.B, color.A);
 
             this.spriteBatch.Draw(xnaTexture, xnaDestination, xnaSource, xnaColor);
+        }
+
+        public override void DrawString(SpriteFont font, string text, Point position, Color color)
+        {
+            XnaSpriteFont xnaFont = font.GetSpriteFont as XnaSpriteFont;
+            XnaPoint xnaPoint = new XnaPoint(position.X, position.Y);
+            XnaColor xnaColor = new XnaColor(color.R, color.G, color.B, color.A);
+
+            this.spriteBatch.DrawString(xnaFont, text, xnaPoint.ToVector2(), xnaColor);
         }
     }
 }

@@ -6,6 +6,8 @@
 
 namespace LateStartStudio.Hero6.Engine.Assets.Graphics
 {
+    using System.Text;
+
     /// <summary>
     /// An abstract class for a sprite font.
     /// </summary>
@@ -18,5 +20,19 @@ namespace LateStartStudio.Hero6.Engine.Assets.Graphics
         /// The data within the sprite font.
         /// </value>
         public abstract object GetSpriteFont { get; }
+
+        /// <summary>
+        /// Calculates the size of the string in vector coordinates.
+        /// </summary>
+        /// <param name="text">The text to find the size from.</param>
+        /// <returns>The size in vector format.</returns>
+        public abstract Vector2 MeasureString(string text);
+
+        /// <summary>
+        /// Calculates the size of the string in vector coordinates.
+        /// </summary>
+        /// <param name="text">The text to find the size from.</param>
+        /// <returns>The size in vector format.</returns>
+        public abstract Vector2 MeasureString(StringBuilder text);
     }
 }
