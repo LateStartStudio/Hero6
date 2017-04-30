@@ -25,12 +25,8 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         public UserInterfaceHandler(
             Renderer renderer,
             GraphicsDevice graphicsDevice,
-            XnaContentManager content,
-            int width,
-            int height)
+            XnaContentManager content)
         {
-            this.Width = width;
-            this.Height = height;
             this.renderer = renderer;
             this.Scale = new Vector2(Game.Transform.Scale.X, Game.Transform.Scale.Y);
             this.graphicsDevice = graphicsDevice;
@@ -38,23 +34,13 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
             this.userInterfaces = new List<UserInterface>
             {
                 new SierraVgaController(
-                    this.Width,
-                    this.Height,
+                    (int)Game.NativeGameResolution.X,
+                    (int)Game.NativeGameResolution.Y,
                     this.Scale,
                     this.renderer,
                     new MonoGameAssetManager(content))
             };
             this.CurrentUI = this.userInterfaces[0];
-        }
-
-        public int Width
-        {
-            get; set;
-        }
-
-        public int Height
-        {
-            get; set;
         }
 
         public Vector2 Scale

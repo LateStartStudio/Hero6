@@ -23,8 +23,6 @@ namespace LateStartStudio.Hero6
     /// </summary>
     public class Game : Microsoft.Xna.Framework.Game
     {
-        private static readonly Vector2 NativeGameResolution = new Vector2(320, 240);
-
         private Renderer renderer;
         private UserInterfaceHandler ui;
         private CampaignHandler campaign;
@@ -96,6 +94,8 @@ namespace LateStartStudio.Hero6
             }
         }
 
+        public static Vector2 NativeGameResolution { get; } = new Vector2(320, 240);
+
         public static GraphicsDeviceManager Graphics { get; private set; }
 
         public static Matrix Transform { get; set; } = Matrix.Identity;
@@ -118,12 +118,7 @@ namespace LateStartStudio.Hero6
 
             this.renderer = new MonoGameRenderer(this.spriteBatch);
 
-            this.ui = new UserInterfaceHandler(
-                this.renderer,
-                this.GraphicsDevice,
-                this.Content,
-                (int)NativeGameResolution.X,
-                (int)NativeGameResolution.Y);
+            this.ui = new UserInterfaceHandler(this.renderer, this.GraphicsDevice, this.Content);
 
             this.campaign = new CampaignHandler(this.renderer, this.Content, this.ui);
 
