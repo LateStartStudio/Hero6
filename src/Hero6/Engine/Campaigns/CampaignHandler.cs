@@ -11,23 +11,22 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using UserInterfaces;
+    using Game = Game;
     using XnaContentManager = Microsoft.Xna.Framework.Content.ContentManager;
 
     public class CampaignHandler : IXnaGameLoop
     {
-        private readonly Renderer renderer;
         private readonly UserInterfaceHandler userInterface;
         private readonly IList<Campaign> campaigns;
 
-        public CampaignHandler(Renderer renderer, XnaContentManager content, UserInterfaceHandler userInterface)
+        public CampaignHandler(XnaContentManager content, UserInterfaceHandler userInterface)
         {
-            this.renderer = renderer;
             this.userInterface = userInterface;
 
             this.campaigns = new List<Campaign>
             {
                 new RitesOfPassage.RitesOfPassage(
-                    this.renderer,
+                    Game.Renderer,
                     new MonoGameAssetManager(content),
                     this.userInterface.CurrentUI)
             };
