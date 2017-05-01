@@ -14,6 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Assets\MonoGameAssetManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Assets\MonoGameRenderer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Campaigns\CampaignHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Input\MonoGameMouse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\UserInterfaceHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\Settings\UserSettings.Android.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\Settings\UserSettings.Desktop.cs" />

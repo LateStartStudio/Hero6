@@ -8,10 +8,12 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
 {
     using Assets;
 
+    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+
     public class MockUserInterface : UserInterface
     {
-        public MockUserInterface(AssetManager assets)
-            : base(assets)
+        public MockUserInterface(AssetManager assets, IMouse mouse)
+            : base(assets, mouse)
         {
         }
 

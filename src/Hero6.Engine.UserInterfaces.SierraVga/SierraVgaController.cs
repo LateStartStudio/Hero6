@@ -7,11 +7,12 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
 {
     using LateStartStudio.Hero6.Engine.Assets;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
 
     public class SierraVgaController : UserInterface
     {
-        public SierraVgaController(AssetManager assets)
-            : base(assets)
+        public SierraVgaController(AssetManager assets, IMouse mouse)
+            : base(assets, mouse)
         {
             this.Assets.RootDirectory = "Content/Gui/Sierra Vga";
         }

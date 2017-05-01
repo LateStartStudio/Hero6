@@ -11,6 +11,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
 
     using LateStartStudio.Hero6.Engine.Assets;
     using LateStartStudio.Hero6.Engine.GameLoop;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
 
     /// <summary>
     /// An abstract class for defining the user interface of an adventure game.
@@ -21,9 +22,11 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         /// Initializes a new instance of the <see cref="UserInterface"/> class.
         /// </summary>
         /// <param name="assets">The assets manager of this user interface.</param>
-        protected UserInterface(AssetManager assets)
+        /// <param name="mouse">The mouse core mechanics.</param>
+        protected UserInterface(AssetManager assets, IMouse mouse)
         {
             this.Assets = assets;
+            this.Mouse = new Mouse(assets, mouse);
         }
 
         /// <inheritdoc />
@@ -93,6 +96,11 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         public virtual string Name => "User Interface";
 
         /// <summary>
+        /// Gets the mouse core mechanics.
+        /// </summary>
+        public Mouse Mouse { get; }
+
+        /// <summary>
         /// Gets or sets a value indicating whether any dialogs are currently visible.
         /// </summary>
         /// <value>
@@ -105,6 +113,8 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         {
             PreLoad?.Invoke(this, new LoadEventArgs(Assets));
 
+            Mouse.Load();
+
             PostLoad?.Invoke(this, new LoadEventArgs(Assets));
         }
 
@@ -112,6 +122,8 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         public void Unload()
         {
             PreUnload?.Invoke(this, new UnloadEventArgs());
+
+            Mouse.Unload();
 
             PostUnload?.Invoke(this, new UnloadEventArgs());
         }
@@ -121,6 +133,8 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         {
             PreUpdate?.Invoke(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
 
+            Mouse.Update(total, elapsed, isRunningSlowly);
+
             PostUpdate?.Invoke(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
         }
 
@@ -128,6 +142,8 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         public void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
             PreDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly, Renderer));
+
+            Mouse.Draw(total, elapsed, isRunningSlowly);
 
             PostDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly, Renderer));
         }

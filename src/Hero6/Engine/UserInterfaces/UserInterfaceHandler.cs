@@ -9,6 +9,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
     using System.Collections.Generic;
 
     using LateStartStudio.Hero6.Engine.Assets;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
     using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga;
 
     using Microsoft.Xna.Framework;
@@ -23,13 +24,15 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
 
         public UserInterfaceHandler(XnaContentManager content)
         {
+            IMouse mouse = new MonoGameMouse();
+
             UserInterface.Width = (int)Game.NativeGameResolution.X;
             UserInterface.Height = (int)Game.NativeGameResolution.Y;
             UserInterface.Renderer = Game.Renderer;
 
             this.userInterfaces = new List<UserInterface>
             {
-                new SierraVgaController(new MonoGameAssetManager(content))
+                new SierraVgaController(new MonoGameAssetManager(content), mouse)
             };
             this.CurrentUi = userInterfaces[0];
         }
