@@ -18,17 +18,12 @@ namespace LateStartStudio.Collections.Tests.Generic
     /// </summary>
     public partial class Node
     {
-        private readonly int id;
-
         public Node(int id)
         {
-            this.id = id;
+            this.ID = id;
         }
 
-        public int ID
-        {
-            get { return this.id; }
-        }
+        public int ID { get; }
     }
 
     /// <summary>

@@ -20,49 +20,49 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Animations
         {
             this.CenterDownAnimation = new SpriteSheet(
                 campaign,
-                "Sprites/Characters/Hero/HeroWalkCenterDown",
+                "Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Center Down",
                 1,
                 10);
 
             this.CenterUpAnimation = new SpriteSheet(
                 campaign,
-                "Sprites/Characters/Hero/HeroWalkCenterUp",
+                "Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Center Up",
                 1,
                 9);
 
             this.LeftCenterAnimation = new SpriteSheet(
                 campaign,
-                "Sprites/Characters/Hero/HeroWalkLeftCenter",
+                "Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Left Center",
                 1,
                 10);
 
             this.LeftDownAnimation = new SpriteSheet(
                 campaign,
-                "Sprites/Characters/Hero/HeroWalkLeftDown",
+                "Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Left Down",
                 1,
                 12);
 
             this.LeftUpAnimation = new SpriteSheet(
                 campaign,
-                "Sprites/Characters/Hero/HeroWalkLeftUp",
+                "Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Left Up",
                 1,
                 8);
 
             this.RightCenterAnimation = new SpriteSheet(
                 campaign,
-                "Sprites/Characters/Hero/HeroWalkRightCenter",
+                "Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Right Center",
                 1,
                 9);
 
             this.RightDownAnimation = new SpriteSheet(
                 campaign,
-                "Sprites/Characters/Hero/HeroWalkRightDown",
+                "Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Right Down",
                 1,
                 12);
 
             this.RightUpAnimation = new SpriteSheet(
                 campaign,
-                "Sprites/Characters/Hero/HeroWalkRightUp",
+                "Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Right Up",
                 1,
                 8);
 

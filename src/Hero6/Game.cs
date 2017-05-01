@@ -13,11 +13,12 @@ namespace LateStartStudio.Hero6
 {
     using System;
     using Campaigns;
-    using Input;
-    using Input.Mouse;
-    using Input.TouchSurface;
+    using Engine;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
+    using UserInterface;
+    using Utilities;
+    using AdventureGameEngine = AdventureGame.Engine.Engine;
 
     /// <summary>
     /// This is the main type for your game.
@@ -26,8 +27,8 @@ namespace LateStartStudio.Hero6
     {
         private static readonly Vector2 NativeGameResolution = new Vector2(320, 240);
 
-        private readonly InputHandler input;
-
+        private AdventureGameEngine engine;
+        private UserInterfaceHandler ui;
         private CampaignHandler campaign;
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
@@ -35,6 +36,8 @@ namespace LateStartStudio.Hero6
 
         public Game()
         {
+            Logger.Info("Creating Hero6 Game Instance.");
+
             this.graphics = new GraphicsDeviceManager(this)
             {
                 PreferredBackBufferWidth = (int)NativeGameResolution.X * 3,
@@ -45,12 +48,51 @@ namespace LateStartStudio.Hero6
                 SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight
 #endif
             };
+            this.graphics.DeviceCreated += this.GraphicsOnDeviceCreated;
 
             Content.RootDirectory = "Content";
 
-            this.input = new InputHandler();
-            this.input.Mouse.MouseButtonPressed += this.MouseButtonPressed;
-            this.input.Touch.SurfacePressed += this.SurfacePressed;
+            Logger.Info("Hero6 Game Instance Created.");
+        }
+
+#if !ANDROID
+        public static ILogger Logger { get; } = new LogFourNet();
+#else
+        public static ILogger Logger { get; } = new DummyLogger();
+#endif
+
+        public static string GraphicsApi
+        {
+            get
+            {
+#if WINDOWSDX
+                return "WindowsDX";
+#elif DESKTOPGL
+                return "DesktopGL";
+#elif ANDROID
+                return "Android";
+#else
+                return "Invalid project config";
+#endif
+            }
+        }
+
+        private Matrix Scale
+        {
+            get
+            {
+                return this.scale;
+            }
+
+            set
+            {
+                this.scale = value;
+
+                if (this.ui != null)
+                {
+                    this.ui.Scale = new AdventureGame.Engine.Graphics.Vector2(value.M11, value.M22);
+                }
+            }
         }
 
         /// <summary>
@@ -61,11 +103,30 @@ namespace LateStartStudio.Hero6
         /// </summary>
         protected override void Initialize()
         {
+            Logger.Info("Initializing Hero6 game instance.");
+
             Window.Title = "Hero6";
 
-            this.input.Initialize();
-
             this.SetScale();
+
+            this.spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            this.engine = new MonoGameEngine(this.spriteBatch);
+
+            this.ui = new UserInterfaceHandler(
+                this.engine,
+                this.GraphicsDevice,
+                this.Content,
+                (int)NativeGameResolution.X,
+                (int)NativeGameResolution.Y,
+                this.Scale);
+
+            this.campaign = new CampaignHandler(this.engine, this.Content, this.ui);
+
+            this.ui.Initialize();
+            this.campaign.Initialize();
+
+            Logger.Info("Hero6 game instance initialized.");
 
             base.Initialize();
         }
@@ -76,13 +137,12 @@ namespace LateStartStudio.Hero6
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
-            this.spriteBatch = new SpriteBatch(GraphicsDevice);
+            Logger.Info("Loading Hero6 game instance.");
 
-            this.campaign = new CampaignHandler(this.spriteBatch, this.Content);
+            this.ui.Load();
+            this.campaign.Load();
 
-            this.input.Load(this.Content);
-            this.campaign.Load(this.Content);
+            Logger.Info("Hero6 game instance loaded.");
         }
 
         /// <summary>
@@ -91,10 +151,14 @@ namespace LateStartStudio.Hero6
         /// </summary>
         protected override void UnloadContent()
         {
+            Logger.Info("Unloading Hero6 game instance.");
+
             Content.Unload();
 
-            this.input.Unload();
+            this.ui.Unload();
             this.campaign.Unload();
+
+            Logger.Info("Hero6 game instance unloaded.");
 
             base.UnloadContent();
         }
@@ -106,7 +170,7 @@ namespace LateStartStudio.Hero6
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            this.input.Update(gameTime);
+            this.ui.Update(gameTime);
             this.campaign.Update(gameTime);
 
             base.Update(gameTime);
@@ -127,12 +191,14 @@ namespace LateStartStudio.Hero6
                 null,
                 null,
                 null,
-                this.scale);
+                this.Scale);
 
             this.campaign.Draw(gameTime, this.spriteBatch);
-            this.input.Draw(gameTime, this.spriteBatch);
 
             this.spriteBatch.End();
+
+            // Independent draw
+            this.ui.Draw(gameTime, this.spriteBatch);
 
             base.Draw(gameTime);
         }
@@ -143,29 +209,15 @@ namespace LateStartStudio.Hero6
             float verScaling = GraphicsDevice.PresentationParameters.BackBufferHeight / NativeGameResolution.Y;
             Vector3 screenScalingFactor = new Vector3(horScaling, verScaling, 1);
 
-            this.scale = Matrix.CreateScale(screenScalingFactor);
-
-            this.input.Scale = new Vector2(this.scale.M11, this.scale.M22);
+            this.Scale = Matrix.CreateScale(screenScalingFactor);
         }
 
-        private void MouseButtonPressed(object sender, MouseButtonPressedEventArgs e)
+        private void GraphicsOnDeviceCreated(object sender, EventArgs eventArgs)
         {
-            switch (e.MouseButton)
-            {
-                case MouseButton.Left:
-                    this.campaign.CurrentCampaign.CurrentRoom.Interact(e.Position.X, e.Position.Y);
-                    break;
-                case MouseButton.Middle:
-                case MouseButton.Right:
-                    break;
-                default:
-                    throw new NotSupportedException("Switch case reached somewhere unexpected.");
-            }
-        }
-
-        private void SurfacePressed(object sender, SurfacePressedEventArgs e)
-        {
-            this.campaign.CurrentCampaign.CurrentRoom.Interact(e.Position.X, e.Position.Y);
+            Logger.Info("Graphics Device Created.");
+            Logger.Info($"Graphics Adapter Width {GraphicsDevice.Adapter.CurrentDisplayMode.Width}");
+            Logger.Info($"Graphics Adapter Height {GraphicsDevice.Adapter.CurrentDisplayMode.Height}");
+            Logger.Info($"Graphics Adapter Aspect Ratio {GraphicsDevice.Adapter.CurrentDisplayMode.AspectRatio}");
         }
     }
 }

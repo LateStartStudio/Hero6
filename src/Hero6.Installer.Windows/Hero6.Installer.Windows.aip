@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT Type="Advanced Installer" CreateVersion="13.5" version="13.6" Modules="professional" RootPath="." Language="en" Id="{1D372BA2-C25D-48F1-AB27-FC290BD4BE31}">
+  <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
+    <ROW Name="HiddenItems" Value="AppXAppDetailsComponent;AppXCapabilitiesComponent;AppXDependenciesComponent;AppXProductDetailsComponent;AppXVisualAssetsComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
+    <ROW Property="AI_CF_TYPE" Value="1" MultiBuildValue="DefaultBuild:0" Type="4" MsiKey="AI_CF_TYPE"/>
+    <ROW Property="AI_COLOR_DISABLED_TEXT" Value="3026478" MsiKey="AI_COLOR_DISABLED_TEXT"/>
+    <ROW Property="AI_CONTROL_VISUAL_STYLE" Value="2960685;4276545;6776679;16176031" MsiKey="AI_CONTROL_VISUAL_STYLE"/>
+    <ROW Property="AI_CONTROL_VISUAL_STYLE_EX" Value="1513239;3026478;3026478" MsiKey="AI_CONTROL_VISUAL_STYLE_EX"/>
+    <ROW Property="AI_CONTROL_VISUAL_STYLE_FLAT" MsiKey="AI_CONTROL_VISUAL_STYLE_FLAT"/>
+    <ROW Property="AI_FINDEXE_TITLE" Value="Select the installation package for [|ProductName]" ValueLocId="AI.Property.FindExeTitle"/>
+    <ROW Property="AI_FrameBtnsColor" Value="metroblack" MsiKey="AI_FrameBtnsColor"/>
+    <ROW Property="AI_FrameColor" Value="metroblack" MsiKey="AI_FrameColor"/>
+    <ROW Property="AI_NO_BORDER_NORMAL" MultiBuildValue="DefaultBuild:1" MsiKey="AI_NO_BORDER_NORMAL"/>
+    <ROW Property="AI_PREDEF_LCONDS_PROPS" Value="AI_DETECTED_DOTNET_VERSION;AI_DETECTED_DIRECTX_VERSION"/>
+    <ROW Property="AI_REQUIRED_DIRECTX_DISPLAY" MultiBuildValue="DefaultBuild:9.0c" ValueLocId="-"/>
+    <ROW Property="AI_REQUIRED_DIRECTX_VERSION" MultiBuildValue="DefaultBuild:09.0.3" ValueLocId="-"/>
+    <ROW Property="AI_REQUIRED_DOTNET_DISPLAY" MultiBuildValue="DefaultBuild:4.5.1" ValueLocId="-"/>
+    <ROW Property="AI_REQUIRED_DOTNET_VERSION" MultiBuildValue="DefaultBuild:4.5.1" ValueLocId="-"/>
+    <ROW Property="AI_ThemeStyle" Value="default" MsiKey="AI_ThemeStyle"/>
+    <ROW Property="AI_ThemeStyleEx" Value="border" MultiBuildValue="DefaultBuild:flat" MsiKey="AI_ThemeStyleEx"/>
+    <ROW Property="ALLUSERS" Value="1" MultiBuildValue="DefaultBuild:2"/>
+    <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
+    <ROW Property="ARPNOMODIFY" MultiBuildValue="DefaultBuild:1"/>
+    <ROW Property="ARPNOREPAIR" Value="1"/>
+    <ROW Property="ARPPRODUCTICON" Value="Icon.exe" Type="8"/>
+    <ROW Property="ARPURLINFOABOUT" Value="http://www.hero6.org/"/>
+    <ROW Property="CTRLS" Value="3"/>
+    <ROW Property="Manufacturer" Value="Late Start Studio"/>
+    <ROW Property="ProductCode" Value="1033:{A5276EAD-543D-426A-BAE5-81C87FB5D2ED} " Type="16"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="ProductName" Value="Hero6"/>
+    <ROW Property="ProductVersion" Value="0.1.0" Type="32"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
+    <ROW Property="UpgradeCode" Value="{A3C64CC9-E1D8-4890-B1E7-780F90794342}"/>
+    <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT" MultiBuildValue="DefaultBuild:Windows XP x86 Service Pack 3, Windows Server 2003 x86 Service Pack 2, Windows Vista x86, Windows Vista x86 Service Pack 1" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40Display" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50Display" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5X" MultiBuildValue="DefaultBuild:Windows XP/2003 RTM, Windows XP/2003 SP1, Windows XP SP2 x86" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5XDisplay" MultiBuildValue="DefaultBuild:Windows XP/2003 RTM, Windows XP/2003 SP1, Windows XP SP2 x86" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT64" MultiBuildValue="DefaultBuild:Windows XP x64 Service Pack 2, Windows Server 2003 x64 Service Pack 2, Windows Vista x64, Windows Vista x64 Service Pack 1" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT64Display" MultiBuildValue="DefaultBuild:Windows XP x64 Service Pack 2, Windows Server 2003 x64 Service Pack 2, Windows Vista x64, Windows Vista x64 Service Pack 1" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNTDisplay" MultiBuildValue="DefaultBuild:Windows XP x86 Service Pack 3, Windows Server 2003 x86 Service Pack 2, Windows Vista x86, Windows Vista x86 Service Pack 1" ValueLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
+    <ROW Directory="Albion_Dir" Directory_Parent="Backgrounds_Dir" DefaultDir="Albion"/>
+    <ROW Directory="Animations_Dir" Directory_Parent="RitesofAlbion_Dir" DefaultDir="ANIMAT~1|Animations"/>
+    <ROW Directory="Backgrounds_Dir" Directory_Parent="RitesofAlbion_Dir" DefaultDir="Rooms"/>
+    <ROW Directory="Campaigns_Dir" Directory_Parent="Content_Dir" DefaultDir="CAMPAI~1|Campaigns"/>
+    <ROW Directory="Characters_1_Dir" Directory_Parent="Animations_Dir" DefaultDir="CHARAC~1|Characters"/>
+    <ROW Directory="Content_Dir" Directory_Parent="APPDIR" DefaultDir="Content"/>
+    <ROW Directory="Cursors_Dir" Directory_Parent="SierraVga_Dir" DefaultDir="Cursors"/>
+    <ROW Directory="Fonts_Dir" Directory_Parent="SierraVga_Dir" DefaultDir="Fonts"/>
+    <ROW Directory="Fountain_Dir" Directory_Parent="Albion_Dir" DefaultDir="Fountain"/>
+    <ROW Directory="Gui_Dir" Directory_Parent="Content_Dir" DefaultDir="Gui"/>
+    <ROW Directory="Hero_Dir" Directory_Parent="Characters_1_Dir" DefaultDir="Hero"/>
+    <ROW Directory="Items_Dir" Directory_Parent="Sprite_Dir" DefaultDir="Items"/>
+    <ROW Directory="Llewella_Dir" Directory_Parent="Characters_1_Dir" DefaultDir="Llewella"/>
+    <ROW Directory="NewFolder_1_Dir" Directory_Parent="Albion_Dir" DefaultDir="HILLOV~1|Hill Over Albion"/>
+    <ROW Directory="NewFolder_Dir" Directory_Parent="StartMenuFolder" DefaultDir="Hero6"/>
+    <ROW Directory="RitesofAlbion_Dir" Directory_Parent="Campaigns_Dir" DefaultDir="RITESO~1|Rites of Albion"/>
+    <ROW Directory="SierraVga_Dir" Directory_Parent="Gui_Dir" DefaultDir="SIERRA~2|Sierra Vga"/>
+    <ROW Directory="Sprite_Dir" Directory_Parent="RitesofAlbion_Dir" DefaultDir="Sprites"/>
+    <ROW Directory="StartMenuFolder" Directory_Parent="TARGETDIR" DefaultDir="STARTM~1|StartMenuFolder" IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+    <ROW Directory="TopBar_Dir" Directory_Parent="SierraVga_Dir" DefaultDir="TOPBAR~1|Top Bar"/>
+    <ROW Directory="VerbBar_Dir" Directory_Parent="SierraVga_Dir" DefaultDir="VERBBA~1|Verb Bar"/>
+    <ROW Directory="Walk_1_Dir" Directory_Parent="Llewella_Dir" DefaultDir="Walk"/>
+    <ROW Directory="Walk_Dir" Directory_Parent="Hero_Dir" DefaultDir="Walk"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="AI_ExePath" ComponentId="{F90DDC9D-C887-4608-B411-BEA1E0CCE4ED}" Directory_="APPDIR" Attributes="4" KeyPath="AI_ExePath"/>
+    <ROW Component="AdventureGame.dll" ComponentId="{CF65A5C4-8515-47BB-A988-8FA1B3C00A03}" Directory_="APPDIR" Attributes="0" KeyPath="AdventureGame.dll"/>
+    <ROW Component="Arial_11.25_Regular.xnb" ComponentId="{1389869D-AFA4-45B9-90CF-41C0A9BFF31A}" Directory_="Fonts_Dir" Attributes="0" KeyPath="Arial_11.25_Regular.xnb" Type="0"/>
+    <ROW Component="Arrow.xnb" ComponentId="{92392ED0-36E8-45A1-AF44-CF892DA1659B}" Directory_="Cursors_Dir" Attributes="0" KeyPath="Arrow.xnb" Type="0"/>
+    <ROW Component="Background.xnb" ComponentId="{D8A85D4A-07AE-44C9-8EAC-192225B8A545}" Directory_="TopBar_Dir" Attributes="0" KeyPath="Background.xnb" Type="0"/>
+    <ROW Component="BentSword.xnb_1" ComponentId="{23977A0D-3FF7-4A21-B90A-5B5F37B4B08F}" Directory_="Items_Dir" Attributes="0" KeyPath="BentSword.xnb" Type="0"/>
+    <ROW Component="CHANGELOG.md" ComponentId="{FE6C946B-354A-4F07-9F69-FC0B529E27D6}" Directory_="APPDIR" Attributes="0" KeyPath="CHANGELOG.md" Type="0"/>
+    <ROW Component="Collections.dll" ComponentId="{7990C089-1AAE-4A69-958B-510E155B6AB0}" Directory_="APPDIR" Attributes="0" KeyPath="Collections.dll"/>
+    <ROW Component="CurrentItemDark.xnb" ComponentId="{84519035-BDF7-4991-BE46-3B88CB254292}" Directory_="VerbBar_Dir" Attributes="0" KeyPath="CurrentItemDark.xnb" Type="0"/>
+    <ROW Component="EmptyKeys.UserInterface.Core.dll" ComponentId="{FDC06317-5BE8-403A-AC79-9079546823D0}" Directory_="APPDIR" Attributes="0" KeyPath="EmptyKeys.UserInterface.Core.dll"/>
+    <ROW Component="EmptyKeys.UserInterface.Debug.dll" ComponentId="{B95F4A2D-E56B-4911-8AC4-3F5DBAEB407D}" Directory_="APPDIR" Attributes="0" KeyPath="EmptyKeys.UserInterface.Debug.dll"/>
+    <ROW Component="EmptyKeys.UserInterface.MonoGame.dll" ComponentId="{0D019ACD-003C-42B6-ADF4-51A97D70F829}" Directory_="APPDIR" Attributes="0" KeyPath="EmptyKeys.UserInterface.MonoGame.dll"/>
+    <ROW Component="EmptyKeys.UserInterface.dll" ComponentId="{4F782E31-F41B-4B1D-ABDD-2B1288A7F1CC}" Directory_="APPDIR" Attributes="0" KeyPath="EmptyKeys.UserInterface.dll"/>
+    <ROW Component="Eto.Serialization.Xaml.dll" ComponentId="{522B3146-C386-4034-8A2F-524CE94EA13A}" Directory_="APPDIR" Attributes="0" KeyPath="Eto.Serialization.Xaml.dll"/>
+    <ROW Component="Eto.Wpf.dll" ComponentId="{54B744C8-5041-44D3-B449-CE8D08C8BE11}" Directory_="APPDIR" Attributes="0" KeyPath="Eto.Wpf.dll"/>
+    <ROW Component="Eto.dll" ComponentId="{1409DCD9-B8CC-43EF-B5FB-46CC51E7515A}" Directory_="APPDIR" Attributes="0" KeyPath="Eto.dll"/>
+    <ROW Component="Fountain.xnb_1" ComponentId="{E31A060D-6006-4DE6-85B2-7D8ED775E7AE}" Directory_="Fountain_Dir" Attributes="0" KeyPath="Fountain.xnb" Type="0"/>
+    <ROW Component="Hero6.Campaigns.RitesOfPassage.dll" ComponentId="{0C8A14C1-5693-4985-90F9-A9EFD5DBD38E}" Directory_="APPDIR" Attributes="0" KeyPath="Hero6.Campaigns.RitesOfPassage.dll"/>
+    <ROW Component="Hero6.UserInterface.SierraVga.dll" ComponentId="{614E5B5E-9573-47B4-AF16-9A504755EFF4}" Directory_="APPDIR" Attributes="0" KeyPath="Hero6.UserInterface.SierraVga.dll"/>
+    <ROW Component="Hero6.exe" ComponentId="{F2D6ED28-7043-4909-87BF-B07B3E76D91F}" Directory_="APPDIR" Attributes="0" KeyPath="Hero6.exe"/>
+    <ROW Component="HeroWalkRightUp.xnb" ComponentId="{2159A1C1-BD35-41F6-A1AD-D7861C2CE1BF}" Directory_="Walk_Dir" Attributes="0" KeyPath="HeroWalkRightUp.xnb" Type="0"/>
+    <ROW Component="HillOverAlbion.xnb" ComponentId="{4A0323D1-536D-404C-ACAB-C597054CFF50}" Directory_="NewFolder_1_Dir" Attributes="0" KeyPath="HillOverAlbion.xnb" Type="0"/>
+    <ROW Component="LlewellaWalkCenterDown.xnb_1" ComponentId="{91773FE0-979B-4090-AA92-4F710F1C0726}" Directory_="Walk_1_Dir" Attributes="0" KeyPath="LlewellaWalkCenterDown.xnb" Type="0"/>
+    <ROW Component="MonoGame.Framework.dll" ComponentId="{B705C33D-2911-432C-B41B-13D6B2CD878D}" Directory_="APPDIR" Attributes="0" KeyPath="MonoGame.Framework.dll"/>
+    <ROW Component="NewFolder" ComponentId="{E1BC0187-7DBE-4F04-987C-3A4DC2A47E3D}" Directory_="NewFolder_Dir" Attributes="0"/>
+    <ROW Component="Portable.Xaml.dll" ComponentId="{C689E742-E6B2-4612-9530-B579547BFDE6}" Directory_="APPDIR" Attributes="0" KeyPath="Portable.Xaml.dll"/>
+    <ROW Component="PriorityQueue.dll" ComponentId="{25B0A49F-4B0A-4D62-B698-54D6C5761FE2}" Directory_="APPDIR" Attributes="0" KeyPath="PriorityQueue.dll"/>
+    <ROW Component="ProductInformation" ComponentId="{858CAAD1-EBFE-4B4A-8F92-F3ABE6F26545}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
+    <ROW Component="Search.dll" ComponentId="{0E21CA66-BBC1-40BB-B175-71DC5E5528EA}" Directory_="APPDIR" Attributes="0" KeyPath="Search.dll"/>
+    <ROW Component="SharpDX.DXGI.dll" ComponentId="{24A11AFE-4751-4260-9670-94AA06A96F5C}" Directory_="APPDIR" Attributes="0" KeyPath="SharpDX.DXGI.dll"/>
+    <ROW Component="SharpDX.Direct2D1.dll" ComponentId="{34EB8425-89B4-4AE4-94A1-B052C0384CE5}" Directory_="APPDIR" Attributes="0" KeyPath="SharpDX.Direct2D1.dll"/>
+    <ROW Component="SharpDX.Direct3D11.dll" ComponentId="{22D514B9-2BF6-4582-82FC-68891E1B844A}" Directory_="APPDIR" Attributes="0" KeyPath="SharpDX.Direct3D11.dll"/>
+    <ROW Component="SharpDX.Direct3D9.dll" ComponentId="{F57949E8-0B4B-4FE8-898E-1394AEE0FC84}" Directory_="APPDIR" Attributes="0" KeyPath="SharpDX.Direct3D9.dll"/>
+    <ROW Component="SharpDX.MediaFoundation.dll" ComponentId="{C6710A93-034D-4935-B755-5D750B6469E1}" Directory_="APPDIR" Attributes="0" KeyPath="SharpDX.MediaFoundation.dll"/>
+    <ROW Component="SharpDX.XAudio2.dll" ComponentId="{16C1E9CC-2A9F-4D01-8C44-4E9587E2616F}" Directory_="APPDIR" Attributes="0" KeyPath="SharpDX.XAudio2.dll"/>
+    <ROW Component="SharpDX.XInput.dll" ComponentId="{B49EF1B3-9674-49A5-9B97-62F658174E51}" Directory_="APPDIR" Attributes="0" KeyPath="SharpDX.XInput.dll"/>
+    <ROW Component="SharpDX.dll" ComponentId="{7C529D21-0F63-403D-A5E3-EC246394332C}" Directory_="APPDIR" Attributes="0" KeyPath="SharpDX.dll"/>
+    <ROW Component="log4net.dll" ComponentId="{D314BF6C-2D27-4181-B5AF-73AF94B3EDA5}" Directory_="APPDIR" Attributes="0" KeyPath="log4net.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="AiAppXAssets" Title="AiAppXAssets" Description="Description" Display="3" Level="0" Directory_="APPDIR" Attributes="0"/>
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0" Components="AI_ExePath AdventureGame.dll Arial_11.25_Regular.xnb Arrow.xnb Background.xnb BentSword.xnb_1 CHANGELOG.md Collections.dll CurrentItemDark.xnb EmptyKeys.UserInterface.Core.dll EmptyKeys.UserInterface.Debug.dll EmptyKeys.UserInterface.MonoGame.dll EmptyKeys.UserInterface.dll Eto.Serialization.Xaml.dll Eto.Wpf.dll Eto.dll Fountain.xnb_1 Hero6.Campaigns.RitesOfPassage.dll Hero6.UserInterface.SierraVga.dll Hero6.exe HeroWalkRightUp.xnb HillOverAlbion.xnb LlewellaWalkCenterDown.xnb_1 MonoGame.Framework.dll NewFolder Portable.Xaml.dll PriorityQueue.dll ProductInformation Search.dll SharpDX.DXGI.dll SharpDX.Direct2D1.dll SharpDX.Direct3D11.dll SharpDX.Direct3D9.dll SharpDX.MediaFoundation.dll SharpDX.XAudio2.dll SharpDX.XInput.dll SharpDX.dll log4net.dll"/>
+    <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="AdventureGame.dll" Component_="AdventureGame.dll" FileName="ADVENT~1.DLL|AdventureGame.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\AdventureGame.dll" SelfReg="false" NextFile="Collections.dll"/>
+    <ROW File="Arial_11.25_Regular.xnb" Component_="Arial_11.25_Regular.xnb" FileName="ARIAL_~1.XNB|Arial_11.25_Regular.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Fonts\Arial_11.25_Regular.xnb" SelfReg="false" NextFile="HeroWalkCenterDown.xnb"/>
+    <ROW File="Arrow.xnb" Component_="Arrow.xnb" FileName="Arrow.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Cursors\Arrow.xnb" SelfReg="false" NextFile="Wait.xnb"/>
+    <ROW File="Background.xnb" Component_="Background.xnb" FileName="BACKGR~1.XNB|Background.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Top Bar\Background.xnb" SelfReg="false" NextFile="CurrentItemDark.xnb"/>
+    <ROW File="BentSword.xnb" Component_="BentSword.xnb_1" FileName="BENTSW~2.XNB|Bent Sword.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Campaigns\Rites of Albion\Sprites\Items\Bent Sword.xnb" SelfReg="false" NextFile="Hand.xnb"/>
+    <ROW File="CHANGELOG.md" Component_="CHANGELOG.md" FileName="CHANGE~1.MD|CHANGELOG.md" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\CHANGELOG.md" SelfReg="false" NextFile="COPYRIGHT.md"/>
+    <ROW File="COPYRIGHT.md" Component_="CHANGELOG.md" FileName="COPYRI~1.MD|COPYRIGHT.md" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\COPYRIGHT.md" SelfReg="false" NextFile="LICENSE.ASSETS.md"/>
+    <ROW File="Collections.dll" Component_="Collections.dll" FileName="COLLEC~1.DLL|Collections.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Collections.dll" SelfReg="false" NextFile="EmptyKeys.UserInterface.Core.dll"/>
+    <ROW File="CurrentItemDark.xnb" Component_="CurrentItemDark.xnb" FileName="CURREN~1.XNB|Current Item Dark.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Verb Bar\Current Item Dark.xnb" SelfReg="false" NextFile="CurrentItemLight.xnb"/>
+    <ROW File="CurrentItemLight.xnb" Component_="CurrentItemDark.xnb" FileName="CURREN~2.XNB|Current Item Light.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Verb Bar\Current Item Light.xnb" SelfReg="false" NextFile="HandDark.xnb"/>
+    <ROW File="EmptyKeys.UserInterface.Core.dll" Component_="EmptyKeys.UserInterface.Core.dll" FileName="EMPTYK~1.DLL|EmptyKeys.UserInterface.Core.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\EmptyKeys.UserInterface.Core.dll" SelfReg="false" NextFile="EmptyKeys.UserInterface.Debug.dll"/>
+    <ROW File="EmptyKeys.UserInterface.Debug.dll" Component_="EmptyKeys.UserInterface.Debug.dll" FileName="EMPTYK~2.DLL|EmptyKeys.UserInterface.Debug.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\EmptyKeys.UserInterface.Debug.dll" SelfReg="false" NextFile="EmptyKeys.UserInterface.dll"/>
+    <ROW File="EmptyKeys.UserInterface.MonoGame.dll" Component_="EmptyKeys.UserInterface.MonoGame.dll" FileName="EMPTYK~4.DLL|EmptyKeys.UserInterface.MonoGame.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\EmptyKeys.UserInterface.MonoGame.dll" SelfReg="false" NextFile="Hero6.Campaigns.RitesOfPassage.dll"/>
+    <ROW File="EmptyKeys.UserInterface.dll" Component_="EmptyKeys.UserInterface.dll" FileName="EMPTYK~3.DLL|EmptyKeys.UserInterface.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\EmptyKeys.UserInterface.dll" SelfReg="false" NextFile="EmptyKeys.UserInterface.MonoGame.dll"/>
+    <ROW File="Eto.Serialization.Xaml.dll" Component_="Eto.Serialization.Xaml.dll" FileName="ETOSER~1.DLL|Eto.Serialization.Xaml.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Eto.Serialization.Xaml.dll" SelfReg="false" NextFile="Eto.Wpf.dll"/>
+    <ROW File="Eto.Wpf.dll" Component_="Eto.Wpf.dll" FileName="ETOWPF~1.DLL|Eto.Wpf.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Eto.Wpf.dll" SelfReg="false" NextFile="log4net.dll"/>
+    <ROW File="Eto.dll" Component_="Eto.dll" FileName="Eto.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Eto.dll" SelfReg="false" NextFile="Eto.Serialization.Xaml.dll"/>
+    <ROW File="Fountain.xnb" Component_="Fountain.xnb_1" FileName="BACKGR~1.XNB|Background.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Campaigns\Rites of Albion\Rooms\Albion\Fountain\Background.xnb" SelfReg="false" NextFile="FountainRegions.xnb"/>
+    <ROW File="FountainRegions.xnb" Component_="Fountain.xnb_1" FileName="Hotspots.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Campaigns\Rites of Albion\Rooms\Albion\Fountain\Hotspots.xnb" SelfReg="false" NextFile="FountainWalkArea.xnb"/>
+    <ROW File="FountainWalkArea.xnb" Component_="Fountain.xnb_1" FileName="WALKAR~1.XNB|Walk Area.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Campaigns\Rites of Albion\Rooms\Albion\Fountain\Walk Area.xnb" SelfReg="false" NextFile="HillOverAlbion.xnb"/>
+    <ROW File="Hand.xnb" Component_="Arrow.xnb" FileName="Hand.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Cursors\Hand.xnb" SelfReg="false" NextFile="Look.xnb"/>
+    <ROW File="HandDark.xnb" Component_="CurrentItemDark.xnb" FileName="HANDDA~1.XNB|Hand Dark.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Verb Bar\Hand Dark.xnb" SelfReg="false" NextFile="HandLight.xnb"/>
+    <ROW File="HandLight.xnb" Component_="CurrentItemDark.xnb" FileName="HANDLI~1.XNB|Hand Light.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Verb Bar\Hand Light.xnb" SelfReg="false" NextFile="InventoryDark.xnb"/>
+    <ROW File="Hero6.Campaigns.RitesOfPassage.dll" Component_="Hero6.Campaigns.RitesOfPassage.dll" FileName="HERO6C~1.DLL|Hero6.Campaigns.RitesOfPassage.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Hero6.Campaigns.RitesOfPassage.dll" SelfReg="false" NextFile="Hero6.UserInterface.SierraVga.dll"/>
+    <ROW File="Hero6.UserInterface.SierraVga.dll" Component_="Hero6.UserInterface.SierraVga.dll" FileName="HERO6U~1.DLL|Hero6.UserInterface.SierraVga.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Hero6.UserInterface.SierraVga.dll" SelfReg="false" NextFile="MonoGame.Framework.dll"/>
+    <ROW File="Hero6.exe" Component_="Hero6.exe" FileName="Hero6.exe" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Hero6.exe" SelfReg="false" NextFile="AdventureGame.dll" DigSign="true"/>
+    <ROW File="Hero6.exe.config" Component_="CHANGELOG.md" FileName="HERO6E~1.CON|Hero6.exe.config" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Hero6.exe.config" SelfReg="false"/>
+    <ROW File="HeroWalkCenterDown.xnb" Component_="HeroWalkRightUp.xnb" FileName="CENTER~2.XNB|Center Down.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Campaigns\Rites of Albion\Animations\Characters\Hero\Walk\Center Down.xnb" SelfReg="false" NextFile="HeroWalkCenterUp.xnb"/>
+    <ROW File="HeroWalkCenterUp.xnb" Component_="HeroWalkRightUp.xnb" FileName="CENTER~1.XNB|Center Up.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Campaigns\Rites of Albion\Animations\Characters\Hero\Walk\Center Up.xnb" SelfReg="false" NextFile="HeroWalkLeftCenter.xnb"/>
+    <ROW File="HeroWalkLeftCenter.xnb" Component_="HeroWalkRightUp.xnb" FileName="LEFTCE~1.XNB|Left Center.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Campaigns\Rites of Albion\Animations\Characters\Hero\Walk\Left Center.xnb" SelfReg="false" NextFile="HeroWalkLeftDown.xnb"/>
+    <ROW File="HeroWalkLeftDown.xnb" Component_="HeroWalkRightUp.xnb" FileName="LEFTDO~1.XNB|Left Down.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Campaigns\Rites of Albion\Animations\Characters\Hero\Walk\Left Down.xnb" SelfReg="false" NextFile="HeroWalkLeftUp.xnb"/>
+    <ROW File="HeroWalkLeftUp.xnb" Component_="HeroWalkRightUp.xnb" FileName="LEFTUP~1.XNB|Left Up.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Campaigns\Rites of Albion\Animations\Characters\Hero\Walk\Left Up.xnb" SelfReg="false" NextFile="HeroWalkRightCenter.xnb"/>
+    <ROW File="HeroWalkRightCenter.xnb" Component_="HeroWalkRightUp.xnb" FileName="RIGHTC~1.XNB|Right Center.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Campaigns\Rites of Albion\Animations\Characters\Hero\Walk\Right Center.xnb" SelfReg="false" NextFile="HeroWalkRightDown.xnb"/>
+    <ROW File="HeroWalkRightDown.xnb" Component_="HeroWalkRightUp.xnb" FileName="RIGHTD~1.XNB|Right Down.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Campaigns\Rites of Albion\Animations\Characters\Hero\Walk\Right Down.xnb" SelfReg="false" NextFile="HeroWalkRightUp.xnb"/>
+    <ROW File="HeroWalkRightUp.xnb" Component_="HeroWalkRightUp.xnb" FileName="RIGHTU~1.XNB|Right Up.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Campaigns\Rites of Albion\Animations\Characters\Hero\Walk\Right Up.xnb" SelfReg="false" NextFile="LlewellaWalkCenterDown.xnb"/>
+    <ROW File="HillOverAlbion.xnb" Component_="HillOverAlbion.xnb" FileName="BACKGR~1.XNB|Background.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Campaigns\Rites of Albion\Rooms\Albion\Hill Over Albion\Background.xnb" SelfReg="false" NextFile="HillOverAlbionRegions.xnb"/>
+    <ROW File="HillOverAlbionRegions.xnb" Component_="HillOverAlbion.xnb" FileName="Hotspots.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Campaigns\Rites of Albion\Rooms\Albion\Hill Over Albion\Hotspots.xnb" SelfReg="false" NextFile="HillOverAlbionWalkArea.xnb"/>
+    <ROW File="HillOverAlbionWalkArea.xnb" Component_="HillOverAlbion.xnb" FileName="WALKAR~1.XNB|Walk Area.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Campaigns\Rites of Albion\Rooms\Albion\Hill Over Albion\Walk Area.xnb" SelfReg="false" NextFile="Arrow.xnb"/>
+    <ROW File="InventoryDark.xnb" Component_="CurrentItemDark.xnb" FileName="INVENT~1.XNB|Inventory Dark.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Verb Bar\Inventory Dark.xnb" SelfReg="false" NextFile="InventoryLight.xnb"/>
+    <ROW File="InventoryLight.xnb" Component_="CurrentItemDark.xnb" FileName="INVENT~2.XNB|Inventory Light.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Verb Bar\Inventory Light.xnb" SelfReg="false" NextFile="LookDark.xnb"/>
+    <ROW File="LICENSE.ASSETS.md" Component_="CHANGELOG.md" FileName="LICENS~1.MD|LICENSE.ASSETS.md" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\LICENSE.ASSETS.md" SelfReg="false" NextFile="LICENSE.CODE.md"/>
+    <ROW File="LICENSE.CODE.md" Component_="CHANGELOG.md" FileName="LICENS~2.MD|LICENSE.CODE.md" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\LICENSE.CODE.md" SelfReg="false" NextFile="LICENSE.md"/>
+    <ROW File="LICENSE.THIRDPARTY.md" Component_="CHANGELOG.md" FileName="LICENS~3.MD|LICENSE.THIRDPARTY.md" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\LICENSE.THIRDPARTY.md" SelfReg="false" NextFile="README.md"/>
+    <ROW File="LICENSE.md" Component_="CHANGELOG.md" FileName="LICENSE.md" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\LICENSE.md" SelfReg="false" NextFile="LICENSE.THIRDPARTY.md"/>
+    <ROW File="LlewellaWalkCenterDown.xnb" Component_="LlewellaWalkCenterDown.xnb_1" FileName="CENTER~1.XNB|Center Down.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Campaigns\Rites of Albion\Animations\Characters\Llewella\Walk\Center Down.xnb" SelfReg="false" NextFile="BentSword.xnb"/>
+    <ROW File="Look.xnb" Component_="Arrow.xnb" FileName="Look.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Cursors\Look.xnb" SelfReg="false" NextFile="Talk.xnb"/>
+    <ROW File="LookDark.xnb" Component_="CurrentItemDark.xnb" FileName="LOOKDA~1.XNB|Look Dark.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Verb Bar\Look Dark.xnb" SelfReg="false" NextFile="LookLight.xnb"/>
+    <ROW File="LookLight.xnb" Component_="CurrentItemDark.xnb" FileName="LOOKLI~1.XNB|Look Light.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Verb Bar\Look Light.xnb" SelfReg="false" NextFile="MagicDark.xnb"/>
+    <ROW File="MagicDark.xnb" Component_="CurrentItemDark.xnb" FileName="MAGICD~1.XNB|Magic Dark.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Verb Bar\Magic Dark.xnb" SelfReg="false" NextFile="MagicLight.xnb"/>
+    <ROW File="MagicLight.xnb" Component_="CurrentItemDark.xnb" FileName="MAGICL~1.XNB|Magic Light.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Verb Bar\Magic Light.xnb" SelfReg="false" NextFile="OptionsDark.xnb"/>
+    <ROW File="MonoGame.Framework.dll" Component_="MonoGame.Framework.dll" FileName="MONOGA~1.DLL|MonoGame.Framework.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\MonoGame.Framework.dll" SelfReg="false" NextFile="PriorityQueue.dll"/>
+    <ROW File="OptionsDark.xnb" Component_="CurrentItemDark.xnb" FileName="OPTION~1.XNB|Options Dark.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Verb Bar\Options Dark.xnb" SelfReg="false" NextFile="OptionsLight.xnb"/>
+    <ROW File="OptionsLight.xnb" Component_="CurrentItemDark.xnb" FileName="OPTION~2.XNB|Options Light.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Verb Bar\Options Light.xnb" SelfReg="false" NextFile="SideLeft.xnb"/>
+    <ROW File="Portable.Xaml.dll" Component_="Portable.Xaml.dll" FileName="PORTAB~1.DLL|Portable.Xaml.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Portable.Xaml.dll" SelfReg="false" NextFile="Hero6.exe.config"/>
+    <ROW File="PriorityQueue.dll" Component_="PriorityQueue.dll" FileName="PRIORI~1.DLL|Priority Queue.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Priority Queue.dll" SelfReg="false" NextFile="Search.dll"/>
+    <ROW File="README.md" Component_="CHANGELOG.md" FileName="README.md" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\README.md" SelfReg="false" NextFile="Fountain.xnb"/>
+    <ROW File="Search.dll" Component_="Search.dll" FileName="Search.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Search.dll" SelfReg="false" NextFile="SharpDX.Direct2D1.dll"/>
+    <ROW File="SharpDX.DXGI.dll" Component_="SharpDX.DXGI.dll" FileName="SHARPD~4.DLL|SharpDX.DXGI.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\SharpDX.DXGI.dll" SelfReg="false" NextFile="SharpDX.MediaFoundation.dll"/>
+    <ROW File="SharpDX.Direct2D1.dll" Component_="SharpDX.Direct2D1.dll" FileName="SHARPD~1.DLL|SharpDX.Direct2D1.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\SharpDX.Direct2D1.dll" SelfReg="false" NextFile="SharpDX.Direct3D9.dll"/>
+    <ROW File="SharpDX.Direct3D11.dll" Component_="SharpDX.Direct3D11.dll" FileName="SHARPD~3.DLL|SharpDX.Direct3D11.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\SharpDX.Direct3D11.dll" SelfReg="false" NextFile="SharpDX.dll"/>
+    <ROW File="SharpDX.Direct3D9.dll" Component_="SharpDX.Direct3D9.dll" FileName="SHARPD~2.DLL|SharpDX.Direct3D9.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\SharpDX.Direct3D9.dll" SelfReg="false" NextFile="SharpDX.Direct3D11.dll"/>
+    <ROW File="SharpDX.MediaFoundation.dll" Component_="SharpDX.MediaFoundation.dll" FileName="SHARPD~5.DLL|SharpDX.MediaFoundation.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\SharpDX.MediaFoundation.dll" SelfReg="false" NextFile="SharpDX.XAudio2.dll"/>
+    <ROW File="SharpDX.XAudio2.dll" Component_="SharpDX.XAudio2.dll" FileName="SHARPD~7.DLL|SharpDX.XAudio2.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\SharpDX.XAudio2.dll" SelfReg="false" NextFile="SharpDX.XInput.dll"/>
+    <ROW File="SharpDX.XInput.dll" Component_="SharpDX.XInput.dll" FileName="SHARPD~8.DLL|SharpDX.XInput.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\SharpDX.XInput.dll" SelfReg="false" NextFile="CHANGELOG.md"/>
+    <ROW File="SharpDX.dll" Component_="SharpDX.dll" FileName="SharpDX.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\SharpDX.dll" SelfReg="false" NextFile="SharpDX.DXGI.dll"/>
+    <ROW File="SideLeft.xnb" Component_="CurrentItemDark.xnb" FileName="SIDELE~1.XNB|Side Left.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Verb Bar\Side Left.xnb" SelfReg="false" NextFile="SideRight.xnb"/>
+    <ROW File="SideRight.xnb" Component_="CurrentItemDark.xnb" FileName="SIDERI~1.XNB|Side Right.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Verb Bar\Side Right.xnb" SelfReg="false" NextFile="SubMenuDark.xnb"/>
+    <ROW File="SubMenuDark.xnb" Component_="CurrentItemDark.xnb" FileName="SUBMEN~1.XNB|Sub Menu Dark.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Verb Bar\Sub Menu Dark.xnb" SelfReg="false" NextFile="SubMenuLight.xnb"/>
+    <ROW File="SubMenuLight.xnb" Component_="CurrentItemDark.xnb" FileName="SUBMEN~2.XNB|Sub Menu Light.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Verb Bar\Sub Menu Light.xnb" SelfReg="false" NextFile="TalkDark.xnb"/>
+    <ROW File="Talk.xnb" Component_="Arrow.xnb" FileName="Talk.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Cursors\Talk.xnb" SelfReg="false" NextFile="Walk.xnb"/>
+    <ROW File="TalkDark.xnb" Component_="CurrentItemDark.xnb" FileName="TALKDA~1.XNB|Talk Dark.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Verb Bar\Talk Dark.xnb" SelfReg="false" NextFile="TalkLight.xnb"/>
+    <ROW File="TalkLight.xnb" Component_="CurrentItemDark.xnb" FileName="TALKLI~1.XNB|Talk Light.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Verb Bar\Talk Light.xnb" SelfReg="false" NextFile="WalkDark.xnb"/>
+    <ROW File="Wait.xnb" Component_="Arrow.xnb" FileName="Wait.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Cursors\Wait.xnb" SelfReg="false" NextFile="Arial_11.25_Regular.xnb"/>
+    <ROW File="Walk.xnb" Component_="Arrow.xnb" FileName="Walk.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Cursors\Walk.xnb" SelfReg="false" NextFile="Background.xnb"/>
+    <ROW File="WalkDark.xnb" Component_="CurrentItemDark.xnb" FileName="WALKDA~1.XNB|Walk Dark.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Verb Bar\Walk Dark.xnb" SelfReg="false" NextFile="WalkLight.xnb"/>
+    <ROW File="WalkLight.xnb" Component_="CurrentItemDark.xnb" FileName="WALKLI~1.XNB|Walk Light.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Verb Bar\Walk Light.xnb" SelfReg="false" NextFile="Eto.dll"/>
+    <ROW File="log4net.dll" Component_="log4net.dll" FileName="log4net.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\log4net.dll" SelfReg="false" NextFile="Portable.Xaml.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BootstrapperUISequenceComponent">
+    <ROW Action="AI_DetectSoftware" Sequence="101"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFileName="Hero6 Installer" Languages="en" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExeIconPath="..\Hero6.WindowsDX\Icon.ico" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" UseLargeSchema="true"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_en.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
+    <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
+    <ROW Fragment="InstallDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\InstallDlg.aip"/>
+    <ROW Fragment="LicenseAgreementDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\LicenseAgreementDlg.aip"/>
+    <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\MaintenanceTypeDlg.aip"/>
+    <ROW Fragment="PreparePrereqDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\PreparePrereqDlg.aip"/>
+    <ROW Fragment="PrerequisitesDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\PrerequisitesDlg.aip"/>
+    <ROW Fragment="ProgressPrereqDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\ProgressPrereqDlg.aip"/>
+    <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;surface\fragments\SequenceDialogs.aip"/>
+    <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
+    <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;surface\fragments\UI.aip"/>
+    <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
+    <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\VerifyRemoveDlg.aip"/>
+    <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\VerifyRepairDlg.aip"/>
+    <ROW Fragment="WelcomePrereqDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\WelcomePrereqDlg.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiActionTextComponent">
+    <ROW Action="AI_DeleteLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_DeleteRLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractFiles" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractLzma" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiAppSearchComponent">
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_CU" Builds="DefaultBuild"/>
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_LM" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="Prereq.dll" SourcePath="&lt;AI_CUSTACTS&gt;Prereq.dll"/>
+    <ROW Name="SoftwareDetector.dll" SourcePath="&lt;AI_CUSTACTS&gt;SoftwareDetector.dll"/>
+    <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+    <ROW Name="lzmaextractor.dll" SourcePath="&lt;AI_CUSTACTS&gt;lzmaextractor.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlComponent">
+    <ROW Dialog_="CustomizeDlg" Control="CustomizeDlgDialogInitializer" Type="DialogInitializer" X="0" Y="0" Width="0" Height="0" Attributes="0" Order="-1" TextLocId="-" HelpLocId="-" ExtDataLocId="-"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control="AgreementText" Type="ScrollableText" X="17" Y="106" Width="312" Height="243" Attributes="3" Property="EulaRead" Text="EULA.rtf" Order="600" TextLocId="Control.Text.LicenseAgreementDlg#AgreementText_2" MsiKey="LicenseAgreementDlg#AgreementText"/>
+    <ROW Dialog_="MsiRMFilesInUse" Control="Cancel" Type="ImageButton" X="163" Y="359" Width="78" Height="28" Attributes="2" Text="[NextCancelButtons]" TextStyle="[MetroButtonText]" Order="100" MsiKey="MsiRMFilesInUse#Cancel" Options="1" ExtType="ImageButton" ExtData="[ButtonText_Cancel]" ExtDataLocId="-"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control="PatchWelcomeDlgDialogInitializer" Type="DialogInitializer" X="0" Y="0" Width="0" Height="0" Attributes="0" Order="-1" TextLocId="-" HelpLocId="-" ExtDataLocId="-"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control="ProductNameTitle" Type="Text" X="83" Y="21" Width="245" Height="50" Attributes="196611" Text="[ProductName]" TextStyle="[ProductNameForSplash]" Order="600" TextLocId="Metro.Control.Text.ProductName" MsiKey="PatchWelcomeDlg#ProductNameTitle"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control="CompanyText" Type="Text" X="83" Y="16" Width="191" Height="12" Attributes="196611" Text="[Manufacturer]" TextStyle="[ManufacturerFont]" Order="700" TextLocId="Metro.Control.Text.Manufacturer" MsiKey="PatchWelcomeDlg#CompanyText"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control="ProductLogo" Type="Bitmap" X="17" Y="5" Width="59" Height="63" Attributes="1" Text="[AppLogoIcon]" Order="800" MsiKey="PatchWelcomeDlg#ProductLogo"/>
+    <ROW Dialog_="PreparePrereqDlg" Control="ProgressAnimation" Type="Bitmap" X="123" Y="83" Width="113" Height="30" Attributes="1048577" Text="PreparePrereqDlgProgress.gif" Order="800" MsiKey="PreparePrereqDlg#ProgressAnimation"/>
+    <ROW Dialog_="PrerequisitesDlg" Control="Cancel" Type="ImageButton" X="163" Y="359" Width="78" Height="28" Attributes="2" Text="[NextCancelButtons]" TextStyle="[MetroButtonText]" Order="100" MsiKey="PrerequisitesDlg#Cancel" Options="1" ExtType="ImageButton" ExtData="[ButtonText_Cancel]" ExtDataLocId="-"/>
+    <ROW Dialog_="ProgressPrereqDlg" Control="ActionText" Type="Text" X="17" Y="191" Width="309" Height="11" Attributes="196611" TextStyle="SubnoteFont" Order="800" MsiKey="ProgressPrereqDlg#ActionText"/>
+    <ROW Dialog_="ProgressPrereqDlg" Control="ProgressBar" Type="StyledProgressBar" X="17" Y="185" Width="312" Height="5" Attributes="65537" Text="PrereqProgressImage.png" Order="900" MsiKey="ProgressPrereqDlg#ProgressBar" ExtType="StyledProgressBar"/>
+    <ROW Dialog_="ProgressPrereqDlg" Control="StatusLabel" Type="Text" X="17" Y="171" Width="45" Height="13" Attributes="196611" Text="Status:" TextStyle="SubnoteFont" Order="1000" TextLocId="Control.Text.ProgressDlg#StatusLabel" MsiKey="ProgressPrereqDlg#StatusLabel"/>
+    <ROW Dialog_="ProgressPrereqDlg" Control="Text" Type="Text" X="17" Y="105" Width="300" Height="30" Attributes="196611" Text="Please wait while the [Wizard] [Progress2] prerequisites for [ProductName].  This may take several minutes." Order="1100" TextLocId="Control.Text.ProgressPrereqDlg#Text" MsiKey="ProgressPrereqDlg#Text"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="Cancel" Type="ImageButton" X="163" Y="359" Width="78" Height="28" Attributes="2" Text="[NextCancelButtons]" TextStyle="[MetroButtonText]" Order="100" MsiKey="VerifyReadyDlg#Cancel" Options="1" ExtType="ImageButton" ExtData="[ButtonText_Cancel]" ExtDataLocId="-"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="Back" Type="PushButton" X="5" Y="381" Width="11" Height="11" Attributes="2" Text="Control.Text.VerifyReadyDlg#Back" Help="Back|" Order="200" TextLocId="Control.Text.VerifyReadyDlg#Back" HelpLocId="Air.Control.Help#Back" MsiKey="VerifyReadyDlg#Back" Options="1" ExtType="PushButton" ExtData="[ButtonText_Back]" ExtDataLocId="-"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="ReadyToInstall" Type="Text" X="17" Y="105" Width="312" Height="19" Attributes="196611" Text="Ready to Install" TextStyle="[SubTitleStyle]" Order="400" TextLocId="Control.Text.VerifyReadyDlg#Title" MsiKey="VerifyReadyDlg#ReadyToInstall"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="Text_2" Type="Text" X="17" Y="139" Width="312" Height="100" Attributes="65539" Text="The [Wizard] is ready to begin the [ProductName] installation" Order="500" TextLocId="Control.Text.VerifyReadyDlg#Description" MsiKey="VerifyReadyDlg#Text_2"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="InstallButton" Type="ImageButton" X="251" Y="359" Width="78" Height="28" Attributes="3" Text="[metrobuttonimage]" TextStyle="[MetroButtonText]" Order="600" MsiKey="VerifyReadyDlg#InstallButton" ExtType="ImageButton" ExtData="INSTALL" ExtDataLocId="Metro.Control.ExtData.VerifyReadyDlg#InstallButton"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="ProductNameTitle" Type="Text" X="83" Y="21" Width="245" Height="50" Attributes="196611" Text="[ProductName]" TextStyle="[ProductNameForSplash]" Order="700" TextLocId="Metro.Control.Text.ProductName" MsiKey="VerifyReadyDlg#ProductNameTitle"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="CompanyText" Type="Text" X="83" Y="16" Width="191" Height="12" Attributes="196611" Text="[Manufacturer]" TextStyle="[ManufacturerFont]" Order="800" TextLocId="Metro.Control.Text.Manufacturer" MsiKey="VerifyReadyDlg#CompanyText"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="ProductLogo" Type="Bitmap" X="17" Y="5" Width="59" Height="63" Attributes="1" Text="[AppLogoIcon]" Order="900" MsiKey="VerifyReadyDlg#ProductLogo"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="AdvInst" Type="Text" X="5" Y="388" Width="74" Height="11" Attributes="196611" Text="Advanced Installer" TextStyle="[BrandingStyle]" Order="1000" MsiKey="VerifyReadyDlg#AdvInst"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control="Cancel" Type="ImageButton" X="163" Y="359" Width="78" Height="28" Attributes="2" Text="[NextCancelButtons]" TextStyle="[MetroButtonText]" Order="100" MsiKey="VerifyRemoveDlg#Cancel" Options="1" ExtType="ImageButton" ExtData="[ButtonText_Cancel]" ExtDataLocId="-"/>
+    <ROW Dialog_="VerifyRepairDlg" Control="Bitmap" Type="Bitmap" X="0" Y="0" Width="345" Height="400" Attributes="1" Text="[Background]" Order="100" MsiKey="VerifyRepairDlg#Bitmap"/>
+    <ROW Dialog_="VerifyRepairDlg" Control="Cancel" Type="ImageButton" X="163" Y="359" Width="78" Height="28" Attributes="2" Text="[NextCancelButtons]" TextStyle="[MetroButtonText]" Order="200" MsiKey="VerifyRepairDlg#Cancel" Options="1" ExtType="ImageButton" ExtData="[ButtonText_Cancel]" ExtDataLocId="-"/>
+    <ROW Dialog_="WelcomePrereqDlg" Control="Description" Type="Text" X="17" Y="139" Width="312" Height="211" Attributes="196611" Text="The setup has determined that some of the prerequisites needed to run [ProductName] are missing. This wizard will assist you in getting and installing those prerequisites. Click &quot;[Text_Next]&quot; to continue or &quot;[ButtonText_Cancel]&quot; to exit the [Wizard]." Order="800" TextLocId="Control.Text.WelcomePrereqDlg#Description" MsiKey="WelcomePrereqDlg#Description"/>
+    <ROW Dialog_="WelcomePrereqDlg" Control="SubTitle" Type="Text" X="17" Y="105" Width="312" Height="34" Attributes="196611" Text="Welcome to the Prerequisites [Wizard]" TextStyle="SubTitle" Order="900" TextLocId="Control.Text.WelcomePrereqDlg#SubTitle" MsiKey="WelcomePrereqDlg#SubTitle"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
+    <ROW Dialog_="WelcomePrereqDlg" Control_="Next" Event="NewDialog" Argument="PrerequisitesDlg" Condition="AI_BOOTSTRAPPER" Ordering="1"/>
+    <ROW Dialog_="PrerequisitesDlg" Control_="Next" Event="EndDialog" Argument="Return" Condition="AI_BOOTSTRAPPER" Ordering="1"/>
+    <ROW Dialog_="PrerequisitesDlg" Control_="Back" Event="NewDialog" Argument="WelcomePrereqDlg" Condition="AI_BOOTSTRAPPER" Ordering="1"/>
+    <ROW Dialog_="InstallDlg" Control_="Next" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="301"/>
+    <ROW Dialog_="InstallDlg" Control_="YouMustAgreeCtrl" Event="NewDialog" Argument="LicenseAgreementDlg" Condition="AI_INSTALL AND AiLicenseAgreement" Ordering="301"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="Back" Event="NewDialog" Argument="InstallDlg" Condition="AI_INSTALL AND AiLicenseAgreement" Ordering="1"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="Next" Event="EndDialog" Argument="Return" Condition="AI_INSTALL AND AiLicenseAgreement" Ordering="101"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="501"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="NewDialog" Argument="VerifyRemoveDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="699"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="1"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Remove" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="199" Options="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="NewDialog" Argument="VerifyRepairDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="699"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="1"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Repair" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="299" Options="1"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Modify" Event="EndDialog" Argument="Return" Condition="AI_MAINT" Ordering="101"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="201"/>
+    <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="99"/>
+    <ROW Dialog_="InstallDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfRbDiskDlg" Condition="AI_INSTALL AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND (PROMPTROLLBACKCOST=&quot;P&quot; OR NOT PROMPTROLLBACKCOST)" Ordering="302" Options="2"/>
+    <ROW Dialog_="InstallDlg" Control_="Next" Event="EnableRollback" Argument="False" Condition="AI_INSTALL AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;" Ordering="303" Options="2"/>
+    <ROW Dialog_="InstallDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfDiskDlg" Condition="AI_INSTALL AND ( (OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 1) OR (OutOfDiskSpace = 1 AND PROMPTROLLBACKCOST=&quot;F&quot;) )" Ordering="304" Options="2"/>
+    <ROW Dialog_="InstallDlg" Control_="InstallDlgDialogInitializer" Event="[AI_ButtonText_Next_Orig]" Argument="[ButtonText_Next]" Condition="AI_INSTALL" Ordering="101" Options="2"/>
+    <ROW Dialog_="InstallDlg" Control_="InstallDlgDialogInitializer" Event="[ButtonText_Next]" Argument="[[AI_CommitButton]]" Condition="AI_INSTALL" Ordering="102" Options="2"/>
+    <ROW Dialog_="InstallDlg" Control_="InstallDlgDialogInitializer" Event="[AI_Text_Next_Orig]" Argument="[Text_Next]" Condition="AI_INSTALL" Ordering="103" Options="2"/>
+    <ROW Dialog_="InstallDlg" Control_="InstallDlgDialogInitializer" Event="[Text_Next]" Argument="[Text_Install]" Condition="AI_INSTALL" Ordering="104" Options="2"/>
+    <ROW Dialog_="InstallDlg" Control_="YouMustAgreeCtrl" Event="[ButtonText_Next]" Argument="[AI_ButtonText_Next_Orig]" Condition="AI_INSTALL" Ordering="302" Options="2"/>
+    <ROW Dialog_="InstallDlg" Control_="YouMustAgreeCtrl" Event="[Text_Next]" Argument="[AI_Text_Next_Orig]" Condition="AI_INSTALL" Ordering="303" Options="2"/>
+    <ROW Dialog_="InstallDlg" Control_="Back" Event="[ButtonText_Next]" Argument="[AI_ButtonText_Next_Orig]" Condition="AI_INSTALL" Ordering="0" Options="2"/>
+    <ROW Dialog_="InstallDlg" Control_="Back" Event="[Text_Next]" Argument="[AI_Text_Next_Orig]" Condition="AI_INSTALL" Ordering="1" Options="2"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfRbDiskDlg" Condition="AI_INSTALL AND AiLicenseAgreement AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND (PROMPTROLLBACKCOST=&quot;P&quot; OR NOT PROMPTROLLBACKCOST)" Ordering="102" Options="2"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="Next" Event="EnableRollback" Argument="False" Condition="AI_INSTALL AND AiLicenseAgreement AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;" Ordering="103" Options="2"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfDiskDlg" Condition="AI_INSTALL AND AiLicenseAgreement AND ( (OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 1) OR (OutOfDiskSpace = 1 AND PROMPTROLLBACKCOST=&quot;F&quot;) )" Ordering="104" Options="2"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="LicenseAgreementDlgDialogInitializer" Event="[AI_ButtonText_Next_Orig]" Argument="[ButtonText_Next]" Condition="AI_INSTALL AND AiLicenseAgreement" Ordering="101" Options="2"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="LicenseAgreementDlgDialogInitializer" Event="[ButtonText_Next]" Argument="[[AI_CommitButton]]" Condition="AI_INSTALL AND AiLicenseAgreement" Ordering="102" Options="2"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="LicenseAgreementDlgDialogInitializer" Event="[AI_Text_Next_Orig]" Argument="[Text_Next]" Condition="AI_INSTALL AND AiLicenseAgreement" Ordering="103" Options="2"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="LicenseAgreementDlgDialogInitializer" Event="[Text_Next]" Argument="[Text_Install]" Condition="AI_INSTALL AND AiLicenseAgreement" Ordering="104" Options="2"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="Back" Event="[ButtonText_Next]" Argument="[AI_ButtonText_Next_Orig]" Condition="AI_INSTALL AND AiLicenseAgreement" Ordering="2" Options="2"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="Back" Event="[Text_Next]" Argument="[AI_Text_Next_Orig]" Condition="AI_INSTALL AND AiLicenseAgreement" Ordering="3" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Modify" Event="SpawnDialog" Argument="OutOfRbDiskDlg" Condition="AI_MAINT AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND (PROMPTROLLBACKCOST=&quot;P&quot; OR NOT PROMPTROLLBACKCOST)" Ordering="102" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Modify" Event="EnableRollback" Argument="False" Condition="AI_MAINT AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;" Ordering="103" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Modify" Event="SpawnDialog" Argument="OutOfDiskDlg" Condition="AI_MAINT AND ( (OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 1) OR (OutOfDiskSpace = 1 AND PROMPTROLLBACKCOST=&quot;F&quot;) )" Ordering="104" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="CustomizeDlgDialogInitializer" Event="[AI_ButtonText_Next_Orig]" Argument="[ButtonText_Next]" Condition="AI_MAINT" Ordering="0" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="CustomizeDlgDialogInitializer" Event="[ButtonText_Next]" Argument="[[AI_CommitButton]]" Condition="AI_MAINT" Ordering="1" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="CustomizeDlgDialogInitializer" Event="[AI_Text_Next_Orig]" Argument="[Text_Next]" Condition="AI_MAINT" Ordering="2" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="CustomizeDlgDialogInitializer" Event="[Text_Next]" Argument="[Text_Install]" Condition="AI_MAINT" Ordering="3" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="[ButtonText_Next]" Argument="[AI_ButtonText_Next_Orig]" Condition="AI_MAINT" Ordering="2" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="[Text_Next]" Argument="[AI_Text_Next_Orig]" Condition="AI_MAINT" Ordering="3" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfRbDiskDlg" Condition="AI_PATCH AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND (PROMPTROLLBACKCOST=&quot;P&quot; OR NOT PROMPTROLLBACKCOST)" Ordering="202" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="EnableRollback" Argument="False" Condition="AI_PATCH AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;" Ordering="203" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfDiskDlg" Condition="AI_PATCH AND ( (OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 1) OR (OutOfDiskSpace = 1 AND PROMPTROLLBACKCOST=&quot;F&quot;) )" Ordering="204" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="PatchWelcomeDlgDialogInitializer" Event="[AI_ButtonText_Next_Orig]" Argument="[ButtonText_Next]" Condition="AI_PATCH" Ordering="0" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="PatchWelcomeDlgDialogInitializer" Event="[ButtonText_Next]" Argument="[[AI_CommitButton]]" Condition="AI_PATCH" Ordering="1" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="PatchWelcomeDlgDialogInitializer" Event="[AI_Text_Next_Orig]" Argument="[Text_Next]" Condition="AI_PATCH" Ordering="2" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="PatchWelcomeDlgDialogInitializer" Event="[Text_Next]" Argument="[Text_Install]" Condition="AI_PATCH" Ordering="3" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Back" Event="[ButtonText_Next]" Argument="[AI_ButtonText_Next_Orig]" Condition="AI_PATCH" Ordering="0" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Back" Event="[Text_Next]" Argument="[AI_Text_Next_Orig]" Condition="AI_PATCH" Ordering="1" Options="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
+    <ROW Directory_="NewFolder_Dir" Component_="NewFolder" ManualDelete="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_AppSearchEx" Type="1" Source="Prereq.dll" Target="DoAppSearchEx"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH_ORIGINAL" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_ChooseTextStyles" Type="1" Source="aicustact.dll" Target="ChooseTextStyles"/>
+    <ROW Action="AI_DATA_SETTER" Type="51" Source="AI_ExtractFiles" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_DeleteCadLzma" Type="51" Source="AI_DeleteLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteLzma" Type="1025" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DeleteRCadLzma" Type="51" Source="AI_DeleteRLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteRLzma" Type="1281" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DetectSoftware" Type="257" Source="SoftwareDetector.dll" Target="OnDetectSoftware"/>
+    <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
+    <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
+    <ROW Action="AI_EstimateExtractFiles" Type="1" Source="Prereq.dll" Target="EstimateExtractFiles"/>
+    <ROW Action="AI_ExtractCadLzma" Type="51" Source="AI_ExtractLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_ExtractFiles" Type="1025" Source="Prereq.dll" Target="ExtractSourceFiles" AdditionalSeq="AI_DATA_SETTER"/>
+    <ROW Action="AI_ExtractLzma" Type="1025" Source="lzmaextractor.dll" Target="ExtractLZMAFiles"/>
+    <ROW Action="AI_FindExeLzma" Type="1" Source="lzmaextractor.dll" Target="FindEXE"/>
+    <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_LaunchApp" Type="1" Source="aicustact.dll" Target="[#Hero6.exe]"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH" Target="[AI_SETUPEXEPATH_ORIGINAL]"/>
+    <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
+    <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
+    <ROW Action="AI_RunFinishActions" Type="1" Source="aicustact.dll" Target="RunFinishActions" WithoutSeq="true"/>
+    <ROW Action="AI_SETMIXINSTLOCATION" Type="1" Source="aicustact.dll" Target="MixedAllUsersInstallLocation"/>
+    <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
+    <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="AI_ViewReadme" Type="1" Source="aicustact.dll" Target="[#README.md]"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:[AI_UserProgramFiles][Manufacturer]\[ProductName]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="Icon.exe" SourcePath="..\Hero6.WindowsDX\Icon.ico" Index="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1501"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_DetectSoftware" Sequence="103"/>
+    <ROW Action="AI_AppSearchEx" Sequence="102"/>
+    <ROW Action="AI_SETMIXINSTLOCATION" Sequence="748"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99" Builds="DefaultBuild"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="101" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="199" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="198" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="197" Builds="DefaultBuild"/>
+    <ROW Action="AI_FindExeLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="196" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1549" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1548" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="6599" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractFiles" Sequence="3998" Builds="DefaultBuild"/>
+    <ROW Action="AI_DATA_SETTER" Sequence="3997"/>
+    <ROW Action="AI_EstimateExtractFiles" Sequence="3999" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
+    <ROW Action="AI_DpiContentScale" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_DetectSoftware" Sequence="103"/>
+    <ROW Action="AI_AppSearchEx" Sequence="102"/>
+    <ROW Action="InstallDlg" Condition="AI_INSTALL" Sequence="1230" SeqType="3" MsiKey="WelcomeDlg"/>
+    <ROW Action="MaintenanceTypeDlg" Condition="AI_MAINT" Sequence="1250" SeqType="3" MsiKey="MaintenanceTypeDlg"/>
+    <ROW Action="AI_ChooseTextStyles" Sequence="74"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="101"/>
+    <ROW Action="AI_SETMIXINSTLOCATION" Sequence="748"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="( Version9X OR ( NOT VersionNT64 ) OR ( VersionNT64 AND ((VersionNT64 &lt;&gt; 502) OR (ServicePackLevel &lt;&gt; 2) OR (MsiNTProductType &lt;&gt; 1)) AND ((VersionNT64 &lt;&gt; 502) OR (ServicePackLevel &lt;&gt; 2) OR (MsiNTProductType = 1)) AND ((VersionNT64 &lt;&gt; 600) OR (ServicePackLevel &lt;&gt; 0) OR (MsiNTProductType &lt;&gt; 1)) AND ((VersionNT64 &lt;&gt; 600) OR (ServicePackLevel &lt;&gt; 1) OR (MsiNTProductType &lt;&gt; 1)) ) )" Description="[ProductName] cannot be installed on the following Windows versions: [WindowsTypeNT64Display]." DescriptionLocId="AI.LaunchCondition.NoSpecificNT64" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="( Version9X OR VersionNT64 OR ( VersionNT AND ((VersionNT &lt;&gt; 501) OR (ServicePackLevel &lt;&gt; 3)) AND ((VersionNT &lt;&gt; 502) OR (ServicePackLevel &lt;&gt; 2)) AND ((VersionNT &lt;&gt; 600) OR (ServicePackLevel &lt;&gt; 0) OR (MsiNTProductType &lt;&gt; 1)) AND ((VersionNT &lt;&gt; 600) OR (ServicePackLevel &lt;&gt; 1) OR (MsiNTProductType &lt;&gt; 1)) ) )" Description="[ProductName] cannot be installed on the following Windows versions: [WindowsTypeNTDisplay]." DescriptionLocId="AI.LaunchCondition.NoSpecificNT" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] cannot be installed on [WindowsTypeNT40Display]." DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 500)" Description="[ProductName] cannot be installed on [WindowsTypeNT50Display]." DescriptionLocId="AI.LaunchCondition.NoNT50" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT64 OR ((VersionNT &lt;&gt; 501) OR (ServicePackLevel = 3))) AND ((VersionNT &lt;&gt; 502) OR (ServicePackLevel = 2))" Description="[ProductName] cannot be installed on [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="AI_DETECTED_DIRECTX_VERSION &gt;= AI_REQUIRED_DIRECTX_VERSION" Description="[ProductName] cannot be installed on systems with DirectX version lower than [AI_REQUIRED_DIRECTX_DISPLAY]." DescriptionLocId="AI.LaunchCondition.DirectX" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="AI_DETECTED_DOTNET_VERSION &gt;= AI_REQUIRED_DOTNET_VERSION" Description="[ProductName] cannot be installed on systems with .NET Framework version lower than [AI_REQUIRED_DOTNET_DISPLAY]." DescriptionLocId="AI.LaunchCondition.DotNET" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="SETUPEXEDIR OR (REMOVE=&quot;ALL&quot;)" Description="This package can only be run from a bootstrapper." DescriptionLocId="AI.LaunchCondition.RequireBootstrapper" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegLocatorComponent">
+    <ROW Signature_="AI_EXE_PATH_CU" Root="1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+    <ROW Signature_="AI_EXE_PATH_LM" Root="2" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="AI_ExePath" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Value="[AI_SETUPEXEPATH]" Component_="AI_ExePath"/>
+    <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
+    <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
+    <ROW Shortcut="Hero6" Directory_="NewFolder_Dir" Name="Hero6" Component_="Hero6.exe" Target="[#Hero6.exe]" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
+    <ATTRIBUTE name="UsedTheme" value="surface"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
+    <ROW PrereqKey="EDD0228464354F269D1E1FAEB8A9084F" DisplayName=".NET Framework 4.5.1 (web installer)" SetupFileUrl="http://download.microsoft.com/download/7/4/0/74078A56-A3A1-492D-BBA9-865684B83C1B/NDP451-KB2859818-Web.exe" Location="1" ExactSize="1021432" WinNTVersions="Windows XP x86 Service Pack 3, Windows Server 2003 x86 Service Pack 2, Windows 8.1 x86, Windows 10 x86" WinNT64Versions="Windows XP x64 Service Pack 2, Windows Server 2003 x64 Service Pack 2, Windows 8.1 x64, Windows Server 2012 R2 x64, Windows 10 x64, Windows Server 2016 x64" Operator="1" NoUiComLine="/q /norestart" Options="xy" MD5="24281f84c5521204e4454207f3becf96" TargetName=".NET Framework 4.5.1"/>
+    <ROW PrereqKey="RequiredApplication" DisplayName="DirectX 9.0c" SetupFileUrl="https://download.microsoft.com/download/8/0/d/80d7e79d-c0e4-415a-bcca-e229eafe2679/dxwebsetup.exe" Location="1" ExactSize="0" Operator="1" Options="y" TargetName="DirectX 9.0c"/>
+    <ATTRIBUTE name="PrereqsOrder" value="EDD0228464354F269D1E1FAEB8A9084F RequiredApplication"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.PreReqSearchComponent">
+    <ROW SearchKey="EDD0228464354F269D1E1FAEB8A9084FRelease" Prereq="EDD0228464354F269D1E1FAEB8A9084F" SearchType="9" SearchString="HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\Release" RefContent="G378757" Order="1" Property="PreReqSearch_EDD0228464354F269D1E1FAEB8A9084F"/>
+    <ROW SearchKey="Version" Prereq="RequiredApplication" SearchType="2" SearchString="HKLM\SOFTWARE\Microsoft\DirectX\Version" VerMin="4.09.00.0904" Order="2" Property="PreReqSearch_1"/>
+  </COMPONENT>
+</DOCUMENT>

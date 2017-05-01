@@ -13,6 +13,7 @@ namespace LateStartStudio.AdventureGame.Game
 {
     using System;
     using AdventureGame;
+    using Engine;
     using Engine.Graphics;
 
     /// <summary>
@@ -86,12 +87,23 @@ namespace LateStartStudio.AdventureGame.Game
         }
 
         /// <summary>
+        /// Gets the <see cref="ContentManager"/> associated with this
+        /// <see cref="AdventureGameElement"/> instance.
+        /// </summary>
+        /// <value>
+        /// The <see cref="ContentManager"/> associated with this
+        /// <see cref="AdventureGameElement"/> instance.
+        /// </value>
+        protected ContentManager Content => this.Campaign.Content;
+
+        /// <summary>
         /// Called on user interaction with the game at input coordinates.
         /// </summary>
         /// <param name="x">The user input x coordinate.</param>
         /// <param name="y">The user input y coordinate.</param>
+        /// <param name="interaction">The interaction to perform.</param>
         /// <returns>True if the user interacted with this element; false otherwise.</returns>
-        public abstract bool Interact(int x, int y);
+        public abstract bool Interact(int x, int y, Interaction interaction);
 
         /// <inheritdoc />
         public abstract void Load();
@@ -104,5 +116,14 @@ namespace LateStartStudio.AdventureGame.Game
 
         /// <inheritdoc />
         public abstract void Draw(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly);
+
+        /// <summary>
+        /// Shows a box with the input text.
+        /// </summary>
+        /// <param name="text">The text to display within the box.</param>
+        public void Display(string text)
+        {
+            this.Campaign.UserInterface.ShowTextBox(text);
+        }
     }
 }

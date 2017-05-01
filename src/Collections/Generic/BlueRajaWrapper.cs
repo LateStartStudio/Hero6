@@ -17,7 +17,7 @@ namespace LateStartStudio.Collections.Generic
     using Priority_Queue;
 
     /// <summary>
-    /// A wrapper class that encapsulates the framework Optimized Priority Queue by BlueRaja. 
+    /// A wrapper class that encapsulates the framework Optimized Priority Queue by BlueRaja.
     /// </summary>
     /// <typeparam name="T">
     /// The type of element in the priority queue. Any instance of T must extend from the class
@@ -42,16 +42,10 @@ namespace LateStartStudio.Collections.Generic
         }
 
         /// <inheritdoc />
-        public int Count
-        {
-            get { return this.pq.Count; }
-        }
+        public int Count => this.pq.Count;
 
         /// <inheritdoc />
-        public bool IsSynchronized
-        {
-            get { return false; }
-        }
+        public bool IsSynchronized => false;
 
         /// <inheritdoc />
         public object SyncRoot

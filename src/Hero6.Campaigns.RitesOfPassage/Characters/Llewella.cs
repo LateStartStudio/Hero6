@@ -27,27 +27,39 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Characters
         {
             this.Animation = new LlewellaWalk(campaign);
 
-            this.Interaction += this.OnInteraction;
+            this.Look += this.OnLook;
+            this.Grab += this.OnGrab;
+            this.Talk += this.OnTalk;
         }
 
-        private void OnInteraction(object sender, EventArgs e)
+        private void OnGrab(object sender, EventArgs e)
+        {
+            this.Display("No! Bad Hero!");
+        }
+
+        private void OnLook(object sender, EventArgs e)
+        {
+            this.Display("It's a lady.");
+        }
+
+        private void OnTalk(object sender, EventArgs e)
         {
             if (!this.swordReturned)
             {
                 if (Campaign.Player.HasInventory(Campaign.GetInventoryItem(BentSword.Name)))
                 {
-                    System.Diagnostics.Debug.WriteLine("You found my sword! Thank you so much!");
+                    this.Display("You found my sword! Thank you so much!");
                     Campaign.Player.RemoveInventory(Campaign.GetInventoryItem(BentSword.Name));
                     this.swordReturned = true;
                 }
                 else
                 {
-                    System.Diagnostics.Debug.WriteLine("I've lost my sword oh great hero!");
+                    this.Display("I've lost my sword oh great hero!");
                 }
             }
             else
             {
-                System.Diagnostics.Debug.WriteLine("You're my hero!");
+                this.Display("You're my hero!");
             }
         }
     }

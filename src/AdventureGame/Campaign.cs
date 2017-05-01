@@ -13,7 +13,9 @@ namespace LateStartStudio.AdventureGame
 {
     using System;
     using System.Collections.Generic;
+    using Engine;
     using Game;
+    using UI;
 
     /// <summary>
     /// A class that represents a campaign, scenario or story of a game. One game might have
@@ -21,8 +23,6 @@ namespace LateStartStudio.AdventureGame
     /// </summary>
     public abstract class Campaign : IGameLoop
     {
-        private readonly string name;
-        private readonly Engine.Engine engine;
         private readonly IDictionary<string, Character> characters;
         private readonly IDictionary<string, Item> items;
         private readonly IDictionary<string, InventoryItem> inventoryItems;
@@ -33,10 +33,21 @@ namespace LateStartStudio.AdventureGame
         /// </summary>
         /// <param name="name">The name of the campaign.</param>
         /// <param name="engine">The engine that will run the campaign.</param>
-        protected Campaign(string name, Engine.Engine engine)
+        /// <param name="content">The content manager that will load campaign assets.</param>
+        /// <param name="userInterface">The user interface that this campaign will use.</param>
+        protected Campaign(
+            string name,
+            Engine.Engine engine,
+            ContentManager content,
+            UserInterface userInterface)
         {
-            this.name = name;
-            this.engine = engine;
+            this.Name = name;
+            this.Engine = engine;
+            this.Content = content;
+
+            this.UserInterface = userInterface;
+            this.UserInterface.MouseButtonClick += this.OnUserInteraction;
+
             this.characters = new Dictionary<string, Character>();
             this.items = new Dictionary<string, Item>();
             this.inventoryItems = new Dictionary<string, InventoryItem>();
@@ -49,10 +60,7 @@ namespace LateStartStudio.AdventureGame
         /// <value>
         /// The name of the campaign.
         /// </value>
-        public string Name
-        {
-            get { return this.name; }
-        }
+        public string Name { get; }
 
         /// <summary>
         /// Gets the engine of the campaign.
@@ -60,9 +68,25 @@ namespace LateStartStudio.AdventureGame
         /// <value>
         /// The engine of the campaign.
         /// </value>
-        public Engine.Engine Engine
+        public Engine.Engine Engine { get; }
+
+        /// <summary>
+        /// Gets the <see cref="ContentManager"/> of the <see cref="Campaign"/> instance.
+        /// </summary>
+        /// <value>
+        /// The <see cref="ContentManager"/> of the <see cref="Campaign"/> instance.
+        /// </value>
+        public ContentManager Content { get; }
+
+        /// <summary>
+        /// Gets or sets the user interface of this campaign.
+        /// </summary>
+        /// <value>
+        /// The user interface of the campaign.
+        /// </value>
+        public UserInterface UserInterface
         {
-            get { return this.engine; }
+            get; set;
         }
 
         /// <summary>
@@ -185,6 +209,11 @@ namespace LateStartStudio.AdventureGame
         /// <inheritdoc />
         public void Update(TimeSpan totalTime, TimeSpan elapsedTime, bool isRunningSlowly)
         {
+            if (this.Engine.IsGamePaused)
+            {
+                return;
+            }
+
             this.CurrentRoom.Update(totalTime, elapsedTime, isRunningSlowly);
         }
 
@@ -232,6 +261,11 @@ namespace LateStartStudio.AdventureGame
         protected void AddRoom(string id, Room room)
         {
             this.rooms.Add(id, room);
+        }
+
+        private void OnUserInteraction(object sender, UserInteractionEventArgs e)
+        {
+            this.CurrentRoom.Interact(e.X, e.Y, e.Interaction);
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LateStartStudio.AdventureGame</RootNamespace>
     <AssemblyName>AdventureGame</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -22,6 +22,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\AdventureGame.XML</DocumentationFile>
+    <LangVersion>6</LangVersion>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,18 +33,20 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\AdventureGame.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Campaign.cs" />
-    <Compile Include="Engine\AssetHandler.cs" />
+    <Compile Include="Engine\ContentManager.cs" />
     <Compile Include="Engine\Engine.cs" />
     <Compile Include="Engine\Graphics\Color.cs" />
     <Compile Include="Engine\Graphics\GraphicsHandler.cs" />
     <Compile Include="Engine\Graphics\Point.cs" />
     <Compile Include="Engine\Graphics\Rectangle.cs" />
+    <Compile Include="Engine\Graphics\SpriteFont.cs" />
     <Compile Include="Engine\Graphics\Texture2D.cs" />
     <Compile Include="Engine\Graphics\Vector2.cs" />
     <Compile Include="Game\AdventureGameElement.cs" />
@@ -51,11 +55,14 @@
     <Compile Include="Game\Hotspot.cs" />
     <Compile Include="Game\HotspotWalkingEventArgs.cs" />
     <Compile Include="Game\IGameLoop.cs" />
+    <Compile Include="Game\Interaction.cs" />
     <Compile Include="Game\InventoryItem.cs" />
     <Compile Include="Game\Item.cs" />
     <Compile Include="Game\Room.cs" />
     <Compile Include="Game\SpriteSheet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\UserInteractionEventArgs.cs" />
+    <Compile Include="UI\UserInterface.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Search\Search.csproj">
@@ -78,7 +85,7 @@
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v2.0' Or $(TargetFrameworkVersion) == 'v3.0' Or $(TargetFrameworkVersion) == 'v3.5' Or $(TargetFrameworkVersion) == 'v4.0')">
       <ItemGroup>
         <Reference Include="Priority Queue">
-          <HintPath>..\..\packages\OptimizedPriorityQueue\lib\net20\Priority Queue.dll</HintPath>
+          <HintPath>..\packages\OptimizedPriorityQueue\lib\net20\Priority Queue.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
@@ -87,7 +94,7 @@
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3')">
       <ItemGroup>
         <Reference Include="Priority Queue">
-          <HintPath>..\..\packages\OptimizedPriorityQueue\lib\net45\Priority Queue.dll</HintPath>
+          <HintPath>..\packages\OptimizedPriorityQueue\lib\net45\Priority Queue.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
@@ -96,7 +103,7 @@
     <When Condition="$(TargetFrameworkIdentifier) == '.NETCore'">
       <ItemGroup>
         <Reference Include="Priority Queue">
-          <HintPath>..\..\packages\OptimizedPriorityQueue\lib\netcore45\Priority Queue.dll</HintPath>
+          <HintPath>..\packages\OptimizedPriorityQueue\lib\netcore45\Priority Queue.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>

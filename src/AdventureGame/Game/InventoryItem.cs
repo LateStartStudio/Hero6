@@ -35,19 +35,13 @@ namespace LateStartStudio.AdventureGame.Game
         }
 
         /// <inheritdoc />
-        public override int Width
-        {
-            get { return this.sprite.Width; }
-        }
+        public override int Width => this.sprite.Width;
 
         /// <inheritdoc />
-        public override int Height
-        {
-            get { return this.sprite.Height; }
-        }
+        public override int Height => this.sprite.Height;
 
         /// <inheritdoc />
-        public override bool Interact(int x, int y)
+        public override bool Interact(int x, int y, Interaction interaction)
         {
             throw new NotImplementedException();
         }
@@ -55,7 +49,7 @@ namespace LateStartStudio.AdventureGame.Game
         /// <inheritdoc />
         public override void Load()
         {
-            this.sprite = Campaign.Engine.Assets.LoadTexture2D(this.spriteID);
+            this.sprite = this.Content.LoadTexture2D(this.spriteID);
         }
 
         /// <inheritdoc />

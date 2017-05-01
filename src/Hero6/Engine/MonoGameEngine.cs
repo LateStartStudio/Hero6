@@ -14,28 +14,20 @@ namespace LateStartStudio.Hero6.Engine
     using AdventureGame.Engine;
     using AdventureGame.Engine.Graphics;
     using Graphics;
-    using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
 
     public class MonoGameEngine : Engine
     {
         private readonly MonoGameGraphics graphics;
-        private readonly AssetHandler assets;
 
-        public MonoGameEngine(SpriteBatch spriteBatch, ContentManager contentManager)
+        public MonoGameEngine(SpriteBatch spriteBatch)
         {
             this.graphics = new MonoGameGraphics(spriteBatch);
-            this.assets = new MonoGameAssetHandler(contentManager);
         }
 
         public override GraphicsHandler Graphics
         {
             get { return this.graphics; }
-        }
-
-        public override AssetHandler Assets
-        {
-            get { return this.assets; }
         }
     }
 }

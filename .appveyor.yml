@@ -1,0 +1,38 @@
+# Appveyor Build Scrip https://www.appveyor.com
+
+version: 0.1.0.{build}
+
+image: Visual Studio 2015
+
+platform: Any CPU
+
+configuration:
+  - Debug
+  - Release
+  - WindowsDX Debug
+  - WindowsDX Release
+  #- Android Debug
+  #- Android Release
+
+install:
+  # MonoGame
+  - ps: (new-object net.webclient).DownloadFile('http://www.monogame.net/releases/v3.6/MonoGameSetup.exe', 'C:\MonoGameSetup.exe')
+  - ps: Invoke-Command -ScriptBlock {C:\MonoGameSetup.exe /S /v/qn}
+
+  # Advanced Installer
+  - ps: (new-object net.webclient).DownloadFile('http://www.advancedinstaller.com/downloads/advinst.msi', 'C:\advinst.msi')
+  - ps: Invoke-Command -ScriptBlock {msiexec.exe /i C:\advinst.msi /qn}
+
+  # Paket
+  - cmd: cd src
+  - cmd: .paket\paket.bootstrapper.exe
+  - cmd: .paket\paket.exe restore
+
+build:
+  parallel: true
+  project: src\Hero6.Windows.sln
+
+test:
+  assemblies:
+    - Collections.Tests.dll
+    - Search.Tests.dll

@@ -19,19 +19,19 @@ namespace LateStartStudio.AdventureGame.Engine
     public abstract class Engine
     {
         /// <summary>
+        /// Gets or sets a value indicating whether if the game is paused.
+        /// </summary>
+        /// <value>
+        /// A value indicating whether if the game is paused.
+        /// </value>
+        public bool IsGamePaused { get; set; }
+
+        /// <summary>
         /// Gets the graphics handler of the engine.
         /// </summary>
         /// <value>
         /// The graphics handler of the engine.
         /// </value>
         public abstract GraphicsHandler Graphics { get; }
-
-        /// <summary>
-        /// Gets the asset handler of the engine.
-        /// </summary>
-        /// <value>
-        /// The asset handler of the engine.
-        /// </value>
-        public abstract AssetHandler Assets { get; }
     }
 }

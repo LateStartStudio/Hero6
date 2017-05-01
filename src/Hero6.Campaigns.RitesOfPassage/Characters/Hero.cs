@@ -24,12 +24,24 @@ namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Characters
         {
             this.Animation = new HeroWalk(campaign);
 
-            this.Interaction += OnInteraction;
+            this.Look += this.OnLook;
+            this.Grab += this.OnGrab;
+            this.Talk += this.OnTalk;
         }
 
-        private static void OnInteraction(object sender, EventArgs e)
+        private void OnLook(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("Clicked character " + Name);
+            this.Display("Just another Player Character.");
+        }
+
+        private void OnGrab(object sender, EventArgs e)
+        {
+            this.Display("Touching yourself isn't very hero-like.");
+        }
+
+        private void OnTalk(object sender, EventArgs e)
+        {
+            this.Display("Did the Hero or the pizza come first you wonder...");
         }
     }
 }

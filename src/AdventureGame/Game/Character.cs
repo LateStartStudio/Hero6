@@ -34,9 +34,22 @@ namespace LateStartStudio.AdventureGame.Game
         }
 
         /// <summary>
-        /// Raised when the user interacts with the character.
+        /// Raised when the player interacts with the character by looking, examining, or other
+        /// equivalents.
         /// </summary>
-        public event EventHandler<EventArgs> Interaction;
+        public event EventHandler<EventArgs> Look;
+
+        /// <summary>
+        /// Raised when the player interacts with the character by grabbing, taking, or other
+        /// equivalents.
+        /// </summary>
+        public event EventHandler<EventArgs> Grab;
+
+        /// <summary>
+        /// Raised when the player interacts with the character by talking, asking, or other
+        /// equivalents.
+        /// </summary>
+        public event EventHandler<EventArgs> Talk;
 
         /// <summary>
         /// Gets or sets the character's animation.
@@ -166,7 +179,7 @@ namespace LateStartStudio.AdventureGame.Game
         }
 
         /// <inheritdoc />
-        public override sealed bool Interact(int x, int y)
+        public override sealed bool Interact(int x, int y, Interaction interaction)
         {
             Rectangle rect = new Rectangle(
                 this.Animation.Location.X,
@@ -179,7 +192,22 @@ namespace LateStartStudio.AdventureGame.Game
                 return false;
             }
 
-            this.InvokeInteraction();
+            switch (interaction)
+            {
+                case Interaction.Eye:
+                    this.Look?.Invoke(this, EventArgs.Empty);
+                    break;
+                case Interaction.Hand:
+                    this.Grab?.Invoke(this, EventArgs.Empty);
+                    break;
+                case Interaction.Mouth:
+                    this.Talk?.Invoke(this, EventArgs.Empty);
+                    break;
+                default:
+                    throw new NotSupportedException(
+                              $"Interaction {interaction} is not supported on characters.");
+            }
+
             return true;
         }
 
@@ -229,14 +257,6 @@ namespace LateStartStudio.AdventureGame.Game
             Vector2 newLocation = this.MovementPath.Dequeue();
             this.Animation.FacingDirection = newLocation - new Vector2(this.Location);
             this.Location = new Point(newLocation);
-        }
-
-        private void InvokeInteraction()
-        {
-            if (this.Interaction != null)
-            {
-                this.Interaction.Invoke(this, EventArgs.Empty);
-            }
         }
     }
 }

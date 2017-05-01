@@ -12,6 +12,9 @@
 namespace LateStartStudio.Hero6
 {
     using System;
+    using System.Diagnostics;
+    using Eto;
+    using Eto.Forms;
 
     /// <summary>
     /// The main class.
@@ -24,10 +27,27 @@ namespace LateStartStudio.Hero6
         [STAThread]
         public static void Main()
         {
+#if DEBUG
             using (Game game = new Game())
             {
                 game.Run();
             }
+#else
+            try
+            {
+                using (Game game = new Game())
+                {
+                    game.Run();
+                }
+            }
+            catch (Exception e)
+            {
+                Game.Logger.Fatal("Hero6 has crashed, logging stack strace.", e);
+                Game.Logger.WillDeleteLogOnDispose = false;
+
+                new Application(Platform.Detect).Run(new CrashDialog(e));
+            }
+#endif
         }
     }
 }

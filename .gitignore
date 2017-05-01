@@ -242,7 +242,7 @@ FakesAssemblies/
 _Pvt_Extensions
 
 # Paket dependency manager
-.paket/paket.exe
+/src/.paket/paket.exe
 paket-files/
 
 # FAKE - F# Make
@@ -258,3 +258,6 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+
+#git-lfs.exe for TFS Build Agent
+git-lfs.exe
