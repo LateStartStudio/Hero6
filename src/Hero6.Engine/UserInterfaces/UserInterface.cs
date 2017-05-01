@@ -8,9 +8,13 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces
 {
     using System;
-    using Assets;
-    using Assets.Graphics;
-    using GameLoop;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using LateStartStudio.Hero6.Engine.Assets;
+    using LateStartStudio.Hero6.Engine.GameLoop;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.Controls;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
 
     /// <summary>
     /// An abstract class for defining the user interface of an adventure game.
@@ -20,18 +24,12 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         /// <summary>
         /// Initializes a new instance of the <see cref="UserInterface"/> class.
         /// </summary>
-        /// <param name="width">The native width to render the user interface.</param>
-        /// <param name="height">The native height to render the user interface.</param>
-        /// <param name="scale">The scale of the heigth and width.</param>
-        /// <param name="renderer">The renderer for the user interface.</param>
         /// <param name="assets">The assets manager of this user interface.</param>
-        protected UserInterface(int width, int height, Vector2 scale, Renderer renderer, AssetManager assets)
+        /// <param name="mouse">The mouse core mechanics.</param>
+        protected UserInterface(AssetManager assets, IMouse mouse)
         {
-            this.Width = width;
-            this.Height = height;
-            this.Scale = scale;
-            this.Renderer = renderer;
             this.Assets = assets;
+            this.Mouse = new Mouse(assets, mouse);
         }
 
         /// <inheritdoc />
@@ -61,7 +59,31 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         /// <summary>
         /// Occurs when any mouse button is clicked.
         /// </summary>
-        public event EventHandler<UserInteractionEventArgs> MouseButtonClick;
+        public event EventHandler<GameInteractionEventArgs> GameInteraction;
+
+        /// <summary>
+        /// Gets or sets the renderer for the user interface.
+        /// </summary>
+        /// <value>
+        /// The renderer for the user interface.
+        /// </value>
+        public static Renderer Renderer { get; set; }
+
+        /// <summary>
+        /// Gets or sets the native width for rendering of the user interface.
+        /// </summary>
+        /// <value>
+        /// The native width of the user interface.
+        /// </value>
+        public static int Width { get; set; }
+
+        /// <summary>
+        /// Gets or sets the native height for rendering of the user interface.
+        /// </summary>
+        /// <value>
+        /// The native height of the user interface.
+        /// </value>
+        public static int Height { get; set; }
 
         /// <summary>
         /// Gets the <see cref="AssetManager"/> of the <see cref="UserInterface"/> instance.
@@ -72,82 +94,114 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         public AssetManager Assets { get; }
 
         /// <summary>
-        /// Gets the renderer for the user interface.
+        /// Gets the name.
         /// </summary>
-        /// <value>
-        /// The renderer for the user interface.
-        /// </value>
-        public Renderer Renderer
-        {
-            get; private set;
-        }
+        public virtual string Name => "User Interface";
 
         /// <summary>
-        /// Gets or sets the internal engine for the user interface.
+        /// Gets the mouse core mechanics.
         /// </summary>
-        /// <value>
-        /// The internal engine for the user interface.
-        /// </value>
-        public object UserInterfaceEngine
-        {
-            get; set;
-        }
+        public Mouse Mouse { get; }
 
         /// <summary>
-        /// Gets or sets the native width for rendering of the user interface.
+        /// Gets all the windows.
         /// </summary>
-        /// <value>
-        /// The native width of the user interface.
-        /// </value>
-        public int Width
-        {
-            get; set;
-        }
+        protected List<Window> Windows { get; } = new List<Window>();
 
         /// <summary>
-        /// Gets or sets the native height for rendering of the user interface.
+        /// Gets all the dialogs.
         /// </summary>
-        /// <value>
-        /// The native height of the user interface.
-        /// </value>
-        public int Height
-        {
-            get; set;
-        }
+        protected List<Dialog> Dialogs { get; } = new List<Dialog>();
 
         /// <summary>
-        /// Gets or sets the scaling of the width and height of the user interface.
-        /// </summary>
-        /// <value>
-        /// The scaling of the width and height of the user interface.
-        /// </value>
-        public Vector2 Scale
-        {
-            get; set;
-        }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether any dialogs are currently visible.
+        /// Gets a value indicating whether any dialogs are currently visible.
         /// </summary>
         /// <value>
         /// A value indicating whether any dialogs are currently visible.
         /// </value>
-        protected virtual bool IsDialogVisible
+        protected bool IsDialogVisisble => Dialogs.Any(d => d.IsVisible);
+
+        /// <inheritdoc />
+        public void Load()
         {
-            get; set;
+            PreLoad?.Invoke(this, new LoadEventArgs(Assets));
+
+            foreach (Dialog dialog in Dialogs)
+            {
+                dialog.Load();
+            }
+
+            foreach (Window window in Windows)
+            {
+                window.Load();
+            }
+
+            Mouse.Load();
+
+            PostLoad?.Invoke(this, new LoadEventArgs(Assets));
         }
 
         /// <inheritdoc />
-        public abstract void Load();
+        public void Unload()
+        {
+            PreUnload?.Invoke(this, new UnloadEventArgs());
+
+            foreach (Dialog dialog in Dialogs)
+            {
+                dialog.Unload();
+            }
+
+            foreach (Window window in Windows)
+            {
+                window.Unload();
+            }
+
+            Mouse.Unload();
+
+            PostUnload?.Invoke(this, new UnloadEventArgs());
+        }
 
         /// <inheritdoc />
-        public abstract void Unload();
+        public void Update(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
+        {
+            PreUpdate?.Invoke(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
+
+            Mouse.Update(total, elapsed, isRunningSlowly);
+
+            foreach (Dialog dialog in Dialogs)
+            {
+                dialog.Update(total, elapsed, isRunningSlowly);
+            }
+
+            foreach (Window window in Windows)
+            {
+                window.Update(total, elapsed, isRunningSlowly);
+            }
+
+            Dialog.IsShownInCurrentLoopIteration = false;
+
+            PostUpdate?.Invoke(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
+        }
 
         /// <inheritdoc />
-        public abstract void Update(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly);
+        public void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
+        {
+            PreDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly, Renderer));
 
-        /// <inheritdoc />
-        public abstract void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly);
+            foreach (Dialog dialog in Dialogs)
+            {
+                dialog.Draw(total, elapsed, isRunningSlowly);
+            }
+
+            foreach (Window window in Windows)
+            {
+                window.Draw(total, elapsed, isRunningSlowly);
+            }
+
+            Mouse.Draw(total, elapsed, isRunningSlowly);
+
+            PostDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly, Renderer));
+        }
 
         /// <summary>
         /// Shows a text box with the input text.
@@ -156,93 +210,13 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         public abstract void ShowTextBox(string text);
 
         /// <summary>
-        /// Invokes the pre load event.
-        /// </summary>
-        /// <param name="sender">The instance that invoked this event.</param>
-        /// <param name="args">The event args bundled with the invocation.</param>
-        protected void InvokePreLoad(object sender, LoadEventArgs args)
-        {
-            this.PreLoad?.Invoke(this, args);
-        }
-
-        /// <summary>
-        /// Invokes the post load event.
-        /// </summary>
-        /// <param name="sender">The instance that invoked this event.</param>
-        /// <param name="args">The event args bundled with the invocation.</param>
-        protected void InvokePostLoad(object sender, LoadEventArgs args)
-        {
-            this.PostLoad?.Invoke(this, args);
-        }
-
-        /// <summary>
-        /// Invokes the pre unload event.
-        /// </summary>
-        /// <param name="sender">The instance that invoked this event.</param>
-        /// <param name="args">The event args bundled with the invocation.</param>
-        protected void InvokePreUnload(object sender, UnloadEventArgs args)
-        {
-            this.PreUnload?.Invoke(this, args);
-        }
-
-        /// <summary>
-        /// Invokes the post unload event.
-        /// </summary>
-        /// <param name="sender">The instance that invoked this event.</param>
-        /// <param name="args">The event args bundled with the invocation.</param>
-        protected void InvokePostUnload(object sender, UnloadEventArgs args)
-        {
-            this.PostUnload?.Invoke(this, args);
-        }
-
-        /// <summary>
-        /// Invokes the pre update event.
-        /// </summary>
-        /// <param name="sender">The instance that invoked this event.</param>
-        /// <param name="args">The event args bundled with the invocation.</param>
-        protected void InvokePreUpdate(object sender, UpdateEventArgs args)
-        {
-            this.PreUpdate?.Invoke(this, args);
-        }
-
-        /// <summary>
-        /// Invokes the post update event.
-        /// </summary>
-        /// <param name="sender">The instance that invoked this event.</param>
-        /// <param name="args">The event args bundled with the invocation.</param>
-        protected void InvokePostUpdate(object sender, UpdateEventArgs args)
-        {
-            this.PostUpdate?.Invoke(this, args);
-        }
-
-        /// <summary>
-        /// Invokes the pre draw event.
-        /// </summary>
-        /// <param name="sender">The instance that invoked this event.</param>
-        /// <param name="args">The event args bundled with the invocation.</param>
-        protected void InvokePreDraw(object sender, DrawEventArgs args)
-        {
-            this.PreDraw?.Invoke(this, args);
-        }
-
-        /// <summary>
         /// Invokes the post draw event.
         /// </summary>
         /// <param name="sender">The instance that invoked this event.</param>
         /// <param name="args">The event args bundled with the invocation.</param>
-        protected void InvokePostDraw(object sender, DrawEventArgs args)
+        protected void InvokeGameInteraction(object sender, GameInteractionEventArgs args)
         {
-            this.PostDraw?.Invoke(this, args);
-        }
-
-        /// <summary>
-        /// Invokes the post draw event.
-        /// </summary>
-        /// <param name="sender">The instance that invoked this event.</param>
-        /// <param name="args">The event args bundled with the invocation.</param>
-        protected void InvokeMouseButtonClick(object sender, UserInteractionEventArgs args)
-        {
-            this.MouseButtonClick?.Invoke(sender, args);
+            GameInteraction?.Invoke(sender, args);
         }
     }
 }

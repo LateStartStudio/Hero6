@@ -7,192 +7,173 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
 {
     using System;
-    using Assets;
-    using Assets.Graphics;
-    using Campaigns;
-    using EmptyKeys.UserInterface;
-    using EmptyKeys.UserInterface.Input;
-    using EmptyKeys.UserInterface.Media;
-    using EmptyKeys.UserInterface.Media.Effects;
-    using EmptyKeys.UserInterface.Mvvm;
-    using GameLoop;
-    using UserInterfaces;
-    using View;
-    using ViewModel;
-    using AssetManager = Assets.AssetManager;
-    using UiEngine = EmptyKeys.UserInterface.Engine;
+
+    using LateStartStudio.Hero6.Engine.Assets;
+    using LateStartStudio.Hero6.Engine.Campaigns;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.Controls;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Input;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows;
 
     public class SierraVgaController : UserInterface
     {
-        private readonly MouseCursor mouseCursor;
-
-        private RootView rootView;
-        private RootViewModel rootViewModel;
-        private FontBase defaultFont;
-
-        public SierraVgaController(
-            int width,
-            int height,
-            Vector2 scale,
-            Renderer renderer,
-            AssetManager assets)
-            : base(width, height, scale, renderer, assets)
+        public SierraVgaController(AssetManager assets, IMouse mouse)
+            : base(assets, mouse)
         {
             this.Assets.RootDirectory = "Content/Gui/Sierra Vga";
-            this.mouseCursor = new MouseCursor(Renderer, this.Assets.NativeAssetManager, this.Scale);
-            ServiceManager.Instance.AddService<ICursorService>(this.mouseCursor);
+            Mouse.Cursor = Cursors.Walk;
+            Mouse.SaveCursorToBackup();
+            Mouse.ButtonUp += MouseControllerOnButtonUp;
+
+            TopBar = new TopBar(assets);
+            TopBar.MouseEnter += TopBarOnMouseEnter;
+
+            VerbBar = new VerbBar(assets);
+            VerbBar.MouseLeave += VerbBarOnMouseLeave;
+
+            TextBox = new TextBox(assets);
+
+            Windows.Add(TopBar);
+            Windows.Add(VerbBar);
+            Dialogs.Add(TextBox);
         }
 
-        protected override bool IsDialogVisible
-        {
-            get { return this.rootViewModel.TextBox.IsVisible || this.rootViewModel.IsVerbBarVisible; }
-        }
+        public override string Name => "Sierra VGA";
 
-        public override void Load()
-        {
-            this.InvokePreLoad(this, new LoadEventArgs(this.Assets));
+        internal static TopBar TopBar { get; private set; }
 
-            this.defaultFont = this.LoadFont("Arial_11.25_Regular");
+        internal static VerbBar VerbBar { get; private set; }
 
-            FontManager.DefaultFont = this.defaultFont;
-
-            this.rootViewModel = new RootViewModel(
-                this.mouseCursor,
-                this.Width,
-                this.Height,
-                this.Scale);
-
-            this.rootView = new RootView(
-                this.Width * (int)this.Scale.X,
-                this.Height * (int)this.Scale.Y)
-            {
-                DataContext = this.rootViewModel
-            };
-            this.rootView.VerbBar.CursorType = CursorType.Custom5;
-
-            FontManager.Instance.LoadFonts(this.Assets.NativeAssetManager, "Fonts/");
-            ImageManager.Instance.LoadImages(this.Assets.NativeAssetManager);
-            SoundManager.Instance.LoadSounds(this.Assets.NativeAssetManager);
-            EffectManager.Instance.LoadEffects(this.Assets.NativeAssetManager);
-
-            this.rootView.MouseUp += this.OnMouseUp;
-            this.rootView.TopBar.MouseEnter += this.OnMouseEnterTopBar;
-            this.rootView.VerbBar.MouseLeave += this.OnMouseLeaveVerbBar;
-            this.rootViewModel.TextBox.OnShow += (s, a) => Renderer.IsPaused = true;
-            this.rootViewModel.TextBox.OnHide += (s, a) => Renderer.IsPaused = false;
-
-            this.mouseCursor.Load();
-
-            this.InvokePostLoad(this, new LoadEventArgs(this.Assets));
-        }
-
-        public override void Unload()
-        {
-            this.InvokePreUnload(this, new UnloadEventArgs());
-
-            this.InvokePostUnload(this, new UnloadEventArgs());
-        }
-
-        public override void Update(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
-        {
-            this.InvokePreUpdate(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
-
-            this.mouseCursor.Update(total, elapsed, isRunningSlowly);
-            this.rootView.UpdateInput(elapsed.TotalMilliseconds);
-            this.rootView.UpdateLayout(elapsed.TotalMilliseconds);
-
-            this.InvokePostUpdate(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
-        }
-
-        public override void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
-        {
-            this.InvokePreDraw(this, new DrawEventArgs(total, elapsed, isRunningSlowly, Renderer));
-
-            this.rootView.Draw(elapsed.TotalMilliseconds);
-            this.mouseCursor.Draw(total, elapsed, isRunningSlowly);
-
-            this.InvokePostDraw(this, new DrawEventArgs(total, elapsed, isRunningSlowly, Renderer));
-        }
+        internal static TextBox TextBox { get; private set; }
 
         public override void ShowTextBox(string text)
         {
-            this.rootViewModel.TextBox.Show(text);
+            TextBox.Show(text);
         }
 
-        private FontBase LoadFont(string id)
+        private void TopBarOnMouseEnter(object sender, EventArgs e)
         {
-            return UiEngine.Instance.AssetManager.LoadFont(this.Assets.NativeAssetManager, $"Fonts/{id}");
-        }
-
-        private void OnMouseUp(object sender, MouseButtonEventArgs e)
-        {
-            switch (e.ChangedButton)
-            {
-                case MouseButton.Left:
-                    if (!this.IsDialogVisible)
-                    {
-                        UserInteractionEventArgs args = new UserInteractionEventArgs(
-                            (int)(this.mouseCursor.Location.X / Scale.X),
-                            (int)(this.mouseCursor.Location.Y / Scale.Y),
-                            this.rootViewModel.Interaction);
-
-                        this.InvokeMouseButtonClick(this, args);
-                    }
-                    else if (this.rootViewModel.TextBox.IsVisible)
-                    {
-                        this.rootViewModel.TextBox.Hide();
-                        Renderer.IsPaused = false;
-                    }
-
-                    break;
-                case MouseButton.Middle:
-                    if (this.IsDialogVisible)
-                    {
-                        return;
-                    }
-
-                    this.rootViewModel.Interaction = Interaction.Move;
-                    break;
-                case MouseButton.Right:
-                    if (this.IsDialogVisible)
-                    {
-                        return;
-                    }
-
-                    if (this.rootViewModel.Interaction == Interaction.Mouth)
-                    {
-                        this.rootViewModel.Interaction = Interaction.Move;
-                    }
-                    else
-                    {
-                        this.rootViewModel.Interaction++;
-                    }
-
-                    break;
-                default:
-                    throw new NotSupportedException("Switch case reached somewhere unexpected.");
-            }
-        }
-
-        private void OnMouseEnterTopBar(object sender, MouseEventArgs args)
-        {
-            if (this.IsDialogVisible)
+            if (IsDialogVisisble)
             {
                 return;
             }
 
+            TopBar.IsVisible = false;
+            VerbBar.IsVisible = true;
+            Mouse.Cursor = Cursors.Arrow;
             Renderer.IsPaused = true;
-            this.mouseCursor.Backup = this.mouseCursor.Current;
-            this.rootViewModel.IsVerbBarVisible = true;
-            this.rootViewModel.IsTopBarVisible = false;
         }
 
-        private void OnMouseLeaveVerbBar(object sender, MouseEventArgs args)
+        private void VerbBarOnMouseLeave(object sender, EventArgs e)
         {
-            this.mouseCursor.RestoreFromBackup();
-            this.rootViewModel.IsVerbBarVisible = false;
-            this.rootViewModel.IsTopBarVisible = true;
-            Renderer.IsPaused = false;
+            TopBar.IsVisible = true;
+            VerbBar.IsVisible = false;
+            Mouse.RestoreCursorFromBackup();
+
+            if (!IsDialogVisisble)
+            {
+                Renderer.IsPaused = false;
+            }
+        }
+
+        private void MouseControllerOnButtonUp(object sender, MouseButtonClickEventArgs e)
+        {
+            if (Dialog.IsShownInCurrentLoopIteration)
+            {
+                return;
+            }
+
+            if (TextBox.IsVisible)
+            {
+                TextBox.Hide();
+                return;
+            }
+
+            if (Renderer.IsPaused)
+            {
+                return;
+            }
+
+            switch (e.Button)
+            {
+                case MouseButton.Left:
+                    MouseSierraVgaOnLeftButtonUp(sender, e);
+                    break;
+                case MouseButton.Middle:
+                    MouseControllerOnMiddleButtonUp(sender, e);
+                    break;
+                case MouseButton.Right:
+                    MouseControllerOnRightButtonUp(sender, e);
+                    break;
+
+                // No action for extra buttons
+                case MouseButton.X1:
+                case MouseButton.X2:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        private void MouseSierraVgaOnLeftButtonUp(object sender, MouseButtonClickEventArgs e)
+        {
+            Interaction interaction;
+
+            if (Mouse.Cursor == Cursors.Walk)
+            {
+                interaction = Interaction.Move;
+            }
+            else if (Mouse.Cursor == Cursors.Look)
+            {
+                interaction = Interaction.Eye;
+            }
+            else if (Mouse.Cursor == Cursors.Hand)
+            {
+                interaction = Interaction.Hand;
+            }
+            else if (Mouse.Cursor == Cursors.Talk)
+            {
+                interaction = Interaction.Mouth;
+            }
+            else
+            {
+                return;
+            }
+
+            InvokeGameInteraction(this, new GameInteractionEventArgs(e.X, e.Y, interaction));
+        }
+
+        private void MouseControllerOnMiddleButtonUp(object sender, MouseButtonClickEventArgs e)
+        {
+            Mouse.Cursor = Cursors.Walk;
+            Mouse.SaveCursorToBackup();
+        }
+
+        private void MouseControllerOnRightButtonUp(object sender, MouseButtonClickEventArgs e)
+        {
+            if (Mouse.Cursor == Cursors.Walk)
+            {
+                Mouse.Cursor = Cursors.Look;
+            }
+            else if (Mouse.Cursor == Cursors.Look)
+            {
+                Mouse.Cursor = Cursors.Hand;
+            }
+            else if (Mouse.Cursor == Cursors.Hand)
+            {
+                Mouse.Cursor = Cursors.Talk;
+            }
+            else if (Mouse.Cursor == Cursors.Talk)
+            {
+                Mouse.Cursor = Cursors.Walk;
+            }
+            else
+            {
+                return;
+            }
+
+            Mouse.SaveCursorToBackup();
         }
     }
 }

@@ -7,70 +7,63 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces
 {
     using System.Collections.Generic;
-    using Assets;
+
+    using LateStartStudio.Hero6.Engine.Assets;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga;
+
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
-    using SierraVga;
+
     using Game = Game;
-    using MonoGameEngine = EmptyKeys.UserInterface.MonoGameEngine;
-    using Vector2 = Assets.Graphics.Vector2;
     using XnaContentManager = Microsoft.Xna.Framework.Content.ContentManager;
 
     public class UserInterfaceHandler : IXnaGameLoop
     {
-        private readonly GraphicsDevice graphicsDevice;
         private readonly IList<UserInterface> userInterfaces;
 
-        public UserInterfaceHandler(GraphicsDevice graphicsDevice, XnaContentManager content)
+        public UserInterfaceHandler(XnaContentManager content)
         {
-            this.Scale = new Vector2(Game.Transform.Scale.X, Game.Transform.Scale.Y);
-            this.graphicsDevice = graphicsDevice;
+            IMouse mouse = new MonoGameMouse();
+
+            UserInterface.Width = (int)Game.NativeGameResolution.X;
+            UserInterface.Height = (int)Game.NativeGameResolution.Y;
+            UserInterface.Renderer = Game.Renderer;
 
             this.userInterfaces = new List<UserInterface>
             {
-                new SierraVgaController(
-                    (int)Game.NativeGameResolution.X,
-                    (int)Game.NativeGameResolution.Y,
-                    this.Scale,
-                    Game.Renderer,
-                    new MonoGameAssetManager(content))
+                new SierraVgaController(new MonoGameAssetManager(content), mouse)
             };
-            this.CurrentUI = this.userInterfaces[0];
+            this.CurrentUi = userInterfaces[0];
         }
 
-        public Vector2 Scale
-        {
-            get; set;
-        }
-
-        public UserInterface CurrentUI
+        public UserInterface CurrentUi
         {
             get; private set;
         }
 
         public void Initialize()
         {
-            this.CurrentUI.UserInterfaceEngine = new MonoGameEngine(this.graphicsDevice, 320, 240);
         }
 
         public void Load()
         {
-            this.CurrentUI.Load();
+            CurrentUi.Load();
         }
 
         public void Unload()
         {
-            this.CurrentUI.Unload();
+            CurrentUi.Unload();
         }
 
         public void Update(GameTime time)
         {
-            this.CurrentUI.Update(time.TotalGameTime, time.ElapsedGameTime, time.IsRunningSlowly);
+            CurrentUi.Update(time.TotalGameTime, time.ElapsedGameTime, time.IsRunningSlowly);
         }
 
         public void Draw(GameTime time, SpriteBatch spriteBatch)
         {
-            this.CurrentUI.Draw(time.TotalGameTime, time.ElapsedGameTime, time.IsRunningSlowly);
+            CurrentUi.Draw(time.TotalGameTime, time.ElapsedGameTime, time.IsRunningSlowly);
         }
     }
 }

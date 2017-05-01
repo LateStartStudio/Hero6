@@ -47,7 +47,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
             this.Assets = assets;
 
             this.UserInterface = userInterface;
-            this.UserInterface.MouseButtonClick += this.OnUserInteraction;
+            this.UserInterface.GameInteraction += this.OnUserInteraction;
 
             this.characters = new Dictionary<string, Character>();
             this.items = new Dictionary<string, Item>();
@@ -329,7 +329,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
             this.rooms.Add(id, room);
         }
 
-        private void OnUserInteraction(object sender, UserInteractionEventArgs e)
+        private void OnUserInteraction(object sender, GameInteractionEventArgs e)
         {
             this.CurrentRoom.Interact(e.X, e.Y, e.Interaction);
         }

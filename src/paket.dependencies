@@ -1,7 +1,5 @@
 source https://nuget.org/api/v2
 
-nuget EmptyKeysUI_Generator
-nuget EmptyKeysUI_MonoGame
 nuget Eto.Forms
 nuget Eto.Platform.Gtk
 nuget Eto.Platform.Gtk3

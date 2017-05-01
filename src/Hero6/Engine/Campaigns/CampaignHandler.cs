@@ -28,7 +28,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
                 new RitesOfPassage.RitesOfPassage(
                     Game.Renderer,
                     new MonoGameAssetManager(content),
-                    this.userInterface.CurrentUI)
+                    this.userInterface.CurrentUi)
             };
             this.CurrentCampaign = this.campaigns[0];
         }
