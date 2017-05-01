@@ -12,6 +12,7 @@ nuget MonoGame.Framework.DesktopGL
 nuget MonoGame.Framework.WindowsDX
 nuget NUnit
 nuget NUnit.Runners
+nuget NUnit3TestAdapter
 nuget OptimizedPriorityQueue
 nuget Portable.Xaml
 nuget StyleCop.Analyzers
