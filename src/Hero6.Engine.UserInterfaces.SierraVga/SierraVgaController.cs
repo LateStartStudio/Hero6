@@ -26,22 +26,22 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
             Mouse.SaveCursorToBackup();
             Mouse.ButtonUp += MouseControllerOnButtonUp;
 
-            TopBar = new TopBar(assets);
-            TopBar.MouseEnter += TopBarOnMouseEnter;
+            StatusBar = new StatusBar(assets);
+            StatusBar.MouseEnter += TopBarOnMouseEnter;
 
             VerbBar = new VerbBar(assets);
             VerbBar.MouseLeave += VerbBarOnMouseLeave;
 
             TextBox = new TextBox(assets);
 
-            Windows.Add(TopBar);
+            Windows.Add(StatusBar);
             Windows.Add(VerbBar);
             Dialogs.Add(TextBox);
         }
 
         public override string Name => "Sierra VGA";
 
-        internal static TopBar TopBar { get; private set; }
+        internal static StatusBar StatusBar { get; private set; }
 
         internal static VerbBar VerbBar { get; private set; }
 
@@ -59,7 +59,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
                 return;
             }
 
-            TopBar.IsVisible = false;
+            StatusBar.IsVisible = false;
             VerbBar.IsVisible = true;
             Mouse.Cursor = Cursors.Arrow;
             Renderer.IsPaused = true;
@@ -67,7 +67,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
 
         private void VerbBarOnMouseLeave(object sender, EventArgs e)
         {
-            TopBar.IsVisible = true;
+            StatusBar.IsVisible = true;
             VerbBar.IsVisible = false;
             Mouse.RestoreCursorFromBackup();
 

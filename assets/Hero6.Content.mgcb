@@ -91,7 +91,7 @@
 /processorParam:TextureFormat=Color
 /build:Gui/Sierra Vga/Cursors/Walk.png
 
-#begin Gui/Sierra Vga/Top Bar/Background.png
+#begin Gui/Sierra Vga/Status Bar/Background.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -101,7 +101,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/Sierra Vga/Top Bar/Background.png
+/build:Gui/Sierra Vga/Status Bar/Background.png
 
 #begin Gui/Sierra Vga/Verb Bar/Current Item Dark.png
 /importer:TextureImporter
