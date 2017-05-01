@@ -12,6 +12,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
     using LateStartStudio.Hero6.Engine.Campaigns;
     using LateStartStudio.Hero6.Engine.UserInterfaces.Controls;
     using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs;
     using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Input;
 
     public class SierraVgaController : UserInterface
@@ -23,18 +24,31 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
             Mouse.Cursor = Cursors.Walk;
             Mouse.SaveCursorToBackup();
             Mouse.ButtonUp += MouseControllerOnButtonUp;
+
+            TextBox = new TextBox(assets);
+
+            Dialogs.Add(TextBox);
         }
 
         public override string Name => "Sierra VGA";
 
+        internal static TextBox TextBox { get; private set; }
+
         public override void ShowTextBox(string text)
         {
+            TextBox.Show(text);
         }
 
         private void MouseControllerOnButtonUp(object sender, MouseButtonClickEventArgs e)
         {
             if (Dialog.IsShownInCurrentLoopIteration)
             {
+                return;
+            }
+
+            if (TextBox.IsVisible)
+            {
+                TextBox.Hide();
                 return;
             }
 
