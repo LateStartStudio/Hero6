@@ -1,20 +1,14 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="PathfinderTests.cs" company="LateStartStudio">
-//   Copyright (C) LateStartStudio
-//   This file is subject to the terms and conditions of the MIT license specified
-//   in the file 'LICENSE.CODE.md', which is a part of this source code package.
+﻿// <copyright file="PathfinderTests.cs" company="Late Start Studio">
+// Copyright (C) Late Start Studio
+// This file is subject to the terms and conditions of the MIT license specified in the file
+// 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
-// <summary>
-//   Defines the PathfinderTests type.
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.Search.Tests.Pathfinder
+namespace LateStartStudio.Search.Pathfinder
 {
     using System;
     using System.Collections.Generic;
     using NUnit.Framework;
-    using Search.Pathfinder;
 
     [TestFixture]
     public abstract class PathfinderTests
@@ -68,7 +62,7 @@ namespace LateStartStudio.Search.Tests.Pathfinder
         /// <summary>
         /// O = Open Node
         /// B = Blocked Node
-        /// 
+        ///
         /// Start = 4, 4
         /// End = 0, 0
         /// </summary>

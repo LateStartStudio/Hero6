@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -23,6 +23,7 @@
     <MonoGamePlatform>Android</MonoGamePlatform>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
+    <CodeAnalysisRuleSet>..\Hero6.NoDocumentation.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
+    <LangVersion>6</LangVersion>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <CodeAnalysisRuleSet>..\Hero6.NoDocumentation.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -44,6 +48,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Java.Interop" />
@@ -67,24 +72,27 @@
     <AndroidAsset Include="..\..\README.md">
       <Link>Assets\README.md</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\CHANGELOG.md">
+    <AndroidAsset Include="..\..\docs\CHANGELOG.md">
       <Link>Assets\CHANGELOG.md</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\COPYRIGHT.md">
+    <AndroidAsset Include="..\..\docs\COPYRIGHT.md">
       <Link>Assets\COPYRIGHT.md</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\LICENSE.ASSETS.md">
+    <AndroidAsset Include="..\..\docs\LICENSE.ASSETS.md">
       <Link>Assets\LICENSE.ASSETS.md</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\LICENSE.CODE.md">
+    <AndroidAsset Include="..\..\docs\LICENSE.CODE.md">
       <Link>Assets\LICENSE.CODE.md</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\LICENSE.md">
+    <AndroidAsset Include="..\..\docs\LICENSE.md">
       <Link>Assets\LICENSE.md</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\LICENSE.THIRDPARTY.md">
+    <AndroidAsset Include="..\..\docs\LICENSE.THIRDPARTY.md">
       <Link>Assets\LICENSE.THIRDPARTY.md</Link>
     </AndroidAsset>
+    <AdditionalFiles Include="..\stylecop.json">
+      <Link>stylecop.json</Link>
+    </AdditionalFiles>
     <None Include="paket.references" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
@@ -108,19 +116,23 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AdventureGame\AdventureGame.csproj">
+    <ProjectReference Include="..\Hero6.Engine\Hero6.Engine.csproj">
       <Project>{0c0586a3-5a10-42ce-b609-cc80ee2cef7a}</Project>
-      <Name>AdventureGame</Name>
+      <Name>Hero6.Engine</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Hero6.Campaigns.RitesOfPassage\Hero6.Campaigns.RitesOfPassage.csproj">
+    <ProjectReference Include="..\Hero6.Engine.Campaigns.RitesOfPassage\Hero6.Engine.Campaigns.RitesOfPassage.csproj">
       <Project>{de807934-27ec-43a8-831f-15371284f11f}</Project>
-      <Name>Hero6.Campaigns.RitesOfPassage</Name>
+      <Name>Hero6.Engine.Campaigns.RitesOfPassage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hero6.Engine.UserInterfaces.SierraVga\Hero6.Engine.UserInterfaces.SierraVga.csproj">
+      <Project>{9c6a0da4-892e-45c0-afc7-b6d46f940329}</Project>
+      <Name>Hero6.Engine.UserInterfaces.SierraVga</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="..\Hero6\Hero6.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
@@ -131,11 +143,22 @@
     <When Condition="$(TargetFrameworkIdentifier) == 'MonoAndroid'">
       <ItemGroup>
         <Reference Include="MonoGame.Framework">
-          <HintPath>..\..\packages\MonoGame.Framework.Android\lib\MonoAndroid\MonoGame.Framework.dll</HintPath>
+          <HintPath>..\packages\MonoGame.Framework.Android\lib\MonoAndroid\MonoGame.Framework.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
       </ItemGroup>
     </When>
   </Choose>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers\analyzers\dotnet\cs\Newtonsoft.Json.dll">
+      <Paket>True</Paket>
+    </Analyzer>
+    <Analyzer Include="..\packages\StyleCop.Analyzers\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll">
+      <Paket>True</Paket>
+    </Analyzer>
+    <Analyzer Include="..\packages\StyleCop.Analyzers\analyzers\dotnet\cs\StyleCop.Analyzers.dll">
+      <Paket>True</Paket>
+    </Analyzer>
+  </ItemGroup>
 </Project>

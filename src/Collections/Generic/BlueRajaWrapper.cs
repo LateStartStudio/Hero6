@@ -1,13 +1,8 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="BlueRajaWrapper.cs" company="LateStartStudio">
-//   Copyright (C) LateStartStudio
-//   This file is subject to the terms and conditions of the MIT license specified
-//   in the file 'LICENSE.CODE.md', which is a part of this source code package.
+﻿// <copyright file="BlueRajaWrapper.cs" company="Late Start Studio">
+// Copyright (C) Late Start Studio
+// This file is subject to the terms and conditions of the MIT license specified in the file
+// 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
-// <summary>
-//   Defines the BlueRajaWrapper type.
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
 
 namespace LateStartStudio.Collections.Generic
 {
@@ -17,7 +12,7 @@ namespace LateStartStudio.Collections.Generic
     using Priority_Queue;
 
     /// <summary>
-    /// A wrapper class that encapsulates the framework Optimized Priority Queue by BlueRaja. 
+    /// A wrapper class that encapsulates the framework Optimized Priority Queue by BlueRaja.
     /// </summary>
     /// <typeparam name="T">
     /// The type of element in the priority queue. Any instance of T must extend from the class
@@ -42,16 +37,10 @@ namespace LateStartStudio.Collections.Generic
         }
 
         /// <inheritdoc />
-        public int Count
-        {
-            get { return this.pq.Count; }
-        }
+        public int Count => this.pq.Count;
 
         /// <inheritdoc />
-        public bool IsSynchronized
-        {
-            get { return false; }
-        }
+        public bool IsSynchronized => false;
 
         /// <inheritdoc />
         public object SyncRoot
@@ -126,6 +115,7 @@ namespace LateStartStudio.Collections.Generic
             return this.pq.GetEnumerator();
         }
 
+        /// <inheritdoc />
         IEnumerator IEnumerable.GetEnumerator()
         {
             return this.GetEnumerator();

@@ -1,15 +1,10 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Node.cs" company="LateStartStudio">
-//   Copyright (C) LateStartStudio
-//   This file is subject to the terms and conditions of the MIT license specified
-//   in the file 'LICENSE.CODE.md', which is a part of this source code package.
+﻿// <copyright file="Node.cs" company="Late Start Studio">
+// Copyright (C) Late Start Studio
+// This file is subject to the terms and conditions of the MIT license specified in the file
+// 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
-// <summary>
-//   Defines the Node type.
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
 
-namespace LateStartStudio.Collections.Tests.Generic
+namespace LateStartStudio.Collections.Generic
 {
     using Priority_Queue;
 
@@ -18,17 +13,12 @@ namespace LateStartStudio.Collections.Tests.Generic
     /// </summary>
     public partial class Node
     {
-        private readonly int id;
-
         public Node(int id)
         {
-            this.id = id;
+            this.ID = id;
         }
 
-        public int ID
-        {
-            get { return this.id; }
-        }
+        public int ID { get; }
     }
 
     /// <summary>

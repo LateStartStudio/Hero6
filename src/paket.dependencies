@@ -1,0 +1,17 @@
+source https://nuget.org/api/v2
+
+nuget Eto.Forms
+nuget Eto.Platform.Gtk
+nuget Eto.Platform.Gtk3
+nuget Eto.Platform.Wpf
+nuget Eto.Serialization.Xaml
+nuget FAKE
+nuget log4net
+nuget MonoGame.Framework.Android
+nuget MonoGame.Framework.DesktopGL
+nuget MonoGame.Framework.WindowsDX
+nuget NUnit
+nuget NUnit.Runners
+nuget OptimizedPriorityQueue
+nuget Portable.Xaml
+nuget StyleCop.Analyzers

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form
+  xmlns="http://schema.picoe.ca/eto.forms"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  Title="Hero6"
+  ClientSize="450,180">
+
+  <StackLayout Orientation="Vertical" Padding="10" Spacing="5">
+    <Label
+        Text="Hero6 has caught an unhandled exception and will be forced to quit. This is most likely due to a bug or similar unprecedented behavior, if you would like to report this to the developers various ways of contacting them are listed below, also a copy of the crash log has been saved to your system." />
+    <Label ID="CrashMessage" Text="Exception Message" />
+    <TableLayout>
+      <TableRow>
+        <Label Text="Forums: " TextAlignment="Right" />
+        <LinkButton ID="ForumLink" Text="http://www.hero6.org/forum/" Click="ForumLinkClick" />
+      </TableRow>
+      <TableRow>
+        <Label Text="Bug Tracker: " TextAlignment="Right" />
+        <LinkButton ID="BugTrackerLink" Text="https://github.com/LateStartStudio/Hero6/issues" Click="BugTrackerLinkClick" />
+      </TableRow>
+      <TableRow>
+        <Label Text="E-mail: " TextAlignment="Right" />
+        <LinkButton ID="EmailLink" Text="hero6lives@gmail.com" Click="EmailLinkClick" />
+      </TableRow>
+    </TableLayout>
+    <LinkButton ID="FilenameLink" Text="FILENAME" Click="FilenameLinkClick" />
+  </StackLayout>
+</Form>

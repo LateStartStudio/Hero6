@@ -2,11 +2,47 @@
 
 root = true
 
+# Any files
 [*]
 end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 
+# Markdown files
+[*.md]
+charset = utf-8
+
+# C# code files
 [*.cs]
 indent_style = space
 indent_size = 4
+
+# F# script files
+[*.fsx]
+indent_style = space
+indent_size = 4
+
+# DirectX Effect
+[*.fx]
+indent_style = tab
+indent_size = 1
+
+# WiX code files
+[*.{wxs,wxi,wxl}]
+indent_style = space
+indent_size = 2
+
+# Batch script
+[*.{bat,cmd}]
+indent_style = space
+indent_size = 2
+
+# Shell script
+[*.sh]
+indent_style = space
+indent_size = 2
+
+# Eto.Forms XAML
+[*.xeto]
+indent_style = space
+indent_size = 2

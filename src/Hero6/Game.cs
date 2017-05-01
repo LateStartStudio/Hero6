@@ -1,21 +1,20 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Game.cs" company="LateStartStudio">
-//   Copyright (C) LateStartStudio
-//   This file is subject to the terms and conditions of the MIT license specified
-//   in the file 'LICENSE.CODE.md', which is a part of this source code package.
+﻿// <copyright file="Game.cs" company="Late Start Studio">
+// Copyright (C) Late Start Studio
+// This file is subject to the terms and conditions of the MIT license specified in the file
+// 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
-// <summary>
-//   Defines the Game type.
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
 
 namespace LateStartStudio.Hero6
 {
     using System;
-    using Campaigns;
-    using Input;
-    using Input.Mouse;
-    using Input.TouchSurface;
+    using System.IO;
+    using System.Reflection;
+    using Engine.Assets;
+    using Engine.Campaigns;
+    using Engine.UserInterfaces;
+    using Engine.Utilities;
+    using Engine.Utilities.Logger;
+    using Engine.Utilities.Settings;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
 
@@ -24,34 +23,83 @@ namespace LateStartStudio.Hero6
     /// </summary>
     public class Game : Microsoft.Xna.Framework.Game
     {
-        private static readonly Vector2 NativeGameResolution = new Vector2(320, 240);
-
-        private readonly InputHandler input;
-
+        private UserInterfaceHandler ui;
         private CampaignHandler campaign;
-        private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
-        private Matrix scale;
+
+        static Game()
+        {
+            Util.Logger = new LogFourNet(LogFileName);
+            Util.Logger.Info($"Hero6 {GraphicsApi} v{Assembly.GetExecutingAssembly().GetName().Version} Log");
+            Util.Logger.Info("Forums: http://www.hero6.org/forum/");
+            Util.Logger.Info("Bug Tracker: https://github.com/LateStartStudio/Hero6/issues");
+            Util.Logger.Info("E-mail: hero6lives@gmail.com");
+
+            Util.UserSettings = new UserSettings();
+        }
 
         public Game()
         {
-            this.graphics = new GraphicsDeviceManager(this)
+            Util.Logger.Info("Creating Hero6 Game Instance.");
+
+            Graphics = new GraphicsDeviceManager(this)
             {
-                PreferredBackBufferWidth = (int)NativeGameResolution.X * 3,
-                PreferredBackBufferHeight = (int)NativeGameResolution.Y * 3,
+                PreferredBackBufferWidth = Util.UserSettings.WindowWidth,
+                PreferredBackBufferHeight = Util.UserSettings.WindowHeight,
+                IsFullScreen = Util.UserSettings.IsFullScreen,
                 GraphicsProfile = GraphicsProfile.Reach,
 #if ANDROID
-                IsFullScreen = true,
                 SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight
 #endif
             };
+            Graphics.DeviceCreated += this.GraphicsOnDeviceCreated;
 
             Content.RootDirectory = "Content";
 
-            this.input = new InputHandler();
-            this.input.Mouse.MouseButtonPressed += this.MouseButtonPressed;
-            this.input.Touch.SurfacePressed += this.SurfacePressed;
+            Util.Logger.Info("Hero6 Game Instance Created.");
         }
+
+        public static string UserFilesDir => string.Format(
+            "{0}{1}Hero6{1}",
+            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+            Path.DirectorySeparatorChar);
+
+        public static string LogFilesDir => $"{UserFilesDir}Logs{Path.DirectorySeparatorChar}";
+
+        public static string LogFileName
+        {
+            get
+            {
+                DateTime date = DateTime.Now;
+                string filename = $"Hero6-Log-{date.Day}-{date.Month}-{date.Year}-{date.Hour}-{date.Minute}-{date.Second}.txt";
+
+                return $"{LogFilesDir}{filename}";
+            }
+        }
+
+        public static string GraphicsApi
+        {
+            get
+            {
+#if WINDOWSDX
+                return "WindowsDX";
+#elif DESKTOPGL
+                return "DesktopGL";
+#elif ANDROID
+                return "Android";
+#else
+                return "Invalid project config";
+#endif
+            }
+        }
+
+        public static Vector2 NativeGameResolution { get; } = new Vector2(320, 240);
+
+        public static GraphicsDeviceManager Graphics { get; private set; }
+
+        public static Renderer Renderer { get; private set; }
+
+        public static Matrix Transform { get; set; } = Matrix.Identity;
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -61,11 +109,24 @@ namespace LateStartStudio.Hero6
         /// </summary>
         protected override void Initialize()
         {
+            Util.Logger.Info("Initializing Hero6 game instance.");
+
             Window.Title = "Hero6";
 
-            this.input.Initialize();
-
             this.SetScale();
+
+            this.spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            Renderer = new MonoGameRenderer(this.spriteBatch);
+
+            this.ui = new UserInterfaceHandler(this.Content);
+
+            this.campaign = new CampaignHandler(this.Content, this.ui);
+
+            this.ui.Initialize();
+            this.campaign.Initialize();
+
+            Util.Logger.Info("Hero6 game instance initialized.");
 
             base.Initialize();
         }
@@ -76,13 +137,12 @@ namespace LateStartStudio.Hero6
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
-            this.spriteBatch = new SpriteBatch(GraphicsDevice);
+            Util.Logger.Info("Loading Hero6 game instance.");
 
-            this.campaign = new CampaignHandler(this.spriteBatch, this.Content);
+            this.ui.Load();
+            this.campaign.Load();
 
-            this.input.Load(this.Content);
-            this.campaign.Load(this.Content);
+            Util.Logger.Info("Hero6 game instance loaded.");
         }
 
         /// <summary>
@@ -91,10 +151,14 @@ namespace LateStartStudio.Hero6
         /// </summary>
         protected override void UnloadContent()
         {
+            Util.Logger.Info("Unloading Hero6 game instance.");
+
             Content.Unload();
 
-            this.input.Unload();
+            this.ui.Unload();
             this.campaign.Unload();
+
+            Util.Logger.Info("Hero6 game instance unloaded.");
 
             base.UnloadContent();
         }
@@ -103,20 +167,20 @@ namespace LateStartStudio.Hero6
         /// Allows the game to run logic such as updating the world,
         /// checking for collisions, gathering input, and playing audio.
         /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        protected override void Update(GameTime gameTime)
+        /// <param name="time">Provides a snapshot of timing values.</param>
+        protected override void Update(GameTime time)
         {
-            this.input.Update(gameTime);
-            this.campaign.Update(gameTime);
+            this.ui.Update(time);
+            this.campaign.Update(time);
 
-            base.Update(gameTime);
+            base.Update(time);
         }
 
         /// <summary>
         /// This is called when the game should draw itself.
         /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        protected override void Draw(GameTime gameTime)
+        /// <param name="time">Provides a snapshot of timing values.</param>
+        protected override void Draw(GameTime time)
         {
             GraphicsDevice.Clear(Color.Transparent);
 
@@ -127,14 +191,14 @@ namespace LateStartStudio.Hero6
                 null,
                 null,
                 null,
-                this.scale);
+                Transform);
 
-            this.campaign.Draw(gameTime, this.spriteBatch);
-            this.input.Draw(gameTime, this.spriteBatch);
+            campaign.Draw(time, spriteBatch);
+            ui.Draw(time, spriteBatch);
 
             this.spriteBatch.End();
 
-            base.Draw(gameTime);
+            base.Draw(time);
         }
 
         private void SetScale()
@@ -143,29 +207,15 @@ namespace LateStartStudio.Hero6
             float verScaling = GraphicsDevice.PresentationParameters.BackBufferHeight / NativeGameResolution.Y;
             Vector3 screenScalingFactor = new Vector3(horScaling, verScaling, 1);
 
-            this.scale = Matrix.CreateScale(screenScalingFactor);
-
-            this.input.Scale = new Vector2(this.scale.M11, this.scale.M22);
+            Transform = Matrix.CreateScale(screenScalingFactor);
         }
 
-        private void MouseButtonPressed(object sender, MouseButtonPressedEventArgs e)
+        private void GraphicsOnDeviceCreated(object sender, EventArgs eventArgs)
         {
-            switch (e.MouseButton)
-            {
-                case MouseButton.Left:
-                    this.campaign.CurrentCampaign.CurrentRoom.Interact(e.Position.X, e.Position.Y);
-                    break;
-                case MouseButton.Middle:
-                case MouseButton.Right:
-                    break;
-                default:
-                    throw new NotSupportedException("Switch case reached somewhere unexpected.");
-            }
-        }
-
-        private void SurfacePressed(object sender, SurfacePressedEventArgs e)
-        {
-            this.campaign.CurrentCampaign.CurrentRoom.Interact(e.Position.X, e.Position.Y);
+            Util.Logger.Info("Graphics Device Created.");
+            Util.Logger.Info($"Graphics Adapter Width {GraphicsDevice.Adapter.CurrentDisplayMode.Width}");
+            Util.Logger.Info($"Graphics Adapter Height {GraphicsDevice.Adapter.CurrentDisplayMode.Height}");
+            Util.Logger.Info($"Graphics Adapter Aspect Ratio {GraphicsDevice.Adapter.CurrentDisplayMode.AspectRatio}");
         }
     }
 }

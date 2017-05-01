@@ -1,1 +1,8 @@
+Eto.Forms
+Eto.Platform.Gtk
+Eto.Platform.Gtk3
+Eto.Platform.Wpf
+Eto.Serialization.Xaml
 MonoGame.Framework.DesktopGL
+Portable.Xaml
+StyleCop.Analyzers

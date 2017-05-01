@@ -9,20 +9,16 @@
     <Import_RootNamespace>LateStartStudio.Hero6</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Campaigns\CampaignHandler.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\Graphics\MonoGameGraphics.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\Graphics\MonoGameTexture2D.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\MonoGameAssetHandler.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\MonoGameEngine.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Assets\Graphics\MonoGameSpriteFont.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Assets\Graphics\MonoGameTexture2D.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Assets\MonoGameAssetManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Assets\MonoGameRenderer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Campaigns\CampaignHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Input\MonoGameMouse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\UserInterfaceHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\Settings\UserSettings.Android.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\Settings\UserSettings.Desktop.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Game.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Input\TouchSurface\SurfacePressedEventArgs.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Input\TouchSurface\TouchHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IXnaGameLoop.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Input\InputHandler.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Input\Keyboard\KeyboardHandler.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Input\Keyboard\KeyPressedEventArgs.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Input\Mouse\MouseButton.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Input\Mouse\MouseButtonPressedEventArgs.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Input\Mouse\MouseHandler.cs" />
   </ItemGroup>
 </Project>
