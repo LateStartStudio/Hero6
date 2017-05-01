@@ -50,6 +50,8 @@
     <Compile Include="Input\Cursors.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SierraVgaController.cs" />
+    <Compile Include="Windows\TopBar.cs" />
+    <Compile Include="Windows\VerbBar.cs" />
   </ItemGroup>
   <ItemGroup>
     <AdditionalFiles Include="..\stylecop.json">

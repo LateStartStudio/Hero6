@@ -14,6 +14,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
     using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
     using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs;
     using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Input;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows;
 
     public class SierraVgaController : UserInterface
     {
@@ -25,18 +26,55 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
             Mouse.SaveCursorToBackup();
             Mouse.ButtonUp += MouseControllerOnButtonUp;
 
+            TopBar = new TopBar(assets);
+            TopBar.MouseEnter += TopBarOnMouseEnter;
+
+            VerbBar = new VerbBar(assets);
+            VerbBar.MouseLeave += VerbBarOnMouseLeave;
+
             TextBox = new TextBox(assets);
 
+            Windows.Add(TopBar);
+            Windows.Add(VerbBar);
             Dialogs.Add(TextBox);
         }
 
         public override string Name => "Sierra VGA";
+
+        internal static TopBar TopBar { get; private set; }
+
+        internal static VerbBar VerbBar { get; private set; }
 
         internal static TextBox TextBox { get; private set; }
 
         public override void ShowTextBox(string text)
         {
             TextBox.Show(text);
+        }
+
+        private void TopBarOnMouseEnter(object sender, EventArgs e)
+        {
+            if (IsDialogVisisble)
+            {
+                return;
+            }
+
+            TopBar.IsVisible = false;
+            VerbBar.IsVisible = true;
+            Mouse.Cursor = Cursors.Arrow;
+            Renderer.IsPaused = true;
+        }
+
+        private void VerbBarOnMouseLeave(object sender, EventArgs e)
+        {
+            TopBar.IsVisible = true;
+            VerbBar.IsVisible = false;
+            Mouse.RestoreCursorFromBackup();
+
+            if (!IsDialogVisisble)
+            {
+                Renderer.IsPaused = false;
+            }
         }
 
         private void MouseControllerOnButtonUp(object sender, MouseButtonClickEventArgs e)
