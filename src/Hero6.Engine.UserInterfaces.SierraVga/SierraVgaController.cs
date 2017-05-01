@@ -10,6 +10,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
 
     using LateStartStudio.Hero6.Engine.Assets;
     using LateStartStudio.Hero6.Engine.Campaigns;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.Controls;
     using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
     using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Input;
 
@@ -32,6 +33,11 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
 
         private void MouseControllerOnButtonUp(object sender, MouseButtonClickEventArgs e)
         {
+            if (Dialog.IsShownInCurrentLoopIteration)
+            {
+                return;
+            }
+
             if (Renderer.IsPaused)
             {
                 return;

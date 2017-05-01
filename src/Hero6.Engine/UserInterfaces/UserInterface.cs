@@ -8,9 +8,12 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
 
     using LateStartStudio.Hero6.Engine.Assets;
     using LateStartStudio.Hero6.Engine.GameLoop;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.Controls;
     using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
 
     /// <summary>
@@ -101,17 +104,37 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         public Mouse Mouse { get; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether any dialogs are currently visible.
+        /// Gets all the windows.
+        /// </summary>
+        protected List<Window> Windows { get; } = new List<Window>();
+
+        /// <summary>
+        /// Gets all the dialogs.
+        /// </summary>
+        protected List<Dialog> Dialogs { get; } = new List<Dialog>();
+
+        /// <summary>
+        /// Gets a value indicating whether any dialogs are currently visible.
         /// </summary>
         /// <value>
         /// A value indicating whether any dialogs are currently visible.
         /// </value>
-        protected virtual bool IsDialogVisible { get; set; }
+        protected bool IsDialogVisisble => Dialogs.Any(d => d.IsVisible);
 
         /// <inheritdoc />
         public void Load()
         {
             PreLoad?.Invoke(this, new LoadEventArgs(Assets));
+
+            foreach (Dialog dialog in Dialogs)
+            {
+                dialog.Load();
+            }
+
+            foreach (Window window in Windows)
+            {
+                window.Load();
+            }
 
             Mouse.Load();
 
@@ -122,6 +145,16 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         public void Unload()
         {
             PreUnload?.Invoke(this, new UnloadEventArgs());
+
+            foreach (Dialog dialog in Dialogs)
+            {
+                dialog.Unload();
+            }
+
+            foreach (Window window in Windows)
+            {
+                window.Unload();
+            }
 
             Mouse.Unload();
 
@@ -135,6 +168,18 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
 
             Mouse.Update(total, elapsed, isRunningSlowly);
 
+            foreach (Dialog dialog in Dialogs)
+            {
+                dialog.Update(total, elapsed, isRunningSlowly);
+            }
+
+            foreach (Window window in Windows)
+            {
+                window.Update(total, elapsed, isRunningSlowly);
+            }
+
+            Dialog.IsShownInCurrentLoopIteration = false;
+
             PostUpdate?.Invoke(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
         }
 
@@ -142,6 +187,16 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         public void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
             PreDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly, Renderer));
+
+            foreach (Dialog dialog in Dialogs)
+            {
+                dialog.Draw(total, elapsed, isRunningSlowly);
+            }
+
+            foreach (Window window in Windows)
+            {
+                window.Draw(total, elapsed, isRunningSlowly);
+            }
 
             Mouse.Draw(total, elapsed, isRunningSlowly);
 
