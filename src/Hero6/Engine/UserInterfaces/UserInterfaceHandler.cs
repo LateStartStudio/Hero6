@@ -12,19 +12,16 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
     using Microsoft.Xna.Framework.Graphics;
     using SierraVga;
     using Game = Game;
-    using MonoGameEngine = EmptyKeys.UserInterface.MonoGameEngine;
     using Vector2 = Assets.Graphics.Vector2;
     using XnaContentManager = Microsoft.Xna.Framework.Content.ContentManager;
 
     public class UserInterfaceHandler : IXnaGameLoop
     {
-        private readonly GraphicsDevice graphicsDevice;
         private readonly IList<UserInterface> userInterfaces;
 
-        public UserInterfaceHandler(GraphicsDevice graphicsDevice, XnaContentManager content)
+        public UserInterfaceHandler(XnaContentManager content)
         {
             this.Scale = new Vector2(Game.Transform.Scale.X, Game.Transform.Scale.Y);
-            this.graphicsDevice = graphicsDevice;
 
             this.userInterfaces = new List<UserInterface>
             {
@@ -50,7 +47,6 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
 
         public void Initialize()
         {
-            this.CurrentUI.UserInterfaceEngine = new MonoGameEngine(this.graphicsDevice, 320, 240);
         }
 
         public void Load()

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<DOCUMENT Type="Advanced Installer" CreateVersion="13.5" version="13.6" Modules="professional" RootPath="." Language="en" Id="{1D372BA2-C25D-48F1-AB27-FC290BD4BE31}">
+<DOCUMENT Type="Advanced Installer" CreateVersion="13.5" version="13.8.1" Modules="professional" RootPath="." Language="en" Id="{1D372BA2-C25D-48F1-AB27-FC290BD4BE31}">
   <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
     <ROW Name="HiddenItems" Value="AppXAppDetailsComponent;AppXCapabilitiesComponent;AppXDependenciesComponent;AppXProductDetailsComponent;AppXVisualAssetsComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent"/>
   </COMPONENT>
@@ -87,10 +87,6 @@
     <ROW Component="CHANGELOG.md" ComponentId="{FE6C946B-354A-4F07-9F69-FC0B529E27D6}" Directory_="APPDIR" Attributes="0" KeyPath="README.md" Type="0"/>
     <ROW Component="Collections.dll" ComponentId="{7990C089-1AAE-4A69-958B-510E155B6AB0}" Directory_="bin_Dir" Attributes="0" KeyPath="Collections.dll"/>
     <ROW Component="CurrentItemDark.xnb" ComponentId="{84519035-BDF7-4991-BE46-3B88CB254292}" Directory_="VerbBar_Dir" Attributes="0" KeyPath="CurrentItemDark.xnb" Type="0"/>
-    <ROW Component="EmptyKeys.UserInterface.Core.dll" ComponentId="{FDC06317-5BE8-403A-AC79-9079546823D0}" Directory_="bin_Dir" Attributes="0" KeyPath="EmptyKeys.UserInterface.Core.dll"/>
-    <ROW Component="EmptyKeys.UserInterface.Debug.dll" ComponentId="{B95F4A2D-E56B-4911-8AC4-3F5DBAEB407D}" Directory_="bin_Dir" Attributes="0" KeyPath="EmptyKeys.UserInterface.Debug.dll"/>
-    <ROW Component="EmptyKeys.UserInterface.MonoGame.dll" ComponentId="{0D019ACD-003C-42B6-ADF4-51A97D70F829}" Directory_="bin_Dir" Attributes="0" KeyPath="EmptyKeys.UserInterface.MonoGame.dll"/>
-    <ROW Component="EmptyKeys.UserInterface.dll" ComponentId="{4F782E31-F41B-4B1D-ABDD-2B1288A7F1CC}" Directory_="bin_Dir" Attributes="0" KeyPath="EmptyKeys.UserInterface.dll"/>
     <ROW Component="Eto.Serialization.Xaml.dll" ComponentId="{522B3146-C386-4034-8A2F-524CE94EA13A}" Directory_="bin_Dir" Attributes="0" KeyPath="Eto.Serialization.Xaml.dll"/>
     <ROW Component="Eto.Wpf.dll" ComponentId="{54B744C8-5041-44D3-B449-CE8D08C8BE11}" Directory_="bin_Dir" Attributes="0" KeyPath="Eto.Wpf.dll"/>
     <ROW Component="Eto.dll" ComponentId="{1409DCD9-B8CC-43EF-B5FB-46CC51E7515A}" Directory_="bin_Dir" Attributes="0" KeyPath="Eto.dll"/>
@@ -122,7 +118,7 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
     <ROW Feature="AiAppXAssets" Title="AiAppXAssets" Description="Description" Display="3" Level="0" Directory_="APPDIR" Attributes="0" Components="AI_ExePath"/>
-    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0" Components="AI_ExePath AdventureGame.dll Arial_11.25_Regular.xnb Arrow.xnb Background.xnb BentSword.xnb_1 CHANGELOG.md Collections.dll CurrentItemDark.xnb EmptyKeys.UserInterface.Core.dll EmptyKeys.UserInterface.Debug.dll EmptyKeys.UserInterface.MonoGame.dll EmptyKeys.UserInterface.dll Eto.Serialization.Xaml.dll Eto.Wpf.dll Eto.dll Fountain.xnb_1 Hero6.Campaigns.RitesOfPassage.dll Hero6.UserInterface.SierraVga.dll Hero6.exe Hero6.exe.config HeroWalkRightUp.xnb HillOverAlbion.xnb LICENSE.THIRDPARTY.md LlewellaWalkCenterDown.xnb_1 MonoGame.Framework.dll NewFolder Portable.Xaml.dll PriorityQueue.dll ProductInformation Search.dll SharpDX.DXGI.dll SharpDX.Direct2D1.dll SharpDX.Direct3D11.dll SharpDX.Direct3D9.dll SharpDX.MediaFoundation.dll SharpDX.RawInput.dll SharpDX.XAudio2.dll SharpDX.XInput.dll SharpDX.dll log4net.dll"/>
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0" Components="AI_ExePath AdventureGame.dll Arial_11.25_Regular.xnb Arrow.xnb Background.xnb BentSword.xnb_1 CHANGELOG.md Collections.dll CurrentItemDark.xnb Eto.Serialization.Xaml.dll Eto.Wpf.dll Eto.dll Fountain.xnb_1 Hero6.Campaigns.RitesOfPassage.dll Hero6.UserInterface.SierraVga.dll Hero6.exe Hero6.exe.config HeroWalkRightUp.xnb HillOverAlbion.xnb LICENSE.THIRDPARTY.md LlewellaWalkCenterDown.xnb_1 MonoGame.Framework.dll NewFolder Portable.Xaml.dll PriorityQueue.dll ProductInformation Search.dll SharpDX.DXGI.dll SharpDX.Direct2D1.dll SharpDX.Direct3D11.dll SharpDX.Direct3D9.dll SharpDX.MediaFoundation.dll SharpDX.RawInput.dll SharpDX.XAudio2.dll SharpDX.XInput.dll SharpDX.dll log4net.dll"/>
     <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
@@ -135,16 +131,10 @@
     <ROW File="BentSword.xnb" Component_="BentSword.xnb_1" FileName="BENTSW~2.XNB|Bent Sword.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Campaigns\Rites of Albion\Sprites\Items\Bent Sword.xnb" SelfReg="false" NextFile="Hand.xnb"/>
     <ROW File="CHANGELOG.md" Component_="LICENSE.THIRDPARTY.md" FileName="CHANGE~1.MD|CHANGELOG.md" Attributes="0" SourcePath="..\..\docs\CHANGELOG.md" SelfReg="false" NextFile="COPYRIGHT.md"/>
     <ROW File="COPYRIGHT.md" Component_="LICENSE.THIRDPARTY.md" FileName="COPYRI~1.MD|COPYRIGHT.md" Attributes="0" SourcePath="..\..\docs\COPYRIGHT.md" SelfReg="false" NextFile="LICENSE.ASSETS.md"/>
-    <ROW File="Collections.dll" Component_="Collections.dll" FileName="COLLEC~1.DLL|Collections.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Collections.dll" SelfReg="false" NextFile="EmptyKeys.UserInterface.Core.dll"/>
-    <ROW File="Collections.xml" Component_="Hero6.exe.config" FileName="COLLEC~1.XML|Collections.xml" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Collections.xml" SelfReg="false" NextFile="EmptyKeys.UserInterface.Core.xml"/>
+    <ROW File="Collections.dll" Component_="Collections.dll" FileName="COLLEC~1.DLL|Collections.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Collections.dll" SelfReg="false" NextFile="Hero6.Campaigns.RitesOfPassage.dll"/>
+    <ROW File="Collections.xml" Component_="Hero6.exe.config" FileName="COLLEC~1.XML|Collections.xml" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Collections.xml" SelfReg="false" NextFile="Eto.xml"/>
     <ROW File="CurrentItemDark.xnb" Component_="CurrentItemDark.xnb" FileName="CURREN~1.XNB|Current Item Dark.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Verb Bar\Current Item Dark.xnb" SelfReg="false" NextFile="CurrentItemLight.xnb"/>
     <ROW File="CurrentItemLight.xnb" Component_="CurrentItemDark.xnb" FileName="CURREN~2.XNB|Current Item Light.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Verb Bar\Current Item Light.xnb" SelfReg="false" NextFile="HandDark.xnb"/>
-    <ROW File="EmptyKeys.UserInterface.Core.dll" Component_="EmptyKeys.UserInterface.Core.dll" FileName="EMPTYK~4.DLL|EmptyKeys.UserInterface.Core.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\EmptyKeys.UserInterface.Core.dll" SelfReg="false" NextFile="EmptyKeys.UserInterface.Debug.dll"/>
-    <ROW File="EmptyKeys.UserInterface.Core.xml" Component_="Hero6.exe.config" FileName="EMPTYK~1.XML|EmptyKeys.UserInterface.Core.xml" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\EmptyKeys.UserInterface.Core.xml" SelfReg="false" NextFile="EmptyKeys.UserInterface.xml"/>
-    <ROW File="EmptyKeys.UserInterface.Debug.dll" Component_="EmptyKeys.UserInterface.Debug.dll" FileName="EMPTYK~1.DLL|EmptyKeys.UserInterface.Debug.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\EmptyKeys.UserInterface.Debug.dll" SelfReg="false" NextFile="EmptyKeys.UserInterface.dll"/>
-    <ROW File="EmptyKeys.UserInterface.MonoGame.dll" Component_="EmptyKeys.UserInterface.MonoGame.dll" FileName="EMPTYK~2.DLL|EmptyKeys.UserInterface.MonoGame.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\EmptyKeys.UserInterface.MonoGame.dll" SelfReg="false" NextFile="Hero6.Campaigns.RitesOfPassage.dll"/>
-    <ROW File="EmptyKeys.UserInterface.dll" Component_="EmptyKeys.UserInterface.dll" FileName="EMPTYK~3.DLL|EmptyKeys.UserInterface.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\EmptyKeys.UserInterface.dll" SelfReg="false" NextFile="EmptyKeys.UserInterface.MonoGame.dll"/>
-    <ROW File="EmptyKeys.UserInterface.xml" Component_="Hero6.exe.config" FileName="EMPTYK~2.XML|EmptyKeys.UserInterface.xml" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\EmptyKeys.UserInterface.xml" SelfReg="false" NextFile="Eto.xml"/>
     <ROW File="Eto.Serialization.Xaml.dll" Component_="Eto.Serialization.Xaml.dll" FileName="ETOSER~1.DLL|Eto.Serialization.Xaml.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Eto.Serialization.Xaml.dll" SelfReg="false" NextFile="Eto.Wpf.dll"/>
     <ROW File="Eto.Wpf.dll" Component_="Eto.Wpf.dll" FileName="ETOWPF~1.DLL|Eto.Wpf.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Eto.Wpf.dll" SelfReg="false" NextFile="log4net.dll"/>
     <ROW File="Eto.dll" Component_="Eto.dll" FileName="Eto.dll" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Eto.dll" SelfReg="false" NextFile="Eto.Serialization.Xaml.dll"/>
@@ -219,7 +209,7 @@
     <ROW Action="AI_DetectSoftware" Sequence="101"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
-    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFileName="Hero6 Installer" Languages="en" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExeIconPath="..\Hero6.WindowsDX\Icon.ico" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" UseLargeSchema="true"/>
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFileName="Hero6 Installer" Languages="en" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExeIconPath="..\Hero6.WindowsDX\Icon.ico" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" UseLargeSchema="true"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
     <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>

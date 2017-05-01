@@ -119,7 +119,7 @@ namespace LateStartStudio.Hero6
 
             Renderer = new MonoGameRenderer(this.spriteBatch);
 
-            this.ui = new UserInterfaceHandler(this.GraphicsDevice, this.Content);
+            this.ui = new UserInterfaceHandler(this.Content);
 
             this.campaign = new CampaignHandler(this.Content, this.ui);
 
@@ -193,12 +193,10 @@ namespace LateStartStudio.Hero6
                 null,
                 Transform);
 
-            this.campaign.Draw(time, this.spriteBatch);
+            campaign.Draw(time, spriteBatch);
+            ui.Draw(time, spriteBatch);
 
             this.spriteBatch.End();
-
-            // Independent draw
-            this.ui.Draw(time, this.spriteBatch);
 
             base.Draw(time);
         }
