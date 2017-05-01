@@ -1,4 +1,4 @@
-﻿// <copyright file="UserInteractionEventArgs.cs" company="Late Start Studio">
+﻿// <copyright file="GameInteractionEventArgs.cs" company="Late Start Studio">
 // Copyright (C) Late Start Studio
 // This file is subject to the terms and conditions of the MIT license specified in the file
 // 'LICENSE.CODE.md', which is a part of this source code package.
@@ -12,15 +12,15 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
     /// <summary>
     /// Event Args to provide information for user interaction.
     /// </summary>
-    public class UserInteractionEventArgs : EventArgs
+    public class GameInteractionEventArgs : EventArgs
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UserInteractionEventArgs"/> class.
+        /// Initializes a new instance of the <see cref="GameInteractionEventArgs"/> class.
         /// </summary>
         /// <param name="x">The x coordinate of the user interaction.</param>
         /// <param name="y">The y coordinate of the user interaction.</param>
         /// <param name="interaction">The interaction of the user interaction.</param>
-        public UserInteractionEventArgs(int x, int y, Interaction interaction)
+        public GameInteractionEventArgs(int x, int y, Interaction interaction)
         {
             this.X = x;
             this.Y = y;

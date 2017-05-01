@@ -29,7 +29,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
                 {
                     MockRenderer renderer = new MockRenderer();
                     MockAssetManager assets = new MockAssetManager();
-                    MockUserInterface ui = new MockUserInterface(renderer, assets);
+                    MockUserInterface ui = new MockUserInterface(assets);
 
                     instance = new MockCampaign(renderer, assets, ui);
                 }

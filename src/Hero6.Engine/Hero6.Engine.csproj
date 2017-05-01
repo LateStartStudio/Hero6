@@ -71,7 +71,7 @@
     <Compile Include="Campaigns\Stats\Stat.cs" />
     <Compile Include="Campaigns\Stats\StatChangedEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserInterfaces\UserInteractionEventArgs.cs" />
+    <Compile Include="UserInterfaces\GameInteractionEventArgs.cs" />
     <Compile Include="UserInterfaces\UserInterface.cs" />
     <Compile Include="Utilities\Logger\ILogger.cs" />
     <Compile Include="Utilities\Logger\LogFourNet.cs" />
