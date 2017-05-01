@@ -70,7 +70,7 @@
     <ROW Directory="Sprite_Dir" Directory_Parent="RitesofAlbion_Dir" DefaultDir="Sprites"/>
     <ROW Directory="StartMenuFolder" Directory_Parent="TARGETDIR" DefaultDir="STARTM~1|StartMenuFolder" IsPseudoRoot="1"/>
     <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
-    <ROW Directory="TopBar_Dir" Directory_Parent="SierraVga_Dir" DefaultDir="TOPBAR~1|Top Bar"/>
+    <ROW Directory="TopBar_Dir" Directory_Parent="SierraVga_Dir" DefaultDir="STATUS~1|Status Bar"/>
     <ROW Directory="VerbBar_Dir" Directory_Parent="SierraVga_Dir" DefaultDir="VERBBA~1|Verb Bar"/>
     <ROW Directory="Walk_1_Dir" Directory_Parent="Llewella_Dir" DefaultDir="Walk"/>
     <ROW Directory="Walk_Dir" Directory_Parent="Hero_Dir" DefaultDir="Walk"/>
@@ -127,7 +127,7 @@
     <ROW File="AdventureGame.xml" Component_="Hero6.exe.config" FileName="HERO6E~1.XML|Hero6.Engine.xml" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Hero6.Engine.xml" SelfReg="false" NextFile="Collections.xml"/>
     <ROW File="Arial_11.25_Regular.xnb" Component_="Arial_11.25_Regular.xnb" FileName="ARIAL_~1.XNB|Arial_11.25_Regular.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Fonts\Arial_11.25_Regular.xnb" SelfReg="false" NextFile="HeroWalkCenterDown.xnb"/>
     <ROW File="Arrow.xnb" Component_="Arrow.xnb" FileName="Arrow.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Cursors\Arrow.xnb" SelfReg="false" NextFile="Wait.xnb"/>
-    <ROW File="Background.xnb" Component_="Background.xnb" FileName="BACKGR~1.XNB|Background.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Top Bar\Background.xnb" SelfReg="false" NextFile="CurrentItemDark.xnb"/>
+    <ROW File="Background.xnb" Component_="Background.xnb" FileName="BACKGR~1.XNB|Background.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Status Bar\Background.xnb" SelfReg="false" NextFile="CurrentItemDark.xnb"/>
     <ROW File="BentSword.xnb" Component_="BentSword.xnb_1" FileName="BENTSW~2.XNB|Bent Sword.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Campaigns\Rites of Albion\Sprites\Items\Bent Sword.xnb" SelfReg="false" NextFile="Hand.xnb"/>
     <ROW File="CHANGELOG.md" Component_="LICENSE.THIRDPARTY.md" FileName="CHANGE~1.MD|CHANGELOG.md" Attributes="0" SourcePath="..\..\docs\CHANGELOG.md" SelfReg="false" NextFile="COPYRIGHT.md"/>
     <ROW File="COPYRIGHT.md" Component_="LICENSE.THIRDPARTY.md" FileName="COPYRI~1.MD|COPYRIGHT.md" Attributes="0" SourcePath="..\..\docs\COPYRIGHT.md" SelfReg="false" NextFile="LICENSE.ASSETS.md"/>
