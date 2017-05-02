@@ -41,8 +41,6 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
 
         public override string Name => "Sierra VGA";
 
-        internal static StatusBar StatusBar { get; private set; }
-
         internal static VerbBar VerbBar { get; private set; }
 
         internal static TextBox TextBox { get; private set; }
