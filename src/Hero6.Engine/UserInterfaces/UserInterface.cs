@@ -30,6 +30,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         {
             this.Assets = assets;
             this.Mouse = new Mouse(assets, mouse);
+            this.Mouse.ButtonUp += MouseOnButtonUp;
         }
 
         /// <inheritdoc />
@@ -217,6 +218,12 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         protected void InvokeGameInteraction(object sender, GameInteractionEventArgs args)
         {
             GameInteraction?.Invoke(sender, args);
+        }
+
+        private void MouseOnButtonUp(object sender, MouseButtonClickEventArgs e)
+        {
+            Dialogs.ForEach(d => d.InvokeMouseButtonUp(this, e));
+            Windows.ForEach(w => w.InvokeMouseButtonUp(this, e));
         }
     }
 }

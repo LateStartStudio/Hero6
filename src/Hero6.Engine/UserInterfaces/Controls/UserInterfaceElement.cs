@@ -35,8 +35,6 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
             this.IsVisible = true;
             this.Width = -1;
             this.Height = -1;
-
-            Mouse.ButtonUp += MouseControllerOnButtonUp;
         }
 
         /// <inheritdoc />
@@ -227,6 +225,42 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         }
 
         /// <summary>
+        /// Check if a point is intersecting with this user interface element.
+        /// </summary>
+        /// <param name="x">The x coordinate to check if is intersecting.</param>
+        /// <param name="y">The y coordinate to check if is intersecting.</param>
+        /// <returns>True if intersecting, false if else.</returns>
+        public bool Intersects(int x, int y)
+        {
+            return x >= X && x < X + Width && y >= Y && y < Y + Height;
+        }
+
+        /// <summary>
+        /// Invoke event for when any mouse button is lifted up. Will not be invoked if mouse is
+        /// outside of bounds for this UI component and aslo if it isn't visible.
+        /// </summary>
+        /// <param name="sender">The sender of this event.</param>
+        /// <param name="e">The event args.</param>
+        internal void InvokeMouseButtonUp(object sender, MouseButtonClickEventArgs e)
+        {
+            if (!Intersects(e.X, e.Y) || !IsVisible)
+            {
+                return;
+            }
+
+            MouseButtonUp?.Invoke(this, e);
+
+            if (this is IChild)
+            {
+                (this as IChild)?.Child.InvokeMouseButtonUp(sender, e);
+            }
+            else if (this is IChildren)
+            {
+                (this as IChildren)?.Children.ForEach(c => c.InvokeMouseButtonUp(sender, e));
+            }
+        }
+
+        /// <summary>
         /// The actual load function for any instance inheriting from this abstract class.
         /// </summary>
         protected abstract void InternalLoad();
@@ -255,24 +289,5 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         /// A value indicating whether the game is running slowly or not.
         /// </param>
         protected abstract void InternalDraw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly);
-
-        /// <summary>
-        /// Check if a point is intersecting with this user interface element.
-        /// </summary>
-        /// <param name="x">The x coordinate to check if is intersecting.</param>
-        /// <param name="y">The y coordinate to check if is intersecting.</param>
-        /// <returns>True if intersecting, false if else.</returns>
-        protected bool Intersects(int x, int y)
-        {
-            return x >= X && x < X + Width && y >= Y && y < Y + Height;
-        }
-
-        private void MouseControllerOnButtonUp(object sender, MouseButtonClickEventArgs e)
-        {
-            if (Intersects(e.X, e.Y))
-            {
-                MouseButtonUp?.Invoke(this, e);
-            }
-        }
     }
 }
