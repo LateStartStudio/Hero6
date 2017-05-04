@@ -15,18 +15,7 @@ configuration:
   #- Android Release
 
 install:
-  # MonoGame
-  - ps: (new-object net.webclient).DownloadFile('http://www.monogame.net/releases/v3.5.1/MonoGameSetup.exe', 'C:\MonoGameSetup.exe')
-  - ps: Invoke-Command -ScriptBlock {C:\MonoGameSetup.exe /S /v/qn}
-
-  # Advanced Installer
-  - ps: (new-object net.webclient).DownloadFile('http://www.advancedinstaller.com/downloads/advinst.msi', 'C:\advinst.msi')
-  - ps: Invoke-Command -ScriptBlock {msiexec.exe /i C:\advinst.msi /qn}
-
-  # Paket
-  - cmd: cd src
-  - cmd: .paket\paket.bootstrapper.exe
-  - cmd: .paket\paket.exe restore
+    - ps: src\.ci\install.ps1
 
 build:
   parallel: true
