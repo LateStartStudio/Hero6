@@ -224,16 +224,11 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
         /// <inheritdoc />
         public void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            if (!IsWithinGameWindow(core.Location.X, core.Location.Y))
-            {
-                return;
-            }
-
             PreDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly, UserInterface.Renderer));
 
             if (Cursor != null)
             {
-                UserInterface.Renderer.Draw(Cursor.Texture, Location);
+                UserInterface.Renderer.Draw(Cursor.Texture, lastLocation);
             }
 
             PostDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly, UserInterface.Renderer));
