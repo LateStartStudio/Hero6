@@ -40,7 +40,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
         /// <summary>
         /// Occurs when a mouse button is lifted up.
         /// </summary>
-        public static event EventHandler<MouseButtonClickEventArgs> ButtonUp;
+        public event EventHandler<MouseButtonClickEventArgs> ButtonUp;
 
         /// <inheritdoc />
         public event EventHandler<LoadEventArgs> PreLoad;

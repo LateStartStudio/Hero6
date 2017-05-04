@@ -73,22 +73,23 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         /// <inheritdoc />
         protected override void InternalUpdate(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            int sum = 0;
+            int x = X;
+            int y = Y;
 
             foreach (UserInterfaceElement userInterfaceElement in Children)
             {
+                userInterfaceElement.X = x;
+                userInterfaceElement.Y = y;
+                userInterfaceElement.Update(total, elapsed, isRunningSlowly);
+
                 if (Orientation == Orientation.Horizontal)
                 {
-                    userInterfaceElement.X = sum;
-                    sum += userInterfaceElement.Width;
+                    x += userInterfaceElement.Width;
                 }
                 else
                 {
-                    userInterfaceElement.Y = sum;
-                    sum += userInterfaceElement.Height;
+                    y += userInterfaceElement.Height;
                 }
-
-                userInterfaceElement.Update(total, elapsed, isRunningSlowly);
             }
         }
     }

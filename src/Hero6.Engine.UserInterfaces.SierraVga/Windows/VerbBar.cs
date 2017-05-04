@@ -12,6 +12,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
     using LateStartStudio.Hero6.Engine.Assets;
     using LateStartStudio.Hero6.Engine.UserInterfaces.Controls;
     using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs;
     using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Input;
 
     public class VerbBar : Window
@@ -224,7 +225,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
             }
 
             Mouse.Center();
-            SierraVgaController.TextBox.Show("Work In Progress");
+            SierraVgaController.ExtensionBar.Show();
         }
 
         private void SubMenuBtnOnMouseEnter(object sender, EventArgs eventArgs)
