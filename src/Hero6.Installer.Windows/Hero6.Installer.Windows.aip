@@ -442,12 +442,12 @@
     <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
-    <ROW PrereqKey="EDD0228464354F269D1E1FAEB8A9084F" DisplayName=".NET Framework 4.5.1 (web installer)" SetupFileUrl="http://download.microsoft.com/download/7/4/0/74078A56-A3A1-492D-BBA9-865684B83C1B/NDP451-KB2859818-Web.exe" Location="1" ExactSize="1021432" WinNTVersions="Windows XP x86 Service Pack 3, Windows Server 2003 x86 Service Pack 2, Windows 8.1 x86, Windows 10 x86" WinNT64Versions="Windows XP x64 Service Pack 2, Windows Server 2003 x64 Service Pack 2, Windows 8.1 x64, Windows Server 2012 R2 x64, Windows 10 x64, Windows Server 2016 x64" Operator="1" NoUiComLine="/q /norestart" Options="xy" MD5="24281f84c5521204e4454207f3becf96" TargetName=".NET Framework 4.5.1"/>
+    <ROW PrereqKey="BB9062A4604BB61146D7C9AA49D" DisplayName=".NET Framework 4.6.1 (web installer)" SetupFileUrl="http://download.microsoft.com/download/3/5/9/35980F81-60F4-4DE3-88FC-8F962B97253B/NDP461-KB3102438-Web.exe" Location="1" ExactSize="1424328" WinNTVersions="Windows XP x86 Service Pack 3, Windows Server 2003 x86 Service Pack 2, Windows Vista x86, Windows Vista x86 Service Pack 1, Windows Vista x86 Service Pack 2, Windows Server 2008 x86, Windows 7 x86" WinNT64Versions="Windows XP x64 Service Pack 2, Windows Server 2003 x64 Service Pack 2, Windows Vista x64, Windows Vista x64 Service Pack 1, Windows Vista x64 Service Pack 2, Windows Server 2008 x64, Windows 7 x64, Windows Server 2008 R2 x64, Windows Server 2016 x64" Operator="1" NoUiComLine="/q /norestart" Options="xy" MD5="4d1bb86d0eee168e1da91a36350c1c21" TargetName=".NET Framework 4.6.1"/>
     <ROW PrereqKey="RequiredApplication" DisplayName="DirectX 9.0c" SetupFileUrl="https://download.microsoft.com/download/8/0/d/80d7e79d-c0e4-415a-bcca-e229eafe2679/dxwebsetup.exe" Location="1" ExactSize="0" Operator="1" Options="y" TargetName="DirectX 9.0c"/>
-    <ATTRIBUTE name="PrereqsOrder" value="EDD0228464354F269D1E1FAEB8A9084F RequiredApplication"/>
+    <ATTRIBUTE name="PrereqsOrder" value="RequiredApplication BB9062A4604BB61146D7C9AA49D"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.PreReqSearchComponent">
-    <ROW SearchKey="EDD0228464354F269D1E1FAEB8A9084FRelease" Prereq="EDD0228464354F269D1E1FAEB8A9084F" SearchType="9" SearchString="HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\Release" RefContent="G378757" Order="1" Property="PreReqSearch_EDD0228464354F269D1E1FAEB8A9084F"/>
+    <ROW SearchKey="BB9062A4604BB61146D7C9AA49DRelease" Prereq="BB9062A4604BB61146D7C9AA49D" SearchType="9" SearchString="HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\Release" RefContent="G394253" Order="1" Property="PreReqSearch_BB9062A4604BB61146D7C9AA49D"/>
     <ROW SearchKey="Version" Prereq="RequiredApplication" SearchType="2" SearchString="HKLM\SOFTWARE\Microsoft\DirectX\Version" VerMin="4.09.00.0904" Order="2" Property="PreReqSearch_1"/>
   </COMPONENT>
 </DOCUMENT>
