@@ -80,12 +80,12 @@ Theoretically, you should be able to build and run Hero6 on Linux and OS X, but 
 
 ### Supported Platforms
 * Windows (DirectX)
-  * Requires a minimum of Windows Vista SP 2.
-  * [Requires Microsoft .NET Framework 4.5.](https://www.microsoft.com/en-us/download/details.aspx?id=30653)
+  * Requires a minimum of Windows 7 SP 1.
+  * [Requires Microsoft .NET Framework 4.6.1.](https://www.microsoft.com/en-us/download/details.aspx?id=49981)
   * [Requires DirectX 9.0c.](https://www.microsoft.com/en-us/download/details.aspx?id=34429)
 * Windows (OpenGL)
-  * Requires a minimum of Windows Vista SP 2.
-  * [Requires Microsoft .NET Framework 4.5.](https://www.microsoft.com/en-us/download/details.aspx?id=30653)
+  * Requires a minimum of Windows 7 SP 1.
+  * [Requires Microsoft .NET Framework 4.6.1.](https://www.microsoft.com/en-us/download/details.aspx?id=49981)
 
 Theoretically the OpenGL Windows build should also work with Linux and OS X, but this goes unsupported and unmaintained for now. We also have a build configuration for Android but we do not maintain it.
 
