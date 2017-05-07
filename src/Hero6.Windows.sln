@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26403.3
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.WindowsDX", "Hero6.WindowsDX\Hero6.WindowsDX.csproj", "{B0B2294D-FB45-47C3-A645-6C5884E7CFAB}"
 EndProject
@@ -356,25 +356,30 @@ Global
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.WindowsDX Release|Any CPU.ActiveCfg = Release|Any CPU
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.WindowsDX Release|x86.ActiveCfg = Release|Any CPU
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.WindowsDX Release|x86.Build.0 = Release|Any CPU
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Android Debug|Any CPU.ActiveCfg = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Android Debug|x86.ActiveCfg = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Android Debug|x86.Build.0 = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Android Release|Any CPU.ActiveCfg = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Android Release|x86.ActiveCfg = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Android Release|x86.Build.0 = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Debug|Any CPU.ActiveCfg = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Debug|x86.ActiveCfg = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Debug|x86.Build.0 = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Release|Any CPU.ActiveCfg = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Release|x86.ActiveCfg = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Release|x86.Build.0 = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.WindowsDX Debug|Any CPU.ActiveCfg = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.WindowsDX Debug|x86.ActiveCfg = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.WindowsDX Debug|x86.Build.0 = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.WindowsDX Release|Any CPU.ActiveCfg = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.WindowsDX Release|Any CPU.Build.0 = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.WindowsDX Release|x86.ActiveCfg = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.WindowsDX Release|x86.Build.0 = All
+		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Android Debug|Any CPU.ActiveCfg = DefaultBuild
+		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Android Debug|Any CPU.Build.0 = DefaultBuild
+		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Android Debug|x86.ActiveCfg = DefaultBuild
+		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Android Debug|x86.Build.0 = DefaultBuild
+		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Android Release|Any CPU.ActiveCfg = DefaultBuild
+		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Android Release|Any CPU.Build.0 = DefaultBuild
+		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Android Release|x86.ActiveCfg = DefaultBuild
+		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Android Release|x86.Build.0 = DefaultBuild
+		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Debug|Any CPU.ActiveCfg = DefaultBuild
+		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Debug|Any CPU.Build.0 = DefaultBuild
+		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Debug|x86.ActiveCfg = DefaultBuild
+		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Debug|x86.Build.0 = DefaultBuild
+		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Release|Any CPU.ActiveCfg = DefaultBuild
+		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Release|Any CPU.Build.0 = DefaultBuild
+		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Release|x86.ActiveCfg = DefaultBuild
+		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Release|x86.Build.0 = DefaultBuild
+		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.WindowsDX Debug|Any CPU.ActiveCfg = DefaultBuild
+		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.WindowsDX Debug|Any CPU.Build.0 = DefaultBuild
+		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.WindowsDX Debug|x86.ActiveCfg = DefaultBuild
+		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.WindowsDX Debug|x86.Build.0 = DefaultBuild
+		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.WindowsDX Release|Any CPU.ActiveCfg = DefaultBuild
+		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.WindowsDX Release|Any CPU.Build.0 = DefaultBuild
+		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.WindowsDX Release|x86.ActiveCfg = DefaultBuild
+		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.WindowsDX Release|x86.Build.0 = DefaultBuild
 		{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA}.Android Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA}.Android Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA}.Android Debug|x86.ActiveCfg = Debug|Any CPU

@@ -559,7 +559,7 @@
 /processorParam:TextureFormat=Color
 /build:Gui/Sierra Vga/Extension Bar/Right.png
 
-#begin Gui/Sierra Vga/Extension Bar/Run.png
+#begin Gui/Sierra Vga/Extension Bar/Run Light.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -569,9 +569,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/Sierra Vga/Extension Bar/Run.png
+/build:Gui/Sierra Vga/Extension Bar/Run Light.png
 
-#begin Gui/Sierra Vga/Extension Bar/Sleep.png
+#begin Gui/Sierra Vga/Extension Bar/Sleep Light.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -581,9 +581,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/Sierra Vga/Extension Bar/Sleep.png
+/build:Gui/Sierra Vga/Extension Bar/Sleep Light.png
 
-#begin Gui/Sierra Vga/Extension Bar/Sneak.png
+#begin Gui/Sierra Vga/Extension Bar/Sneak Light.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -593,9 +593,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/Sierra Vga/Extension Bar/Sneak.png
+/build:Gui/Sierra Vga/Extension Bar/Sneak Light.png
 
-#begin Gui/Sierra Vga/Extension Bar/Stats.png
+#begin Gui/Sierra Vga/Extension Bar/Stats Light.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -605,9 +605,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/Sierra Vga/Extension Bar/Stats.png
+/build:Gui/Sierra Vga/Extension Bar/Stats Light.png
 
-#begin Gui/Sierra Vga/Extension Bar/Time.png
+#begin Gui/Sierra Vga/Extension Bar/Time Light.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -617,5 +617,65 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Gui/Sierra Vga/Extension Bar/Time.png
+/build:Gui/Sierra Vga/Extension Bar/Time Light.png
+
+#begin Gui\Sierra Vga\Extension Bar\Run Dark.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Gui\Sierra Vga\Extension Bar\Run Dark.png
+
+#begin Gui\Sierra Vga\Extension Bar\Sleep Dark.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Gui\Sierra Vga\Extension Bar\Sleep Dark.png
+
+#begin Gui\Sierra Vga\Extension Bar\Sneak Dark.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Gui\Sierra Vga\Extension Bar\Sneak Dark.png
+
+#begin Gui\Sierra Vga\Extension Bar\Stats Dark.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Gui\Sierra Vga\Extension Bar\Stats Dark.png
+
+#begin Gui\Sierra Vga\Extension Bar\Time Dark.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Gui\Sierra Vga\Extension Bar\Time Dark.png
 
