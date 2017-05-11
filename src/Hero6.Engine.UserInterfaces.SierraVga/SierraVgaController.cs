@@ -34,11 +34,14 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
 
             TextBox = new TextBox(assets);
 
+            Rest = new Rest(assets);
+
             ExtensionBar = new ExtensionBar(assets);
 
             Windows.Add(StatusBar);
             Windows.Add(VerbBar);
             Dialogs.Add(TextBox);
+            Dialogs.Add(Rest);
             Dialogs.Add(ExtensionBar);
         }
 
@@ -51,6 +54,8 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
         internal static TextBox TextBox { get; private set; }
 
         internal static ExtensionBar ExtensionBar { get; private set; }
+
+        internal static Rest Rest { get; private set; }
 
         public override void ShowTextBox(string text)
         {
@@ -98,6 +103,12 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
             if (ExtensionBar.IsVisible && !ExtensionBar.Intersects(Mouse.X, Mouse.Y))
             {
                 ExtensionBar.Hide();
+                return;
+            }
+
+            if (Rest.IsVisible && !Rest.Intersects(Mouse.X, Mouse.Y))
+            {
+                Rest.Hide();
                 return;
             }
 
