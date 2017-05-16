@@ -1,11 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.3
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.WindowsDX", "Hero6.WindowsDX\Hero6.WindowsDX.csproj", "{B0B2294D-FB45-47C3-A645-6C5884E7CFAB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7} = {43E058BB-A9A5-473F-AD4C-269239BA41E7}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.DesktopGL", "Hero6.DesktopGL\Hero6.DesktopGL.csproj", "{BB1758DB-3B4B-4F61-9272-F08F56E4C71C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7} = {43E058BB-A9A5-473F-AD4C-269239BA41E7}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Applications", "{887BCA83-96AC-4E83-BAF5-567626AF670B}"
 EndProject
@@ -26,6 +32,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.Engine", "Hero6.Engine\Hero6.Engine.csproj", "{0C0586A3-5A10-42CE-B609-CC80EE2CEF7A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.Android", "Hero6.Android\Hero6.Android.csproj", "{E49FF4CD-57A3-45A3-87F3-EDEF96923B20}"
+	ProjectSection(ProjectDependencies) = postProject
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7} = {43E058BB-A9A5-473F-AD4C-269239BA41E7}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collections.Tests", "Collections.Tests\Collections.Tests.csproj", "{6BEE8AAC-A058-40B2-9009-76416AA682BA}"
 EndProject
@@ -52,6 +61,8 @@ Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "Hero6.Installer.Windows", "
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.Engine.Tests", "Hero6.Engine.Tests\Hero6.Engine.Tests.csproj", "{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.MonoGamePipeline", "Hero6.MonoGamePipeline\Hero6.MonoGamePipeline.csproj", "{43E058BB-A9A5-473F-AD4C-269239BA41E7}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -399,6 +410,30 @@ Global
 		{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA}.WindowsDX Release|Any CPU.Build.0 = Release|Any CPU
 		{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA}.WindowsDX Release|x86.ActiveCfg = Release|Any CPU
 		{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA}.WindowsDX Release|x86.Build.0 = Release|Any CPU
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.Android Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.Android Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.Android Debug|x86.ActiveCfg = Debug|Any CPU
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.Android Debug|x86.Build.0 = Debug|Any CPU
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.Android Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.Android Release|Any CPU.Build.0 = Release|Any CPU
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.Android Release|x86.ActiveCfg = Release|Any CPU
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.Android Release|x86.Build.0 = Release|Any CPU
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.Debug|x86.Build.0 = Debug|Any CPU
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.Release|x86.ActiveCfg = Release|Any CPU
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.Release|x86.Build.0 = Release|Any CPU
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.WindowsDX Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.WindowsDX Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.WindowsDX Debug|x86.ActiveCfg = Debug|Any CPU
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.WindowsDX Debug|x86.Build.0 = Debug|Any CPU
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.WindowsDX Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.WindowsDX Release|Any CPU.Build.0 = Release|Any CPU
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.WindowsDX Release|x86.ActiveCfg = Release|Any CPU
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.WindowsDX Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -420,6 +455,7 @@ Global
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
 		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC} = {887BCA83-96AC-4E83-BAF5-567626AF670B}
 		{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7} = {C7901A1A-E22C-468F-9E9A-9A891598E7D8}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
