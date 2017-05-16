@@ -18,13 +18,6 @@ namespace LateStartStudio.Search.Pathfinder
         }
 
         [Test]
-        public void IsBlockedSimpleTests()
-        {
-            Assert.False(new Node(0).IsBlocked);
-            Assert.True(new Node(0, true).IsBlocked);
-        }
-
-        [Test]
         public void ParentSimpleTests()
         {
             Node node0 = new Node(0);

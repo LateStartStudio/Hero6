@@ -9,6 +9,8 @@ namespace LateStartStudio.Hero6.Engine.Assets
     using System;
     using Graphics;
 
+    using LateStartStudio.Hero6.Engine.Campaigns.Regions;
+
     /// <summary>
     /// An abstract class for the asset handler of an adventure game engine.
     /// </summary>
@@ -62,6 +64,13 @@ namespace LateStartStudio.Hero6.Engine.Assets
         /// <param name="id">The ID of the font asset.</param>
         /// <returns>The font that was loaded.</returns>
         public abstract SpriteFont LoadSpriteFont(string id);
+
+        /// <summary>
+        /// Loads walk areas from file.
+        /// </summary>
+        /// <param name="id">The ID of the walk areas.</param>
+        /// <returns>The walk areas that was loaded.</returns>
+        public abstract WalkAreas LoadWalkAreas(string id);
 
         /// <summary>
         /// Disposes all data that was loaded by this ContentManager.

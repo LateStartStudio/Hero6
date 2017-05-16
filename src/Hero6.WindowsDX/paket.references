@@ -2,5 +2,6 @@ Eto.Forms
 Eto.Platform.Wpf
 Eto.Serialization.Xaml
 MonoGame.Framework.WindowsDX
+OptimizedPriorityQueue
 Portable.Xaml
 StyleCop.Analyzers

@@ -8,6 +8,8 @@ namespace LateStartStudio.Hero6.Engine.Assets
 {
     using Graphics;
 
+    using LateStartStudio.Hero6.Engine.Campaigns.Regions;
+
     public class MockAssetManager : AssetManager
     {
         public override string RootDirectory { get; set; }
@@ -29,6 +31,11 @@ namespace LateStartStudio.Hero6.Engine.Assets
         }
 
         public override SpriteFont LoadSpriteFont(string id)
+        {
+            return null;
+        }
+
+        public override WalkAreas LoadWalkAreas(string id)
         {
             return null;
         }

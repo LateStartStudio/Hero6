@@ -55,6 +55,8 @@
     <Compile Include="Campaigns\AdventureGameElement.cs" />
     <Compile Include="Campaigns\Character.cs" />
     <Compile Include="Campaigns\CharacterAnimation.cs" />
+    <Compile Include="Campaigns\Regions\WalkArea.cs" />
+    <Compile Include="Campaigns\Regions\WalkAreas.cs" />
     <Compile Include="GameLoop\DrawEventArgs.cs" />
     <Compile Include="GameLoop\LoadEventArgs.cs" />
     <Compile Include="GameLoop\UnloadEventArgs.cs" />
