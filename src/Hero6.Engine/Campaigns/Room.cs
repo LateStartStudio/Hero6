@@ -18,28 +18,13 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
     /// </summary>
     public abstract class Room : AdventureGameElement
     {
-        private static readonly int[,] DirectionVectors =
-        {
-            { -1, -1 },
-            { 0, -1 },
-            { 1, -1 },
-            { -1, 0 },
-            { 1, 0 },
-            { -1, 1 },
-            { 0, 1 },
-            { 1, 1 }
-        };
-
-        private readonly IPathfinder pathfinder;
         private readonly string backgroundID;
-        private readonly string walkAreaID;
+        private readonly string walkAreasID;
         private readonly string hotSpotMaskID;
 
         private Texture2D background;
-        private Texture2D walkAreaMask;
+        private WalkAreas walkAreas;
         private Texture2D hotspotsMask;
-        private Color[,] walkAreaBuffer;
-        private Node[,] walkAreaNodes;
         private Color[,] hotspotMaskBuffer;
 
         /// <summary>
@@ -47,18 +32,17 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         /// </summary>
         /// <param name="campaign">The campaign this item belongs to.</param>
         /// <param name="backgroundID">The ID of the room background.</param>
-        /// <param name="walkAreaID">The ID of the room walk area.</param>
+        /// <param name="walkAreasID">The ID of the room walk area.</param>
         /// <param name="hotSpotMaskID">The ID of the room hot spot mask.</param>
         protected Room(
             Campaign campaign,
             string backgroundID,
-            string walkAreaID,
+            string walkAreasID,
             string hotSpotMaskID)
             : base(campaign)
         {
-            this.pathfinder = new AStar(2500, (node, neighbor) => 1, this.CalculateOctileHeuristic);
             this.backgroundID = backgroundID;
-            this.walkAreaID = walkAreaID;
+            this.walkAreasID = walkAreasID;
             this.hotSpotMaskID = hotSpotMaskID;
             this.Characters = new List<Character>();
             this.Items = new List<Item>();
@@ -146,16 +130,8 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         {
             this.InvokePreLoad(this, new LoadEventArgs(this.Assets));
 
-            this.background = this.Assets.LoadTexture2D(this.backgroundID);
-
-            this.walkAreaMask = this.Assets.LoadTexture2D(this.walkAreaID);
-            this.walkAreaBuffer = CopyTextureData(this.walkAreaMask);
-            this.walkAreaNodes = this.CreateWalkNodes();
-
-            foreach (Node walkAreaNode in this.walkAreaNodes)
-            {
-                walkAreaNode.Children = this.FindNeighbors(walkAreaNode);
-            }
+            this.background = Assets.LoadTexture2D(backgroundID);
+            this.walkAreas = Assets.LoadWalkAreas(walkAreasID);
 
             this.hotspotsMask = this.Assets.LoadTexture2D(this.hotSpotMaskID);
             this.hotspotMaskBuffer = this.FindHotspots(this.hotspotsMask);
@@ -224,26 +200,19 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         /// <returns>True if the destination could be reached; false otherwise.</returns>
         public bool Walk(int x, int y, Character character)
         {
-            if (this.walkAreaMask == null)
+            if (x < 0 || x >= Width || y < 0 || y >= Height)
             {
                 return false;
             }
 
-            if (x < 0 || x >= this.walkAreaMask.Width || y < 0 || y >= this.walkAreaMask.Height)
+            IEnumerable<Point> path = walkAreas?.GetPath(character.Location, new Point(x, y));
+
+            if (path == null)
             {
                 return false;
             }
 
-            if (this.walkAreaBuffer[y, x] != Color.White)
-            {
-                return false;
-            }
-
-            Node start = this.walkAreaNodes[character.Location.Y, character.Location.X];
-            Node end = this.walkAreaNodes[y, x];
-
-            character.MovementPath = new Queue<Vector2>(
-                this.ConvertSearchNodeToVector(this.pathfinder.FindPath(start, end)));
+            character.MovementPath = new Queue<Point>(path);
 
             return true;
         }
@@ -271,23 +240,6 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
             return result;
         }
 
-        private Node[,] CreateWalkNodes()
-        {
-            Node[,] nodes = new Node[this.Height, this.Width];
-
-            for (int y = 0; y < this.Height; y++)
-            {
-                for (int x = 0; x < this.Width; x++)
-                {
-                    nodes[y, x] = new Node(
-                        (y * this.Width) + x,
-                        this.walkAreaBuffer[y, x].Equals(Color.Transparent));
-                }
-            }
-
-            return nodes;
-        }
-
         private Color[,] FindHotspots(Texture2D texture)
         {
             Color[,] data = CopyTextureData(texture);
@@ -301,53 +253,6 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
             }
 
             return data;
-        }
-
-        private int CalculateOctileHeuristic(Node from, Node to)
-        {
-            int fromX = from.ID % this.Width;
-            int fromY = from.ID / this.Width;
-            int toX = to.ID % this.Width;
-            int toY = to.ID / this.Width;
-
-            return (int)(Math.Min(Math.Abs(fromX - toX), Math.Abs(fromY - toY)) + (1.5 * Math.Max(Math.Abs(fromX - toX), Math.Abs(fromY - toY))));
-        }
-
-        private IList<Node> FindNeighbors(Node searchNode)
-        {
-            IList<Node> neighbors = new List<Node>();
-
-            for (int i = 0; i < DirectionVectors.GetLength(0); i++)
-            {
-                int x = (searchNode.ID % this.Width) + DirectionVectors[i, 0];
-                int y = (searchNode.ID / this.Width) + DirectionVectors[i, 1];
-
-                if (x < 0 || x >= this.Width || y < 0 || y >= this.Height)
-                {
-                    continue;
-                }
-
-                neighbors.Add(this.walkAreaNodes[y, x]);
-            }
-
-            return neighbors;
-        }
-
-        private IEnumerable<Vector2> ConvertSearchNodeToVector(IList<Node> searchNodes)
-        {
-            if (searchNodes == null || searchNodes.Count == 0)
-            {
-                return null;
-            }
-
-            IList<Vector2> result = new List<Vector2>();
-
-            foreach (Node searchNode in searchNodes)
-            {
-                result.Add(new Vector2(searchNode.ID % this.Width, searchNode.ID / this.Width));
-            }
-
-            return result;
         }
     }
 }

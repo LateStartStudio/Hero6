@@ -68,6 +68,10 @@
       <Project>{9c6a0da4-892e-45c0-afc7-b6d46f940329}</Project>
       <Name>Hero6.UserInterfaces.SierraVGA</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Search\Search.csproj">
+      <Project>{5c4a5d3d-46cf-4ddd-a64d-d3043458e2d3}</Project>
+      <Name>Search</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="..\..\assets\Hero6.Content.mgcb">
@@ -203,6 +207,35 @@
       <ItemGroup>
         <Reference Include="nunit.framework">
           <HintPath>..\packages\NUnit\lib\portable-net45+win8+wp8+wpa81+Xamarin.Mac+MonoAndroid10+MonoTouch10+Xamarin.iOS10\nunit.framework.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v2.0' Or $(TargetFrameworkVersion) == 'v3.0' Or $(TargetFrameworkVersion) == 'v3.5' Or $(TargetFrameworkVersion) == 'v4.0')">
+      <ItemGroup>
+        <Reference Include="Priority Queue">
+          <HintPath>..\packages\OptimizedPriorityQueue\lib\net20\Priority Queue.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3' Or $(TargetFrameworkVersion) == 'v4.7')">
+      <ItemGroup>
+        <Reference Include="Priority Queue">
+          <HintPath>..\packages\OptimizedPriorityQueue\lib\net45\Priority Queue.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETCore'">
+      <ItemGroup>
+        <Reference Include="Priority Queue">
+          <HintPath>..\packages\OptimizedPriorityQueue\lib\netcore45\Priority Queue.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>

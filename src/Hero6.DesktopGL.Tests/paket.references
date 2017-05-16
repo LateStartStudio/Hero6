@@ -1,4 +1,5 @@
 log4net
 MonoGame.Framework.DesktopGL
+OptimizedPriorityQueue
 NUnit
 StyleCop.Analyzers

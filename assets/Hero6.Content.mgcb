@@ -476,18 +476,6 @@
 /processorParam:TextureFormat=Color
 /build:Campaigns/Rites of Albion/Rooms/Albion/Fountain/Hotspots.png
 
-#begin Campaigns/Rites of Albion/Rooms/Albion/Fountain/Walk Area.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campaigns/Rites of Albion/Rooms/Albion/Fountain/Walk Area.png
-
 #begin Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Background.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -511,18 +499,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Hotspots.png
-
-#begin Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Walk Area.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Walk Area.png
 
 #begin Campaigns/Rites of Albion/Sprites/Items/Bent Sword.png
 /importer:TextureImporter
@@ -679,4 +655,14 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Gui\Sierra Vga\Extension Bar\Time Dark.png
+
+#begin Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/WalkAreas.h6walkareas
+/importer:Importer
+/processor:Processor
+/build:Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/WalkAreas.h6walkareas
+
+#begin Campaigns/Rites of Albion/Rooms/Albion/Fountain/WalkAreas.h6walkareas
+/importer:Importer
+/processor:Processor
+/build:Campaigns/Rites of Albion/Rooms/Albion/Fountain/WalkAreas.h6walkareas
 

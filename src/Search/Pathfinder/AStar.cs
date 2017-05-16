@@ -58,7 +58,7 @@ namespace LateStartStudio.Search.Pathfinder
 
                 foreach (Node neighbor in current.Children)
                 {
-                    if (neighbor.IsBlocked || neighbor.IsVisited)
+                    if (neighbor.IsVisited)
                     {
                         continue;
                     }

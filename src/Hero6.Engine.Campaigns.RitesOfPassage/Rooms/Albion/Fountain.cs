@@ -24,7 +24,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Rooms.Albion
             : base(
                   campaign,
                   "Campaigns/Rites of Albion/Rooms/Albion/Fountain/Background",
-                  "Campaigns/Rites of Albion/Rooms/Albion/Fountain/Walk Area",
+                  "Campaigns/Rites of Albion/Rooms/Albion/Fountain/WalkAreas",
                   "Campaigns/Rites of Albion/Rooms/Albion/Fountain/Hotspots")
         {
             Character llewella = Campaign.GetCharacter(Llewella.Id);

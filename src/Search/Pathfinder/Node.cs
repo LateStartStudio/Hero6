@@ -18,21 +18,18 @@ namespace LateStartStudio.Search.Pathfinder
         /// Initializes a new instance of the Node class with default values.
         /// </summary>
         /// <param name="id">The node ID.</param>
-        /// <param name="isBlocked">If the node can be passed or not.</param>
         /// <param name="isVisited">If the node has been previously visited or not.</param>
         /// <param name="parent">The parent node.</param>
         /// <param name="h">The heuristic value.</param>
         /// <param name="g">The total cost so far.</param>
         public Node(
             int id,
-            bool isBlocked = false,
             bool isVisited = false,
             Node parent = null,
             int h = 0,
             int g = 0)
         {
             this.ID = id;
-            this.IsBlocked = isBlocked;
             this.IsVisited = isVisited;
             this.Parent = parent;
             this.H = h;
@@ -47,17 +44,6 @@ namespace LateStartStudio.Search.Pathfinder
         /// A unique ID value.
         /// </value>
         public int ID { get; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether if the node can be passed or not.
-        /// </summary>
-        /// <value>
-        /// True if the node is blocked or cannot be passed, false otherwise.
-        /// </value>
-        public bool IsBlocked
-        {
-            get; set;
-        }
 
         /// <summary>
         /// Gets or sets a value indicating whether if the node has bee previously visited or not.

@@ -12,6 +12,51 @@ namespace LateStartStudio.Hero6.Engine.Assets.Graphics
     public struct Vector2
     {
         /// <summary>
+        /// Vector for direction left and up.
+        /// </summary>
+        public static readonly Vector2 LeftUp = new Vector2(-1, -1);
+
+        /// <summary>
+        /// Vector for direction up.
+        /// </summary>
+        public static readonly Vector2 Up = new Vector2(0, -1);
+
+        /// <summary>
+        /// Vector for direction right and up.
+        /// </summary>
+        public static readonly Vector2 RightUp = new Vector2(1, -1);
+
+        /// <summary>
+        /// Vector for direction left.
+        /// </summary>
+        public static readonly Vector2 Left = new Vector2(-1, 0);
+
+        /// <summary>
+        /// Vector for direction right.
+        /// </summary>
+        public static readonly Vector2 Right = new Vector2(1, 0);
+
+        /// <summary>
+        /// Vector for direction left and down.
+        /// </summary>
+        public static readonly Vector2 LeftDown = new Vector2(-1, 1);
+
+        /// <summary>
+        /// Vector for direction down.
+        /// </summary>
+        public static readonly Vector2 Down = new Vector2(0, 1);
+
+        /// <summary>
+        /// Vector for direction right and down.
+        /// </summary>
+        public static readonly Vector2 RightDown = new Vector2(1, 1);
+
+        /// <summary>
+        /// Vector for direction right and down.
+        /// </summary>
+        public static readonly Vector2 Center = new Vector2(0, 0);
+
+        /// <summary>
         /// Gets or sets the x coordinate.
         /// </summary>
         public float X;

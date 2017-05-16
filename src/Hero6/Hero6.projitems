@@ -13,6 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Assets\Graphics\MonoGameTexture2D.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Assets\MonoGameAssetManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Assets\MonoGameRenderer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Assets\MonoGameWalkAreaReader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Campaigns\CampaignHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Input\MonoGameMouse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\UserInterfaceHandler.cs" />

@@ -24,7 +24,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         /// <param name="campaign">The campaign this character belongs to.</param>
         protected Character(Campaign campaign) : base(campaign)
         {
-            this.MovementPath = new Queue<Vector2>();
+            this.MovementPath = new Queue<Point>();
             this.Inventory = new List<InventoryItem>();
         }
 
@@ -63,7 +63,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         /// <value>
         /// The character's movement path.
         /// </value>
-        public Queue<Vector2> MovementPath
+        public Queue<Point> MovementPath
         {
             get; set;
         }
@@ -255,7 +255,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
                 return;
             }
 
-            Vector2 newLocation = this.MovementPath.Dequeue();
+            Vector2 newLocation = new Vector2(MovementPath.Dequeue());
             this.Animation.FacingDirection = newLocation - new Vector2(this.Location);
             this.Location = new Point(newLocation);
         }

@@ -4,5 +4,6 @@ Eto.Platform.Gtk3
 Eto.Platform.Wpf
 Eto.Serialization.Xaml
 MonoGame.Framework.DesktopGL
+OptimizedPriorityQueue
 Portable.Xaml
 StyleCop.Analyzers

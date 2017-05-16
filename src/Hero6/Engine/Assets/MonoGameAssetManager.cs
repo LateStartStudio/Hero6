@@ -7,6 +7,9 @@
 namespace LateStartStudio.Hero6.Engine.Assets
 {
     using Graphics;
+
+    using LateStartStudio.Hero6.Engine.Campaigns.Regions;
+
     using XnaContentManager = Microsoft.Xna.Framework.Content.ContentManager;
     using XnaSpriteFont = Microsoft.Xna.Framework.Graphics.SpriteFont;
     using XnaTexture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
@@ -46,6 +49,11 @@ namespace LateStartStudio.Hero6.Engine.Assets
         public override SpriteFont LoadSpriteFont(string id)
         {
             return new MonoGameSpriteFont(this.content.Load<XnaSpriteFont>(id));
+        }
+
+        public override WalkAreas LoadWalkAreas(string id)
+        {
+            return content.Load<WalkAreas>(id);
         }
 
         public override void Unload()
