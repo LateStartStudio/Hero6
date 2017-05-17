@@ -2,6 +2,7 @@
 #r @"packages/FAKE/tools/FakeLib.dll"
 
 open System
+open System.IO
 open Fake
 open Fake.Testing.NUnit3
 
@@ -21,125 +22,116 @@ let buildWindowsDXReleaseConfig = "WindowsDX Release"
 let buildAndroidDebugConfig = "Android Debug"
 let buildeAndroidReleasConfig = "Android Release"
 
-let buildDesktopGLDebugDir = "Hero6.DesktopGL/bin/Debug/"
-let buildDesktopGLReleaseDir = "Hero6.DesktopGL/bin/Release/"
-let buildWindowsDXDebugDir = "Hero6.WindowsDX/bin/Debug/"
-let buildWindowsDXReleaseDir = "Hero6.WindowsDX/bin/Release/"
-let buildAndroidDebugDir = "Hero6.Android/bin/Debug/"
-let buildAndroidReleaseDir = "Hero6.Android/bin/Release/"
-
 let solutionFile = if getOS = Windows then "./Hero6.Windows.sln" else "./Hero6.Linux.sln"
 
-let build dir config =
+let clean =
+    for i in Directory.GetDirectories("./") do
+        for j in Directory.GetDirectories(i, "bin") do
+            CleanDir(j)
+        for j in Directory.GetDirectories(i, "obj") do
+            CleanDir(j)
+
+let build config =
     !! solutionFile
-    |> MSBuild dir "Build"
+    |> MSBuild "" "Build"
         [
             "Configuration", config
         ]
     |> Log ("Her6 Build " + config + " Configuration Output: ")
 
-let testFile dir file =
-    !! (dir + file)
-    |> NUnit3 (fun p ->
-    { p with
-        ToolPath = "packages/NUnit.ConsoleRunner/tools/nunit3-console.exe"
-    })
+let test configDir =
+    for i in Directory.GetDirectories "./" do
+        let dir = i + "./bin/" + configDir + "/Debug/"
 
-let testBuild dir = testFile dir "*.Tests.dll"
+        if Directory.Exists dir then
+            for j in Directory.GetFiles(dir, "*.Tests.dll") do
+                trace j
+                !! (j)
+                |> NUnit3 (fun p ->
+                { p with
+                    ToolPath = "packages/NUnit.ConsoleRunner/tools/nunit3-console.exe"
+                })
 
-// Targets - Clean
 Target "Clean DesktopGL Debug" (fun _ ->
-    CleanDir buildDesktopGLDebugDir
+    clean
 )
 
 Target "Clean DesktopGL Release" (fun _ ->
-    CleanDir buildDesktopGLReleaseDir
+    clean
 )
 
 Target "Clean WindowsDX Debug" (fun _ ->
-    if getOS = Windows then
-        CleanDir buildWindowsDXDebugDir
-    else
-        trace "Skipping Clean - WindowsDX is only supported on Windows"
+    clean
 )
 
 Target "Clean WindowsDX Release" (fun _ ->
-    if getOS = Windows then
-        CleanDir buildWindowsDXReleaseDir
-    else
-        trace "Skipping Clean - WindowsDX is only supported on Windows"
+    clean
 )
 
 Target "Clean Android Debug" (fun _ ->
-    if getOS = Windows then
-        CleanDir buildAndroidDebugDir
-    else
-        trace "Skipping Clean - Android is only supported on Windows"
+    clean
 )
 
 Target "Clean Android Release" (fun _ ->
-    if getOS = Windows then
-        CleanDir buildAndroidReleaseDir
-    else
-        trace "Skipping Clean - Android is only supported on Windows"
+    clean
 )
 
 // Targets - Build
 Target "Build DesktopGL Debug" (fun _ ->
-    build buildDesktopGLDebugDir buildDesktopGLDebugConfig
+    build buildDesktopGLDebugConfig
 )
 
 Target "Build DesktopGL Release" (fun _ ->
-    build buildDesktopGLReleaseDir buildDesktopGLReleaseConfig
+    build buildDesktopGLReleaseConfig
 )
 
 Target "Build WindowsDX Debug" (fun _ ->
     if getOS = Windows then
-        build buildWindowsDXDebugDir buildWindowsDXDebugConfig
+        build buildWindowsDXDebugConfig
     else
         trace "Skipping Build - WindowsDX is only supported on Windows"
 )
 
 Target "Build WindowsDX Release" (fun _ ->
     if getOS = Windows then
-        build buildWindowsDXReleaseDir buildWindowsDXReleaseConfig
+        build buildWindowsDXReleaseConfig
     else
         trace "Skipping Build - WindowsDX is only supported on Windows"
 )
 
 Target "Build Android Debug" (fun _ ->
     if getOS = Windows then
-        build buildAndroidDebugDir buildAndroidDebugConfig
+        build buildAndroidDebugConfig
     else
         trace "Skipping Build - Android is only supported on Windows"
 )
 
 Target "Build Android Release" (fun _ ->
     if getOS = Windows then
-        build buildAndroidReleaseDir buildeAndroidReleasConfig
+        build buildeAndroidReleasConfig
     else
         trace "Skipping Build - Android is only supported on Windows"
 )
 
 // Targets - Test
 Target "Test DesktopGL Debug" (fun _ ->
-    testBuild buildDesktopGLDebugDir
+    test "Debug"
 )
 
 Target "Test DesktopGL Release" (fun _ ->
-    testBuild buildDesktopGLDebugDir
+    test "Release"
 )
 
 Target "Test WindowsDX Debug" (fun _ ->
     if getOS = Windows then
-        testBuild buildWindowsDXDebugDir
+        test "Debug"
     else
         trace "Skipping Test - WindowsDX is only supported on Windows"
 )
 
 Target "Test WindowsDX Release" (fun _ ->
     if getOS = Windows then
-        testBuild buildWindowsDXReleaseDir
+        test "Release"
     else
         trace "Skipping Test - WindowsDX is only supported on Windows"
 )
