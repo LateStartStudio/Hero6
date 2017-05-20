@@ -217,7 +217,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
 
             if (this.IsMoving)
             {
-                this.elapsedTime += (float)total.TotalSeconds;
+                this.elapsedTime += (float)elapsed.TotalSeconds;
 
                 if (this.elapsedTime < (float)1 / 16)
                 {

@@ -54,12 +54,12 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
 
         public void Update(GameTime time)
         {
-            this.CurrentCampaign.Update(time.ElapsedGameTime, time.TotalGameTime, time.IsRunningSlowly);
+            this.CurrentCampaign.Update(time.TotalGameTime, time.ElapsedGameTime, time.IsRunningSlowly);
         }
 
         public void Draw(GameTime time, SpriteBatch spriteBatch)
         {
-            this.CurrentCampaign.Draw(time.ElapsedGameTime, time.TotalGameTime, time.IsRunningSlowly);
+            this.CurrentCampaign.Draw(time.TotalGameTime, time.ElapsedGameTime, time.IsRunningSlowly);
         }
     }
 }
