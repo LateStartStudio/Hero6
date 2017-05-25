@@ -17,6 +17,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
     public abstract class Character : AdventureGameElement
     {
         private Point location;
+        private double pixelsToMove;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Character"/> class.
@@ -116,6 +117,13 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         {
             get { return this.Equals(this.Campaign.Player); }
         }
+
+        /// <summary>
+        /// Gets or sets the movement speed of this <see cref="Character"/> instance. Speed is
+        /// measured in pixels per second, there's no difference between horizontal, vertical or
+        /// diagonally placed pixels. By default the speed is set to 60 pixels/second.
+        /// </summary>
+        public int Speed { get; set; } = 60;
 
         /// <summary>
         /// Adds an inventory item to this character's inventory.
@@ -223,7 +231,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         {
             this.Animation.IsMoving = this.MovementPath.Count > 0;
 
-            this.MoveCharacter();
+            this.MoveCharacter(elapsed);
             this.Animation.Update(total, elapsed, isRunningSlowly);
         }
 
@@ -236,16 +244,36 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
             }
         }
 
-        private void MoveCharacter()
+        /// <summary>
+        /// Move this <see cref="Character"/> instance along the <see cref="MovementPath"/>.
+        /// Movement occurs independently of fps by estimating how many pixels we should move for
+        /// each time this function is called. Estimation is done by a standard formula,
+        /// speed(velocity) multiplied with time passed since previous update call(delta time).
+        /// </summary>
+        /// <param name="elapsed">The time since previous update call.</param>
+        private void MoveCharacter(TimeSpan elapsed)
         {
             if (this.MovementPath == null || this.MovementPath.Count == 0)
             {
                 return;
             }
 
-            Vector2 newLocation = new Vector2(MovementPath.Dequeue());
-            this.Animation.FacingDirection = newLocation - new Vector2(this.Location);
-            this.Location = new Point(newLocation);
+            this.pixelsToMove += Speed * elapsed.TotalSeconds;
+            int pixelsToMoveFloor = (int)pixelsToMove;
+            this.pixelsToMove -= pixelsToMoveFloor;
+
+            for (int i = 0; i < pixelsToMoveFloor; i++)
+            {
+                Vector2 newLocation = MovementPath.Dequeue();
+                this.Animation.FacingDirection = newLocation - Location;
+                this.Location = (Point)newLocation;
+
+                if (MovementPath.Count == 0)
+                {
+                    this.pixelsToMove = 0.0;
+                    break;
+                }
+            }
         }
     }
 }
