@@ -28,25 +28,16 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         /// <inheritdoc />
         public UserInterfaceElement Child { get; set; }
 
+        /// <inheritdoc cref="UserInterfaceElement"/>
+        protected override int DefaultWidth => Child.Width;
+
+        /// <inheritdoc cref="UserInterfaceElement"/>
+        protected override int DefaultHeight => Child.Height;
+
         /// <inheritdoc />
         protected override void InternalLoad()
         {
-            if (Child == null)
-            {
-                return;
-            }
-
-            Child.Load();
-
-            if (Width == -1)
-            {
-                Width = Child.Width;
-            }
-
-            if (Height == -1)
-            {
-                Height = Child.Height;
-            }
+            Child?.Load();
         }
 
         /// <inheritdoc />

@@ -34,20 +34,16 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         /// </summary>
         public string Source { get; }
 
+        /// <inheritdoc cref="UserInterfaceElement"/>
+        protected override int DefaultWidth => image.Width;
+
+        /// <inheritdoc cref="UserInterfaceElement"/>
+        protected override int DefaultHeight => image.Height;
+
         /// <inheritdoc />
         protected override void InternalLoad()
         {
             this.image = Assets.LoadTexture2D(Source);
-
-            if (Width == -1)
-            {
-                this.Width = image.Width;
-            }
-
-            if (Height == -1)
-            {
-                this.Height = image.Height;
-            }
         }
 
         /// <inheritdoc />
