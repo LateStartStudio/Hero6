@@ -125,16 +125,44 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         public abstract bool Interact(int x, int y, Interaction interaction);
 
         /// <inheritdoc />
-        public abstract void Load();
+        public void Load()
+        {
+            PreLoad?.Invoke(this, new LoadEventArgs(Assets));
+
+            InternalLoad();
+
+            PostLoad?.Invoke(this, new LoadEventArgs(Assets));
+        }
 
         /// <inheritdoc />
-        public abstract void Unload();
+        public void Unload()
+        {
+            PreUnload?.Invoke(this, new UnloadEventArgs());
+
+            InternalUnload();
+
+            PostUnload?.Invoke(this, new UnloadEventArgs());
+        }
 
         /// <inheritdoc />
-        public abstract void Update(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly);
+        public void Update(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
+        {
+            PreUpdate?.Invoke(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
+
+            InternalUpdate(total, elapsed, isRunningSlowly);
+
+            PostUpdate?.Invoke(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
+        }
 
         /// <inheritdoc />
-        public abstract void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly);
+        public void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
+        {
+            PreDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly, Campaign.Renderer));
+
+            InternalDraw(total, elapsed, isRunningSlowly);
+
+            PostDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly, Campaign.Renderer));
+        }
 
         /// <summary>
         /// Shows a box with the input text.
@@ -146,83 +174,33 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         }
 
         /// <summary>
-        /// Invokes the pre load event.
+        /// Loads all assets.
         /// </summary>
-        /// <param name="sender">The instance that invoked this event.</param>
-        /// <param name="args">The event args bundled with the invocation.</param>
-        protected void InvokePreLoad(object sender, LoadEventArgs args)
-        {
-            this.PreLoad?.Invoke(this, args);
-        }
+        protected abstract void InternalLoad();
 
         /// <summary>
-        /// Invokes the post load event.
+        /// Unloads all assets.
         /// </summary>
-        /// <param name="sender">The instance that invoked this event.</param>
-        /// <param name="args">The event args bundled with the invocation.</param>
-        protected void InvokePostLoad(object sender, LoadEventArgs args)
-        {
-            this.PostLoad?.Invoke(this, args);
-        }
+        protected abstract void InternalUnload();
 
         /// <summary>
-        /// Invokes the pre unload event.
+        /// Updates game logic.
         /// </summary>
-        /// <param name="sender">The instance that invoked this event.</param>
-        /// <param name="args">The event args bundled with the invocation.</param>
-        protected void InvokePreUnload(object sender, UnloadEventArgs args)
-        {
-            this.PreUnload?.Invoke(this, args);
-        }
+        /// <param name="total">Total time since game was started.</param>
+        /// <param name="elapsed">Time since previous frame.</param>
+        /// <param name="isRunningSlowly">
+        /// A value representing whether the game is running slowly or not.
+        /// </param>
+        protected abstract void InternalUpdate(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly);
 
         /// <summary>
-        /// Invokes the post unload event.
+        /// Draw frame to screen.
         /// </summary>
-        /// <param name="sender">The instance that invoked this event.</param>
-        /// <param name="args">The event args bundled with the invocation.</param>
-        protected void InvokePostUnload(object sender, UnloadEventArgs args)
-        {
-            this.PostUnload?.Invoke(this, args);
-        }
-
-        /// <summary>
-        /// Invokes the pre update event.
-        /// </summary>
-        /// <param name="sender">The instance that invoked this event.</param>
-        /// <param name="args">The event args bundled with the invocation.</param>
-        protected void InvokePreUpdate(object sender, UpdateEventArgs args)
-        {
-            this.PreUpdate?.Invoke(this, args);
-        }
-
-        /// <summary>
-        /// Invokes the post update event.
-        /// </summary>
-        /// <param name="sender">The instance that invoked this event.</param>
-        /// <param name="args">The event args bundled with the invocation.</param>
-        protected void InvokePostUpdate(object sender, UpdateEventArgs args)
-        {
-            this.PostUpdate?.Invoke(this, args);
-        }
-
-        /// <summary>
-        /// Invokes the pre draw event.
-        /// </summary>
-        /// <param name="sender">The instance that invoked this event.</param>
-        /// <param name="args">The event args bundled with the invocation.</param>
-        protected void InvokePreDraw(object sender, DrawEventArgs args)
-        {
-            this.PreDraw?.Invoke(this, args);
-        }
-
-        /// <summary>
-        /// Invokes the post draw event.
-        /// </summary>
-        /// <param name="sender">The instance that invoked this event.</param>
-        /// <param name="args">The event args bundled with the invocation.</param>
-        protected void InvokePostDraw(object sender, DrawEventArgs args)
-        {
-            this.PostDraw?.Invoke(this, args);
-        }
+        /// <param name="total">Total time since game was started.</param>
+        /// <param name="elapsed">Time since previous frame.</param>
+        /// <param name="isRunningSlowly">
+        /// A value representing whether the game is running slowly or not.
+        /// </param>
+        protected abstract void InternalDraw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly);
     }
 }

@@ -125,72 +125,6 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
             return true;
         }
 
-        /// <inheritdoc />
-        public sealed override void Load()
-        {
-            this.InvokePreLoad(this, new LoadEventArgs(this.Assets));
-
-            this.background = Assets.LoadTexture2D(backgroundID);
-            this.walkAreas = Assets.LoadWalkAreas(walkAreasID);
-
-            this.hotspotsMask = this.Assets.LoadTexture2D(this.hotSpotMaskID);
-            this.hotspotMaskBuffer = this.FindHotspots(this.hotspotsMask);
-
-            this.InitializeEvents();
-
-            this.InvokePostLoad(this, new LoadEventArgs(this.Assets));
-        }
-
-        /// <inheritdoc />
-        public sealed override void Unload()
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <inheritdoc />
-        public sealed override void Update(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
-        {
-            this.InvokePreUpdate(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
-
-            foreach (Item item in this.Items)
-            {
-                item.Update(total, elapsed, isRunningSlowly);
-            }
-
-            foreach (Character character in this.Characters)
-            {
-                character.Update(total, elapsed, isRunningSlowly);
-            }
-
-            Color pixel = this.hotspotMaskBuffer[this.Campaign.Player.Location.Y, this.Campaign.Player.Location.X];
-            this.Hotspots[pixel].InvokeWhileStandingIn(new HotspotWalkingEventArgs(Campaign.Player));
-
-            this.InvokePostUpdate(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
-        }
-
-        /// <inheritdoc />
-        public sealed override void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
-        {
-            this.InvokePreDraw(this, new DrawEventArgs(total, elapsed, isRunningSlowly, this.Campaign.Renderer));
-
-            if (this.IsVisible)
-            {
-                this.Campaign.Renderer.Draw(this.background, this.Location);
-            }
-
-            foreach (Item item in this.Items)
-            {
-                item.Draw(total, elapsed, isRunningSlowly);
-            }
-
-            foreach (Character character in this.Characters)
-            {
-                character.Draw(total, elapsed, isRunningSlowly);
-            }
-
-            this.InvokePostDraw(this, new DrawEventArgs(total, elapsed, isRunningSlowly, this.Campaign.Renderer));
-        }
-
         /// <summary>
         /// Make a character walk to the input destination.
         /// </summary>
@@ -215,6 +149,60 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
             character.MovementPath = new Queue<Point>(path);
 
             return true;
+        }
+
+        /// <inheritdoc />
+        protected sealed override void InternalLoad()
+        {
+            this.background = Assets.LoadTexture2D(backgroundID);
+            this.walkAreas = Assets.LoadWalkAreas(walkAreasID);
+
+            this.hotspotsMask = this.Assets.LoadTexture2D(this.hotSpotMaskID);
+            this.hotspotMaskBuffer = this.FindHotspots(this.hotspotsMask);
+
+            this.InitializeEvents();
+        }
+
+        /// <inheritdoc />
+        protected sealed override void InternalUnload()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <inheritdoc />
+        protected sealed override void InternalUpdate(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
+        {
+            foreach (Item item in this.Items)
+            {
+                item.Update(total, elapsed, isRunningSlowly);
+            }
+
+            foreach (Character character in this.Characters)
+            {
+                character.Update(total, elapsed, isRunningSlowly);
+            }
+
+            Color pixel = this.hotspotMaskBuffer[this.Campaign.Player.Location.Y, this.Campaign.Player.Location.X];
+            this.Hotspots[pixel].InvokeWhileStandingIn(new HotspotWalkingEventArgs(Campaign.Player));
+        }
+
+        /// <inheritdoc />
+        protected sealed override void InternalDraw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
+        {
+            if (this.IsVisible)
+            {
+                this.Campaign.Renderer.Draw(this.background, this.Location);
+            }
+
+            foreach (Item item in this.Items)
+            {
+                item.Draw(total, elapsed, isRunningSlowly);
+            }
+
+            foreach (Character character in this.Characters)
+            {
+                character.Draw(total, elapsed, isRunningSlowly);
+            }
         }
 
         /// <summary>

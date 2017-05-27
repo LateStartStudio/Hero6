@@ -92,40 +92,29 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         }
 
         /// <inheritdoc />
-        public override sealed void Load()
+        protected sealed override void InternalLoad()
         {
-            this.InvokePreLoad(this, new LoadEventArgs(this.Assets));
-
             this.sprite = this.Assets.LoadTexture2D(this.spriteID);
-
-            this.InvokePostLoad(this, new LoadEventArgs(this.Assets));
         }
 
         /// <inheritdoc />
-        public override sealed void Unload()
+        protected sealed override void InternalUnload()
         {
             throw new NotImplementedException();
         }
 
         /// <inheritdoc />
-        public override sealed void Update(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
+        protected sealed override void InternalUpdate(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            this.InvokePreUpdate(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
-
-            this.InvokePostUpdate(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
         }
 
         /// <inheritdoc />
-        public override sealed void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
+        protected sealed override void InternalDraw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            this.InvokePreDraw(this, new DrawEventArgs(total, elapsed, isRunningSlowly, this.Campaign.Renderer));
-
             if (this.IsVisible)
             {
                 Campaign.Renderer.Draw(this.sprite, this.Location);
             }
-
-            this.InvokePostDraw(this, new DrawEventArgs(total, elapsed, isRunningSlowly, this.Campaign.Renderer));
         }
     }
 }
