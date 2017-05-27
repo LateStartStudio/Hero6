@@ -191,7 +191,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         {
             if (this.IsVisible)
             {
-                this.Campaign.Renderer.Draw(this.background, this.Location);
+                Campaign.Renderer.Draw(this.background, this.Location);
             }
 
             foreach (Item item in this.Items)

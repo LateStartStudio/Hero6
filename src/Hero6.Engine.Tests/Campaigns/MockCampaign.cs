@@ -16,8 +16,8 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
 
         private static MockCampaign instance;
 
-        private MockCampaign(Renderer renderer, MockAssetManager assets, MockUserInterface ui)
-            : base(Id, Cap, renderer, assets, ui)
+        private MockCampaign(MockAssetManager assets, MockUserInterface ui)
+            : base(Id, Cap, assets, ui)
         {
         }
 
@@ -27,11 +27,11 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
             {
                 if (instance == null)
                 {
-                    MockRenderer renderer = new MockRenderer();
+                    Campaign.Renderer = new MockRenderer();
                     MockAssetManager assets = new MockAssetManager();
                     MockUserInterface ui = new MockUserInterface(assets, null);
 
-                    instance = new MockCampaign(renderer, assets, ui);
+                    instance = new MockCampaign(assets, ui);
                 }
 
                 return instance;
