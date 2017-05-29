@@ -205,9 +205,7 @@ namespace LateStartStudio.Hero6
         {
             float horScaling = GraphicsDevice.PresentationParameters.BackBufferWidth / NativeGameResolution.X;
             float verScaling = GraphicsDevice.PresentationParameters.BackBufferHeight / NativeGameResolution.Y;
-            Vector3 screenScalingFactor = new Vector3(horScaling, verScaling, 1);
-
-            Transform = Matrix.CreateScale(screenScalingFactor);
+            Transform = Matrix.CreateScale(horScaling, verScaling, 1.0f);
         }
 
         private void GraphicsOnDeviceCreated(object sender, EventArgs eventArgs)
