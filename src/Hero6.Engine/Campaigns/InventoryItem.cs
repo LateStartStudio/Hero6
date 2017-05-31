@@ -42,29 +42,25 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         }
 
         /// <inheritdoc />
-        public override void Load()
+        protected override void InternalLoad()
         {
-            this.InvokePreLoad(this, new LoadEventArgs(this.Assets));
-
             this.sprite = this.Assets.LoadTexture2D(this.spriteID);
-
-            this.InvokePostLoad(this, new LoadEventArgs(this.Assets));
         }
 
         /// <inheritdoc />
-        public override void Unload()
+        protected override void InternalUnload()
         {
             throw new NotImplementedException();
         }
 
         /// <inheritdoc />
-        public override void Update(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
+        protected override void InternalUpdate(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
             throw new NotImplementedException();
         }
 
         /// <inheritdoc />
-        public override void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
+        protected override void InternalDraw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
             throw new NotImplementedException();
         }

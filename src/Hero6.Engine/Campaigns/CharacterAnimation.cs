@@ -188,10 +188,8 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         }
 
         /// <inheritdoc />
-        public override sealed void Load()
+        protected sealed override void InternalLoad()
         {
-            this.InvokePreLoad(this, new LoadEventArgs(this.Assets));
-
             this.CenterDownAnimation.Load();
             this.CenterUpAnimation.Load();
             this.LeftCenterAnimation.Load();
@@ -200,21 +198,17 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
             this.RightCenterAnimation.Load();
             this.RightDownAnimation.Load();
             this.RightUpAnimation.Load();
-
-            this.InvokePostLoad(this, new LoadEventArgs(this.Assets));
         }
 
         /// <inheritdoc />
-        public override sealed void Unload()
+        protected sealed override void InternalUnload()
         {
             throw new NotImplementedException();
         }
 
         /// <inheritdoc />
-        public override sealed void Update(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
+        protected sealed override void InternalUpdate(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            this.InvokePreUpdate(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
-
             if (this.IsMoving)
             {
                 this.elapsedTime += (float)elapsed.TotalSeconds;
@@ -236,15 +230,11 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
             {
                 this.currentFrame = 0;
             }
-
-            this.InvokePostUpdate(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
         }
 
         /// <inheritdoc />
-        public override sealed void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
+        protected sealed override void InternalDraw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            this.InvokePreDraw(this, new DrawEventArgs(total, elapsed, isRunningSlowly, this.Campaign.Renderer));
-
             Rectangle destRectangle = new Rectangle(
                 this.Location.X,
                 this.Location.Y,
@@ -258,8 +248,6 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
                 this.Height);
 
             this.Campaign.Renderer.Draw(this.CurrentSprite.Sheet, destRectangle, sourceRectangle, Color.White);
-
-            this.InvokePostDraw(this, new DrawEventArgs(total, elapsed, isRunningSlowly, this.Campaign.Renderer));
         }
 
         private void ChangeCurrentSprite(Vector2 direction)
