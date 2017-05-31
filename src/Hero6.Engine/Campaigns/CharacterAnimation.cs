@@ -247,7 +247,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
                 this.Width,
                 this.Height);
 
-            this.Campaign.Renderer.Draw(this.CurrentSprite.Sheet, destRectangle, sourceRectangle, Color.White);
+            Campaign.Renderer.Draw(this.CurrentSprite.Sheet, destRectangle, sourceRectangle, Color.White);
         }
 
         private void ChangeCurrentSprite(Vector2 direction)

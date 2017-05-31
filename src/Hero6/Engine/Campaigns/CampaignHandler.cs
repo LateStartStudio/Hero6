@@ -23,10 +23,11 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         {
             this.userInterface = userInterface;
 
+            Campaign.Renderer = Game.Renderer;
+
             this.campaigns = new List<Campaign>
             {
                 new RitesOfPassage.RitesOfPassage(
-                    Game.Renderer,
                     new MonoGameAssetManager(content),
                     this.userInterface.CurrentUi)
             };

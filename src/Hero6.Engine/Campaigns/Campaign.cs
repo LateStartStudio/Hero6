@@ -29,21 +29,14 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         /// </summary>
         /// <param name="name">The name of the campaign.</param>
         /// <param name="statCap">The stat cap of this campaign instance.</param>
-        /// <param name="renderer">The engine that will run the campaign.</param>
         /// <param name="assets">The assets manager that will load campaign assets.</param>
         /// <param name="userInterface">The user interface that this campaign will use.</param>
-        protected Campaign(
-            string name,
-            int statCap,
-            Renderer renderer,
-            AssetManager assets,
-            UserInterface userInterface)
+        protected Campaign(string name, int statCap, AssetManager assets, UserInterface userInterface)
         {
             Util.Logger?.Info($"Creating Campaign instance. - {name}");
 
             this.Name = name;
             this.StatCap = statCap;
-            this.Renderer = renderer;
             this.Assets = assets;
 
             this.UserInterface = userInterface;
@@ -82,6 +75,11 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         public event EventHandler<DrawEventArgs> PostDraw;
 
         /// <summary>
+        /// Gets or sets the renderer of the campaign.
+        /// </summary>
+        public static Renderer Renderer { get; set; }
+
+        /// <summary>
         /// Gets or sets a value indicating whether the campaign is paused or not.
         /// </summary>
         /// <value>
@@ -108,14 +106,6 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         /// The stat cap of this campaign instance.
         /// </value>
         public int StatCap { get; }
-
-        /// <summary>
-        /// Gets the engine of the campaign.
-        /// </summary>
-        /// <value>
-        /// The engine of the campaign.
-        /// </value>
-        public Renderer Renderer { get; }
 
         /// <summary>
         /// Gets the <see cref="AssetManager"/> of the <see cref="Campaign"/> instance.
