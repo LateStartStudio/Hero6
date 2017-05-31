@@ -15,7 +15,7 @@ configuration:
   #- Android Release
 
 install:
-    - ps: src\.ci\install.ps1
+    - ps: src\.ci\windows\install.ps1
 
 build:
   parallel: true

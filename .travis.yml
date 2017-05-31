@@ -18,10 +18,10 @@ os:
   - linux
   - osx
 
-before_install: ./src/.ci/before_install.${TRAVIS_OS_NAME}.sh
+before_install: ./src/.ci/${TRAVIS_OS_NAME}/before_install.sh
 
-install: ./src/.ci/install.${TRAVIS_OS_NAME}.sh
+install: ./src/.ci/${TRAVIS_OS_NAME}/install.sh
 
-before_script: ./src/.ci/before_script.${TRAVIS_OS_NAME}.sh
+before_script: ./src/.ci/${TRAVIS_OS_NAME}/before_script.sh
 
-script: ./src/.ci/script.${TRAVIS_OS_NAME}.sh
+script: ./src/.ci/${TRAVIS_OS_NAME}/script.sh
