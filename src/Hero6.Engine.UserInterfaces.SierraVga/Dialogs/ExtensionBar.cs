@@ -137,7 +137,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs
         private void SleepOnMouseButtonUp(object sender, MouseButtonClickEventArgs e)
         {
             Hide();
-            SierraVgaController.TextBox.Show("Work In Progress");
+            SierraVgaController.Rest.Show();
         }
 
         private void SleepBtnOnMouseEnter(object sender, EventArgs eventArgs)

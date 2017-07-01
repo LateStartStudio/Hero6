@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dialogs\ExtensionBar.cs" />
+    <Compile Include="Dialogs\Rest.cs" />
     <Compile Include="Dialogs\TextBox.cs" />
     <Compile Include="Input\Cursors.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

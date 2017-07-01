@@ -29,44 +29,64 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         /// </summary>
         public Orientation Orientation { get; set; }
 
+        /// <inheritdoc cref="UserInterfaceElement"/>
+        protected override int DefaultWidth
+        {
+            get
+            {
+                int width = 0;
+
+                foreach (UserInterfaceElement userInterfaceElement in Children)
+                {
+                    if (Orientation == Orientation.Horizontal)
+                    {
+                        width += userInterfaceElement.Width;
+                    }
+                    else
+                    {
+                        if (userInterfaceElement.Width > width)
+                        {
+                            width = userInterfaceElement.Width;
+                        }
+                    }
+                }
+
+                return width;
+            }
+        }
+
+        /// <inheritdoc cref="UserInterfaceElement"/>
+        protected override int DefaultHeight
+        {
+            get
+            {
+                int height = 0;
+
+                foreach (UserInterfaceElement userInterfaceElement in Children)
+                {
+                    if (Orientation == Orientation.Horizontal)
+                    {
+                        if (userInterfaceElement.Height > height)
+                        {
+                            height = userInterfaceElement.Height;
+                        }
+                    }
+                    else
+                    {
+                        height += userInterfaceElement.Height;
+                    }
+                }
+
+                return height;
+            }
+        }
+
         /// <inheritdoc />
         protected override void InternalLoad()
         {
-            int width = 0;
-            int height = 0;
-
             foreach (UserInterfaceElement userInterfaceElement in Children)
             {
                 userInterfaceElement.Load();
-
-                if (Orientation == Orientation.Horizontal)
-                {
-                    width += userInterfaceElement.Width;
-
-                    if (userInterfaceElement.Height > height)
-                    {
-                        height = userInterfaceElement.Height;
-                    }
-                }
-                else
-                {
-                    height += userInterfaceElement.Height;
-
-                    if (userInterfaceElement.Width > width)
-                    {
-                        width = userInterfaceElement.Width;
-                    }
-                }
-            }
-
-            if (Width == -1)
-            {
-                this.Width = width;
-            }
-
-            if (Height == -1)
-            {
-                this.Height = height;
             }
         }
 

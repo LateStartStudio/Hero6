@@ -20,6 +20,8 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
     public abstract class UserInterfaceElement : IGameLoop
     {
         private bool isMouseIntersectingPrevious;
+        private bool isWidthSet;
+        private bool isHeightSet;
         private Point location;
         private Texture2D background;
         private Rectangle destination;
@@ -30,11 +32,8 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         /// <param name="assets">The assets manager for this user interface module.</param>
         protected UserInterfaceElement(AssetManager assets)
         {
-            this.isMouseIntersectingPrevious = false;
             this.Assets = assets;
             this.IsVisible = true;
-            this.Width = -1;
-            this.Height = -1;
         }
 
         /// <inheritdoc />
@@ -87,8 +86,16 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         /// </summary>
         public int Width
         {
-            get { return destination.Width; }
-            set { this.destination.Width = value; }
+            get
+            {
+                return destination.Width;
+            }
+
+            set
+            {
+                this.destination.Width = value;
+                this.isWidthSet = true;
+            }
         }
 
         /// <summary>
@@ -96,8 +103,16 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         /// </summary>
         public int Height
         {
-            get { return destination.Height; }
-            set { this.destination.Height = value; }
+            get
+            {
+                return destination.Height;
+            }
+
+            set
+            {
+                this.destination.Height = value;
+                this.isHeightSet = true;
+            }
         }
 
         /// <summary>
@@ -138,6 +153,16 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         protected bool IsLoaded { get; set; }
 
         /// <summary>
+        /// Gets the default width if it hasn't been set before load time.
+        /// </summary>
+        protected abstract int DefaultWidth { get; }
+
+        /// <summary>
+        /// Gets the default height if it hasn't been set before load time.
+        /// </summary>
+        protected abstract int DefaultHeight { get; }
+
+        /// <summary>
         /// Gets the asset manager for this user interface module.
         /// </summary>
         protected AssetManager Assets { get; }
@@ -151,6 +176,17 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
             background.SetData(new[] { Background });
 
             InternalLoad();
+
+            if (!isWidthSet)
+            {
+                Width = DefaultWidth;
+            }
+
+            if (!isHeightSet)
+            {
+                Height = DefaultHeight;
+            }
+
             this.IsLoaded = true;
 
             PostLoad?.Invoke(this, new LoadEventArgs(Assets));

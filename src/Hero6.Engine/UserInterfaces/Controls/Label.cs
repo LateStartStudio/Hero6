@@ -81,6 +81,40 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         /// </summary>
         public TextWrapping TextWrapping { get; set; }
 
+        /// <inheritdoc cref="UserInterfaceElement"/>
+        protected override int DefaultWidth
+        {
+            get
+            {
+                switch (TextWrapping)
+                {
+                    case TextWrapping.None:
+                        return (int)Font.MeasureString(textOriginal).X;
+                    case TextWrapping.Wrap:
+                        return (int)Font.MeasureString(textWrapped).X;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+        }
+
+        /// <inheritdoc cref="UserInterfaceElement"/>
+        protected override int DefaultHeight
+        {
+            get
+            {
+                switch (TextWrapping)
+                {
+                    case TextWrapping.None:
+                        return (int)Font.MeasureString(textOriginal).Y;
+                    case TextWrapping.Wrap:
+                        return (int)Font.MeasureString(textWrapped).Y;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+        }
+
         /// <inheritdoc />
         protected override void InternalLoad()
         {
