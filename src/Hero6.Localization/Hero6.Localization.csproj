@@ -53,6 +53,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="..\..\assets\Locales\Strings.*.resx"/>
     <EmbeddedResource Include="..\..\assets\Locales\Strings.resx">
       <Link>Strings.resx</Link>
       <Generator>PublicResXFileCodeGenerator</Generator>
