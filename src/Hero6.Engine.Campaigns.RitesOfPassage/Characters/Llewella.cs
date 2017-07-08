@@ -10,7 +10,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Characters
     using Animations;
     using Campaigns;
     using InventoryItems;
-    using Locales;
+    using Localization;
 
     public sealed class Llewella : Character
     {

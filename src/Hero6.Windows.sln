@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.WindowsDX", "Hero6.WindowsDX\Hero6.WindowsDX.csproj", "{B0B2294D-FB45-47C3-A645-6C5884E7CFAB}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -58,6 +58,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.Engine.Tests", "Hero6.Engine.Tests\Hero6.Engine.Tests.csproj", "{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.MonoGamePipeline", "Hero6.MonoGamePipeline\Hero6.MonoGamePipeline.csproj", "{43E058BB-A9A5-473F-AD4C-269239BA41E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.Localization", "Hero6.Localization\Hero6.Localization.csproj", "{CB706FAB-954B-462D-8590-5433A63E14E6}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -362,25 +364,6 @@ Global
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.WindowsDX Release|Any CPU.ActiveCfg = Release|Any CPU
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.WindowsDX Release|x86.ActiveCfg = Release|Any CPU
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.WindowsDX Release|x86.Build.0 = Release|Any CPU
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Android Debug|Any CPU.ActiveCfg = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Android Debug|x86.ActiveCfg = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Android Debug|x86.Build.0 = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Android Release|Any CPU.ActiveCfg = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Android Release|x86.ActiveCfg = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Android Release|x86.Build.0 = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Debug|Any CPU.ActiveCfg = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Debug|x86.ActiveCfg = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Debug|x86.Build.0 = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Release|Any CPU.ActiveCfg = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Release|x86.ActiveCfg = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.Release|x86.Build.0 = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.WindowsDX Debug|Any CPU.ActiveCfg = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.WindowsDX Debug|x86.ActiveCfg = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.WindowsDX Debug|x86.Build.0 = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.WindowsDX Release|Any CPU.ActiveCfg = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.WindowsDX Release|Any CPU.Build.0 = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.WindowsDX Release|x86.ActiveCfg = All
-		{F8A49E12-EBA1-4067-ADF1-E2BA91C11CFC}.WindowsDX Release|x86.Build.0 = All
 		{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA}.Android Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA}.Android Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA}.Android Debug|x86.ActiveCfg = Debug|Any CPU
@@ -429,6 +412,30 @@ Global
 		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.WindowsDX Release|Any CPU.Build.0 = Release|Any CPU
 		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.WindowsDX Release|x86.ActiveCfg = Release|Any CPU
 		{43E058BB-A9A5-473F-AD4C-269239BA41E7}.WindowsDX Release|x86.Build.0 = Release|Any CPU
+		{CB706FAB-954B-462D-8590-5433A63E14E6}.Android Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB706FAB-954B-462D-8590-5433A63E14E6}.Android Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB706FAB-954B-462D-8590-5433A63E14E6}.Android Debug|x86.ActiveCfg = Debug|Any CPU
+		{CB706FAB-954B-462D-8590-5433A63E14E6}.Android Debug|x86.Build.0 = Debug|Any CPU
+		{CB706FAB-954B-462D-8590-5433A63E14E6}.Android Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB706FAB-954B-462D-8590-5433A63E14E6}.Android Release|Any CPU.Build.0 = Release|Any CPU
+		{CB706FAB-954B-462D-8590-5433A63E14E6}.Android Release|x86.ActiveCfg = Release|Any CPU
+		{CB706FAB-954B-462D-8590-5433A63E14E6}.Android Release|x86.Build.0 = Release|Any CPU
+		{CB706FAB-954B-462D-8590-5433A63E14E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB706FAB-954B-462D-8590-5433A63E14E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB706FAB-954B-462D-8590-5433A63E14E6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CB706FAB-954B-462D-8590-5433A63E14E6}.Debug|x86.Build.0 = Debug|Any CPU
+		{CB706FAB-954B-462D-8590-5433A63E14E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB706FAB-954B-462D-8590-5433A63E14E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB706FAB-954B-462D-8590-5433A63E14E6}.Release|x86.ActiveCfg = Release|Any CPU
+		{CB706FAB-954B-462D-8590-5433A63E14E6}.Release|x86.Build.0 = Release|Any CPU
+		{CB706FAB-954B-462D-8590-5433A63E14E6}.WindowsDX Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB706FAB-954B-462D-8590-5433A63E14E6}.WindowsDX Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB706FAB-954B-462D-8590-5433A63E14E6}.WindowsDX Debug|x86.ActiveCfg = Debug|Any CPU
+		{CB706FAB-954B-462D-8590-5433A63E14E6}.WindowsDX Debug|x86.Build.0 = Debug|Any CPU
+		{CB706FAB-954B-462D-8590-5433A63E14E6}.WindowsDX Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB706FAB-954B-462D-8590-5433A63E14E6}.WindowsDX Release|Any CPU.Build.0 = Release|Any CPU
+		{CB706FAB-954B-462D-8590-5433A63E14E6}.WindowsDX Release|x86.ActiveCfg = Release|Any CPU
+		{CB706FAB-954B-462D-8590-5433A63E14E6}.WindowsDX Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -450,6 +457,7 @@ Global
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
 		{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
 		{43E058BB-A9A5-473F-AD4C-269239BA41E7} = {C7901A1A-E22C-468F-9E9A-9A891598E7D8}
+		{CB706FAB-954B-462D-8590-5433A63E14E6} = {C7901A1A-E22C-468F-9E9A-9A891598E7D8}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0

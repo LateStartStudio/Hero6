@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Locales {
+namespace LateStartStudio.Hero6.Localization {
     using System;
     
     
@@ -22,7 +22,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Locales {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Strings {
+    public class Strings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,10 +36,10 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Locales {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Locales.Strings", typeof(Strings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LateStartStudio.Hero6.Localization.Strings", typeof(Strings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Locales {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Locales {
         /// <summary>
         ///   Looks up a localized string similar to You can&apos;t quite reach it..
         /// </summary>
-        internal static string AlbionSignGrab {
+        public static string AlbionSignGrab {
             get {
                 return ResourceManager.GetString("AlbionSignGrab", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Locales {
         /// <summary>
         ///   Looks up a localized string similar to This must be Albion..
         /// </summary>
-        internal static string AlbionSignLook {
+        public static string AlbionSignLook {
             get {
                 return ResourceManager.GetString("AlbionSignLook", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Locales {
         /// <summary>
         ///   Looks up a localized string similar to It talks as much as any other piece wood..
         /// </summary>
-        internal static string AlbionSignTalk {
+        public static string AlbionSignTalk {
             get {
                 return ResourceManager.GetString("AlbionSignTalk", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Locales {
         /// <summary>
         ///   Looks up a localized string similar to You remove the twisted sword from the ground and take it with you. Let&apos;s hope your own sword does not end the same shape..
         /// </summary>
-        internal static string BentSwordGrab {
+        public static string BentSwordGrab {
             get {
                 return ResourceManager.GetString("BentSwordGrab", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Locales {
         /// <summary>
         ///   Looks up a localized string similar to It looks like a sword..
         /// </summary>
-        internal static string BentSwordLook {
+        public static string BentSwordLook {
             get {
                 return ResourceManager.GetString("BentSwordLook", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Locales {
         /// <summary>
         ///   Looks up a localized string similar to Talking to swords are we?.
         /// </summary>
-        internal static string BentSwordTalk {
+        public static string BentSwordTalk {
             get {
                 return ResourceManager.GetString("BentSwordTalk", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Locales {
         /// <summary>
         ///   Looks up a localized string similar to Feels like a fountain..
         /// </summary>
-        internal static string FountainGrab {
+        public static string FountainGrab {
             get {
                 return ResourceManager.GetString("FountainGrab", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Locales {
         /// <summary>
         ///   Looks up a localized string similar to Looks like a fountain..
         /// </summary>
-        internal static string FountainLook {
+        public static string FountainLook {
             get {
                 return ResourceManager.GetString("FountainLook", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Locales {
         /// <summary>
         ///   Looks up a localized string similar to Speaks like a fountain..
         /// </summary>
-        internal static string FountainTalk {
+        public static string FountainTalk {
             get {
                 return ResourceManager.GetString("FountainTalk", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Locales {
         /// <summary>
         ///   Looks up a localized string similar to Touching yourself isn&apos;t very hero-like..
         /// </summary>
-        internal static string HeroGrab {
+        public static string HeroGrab {
             get {
                 return ResourceManager.GetString("HeroGrab", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Locales {
         /// <summary>
         ///   Looks up a localized string similar to Just another Player Character..
         /// </summary>
-        internal static string HeroLook {
+        public static string HeroLook {
             get {
                 return ResourceManager.GetString("HeroLook", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Locales {
         /// <summary>
         ///   Looks up a localized string similar to Did the Hero or the pizza come first you wonder....
         /// </summary>
-        internal static string HeroTalk {
+        public static string HeroTalk {
             get {
                 return ResourceManager.GetString("HeroTalk", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Locales {
         /// <summary>
         ///   Looks up a localized string similar to No! Bad Hero!.
         /// </summary>
-        internal static string LlewellaGrab {
+        public static string LlewellaGrab {
             get {
                 return ResourceManager.GetString("LlewellaGrab", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Locales {
         /// <summary>
         ///   Looks up a localized string similar to It&apos;s a lady..
         /// </summary>
-        internal static string LlewellaLook {
+        public static string LlewellaLook {
             get {
                 return ResourceManager.GetString("LlewellaLook", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Locales {
         /// <summary>
         ///   Looks up a localized string similar to You found my sword! Thank you so much!.
         /// </summary>
-        internal static string LlewellaTalk1 {
+        public static string LlewellaTalk1 {
             get {
                 return ResourceManager.GetString("LlewellaTalk1", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Locales {
         /// <summary>
         ///   Looks up a localized string similar to I&apos;ve lost my sword oh great hero!.
         /// </summary>
-        internal static string LlewellaTalk2 {
+        public static string LlewellaTalk2 {
             get {
                 return ResourceManager.GetString("LlewellaTalk2", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Locales {
         /// <summary>
         ///   Looks up a localized string similar to You&apos;re my hero!.
         /// </summary>
-        internal static string LlewellaTalk3 {
+        public static string LlewellaTalk3 {
             get {
                 return ResourceManager.GetString("LlewellaTalk3", resourceCulture);
             }

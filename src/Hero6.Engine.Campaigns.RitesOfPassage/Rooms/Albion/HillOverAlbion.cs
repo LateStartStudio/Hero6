@@ -11,7 +11,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Rooms.Albion
     using Campaigns;
     using Characters;
     using Items;
-    using Locales;
+    using Localization;
     using Regions;
 
     public sealed class HillOverAlbion : Room

@@ -10,7 +10,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Rooms.Albion
     using Assets.Graphics;
     using Campaigns;
     using Characters;
-    using Locales;
+    using Localization;
     using Regions;
 
     public sealed class Fountain : Room

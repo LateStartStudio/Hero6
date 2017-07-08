@@ -8,7 +8,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Items
 {
     using System;
     using Campaigns;
-    using Locales;
+    using Localization;
 
     public class BentSword : Item
     {
