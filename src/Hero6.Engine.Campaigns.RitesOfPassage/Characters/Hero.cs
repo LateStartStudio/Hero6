@@ -9,7 +9,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Characters
     using System;
     using Animations;
     using Campaigns;
-    using Locales;
+    using Localization;
 
     public sealed class Hero : PlayerCharacter
     {

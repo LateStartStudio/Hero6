@@ -40,12 +40,6 @@
     <CodeAnalysisRuleSet>..\Hero6.NoDocumentation.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\..\assets\Campaigns\Rites of Albion\Locales\Strings.Designer.cs">
-      <Link>Locales\Strings.Designer.cs</Link>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Strings.resx</DependentUpon>
-    </Compile>
     <Compile Include="Animations\HeroWalk.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
@@ -70,13 +64,10 @@
       <Project>{0c0586a3-5a10-42ce-b609-cc80ee2cef7a}</Project>
       <Name>Hero6.Engine</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="..\..\assets\Campaigns\Rites of Albion\Locales\Strings.resx">
-      <Link>Locales\Strings.resx</Link>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
+    <ProjectReference Include="..\Hero6.Localization\Hero6.Localization.csproj">
+      <Project>{cb706fab-954b-462d-8590-5433a63e14e6}</Project>
+      <Name>Hero6.Localization</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <AdditionalFiles Include="..\stylecop.json">
