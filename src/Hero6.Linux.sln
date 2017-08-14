@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.DesktopGL", "Hero6.DesktopGL\Hero6.DesktopGL.csproj", "{BB1758DB-3B4B-4F61-9272-F08F56E4C71C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7} = {43E058BB-A9A5-473F-AD4C-269239BA41E7}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Applications", "{887BCA83-96AC-4E83-BAF5-567626AF670B}"
 EndProject
