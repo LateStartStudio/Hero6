@@ -41,7 +41,7 @@ let build config =
 
 let test configDir =
     for i in Directory.GetDirectories "./" do
-        let dir = i + "./bin/" + configDir + "/Debug/"
+        let dir = i + "./bin/" + configDir + "/"
 
         if Directory.Exists dir then
             for j in Directory.GetFiles(dir, "*.Tests.dll") do
