@@ -89,6 +89,16 @@ namespace LateStartStudio.Hero6.Engine.Assets.Graphics
         }
 
         /// <summary>
+        /// Convert a <see cref="Point"/> instance to a <see cref="Vector2"/> instance without data
+        /// loss.
+        /// </summary>
+        /// <param name="point">The <see cref="Point"/> instance to covnert.</param>
+        public static implicit operator Vector2(Point point)
+        {
+            return new Vector2(point);
+        }
+
+        /// <summary>
         /// Overload of the + operator.
         /// </summary>
         /// <param name="a">The left hand vector.</param>

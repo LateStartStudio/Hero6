@@ -42,5 +42,15 @@ namespace LateStartStudio.Hero6.Engine.Assets.Graphics
             this.X = (int)vector.X;
             this.Y = (int)vector.Y;
         }
+
+        /// <summary>
+        /// Convert a <see cref="Vector2"/> instance to a <see cref="Point"/> instance. Note that
+        /// there is risk of losing data since this is a float to integer conversion.
+        /// </summary>
+        /// <param name="vector2">The <see cref="Vector2"/> instance to convert.</param>
+        public static explicit operator Point(Vector2 vector2)
+        {
+            return new Point(vector2);
+        }
     }
 }
