@@ -33,18 +33,19 @@ The Windows Installer is made with [Advanced Installer](http://www.advancedinsta
 ||Debug|Release|
 |:---|:---:|:---:|
 |**master**| - | - |
-|Windows (DirectX)|![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/11/badge)|![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/12/badge)|
-|Windows (OpenGL)|![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/9/badge)|![](https://hero6.visualstudio.com/_apis/public/build/definitions/f4557623-2016-4a6b-821d-942e8a1b7e6e/10/badge)|
-
-#### Experimental Builds
-||Debug|Release|
-|:---|:---:|:---:|
-|**master**| - | - |
-|Ubuntu 12.04.5 LTS and OS X 10.11.6 El Capitan|![](https://api.travis-ci.org/LateStartStudio/Hero6.svg?branch=master)|![](https://api.travis-ci.org/LateStartStudio/Hero6.svg?branch=master)|
+|**Windows 7**| - | - |
+|DirectX|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_DebugBuildWindowsDX)/statusIcon)|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_Windows_DesktopGLDebug)/statusIcon)|
+|OpenGL|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_DebugBuildWindowsDX)/statusIcon)|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_DesktopGL)/statusIcon)|
+|FAKE|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_Windows_Fake)/statusIcon)|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_Windows_Fake)/statusIcon)|
+|Installer|-|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_Windows_Installer)/statusIcon)|
+|**OS X Sierra**|
+|OpenGL|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_MacOS_DesktopGLDebug)/statusIcon)|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_ReleaseBuildDesktopGLMacX86)/statusIcon)|
+|FAKE|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_MacOS_Fake)/statusIcon)|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_MacOS_Fake)/statusIcon)|
+|**Ubuntu 16.04**|
+|OpenGL|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_Ubuntu_DesktopGLDebug)/statusIcon)|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_ReleaseBuildDesktopGLLinux)/statusIcon)|
+|FAKE|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_Ubuntu_Fake)/statusIcon)|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_Ubuntu_Fake)/statusIcon)|
 
 ### Build Instructions
-Ideally, we want anyone to be able to build Hero6 on any OS with any IDE. This is an ongoing task and we continue our efforts to make that possible. Currently, we can guarantee that it will work on Windows with Visual Studio 2015.
-
 #### Windows
 ##### Prerequisites
 
@@ -76,7 +77,7 @@ Ideally, we want anyone to be able to build Hero6 on any OS with any IDE. This i
 8. Run.
 
 #### Linux and OS X
-Theoretically, you should be able to build and run Hero6 on Linux and OS X, but this is not something we maintain right now, and we do not intend to do this until we have a working CI build server in place.
+More coming.
 
 ### Supported Platforms
 * Windows (DirectX)
