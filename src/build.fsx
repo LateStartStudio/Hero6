@@ -40,17 +40,24 @@ let build config =
     |> Log ("Her6 Build " + config + " Configuration Output: ")
 
 let test configDir =
+    let mutable testCount = false
+
     for i in Directory.GetDirectories "./" do
-        let dir = i + "./bin/" + configDir + "/"
+        let dir = i + "/bin/" + configDir + "/"
 
         if Directory.Exists dir then
-            for j in Directory.GetFiles(dir, "*.Tests.dll") do
+            for j in Directory.GetFiles(dir, "./*.Tests.dll") do
                 trace j
                 !! (j)
                 |> NUnit3 (fun p ->
                 { p with
                     ToolPath = "packages/NUnit.ConsoleRunner/tools/nunit3-console.exe"
                 })
+
+                testCount <- true
+
+    if not testCount then
+        raise (System.ArgumentException("No test assemblies found!! Have you configured your paths correctly?"))
 
 Target "Clean DesktopGL Debug" (fun _ ->
     clean
