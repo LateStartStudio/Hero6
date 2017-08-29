@@ -259,5 +259,8 @@ paket-files/
 __pycache__/
 *.pyc
 
+# Backup files
+*.bak
+
 #git-lfs.exe for TFS Build Agent
 git-lfs.exe
