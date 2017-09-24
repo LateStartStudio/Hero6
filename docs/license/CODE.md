@@ -1,8 +1,8 @@
-# [License - Code](https://github.com/LateStartStudio/Hero6/blob/master/docs/LICENSE.CODE.md)
+# [License - Code](https://github.com/LateStartStudio/Hero6/blob/master/docs/license/CODE.md)
 
 MIT License
 
-Hero6 Source Code - Copyright (c) 2016-2016 LateStartStudio
+Hero6 Source Code - Copyright (c) 2016-2017 LateStartStudio
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

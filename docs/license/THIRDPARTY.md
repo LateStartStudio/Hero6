@@ -1,4 +1,4 @@
-﻿# [License - Third-party](https://github.com/LateStartStudio/Hero6/tree/master/docs/LICENSE.THIRDPARTY.md)
+﻿# [License - Third-party](https://github.com/LateStartStudio/Hero6/tree/master/docs/license/THIRDPARTY.md)
 
 ## Software
 

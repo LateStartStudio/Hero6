@@ -73,26 +73,26 @@
       <Link>Assets\README.md</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\docs\CHANGELOG.md">
-      <Link>Assets\CHANGELOG.md</Link>
+      <Link>Assets\docs\CHANGELOG.md</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\docs\COPYRIGHT.md">
-      <Link>Assets\COPYRIGHT.md</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\docs\LICENSE.ASSETS.md">
-      <Link>Assets\LICENSE.ASSETS.md</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\docs\LICENSE.CODE.md">
-      <Link>Assets\LICENSE.CODE.md</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\docs\LICENSE.md">
-      <Link>Assets\LICENSE.md</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\docs\LICENSE.THIRDPARTY.md">
-      <Link>Assets\LICENSE.THIRDPARTY.md</Link>
+      <Link>Assets\docs\COPYRIGHT.md</Link>
     </AndroidAsset>
     <AdditionalFiles Include="..\stylecop.json">
       <Link>stylecop.json</Link>
     </AdditionalFiles>
+    <AndroidAsset Include="..\..\docs\license\ASSETS.md">
+      <Link>Assets\docs\license\ASSETS.md</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\docs\license\CODE.md">
+      <Link>Assets\docs\license\CODE.md</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\docs\license\THIRDPARTY.md">
+      <Link>Assets\docs\license\THIRDPARTY.md</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\LICENSE.md">
+      <Link>Assets\LICENSE.md</Link>
+    </AndroidAsset>
     <None Include="paket.references" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />

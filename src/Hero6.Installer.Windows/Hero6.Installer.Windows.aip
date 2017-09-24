@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<DOCUMENT Type="Advanced Installer" CreateVersion="13.5" version="13.8.1" Modules="professional" RootPath="." Language="en" Id="{1D372BA2-C25D-48F1-AB27-FC290BD4BE31}">
+<DOCUMENT Type="Advanced Installer" CreateVersion="13.5" version="14.2.1" Modules="professional" RootPath="." Language="en" Id="{1D372BA2-C25D-48F1-AB27-FC290BD4BE31}">
   <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
     <ROW Name="HiddenItems" Value="AppXAppDetailsComponent;AppXCapabilitiesComponent;AppXDependenciesComponent;AppXProductDetailsComponent;AppXVisualAssetsComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent"/>
   </COMPONENT>
@@ -37,16 +37,16 @@
     <ROW Property="UpgradeCode" Value="{A3C64CC9-E1D8-4890-B1E7-780F90794342}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
     <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
-    <ROW Property="WindowsTypeNT" MultiBuildValue="DefaultBuild:Windows XP x86 Service Pack 3, Windows Server 2003 x86 Service Pack 2, Windows Vista x86, Windows Vista x86 Service Pack 1" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT" MultiBuildValue="DefaultBuild:Windows XP SP3 x86, Windows Server 2003 SP2 x86, Windows Vista RTM x86, Windows Vista SP1 x86" ValueLocId="-"/>
     <ROW Property="WindowsTypeNT40" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
     <ROW Property="WindowsTypeNT40Display" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
     <ROW Property="WindowsTypeNT50" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
     <ROW Property="WindowsTypeNT50Display" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
     <ROW Property="WindowsTypeNT5X" MultiBuildValue="DefaultBuild:Windows XP/2003 RTM, Windows XP/2003 SP1, Windows XP SP2 x86" ValueLocId="-"/>
     <ROW Property="WindowsTypeNT5XDisplay" MultiBuildValue="DefaultBuild:Windows XP/2003 RTM, Windows XP/2003 SP1, Windows XP SP2 x86" ValueLocId="-"/>
-    <ROW Property="WindowsTypeNT64" MultiBuildValue="DefaultBuild:Windows XP x64 Service Pack 2, Windows Server 2003 x64 Service Pack 2, Windows Vista x64, Windows Vista x64 Service Pack 1" ValueLocId="-"/>
-    <ROW Property="WindowsTypeNT64Display" MultiBuildValue="DefaultBuild:Windows XP x64 Service Pack 2, Windows Server 2003 x64 Service Pack 2, Windows Vista x64, Windows Vista x64 Service Pack 1" ValueLocId="-"/>
-    <ROW Property="WindowsTypeNTDisplay" MultiBuildValue="DefaultBuild:Windows XP x86 Service Pack 3, Windows Server 2003 x86 Service Pack 2, Windows Vista x86, Windows Vista x86 Service Pack 1" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT64" MultiBuildValue="DefaultBuild:Windows XP SP2 x64, Windows Server 2003 SP2 x64, Windows Vista RTM x64, Windows Vista SP1 x64" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT64Display" MultiBuildValue="DefaultBuild:Windows XP SP2 x64, Windows Server 2003 SP2 x64, Windows Vista RTM x64, Windows Vista SP1 x64" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNTDisplay" MultiBuildValue="DefaultBuild:Windows XP SP3 x86, Windows Server 2003 SP2 x86, Windows Vista RTM x86, Windows Vista SP1 x86" ValueLocId="-"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
     <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
@@ -76,6 +76,7 @@
     <ROW Directory="Walk_Dir" Directory_Parent="Hero_Dir" DefaultDir="Walk"/>
     <ROW Directory="bin_Dir" Directory_Parent="APPDIR" DefaultDir="bin"/>
     <ROW Directory="docs_Dir" Directory_Parent="APPDIR" DefaultDir="docs"/>
+    <ROW Directory="license_Dir" Directory_Parent="docs_Dir" DefaultDir="license"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
     <ROW Component="AI_ExePath" ComponentId="{F90DDC9D-C887-4608-B411-BEA1E0CCE4ED}" Directory_="APPDIR" Attributes="4" KeyPath="AI_ExePath"/>
@@ -97,7 +98,8 @@
     <ROW Component="Hero6.exe.config" ComponentId="{0E4D685E-F575-4075-9D42-A7E9F6131853}" Directory_="bin_Dir" Attributes="0" KeyPath="Hero6.exe.config" Type="0"/>
     <ROW Component="HeroWalkRightUp.xnb" ComponentId="{2159A1C1-BD35-41F6-A1AD-D7861C2CE1BF}" Directory_="Walk_Dir" Attributes="0" KeyPath="HeroWalkRightUp.xnb" Type="0"/>
     <ROW Component="HillOverAlbion.xnb" ComponentId="{4A0323D1-536D-404C-ACAB-C597054CFF50}" Directory_="NewFolder_1_Dir" Attributes="0" KeyPath="HillOverAlbion.xnb" Type="0"/>
-    <ROW Component="LICENSE.THIRDPARTY.md" ComponentId="{9D93EB0A-5E67-4EF7-AF66-69CBFC84744B}" Directory_="docs_Dir" Attributes="0" KeyPath="LICENSE.THIRDPARTY.md" Type="0"/>
+    <ROW Component="LICENSE.ASSETS.md" ComponentId="{1C520A77-0D9F-4978-A939-A23C03A32369}" Directory_="license_Dir" Attributes="0" KeyPath="LICENSE.ASSETS.md" Type="0"/>
+    <ROW Component="LICENSE.THIRDPARTY.md" ComponentId="{9D93EB0A-5E67-4EF7-AF66-69CBFC84744B}" Directory_="docs_Dir" Attributes="0" KeyPath="COPYRIGHT.md" Type="0"/>
     <ROW Component="LlewellaWalkCenterDown.xnb_1" ComponentId="{91773FE0-979B-4090-AA92-4F710F1C0726}" Directory_="Walk_1_Dir" Attributes="0" KeyPath="LlewellaWalkCenterDown.xnb" Type="0"/>
     <ROW Component="MonoGame.Framework.dll" ComponentId="{B705C33D-2911-432C-B41B-13D6B2CD878D}" Directory_="bin_Dir" Attributes="0" KeyPath="MonoGame.Framework.dll"/>
     <ROW Component="NewFolder" ComponentId="{E1BC0187-7DBE-4F04-987C-3A4DC2A47E3D}" Directory_="NewFolder_Dir" Attributes="0"/>
@@ -118,7 +120,7 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
     <ROW Feature="AiAppXAssets" Title="AiAppXAssets" Description="Description" Display="3" Level="0" Directory_="APPDIR" Attributes="0" Components="AI_ExePath"/>
-    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0" Components="AI_ExePath AdventureGame.dll Arial_11.25_Regular.xnb Arrow.xnb Background.xnb BentSword.xnb_1 CHANGELOG.md Collections.dll CurrentItemDark.xnb Eto.Serialization.Xaml.dll Eto.Wpf.dll Eto.dll Fountain.xnb_1 Hero6.Campaigns.RitesOfPassage.dll Hero6.UserInterface.SierraVga.dll Hero6.exe Hero6.exe.config HeroWalkRightUp.xnb HillOverAlbion.xnb LICENSE.THIRDPARTY.md LlewellaWalkCenterDown.xnb_1 MonoGame.Framework.dll NewFolder Portable.Xaml.dll PriorityQueue.dll ProductInformation Search.dll SharpDX.DXGI.dll SharpDX.Direct2D1.dll SharpDX.Direct3D11.dll SharpDX.Direct3D9.dll SharpDX.MediaFoundation.dll SharpDX.RawInput.dll SharpDX.XAudio2.dll SharpDX.XInput.dll SharpDX.dll log4net.dll"/>
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0" Components="AI_ExePath AdventureGame.dll Arial_11.25_Regular.xnb Arrow.xnb Background.xnb BentSword.xnb_1 CHANGELOG.md Collections.dll CurrentItemDark.xnb Eto.Serialization.Xaml.dll Eto.Wpf.dll Eto.dll Fountain.xnb_1 Hero6.Campaigns.RitesOfPassage.dll Hero6.UserInterface.SierraVga.dll Hero6.exe Hero6.exe.config HeroWalkRightUp.xnb HillOverAlbion.xnb LICENSE.ASSETS.md LICENSE.THIRDPARTY.md LlewellaWalkCenterDown.xnb_1 MonoGame.Framework.dll NewFolder Portable.Xaml.dll PriorityQueue.dll ProductInformation Search.dll SharpDX.DXGI.dll SharpDX.Direct2D1.dll SharpDX.Direct3D11.dll SharpDX.Direct3D9.dll SharpDX.MediaFoundation.dll SharpDX.RawInput.dll SharpDX.XAudio2.dll SharpDX.XInput.dll SharpDX.dll log4net.dll"/>
     <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
@@ -162,10 +164,10 @@
     <ROW File="HillOverAlbionWalkArea.xnb" Component_="HillOverAlbion.xnb" FileName="WALKAR~1.XNB|Walk Area.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Campaigns\Rites of Albion\Rooms\Albion\Hill Over Albion\WalkAreas.xnb" SelfReg="false" NextFile="Arrow.xnb"/>
     <ROW File="InventoryDark.xnb" Component_="CurrentItemDark.xnb" FileName="INVENT~1.XNB|Inventory Dark.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Verb Bar\Inventory Dark.xnb" SelfReg="false" NextFile="InventoryLight.xnb"/>
     <ROW File="InventoryLight.xnb" Component_="CurrentItemDark.xnb" FileName="INVENT~2.XNB|Inventory Light.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Verb Bar\Inventory Light.xnb" SelfReg="false" NextFile="LookDark.xnb"/>
-    <ROW File="LICENSE.ASSETS.md" Component_="LICENSE.THIRDPARTY.md" FileName="LICENS~2.MD|LICENSE.ASSETS.md" Attributes="0" SourcePath="..\..\docs\LICENSE.ASSETS.md" SelfReg="false" NextFile="LICENSE.CODE.md"/>
-    <ROW File="LICENSE.CODE.md" Component_="LICENSE.THIRDPARTY.md" FileName="LICENS~3.MD|LICENSE.CODE.md" Attributes="0" SourcePath="..\..\docs\LICENSE.CODE.md" SelfReg="false" NextFile="LICENSE.md"/>
-    <ROW File="LICENSE.THIRDPARTY.md" Component_="LICENSE.THIRDPARTY.md" FileName="LICENS~1.MD|LICENSE.THIRDPARTY.md" Attributes="0" SourcePath="..\..\docs\LICENSE.THIRDPARTY.md" SelfReg="false" NextFile="README.md"/>
-    <ROW File="LICENSE.md" Component_="LICENSE.THIRDPARTY.md" FileName="LICENSE.md" Attributes="0" SourcePath="..\..\docs\LICENSE.md" SelfReg="false" NextFile="LICENSE.THIRDPARTY.md"/>
+    <ROW File="LICENSE.ASSETS.md" Component_="LICENSE.ASSETS.md" FileName="ASSETS.md" Attributes="0" SourcePath="..\..\docs\license\ASSETS.md" SelfReg="false" NextFile="LICENSE.CODE.md"/>
+    <ROW File="LICENSE.CODE.md" Component_="LICENSE.ASSETS.md" FileName="CODE.md" Attributes="0" SourcePath="..\..\docs\license\CODE.md" SelfReg="false" NextFile="LICENSE.md"/>
+    <ROW File="LICENSE.THIRDPARTY.md" Component_="LICENSE.ASSETS.md" FileName="THIRDP~1.MD|THIRDPARTY.md" Attributes="0" SourcePath="..\..\docs\license\THIRDPARTY.md" SelfReg="false" NextFile="README.md"/>
+    <ROW File="LICENSE.md" Component_="CHANGELOG.md" FileName="LICENSE.md" Attributes="0" SourcePath="..\..\LICENSE.md" SelfReg="false" NextFile="LICENSE.THIRDPARTY.md"/>
     <ROW File="LlewellaWalkCenterDown.xnb" Component_="LlewellaWalkCenterDown.xnb_1" FileName="CENTER~1.XNB|Center Down.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Campaigns\Rites of Albion\Animations\Characters\Llewella\Walk\Center Down.xnb" SelfReg="false" NextFile="BentSword.xnb"/>
     <ROW File="Look.xnb" Component_="Arrow.xnb" FileName="Look.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Cursors\Look.xnb" SelfReg="false" NextFile="Talk.xnb"/>
     <ROW File="LookDark.xnb" Component_="CurrentItemDark.xnb" FileName="LOOKDA~1.XNB|Look Dark.xnb" Attributes="0" SourcePath="..\Hero6.WindowsDX\bin\Release\Content\Gui\Sierra Vga\Verb Bar\Look Dark.xnb" SelfReg="false" NextFile="LookLight.xnb"/>
@@ -209,7 +211,7 @@
     <ROW Action="AI_DetectSoftware" Sequence="101"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
-    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFileName="Hero6 Installer" Languages="en" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExeIconPath="..\Hero6.WindowsDX\Icon.ico" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" UseLargeSchema="true"/>
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFileName="Hero6 Installer" Languages="en" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExeIconPath="..\Hero6.WindowsDX\Icon.ico" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" UseLargeSchema="true"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
     <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
@@ -442,7 +444,7 @@
     <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
-    <ROW PrereqKey="BB9062A4604BB61146D7C9AA49D" DisplayName=".NET Framework 4.6.1 (web installer)" SetupFileUrl="http://download.microsoft.com/download/3/5/9/35980F81-60F4-4DE3-88FC-8F962B97253B/NDP461-KB3102438-Web.exe" Location="1" ExactSize="1424328" WinNTVersions="Windows XP x86 Service Pack 3, Windows Server 2003 x86 Service Pack 2, Windows Vista x86, Windows Vista x86 Service Pack 1, Windows Vista x86 Service Pack 2, Windows Server 2008 x86, Windows 7 x86" WinNT64Versions="Windows XP x64 Service Pack 2, Windows Server 2003 x64 Service Pack 2, Windows Vista x64, Windows Vista x64 Service Pack 1, Windows Vista x64 Service Pack 2, Windows Server 2008 x64, Windows 7 x64, Windows Server 2008 R2 x64, Windows Server 2016 x64" Operator="1" NoUiComLine="/q /norestart" Options="xy" MD5="4d1bb86d0eee168e1da91a36350c1c21" TargetName=".NET Framework 4.6.1"/>
+    <ROW PrereqKey="BB9062A4604BB61146D7C9AA49D" DisplayName=".NET Framework 4.6.1 (web installer)" SetupFileUrl="http://download.microsoft.com/download/3/5/9/35980F81-60F4-4DE3-88FC-8F962B97253B/NDP461-KB3102438-Web.exe" Location="1" ExactSize="1424328" WinNTVersions="Windows XP SP3 x86, Windows Server 2003 SP2 x86, Windows Vista x86, Windows Server 2008 x86, Windows 7 RTM x86" WinNT64Versions="Windows XP SP2 x64, Windows Server 2003 SP2 x64, Windows Vista x64, Windows Server 2008 x64, Windows 7 RTM x64, Windows Server 2008 R2 RTM x64, Windows Server 2016 x64" Operator="1" NoUiComLine="/q /norestart" Options="xy" MD5="4d1bb86d0eee168e1da91a36350c1c21" TargetName=".NET Framework 4.6.1"/>
     <ROW PrereqKey="RequiredApplication" DisplayName="DirectX 9.0c" SetupFileUrl="https://download.microsoft.com/download/8/0/d/80d7e79d-c0e4-415a-bcca-e229eafe2679/dxwebsetup.exe" Location="1" ExactSize="0" Operator="1" Options="y" TargetName="DirectX 9.0c"/>
     <ATTRIBUTE name="PrereqsOrder" value="RequiredApplication BB9062A4604BB61146D7C9AA49D"/>
   </COMPONENT>
