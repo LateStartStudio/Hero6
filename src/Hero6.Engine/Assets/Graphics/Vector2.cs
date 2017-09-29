@@ -125,5 +125,15 @@ namespace LateStartStudio.Hero6.Engine.Assets.Graphics
 
             return a;
         }
+
+        public static bool operator ==(Vector2 a, Vector2 b)
+        {
+            return a.Equals(b);
+        }
+
+        public static bool operator !=(Vector2 a, Vector2 b)
+        {
+            return !a.Equals(b);
+        }
     }
 }
