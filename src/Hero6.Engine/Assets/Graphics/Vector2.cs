@@ -6,6 +6,8 @@
 
 namespace LateStartStudio.Hero6.Engine.Assets.Graphics
 {
+    using System;
+
     /// <summary>
     /// A vector for a point in x and y coordinates.
     /// </summary>
@@ -126,14 +128,44 @@ namespace LateStartStudio.Hero6.Engine.Assets.Graphics
             return a;
         }
 
+        /// <summary>
+        /// Check that two <see cref="Vector2"/> are the same.
+        /// </summary>
+        /// <param name="a">The left hand <see cref="Vector2"/> instance.</param>
+        /// <param name="b">The right hand <see cref="Vector2"/> instance.</param>
+        /// <returns>True if the two instances are the same, false if not.</returns>
         public static bool operator ==(Vector2 a, Vector2 b)
         {
             return a.Equals(b);
         }
 
+        /// <summary>
+        /// Check that two <see cref="Vector2"/> are not the same.
+        /// </summary>
+        /// <param name="a">The left hand <see cref="Vector2"/> instance.</param>
+        /// <param name="b">The right hand <see cref="Vector2"/> instance.</param>
+        /// <returns>False if the two instances are the same, false if not.</returns>
         public static bool operator !=(Vector2 a, Vector2 b)
         {
             return !a.Equals(b);
+        }
+
+        /// <inheritdoc />
+        public override bool Equals(object obj)
+        {
+            if (obj == null || !(this.GetType() == obj.GetType()))
+            {
+                return false;
+            }
+
+            Vector2 vector = (Vector2)obj;
+            return Math.Abs(X - vector.X) < float.Epsilon && Math.Abs(Y - vector.Y) < float.Epsilon;
+        }
+
+        /// <inheritdoc />
+        public override int GetHashCode()
+        {
+            return (X.GetHashCode() << 2) ^ Y.GetHashCode();
         }
     }
 }
