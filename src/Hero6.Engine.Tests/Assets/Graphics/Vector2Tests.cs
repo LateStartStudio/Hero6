@@ -152,5 +152,59 @@ namespace LateStartStudio.Hero6.Engine.Assets.Graphics
 
             Assert.AreEqual(vector1.GetHashCode(), vector2.GetHashCode());
         }
+
+        [Test]
+        public void LeftUp()
+        {
+            Assert.AreEqual(new Vector2(-1.0f, -1.0f), Vector2.LeftUp);
+        }
+
+        [Test]
+        public void Up()
+        {
+            Assert.AreEqual(new Vector2(0.0f, -1.0f), Vector2.Up);
+        }
+
+        [Test]
+        public void RightUp()
+        {
+            Assert.AreEqual(new Vector2(1.0f, -1.0f), Vector2.RightUp);
+        }
+
+        [Test]
+        public void Left()
+        {
+            Assert.AreEqual(new Vector2(-1.0f, 0.0f), Vector2.Left);
+        }
+
+        [Test]
+        public void Right()
+        {
+            Assert.AreEqual(new Vector2(1.0f, 0.0f), Vector2.Right);
+        }
+
+        [Test]
+        public void LeftDown()
+        {
+            Assert.AreEqual(new Vector2(-1.0f, 1.0f), Vector2.LeftDown);
+        }
+
+        [Test]
+        public void Down()
+        {
+            Assert.AreEqual(new Vector2(0.0f, 1.0f), Vector2.Down);
+        }
+
+        [Test]
+        public void RightDown()
+        {
+            Assert.AreEqual(new Vector2(1.0f, 1.0f), Vector2.RightDown);
+        }
+
+        [Test]
+        public void Center()
+        {
+            Assert.AreEqual(new Vector2(0.0f, 0.0f), Vector2.Center);
+        }
     }
 }
