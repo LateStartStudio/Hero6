@@ -264,3 +264,6 @@ __pycache__/
 
 #git-lfs.exe for TFS Build Agent
 git-lfs.exe
+
+# Hero6 saved files
+logs/

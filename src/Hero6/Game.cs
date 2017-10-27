@@ -64,7 +64,7 @@ namespace LateStartStudio.Hero6
             Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
             Path.DirectorySeparatorChar);
 
-        public static string LogFilesDir => $"{UserFilesDir}Logs{Path.DirectorySeparatorChar}";
+        public static string LogFilesDir => $"{UserFilesDir}logs{Path.DirectorySeparatorChar}";
 
         public static string LogFileName
         {
