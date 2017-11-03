@@ -1,22 +1,20 @@
-﻿// <copyright file="GameTests.cs" company="Late Start Studio">
+﻿// <copyright file="GameTests.DesktopGL.cs" company="Late Start Studio">
 // Copyright (C) Late Start Studio
 // This file is subject to the terms and conditions of the MIT license specified in the file
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+#if DESKTOPGL
 namespace LateStartStudio.Hero6
 {
     using NUnit.Framework;
 
-    [TestFixture]
     public partial class GameTests
     {
-        [Test]
-        public void GraphicsApiGet()
+        partial void GraphicsApiGetPlatform()
         {
-            GraphicsApiGetPlatform();
+            Assert.That(Game.GraphicsApi, Is.EqualTo("DesktopGL"));
         }
-
-        partial void GraphicsApiGetPlatform();
     }
 }
+#endif

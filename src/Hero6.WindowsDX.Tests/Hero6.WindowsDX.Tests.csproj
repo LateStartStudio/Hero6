@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LateStartStudio.Hero6</RootNamespace>
-    <AssemblyName>Hero6.Tests</AssemblyName>
+    <AssemblyName>Hero6.WindowsDX.Tests</AssemblyName>
     <MonoGamePlatform>Windows</MonoGamePlatform>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
