@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.15
+VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.WindowsDX", "Hero6.WindowsDX\Hero6.WindowsDX.csproj", "{B0B2294D-FB45-47C3-A645-6C5884E7CFAB}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -325,15 +325,19 @@ Global
 		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}.WindowsDX Release|x86.ActiveCfg = Release|Any CPU
 		{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}.WindowsDX Release|x86.Build.0 = Release|Any CPU
 		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Android Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Android Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Android Debug|x86.ActiveCfg = Debug|Any CPU
 		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Android Debug|x86.Build.0 = Debug|Any CPU
 		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Android Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Android Release|Any CPU.Build.0 = Release|Any CPU
 		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Android Release|x86.ActiveCfg = Release|Any CPU
 		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Android Release|x86.Build.0 = Release|Any CPU
 		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Debug|x86.Build.0 = Debug|Any CPU
 		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Release|x86.ActiveCfg = Release|Any CPU
 		{C42A8C34-3145-41B2-B16A-D93D796DB437}.Release|x86.Build.0 = Release|Any CPU
 		{C42A8C34-3145-41B2-B16A-D93D796DB437}.WindowsDX Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -345,9 +349,11 @@ Global
 		{C42A8C34-3145-41B2-B16A-D93D796DB437}.WindowsDX Release|x86.ActiveCfg = Release|Any CPU
 		{C42A8C34-3145-41B2-B16A-D93D796DB437}.WindowsDX Release|x86.Build.0 = Release|Any CPU
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Android Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Android Debug|Any CPU.Build.0 = Debug|Any CPU
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Android Debug|x86.ActiveCfg = Debug|Any CPU
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Android Debug|x86.Build.0 = Debug|Any CPU
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Android Release|Any CPU.ActiveCfg = Release|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Android Release|Any CPU.Build.0 = Release|Any CPU
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Android Release|x86.ActiveCfg = Release|Any CPU
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Android Release|x86.Build.0 = Release|Any CPU
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -359,9 +365,11 @@ Global
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Release|x86.ActiveCfg = Release|Any CPU
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.Release|x86.Build.0 = Release|Any CPU
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.WindowsDX Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.WindowsDX Debug|Any CPU.Build.0 = Debug|Any CPU
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.WindowsDX Debug|x86.ActiveCfg = Debug|Any CPU
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.WindowsDX Debug|x86.Build.0 = Debug|Any CPU
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.WindowsDX Release|Any CPU.ActiveCfg = Release|Any CPU
+		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.WindowsDX Release|Any CPU.Build.0 = Release|Any CPU
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.WindowsDX Release|x86.ActiveCfg = Release|Any CPU
 		{104B4CAF-4818-45DC-A772-2F5279C73E5A}.WindowsDX Release|x86.Build.0 = Release|Any CPU
 		{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA}.Android Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -458,6 +466,9 @@ Global
 		{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
 		{43E058BB-A9A5-473F-AD4C-269239BA41E7} = {C7901A1A-E22C-468F-9E9A-9A891598E7D8}
 		{CB706FAB-954B-462D-8590-5433A63E14E6} = {C7901A1A-E22C-468F-9E9A-9A891598E7D8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D79F9E72-AE93-4A79-A968-902EC57B5900}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0

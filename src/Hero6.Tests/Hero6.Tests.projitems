@@ -10,5 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)GameTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameTests.DesktopGL.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameTests.WindowsDX.cs" />
   </ItemGroup>
 </Project>
