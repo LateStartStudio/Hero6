@@ -12,14 +12,14 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
     using Stats;
 
     [TestFixture]
-    public class PlayerCharacterTests
+    public class PlayerCharacterTests : TestBase
     {
         private PlayerCharacter pc;
 
         [SetUp]
         public void Init()
         {
-            this.pc = new PlayerCharacter(CampaignMock.Make());
+            this.pc = (PlayerCharacter)Campaign.GetCharacter(CampaignMock.PlayerCharacter1);
         }
 
         [Test]

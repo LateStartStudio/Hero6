@@ -13,7 +13,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
     /// <summary>
     /// A class that represents a player character in a game.
     /// </summary>
-    public class PlayerCharacter : Character
+    public abstract class PlayerCharacter : Character
     {
         private uint health;
         private uint stamina;
