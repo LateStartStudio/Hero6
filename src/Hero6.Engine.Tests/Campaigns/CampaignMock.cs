@@ -11,6 +11,8 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
 
     public class CampaignMock : Campaign
     {
+        public const string Character1 = "Character1";
+
         private const string Id = "Mock Campaign";
         private const int Cap = 100;
 
@@ -22,6 +24,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         private CampaignMock(AssetManager assets, UserInterface ui)
             : base(Id, Cap, assets, ui)
         {
+            AddCharacter(Character1, new CharacterMock(this));
         }
 
         public static CampaignMock Make()

@@ -54,6 +54,7 @@
     <Compile Include="Assets\RendererMock.cs" />
     <Compile Include="Assets\MockAssetManager.cs" />
     <Compile Include="Campaigns\CharacterAnimationMock.cs" />
+    <Compile Include="Campaigns\CharacterMock.cs" />
     <Compile Include="GameLoop\DrawEventArgsTests.cs" />
     <Compile Include="GameLoop\LoadEventArgsTests.cs" />
     <Compile Include="GameLoop\UnloadEventArgsTests.cs" />
