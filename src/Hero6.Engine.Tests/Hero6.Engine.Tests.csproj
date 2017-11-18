@@ -81,6 +81,8 @@
     </Compile>
     <Compile Include="UserInterfaces\Input\MouseCoreMock.cs" />
     <Compile Include="UserInterfaces\MockUserInterface.cs" />
+    <Compile Include="Utilities\Logger\LogFourNetTests.cs" />
+    <Compile Include="Utilities\Logger\LoggerTests.cs" />
     <Compile Include="Utilities\Settings\SettingsMock.cs" />
     <Compile Include="Utilities\UtilTests.cs" />
   </ItemGroup>

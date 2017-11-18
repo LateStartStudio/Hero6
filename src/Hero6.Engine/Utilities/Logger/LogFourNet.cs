@@ -97,7 +97,7 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Logger
         {
             if (this.log.IsWarnEnabled)
             {
-                this.log.Info(message);
+                this.log.Warn(message);
             }
         }
 
