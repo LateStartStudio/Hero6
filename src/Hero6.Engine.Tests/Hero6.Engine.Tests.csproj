@@ -53,6 +53,7 @@
     <Compile Include="Assets\Graphics\Vector2Tests.cs" />
     <Compile Include="Assets\RendererMock.cs" />
     <Compile Include="Assets\MockAssetManager.cs" />
+    <Compile Include="Assets\RendererTests.cs" />
     <Compile Include="Campaigns\CharacterAnimationMock.cs" />
     <Compile Include="Campaigns\CharacterMock.cs" />
     <Compile Include="Campaigns\TestBase.cs" />
