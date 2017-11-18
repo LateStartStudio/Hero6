@@ -29,7 +29,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
 
         public static CampaignMock Make()
         {
-            MockAssetManager assets = new MockAssetManager();
+            AssetManagerMock assets = new AssetManagerMock();
             MockUserInterface ui = new MockUserInterface(assets, null);
 
             return new CampaignMock(assets, ui);
