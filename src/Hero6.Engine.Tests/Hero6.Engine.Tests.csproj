@@ -51,7 +51,7 @@
     <Compile Include="Assets\Graphics\SpriteFontMock.cs" />
     <Compile Include="Assets\Graphics\Texture2DMock.cs" />
     <Compile Include="Assets\Graphics\Vector2Tests.cs" />
-    <Compile Include="Assets\MockRenderer.cs" />
+    <Compile Include="Assets\RendererMock.cs" />
     <Compile Include="Assets\MockAssetManager.cs" />
     <Compile Include="GameLoop\DrawEventArgsTests.cs" />
     <Compile Include="GameLoop\LoadEventArgsTests.cs" />
