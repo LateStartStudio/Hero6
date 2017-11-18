@@ -49,6 +49,7 @@
     <Compile Include="Assets\Graphics\PointTests.cs" />
     <Compile Include="Assets\Graphics\RectangleTests.cs" />
     <Compile Include="Assets\Graphics\SpriteFontMock.cs" />
+    <Compile Include="Assets\Graphics\Texture2DMock.cs" />
     <Compile Include="Assets\Graphics\Vector2Tests.cs" />
     <Compile Include="Assets\MockRenderer.cs" />
     <Compile Include="Assets\MockAssetManager.cs" />
