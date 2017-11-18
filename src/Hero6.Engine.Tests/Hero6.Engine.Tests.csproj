@@ -57,6 +57,7 @@
     <Compile Include="Campaigns\AdventureGameElementMock.cs" />
     <Compile Include="Campaigns\AdventureGameElementTests.cs" />
     <Compile Include="Campaigns\CharacterAnimationMock.cs" />
+    <Compile Include="Campaigns\CharacterAnimationTests.cs" />
     <Compile Include="Campaigns\CharacterMock.cs" />
     <Compile Include="Campaigns\InventoryItemMock.cs" />
     <Compile Include="Campaigns\InventoryItemTests.cs" />
