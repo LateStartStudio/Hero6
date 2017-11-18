@@ -66,6 +66,7 @@
     <Compile Include="Campaigns\Regions\HotspotWalkingEventArgsTests.cs" />
     <Compile Include="Campaigns\Regions\WalkAreasTests.cs" />
     <Compile Include="Campaigns\Regions\WalkAreaTests.cs" />
+    <Compile Include="Campaigns\SpriteSheetTests.cs" />
     <Compile Include="GameLoop\DrawEventArgsTests.cs" />
     <Compile Include="GameLoop\LoadEventArgsTests.cs" />
     <Compile Include="GameLoop\UnloadEventArgsTests.cs" />
