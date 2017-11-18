@@ -264,6 +264,14 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         }
 
         [Test]
+        public void IsPlayerGetAndSet()
+        {
+            Assume.That(pc.IsPlayer, Is.Not.True);
+            Campaign.Player = pc;
+            Assert.That(pc.IsPlayer, Is.True);
+        }
+
+        [Test]
         public void IncreaseStat()
         {
             Assert.AreEqual(0, this.pc.Strength);

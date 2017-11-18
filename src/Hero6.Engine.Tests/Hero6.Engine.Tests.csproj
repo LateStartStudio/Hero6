@@ -59,6 +59,7 @@
     <Compile Include="Campaigns\CharacterAnimationMock.cs" />
     <Compile Include="Campaigns\CharacterAnimationTests.cs" />
     <Compile Include="Campaigns\CharacterMock.cs" />
+    <Compile Include="Campaigns\CharacterTests.cs" />
     <Compile Include="Campaigns\InventoryItemMock.cs" />
     <Compile Include="Campaigns\InventoryItemTests.cs" />
     <Compile Include="Campaigns\ItemMock.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Campaigns\Regions\HotspotWalkingEventArgsTests.cs" />
     <Compile Include="Campaigns\Regions\WalkAreasTests.cs" />
     <Compile Include="Campaigns\Regions\WalkAreaTests.cs" />
+    <Compile Include="Campaigns\RoomMock.cs" />
     <Compile Include="Campaigns\SpriteSheetTests.cs" />
     <Compile Include="GameLoop\DrawEventArgsTests.cs" />
     <Compile Include="GameLoop\LoadEventArgsTests.cs" />

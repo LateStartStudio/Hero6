@@ -12,6 +12,9 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
             : base(campaign)
         {
             Animation = new CharacterAnimationMock(campaign);
+            PreUpdate += (s, e) => IsUpdateInvoked = true;
         }
+
+        public bool IsUpdateInvoked { get; private set; }
     }
 }

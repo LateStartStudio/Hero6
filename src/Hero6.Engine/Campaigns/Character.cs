@@ -96,16 +96,10 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         }
 
         /// <inheritdoc />
-        public override sealed int Width
-        {
-            get { return this.Animation.Width; }
-        }
+        public sealed override int Width => Animation.Width;
 
         /// <inheritdoc />
-        public override sealed int Height
-        {
-            get { return this.Animation.Height; }
-        }
+        public sealed override int Height => Animation.Height;
 
         /// <summary>
         /// Gets a value indicating whether this character is the player or not.
@@ -113,10 +107,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         /// <value>
         /// True if this character is the player; false otherwise.
         /// </value>
-        public bool IsPlayer
-        {
-            get { return this.Equals(this.Campaign.Player); }
-        }
+        public bool IsPlayer => Equals(Campaign.Player);
 
         /// <summary>
         /// Gets or sets the movement speed of this <see cref="Character"/> instance. Speed is
@@ -223,7 +214,6 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         /// <inheritdoc />
         protected sealed override void InternalUnload()
         {
-            throw new NotImplementedException();
         }
 
         /// <inheritdoc />

@@ -6,6 +6,7 @@
 
 namespace LateStartStudio.Hero6.Engine.Assets
 {
+    using System.Collections.Generic;
     using LateStartStudio.Hero6.Engine.Assets.Graphics;
     using LateStartStudio.Hero6.Engine.Campaigns.Regions;
 
@@ -41,7 +42,7 @@ namespace LateStartStudio.Hero6.Engine.Assets
 
         public override WalkAreas LoadWalkAreas(string id)
         {
-            return new WalkAreas(null);
+            return new WalkAreas(new List<WalkArea>());
         }
 
         public override void Unload()

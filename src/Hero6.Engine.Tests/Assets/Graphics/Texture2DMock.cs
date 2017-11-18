@@ -23,12 +23,10 @@ namespace LateStartStudio.Hero6.Engine.Assets.Graphics
 
         public override void GetData<T>(T[] data)
         {
-            throw new System.NotImplementedException();
         }
 
         public override void SetData<T>(T[] data)
         {
-            throw new System.NotImplementedException();
         }
     }
 }
