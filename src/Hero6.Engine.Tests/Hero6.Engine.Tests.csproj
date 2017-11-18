@@ -58,6 +58,8 @@
     <Compile Include="Campaigns\CharacterMock.cs" />
     <Compile Include="Campaigns\InventoryItemMock.cs" />
     <Compile Include="Campaigns\InventoryItemTests.cs" />
+    <Compile Include="Campaigns\ItemMock.cs" />
+    <Compile Include="Campaigns\ItemTests.cs" />
     <Compile Include="Campaigns\PlayerCharacterMock.cs" />
     <Compile Include="Campaigns\TestBase.cs" />
     <Compile Include="Campaigns\Regions\HotspotTests.cs" />
