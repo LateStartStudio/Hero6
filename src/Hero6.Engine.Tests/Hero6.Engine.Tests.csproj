@@ -56,6 +56,7 @@
     <Compile Include="Campaigns\CharacterAnimationMock.cs" />
     <Compile Include="Campaigns\CharacterMock.cs" />
     <Compile Include="Campaigns\TestBase.cs" />
+    <Compile Include="Campaigns\Regions\HotspotWalkingEventArgsTests.cs" />
     <Compile Include="GameLoop\DrawEventArgsTests.cs" />
     <Compile Include="GameLoop\LoadEventArgsTests.cs" />
     <Compile Include="GameLoop\UnloadEventArgsTests.cs" />
