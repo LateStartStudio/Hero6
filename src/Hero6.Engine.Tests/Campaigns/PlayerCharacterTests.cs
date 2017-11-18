@@ -19,7 +19,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         [SetUp]
         public void Init()
         {
-            this.pc = new PlayerCharacter(MockCampaign.Instance);
+            this.pc = new PlayerCharacter(CampaignMock.Make());
         }
 
         [Test]

@@ -59,7 +59,7 @@
     <Compile Include="GameLoop\UpdateEventArgsTests.cs" />
     <Compile Include="Campaigns\PlayerCharacterTests.cs" />
     <Compile Include="Campaigns\Stats\StatChangedEventArgsTests.cs" />
-    <Compile Include="Campaigns\MockCampaign.cs" />
+    <Compile Include="Campaigns\CampaignMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>

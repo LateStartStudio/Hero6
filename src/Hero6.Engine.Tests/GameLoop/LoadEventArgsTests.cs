@@ -12,16 +12,24 @@ namespace LateStartStudio.Hero6.Engine.GameLoop
     [TestFixture]
     public class LoadEventArgsTests
     {
+        private CampaignMock campaign;
+
+        [SetUp]
+        public void SetUp()
+        {
+            this.campaign = CampaignMock.Make();
+        }
+
         [Test]
         public void IsNotNull()
         {
-            Assert.IsNotNull(new LoadEventArgs(MockCampaign.Instance.Assets));
+            Assert.IsNotNull(new LoadEventArgs(campaign.Assets));
         }
 
         [Test]
         public void ContentGet()
         {
-            Assert.AreEqual(MockCampaign.Instance.Assets, new LoadEventArgs(MockCampaign.Instance.Assets).Assets);
+            Assert.AreEqual(campaign.Assets, new LoadEventArgs(campaign.Assets).Assets);
         }
     }
 }
