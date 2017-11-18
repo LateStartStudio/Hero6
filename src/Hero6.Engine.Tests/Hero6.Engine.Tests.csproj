@@ -54,6 +54,8 @@
     <Compile Include="Assets\RendererMock.cs" />
     <Compile Include="Assets\AssetManagerMock.cs" />
     <Compile Include="Assets\RendererTests.cs" />
+    <Compile Include="Campaigns\AdventureGameElementMock.cs" />
+    <Compile Include="Campaigns\AdventureGameElementTests.cs" />
     <Compile Include="Campaigns\CharacterAnimationMock.cs" />
     <Compile Include="Campaigns\CharacterMock.cs" />
     <Compile Include="Campaigns\InventoryItemMock.cs" />
