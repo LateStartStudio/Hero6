@@ -242,7 +242,6 @@ FakesAssemblies/
 _Pvt_Extensions
 
 # Paket dependency manager
-/src/.paket/paket.exe
 paket-files/
 
 # FAKE - F# Make
