@@ -22,7 +22,7 @@ let buildWindowsDXReleaseConfig = "WindowsDX Release"
 let buildAndroidDebugConfig = "Android Debug"
 let buildeAndroidReleasConfig = "Android Release"
 
-let solutionFile = if getOS = Windows then "./Hero6.Windows.sln" else "./Hero6.Linux.sln"
+let solutionFile = "Hero6.sln"
 
 let clean =
     for i in Directory.GetDirectories("./") do
