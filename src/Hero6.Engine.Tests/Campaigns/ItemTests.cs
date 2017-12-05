@@ -47,7 +47,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         [TestCase(Interaction.Mouth)]
         [TestCase(Interaction.Eye)]
         [TestCase(Interaction.Hand)]
-        public void InteractEye(Interaction i) => Assert.That(item.Interact(0, 0, i), Is.True);
+        public void InteractEye(Interaction i) => Assert.That(item.Interact(0, 2, i), Is.True);
 
         [Test]
         public void InteractFalseWhenNotVisible()
@@ -65,7 +65,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         [Test]
         public void InteractNotSupportedExceptionOnMove()
         {
-            Assert.Throws<NotSupportedException>(() => item.Interact(0, 0, Interaction.Move));
+            Assert.Throws<NotSupportedException>(() => item.Interact(0, 2, Interaction.Move));
         }
     }
 }

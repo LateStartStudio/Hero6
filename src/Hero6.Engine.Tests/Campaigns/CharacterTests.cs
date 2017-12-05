@@ -123,7 +123,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         [Test]
         public void InteractIsFalseWhenXAndYIsOutOfBounds()
         {
-            Assert.That(character.Interact(9999, 999, Interaction.Eye), Is.False);
+            Assert.That(character.Interact(character.Location.X + 1, 0, Interaction.Eye), Is.False);
         }
 
         [TestCase(Interaction.Eye)]
@@ -131,13 +131,13 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         [TestCase(Interaction.Mouth)]
         public void InteractIsTrueWhenSupportedInteraction(Interaction interaction)
         {
-            Assert.That(character.Interact(0, 0, interaction));
+            Assert.That(character.Interact(1, 1, interaction));
         }
 
         [Test]
         public void InteractThrowsNotSupportedExceptionOnMove()
         {
-            Assert.Throws<NotSupportedException>(() => character.Interact(0, 0, Interaction.Move));
+            Assert.Throws<NotSupportedException>(() => character.Interact(1, 1, Interaction.Move));
         }
 
         [Test]

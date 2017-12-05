@@ -7,6 +7,7 @@
 namespace LateStartStudio.Hero6.Engine.Campaigns
 {
     using Assets;
+    using LateStartStudio.Hero6.Engine.Assets.Graphics;
     using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
     using UserInterfaces;
 
@@ -30,17 +31,29 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         private CampaignMock(AssetManager assets, UserInterface ui)
             : base(Id, Cap, assets, ui)
         {
-            PlayerCharacter playerCharacter1 = new PlayerCharacterMock(this);
+            PlayerCharacter playerCharacter1 = new PlayerCharacterMock(this)
+            {
+                Location = new Point(0, 1)
+            };
             AddCharacter(PlayerCharacter1, playerCharacter1);
-            Character character1 = new CharacterMock(this);
+            Player = playerCharacter1;
+            Character character1 = new CharacterMock(this)
+            {
+                Location = new Point(1, 1)
+            };
             AddCharacter(Character1, character1);
-            AddInventoryItem(InventoryItem1, new InventoryItemMock(this, InventoryItem1));
-            AddItem(Item1, new ItemMock(this, Item1));
-            Room room1 = new RoomMock(this);
+            AddInventoryItem(InventoryItem1, new InventoryItemMock(this, "0:0:0"));
+            Item item1 = new ItemMock(this, "0:0:0")
+            {
+                Location = new Point(0, 2)
+            };
+            AddItem(Item1, item1);
+            Room room1 = new RoomMock(this, "0:3:3", "0:0:0", "r:2:2");
             room1.Characters.Add(playerCharacter1);
             room1.Characters.Add(character1);
+            room1.Items.Add(item1);
             AddRoom(Room1, room1);
-            AddRoom(Room2, new RoomMock(this));
+            AddRoom(Room2, new RoomMock(this, "0:0:0", "0:0:0", "0:0:0"));
         }
 
         public static CampaignMock Make()

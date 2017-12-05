@@ -26,7 +26,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         {
             SpriteSheet spriteSheet = new SpriteSheet(campaign, id, rows, columns)
             {
-                Sheet = campaign.Assets.CreateTexture2D(1000, 100)
+                Sheet = campaign.Assets.CreateTexture2D(3, 3)
             };
 
             return spriteSheet;

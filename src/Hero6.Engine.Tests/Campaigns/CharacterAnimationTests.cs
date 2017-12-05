@@ -101,15 +101,15 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         public void LocationGetAndSet()
         {
             animation.Location = new Point(100, 100);
-            Assert.That(animation.Location.X, Is.EqualTo(50));
-            Assert.That(animation.Location.Y, Is.EqualTo(0));
+            Assert.That(animation.Location.X, Is.EqualTo(100));
+            Assert.That(animation.Location.Y, Is.EqualTo(97));
         }
 
         [Test]
-        public void WidthGet() => Assert.That(animation.Width, Is.EqualTo(100));
+        public void WidthGet() => Assert.That(animation.Width, Is.EqualTo(0));
 
         [Test]
-        public void HeightGet() => Assert.That(animation.Height, Is.EqualTo(100));
+        public void HeightGet() => Assert.That(animation.Height, Is.EqualTo(3));
 
         [Test]
         public void IsMovingGetAndSet()

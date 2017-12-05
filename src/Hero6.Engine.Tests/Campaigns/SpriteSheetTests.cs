@@ -20,7 +20,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         {
             base.SetUp();
 
-            this.spriteSheet = new SpriteSheet(Campaign, "Mock Sprite Sheet", 0, 0);
+            this.spriteSheet = new SpriteSheet(Campaign, "0:0:0", 0, 0);
             spriteSheet.Load();
         }
 

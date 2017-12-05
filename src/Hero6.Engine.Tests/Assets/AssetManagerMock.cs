@@ -32,7 +32,8 @@ namespace LateStartStudio.Hero6.Engine.Assets
 
         public override Texture2D LoadTexture2D(string id)
         {
-            return new Texture2DMock(id, 0, 0);
+            string[] texture = id.Split(':');
+            return new Texture2DMock(texture[0], int.Parse(texture[1]), int.Parse(texture[2]));
         }
 
         public override SpriteFont LoadSpriteFont(string id)

@@ -265,6 +265,11 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
                 i.Value.Unload();
             }
 
+            foreach (KeyValuePair<string, Room> r in rooms)
+            {
+                r.Value.Unload();
+            }
+
             Util.Logger?.Info("Campaign unloaded.");
             this.PostUnload?.Invoke(this, new UnloadEventArgs());
         }

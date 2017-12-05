@@ -8,8 +8,8 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
 {
     public class RoomMock : Room
     {
-        public RoomMock(Campaign campaign)
-            : base(campaign, "Background", "Walk Area", "Hot Spots")
+        public RoomMock(Campaign campaign, string backgroundId, string walkAreaId, string hotSpotId)
+            : base(campaign, backgroundId, walkAreaId, hotSpotId)
         {
         }
 

@@ -166,7 +166,6 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         /// <inheritdoc />
         protected sealed override void InternalUnload()
         {
-            throw new NotImplementedException();
         }
 
         /// <inheritdoc />
@@ -182,8 +181,11 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
                 character.Update(total, elapsed, isRunningSlowly);
             }
 
-            Color pixel = this.hotspotMaskBuffer[this.Campaign.Player.Location.Y, this.Campaign.Player.Location.X];
-            this.Hotspots[pixel].InvokeWhileStandingIn(new HotspotWalkingEventArgs(Campaign.Player));
+            if (Hotspots.Count > 0)
+            {
+                Color pixel = this.hotspotMaskBuffer[this.Campaign.Player.Location.Y, this.Campaign.Player.Location.X];
+                this.Hotspots[pixel].InvokeWhileStandingIn(new HotspotWalkingEventArgs(Campaign.Player));
+            }
         }
 
         /// <inheritdoc />
