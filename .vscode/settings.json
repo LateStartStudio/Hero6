@@ -1,0 +1,17 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/.ci": true,
+        "**/.paket": true,
+        "**/.vs": true,
+        "**/packages": true,
+        "**/paket-files": true,
+        "**/paket.lock": true,
+        "**/bin": true,
+        "**/obj": true
+  }
+}
