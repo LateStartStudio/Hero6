@@ -81,9 +81,7 @@ namespace LateStartStudio.Hero6
         {
             get
             {
-#if WINDOWSDX
-                return "WindowsDX";
-#elif DESKTOPGL
+#if DESKTOPGL
                 return "DesktopGL";
 #elif ANDROID
                 return "Android";

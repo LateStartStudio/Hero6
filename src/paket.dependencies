@@ -11,7 +11,6 @@ nuget MonoGame.Framework.Android
 nuget MonoGame.Framework.Content.Pipeline.Portable 3.2.99.1-Beta
 nuget MonoGame.Framework.DesktopGL
 nuget MonoGame.Framework.Portable 3.2.99.1-Beta
-nuget MonoGame.Framework.WindowsDX
 nuget NUnit
 nuget NUnit.Runners
 nuget NUnit3TestAdapter

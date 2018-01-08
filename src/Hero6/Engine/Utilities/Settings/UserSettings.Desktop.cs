@@ -4,7 +4,7 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
-#if DESKTOPGL || WINDOWSDX
+#if DESKTOPGL
 namespace LateStartStudio.Hero6.Engine.Utilities.Settings
 {
     using Properties;
