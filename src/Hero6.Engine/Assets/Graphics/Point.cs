@@ -52,5 +52,8 @@ namespace LateStartStudio.Hero6.Engine.Assets.Graphics
         {
             return new Point(vector2);
         }
+
+        /// <inheritdoc />
+        public override string ToString() => $"X = {X}, Y = {Y}";
     }
 }
