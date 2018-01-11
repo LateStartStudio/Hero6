@@ -167,5 +167,8 @@ namespace LateStartStudio.Hero6.Engine.Assets.Graphics
         {
             return (X.GetHashCode() << 2) ^ Y.GetHashCode();
         }
+
+        /// <inheritdoc />
+        public override string ToString() => $"X = {X}, Y = {Y}";
     }
 }
