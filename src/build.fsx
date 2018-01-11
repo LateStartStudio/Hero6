@@ -17,8 +17,6 @@ let getOS =
 // Properties
 let buildDesktopGLDebugConfig = "Debug"
 let buildDesktopGLReleaseConfig = "Release"
-let buildWindowsDXDebugConfig = "WindowsDX Debug"
-let buildWindowsDXReleaseConfig = "WindowsDX Release"
 let buildAndroidDebugConfig = "Android Debug"
 let buildeAndroidReleasConfig = "Android Release"
 
@@ -67,14 +65,6 @@ Target "Clean DesktopGL Release" (fun _ ->
     clean
 )
 
-Target "Clean WindowsDX Debug" (fun _ ->
-    clean
-)
-
-Target "Clean WindowsDX Release" (fun _ ->
-    clean
-)
-
 Target "Clean Android Debug" (fun _ ->
     clean
 )
@@ -90,20 +80,6 @@ Target "Build DesktopGL Debug" (fun _ ->
 
 Target "Build DesktopGL Release" (fun _ ->
     build buildDesktopGLReleaseConfig
-)
-
-Target "Build WindowsDX Debug" (fun _ ->
-    if getOS = Windows then
-        build buildWindowsDXDebugConfig
-    else
-        trace "Skipping Build - WindowsDX is only supported on Windows"
-)
-
-Target "Build WindowsDX Release" (fun _ ->
-    if getOS = Windows then
-        build buildWindowsDXReleaseConfig
-    else
-        trace "Skipping Build - WindowsDX is only supported on Windows"
 )
 
 Target "Build Android Debug" (fun _ ->
@@ -129,20 +105,6 @@ Target "Test DesktopGL Release" (fun _ ->
     test "Release"
 )
 
-Target "Test WindowsDX Debug" (fun _ ->
-    if getOS = Windows then
-        test "Debug"
-    else
-        trace "Skipping Test - WindowsDX is only supported on Windows"
-)
-
-Target "Test WindowsDX Release" (fun _ ->
-    if getOS = Windows then
-        test "Release"
-    else
-        trace "Skipping Test - WindowsDX is only supported on Windows"
-)
-
 Target "Test Android Debug" (fun _ ->
     trace "Skipping Test - Not supported on config Android"
 )
@@ -158,14 +120,6 @@ Target "DesktopGL Debug" (fun _ ->
 
 Target "DesktopGL Release" (fun _ ->
     trace "Completed DesktopGL Release Build"
-)
-
-Target "WindowsDX Debug" (fun _ ->
-    trace "Completed WindowsDX Debug Build"
-)
-
-Target "WindowsDX Release" (fun _ ->
-    trace "Completed WindowsDX Release Build"
 )
 
 Target "Android Debug" (fun _ ->
@@ -196,18 +150,6 @@ Target "Default Linux" (fun _ ->
     ==> "Test DesktopGL Release"
     ==> "DesktopGL Release"
 
-// Dependencies - WindowsDX Debug
-"Clean WindowsDX Debug"
-    ==> "Build WindowsDX Debug"
-    ==> "Test WindowsDX Debug"
-    ==> "WindowsDX Debug"
-
-// Dependencies - WindowsDX Release
-"Clean WindowsDX Release"
-    ==> "Build WindowsDX Release"
-    ==> "Test WindowsDX Release"
-    ==> "WindowsDX Release"
-
 // Dependencies - Android Debug
 "Clean Android Debug"
     ==> "Build Android Debug"
@@ -225,12 +167,6 @@ Target "Default Linux" (fun _ ->
     ==> "Default Windows"
 
 "DesktopGL Release"
-    ==> "Default Windows"
-
-"WindowsDX Debug"
-    ==> "Default Windows"
-
-"WindowsDX Release"
     ==> "Default Windows"
 
 // Android is not supported or maintained so it is commented out for now
