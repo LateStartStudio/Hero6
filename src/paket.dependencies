@@ -5,7 +5,6 @@ nuget Eto.Platform.Gtk
 nuget Eto.Platform.Gtk3
 nuget Eto.Platform.Wpf
 nuget Eto.Serialization.Xaml
-nuget FAKE
 nuget log4net
 nuget MonoGame.Framework.Android
 nuget MonoGame.Framework.Content.Pipeline.Portable 3.2.99.1-Beta

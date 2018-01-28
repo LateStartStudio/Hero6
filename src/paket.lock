@@ -10,7 +10,6 @@ NUGET
     Eto.Serialization.Xaml (2.3)
       Eto.Forms (2.3)
       Portable.Xaml (>= 0.14)
-    FAKE (4.61.2)
     log4net (2.0.5)
     MonoGame.Framework.Android (3.5.1.1679)
     MonoGame.Framework.Content.Pipeline.Portable (3.2.99.1-Beta)
