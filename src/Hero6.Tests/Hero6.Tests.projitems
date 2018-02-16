@@ -12,6 +12,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)GameTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameTests.DesktopGL.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Repository\ProjectConfigs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\DependencyInjection\MonoGameServicesTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\DependencyInjection\ServicesTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\Logger\LogFourNetTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\Logger\LoggerTests.cs" />
   </ItemGroup>
