@@ -18,6 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Input\MonoGameMouse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\UserInterfaceHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\DependencyInjection\MonoGameServices.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\Logger\LogFourNet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\Settings\UserSettings.Android.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\Settings\UserSettings.Desktop.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Game.cs" />

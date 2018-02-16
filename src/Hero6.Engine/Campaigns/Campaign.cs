@@ -11,7 +11,8 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
     using Assets;
     using GameLoop;
     using UserInterfaces;
-    using Utilities;
+    using Utilities.DependencyInjection;
+    using Utilities.Logger;
 
     /// <summary>
     /// A class that represents a campaign, scenario or story of a game. One game might have
@@ -19,10 +20,17 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
     /// </summary>
     public abstract class Campaign : IGameLoop
     {
+        private static readonly ILogger Logger;
+
         private readonly IDictionary<string, Character> characters;
         private readonly IDictionary<string, Item> items;
         private readonly IDictionary<string, InventoryItem> inventoryItems;
         private readonly IDictionary<string, Room> rooms;
+
+        static Campaign()
+        {
+            Logger = ServicesBank.Instance.Get<ILogger>();
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Campaign"/> class.
@@ -33,7 +41,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         /// <param name="userInterface">The user interface that this campaign will use.</param>
         protected Campaign(string name, int statCap, AssetManager assets, UserInterface userInterface)
         {
-            Util.Logger?.Info($"Creating Campaign instance. - {name}");
+            Logger.Info($"Creating Campaign instance. - {name}");
 
             this.Name = name;
             this.StatCap = statCap;
@@ -47,7 +55,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
             this.inventoryItems = new Dictionary<string, InventoryItem>();
             this.rooms = new Dictionary<string, Room>();
 
-            Util.Logger?.Info("Campaign instance created. - " + name);
+            Logger.Info("Campaign instance created. - " + name);
         }
 
         /// <inheritdoc />
@@ -218,7 +226,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         public void Load()
         {
             this.PreLoad?.Invoke(this, new LoadEventArgs(this.Assets));
-            Util.Logger?.Info("Loading campaign.");
+            Logger.Info("Loading campaign.");
 
             foreach (KeyValuePair<string, Character> keyValuePair in this.characters)
             {
@@ -240,7 +248,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
                 keyValuePair.Value.Load();
             }
 
-            Util.Logger?.Info("Campaign Loaded.");
+            Logger.Info("Campaign Loaded.");
             this.PostLoad?.Invoke(this, new LoadEventArgs(this.Assets));
         }
 
@@ -248,9 +256,9 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         public void Unload()
         {
             this.PreUnload?.Invoke(this, new UnloadEventArgs());
-            Util.Logger?.Info("Unloading campaign.");
+            Logger.Info("Unloading campaign.");
 
-            Util.Logger?.Info("Campaign unloaded.");
+            Logger.Info("Campaign unloaded.");
             this.PostUnload?.Invoke(this, new UnloadEventArgs());
         }
 
