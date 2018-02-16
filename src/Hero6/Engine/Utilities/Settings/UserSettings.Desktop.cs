@@ -27,7 +27,7 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
         public int WindowWidth
         {
             get { return this.settings.WindowWidth; }
-            set { this.settings.WindowHeight = value; }
+            set { this.settings.WindowWidth = value; }
         }
 
         public int WindowHeight

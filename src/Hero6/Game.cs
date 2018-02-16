@@ -12,7 +12,6 @@ namespace LateStartStudio.Hero6
     using Engine.Assets;
     using Engine.Campaigns;
     using Engine.UserInterfaces;
-    using Engine.Utilities;
     using Engine.Utilities.DependencyInjection;
     using Engine.Utilities.Logger;
     using Engine.Utilities.Settings;
@@ -30,16 +29,14 @@ namespace LateStartStudio.Hero6
         private CampaignHandler campaign;
         private SpriteBatch spriteBatch;
 
-        static Game()
-        {
-            Util.UserSettings = new UserSettings();
-        }
-
         public Game()
         {
             ServicesBank.Instance = new MonoGameServices(Services);
             ServicesBank.Instance.Add<ILogger>(new LogFourNet(LogFileName));
+            ServicesBank.Instance.Add<IUserSettings>(new UserSettings());
+
             this.logger = ServicesBank.Instance.Get<ILogger>();
+            var userSettings = ServicesBank.Instance.Get<IUserSettings>();
 
             logger.Info($"Hero6 {GraphicsApi} v{Assembly.GetExecutingAssembly().GetName().Version} Log");
             logger.Info("Forums: http://www.hero6.org/forum/");
@@ -49,9 +46,9 @@ namespace LateStartStudio.Hero6
 
             Graphics = new GraphicsDeviceManager(this)
             {
-                PreferredBackBufferWidth = Util.UserSettings.WindowWidth,
-                PreferredBackBufferHeight = Util.UserSettings.WindowHeight,
-                IsFullScreen = Util.UserSettings.IsFullScreen,
+                PreferredBackBufferWidth = userSettings.WindowWidth,
+                PreferredBackBufferHeight = userSettings.WindowHeight,
+                IsFullScreen = userSettings.IsFullScreen,
                 GraphicsProfile = GraphicsProfile.Reach,
 #if ANDROID
                 SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight
