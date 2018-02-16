@@ -119,7 +119,7 @@
     <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
-    <ROW File="AdventureGame.Logger.config" Component_="Hero6.exe.config" FileName="HERO6E~2.CON|Hero6.Engine.Logger.config" Attributes="0" SourcePath="..\Hero6.DesktopGL\bin\Release\Hero6.Engine.Logger.config" SelfReg="false" NextFile="NVorbis.dll"/>
+    <ROW File="AdventureGame.Logger.config" Component_="Hero6.exe.config" FileName="HERO6L~1.CON|Hero6.Logger.config" Attributes="0" SourcePath="..\Hero6.DesktopGL\bin\Release\Hero6.Logger.config" SelfReg="false" NextFile="NVorbis.dll"/>
     <ROW File="AdventureGame.dll" Component_="AdventureGame.dll" FileName="HERO6E~1.DLL|Hero6.Engine.dll" Attributes="0" SourcePath="..\Hero6.DesktopGL\bin\Release\Hero6.Engine.dll" SelfReg="false" NextFile="Collections.dll"/>
     <ROW File="AdventureGame.xml" Component_="Hero6.exe.config" FileName="HERO6E~1.XML|Hero6.Engine.xml" Attributes="0" SourcePath="..\Hero6.DesktopGL\bin\Release\Hero6.Engine.xml" SelfReg="false" NextFile="Collections.xml"/>
     <ROW File="Arial_11.25_Regular.xnb" Component_="Arial_11.25_Regular.xnb" FileName="ARIAL_~1.XNB|Arial_11.25_Regular.xnb" Attributes="0" SourcePath="..\Hero6.DesktopGL\bin\Release\Content\Gui\Sierra Vga\Fonts\Arial_11.25_Regular.xnb" SelfReg="false" NextFile="HeroWalkCenterDown.xnb"/>
