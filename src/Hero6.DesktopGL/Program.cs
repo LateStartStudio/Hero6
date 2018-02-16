@@ -7,7 +7,8 @@
 namespace LateStartStudio.Hero6
 {
     using System;
-    using Engine.Utilities;
+    using Engine.Utilities.DependencyInjection;
+    using Engine.Utilities.Logger;
     using Eto;
     using Eto.Forms;
 
@@ -37,8 +38,9 @@ namespace LateStartStudio.Hero6
             }
             catch (Exception e)
             {
-                Util.Logger.Fatal("Hero6 has crashed, logging stack strace.", e);
-                Util.Logger.WillDeleteLogOnDispose = false;
+                var logger = ServicesBank.Instance.Get<ILogger>();
+                logger.Fatal("Hero6 has crashed, logging stack strace.", e);
+                logger.WillDeleteLogOnDispose = false;
 
                 new Application(Platform.Detect).Run(new CrashDialog(e));
             }
