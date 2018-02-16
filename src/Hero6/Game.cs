@@ -41,6 +41,7 @@ namespace LateStartStudio.Hero6
         public Game()
         {
             Util.Logger.Info("Creating Hero6 Game Instance.");
+            ServicesBank.Instance = new MonoGameServices(Services);
 
             Graphics = new GraphicsDeviceManager(this)
             {
