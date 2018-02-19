@@ -7,7 +7,9 @@
 namespace LateStartStudio.Hero6.Engine.Campaigns
 {
     using Assets;
+    using NSubstitute;
     using UserInterfaces;
+    using Utilities.DependencyInjection;
 
     public class MockCampaign : Campaign
     {
@@ -15,6 +17,11 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         private const int Cap = 100;
 
         private static MockCampaign instance;
+
+        static MockCampaign()
+        {
+            ServicesBank.Instance = Substitute.For<IServices>();
+        }
 
         private MockCampaign(MockAssetManager assets, MockUserInterface ui)
             : base(Id, Cap, assets, ui)

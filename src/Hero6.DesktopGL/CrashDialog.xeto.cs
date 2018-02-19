@@ -8,14 +8,22 @@ namespace LateStartStudio.Hero6
 {
     using System;
     using System.Diagnostics;
-    using Engine.Utilities;
+    using Engine.Utilities.DependencyInjection;
+    using Engine.Utilities.Logger;
     using Eto.Forms;
     using Eto.Serialization.Xaml;
 
     public class CrashDialog : Form
     {
+        private static readonly ILogger Logger;
+
         private readonly Exception exception;
         private readonly LinkButton emailLink;
+
+        static CrashDialog()
+        {
+            Logger = ServicesBank.Instance.Get<ILogger>();
+        }
 
         public CrashDialog(Exception exception)
         {
@@ -24,13 +32,13 @@ namespace LateStartStudio.Hero6
             this.exception = exception;
             this.emailLink = this.FindChild<LinkButton>("EmailLink");
 
-            this.FindChild<LinkButton>("FilenameLink").Text = Util.Logger.Filename;
+            this.FindChild<LinkButton>("FilenameLink").Text = Logger.Filename;
             this.FindChild<Label>("CrashMessage").Text = exception.Message;
         }
 
         public void FilenameLinkClick(object sender, EventArgs e)
         {
-            Process.Start(Util.Logger.Filename);
+            Process.Start(Logger.Filename);
         }
 
         public void ForumLinkClick(object sender, EventArgs e)

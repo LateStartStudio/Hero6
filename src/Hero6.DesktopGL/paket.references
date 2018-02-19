@@ -7,3 +7,4 @@ MonoGame.Framework.DesktopGL
 OptimizedPriorityQueue
 Portable.Xaml
 StyleCop.Analyzers
+log4net
