@@ -184,7 +184,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         /// <inheritdoc />
         public override bool Interact(int x, int y, Interaction interaction)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         /// <inheritdoc />
@@ -203,7 +203,6 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         /// <inheritdoc />
         protected sealed override void InternalUnload()
         {
-            throw new NotImplementedException();
         }
 
         /// <inheritdoc />

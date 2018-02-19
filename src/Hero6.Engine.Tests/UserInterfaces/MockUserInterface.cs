@@ -17,8 +17,11 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         {
         }
 
+        public bool IsShowTextBoxInvoked { get; private set; }
+
         public override void ShowTextBox(string text)
         {
+            IsShowTextBoxInvoked = true;
         }
     }
 }

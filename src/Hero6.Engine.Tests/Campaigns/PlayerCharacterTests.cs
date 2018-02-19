@@ -12,14 +12,14 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
     using Stats;
 
     [TestFixture]
-    public class PlayerCharacterTests
+    public class PlayerCharacterTests : TestBase
     {
         private PlayerCharacter pc;
 
         [SetUp]
         public void Init()
         {
-            this.pc = new PlayerCharacter(MockCampaign.Instance);
+            this.pc = (PlayerCharacter)Campaign.GetCharacter(CampaignMock.PlayerCharacter1);
         }
 
         [Test]
@@ -261,6 +261,14 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
 
             this.pc.Giants = 101;
             Assert.AreEqual(100, this.pc.Giants);
+        }
+
+        [Test]
+        public void IsPlayerGetAndSet()
+        {
+            Assume.That(pc.IsPlayer, Is.Not.True);
+            Campaign.Player = pc;
+            Assert.That(pc.IsPlayer, Is.True);
         }
 
         [Test]

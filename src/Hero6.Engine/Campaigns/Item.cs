@@ -100,7 +100,6 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         /// <inheritdoc />
         protected sealed override void InternalUnload()
         {
-            throw new NotImplementedException();
         }
 
         /// <inheritdoc />

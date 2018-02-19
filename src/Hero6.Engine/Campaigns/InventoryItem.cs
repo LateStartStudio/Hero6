@@ -38,7 +38,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         /// <inheritdoc />
         public override bool Interact(int x, int y, Interaction interaction)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         /// <inheritdoc />
@@ -50,19 +50,16 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         /// <inheritdoc />
         protected override void InternalUnload()
         {
-            throw new NotImplementedException();
         }
 
         /// <inheritdoc />
         protected override void InternalUpdate(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            throw new NotImplementedException();
         }
 
         /// <inheritdoc />
         protected override void InternalDraw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            throw new NotImplementedException();
         }
     }
 }

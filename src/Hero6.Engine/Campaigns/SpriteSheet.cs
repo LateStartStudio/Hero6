@@ -40,46 +40,22 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         public event EventHandler<LoadEventArgs> PostLoad;
 
         /// <inheritdoc />
-        public event EventHandler<UnloadEventArgs> PreUnload
-        {
-            add { throw new NotImplementedException(); }
-            remove { }
-        }
+        public event EventHandler<UnloadEventArgs> PreUnload;
 
         /// <inheritdoc />
-        public event EventHandler<UnloadEventArgs> PostUnload
-        {
-            add { throw new NotImplementedException(); }
-            remove { }
-        }
+        public event EventHandler<UnloadEventArgs> PostUnload;
 
         /// <inheritdoc />
-        public event EventHandler<UpdateEventArgs> PreUpdate
-        {
-            add { throw new NotImplementedException(); }
-            remove { }
-        }
+        public event EventHandler<UpdateEventArgs> PreUpdate;
 
         /// <inheritdoc />
-        public event EventHandler<UpdateEventArgs> PostUpdate
-        {
-            add { throw new NotImplementedException(); }
-            remove { }
-        }
+        public event EventHandler<UpdateEventArgs> PostUpdate;
 
         /// <inheritdoc />
-        public event EventHandler<DrawEventArgs> PreDraw
-        {
-            add { throw new NotImplementedException(); }
-            remove { }
-        }
+        public event EventHandler<DrawEventArgs> PreDraw;
 
         /// <inheritdoc />
-        public event EventHandler<DrawEventArgs> PostDraw
-        {
-            add { throw new NotImplementedException(); }
-            remove { }
-        }
+        public event EventHandler<DrawEventArgs> PostDraw;
 
         /// <summary>
         /// Gets or sets the sprite sheet ID.
@@ -141,19 +117,25 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         /// <inheritdoc />
         public void Unload()
         {
-            throw new NotImplementedException();
+            PreUnload?.Invoke(this, new UnloadEventArgs());
+
+            PostUnload?.Invoke(this, new UnloadEventArgs());
         }
 
         /// <inheritdoc />
         public void Update(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            throw new NotImplementedException();
+            PreUpdate?.Invoke(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
+
+            PostUpdate?.Invoke(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
         }
 
         /// <inheritdoc />
         public void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            throw new NotImplementedException();
+            PreDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly, Campaign.Renderer));
+
+            PostDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly, Campaign.Renderer));
         }
     }
 }
