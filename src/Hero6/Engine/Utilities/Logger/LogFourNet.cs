@@ -20,10 +20,9 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Logger
         /// <summary>
         /// Initializes a new instance of the <see cref="LogFourNet"/> class.
         /// </summary>
-        /// <param name="filename">The filename the log will be stored to.</param>
-        public LogFourNet(string filename)
+        public LogFourNet()
         {
-            this.Filename = filename;
+            this.Filename = LogFileName;
             this.WillDeleteLogOnDispose = true;
             this.log = LogManager.GetLogger(typeof(LogFourNet).Name);
         }
@@ -46,6 +45,19 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Logger
 
         /// <inheritdoc />
         public bool WillDeleteLogOnDispose { get; set; }
+
+        private static string LogFilesDir => $"{Game.UserFilesDir}logs{Path.DirectorySeparatorChar}";
+
+        private static string LogFileName
+        {
+            get
+            {
+                var d = DateTime.Now;
+                var filename = $"Hero6-Log-{d.Day}-{d.Month}-{d.Year}-{d.Hour}-{d.Minute}-{d.Second}.txt";
+
+                return $"{LogFilesDir}{filename}";
+            }
+        }
 
         /// <inheritdoc />
         public void Dispose()

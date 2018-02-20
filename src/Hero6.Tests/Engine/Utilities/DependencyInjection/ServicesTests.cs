@@ -11,30 +11,36 @@ namespace LateStartStudio.Hero6.Engine.Utilities.DependencyInjection
 
     public abstract class ServicesTests
     {
-        private const string Test = "Test";
-
         private IServices services;
+
+        private interface ITest
+        {
+        }
 
         [SetUp]
         public void SetUp()
         {
             services = Make();
-            services.Add(Test);
+            services.Add<ITest, Test>();
         }
 
         [Test]
-        public void AddDuplicateThrowsException() => Assert.Throws<ArgumentException>(() => services.Add(Test));
+        public void AddDuplicateThrowsException() => Assert.Throws<ArgumentException>(() => services.Add<ITest, Test>());
 
         [Test]
-        public void Get() => Assert.That(services.Get<string>(), Is.EqualTo(Test));
+        public void Get() => Assert.That(services.Get<ITest>(), Is.Not.Null);
 
         [Test]
         public void Remove()
         {
-            services.Remove(typeof(string));
-            Assert.That(services.Get<string>(), Is.Null);
+            services.Remove<ITest>();
+            Assert.That(services.Get<ITest>(), Is.Null);
         }
 
         protected abstract IServices Make();
+
+        private class Test : ITest
+        {
+        }
     }
 }

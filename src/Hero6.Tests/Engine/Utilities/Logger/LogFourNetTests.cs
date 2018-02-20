@@ -11,6 +11,6 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Logger
     [TestFixture]
     public class LogFourNetTests : LoggerTests
     {
-        protected override ILogger Make() => new LogFourNet(Filename);
+        protected override ILogger Make() => new LogFourNet();
     }
 }

@@ -20,8 +20,11 @@ namespace LateStartStudio.Hero6.Engine.Utilities.DependencyInjection
 
         public T Get<T>() => (T)services.GetService(typeof(T));
 
-        public void Add<T>(T instance) => services.AddService(typeof(T), instance);
+        public void Add<TService, TProvider>()
+        {
+            services.AddService(typeof(TService), Activator.CreateInstance<TProvider>());
+        }
 
-        public void Remove(Type type) => services.RemoveService(type);
+        public void Remove<T>() => services.RemoveService(typeof(T));
     }
 }
