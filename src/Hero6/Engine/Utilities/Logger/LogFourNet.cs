@@ -48,16 +48,7 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Logger
 
         private static string LogFilesDir => $"{Game.UserFilesDir}logs{Path.DirectorySeparatorChar}";
 
-        private static string LogFileName
-        {
-            get
-            {
-                var d = DateTime.Now;
-                var filename = $"Hero6-Log-{d.Day}-{d.Month}-{d.Year}-{d.Hour}-{d.Minute}-{d.Second}.txt";
-
-                return $"{LogFilesDir}{filename}";
-            }
-        }
+        private static string LogFileName => $"{LogFilesDir}Hero6-Log-{Util.UserSettings.GameStartedCount}.txt";
 
         /// <inheritdoc />
         public void Dispose()
