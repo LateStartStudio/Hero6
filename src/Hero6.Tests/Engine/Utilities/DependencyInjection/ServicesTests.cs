@@ -6,6 +6,7 @@
 
 namespace LateStartStudio.Hero6.Engine.Utilities.DependencyInjection
 {
+    using System;
     using NUnit.Framework;
 
     public abstract class ServicesTests
@@ -20,6 +21,9 @@ namespace LateStartStudio.Hero6.Engine.Utilities.DependencyInjection
             services = Make();
             services.Add(Test);
         }
+
+        [Test]
+        public void AddDuplicateThrowsException() => Assert.Throws<ArgumentException>(() => services.Add(Test));
 
         [Test]
         public void Get() => Assert.That(services.Get<string>(), Is.EqualTo(Test));
