@@ -97,7 +97,6 @@
     <Compile Include="Utilities\Logger\ILogger.cs" />
     <Compile Include="Utilities\DependencyInjection\ServicesBank.cs" />
     <Compile Include="Utilities\Settings\IUserSettings.cs" />
-    <Compile Include="Utilities\Util.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Search\Search.csproj">
