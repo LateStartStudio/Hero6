@@ -32,9 +32,8 @@ namespace LateStartStudio.Hero6
         public Game()
         {
             ServicesBank.Instance = new MonoGameServices(Services);
-            ServicesBank.Instance.Add<ILogger>(new LogFourNet(LogFileName));
-            ServicesBank.Instance.Add<IUserSettings>(new UserSettings());
-
+            ServicesBank.Instance.Add<IUserSettings, UserSettings>();
+            ServicesBank.Instance.Add<ILogger, LogFourNet>();
             this.logger = ServicesBank.Instance.Get<ILogger>();
             var userSettings = ServicesBank.Instance.Get<IUserSettings>();
 
@@ -65,19 +64,6 @@ namespace LateStartStudio.Hero6
             "{0}{1}Hero6{1}",
             Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
             Path.DirectorySeparatorChar);
-
-        public static string LogFilesDir => $"{UserFilesDir}logs{Path.DirectorySeparatorChar}";
-
-        public static string LogFileName
-        {
-            get
-            {
-                DateTime date = DateTime.Now;
-                string filename = $"Hero6-Log-{date.Day}-{date.Month}-{date.Year}-{date.Hour}-{date.Minute}-{date.Second}.txt";
-
-                return $"{LogFilesDir}{filename}";
-            }
-        }
 
         public static string GraphicsApi
         {

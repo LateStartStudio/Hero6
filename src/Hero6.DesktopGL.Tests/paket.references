@@ -3,3 +3,4 @@ MonoGame.Framework.DesktopGL
 OptimizedPriorityQueue
 NUnit
 StyleCop.Analyzers
+NSubstitute

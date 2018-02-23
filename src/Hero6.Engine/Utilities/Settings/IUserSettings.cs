@@ -36,6 +36,11 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
         int WindowHeight { get; set; }
 
         /// <summary>
+        /// Gets a value representing the number of times the game has been started.
+        /// </summary>
+        int GameStartedCount { get; }
+
+        /// <summary>
         /// Save settings to system.
         /// </summary>
         void Save();

@@ -14,11 +14,6 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Logger
     {
         private ILogger logger;
 
-        protected static string Filename
-        {
-            get { return $"{AppDomain.CurrentDomain.BaseDirectory}{Path.DirectorySeparatorChar}Test.txt"; }
-        }
-
         [SetUp]
         public void SetUp() => this.logger = Make();
 
@@ -26,13 +21,10 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Logger
         public void TearDown() => this.logger.WillDeleteLogOnDispose = true;
 
         [Test]
-        public void GetFilename() => Assert.That(logger.Filename, Is.EqualTo(Filename));
+        public void GetFilename() => Assert.That(File.Exists(logger.Filename), Is.True);
 
         [Test]
-        public void WillDeleteLogOnDisposeIsTrueByDefault()
-        {
-            Assert.That(logger.WillDeleteLogOnDispose, Is.True);
-        }
+        public void WillDeleteLogOnDisposeIsTrueByDefault() => Assert.That(logger.WillDeleteLogOnDispose, Is.True);
 
         [Test]
         public void GetAndSetWillDeleteLogOnDispose()
@@ -88,19 +80,19 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Logger
 
         protected abstract ILogger Make();
 
-        private static void TestLog(Action<string> log, string level, string text)
+        private void TestLog(Action<string> log, string level, string text)
         {
             log(text);
             TestLog(level, text);
         }
 
-        private static void TestLog(Action<string, Exception> log, string level, string text, Exception e)
+        private void TestLog(Action<string, Exception> log, string level, string text, Exception e)
         {
             log(text, e);
             TestLog(level, text, e);
         }
 
-        private static void TestLog(string level, string text, Exception e = null)
+        private void TestLog(string level, string text, Exception e = null)
         {
             var content = GetLogContents();
 
@@ -113,12 +105,12 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Logger
             }
         }
 
-        private static string GetLogContents()
+        private string GetLogContents()
         {
             string result;
 
             // File is open in logger so we must use streams instead of System.IO.File.Read
-            using (var f = new FileStream(Filename, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (var f = new FileStream(logger.Filename, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 using (var s = new StreamReader(f))
                 {

@@ -16,6 +16,8 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
         public UserSettings()
         {
             this.settings = Settings.Default;
+            GameStartedCount++;
+            Save();
         }
 
         public bool IsFullScreen
@@ -34,6 +36,12 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
         {
             get { return this.settings.WindowHeight; }
             set { this.settings.WindowHeight = value; }
+        }
+
+        public int GameStartedCount
+        {
+            get { return settings.GameStartedCount; }
+            private set { settings.GameStartedCount = value; }
         }
 
         public void Save()
