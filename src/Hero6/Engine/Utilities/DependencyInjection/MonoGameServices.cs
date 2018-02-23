@@ -7,6 +7,8 @@
 namespace LateStartStudio.Hero6.Engine.Utilities.DependencyInjection
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using Microsoft.Xna.Framework;
 
     public class MonoGameServices : IServices
@@ -22,7 +24,38 @@ namespace LateStartStudio.Hero6.Engine.Utilities.DependencyInjection
 
         public void Add<TService, TProvider>()
         {
-            services.AddService(typeof(TService), Activator.CreateInstance<TProvider>());
+            foreach (var c in typeof(TProvider).GetConstructors())
+            {
+                if (c.GetParameters().Length == 0)
+                {
+                    services.AddService(typeof(TService), Activator.CreateInstance<TProvider>());
+                    return;
+                }
+
+                IList<object> args = new List<object>();
+
+                foreach (var p in c.GetParameters())
+                {
+                    var service = services.GetService(p.ParameterType);
+
+                    if (service == null)
+                    {
+                        break;
+                    }
+
+                    args.Add(service);
+                }
+
+                if (args.Count == c.GetParameters().Length)
+                {
+                    services.AddService(typeof(TService), Activator.CreateInstance(typeof(TProvider), args.ToArray()));
+                    return;
+                }
+            }
+
+            throw new ArgumentException(
+                $"Services could not find a constructor to resolve, please make sure the service bank contains all " +
+                $"types that match a constructor for the instance {typeof(TProvider)}");
         }
 
         public void Remove<T>() => services.RemoveService(typeof(T));

@@ -9,22 +9,25 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Logger
     using System;
     using System.IO;
     using log4net;
+    using Settings;
 
     /// <summary>
     /// The LogFourNet class, wrapper around the popular framework log4net.
     /// </summary>
     public class LogFourNet : IDisposable, ILogger
     {
+        private readonly IUserSettings userSettings;
         private readonly ILog log;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LogFourNet"/> class.
         /// </summary>
-        public LogFourNet()
+        public LogFourNet(IUserSettings userSettings)
         {
+            this.userSettings = userSettings;
             this.Filename = LogFileName;
-            this.WillDeleteLogOnDispose = true;
             this.log = LogManager.GetLogger(typeof(LogFourNet).Name);
+            this.WillDeleteLogOnDispose = true;
         }
 
         /// <summary>
@@ -48,7 +51,7 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Logger
 
         private static string LogFilesDir => $"{Game.UserFilesDir}logs{Path.DirectorySeparatorChar}";
 
-        private static string LogFileName => $"{LogFilesDir}Hero6-Log-{Util.UserSettings.GameStartedCount}.txt";
+        private string LogFileName => $"{LogFilesDir}Hero6-Log-{userSettings.GameStartedCount}.txt";
 
         /// <inheritdoc />
         public void Dispose()

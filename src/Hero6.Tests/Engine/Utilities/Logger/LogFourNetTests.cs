@@ -7,10 +7,11 @@
 namespace LateStartStudio.Hero6.Engine.Utilities.Logger
 {
     using NUnit.Framework;
+    using Settings;
 
     [TestFixture]
     public class LogFourNetTests : LoggerTests
     {
-        protected override ILogger Make() => new LogFourNet();
+        protected override ILogger Make() => new LogFourNet(NSubstitute.Substitute.For<IUserSettings>());
     }
 }

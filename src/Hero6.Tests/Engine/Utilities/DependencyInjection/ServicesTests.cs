@@ -28,6 +28,20 @@ namespace LateStartStudio.Hero6.Engine.Utilities.DependencyInjection
         public void AddDuplicateThrowsException() => Assert.Throws<ArgumentException>(() => services.Add<ITest, Test>());
 
         [Test]
+        public void AddTypeWithConstructorSucceedsWhenArgumentIsInBank()
+        {
+            services.Add<Test, Test>();
+            services.Add<TestWithConstructor, TestWithConstructor>();
+            Assert.That(services.Get<TestWithConstructor>(), Is.Not.Null);
+        }
+
+        [Test]
+        public void AddTypeWithConstructorFailsWhenArgumentIsNotInBank()
+        {
+            Assert.Throws<ArgumentException>(() => services.Add<TestWithConstructor, TestWithConstructor>());
+        }
+
+        [Test]
         public void Get() => Assert.That(services.Get<ITest>(), Is.Not.Null);
 
         [Test]
@@ -41,6 +55,13 @@ namespace LateStartStudio.Hero6.Engine.Utilities.DependencyInjection
 
         private class Test : ITest
         {
+        }
+
+        private class TestWithConstructor : ITest
+        {
+            public TestWithConstructor(Test test)
+            {
+            }
         }
     }
 }
