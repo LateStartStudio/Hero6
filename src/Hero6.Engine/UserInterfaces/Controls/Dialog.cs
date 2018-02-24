@@ -6,13 +6,21 @@
 
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 {
-    using LateStartStudio.Hero6.Engine.Assets;
+    using Assets;
+    using Utilities.DependencyInjection;
 
     /// <summary>
     /// A standard dialog.
     /// </summary>
     public class Dialog : Window
     {
+        private static readonly IRenderer Renderer;
+
+        static Dialog()
+        {
+            Renderer = ServicesBank.Instance.Get<IRenderer>();
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Dialog"/> class.
         /// </summary>

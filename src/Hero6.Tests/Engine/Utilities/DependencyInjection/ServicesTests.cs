@@ -30,15 +30,15 @@ namespace LateStartStudio.Hero6.Engine.Utilities.DependencyInjection
         [Test]
         public void AddTypeWithConstructorSucceedsWhenArgumentIsInBank()
         {
-            services.Add<Test, Test>();
-            services.Add<TestWithConstructor, TestWithConstructor>();
+            services.Add(0);
+            services.Add<TestWithConstructor>();
             Assert.That(services.Get<TestWithConstructor>(), Is.Not.Null);
         }
 
         [Test]
         public void AddTypeWithConstructorFailsWhenArgumentIsNotInBank()
         {
-            Assert.Throws<ArgumentException>(() => services.Add<TestWithConstructor, TestWithConstructor>());
+            Assert.Throws<ArgumentException>(() => services.Add<TestWithConstructor>());
         }
 
         [Test]
@@ -59,7 +59,7 @@ namespace LateStartStudio.Hero6.Engine.Utilities.DependencyInjection
 
         private class TestWithConstructor : ITest
         {
-            public TestWithConstructor(Test test)
+            public TestWithConstructor(int test)
             {
             }
         }

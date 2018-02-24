@@ -14,7 +14,7 @@ namespace LateStartStudio.Hero6.Engine.Assets
     using XnaSpriteFont = Microsoft.Xna.Framework.Graphics.SpriteFont;
     using XnaTexture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 
-    public class MonoGameRenderer : Renderer
+    public class MonoGameRenderer : IRenderer
     {
         private readonly XnaSpriteBatch spriteBatch;
 
@@ -23,7 +23,9 @@ namespace LateStartStudio.Hero6.Engine.Assets
             this.spriteBatch = spriteBatch;
         }
 
-        public override void Draw(Texture2D texture, Point point)
+        public bool IsPaused { get; set; }
+
+        public void Draw(Texture2D texture, Point point)
         {
             XnaTexture2D xnaTexture = texture.GetTexture as XnaTexture2D;
             XnaPoint xnaPoint = new XnaPoint(point.X, point.Y);
@@ -31,7 +33,7 @@ namespace LateStartStudio.Hero6.Engine.Assets
             this.spriteBatch.Draw(xnaTexture, xnaPoint.ToVector2());
         }
 
-        public override void Draw(Texture2D texture, Rectangle destinationRectangle, Color color)
+        public void Draw(Texture2D texture, Rectangle destinationRectangle, Color color)
         {
             XnaTexture2D xnaTexture = texture.GetTexture as XnaTexture2D;
             XnaRectangle xnaDestination = new XnaRectangle(
@@ -44,7 +46,7 @@ namespace LateStartStudio.Hero6.Engine.Assets
             this.spriteBatch.Draw(xnaTexture, xnaDestination, xnaColor);
         }
 
-        public override void Draw(
+        public void Draw(
             Texture2D texture,
             Rectangle destinationRectangle,
             Rectangle sourceRectangle,
@@ -66,7 +68,7 @@ namespace LateStartStudio.Hero6.Engine.Assets
             this.spriteBatch.Draw(xnaTexture, xnaDestination, xnaSource, xnaColor);
         }
 
-        public override void DrawString(SpriteFont font, string text, Point position, Color color)
+        public void DrawString(SpriteFont font, string text, Point position, Color color)
         {
             XnaSpriteFont xnaFont = font.GetSpriteFont as XnaSpriteFont;
             XnaPoint xnaPoint = new XnaPoint(position.X, position.Y);

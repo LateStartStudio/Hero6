@@ -7,16 +7,18 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
 {
     using System;
-
-    using LateStartStudio.Hero6.Engine.Assets;
-    using LateStartStudio.Hero6.Engine.Assets.Graphics;
-    using LateStartStudio.Hero6.Engine.GameLoop;
+    using Assets;
+    using Assets.Graphics;
+    using GameLoop;
+    using Utilities.DependencyInjection;
 
     /// <summary>
     /// A controller class for the mouse unit.
     /// </summary>
     public sealed class Mouse : IGameLoop
     {
+        private static readonly IRenderer Renderer;
+
         private static Point lastLocation;
         private static Cursor backup;
         private static IMouse core;
@@ -25,6 +27,11 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
         private static MouseButtonState rightPrevious;
         private static MouseButtonState x1Previous;
         private static MouseButtonState x2Previous;
+
+        static Mouse()
+        {
+            Renderer = ServicesBank.Instance.Get<IRenderer>();
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Mouse"/> class.
@@ -224,14 +231,14 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
         /// <inheritdoc />
         public void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            PreDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly, UserInterface.Renderer));
+            PreDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly));
 
             if (Cursor != null)
             {
-                UserInterface.Renderer.Draw(Cursor.Texture, lastLocation);
+                Renderer.Draw(Cursor.Texture, lastLocation);
             }
 
-            PostDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly, UserInterface.Renderer));
+            PostDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly));
         }
 
         private static bool IsWithinGameWindow(int x, int y)

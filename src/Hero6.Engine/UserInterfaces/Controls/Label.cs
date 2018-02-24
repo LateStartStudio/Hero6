@@ -7,17 +7,24 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 {
     using System;
-
-    using LateStartStudio.Hero6.Engine.Assets;
-    using LateStartStudio.Hero6.Engine.Assets.Graphics;
+    using Assets;
+    using Assets.Graphics;
+    using Utilities.DependencyInjection;
 
     /// <summary>
     /// A text label user interface element.
     /// </summary>
     public class Label : UserInterfaceElement
     {
+        private static readonly IRenderer Renderer;
+
         private string textOriginal;
         private string textWrapped;
+
+        static Label()
+        {
+            Renderer = ServicesBank.Instance.Get<IRenderer>();
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Label"/> class.
@@ -138,10 +145,10 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
             switch (TextWrapping)
             {
                 case TextWrapping.None:
-                    UserInterface.Renderer.DrawString(Font, textOriginal, Location, Foreground);
+                    Renderer.DrawString(Font, textOriginal, Location, Foreground);
                     break;
                 case TextWrapping.Wrap:
-                    UserInterface.Renderer.DrawString(Font, textWrapped, Location, Foreground);
+                    Renderer.DrawString(Font, textWrapped, Location, Foreground);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

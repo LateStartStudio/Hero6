@@ -7,18 +7,26 @@
 namespace LateStartStudio.Hero6.Engine.Campaigns
 {
     using System;
+    using Assets;
     using Assets.Graphics;
-    using GameLoop;
+    using Utilities.DependencyInjection;
 
     /// <summary>
     /// A class that represents a character animation.
     /// </summary>
     public abstract class CharacterAnimation : AdventureGameElement
     {
+        private static readonly IRenderer Renderer;
+
         private Point location;
         private int currentFrame;
         private float elapsedTime;
         private Vector2 facingDirection;
+
+        static CharacterAnimation()
+        {
+            Renderer = ServicesBank.Instance.Get<IRenderer>();
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CharacterAnimation"/> class.
@@ -247,7 +255,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
                 this.Width,
                 this.Height);
 
-            Campaign.Renderer.Draw(this.CurrentSprite.Sheet, destRectangle, sourceRectangle, Color.White);
+            Renderer.Draw(this.CurrentSprite.Sheet, destRectangle, sourceRectangle, Color.White);
         }
 
         private void ChangeCurrentSprite(Vector2 direction)

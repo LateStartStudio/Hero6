@@ -7,17 +7,24 @@
 namespace LateStartStudio.Hero6.Engine.Campaigns
 {
     using System;
+    using Assets;
     using Assets.Graphics;
-    using GameLoop;
+    using Utilities.DependencyInjection;
 
     /// <summary>
     /// A class that represents an item in a game.
     /// </summary>
     public abstract class Item : AdventureGameElement
     {
+        private static readonly IRenderer Renderer;
         private readonly string spriteID;
 
         private Texture2D sprite;
+
+        static Item()
+        {
+            Renderer = ServicesBank.Instance.Get<IRenderer>();
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Item"/> class.
@@ -113,7 +120,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         {
             if (this.IsVisible)
             {
-                Campaign.Renderer.Draw(this.sprite, this.Location);
+                Renderer.Draw(this.sprite, this.Location);
             }
         }
     }

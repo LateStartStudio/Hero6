@@ -63,14 +63,6 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         public event EventHandler<GameInteractionEventArgs> GameInteraction;
 
         /// <summary>
-        /// Gets or sets the renderer for the user interface.
-        /// </summary>
-        /// <value>
-        /// The renderer for the user interface.
-        /// </value>
-        public static Renderer Renderer { get; set; }
-
-        /// <summary>
         /// Gets or sets the native width for rendering of the user interface.
         /// </summary>
         /// <value>
@@ -187,7 +179,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         /// <inheritdoc />
         public void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            PreDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly, Renderer));
+            PreDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly));
 
             foreach (Dialog dialog in Dialogs)
             {
@@ -201,7 +193,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
 
             Mouse.Draw(total, elapsed, isRunningSlowly);
 
-            PostDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly, Renderer));
+            PostDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly));
         }
 
         /// <summary>

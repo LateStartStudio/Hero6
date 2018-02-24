@@ -28,7 +28,6 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
 
             UserInterface.Width = (int)Game.NativeGameResolution.X;
             UserInterface.Height = (int)Game.NativeGameResolution.Y;
-            UserInterface.Renderer = Game.Renderer;
 
             this.userInterfaces = new List<UserInterface>
             {

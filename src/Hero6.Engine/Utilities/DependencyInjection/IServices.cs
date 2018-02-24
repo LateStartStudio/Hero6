@@ -20,6 +20,19 @@ namespace LateStartStudio.Hero6.Engine.Utilities.DependencyInjection
         T Get<T>();
 
         /// <summary>
+        /// Adds a service.
+        /// </summary>
+        /// <typeparam name="T">The service to add.</typeparam>
+        void Add<T>();
+
+        /// <summary>
+        /// Adds a service.
+        /// </summary>
+        /// <typeparam name="T">The service to add.</typeparam>
+        /// <param name="instance">The instance of the provider.</param>
+        void Add<T>(T instance);
+
+        /// <summary>
         /// Adds service.
         /// </summary>
         /// <typeparam name="TService">The service type to add.</typeparam>

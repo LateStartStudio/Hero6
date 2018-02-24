@@ -22,13 +22,11 @@ namespace LateStartStudio.Hero6.Engine.GameLoop
         /// <param name="isRunningSlowly">
         /// A value indicating whether game is running slowly, true if it is, false if else.
         /// </param>
-        /// <param name="renderer">The graphics handler.</param>
-        public DrawEventArgs(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly, Renderer renderer)
+        public DrawEventArgs(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
             this.TotalTime = total;
             this.ElapsedTime = elapsed;
             this.IsRunningSlowly = isRunningSlowly;
-            this.Renderer = renderer;
         }
 
         /// <summary>
@@ -54,13 +52,5 @@ namespace LateStartStudio.Hero6.Engine.GameLoop
         /// A value indicating whether game is running slowly, true if it is, false if else.
         /// </value>
         public bool IsRunningSlowly { get; private set; }
-
-        /// <summary>
-        /// Gets the graphics handler.
-        /// </summary>
-        /// <value>
-        /// The graphics handler.
-        /// </value>
-        public Renderer Renderer { get; private set; }
     }
 }

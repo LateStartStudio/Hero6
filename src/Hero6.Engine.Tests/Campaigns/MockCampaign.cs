@@ -34,7 +34,6 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
             {
                 if (instance == null)
                 {
-                    Campaign.Renderer = new MockRenderer();
                     MockAssetManager assets = new MockAssetManager();
                     MockUserInterface ui = new MockUserInterface(assets, null);
 

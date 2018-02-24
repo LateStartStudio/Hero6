@@ -53,7 +53,7 @@ namespace LateStartStudio.Hero6
                 SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight
 #endif
             };
-            Graphics.DeviceCreated += this.GraphicsOnDeviceCreated;
+            Graphics.DeviceCreated += GraphicsOnDeviceCreated;
 
             Content.RootDirectory = "Content";
 
@@ -83,8 +83,6 @@ namespace LateStartStudio.Hero6
 
         public static GraphicsDeviceManager Graphics { get; private set; }
 
-        public static Renderer Renderer { get; private set; }
-
         public static Matrix Transform { get; set; } = Matrix.Identity;
 
         /// <summary>
@@ -98,23 +96,20 @@ namespace LateStartStudio.Hero6
             logger.Info("Initializing Hero6 game instance.");
 
             Window.Title = "Hero6";
+            this.spriteBatch = new SpriteBatch(GraphicsDevice);
+            ServicesBank.Instance.Add(spriteBatch);
+            ServicesBank.Instance.Add<IRenderer, MonoGameRenderer>();
 
             this.SetScale();
-
-            this.spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            Renderer = new MonoGameRenderer(this.spriteBatch);
-
             this.ui = new UserInterfaceHandler(this.Content);
-
             this.campaign = new CampaignHandler(this.Content, this.ui);
 
             this.ui.Initialize();
             this.campaign.Initialize();
 
-            logger.Info("Hero6 game instance initialized.");
-
             base.Initialize();
+
+            logger.Info("Hero6 game instance initialized.");
         }
 
         /// <summary>
