@@ -7,17 +7,24 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
 {
     using System;
-
-    using LateStartStudio.Hero6.Engine.Assets;
-    using LateStartStudio.Hero6.Engine.Campaigns;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Controls;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Input;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows;
+    using Assets;
+    using Campaigns;
+    using Controls;
+    using Dialogs;
+    using Input;
+    using UserInterfaces.Input;
+    using Utilities.DependencyInjection;
+    using Windows;
 
     public class SierraVgaController : UserInterface
     {
+        private static readonly IRenderer Renderer;
+
+        static SierraVgaController()
+        {
+            Renderer = ServicesBank.Instance.Get<IRenderer>();
+        }
+
         public SierraVgaController(AssetManager assets, IMouse mouse)
             : base(assets, mouse)
         {

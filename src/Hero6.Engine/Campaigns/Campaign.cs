@@ -21,6 +21,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
     public abstract class Campaign : IGameLoop
     {
         private static readonly ILogger Logger;
+        private static readonly IRenderer Renderer;
 
         private readonly IDictionary<string, Character> characters;
         private readonly IDictionary<string, Item> items;
@@ -30,6 +31,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         static Campaign()
         {
             Logger = ServicesBank.Instance.Get<ILogger>();
+            Renderer = ServicesBank.Instance.Get<IRenderer>();
         }
 
         /// <summary>
@@ -81,23 +83,6 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
 
         /// <inheritdoc />
         public event EventHandler<DrawEventArgs> PostDraw;
-
-        /// <summary>
-        /// Gets or sets the renderer of the campaign.
-        /// </summary>
-        public static Renderer Renderer { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether the campaign is paused or not.
-        /// </summary>
-        /// <value>
-        /// A value indicating whether the campaign is paused or not.
-        /// </value>
-        public static bool IsPaused
-        {
-            get { return Renderer.IsPaused; }
-            set { Renderer.IsPaused = value; }
-        }
 
         /// <summary>
         /// Gets the name of the campaign.
@@ -267,7 +252,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         {
             this.PreUpdate?.Invoke(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
 
-            if (IsPaused)
+            if (Renderer.IsPaused)
             {
                 return;
             }
@@ -280,11 +265,11 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         /// <inheritdoc />
         public void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            this.PreDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly, Renderer));
+            this.PreDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly));
 
             this.CurrentRoom.Draw(total, elapsed, isRunningSlowly);
 
-            this.PostDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly, Renderer));
+            this.PostDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly));
         }
 
         /// <summary>

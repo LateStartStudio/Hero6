@@ -7,11 +7,11 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 {
     using System;
-
-    using LateStartStudio.Hero6.Engine.Assets;
-    using LateStartStudio.Hero6.Engine.Assets.Graphics;
-    using LateStartStudio.Hero6.Engine.GameLoop;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+    using Assets;
+    using Assets.Graphics;
+    using GameLoop;
+    using Input;
+    using Utilities.DependencyInjection;
 
     /// <summary>
     /// An abstract class for common attributes and functionality associated with a user interface
@@ -19,12 +19,19 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
     /// </summary>
     public abstract class UserInterfaceElement : IGameLoop
     {
+        private static readonly IRenderer Renderer;
+
         private bool isMouseIntersectingPrevious;
         private bool isWidthSet;
         private bool isHeightSet;
         private Point location;
         private Texture2D background;
         private Rectangle destination;
+
+        static UserInterfaceElement()
+        {
+            Renderer = ServicesBank.Instance.Get<IRenderer>();
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UserInterfaceElement"/> class.
@@ -252,12 +259,12 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
                 return;
             }
 
-            PreDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly, UserInterface.Renderer));
+            PreDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly));
 
-            UserInterface.Renderer.Draw(background, destination, Background);
+            Renderer.Draw(background, destination, Background);
             InternalDraw(total, elapsed, isRunningSlowly);
 
-            PostDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly, UserInterface.Renderer));
+            PostDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly));
         }
 
         /// <summary>

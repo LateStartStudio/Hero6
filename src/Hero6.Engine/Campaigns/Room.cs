@@ -8,16 +8,18 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
 {
     using System;
     using System.Collections.Generic;
+    using Assets;
     using Assets.Graphics;
-    using GameLoop;
     using Regions;
-    using Search.Pathfinder;
+    using Utilities.DependencyInjection;
 
     /// <summary>
     /// A class that represents a room in a game.
     /// </summary>
     public abstract class Room : AdventureGameElement
     {
+        private static readonly IRenderer Renderer;
+
         private readonly string backgroundID;
         private readonly string walkAreasID;
         private readonly string hotSpotMaskID;
@@ -26,6 +28,11 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         private WalkAreas walkAreas;
         private Texture2D hotspotsMask;
         private Color[,] hotspotMaskBuffer;
+
+        static Room()
+        {
+            Renderer = ServicesBank.Instance.Get<IRenderer>();
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Room"/> class.
@@ -191,7 +198,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         {
             if (this.IsVisible)
             {
-                Campaign.Renderer.Draw(this.background, this.Location);
+                Renderer.Draw(this.background, this.Location);
             }
 
             foreach (Item item in this.Items)

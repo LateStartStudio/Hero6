@@ -157,11 +157,11 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         /// <inheritdoc />
         public void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            PreDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly, Campaign.Renderer));
+            PreDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly));
 
             InternalDraw(total, elapsed, isRunningSlowly);
 
-            PostDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly, Campaign.Renderer));
+            PostDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly));
         }
 
         /// <summary>

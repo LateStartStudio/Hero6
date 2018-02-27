@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Graphics\Vector2Tests.cs" />
-    <Compile Include="Assets\MockRenderer.cs" />
     <Compile Include="Assets\MockAssetManager.cs" />
     <Compile Include="GameLoop\DrawEventArgsTests.cs" />
     <Compile Include="GameLoop\LoadEventArgsTests.cs" />

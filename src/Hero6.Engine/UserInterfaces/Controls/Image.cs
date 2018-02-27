@@ -7,16 +7,23 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 {
     using System;
-
-    using LateStartStudio.Hero6.Engine.Assets;
-    using LateStartStudio.Hero6.Engine.Assets.Graphics;
+    using Assets;
+    using Assets.Graphics;
+    using Utilities.DependencyInjection;
 
     /// <summary>
     /// A image user interface element.
     /// </summary>
     public class Image : UserInterfaceElement
     {
+        private static readonly IRenderer Renderer;
+
         private Texture2D image;
+
+        static Image()
+        {
+            Renderer = ServicesBank.Instance.Get<IRenderer>();
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Image"/> class.
@@ -59,7 +66,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         /// <inheritdoc />
         protected override void InternalDraw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
         {
-            UserInterface.Renderer.Draw(image, Location);
+            Renderer.Draw(image, Location);
         }
     }
 }

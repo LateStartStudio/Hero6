@@ -22,6 +22,10 @@ namespace LateStartStudio.Hero6.Engine.Utilities.DependencyInjection
 
         public T Get<T>() => (T)services.GetService(typeof(T));
 
+        public void Add<T>() => Add<T, T>();
+
+        public void Add<T>(T instance) => services.AddService(typeof(T), instance);
+
         public void Add<TService, TProvider>()
         {
             foreach (var c in typeof(TProvider).GetConstructors())
