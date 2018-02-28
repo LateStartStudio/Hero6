@@ -17,7 +17,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs
         private readonly Vector2 maxSize;
         private readonly Label label;
 
-        public TextBox(AssetManager assets)
+        public TextBox(IAssets assets)
             : base(assets)
         {
             this.maxSize.X = UserInterface.Width - (UserInterface.Width / 4);

@@ -8,7 +8,6 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
 {
     using System.Collections.Generic;
 
-    using LateStartStudio.Hero6.Engine.Assets;
     using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
     using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga;
 
@@ -31,7 +30,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
 
             this.userInterfaces = new List<UserInterface>
             {
-                new SierraVgaController(new MonoGameAssetManager(content), mouse)
+                new SierraVgaController(mouse)
             };
             this.CurrentUi = userInterfaces[0];
         }

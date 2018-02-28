@@ -11,7 +11,8 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Assets\Graphics\MonoGameSpriteFont.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Assets\Graphics\MonoGameTexture2D.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\Assets\MonoGameAssetManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Assets\MonoGameAssets.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Assets\MonoGameAssetsFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Assets\MonoGameRenderer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Assets\MonoGameWalkAreaReader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Campaigns\CampaignHandler.cs" />

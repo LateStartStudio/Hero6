@@ -10,26 +10,32 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
     using System;
     using System.Collections.Generic;
     using System.Linq;
-
-    using LateStartStudio.Hero6.Engine.Assets;
-    using LateStartStudio.Hero6.Engine.GameLoop;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Controls;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+    using Assets;
+    using Controls;
+    using GameLoop;
+    using Input;
+    using Utilities.DependencyInjection;
 
     /// <summary>
     /// An abstract class for defining the user interface of an adventure game.
     /// </summary>
     public abstract class UserInterface : IGameLoop
     {
+        private static readonly IAssetsFactory AssetsFactory;
+
+        static UserInterface()
+        {
+            AssetsFactory = ServicesBank.Instance.Get<IAssetsFactory>();
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="UserInterface"/> class.
         /// </summary>
-        /// <param name="assets">The assets manager of this user interface.</param>
         /// <param name="mouse">The mouse core mechanics.</param>
-        protected UserInterface(AssetManager assets, IMouse mouse)
+        protected UserInterface(IMouse mouse)
         {
-            this.Assets = assets;
-            this.Mouse = new Mouse(assets, mouse);
+            this.Assets = AssetsFactory.Make();
+            this.Mouse = new Mouse(Assets, mouse);
             this.Mouse.ButtonUp += MouseOnButtonUp;
         }
 
@@ -79,12 +85,12 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         public static int Height { get; set; }
 
         /// <summary>
-        /// Gets the <see cref="AssetManager"/> of the <see cref="UserInterface"/> instance.
+        /// Gets the <see cref="IAssets"/> of the <see cref="UserInterface"/> instance.
         /// </summary>
         /// <value>
-        /// The <see cref="AssetManager"/> of the <see cref="UserInterface"/> instance.
+        /// The <see cref="IAssets"/> of the <see cref="UserInterface"/> instance.
         /// </value>
-        public AssetManager Assets { get; }
+        public IAssets Assets { get; }
 
         /// <summary>
         /// Gets the name.

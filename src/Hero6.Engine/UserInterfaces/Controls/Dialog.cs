@@ -25,7 +25,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         /// Initializes a new instance of the <see cref="Dialog"/> class.
         /// </summary>
         /// <param name="assets">The asset manager of this user interface module.</param>
-        protected Dialog(AssetManager assets)
+        protected Dialog(IAssets assets)
             : base(assets)
         {
             this.IsVisible = false;

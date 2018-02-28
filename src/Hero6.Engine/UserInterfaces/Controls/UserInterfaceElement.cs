@@ -37,7 +37,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         /// Initializes a new instance of the <see cref="UserInterfaceElement"/> class.
         /// </summary>
         /// <param name="assets">The assets manager for this user interface module.</param>
-        protected UserInterfaceElement(AssetManager assets)
+        protected UserInterfaceElement(IAssets assets)
         {
             this.Assets = assets;
             this.IsVisible = true;
@@ -172,7 +172,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         /// <summary>
         /// Gets the asset manager for this user interface module.
         /// </summary>
-        protected AssetManager Assets { get; }
+        protected IAssets Assets { get; }
 
         /// <inheritdoc />
         public void Load()

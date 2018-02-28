@@ -13,7 +13,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
 
     public class StatusBar : Window
     {
-        public StatusBar(AssetManager assets)
+        public StatusBar(IAssets assets)
             : base(assets)
         {
             this.IsVisible = true;

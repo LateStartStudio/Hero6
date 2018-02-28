@@ -21,6 +21,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
     public abstract class Campaign : IGameLoop
     {
         private static readonly ILogger Logger;
+        private static readonly IAssetsFactory AssetsFactory;
         private static readonly IRenderer Renderer;
 
         private readonly IDictionary<string, Character> characters;
@@ -31,6 +32,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         static Campaign()
         {
             Logger = ServicesBank.Instance.Get<ILogger>();
+            AssetsFactory = ServicesBank.Instance.Get<IAssetsFactory>();
             Renderer = ServicesBank.Instance.Get<IRenderer>();
         }
 
@@ -39,15 +41,14 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         /// </summary>
         /// <param name="name">The name of the campaign.</param>
         /// <param name="statCap">The stat cap of this campaign instance.</param>
-        /// <param name="assets">The assets manager that will load campaign assets.</param>
         /// <param name="userInterface">The user interface that this campaign will use.</param>
-        protected Campaign(string name, int statCap, AssetManager assets, UserInterface userInterface)
+        protected Campaign(string name, int statCap, UserInterface userInterface)
         {
             Logger.Info($"Creating Campaign instance. - {name}");
 
             this.Name = name;
             this.StatCap = statCap;
-            this.Assets = assets;
+            this.Assets = AssetsFactory.Make();
 
             this.UserInterface = userInterface;
             this.UserInterface.GameInteraction += this.OnUserInteraction;
@@ -101,12 +102,12 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         public int StatCap { get; }
 
         /// <summary>
-        /// Gets the <see cref="AssetManager"/> of the <see cref="Campaign"/> instance.
+        /// Gets the <see cref="IAssets"/> of the <see cref="Campaign"/> instance.
         /// </summary>
         /// <value>
-        /// The <see cref="AssetManager"/> of the <see cref="Campaign"/> instance.
+        /// The <see cref="IAssets"/> of the <see cref="Campaign"/> instance.
         /// </value>
-        public AssetManager Assets { get; }
+        public IAssets Assets { get; }
 
         /// <summary>
         /// Gets or sets the user interface of this campaign.

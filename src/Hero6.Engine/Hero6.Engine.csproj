@@ -43,9 +43,10 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\IAssets.cs" />
+    <Compile Include="Assets\IAssetsFactory.cs" />
     <Compile Include="Assets\IRenderer.cs" />
     <Compile Include="Campaigns\Campaign.cs" />
-    <Compile Include="Assets\AssetManager.cs" />
     <Compile Include="Assets\Graphics\Color.cs" />
     <Compile Include="Assets\Graphics\Point.cs" />
     <Compile Include="Assets\Graphics\Rectangle.cs" />

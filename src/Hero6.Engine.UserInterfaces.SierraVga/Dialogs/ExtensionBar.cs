@@ -38,7 +38,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs
         private readonly Image time;
         private readonly Image timeDark;
 
-        public ExtensionBar(AssetManager assets)
+        public ExtensionBar(IAssets assets)
             : base(assets)
         {
             this.left = new Image(assets, $"Extension Bar{Path.DirectorySeparatorChar}Left");

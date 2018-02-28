@@ -19,7 +19,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         /// Initializes a new instance of the <see cref="StackPanel"/> class.
         /// </summary>
         /// <param name="assets">The asset manager of this user interface module.</param>
-        public StackPanel(AssetManager assets)
+        public StackPanel(IAssets assets)
             : base(assets)
         {
         }

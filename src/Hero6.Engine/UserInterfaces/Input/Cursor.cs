@@ -47,7 +47,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
         /// Load the texture.
         /// </summary>
         /// <param name="assets">The asset manager for this user interface module.</param>
-        public void Load(AssetManager assets)
+        public void Load(IAssets assets)
         {
             this.Texture = assets.LoadTexture2D(path);
         }

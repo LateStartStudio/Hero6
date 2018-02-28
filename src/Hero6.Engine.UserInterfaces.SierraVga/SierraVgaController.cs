@@ -25,25 +25,25 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
             Renderer = ServicesBank.Instance.Get<IRenderer>();
         }
 
-        public SierraVgaController(AssetManager assets, IMouse mouse)
-            : base(assets, mouse)
+        public SierraVgaController(IMouse mouse)
+            : base(mouse)
         {
-            this.Assets.RootDirectory = "Content/Gui/Sierra Vga";
+            Assets.Directory = "Content/Gui/Sierra Vga";
             Mouse.Cursor = Cursors.Walk;
             Mouse.SaveCursorToBackup();
             Mouse.ButtonUp += MouseControllerOnButtonUp;
 
-            StatusBar = new StatusBar(assets);
+            StatusBar = new StatusBar(Assets);
             StatusBar.MouseEnter += TopBarOnMouseEnter;
 
-            VerbBar = new VerbBar(assets);
+            VerbBar = new VerbBar(Assets);
             VerbBar.MouseLeave += VerbBarOnMouseLeave;
 
-            TextBox = new TextBox(assets);
+            TextBox = new TextBox(Assets);
 
-            Rest = new Rest(assets);
+            Rest = new Rest(Assets);
 
-            ExtensionBar = new ExtensionBar(assets);
+            ExtensionBar = new ExtensionBar(Assets);
 
             Windows.Add(StatusBar);
             Windows.Add(VerbBar);

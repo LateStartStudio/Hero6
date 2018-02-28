@@ -34,6 +34,8 @@ namespace LateStartStudio.Hero6
             ServicesBank.Instance = new MonoGameServices(Services);
             ServicesBank.Instance.Add<IUserSettings, UserSettings>();
             ServicesBank.Instance.Add<ILogger, LogFourNet>();
+            ServicesBank.Instance.Add(Content);
+            ServicesBank.Instance.Add<IAssetsFactory, MonoGameAssetsFactory>();
             this.logger = ServicesBank.Instance.Get<ILogger>();
             var userSettings = ServicesBank.Instance.Get<IUserSettings>();
 
