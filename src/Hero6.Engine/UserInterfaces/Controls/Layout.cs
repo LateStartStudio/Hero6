@@ -20,7 +20,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         /// Initializes a new instance of the <see cref="Layout"/> class.
         /// </summary>
         /// <param name="assets">The asset manager for this user interface module.</param>
-        protected Layout(AssetManager assets)
+        protected Layout(IAssets assets)
             : base(assets)
         {
         }

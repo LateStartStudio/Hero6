@@ -20,7 +20,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         /// </summary>
         /// <param name="assets">The asset manager of this user interface.</param>
         /// <param name="child">The user interface inside this button.</param>
-        public Button(AssetManager assets, UserInterfaceElement child)
+        public Button(IAssets assets, UserInterfaceElement child)
             : base(assets)
         {
             this.Child = child;

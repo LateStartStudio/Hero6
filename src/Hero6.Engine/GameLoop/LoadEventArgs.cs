@@ -18,7 +18,7 @@ namespace LateStartStudio.Hero6.Engine.GameLoop
         /// Initializes a new instance of the <see cref="LoadEventArgs"/> class.
         /// </summary>
         /// <param name="assets">The asset manager.</param>
-        public LoadEventArgs(AssetManager assets)
+        public LoadEventArgs(IAssets assets)
         {
             this.Assets = assets;
         }
@@ -29,6 +29,6 @@ namespace LateStartStudio.Hero6.Engine.GameLoop
         /// <value>
         /// The asset manager.
         /// </value>
-        public AssetManager Assets { get; private set; }
+        public IAssets Assets { get; }
     }
 }

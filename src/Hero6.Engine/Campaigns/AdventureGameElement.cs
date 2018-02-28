@@ -106,14 +106,14 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         }
 
         /// <summary>
-        /// Gets the <see cref="AssetManager"/> associated with this
+        /// Gets the <see cref="IAssets"/> associated with this
         /// <see cref="AdventureGameElement"/> instance.
         /// </summary>
         /// <value>
-        /// The <see cref="AssetManager"/> associated with this
+        /// The <see cref="IAssets"/> associated with this
         /// <see cref="AdventureGameElement"/> instance.
         /// </value>
-        protected AssetManager Assets => this.Campaign.Assets;
+        protected IAssets Assets => Campaign.Assets;
 
         /// <summary>
         /// Called on user interaction with the game at input coordinates.

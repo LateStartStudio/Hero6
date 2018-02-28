@@ -6,15 +6,13 @@
 
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs
 {
-    using System;
-
     using LateStartStudio.Hero6.Engine.Assets;
     using LateStartStudio.Hero6.Engine.UserInterfaces.Controls;
     using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
 
     public class Rest : Dialog
     {
-        public Rest(AssetManager assets)
+        public Rest(IAssets assets)
             : base(assets)
         {
             StackPanel stack = new StackPanel(assets) { Orientation = Orientation.Vertical };

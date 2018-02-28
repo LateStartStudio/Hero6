@@ -7,7 +7,6 @@
 namespace LateStartStudio.Hero6.Engine.Campaigns
 {
     using System.Collections.Generic;
-    using Assets;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using UserInterfaces;
@@ -24,9 +23,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
 
             this.campaigns = new List<Campaign>
             {
-                new RitesOfPassage.RitesOfPassage(
-                    new MonoGameAssetManager(content),
-                    this.userInterface.CurrentUi)
+                new RitesOfPassage.RitesOfPassage(userInterface.CurrentUi)
             };
             this.CurrentCampaign = this.campaigns[0];
         }

@@ -38,7 +38,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
         /// </summary>
         /// <param name="assets">The asset manager for this user interface module.</param>
         /// <param name="core">The basic core functionalities of the mouse unit.</param>
-        public Mouse(AssetManager assets, IMouse core)
+        public Mouse(IAssets assets, IMouse core)
         {
             this.Assets = assets;
             Mouse.core = core;
@@ -138,7 +138,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
         /// <summary>
         /// Gets the asset manager for this user interface module.
         /// </summary>
-        private AssetManager Assets { get; }
+        private IAssets Assets { get; }
 
         /// <summary>
         /// Center the mouse cursor to the middle of the main window.

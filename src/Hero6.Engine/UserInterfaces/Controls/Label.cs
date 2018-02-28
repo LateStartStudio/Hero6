@@ -30,7 +30,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         /// Initializes a new instance of the <see cref="Label"/> class.
         /// </summary>
         /// <param name="assets">The asset manager of this user interface module.</param>
-        public Label(AssetManager assets)
+        public Label(IAssets assets)
             : base(assets)
         {
             this.Text = string.Empty;

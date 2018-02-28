@@ -16,7 +16,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
     /// </summary>
     public class SpriteSheet : IGameLoop
     {
-        private readonly AssetManager assets;
+        private readonly IAssets assets;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SpriteSheet"/> class.

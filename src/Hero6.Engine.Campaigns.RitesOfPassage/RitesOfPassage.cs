@@ -15,8 +15,8 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage
 
     public sealed class RitesOfPassage : Campaign
     {
-        public RitesOfPassage(AssetManager assets, UserInterface userInterface)
-            : base("Rites of Passage", 100, assets, userInterface)
+        public RitesOfPassage(UserInterface userInterface)
+            : base("Rites of Passage", 100, userInterface)
         {
             this.AddCharacters();
             this.AddItems();

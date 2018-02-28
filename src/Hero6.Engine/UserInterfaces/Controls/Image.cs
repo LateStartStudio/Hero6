@@ -30,7 +30,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         /// </summary>
         /// <param name="assets">The asset manager for this user interface module.</param>
         /// <param name="source">the source path for the texture.</param>
-        public Image(AssetManager assets, string source)
+        public Image(IAssets assets, string source)
             : base(assets)
         {
             this.Source = source;

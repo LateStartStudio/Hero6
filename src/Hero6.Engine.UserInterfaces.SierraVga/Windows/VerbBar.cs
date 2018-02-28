@@ -12,7 +12,6 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
     using LateStartStudio.Hero6.Engine.Assets;
     using LateStartStudio.Hero6.Engine.UserInterfaces.Controls;
     using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs;
     using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Input;
 
     public class VerbBar : Window
@@ -50,7 +49,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
         private readonly Image options;
         private readonly Image optionsDark;
 
-        public VerbBar(AssetManager assets)
+        public VerbBar(IAssets assets)
             : base(assets)
         {
             IsVisible = false;
