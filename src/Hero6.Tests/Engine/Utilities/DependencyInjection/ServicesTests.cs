@@ -42,13 +42,35 @@ namespace LateStartStudio.Hero6.Engine.Utilities.DependencyInjection
         }
 
         [Test]
-        public void Get() => Assert.That(services.Get<ITest>(), Is.Not.Null);
+        public void GetServiceExistingInBankIsNotNull() => Assert.That(services.Get<ITest>(), Is.Not.Null);
 
         [Test]
-        public void Remove()
+        public void GetServiceNotExistingInBankIsNull() => Assert.That(services.Get<Test>(), Is.Null);
+
+        [Test]
+        public void RemoveServiceFromBankSucceeds()
         {
             services.Remove<ITest>();
             Assert.That(services.Get<ITest>(), Is.Null);
+        }
+
+        [Test]
+        public void MakeSucceeds()
+        {
+            Assert.That(services.Make<Test>(), Is.Not.Null);
+        }
+
+        [Test]
+        public void MakeSucceedsIfParameterInBank()
+        {
+            services.Add(0);
+            Assert.That(services.Make<TestWithConstructor>(), Is.Not.Null);
+        }
+
+        [Test]
+        public void MakeThrowsExecptionIfParamterIsNotInBank()
+        {
+            Assert.Throws<ArgumentException>(() => services.Add<TestWithConstructor>());
         }
 
         protected abstract IServices Make();
