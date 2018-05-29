@@ -44,5 +44,13 @@ namespace LateStartStudio.Hero6.Engine.Utilities.DependencyInjection
         /// </summary>
         /// <typeparam name="T">The service type to remove.</typeparam>
         void Remove<T>();
+
+        /// <summary>
+        /// Makes an instance of the service using already added services as parameters if needed, but does not add it
+        /// to the bank.
+        /// </summary>
+        /// <typeparam name="T">The service to make.</typeparam>
+        /// <returns>The instance of the service.</returns>
+        T Make<T>();
     }
 }
