@@ -9,7 +9,6 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
     using System;
     using System.Collections.Generic;
     using Assets.Graphics;
-    using GameLoop;
 
     /// <summary>
     /// A class that represents a character in a game.
@@ -206,6 +205,8 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
                 case Interaction.Mouth:
                     this.Talk?.Invoke(this, EventArgs.Empty);
                     break;
+                case Interaction.Move:
+                    return false;
                 default:
                     throw new NotSupportedException(
                               $"Interaction {interaction} is not supported on characters.");

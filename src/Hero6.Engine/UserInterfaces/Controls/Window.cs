@@ -6,63 +6,26 @@
 
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 {
-    using System;
-
-    using LateStartStudio.Hero6.Engine.Assets;
+    using Input;
 
     /// <summary>
-    /// A standard window. All windows will render within the main window instance that is hosting
-    /// the rendering.
+    /// The Window class.
     /// </summary>
-    public class Window : UserInterfaceElement, IChild
+    public abstract class Window : UserInterfaceElement, IChild
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Window"/> class.
+        /// Intializes a new instance of the <see cref="Window"/> class.
         /// </summary>
-        /// <param name="assets">The asset manager of this user interface module.</param>
-        public Window(IAssets assets)
-            : base(assets)
+        /// <param name="mouse">The mouse service.</param>
+        protected Window(IMouse mouse)
+            : base(mouse)
         {
+            IsVisible = false;
         }
 
-        /// <inheritdoc />
-        public UserInterfaceElement Child { get; set; }
-
-        /// <inheritdoc cref="UserInterfaceElement"/>
-        protected override int DefaultWidth => Child.Width;
-
-        /// <inheritdoc cref="UserInterfaceElement"/>
-        protected override int DefaultHeight => Child.Height;
-
-        /// <inheritdoc />
-        protected override void InternalLoad()
-        {
-            Child?.Load();
-        }
-
-        /// <inheritdoc />
-        protected override void InternalUnload()
-        {
-            Child?.Unload();
-        }
-
-        /// <inheritdoc />
-        protected override void InternalUpdate(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
-        {
-            if (Child == null)
-            {
-                return;
-            }
-
-            this.Child.X = X;
-            this.Child.Y = Y;
-            Child.Update(total, elapsed, isRunningSlowly);
-        }
-
-        /// <inheritdoc />
-        protected override void InternalDraw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
-        {
-            Child?.Draw(total, elapsed, isRunningSlowly);
-        }
+        /// <summary>
+        /// Gets or sets the child element.
+        /// </summary>
+        public virtual UserInterfaceElement Child { get; set; }
     }
 }

@@ -23,6 +23,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         private static readonly ILogger Logger;
         private static readonly IAssetsFactory AssetsFactory;
         private static readonly IRenderer Renderer;
+        private static readonly IUserInterfaces UserInterfaces;
 
         private readonly IDictionary<string, Character> characters;
         private readonly IDictionary<string, Item> items;
@@ -34,6 +35,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
             Logger = ServicesBank.Instance.Get<ILogger>();
             AssetsFactory = ServicesBank.Instance.Get<IAssetsFactory>();
             Renderer = ServicesBank.Instance.Get<IRenderer>();
+            UserInterfaces = ServicesBank.Instance.Get<IUserInterfaces>();
         }
 
         /// <summary>
@@ -41,17 +43,14 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         /// </summary>
         /// <param name="name">The name of the campaign.</param>
         /// <param name="statCap">The stat cap of this campaign instance.</param>
-        /// <param name="userInterface">The user interface that this campaign will use.</param>
-        protected Campaign(string name, int statCap, UserInterface userInterface)
+        protected Campaign(string name, int statCap)
         {
             Logger.Info($"Creating Campaign instance. - {name}");
 
             this.Name = name;
             this.StatCap = statCap;
             this.Assets = AssetsFactory.Make();
-
-            this.UserInterface = userInterface;
-            this.UserInterface.GameInteraction += this.OnUserInteraction;
+            this.UserInterface = UserInterfaces.Current;
 
             this.characters = new Dictionary<string, Character>();
             this.items = new Dictionary<string, Item>();
@@ -208,6 +207,25 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
             this.CurrentRoom = this.rooms[room];
         }
 
+        /// <summary>
+        /// Perform verb interaction on the coordinates.
+        /// </summary>
+        /// <param name="x">The x position.</param>
+        /// <param name="y">The y position.</param>
+        /// <param name="interaction">The verb interaction.</param>
+        public void Interact(int x, int y, Interaction interaction)
+        {
+            foreach (var c in characters)
+            {
+                c.Value.Interact(x, y, interaction);
+            }
+
+            foreach (var r in rooms)
+            {
+                r.Value.Interact(x, y, interaction);
+            }
+        }
+
         /// <inheritdoc />
         public void Load()
         {
@@ -311,11 +329,6 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         protected void AddRoom(string id, Room room)
         {
             this.rooms.Add(id, room);
-        }
-
-        private void OnUserInteraction(object sender, GameInteractionEventArgs e)
-        {
-            this.CurrentRoom.Interact(e.X, e.Y, e.Interaction);
         }
     }
 }

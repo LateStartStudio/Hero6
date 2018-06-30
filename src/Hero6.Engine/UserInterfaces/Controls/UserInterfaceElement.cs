@@ -7,330 +7,131 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 {
     using System;
-    using Assets;
+    using System.Collections.Generic;
+    using System.Linq;
     using Assets.Graphics;
-    using GameLoop;
     using Input;
-    using Utilities.DependencyInjection;
 
     /// <summary>
-    /// An abstract class for common attributes and functionality associated with a user interface
-    /// element.
+    /// The <see cref="UserInterfaceElement"/> class.
     /// </summary>
-    public abstract class UserInterfaceElement : IGameLoop
+    public abstract class UserInterfaceElement
     {
-        private static readonly IRenderer Renderer;
-
-        private bool isMouseIntersectingPrevious;
-        private bool isWidthSet;
-        private bool isHeightSet;
-        private Point location;
-        private Texture2D background;
-        private Rectangle destination;
-
-        static UserInterfaceElement()
-        {
-            Renderer = ServicesBank.Instance.Get<IRenderer>();
-        }
+        private bool mousePreviouslyIntersected;
+        private bool isVisible;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UserInterfaceElement"/> class.
         /// </summary>
-        /// <param name="assets">The assets manager for this user interface module.</param>
-        protected UserInterfaceElement(IAssets assets)
+        /// <param name="mouse">The mouse service.</param>
+        /// <param name="parent">The parent.</param>
+        protected UserInterfaceElement(IMouse mouse, UserInterfaceElement parent = null)
         {
-            this.Assets = assets;
-            this.IsVisible = true;
+            Parent = parent;
+            isVisible = true;
+            mouse.Move += OnMouseMove;
+            mouse.ButtonLift += OnMouseButtonLift;
         }
-
-        /// <inheritdoc />
-        public event EventHandler<LoadEventArgs> PreLoad;
-
-        /// <inheritdoc />
-        public event EventHandler<LoadEventArgs> PostLoad;
-
-        /// <inheritdoc />
-        public event EventHandler<UnloadEventArgs> PreUnload;
-
-        /// <inheritdoc />
-        public event EventHandler<UnloadEventArgs> PostUnload;
-
-        /// <inheritdoc />
-        public event EventHandler<UpdateEventArgs> PreUpdate;
-
-        /// <inheritdoc />
-        public event EventHandler<UpdateEventArgs> PostUpdate;
-
-        /// <inheritdoc />
-        public event EventHandler<DrawEventArgs> PreDraw;
-
-        /// <inheritdoc />
-        public event EventHandler<DrawEventArgs> PostDraw;
 
         /// <summary>
         /// Occurs when left mouse button is lifted up while the cursor is over this user interface
         /// element.
         /// </summary>
-        public event EventHandler<MouseButtonClickEventArgs> MouseButtonUp;
+        public event EventHandler<MouseButtonInteraction> MouseButtonUp;
 
         /// <summary>
         /// Occurs when the mouse cursor enters this user interface element.
         /// </summary>
-        public event EventHandler<EventArgs> MouseEnter;
+        public event EventHandler<MouseMove> MouseEnter;
 
         /// <summary>
         /// Occurs when the mouse cursor leaves this user interface element.
         /// </summary>
-        public event EventHandler<EventArgs> MouseLeave;
+        public event EventHandler<MouseMove> MouseLeave;
 
         /// <summary>
-        /// Gets or sets the background color of this user interface element.
+        /// Gets or sets the <see cref="UserInterfaceElement"/> parent.
+        /// </summary>
+        public UserInterfaceElement Parent { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Background <see cref="Color"/>.
         /// </summary>
         public Color Background { get; set; } = new Color(242, 242, 242, 255);
 
         /// <summary>
+        /// Gets or sets the x position.
+        /// </summary>
+        public int X { get; set; }
+
+        /// <summary>
+        /// Gets or sets the y position.
+        /// </summary>
+        public int Y { get; set; }
+
+        /// <summary>
         /// Gets or sets the width of the user interface element.
         /// </summary>
-        public int Width
-        {
-            get
-            {
-                return destination.Width;
-            }
-
-            set
-            {
-                this.destination.Width = value;
-                this.isWidthSet = true;
-            }
-        }
+        public int Width { get; set; }
 
         /// <summary>
         /// Gets or sets the height of the user interface element.
         /// </summary>
-        public int Height
-        {
-            get
-            {
-                return destination.Height;
-            }
-
-            set
-            {
-                this.destination.Height = value;
-                this.isHeightSet = true;
-            }
-        }
+        public int Height { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this user interface element is visible.
         /// </summary>
-        public bool IsVisible { get; set; }
-
-        /// <summary>
-        /// Gets or sets the x coordinate of the user interface element.
-        /// </summary>
-        internal int X
+        public bool IsVisible
         {
-            get { return destination.X; }
-            set { this.destination.X = value; }
+            get { return isVisible && (Parent == null || AllParents.Any(p => p.IsVisible)); }
+            set { isVisible = value; }
         }
 
-        /// <summary>
-        /// Gets or sets the y coordinate of the user interface element.
-        /// </summary>
-        internal int Y
+        private IEnumerable<UserInterfaceElement> AllParents
         {
-            get { return destination.Y; }
-            set { this.destination.Y = value; }
-        }
-
-        /// <summary>
-        /// Gets or sets the location of the user interface element.
-        /// </summary>
-        internal Point Location
-        {
-            get { return location; }
-            set { this.location = value; }
-        }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether this user interface element is loaded.
-        /// </summary>
-        protected bool IsLoaded { get; set; }
-
-        /// <summary>
-        /// Gets the default width if it hasn't been set before load time.
-        /// </summary>
-        protected abstract int DefaultWidth { get; }
-
-        /// <summary>
-        /// Gets the default height if it hasn't been set before load time.
-        /// </summary>
-        protected abstract int DefaultHeight { get; }
-
-        /// <summary>
-        /// Gets the asset manager for this user interface module.
-        /// </summary>
-        protected IAssets Assets { get; }
-
-        /// <inheritdoc />
-        public void Load()
-        {
-            PreLoad?.Invoke(this, new LoadEventArgs(Assets));
-
-            this.background = this.Assets.CreateTexture2D(1, 1);
-            background.SetData(new[] { Background });
-
-            InternalLoad();
-
-            if (!isWidthSet)
+            get
             {
-                Width = DefaultWidth;
-            }
+                var parent = Parent;
 
-            if (!isHeightSet)
-            {
-                Height = DefaultHeight;
-            }
-
-            this.IsLoaded = true;
-
-            PostLoad?.Invoke(this, new LoadEventArgs(Assets));
-        }
-
-        /// <inheritdoc />
-        public void Unload()
-        {
-            PreUnload?.Invoke(this, new UnloadEventArgs());
-
-            InternalUnload();
-
-            PostUnload?.Invoke(this, new UnloadEventArgs());
-        }
-
-        /// <inheritdoc />
-        public void Update(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
-        {
-            if (!IsVisible)
-            {
-                return;
-            }
-
-            PreUpdate?.Invoke(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
-
-            if (!IsLoaded)
-            {
-                Load();
-            }
-
-            this.location.X = destination.X;
-            this.location.Y = destination.Y;
-
-            if (Intersects(Mouse.X, Mouse.Y))
-            {
-                if (!isMouseIntersectingPrevious)
+                while (parent != null)
                 {
-                    MouseEnter?.Invoke(this, EventArgs.Empty);
+                    yield return parent;
+                    parent = parent.Parent;
                 }
-
-                this.isMouseIntersectingPrevious = true;
             }
-            else
-            {
-                if (isMouseIntersectingPrevious)
-                {
-                    MouseLeave?.Invoke(this, EventArgs.Empty);
-                }
-
-                this.isMouseIntersectingPrevious = false;
-            }
-
-            InternalUpdate(total, elapsed, isRunningSlowly);
-
-            PostUpdate?.Invoke(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
         }
 
-        /// <inheritdoc />
-        public void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
+        /// <summary>
+        /// See if input coordinates intersects with the <see cref="UserInterfaceElement"/> instance.
+        /// </summary>
+        /// <param name="x">The x position to check.</param>
+        /// <param name="y">The y position to check.</param>
+        /// <returns>True if input coordinates intersects; false if not.</returns>
+        public bool Intersects(int x, int y) => x >= X && x < X + Width && y >= Y && y < Y + Height;
+
+        private void OnMouseMove(object s, MouseMove e)
         {
-            if (!IsVisible)
+            var intersecting = Intersects(e.X, e.Y);
+
+            if (intersecting && !mousePreviouslyIntersected)
             {
-                return;
+                MouseEnter?.Invoke(s, e);
+            }
+            else if (!intersecting && mousePreviouslyIntersected)
+            {
+                MouseLeave?.Invoke(s, e);
             }
 
-            PreDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly));
-
-            Renderer.Draw(background, destination, Background);
-            InternalDraw(total, elapsed, isRunningSlowly);
-
-            PostDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly));
+            mousePreviouslyIntersected = intersecting;
         }
 
-        /// <summary>
-        /// Check if a point is intersecting with this user interface element.
-        /// </summary>
-        /// <param name="x">The x coordinate to check if is intersecting.</param>
-        /// <param name="y">The y coordinate to check if is intersecting.</param>
-        /// <returns>True if intersecting, false if else.</returns>
-        public bool Intersects(int x, int y)
+        private void OnMouseButtonLift(object s, MouseButtonInteraction e)
         {
-            return x >= X && x < X + Width && y >= Y && y < Y + Height;
-        }
-
-        /// <summary>
-        /// Invoke event for when any mouse button is lifted up. Will not be invoked if mouse is
-        /// outside of bounds for this UI component and aslo if it isn't visible.
-        /// </summary>
-        /// <param name="sender">The sender of this event.</param>
-        /// <param name="e">The event args.</param>
-        internal void InvokeMouseButtonUp(object sender, MouseButtonClickEventArgs e)
-        {
-            if (!Intersects(e.X, e.Y) || !IsVisible)
+            if (IsVisible && Intersects(e.X, e.Y))
             {
-                return;
-            }
-
-            MouseButtonUp?.Invoke(this, e);
-
-            if (this is IChild)
-            {
-                (this as IChild)?.Child.InvokeMouseButtonUp(sender, e);
-            }
-            else if (this is IChildren)
-            {
-                (this as IChildren)?.Children.ForEach(c => c.InvokeMouseButtonUp(sender, e));
+                MouseButtonUp?.Invoke(s, e);
             }
         }
-
-        /// <summary>
-        /// The actual load function for any instance inheriting from this abstract class.
-        /// </summary>
-        protected abstract void InternalLoad();
-
-        /// <summary>
-        /// The actual unload function for any instance inheriting from this abstract class.
-        /// </summary>
-        protected abstract void InternalUnload();
-
-        /// <summary>
-        /// The actual update function for any instance inheriting from this abstract class.
-        /// </summary>
-        /// <param name="total">The time total since first update.</param>
-        /// <param name="elapsed">The time elapsed since last update.</param>
-        /// <param name="isRunningSlowly">
-        /// A value indicating whether the game is running slowly or not.
-        /// </param>
-        protected abstract void InternalUpdate(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly);
-
-        /// <summary>
-        /// The actual draw function for any instance inheriting from this abstract class.
-        /// </summary>
-        /// <param name="total">The time total since first draw.</param>
-        /// <param name="elapsed">The time elapsed since last draw.</param>
-        /// <param name="isRunningSlowly">
-        /// A value indicating whether the game is running slowly or not.
-        /// </param>
-        protected abstract void InternalDraw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly);
     }
 }

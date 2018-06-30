@@ -28,7 +28,7 @@ namespace LateStartStudio.Hero6.Engine.Utilities.DependencyInjection
 
         public void Add<TService, TProvider>()
         {
-            var instance = Make<TProvider>();
+            var instance = Make<TService>(typeof(TProvider));
 
             if (instance != null)
             {
@@ -38,13 +38,13 @@ namespace LateStartStudio.Hero6.Engine.Utilities.DependencyInjection
 
         public void Remove<T>() => services.RemoveService(typeof(T));
 
-        public T Make<T>()
+        public T Make<T>(Type t)
         {
-            foreach (var c in typeof(T).GetConstructors())
+            foreach (var c in t.GetConstructors())
             {
                 if (c.GetParameters().Length == 0)
                 {
-                    return Activator.CreateInstance<T>();
+                    return (T)Activator.CreateInstance(t);
                 }
 
                 IList<object> args = new List<object>();
@@ -63,13 +63,13 @@ namespace LateStartStudio.Hero6.Engine.Utilities.DependencyInjection
 
                 if (args.Count == c.GetParameters().Length)
                 {
-                    return (T)Activator.CreateInstance(typeof(T), args.ToArray());
+                    return (T)Activator.CreateInstance(t, args.ToArray());
                 }
             }
 
             throw new ArgumentException(
                 $"Services could not find a constructor to resolve, please make sure the service bank contains all " +
-                $"types that match a constructor for the instance {typeof(T)}");
+                $"types that match a constructor for the instance {t}");
         }
     }
 }

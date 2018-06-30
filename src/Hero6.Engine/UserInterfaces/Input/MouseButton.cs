@@ -7,33 +7,23 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
 {
     /// <summary>
-    /// Different types of mouse buttons.
+    /// A state representing a mouse button.
     /// </summary>
     public enum MouseButton
     {
         /// <summary>
-        ///  The left mouse button.
+        /// Left mouse button.
         /// </summary>
         Left,
 
         /// <summary>
-        /// The middle mouse button.
+        /// Middle mouse button, most commonly the scroll wheel click.
         /// </summary>
         Middle,
 
         /// <summary>
-        /// The right mouse button.
+        /// Right mouse button.
         /// </summary>
-        Right,
-
-        /// <summary>
-        /// The first additional mouse button.
-        /// </summary>
-        X1,
-
-        /// <summary>
-        /// The second additional mouse button.
-        /// </summary>
-        X2
+        Right
     }
 }

@@ -49,7 +49,7 @@
     <Compile Include="Dialogs\ExtensionBar.cs" />
     <Compile Include="Dialogs\Rest.cs" />
     <Compile Include="Dialogs\TextBox.cs" />
-    <Compile Include="Input\Cursors.cs" />
+    <Compile Include="Input\Cursor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SierraVgaController.cs" />
     <Compile Include="Windows\StatusBar.cs" />

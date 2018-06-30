@@ -1,5 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="UserInterface.cs" company="Late Start Studio">
+﻿// <copyright file="UserInterface.cs" company="Late Start Studio">
 // Copyright (C) Late Start Studio
 // This file is subject to the terms and conditions of the MIT license specified in the file
 // 'LICENSE.CODE.md', which is a part of this source code package.
@@ -9,219 +8,75 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using Assets;
     using Controls;
-    using GameLoop;
     using Input;
-    using Utilities.DependencyInjection;
 
     /// <summary>
-    /// An abstract class for defining the user interface of an adventure game.
+    /// The <see cref="UserInterface"/> class.
     /// </summary>
-    public abstract class UserInterface : IGameLoop
+    public abstract class UserInterface
     {
-        private static readonly IAssetsFactory AssetsFactory;
-
-        static UserInterface()
-        {
-            AssetsFactory = ServicesBank.Instance.Get<IAssetsFactory>();
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UserInterface"/> class.
-        /// </summary>
-        /// <param name="mouse">The mouse core mechanics.</param>
-        protected UserInterface(IMouse mouse)
-        {
-            this.Assets = AssetsFactory.Make();
-            this.Mouse = new Mouse(Assets, mouse);
-            this.Mouse.ButtonUp += MouseOnButtonUp;
-        }
-
-        /// <inheritdoc />
-        public event EventHandler<LoadEventArgs> PreLoad;
-
-        /// <inheritdoc />
-        public event EventHandler<LoadEventArgs> PostLoad;
-
-        /// <inheritdoc />
-        public event EventHandler<UnloadEventArgs> PreUnload;
-
-        /// <inheritdoc />
-        public event EventHandler<UnloadEventArgs> PostUnload;
-
-        /// <inheritdoc />
-        public event EventHandler<UpdateEventArgs> PreUpdate;
-
-        /// <inheritdoc />
-        public event EventHandler<UpdateEventArgs> PostUpdate;
-
-        /// <inheritdoc />
-        public event EventHandler<DrawEventArgs> PreDraw;
-
-        /// <inheritdoc />
-        public event EventHandler<DrawEventArgs> PostDraw;
-
-        /// <summary>
-        /// Occurs when any mouse button is clicked.
-        /// </summary>
-        public event EventHandler<GameInteractionEventArgs> GameInteraction;
-
-        /// <summary>
-        /// Gets or sets the native width for rendering of the user interface.
-        /// </summary>
-        /// <value>
-        /// The native width of the user interface.
-        /// </value>
-        public static int Width { get; set; }
-
-        /// <summary>
-        /// Gets or sets the native height for rendering of the user interface.
-        /// </summary>
-        /// <value>
-        /// The native height of the user interface.
-        /// </value>
-        public static int Height { get; set; }
-
-        /// <summary>
-        /// Gets the <see cref="IAssets"/> of the <see cref="UserInterface"/> instance.
-        /// </summary>
-        /// <value>
-        /// The <see cref="IAssets"/> of the <see cref="UserInterface"/> instance.
-        /// </value>
-        public IAssets Assets { get; }
-
         /// <summary>
         /// Gets the name.
         /// </summary>
-        public virtual string Name => "User Interface";
+        public abstract string Name { get; }
 
         /// <summary>
-        /// Gets the mouse core mechanics.
+        /// Gets the directory of the content.
         /// </summary>
-        public Mouse Mouse { get; }
+        public abstract string Directory { get; }
 
         /// <summary>
-        /// Gets all the windows.
+        /// Gets the user interface generator.
         /// </summary>
-        protected List<Window> Windows { get; } = new List<Window>();
+        public abstract IUserInterfaceGenerator UserInterfaceGenerator { get; }
 
         /// <summary>
-        /// Gets all the dialogs.
+        /// Gets the windows.
         /// </summary>
-        protected List<Dialog> Dialogs { get; } = new List<Dialog>();
+        public virtual IDictionary<Type, Window> Windows { get; } = new Dictionary<Type, Window>();
 
         /// <summary>
-        /// Gets a value indicating whether any dialogs are currently visible.
+        /// Gets the dialogs.
         /// </summary>
-        /// <value>
-        /// A value indicating whether any dialogs are currently visible.
-        /// </value>
-        protected bool IsDialogVisisble => Dialogs.Any(d => d.IsVisible);
-
-        /// <inheritdoc />
-        public void Load()
-        {
-            PreLoad?.Invoke(this, new LoadEventArgs(Assets));
-
-            foreach (Dialog dialog in Dialogs)
-            {
-                dialog.Load();
-            }
-
-            foreach (Window window in Windows)
-            {
-                window.Load();
-            }
-
-            Mouse.Load();
-
-            PostLoad?.Invoke(this, new LoadEventArgs(Assets));
-        }
-
-        /// <inheritdoc />
-        public void Unload()
-        {
-            PreUnload?.Invoke(this, new UnloadEventArgs());
-
-            foreach (Dialog dialog in Dialogs)
-            {
-                dialog.Unload();
-            }
-
-            foreach (Window window in Windows)
-            {
-                window.Unload();
-            }
-
-            Mouse.Unload();
-
-            PostUnload?.Invoke(this, new UnloadEventArgs());
-        }
-
-        /// <inheritdoc />
-        public void Update(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
-        {
-            PreUpdate?.Invoke(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
-
-            Mouse.Update(total, elapsed, isRunningSlowly);
-
-            foreach (Dialog dialog in Dialogs)
-            {
-                dialog.Update(total, elapsed, isRunningSlowly);
-            }
-
-            foreach (Window window in Windows)
-            {
-                window.Update(total, elapsed, isRunningSlowly);
-            }
-
-            Dialog.IsShownInCurrentLoopIteration = false;
-
-            PostUpdate?.Invoke(this, new UpdateEventArgs(total, elapsed, isRunningSlowly));
-        }
-
-        /// <inheritdoc />
-        public void Draw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
-        {
-            PreDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly));
-
-            foreach (Dialog dialog in Dialogs)
-            {
-                dialog.Draw(total, elapsed, isRunningSlowly);
-            }
-
-            foreach (Window window in Windows)
-            {
-                window.Draw(total, elapsed, isRunningSlowly);
-            }
-
-            Mouse.Draw(total, elapsed, isRunningSlowly);
-
-            PostDraw?.Invoke(this, new DrawEventArgs(total, elapsed, isRunningSlowly));
-        }
+        public virtual IDictionary<Type, Dialog> Dialogs { get; } = new Dictionary<Type, Dialog>();
 
         /// <summary>
-        /// Shows a text box with the input text.
+        /// Shows the text box.
         /// </summary>
-        /// <param name="text">The input text within the text box.</param>
+        /// <param name="text">The text to show.</param>
         public abstract void ShowTextBox(string text);
 
         /// <summary>
-        /// Invokes the post draw event.
+        /// Get window specified by generic.
         /// </summary>
-        /// <param name="sender">The instance that invoked this event.</param>
-        /// <param name="args">The event args bundled with the invocation.</param>
-        protected void InvokeGameInteraction(object sender, GameInteractionEventArgs args)
-        {
-            GameInteraction?.Invoke(sender, args);
-        }
+        /// <typeparam name="T">The window to get.</typeparam>
+        /// <returns>The window specified.</returns>
+        public T GetWindow<T>() where T : Window => (T)Windows[typeof(T)];
 
-        private void MouseOnButtonUp(object sender, MouseButtonClickEventArgs e)
-        {
-            Dialogs.ForEach(d => d.InvokeMouseButtonUp(this, e));
-            Windows.ForEach(w => w.InvokeMouseButtonUp(this, e));
-        }
+        /// <summary>
+        /// Get dialog specified by generic.
+        /// </summary>
+        /// <typeparam name="T">The dialog to get.</typeparam>
+        /// <returns>The dialog specified.</returns>
+        public T GetDialog<T>() where T : Dialog => (T)Dialogs[typeof(T)];
+
+        /// <summary>
+        /// A compiled list of all the windows in this module for the engine to make.
+        /// </summary>
+        /// <returns>A compiled list of all the windows in this module.</returns>
+        public abstract IEnumerable<Type> GenerateWindows();
+
+        /// <summary>
+        /// A compiled list of all the dialogs in this module for the engine to make.
+        /// </summary>
+        /// <returns>A compiled list of all the dialogs in this module.</returns>
+        public abstract IEnumerable<Type> GenerateDialogs();
+
+        /// <summary>
+        /// A compiled list of all the cursors in this module for the engine to make.
+        /// </summary>
+        /// <returns>A compiled list of all the cursors in this module.</returns>
+        public abstract IEnumerable<ICursor> GenerateCursors();
     }
 }

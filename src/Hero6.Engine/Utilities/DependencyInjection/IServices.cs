@@ -6,6 +6,8 @@
 
 namespace LateStartStudio.Hero6.Engine.Utilities.DependencyInjection
 {
+    using System;
+
     /// <summary>
     /// Services to use for Dependency Injection Design Pattern. A collection of dependencies should only hold one
     /// instance of any type.
@@ -50,7 +52,8 @@ namespace LateStartStudio.Hero6.Engine.Utilities.DependencyInjection
         /// to the bank.
         /// </summary>
         /// <typeparam name="T">The service to make.</typeparam>
+        /// <param name="t">The provider type for the service.</param>
         /// <returns>The instance of the service.</returns>
-        T Make<T>();
+        T Make<T>(Type t);
     }
 }

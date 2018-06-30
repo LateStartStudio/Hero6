@@ -8,178 +8,199 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs
 {
     using System;
     using System.IO;
-
-    using LateStartStudio.Hero6.Engine.Assets;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Controls;
+    using Assets;
+    using Controls;
     using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+    using Utilities.Settings;
 
     public class ExtensionBar : Dialog
     {
-        private readonly StackPanel stackPanel;
+        private readonly IUserInterfaces userInterfaces;
 
-        private readonly Button leftBtn;
-        private readonly Button rightBtn;
-        private readonly Button runBtn;
-        private readonly Button sneakBtn;
-        private readonly Button sleepBtn;
-        private readonly Button statsBtn;
-        private readonly Button timeBtn;
-
-        private readonly Image left;
-        private readonly Image right;
-        private readonly Image run;
-        private readonly Image runDark;
-        private readonly Image sneak;
-        private readonly Image sneakDark;
-        private readonly Image sleep;
-        private readonly Image sleepDark;
-        private readonly Image stats;
-        private readonly Image statsDark;
-        private readonly Image time;
-        private readonly Image timeDark;
-
-        public ExtensionBar(IAssets assets)
-            : base(assets)
+        public ExtensionBar(IUserInterfaces userInterfaces, IRenderer renderer, IMouse mouse, IGameSettings gameSettings)
+            : base(renderer, mouse, gameSettings)
         {
-            this.left = new Image(assets, $"Extension Bar{Path.DirectorySeparatorChar}Left");
-            this.right = new Image(assets, $"Extension Bar{Path.DirectorySeparatorChar}Right");
-            this.run = new Image(assets, $"Extension Bar{Path.DirectorySeparatorChar}Run Light");
-            this.runDark = new Image(assets, $"Extension Bar{Path.DirectorySeparatorChar}Run Dark");
-            this.sneak = new Image(assets, $"Extension Bar{Path.DirectorySeparatorChar}Sneak Light");
-            this.sneakDark = new Image(assets, $"Extension Bar{Path.DirectorySeparatorChar}Sneak Dark");
-            this.sleep = new Image(assets, $"Extension Bar{Path.DirectorySeparatorChar}Sleep Light");
-            this.sleepDark = new Image(assets, $"Extension Bar{Path.DirectorySeparatorChar}Sleep Dark");
-            this.stats = new Image(assets, $"Extension Bar{Path.DirectorySeparatorChar}Stats Light");
-            this.statsDark = new Image(assets, $"Extension Bar{Path.DirectorySeparatorChar}Stats Dark");
-            this.time = new Image(assets, $"Extension Bar{Path.DirectorySeparatorChar}Time Light");
-            this.timeDark = new Image(assets, $"Extension Bar{Path.DirectorySeparatorChar}Time Dark");
+            this.userInterfaces = userInterfaces;
+            var stackPanel = userInterfaces.Current.UserInterfaceGenerator.MakeStackPanel(this);
 
-            this.leftBtn = new Button(assets, this.left);
-            this.leftBtn.MouseButtonUp += SideOnMouseButtonUp;
+            LeftButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
+            var left = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Extension Bar{Path.DirectorySeparatorChar}Left", LeftButton);
+            LeftButton.Child = left;
+            LeftButton.MouseButtonUp += SideOnMouseButtonUp;
 
-            this.rightBtn = new Button(assets, this.right);
-            this.rightBtn.MouseButtonUp += SideOnMouseButtonUp;
+            RightButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
+            var right = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Extension Bar{Path.DirectorySeparatorChar}Right", RightButton);
+            RightButton.Child = right;
+            RightButton.MouseButtonUp += SideOnMouseButtonUp;
 
-            this.runBtn = new Button(assets, this.runDark);
-            this.runBtn.MouseButtonUp += RunOnMouseButtonUp;
-            this.runBtn.MouseEnter += RunBtnOnMouseEnter;
-            this.runBtn.MouseLeave += RunBtnOnMouseLeave;
+            RunButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
+            RunImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Extension Bar{Path.DirectorySeparatorChar}Run Light", RunButton);
+            RunImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Extension Bar{Path.DirectorySeparatorChar}Run Dark", RunButton);
+            RunButton.Child = RunImageDark;
+            RunButton.MouseButtonUp += RunOnMouseButtonUp;
+            RunButton.MouseEnter += RunBtnOnMouseEnter;
+            RunButton.MouseLeave += RunBtnOnMouseLeave;
 
-            this.sneakBtn = new Button(assets, this.sneakDark);
-            this.sneakBtn.MouseButtonUp += SneakOnMouseButtonUp;
-            this.sneakBtn.MouseEnter += SneakBtnOnMouseEnter;
-            this.sneakBtn.MouseLeave += SneakBtnOnMouseLeave;
+            SneakButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
+            SneakImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Extension Bar{Path.DirectorySeparatorChar}Sneak Light", SneakButton);
+            SneakImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Extension Bar{Path.DirectorySeparatorChar}Sneak Dark", SneakButton);
+            SneakButton.Child = SneakImageDark;
+            SneakButton.MouseButtonUp += SneakOnMouseButtonUp;
+            SneakButton.MouseEnter += SneakBtnOnMouseEnter;
+            SneakButton.MouseLeave += SneakBtnOnMouseLeave;
 
-            this.sleepBtn = new Button(assets, this.sleepDark);
-            this.sleepBtn.MouseButtonUp += SleepOnMouseButtonUp;
-            this.sleepBtn.MouseEnter += SleepBtnOnMouseEnter;
-            this.sleepBtn.MouseLeave += SleepBtnOnMouseLeave;
+            SleepButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
+            SleepImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Extension Bar{Path.DirectorySeparatorChar}Sleep Light", SleepButton);
+            SleepImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Extension Bar{Path.DirectorySeparatorChar}Sleep Dark", SleepButton);
+            SleepButton.Child = SleepImageDark;
+            SleepButton.MouseButtonUp += SleepOnMouseButtonUp;
+            SleepButton.MouseEnter += SleepBtnOnMouseEnter;
+            SleepButton.MouseLeave += SleepBtnOnMouseLeave;
 
-            this.statsBtn = new Button(assets, this.statsDark);
-            this.statsBtn.MouseButtonUp += StatsOnMouseButtonUp;
-            this.statsBtn.MouseEnter += StatsBtnOnMouseEnter;
-            this.statsBtn.MouseLeave += StatsBtnOnMouseLeave;
+            StatsButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
+            StatsImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Extension Bar{Path.DirectorySeparatorChar}Stats Light", StatsButton);
+            StatsImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Extension Bar{Path.DirectorySeparatorChar}Stats Dark", StatsButton);
+            StatsButton.Child = StatsImageDark;
+            StatsButton.MouseButtonUp += StatsOnMouseButtonUp;
+            StatsButton.MouseEnter += StatsBtnOnMouseEnter;
+            StatsButton.MouseLeave += StatsBtnOnMouseLeave;
 
-            this.timeBtn = new Button(assets, this.timeDark);
-            this.timeBtn.MouseButtonUp += TimeOnMouseButtonUp;
-            this.timeBtn.MouseEnter += TimeBtnOnMouseEnter;
-            this.timeBtn.MouseLeave += TimeBtnOnMouseLeave;
+            TimeButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
+            TimeImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Extension Bar{Path.DirectorySeparatorChar}Time Light", TimeButton);
+            TimeImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Extension Bar{Path.DirectorySeparatorChar}Time Dark", TimeButton);
+            TimeButton.Child = TimeImageDark;
+            TimeButton.MouseButtonUp += TimeOnMouseButtonUp;
+            TimeButton.MouseEnter += TimeBtnOnMouseEnter;
+            TimeButton.MouseLeave += TimeBtnOnMouseLeave;
 
-            this.stackPanel = new StackPanel(assets);
-            this.stackPanel.Children.Add(leftBtn);
-            this.stackPanel.Children.Add(runBtn);
-            this.stackPanel.Children.Add(sneakBtn);
-            this.stackPanel.Children.Add(sleepBtn);
-            this.stackPanel.Children.Add(statsBtn);
-            this.stackPanel.Children.Add(timeBtn);
-            this.stackPanel.Children.Add(rightBtn);
+            stackPanel.Children.Add(LeftButton);
+            stackPanel.Children.Add(RunButton);
+            stackPanel.Children.Add(SneakButton);
+            stackPanel.Children.Add(SleepButton);
+            stackPanel.Children.Add(StatsButton);
+            stackPanel.Children.Add(TimeButton);
+            stackPanel.Children.Add(RightButton);
 
-            Child = this.stackPanel;
+            Child = stackPanel;
         }
 
-        private void SideOnMouseButtonUp(object sender, MouseButtonClickEventArgs e)
+        public Button LeftButton { get; }
+
+        public Button RightButton { get; }
+
+        public Button RunButton { get; }
+
+        public Image RunImageBright { get; }
+
+        public Image RunImageDark { get; }
+
+        public Button SneakButton { get; }
+
+        public Image SneakImageBright { get; }
+
+        public Image SneakImageDark { get; }
+
+        public Button SleepButton { get; }
+
+        public Image SleepImageBright { get; }
+
+        public Image SleepImageDark { get; }
+
+        public Button StatsButton { get; }
+
+        public Image StatsImageBright { get; }
+
+        public Image StatsImageDark { get; }
+
+        public Button TimeButton { get; }
+
+        public Image TimeImageBright { get; }
+
+        public Image TimeImageDark { get; }
+
+        private void SideOnMouseButtonUp(object s, EventArgs e)
         {
             Hide();
         }
 
-        private void RunOnMouseButtonUp(object sender, MouseButtonClickEventArgs e)
+        private void RunOnMouseButtonUp(object s, EventArgs e)
         {
             Hide();
-            SierraVgaController.TextBox.Show("Work In Progress");
+            userInterfaces.Current.ShowTextBox("Work In Progress");
         }
 
-        private void RunBtnOnMouseEnter(object sender, EventArgs eventArgs)
+        private void RunBtnOnMouseEnter(object s, EventArgs e)
         {
-            this.runBtn.Child = this.run;
+            RunButton.Child = RunImageBright;
         }
 
-        private void RunBtnOnMouseLeave(object sender, EventArgs eventArgs)
+        private void RunBtnOnMouseLeave(object s, EventArgs e)
         {
-            this.runBtn.Child = this.runDark;
+            RunButton.Child = RunImageDark;
         }
 
-        private void SneakOnMouseButtonUp(object sender, MouseButtonClickEventArgs e)
-        {
-            Hide();
-            SierraVgaController.TextBox.Show("Work In Progress");
-        }
-
-        private void SneakBtnOnMouseEnter(object sender, EventArgs eventArgs)
-        {
-            this.sneakBtn.Child = sneak;
-        }
-
-        private void SneakBtnOnMouseLeave(object sender, EventArgs eventArgs)
-        {
-            this.sneakBtn.Child = sneakDark;
-        }
-
-        private void SleepOnMouseButtonUp(object sender, MouseButtonClickEventArgs e)
+        private void SneakOnMouseButtonUp(object s, EventArgs e)
         {
             Hide();
-            SierraVgaController.Rest.Show();
+            userInterfaces.Current.ShowTextBox("Work In Progress");
         }
 
-        private void SleepBtnOnMouseEnter(object sender, EventArgs eventArgs)
+        private void SneakBtnOnMouseEnter(object s, EventArgs e)
         {
-            this.sleepBtn.Child = sleep;
+            SneakButton.Child = SneakImageBright;
         }
 
-        private void SleepBtnOnMouseLeave(object sender, EventArgs eventArgs)
+        private void SneakBtnOnMouseLeave(object s, EventArgs e)
         {
-            this.sleepBtn.Child = sleepDark;
+            SneakButton.Child = SneakImageDark;
         }
 
-        private void StatsOnMouseButtonUp(object sender, MouseButtonClickEventArgs e)
-        {
-            Hide();
-            SierraVgaController.TextBox.Show("Work In Progress");
-        }
-
-        private void StatsBtnOnMouseEnter(object sender, EventArgs eventArgs)
-        {
-            this.statsBtn.Child = stats;
-        }
-
-        private void StatsBtnOnMouseLeave(object sender, EventArgs eventArgs)
-        {
-            this.statsBtn.Child = statsDark;
-        }
-
-        private void TimeOnMouseButtonUp(object sender, MouseButtonClickEventArgs e)
+        private void SleepOnMouseButtonUp(object s, EventArgs e)
         {
             Hide();
-            SierraVgaController.TextBox.Show("Work In Progress");
+            userInterfaces.Current.GetDialog<Rest>().Show();
         }
 
-        private void TimeBtnOnMouseEnter(object sender, EventArgs eventArgs)
+        private void SleepBtnOnMouseEnter(object s, EventArgs e)
         {
-            this.timeBtn.Child = time;
+            SleepButton.Child = SleepImageBright;
         }
 
-        private void TimeBtnOnMouseLeave(object sender, EventArgs eventArgs)
+        private void SleepBtnOnMouseLeave(object s, EventArgs e)
         {
-            this.timeBtn.Child = timeDark;
+            SleepButton.Child = SleepImageDark;
+        }
+
+        private void StatsOnMouseButtonUp(object s, EventArgs e)
+        {
+            Hide();
+            userInterfaces.Current.ShowTextBox("Work In Progress");
+        }
+
+        private void StatsBtnOnMouseEnter(object s, EventArgs e)
+        {
+            StatsButton.Child = StatsImageBright;
+        }
+
+        private void StatsBtnOnMouseLeave(object s, EventArgs e)
+        {
+            StatsButton.Child = StatsImageDark;
+        }
+
+        private void TimeOnMouseButtonUp(object s, EventArgs e)
+        {
+            Hide();
+            userInterfaces.Current.ShowTextBox("Work In Progress");
+        }
+
+        private void TimeBtnOnMouseEnter(object s, EventArgs e)
+        {
+            TimeButton.Child = TimeImageBright;
+        }
+
+        private void TimeBtnOnMouseLeave(object s, EventArgs e)
+        {
+            TimeButton.Child = TimeImageDark;
         }
     }
 }

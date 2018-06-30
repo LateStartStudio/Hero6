@@ -7,202 +7,153 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
 {
     using System;
+    using System.Collections.Generic;
     using Assets;
     using Campaigns;
-    using Controls;
     using Dialogs;
     using Input;
     using UserInterfaces.Input;
-    using Utilities.DependencyInjection;
     using Windows;
 
     public class SierraVgaController : UserInterface
     {
-        private static readonly IRenderer Renderer;
+        private readonly ICampaigns campaigns;
+        private readonly IMouse mouse;
+        private readonly IRenderer renderer;
 
-        static SierraVgaController()
+        public SierraVgaController(
+            ICampaigns campaigns,
+            IMouse mouse,
+            IRenderer renderer,
+            IUserInterfaceGenerator userInterfaceGenerator)
         {
-            Renderer = ServicesBank.Instance.Get<IRenderer>();
-        }
+            this.campaigns = campaigns;
+            this.mouse = mouse;
+            this.renderer = renderer;
+            this.UserInterfaceGenerator = userInterfaceGenerator;
 
-        public SierraVgaController(IMouse mouse)
-            : base(mouse)
-        {
-            Assets.Directory = "Content/Gui/Sierra Vga";
-            Mouse.Cursor = Cursors.Walk;
-            Mouse.SaveCursorToBackup();
-            Mouse.ButtonUp += MouseControllerOnButtonUp;
-
-            StatusBar = new StatusBar(Assets);
-            StatusBar.MouseEnter += TopBarOnMouseEnter;
-
-            VerbBar = new VerbBar(Assets);
-            VerbBar.MouseLeave += VerbBarOnMouseLeave;
-
-            TextBox = new TextBox(Assets);
-
-            Rest = new Rest(Assets);
-
-            ExtensionBar = new ExtensionBar(Assets);
-
-            Windows.Add(StatusBar);
-            Windows.Add(VerbBar);
-            Dialogs.Add(TextBox);
-            Dialogs.Add(Rest);
-            Dialogs.Add(ExtensionBar);
+            mouse.Cursor = Cursor.Walk;
+            mouse.ButtonPress += MouseOnLeftButtonPress;
+            mouse.ButtonPress += MouseOnMiddleButtonPress;
+            mouse.ButtonPress += MouseOnRightButtonPress;
         }
 
         public override string Name => "Sierra VGA";
 
-        internal static StatusBar StatusBar { get; private set; }
+        public override string Directory => "Content/Gui/Sierra Vga";
 
-        internal static VerbBar VerbBar { get; private set; }
-
-        internal static TextBox TextBox { get; private set; }
-
-        internal static ExtensionBar ExtensionBar { get; private set; }
-
-        internal static Rest Rest { get; private set; }
+        public override IUserInterfaceGenerator UserInterfaceGenerator { get; }
 
         public override void ShowTextBox(string text)
         {
-            TextBox.Show(text);
+            var textbox = GetDialog<TextBox>();
+            textbox.Text = text;
+            textbox.Show();
         }
 
-        private void TopBarOnMouseEnter(object sender, EventArgs e)
+        public override IEnumerable<Type> GenerateWindows()
         {
-            if (IsDialogVisisble)
-            {
-                return;
-            }
-
-            StatusBar.IsVisible = false;
-            VerbBar.IsVisible = true;
-            Mouse.Cursor = Cursors.Arrow;
-            Renderer.IsPaused = true;
+            yield return typeof(StatusBar);
+            yield return typeof(VerbBar);
         }
 
-        private void VerbBarOnMouseLeave(object sender, EventArgs e)
+        public override IEnumerable<Type> GenerateDialogs()
         {
-            StatusBar.IsVisible = true;
-            VerbBar.IsVisible = false;
-            Mouse.RestoreCursorFromBackup();
-
-            if (!IsDialogVisisble)
-            {
-                Renderer.IsPaused = false;
-            }
+            yield return typeof(ExtensionBar);
+            yield return typeof(Rest);
+            yield return typeof(TextBox);
         }
 
-        private void MouseControllerOnButtonUp(object sender, MouseButtonClickEventArgs e)
+        public override IEnumerable<ICursor> GenerateCursors() => Cursor.GenerateCursors();
+
+        private void MouseOnLeftButtonPress(object s, MouseButtonInteraction e)
         {
-            if (Dialog.IsShownInCurrentLoopIteration)
+            MouseOnButtonPress(e.Button == MouseButton.Left, () =>
             {
-                return;
-            }
+                var x = mouse.X;
+                var y = mouse.Y;
 
-            if (TextBox.IsVisible)
-            {
-                TextBox.Hide();
-                return;
-            }
-
-            if (ExtensionBar.IsVisible && !ExtensionBar.Intersects(Mouse.X, Mouse.Y))
-            {
-                ExtensionBar.Hide();
-                return;
-            }
-
-            if (Rest.IsVisible && !Rest.Intersects(Mouse.X, Mouse.Y))
-            {
-                Rest.Hide();
-                return;
-            }
-
-            if (Renderer.IsPaused)
-            {
-                return;
-            }
-
-            switch (e.Button)
-            {
-                case MouseButton.Left:
-                    MouseSierraVgaOnLeftButtonUp(sender, e);
-                    break;
-                case MouseButton.Middle:
-                    MouseControllerOnMiddleButtonUp(sender, e);
-                    break;
-                case MouseButton.Right:
-                    MouseControllerOnRightButtonUp(sender, e);
-                    break;
-
-                // No action for extra buttons
-                case MouseButton.X1:
-                case MouseButton.X2:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+                if (mouse.Cursor == Cursor.Walk)
+                {
+                    campaigns.Current.Interact(x, y, Interaction.Move);
+                }
+                else if (mouse.Cursor == Cursor.Look)
+                {
+                    campaigns.Current.Interact(x, y, Interaction.Eye);
+                }
+                else if (mouse.Cursor == Cursor.Hand)
+                {
+                    campaigns.Current.Interact(x, y, Interaction.Hand);
+                }
+                else if (mouse.Cursor == Cursor.Talk)
+                {
+                    campaigns.Current.Interact(x, y, Interaction.Mouth);
+                }
+            });
         }
 
-        private void MouseSierraVgaOnLeftButtonUp(object sender, MouseButtonClickEventArgs e)
+        private void MouseOnMiddleButtonPress(object s, MouseButtonInteraction e)
         {
-            Interaction interaction;
+            MouseOnButtonPress(e.Button == MouseButton.Middle, () => mouse.Cursor = Cursor.Walk);
+        }
 
-            if (Mouse.Cursor == Cursors.Walk)
+        private void MouseOnRightButtonPress(object s, MouseButtonInteraction e)
+        {
+            MouseOnButtonPress(e.Button == MouseButton.Right, () =>
             {
-                interaction = Interaction.Move;
-            }
-            else if (Mouse.Cursor == Cursors.Look)
-            {
-                interaction = Interaction.Eye;
-            }
-            else if (Mouse.Cursor == Cursors.Hand)
-            {
-                interaction = Interaction.Hand;
-            }
-            else if (Mouse.Cursor == Cursors.Talk)
-            {
-                interaction = Interaction.Mouth;
-            }
-            else
+                if (mouse.Cursor == Cursor.Walk)
+                {
+                    mouse.Cursor = Cursor.Look;
+                }
+                else if (mouse.Cursor == Cursor.Look)
+                {
+                    mouse.Cursor = Cursor.Hand;
+                }
+                else if (mouse.Cursor == Cursor.Hand)
+                {
+                    mouse.Cursor = Cursor.Talk;
+                }
+                else if (mouse.Cursor == Cursor.Talk)
+                {
+                    mouse.Cursor = Cursor.Walk;
+                }
+            });
+        }
+
+        private void MouseOnButtonPress(bool isButtonValid, Action doOnPress)
+        {
+            if (!isButtonValid)
             {
                 return;
             }
 
-            InvokeGameInteraction(this, new GameInteractionEventArgs(e.X, e.Y, interaction));
-        }
+            var textBox = GetDialog<TextBox>();
+            if (textBox.IsVisible)
+            {
+                textBox.Hide();
+                return;
+            }
 
-        private void MouseControllerOnMiddleButtonUp(object sender, MouseButtonClickEventArgs e)
-        {
-            Mouse.Cursor = Cursors.Walk;
-            Mouse.SaveCursorToBackup();
-        }
+            var extensionBar = GetDialog<ExtensionBar>();
+            if (extensionBar.IsVisible && !extensionBar.Intersects(mouse.X, mouse.Y))
+            {
+                extensionBar.Hide();
+                return;
+            }
 
-        private void MouseControllerOnRightButtonUp(object sender, MouseButtonClickEventArgs e)
-        {
-            if (Mouse.Cursor == Cursors.Walk)
+            var rest = GetDialog<Rest>();
+            if (rest.IsVisible && !rest.Intersects(mouse.X, mouse.Y))
             {
-                Mouse.Cursor = Cursors.Look;
+                rest.Hide();
+                return;
             }
-            else if (Mouse.Cursor == Cursors.Look)
-            {
-                Mouse.Cursor = Cursors.Hand;
-            }
-            else if (Mouse.Cursor == Cursors.Hand)
-            {
-                Mouse.Cursor = Cursors.Talk;
-            }
-            else if (Mouse.Cursor == Cursors.Talk)
-            {
-                Mouse.Cursor = Cursors.Walk;
-            }
-            else
+
+            if (renderer.IsPaused)
             {
                 return;
             }
 
-            Mouse.SaveCursorToBackup();
+            doOnPress();
         }
     }
 }

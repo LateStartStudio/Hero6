@@ -6,58 +6,24 @@
 
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 {
-    using System;
-
-    using LateStartStudio.Hero6.Engine.Assets;
+    using Input;
 
     /// <summary>
     /// A button control.
     /// </summary>
-    public class Button : UserInterfaceElement, IChild
+    public abstract class Button : UserInterfaceElement, IChild
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Button"/> class.
         /// </summary>
-        /// <param name="assets">The asset manager of this user interface.</param>
-        /// <param name="child">The user interface inside this button.</param>
-        public Button(IAssets assets, UserInterfaceElement child)
-            : base(assets)
+        /// <param name="mouse">The mouse service.</param>
+        /// <param name="parent">The parent.</param>
+        protected Button(IMouse mouse, UserInterfaceElement parent)
+            : base(mouse, parent)
         {
-            this.Child = child;
         }
 
         /// <inheritdoc />
         public UserInterfaceElement Child { get; set; }
-
-        /// <inheritdoc cref="UserInterfaceElement"/>
-        protected override int DefaultWidth => Child.Width;
-
-        /// <inheritdoc cref="UserInterfaceElement"/>
-        protected override int DefaultHeight => Child.Height;
-
-        /// <inheritdoc />
-        protected override void InternalLoad()
-        {
-            Child.Load();
-        }
-
-        /// <inheritdoc />
-        protected override void InternalUnload()
-        {
-        }
-
-        /// <inheritdoc />
-        protected override void InternalUpdate(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
-        {
-            this.Child.X = X;
-            this.Child.Y = Y;
-            Child.Update(total, elapsed, isRunningSlowly);
-        }
-
-        /// <inheritdoc />
-        protected override void InternalDraw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
-        {
-            Child.Draw(total, elapsed, isRunningSlowly);
-        }
     }
 }

@@ -7,7 +7,6 @@
 namespace LateStartStudio.Hero6.Engine.Campaigns
 {
     using NSubstitute;
-    using UserInterfaces;
     using Utilities.DependencyInjection;
 
     public class MockCampaign : Campaign
@@ -22,8 +21,8 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
             ServicesBank.Instance = Substitute.For<IServices>();
         }
 
-        private MockCampaign(MockUserInterface ui)
-            : base(Id, Cap, ui)
+        private MockCampaign()
+            : base(Id, Cap)
         {
         }
 
@@ -33,9 +32,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
             {
                 if (instance == null)
                 {
-                    MockUserInterface ui = new MockUserInterface(null);
-
-                    instance = new MockCampaign(ui);
+                    instance = new MockCampaign();
                 }
 
                 return instance;
