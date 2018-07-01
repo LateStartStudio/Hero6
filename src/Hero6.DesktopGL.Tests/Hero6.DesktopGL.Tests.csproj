@@ -7,8 +7,8 @@
     <ProjectGuid>{33DCA6AB-2DF5-400A-B981-4E5B06CEC36D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Hero6.DesktopGL.Tests</RootNamespace>
-    <AssemblyName>Hero6.DesktopGL.Tests</AssemblyName>
+    <RootNamespace>LateStartStudio.Hero6</RootNamespace>
+    <AssemblyName>Hero6.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
