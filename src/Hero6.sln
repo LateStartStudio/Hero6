@@ -51,6 +51,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.Engine.UserInterfaces
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.DesktopGL.Tests", "Hero6.DesktopGL.Tests\Hero6.DesktopGL.Tests.csproj", "{33DCA6AB-2DF5-400A-B981-4E5B06CEC36D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.Repository.Tests", "Hero6.Repository.Tests\Hero6.Repository.Tests.csproj", "{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Hero6.Tests\Hero6.Tests.projitems*{33dca6ab-2df5-400a-b981-4e5b06cec36d}*SharedItemsImports = 4
@@ -169,6 +171,22 @@ Global
 		{33DCA6AB-2DF5-400A-B981-4E5B06CEC36D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{33DCA6AB-2DF5-400A-B981-4E5B06CEC36D}.Release|x86.ActiveCfg = Release|Any CPU
 		{33DCA6AB-2DF5-400A-B981-4E5B06CEC36D}.Release|x86.Build.0 = Release|Any CPU
+		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Android Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Android Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Android Debug|x86.ActiveCfg = Debug|Any CPU
+		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Android Debug|x86.Build.0 = Debug|Any CPU
+		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Android Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Android Release|Any CPU.Build.0 = Release|Any CPU
+		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Android Release|x86.ActiveCfg = Release|Any CPU
+		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Android Release|x86.Build.0 = Release|Any CPU
+		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Debug|x86.Build.0 = Debug|Any CPU
+		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Release|x86.ActiveCfg = Release|Any CPU
+		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -189,6 +207,7 @@ Global
 		{CB706FAB-954B-462D-8590-5433A63E14E6} = {C7901A1A-E22C-468F-9E9A-9A891598E7D8}
 		{5F12337E-314A-49E5-B4E8-542B3FEA4C74} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
 		{33DCA6AB-2DF5-400A-B981-4E5B06CEC36D} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
+		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D79F9E72-AE93-4A79-A968-902EC57B5900}
