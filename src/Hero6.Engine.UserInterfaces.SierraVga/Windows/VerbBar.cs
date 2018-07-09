@@ -8,324 +8,375 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
 {
     using System;
     using System.IO;
-
-    using LateStartStudio.Hero6.Engine.Assets;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Controls;
+    using System.Linq;
+    using Assets;
+    using Controls;
+    using Dialogs;
+    using Input;
     using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Input;
 
     public class VerbBar : Window
     {
+        private readonly IUserInterfaces userInterfaces;
+        private readonly IRenderer renderer;
+        private readonly IMouse mouse;
         private readonly StackPanel stackPanel;
-
-        private readonly Button walkBtn;
-        private readonly Button lookBtn;
-        private readonly Button handBtn;
-        private readonly Button talkBtn;
-        private readonly Button subMenuBtn;
-        private readonly Button magicBtn;
-        private readonly Button currentItemBtn;
-        private readonly Button inventoryBtn;
-        private readonly Button optionsBtn;
 
         private readonly Image sideLeft;
         private readonly Image sideRight;
-        private readonly Image walk;
-        private readonly Image walkDark;
-        private readonly Image look;
-        private readonly Image lookDark;
-        private readonly Image hand;
-        private readonly Image handDark;
-        private readonly Image talk;
-        private readonly Image talkDark;
-        private readonly Image subMenu;
-        private readonly Image subMenuDark;
-        private readonly Image magic;
-        private readonly Image magicDark;
-        private readonly Image currentItem;
-        private readonly Image currentItemDark;
-        private readonly Image inventory;
-        private readonly Image inventoryDark;
-        private readonly Image options;
-        private readonly Image optionsDark;
 
-        public VerbBar(IAssets assets)
-            : base(assets)
+        public VerbBar(IUserInterfaces userInterfaces, IRenderer renderer, IMouse mouse)
+            : base(mouse)
         {
+            this.userInterfaces = userInterfaces;
+            this.renderer = renderer;
+            this.mouse = mouse;
             IsVisible = false;
 
-            this.sideLeft = new Image(assets, $"Verb Bar{Path.DirectorySeparatorChar}Side Left");
-            this.sideRight = new Image(assets, $"Verb Bar{Path.DirectorySeparatorChar}Side Right");
-            this.walk = new Image(assets, $"Verb Bar{Path.DirectorySeparatorChar}Walk Light");
-            this.walkDark = new Image(assets, $"Verb Bar{Path.DirectorySeparatorChar}Walk Dark");
-            this.look = new Image(assets, $"Verb Bar{Path.DirectorySeparatorChar}Look Light");
-            this.lookDark = new Image(assets, $"Verb Bar{Path.DirectorySeparatorChar}Look Dark");
-            this.hand = new Image(assets, $"Verb Bar{Path.DirectorySeparatorChar}Hand Light");
-            this.handDark = new Image(assets, $"Verb Bar{Path.DirectorySeparatorChar}Hand Dark");
-            this.talk = new Image(assets, $"Verb Bar{Path.DirectorySeparatorChar}Talk Light");
-            this.talkDark = new Image(assets, $"Verb Bar{Path.DirectorySeparatorChar}Talk Dark");
-            this.subMenu = new Image(assets, $"Verb Bar{Path.DirectorySeparatorChar}Sub Menu Light");
-            this.subMenuDark = new Image(assets, $"Verb Bar{Path.DirectorySeparatorChar}Sub Menu Dark");
-            this.magic = new Image(assets, $"Verb Bar{Path.DirectorySeparatorChar}Magic Light");
-            this.magicDark = new Image(assets, $"Verb Bar{Path.DirectorySeparatorChar}Magic Dark");
-            this.currentItem = new Image(assets, $"Verb Bar{Path.DirectorySeparatorChar}Current Item Light");
-            this.currentItemDark = new Image(assets, $"Verb Bar{Path.DirectorySeparatorChar}Current Item Dark");
-            this.inventory = new Image(assets, $"Verb Bar{Path.DirectorySeparatorChar}Inventory Light");
-            this.inventoryDark = new Image(assets, $"Verb Bar{Path.DirectorySeparatorChar}Inventory Dark");
-            this.options = new Image(assets, $"Verb Bar{Path.DirectorySeparatorChar}Options Light");
-            this.optionsDark = new Image(assets, $"Verb Bar{Path.DirectorySeparatorChar}Options Dark");
+            stackPanel = userInterfaces.Current.UserInterfaceGenerator.MakeStackPanel(this);
+            sideLeft = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Side Left", stackPanel);
+            sideRight = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Side Right", stackPanel);
 
-            this.walkBtn = new Button(assets, walkDark);
-            this.walkBtn.MouseButtonUp += WalkBtnOnLeftMouseButtonUp;
-            this.walkBtn.MouseEnter += WalkBtnOnMouseEnter;
-            this.walkBtn.MouseLeave += WalkBtnOnMouseLeave;
+            WalkButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
+            WalkImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Walk Light", WalkButton);
+            WalkImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Walk Dark", WalkButton);
+            WalkButton.Child = WalkImageDark;
+            WalkButton.MouseButtonUp += WalkBtnOnLeftMouseButtonUp;
+            WalkButton.MouseEnter += WalkBtnOnMouseEnter;
+            WalkButton.MouseLeave += WalkBtnOnMouseLeave;
 
-            this.lookBtn = new Button(assets, lookDark);
-            this.lookBtn.MouseButtonUp += LookBtnOnLeftMouseButtonUp;
-            this.lookBtn.MouseEnter += LookBtnOnMouseEnter;
-            this.lookBtn.MouseLeave += LookBtnOnMouseLeave;
+            LookButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
+            LookImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Look Light", LookButton);
+            LookImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Look Dark", LookButton);
+            LookButton.Child = LookImageDark;
+            LookButton.MouseButtonUp += LookBtnOnLeftMouseButtonUp;
+            LookButton.MouseEnter += LookBtnOnMouseEnter;
+            LookButton.MouseLeave += LookBtnOnMouseLeave;
 
-            this.handBtn = new Button(assets, handDark);
-            this.handBtn.MouseButtonUp += HandBtnOnLeftMouseButtonUp;
-            this.handBtn.MouseEnter += HandBtnOnMouseEnter;
-            this.handBtn.MouseLeave += HandBtnOnMouseLeave;
+            HandButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
+            HandImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Hand Light", HandButton);
+            HandImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Hand Dark", HandButton);
+            HandButton.Child = HandImageDark;
+            HandButton.MouseButtonUp += HandBtnOnLeftMouseButtonUp;
+            HandButton.MouseEnter += HandBtnOnMouseEnter;
+            HandButton.MouseLeave += HandBtnOnMouseLeave;
 
-            this.talkBtn = new Button(assets, talkDark);
-            this.talkBtn.MouseButtonUp += TalkBtnOnLeftMouseButtonUp;
-            this.talkBtn.MouseEnter += TalkBtnOnMouseEnter;
-            this.talkBtn.MouseLeave += TalkBtnOnMouseLeave;
+            TalkButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
+            TalkImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Talk Light", TalkButton);
+            TalkImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Talk Dark", TalkButton);
+            TalkButton.Child = TalkImageDark;
+            TalkButton.MouseButtonUp += TalkBtnOnLeftMouseButtonUp;
+            TalkButton.MouseEnter += TalkBtnOnMouseEnter;
+            TalkButton.MouseLeave += TalkBtnOnMouseLeave;
 
-            this.subMenuBtn = new Button(assets, subMenuDark);
-            this.subMenuBtn.MouseButtonUp += SubMenuBtnOnLeftMouseButtonUp;
-            this.subMenuBtn.MouseEnter += SubMenuBtnOnMouseEnter;
-            this.subMenuBtn.MouseLeave += SubMenuBtnOnMouseLeave;
+            SubMenuButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
+            SubMenuImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Sub Menu Light", SubMenuButton);
+            SubMenuImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Sub Menu Dark", SubMenuButton);
+            SubMenuButton.Child = SubMenuImageDark;
+            SubMenuButton.MouseButtonUp += SubMenuBtnOnLeftMouseButtonUp;
+            SubMenuButton.MouseEnter += SubMenuBtnOnMouseEnter;
+            SubMenuButton.MouseLeave += SubMenuBtnOnMouseLeave;
 
-            this.magicBtn = new Button(assets, magicDark);
-            this.magicBtn.MouseButtonUp += MagicBtnOnLeftMouseButtonUp;
-            this.magicBtn.MouseEnter += MagicBtnOnMouseEnter;
-            this.magicBtn.MouseLeave += MagicBtnOnMouseLeave;
+            MagicButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
+            MagicImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Magic Light", MagicButton);
+            MagicImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Magic Dark", MagicButton);
+            MagicButton.Child = MagicImageDark;
+            MagicButton.MouseButtonUp += MagicBtnOnLeftMouseButtonUp;
+            MagicButton.MouseEnter += MagicBtnOnMouseEnter;
+            MagicButton.MouseLeave += MagicBtnOnMouseLeave;
 
-            this.currentItemBtn = new Button(assets, currentItemDark);
-            this.currentItemBtn.MouseButtonUp += CurrentItemBtnOnLeftMouseButtonUp;
-            this.currentItemBtn.MouseEnter += CurrentItemBtnOnMouseEnter;
-            this.currentItemBtn.MouseLeave += CurrentItemBtnOnMouseLeave;
+            CurrentItemButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
+            CurrentItemImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Current Item Light", CurrentItemButton);
+            CurrentItemImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Current Item Dark", CurrentItemButton);
+            CurrentItemButton.Child = CurrentItemImageDark;
+            CurrentItemButton.MouseButtonUp += CurrentItemBtnOnLeftMouseButtonUp;
+            CurrentItemButton.MouseEnter += CurrentItemBtnOnMouseEnter;
+            CurrentItemButton.MouseLeave += CurrentItemBtnOnMouseLeave;
 
-            this.inventoryBtn = new Button(assets, inventoryDark);
-            this.inventoryBtn.MouseButtonUp += InventoryBtnOnLeftMouseButtonUp;
-            this.inventoryBtn.MouseEnter += InventoryBtnOnMouseEnter;
-            this.inventoryBtn.MouseLeave += InventoryBtnOnMouseLeave;
+            InventoryButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
+            InventoryImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Inventory Light", InventoryButton);
+            InventoryImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Inventory Dark", InventoryButton);
+            InventoryButton.Child = InventoryImageDark;
+            InventoryButton.MouseButtonUp += InventoryBtnOnLeftMouseButtonUp;
+            InventoryButton.MouseEnter += InventoryBtnOnMouseEnter;
+            InventoryButton.MouseLeave += InventoryBtnOnMouseLeave;
 
-            this.optionsBtn = new Button(assets, optionsDark);
-            this.optionsBtn.MouseButtonUp += OptionsBtnOnLeftMouseButtonUp;
-            this.optionsBtn.MouseEnter += OptionsBtnOnMouseEnter;
-            this.optionsBtn.MouseLeave += OptionsBtnOnMouseLeave;
+            OptionsButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
+            OptionsImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Options Light", OptionsButton);
+            OptionsImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Options Dark", OptionsButton);
+            OptionsButton.Child = OptionsImageDark;
+            OptionsButton.MouseButtonUp += OptionsBtnOnLeftMouseButtonUp;
+            OptionsButton.MouseEnter += OptionsBtnOnMouseEnter;
+            OptionsButton.MouseLeave += OptionsBtnOnMouseLeave;
 
-            this.stackPanel = new StackPanel(assets);
             stackPanel.Children.Add(sideLeft);
-            stackPanel.Children.Add(walkBtn);
-            stackPanel.Children.Add(lookBtn);
-            stackPanel.Children.Add(handBtn);
-            stackPanel.Children.Add(talkBtn);
-            stackPanel.Children.Add(subMenuBtn);
-            stackPanel.Children.Add(magicBtn);
-            stackPanel.Children.Add(currentItemBtn);
-            stackPanel.Children.Add(inventoryBtn);
-            stackPanel.Children.Add(optionsBtn);
+            stackPanel.Children.Add(WalkButton);
+            stackPanel.Children.Add(LookButton);
+            stackPanel.Children.Add(HandButton);
+            stackPanel.Children.Add(TalkButton);
+            stackPanel.Children.Add(SubMenuButton);
+            stackPanel.Children.Add(MagicButton);
+            stackPanel.Children.Add(CurrentItemButton);
+            stackPanel.Children.Add(InventoryButton);
+            stackPanel.Children.Add(OptionsButton);
             stackPanel.Children.Add(sideRight);
 
-            this.Child = this.stackPanel;
+            Child = stackPanel;
+            MouseLeave += OnMouseLeave;
         }
 
-        private void WalkBtnOnLeftMouseButtonUp(object sender, MouseButtonClickEventArgs e)
+        public Button WalkButton { get; }
+
+        public Image WalkImageBright { get; }
+
+        public Image WalkImageDark { get; }
+
+        public Button LookButton { get; }
+
+        public Image LookImageBright { get; }
+
+        public Image LookImageDark { get; }
+
+        public Button HandButton { get; }
+
+        public Image HandImageBright { get; }
+
+        public Image HandImageDark { get; }
+
+        public Button TalkButton { get; }
+
+        public Image TalkImageBright { get; }
+
+        public Image TalkImageDark { get; }
+
+        public Button SubMenuButton { get; }
+
+        public Image SubMenuImageBright { get; }
+
+        public Image SubMenuImageDark { get; }
+
+        public Button MagicButton { get; }
+
+        public Image MagicImageBright { get; }
+
+        public Image MagicImageDark { get; }
+
+        public Button CurrentItemButton { get; }
+
+        public Image CurrentItemImageBright { get; }
+
+        public Image CurrentItemImageDark { get; }
+
+        public Button InventoryButton { get; }
+
+        public Image InventoryImageBright { get; }
+
+        public Image InventoryImageDark { get; }
+
+        public Button OptionsButton { get; }
+
+        public Image OptionsImageBright { get; }
+
+        public Image OptionsImageDark { get; }
+
+        private void WalkBtnOnLeftMouseButtonUp(object sender, MouseButtonInteraction e)
         {
             if (e.Button != MouseButton.Left)
             {
                 return;
             }
 
-            ChangeMouseCursor(Cursors.Walk);
+            ChangeMouseCursor(Cursor.Walk);
         }
 
         private void WalkBtnOnMouseEnter(object sender, EventArgs eventArgs)
         {
-            this.walkBtn.Child = walk;
+            WalkButton.Child = WalkImageBright;
         }
 
         private void WalkBtnOnMouseLeave(object sender, EventArgs eventArgs)
         {
-            this.walkBtn.Child = walkDark;
+            WalkButton.Child = WalkImageDark;
         }
 
-        private void LookBtnOnLeftMouseButtonUp(object sender, MouseButtonClickEventArgs e)
+        private void LookBtnOnLeftMouseButtonUp(object sender, MouseButtonInteraction e)
         {
             if (e.Button != MouseButton.Left)
             {
                 return;
             }
 
-            this.ChangeMouseCursor(Cursors.Look);
+            ChangeMouseCursor(Cursor.Look);
         }
 
         private void LookBtnOnMouseEnter(object sender, EventArgs eventArgs)
         {
-            this.lookBtn.Child = look;
+            LookButton.Child = LookImageBright;
         }
 
         private void LookBtnOnMouseLeave(object sender, EventArgs eventArgs)
         {
-            this.lookBtn.Child = lookDark;
+            LookButton.Child = LookImageDark;
         }
 
-        private void HandBtnOnLeftMouseButtonUp(object sender, MouseButtonClickEventArgs e)
+        private void HandBtnOnLeftMouseButtonUp(object sender, MouseButtonInteraction e)
         {
             if (e.Button != MouseButton.Left)
             {
                 return;
             }
 
-            this.ChangeMouseCursor(Cursors.Hand);
+            ChangeMouseCursor(Cursor.Hand);
         }
 
         private void HandBtnOnMouseEnter(object sender, EventArgs eventArgs)
         {
-            this.handBtn.Child = hand;
+            HandButton.Child = HandImageBright;
         }
 
         private void HandBtnOnMouseLeave(object sender, EventArgs eventArgs)
         {
-            this.handBtn.Child = handDark;
+            HandButton.Child = HandImageDark;
         }
 
-        private void TalkBtnOnLeftMouseButtonUp(object sender, MouseButtonClickEventArgs e)
+        private void TalkBtnOnLeftMouseButtonUp(object sender, MouseButtonInteraction e)
         {
             if (e.Button != MouseButton.Left)
             {
                 return;
             }
 
-            this.ChangeMouseCursor(Cursors.Talk);
+            ChangeMouseCursor(Cursor.Talk);
         }
 
         private void TalkBtnOnMouseEnter(object sender, EventArgs eventArgs)
         {
-            this.talkBtn.Child = talk;
+            TalkButton.Child = TalkImageBright;
         }
 
         private void TalkBtnOnMouseLeave(object sender, EventArgs eventArgs)
         {
-            this.talkBtn.Child = talkDark;
+            TalkButton.Child = TalkImageDark;
         }
 
-        private void SubMenuBtnOnLeftMouseButtonUp(object sender, MouseButtonClickEventArgs e)
+        private void SubMenuBtnOnLeftMouseButtonUp(object sender, MouseButtonInteraction e)
         {
             if (e.Button != MouseButton.Left)
             {
                 return;
             }
 
-            Mouse.Center();
-            SierraVgaController.ExtensionBar.Show();
+            mouse.Center();
+            userInterfaces.Current.GetDialog<ExtensionBar>().Show();
         }
 
         private void SubMenuBtnOnMouseEnter(object sender, EventArgs eventArgs)
         {
-            this.subMenuBtn.Child = subMenu;
+            SubMenuButton.Child = SubMenuImageBright;
         }
 
         private void SubMenuBtnOnMouseLeave(object sender, EventArgs eventArgs)
         {
-            this.subMenuBtn.Child = subMenuDark;
+            SubMenuButton.Child = SubMenuImageDark;
         }
 
-        private void MagicBtnOnLeftMouseButtonUp(object sender, MouseButtonClickEventArgs e)
+        private void MagicBtnOnLeftMouseButtonUp(object sender, MouseButtonInteraction e)
         {
             if (e.Button != MouseButton.Left)
             {
                 return;
             }
 
-            Mouse.Center();
-            SierraVgaController.TextBox.Show("Work In Progress");
+            mouse.Center();
+            userInterfaces.Current.ShowTextBox("Work In Progress");
         }
 
         private void MagicBtnOnMouseEnter(object sender, EventArgs eventArgs)
         {
-            this.magicBtn.Child = magic;
+            MagicButton.Child = MagicImageBright;
         }
 
         private void MagicBtnOnMouseLeave(object sender, EventArgs eventArgs)
         {
-            this.magicBtn.Child = magicDark;
+            MagicButton.Child = MagicImageDark;
         }
 
-        private void CurrentItemBtnOnLeftMouseButtonUp(object sender, MouseButtonClickEventArgs e)
+        private void CurrentItemBtnOnLeftMouseButtonUp(object sender, MouseButtonInteraction e)
         {
             if (e.Button != MouseButton.Left)
             {
                 return;
             }
 
-            Mouse.Center();
-            SierraVgaController.TextBox.Show("Work In Progress");
+            mouse.Center();
+            userInterfaces.Current.ShowTextBox("Work In Progress");
         }
 
         private void CurrentItemBtnOnMouseEnter(object sender, EventArgs eventArgs)
         {
-            this.currentItemBtn.Child = currentItem;
+            CurrentItemButton.Child = CurrentItemImageBright;
         }
 
         private void CurrentItemBtnOnMouseLeave(object sender, EventArgs eventArgs)
         {
-            this.currentItemBtn.Child = currentItemDark;
+            CurrentItemButton.Child = CurrentItemImageDark;
         }
 
-        private void InventoryBtnOnLeftMouseButtonUp(object sender, MouseButtonClickEventArgs e)
+        private void InventoryBtnOnLeftMouseButtonUp(object sender, MouseButtonInteraction e)
         {
             if (e.Button != MouseButton.Left)
             {
                 return;
             }
 
-            Mouse.Center();
-            SierraVgaController.TextBox.Show("Work In Progress");
+            mouse.Center();
+            userInterfaces.Current.ShowTextBox("Work In Progress");
         }
 
         private void InventoryBtnOnMouseEnter(object sender, EventArgs eventArgs)
         {
-            this.inventoryBtn.Child = inventory;
+            InventoryButton.Child = InventoryImageBright;
         }
 
         private void InventoryBtnOnMouseLeave(object sender, EventArgs eventArgs)
         {
-            this.inventoryBtn.Child = inventoryDark;
+            InventoryButton.Child = InventoryImageDark;
         }
 
-        private void OptionsBtnOnLeftMouseButtonUp(object sender, MouseButtonClickEventArgs e)
+        private void OptionsBtnOnLeftMouseButtonUp(object sender, MouseButtonInteraction e)
         {
             if (e.Button != MouseButton.Left)
             {
                 return;
             }
 
-            Mouse.Center();
-            SierraVgaController.TextBox.Show("Work In Progress");
+            mouse.Center();
+            userInterfaces.Current.ShowTextBox("Work In Progress");
         }
 
         private void OptionsBtnOnMouseEnter(object sender, EventArgs eventArgs)
         {
-            this.optionsBtn.Child = options;
+            OptionsButton.Child = OptionsImageBright;
         }
 
         private void OptionsBtnOnMouseLeave(object sender, EventArgs eventArgs)
         {
-            this.optionsBtn.Child = optionsDark;
+            OptionsButton.Child = OptionsImageDark;
         }
 
-        private void ChangeMouseCursor(Cursor cursor)
+        private void ChangeMouseCursor(ICursor cursor)
         {
-            Mouse.Cursor = cursor;
-            Mouse.SaveCursorToBackup();
-            Mouse.Y = Height;
+            mouse.Cursor = cursor;
+            mouse.SaveCursor();
+            mouse.Y = Height;
+        }
+
+        private void OnMouseLeave(object sender, EventArgs e)
+        {
+            userInterfaces.Current.GetWindow<StatusBar>().IsVisible = true;
+            userInterfaces.Current.GetWindow<VerbBar>().IsVisible = false;
+            renderer.IsPaused = userInterfaces.Current.Dialogs.Any(d => d.Value.IsVisible);
+            mouse.LoadCursor();
         }
     }
 }

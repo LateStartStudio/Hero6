@@ -6,10 +6,8 @@
 
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 {
-    using System;
     using System.Collections.Generic;
-
-    using LateStartStudio.Hero6.Engine.Assets;
+    using Input;
 
     /// <summary>
     /// A standard layout.
@@ -19,36 +17,16 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         /// <summary>
         /// Initializes a new instance of the <see cref="Layout"/> class.
         /// </summary>
-        /// <param name="assets">The asset manager for this user interface module.</param>
-        protected Layout(IAssets assets)
-            : base(assets)
+        /// <param name="mouse">The mouse service.</param>
+        /// <param name="parent">The parent.</param>
+        protected Layout(IMouse mouse, UserInterfaceElement parent = null)
+            : base(mouse, parent)
         {
         }
 
         /// <summary>
         /// Gets the children.
         /// </summary>
-        public List<UserInterfaceElement> Children { get; } = new List<UserInterfaceElement>();
-
-        /// <inheritdoc />
-        protected override void InternalUnload()
-        {
-            foreach (UserInterfaceElement userInterfaceElement in Children)
-            {
-                userInterfaceElement.Unload();
-            }
-        }
-
-        /// <inheritdoc />
-        protected override void InternalDraw(
-            TimeSpan totalTime,
-            TimeSpan elapsedTime,
-            bool isRunningSlowly)
-        {
-            foreach (UserInterfaceElement userInterfaceElement in Children)
-            {
-                userInterfaceElement.Draw(totalTime, elapsedTime, isRunningSlowly);
-            }
-        }
+        public IList<UserInterfaceElement> Children { get; } = new List<UserInterfaceElement>();
     }
 }

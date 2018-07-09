@@ -7,55 +7,48 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 {
     using Assets;
-    using Utilities.DependencyInjection;
+    using Input;
+    using Utilities.Settings;
 
     /// <summary>
-    /// A standard dialog.
+    /// The <see cref="Dialog"/> class.
     /// </summary>
-    public class Dialog : Window
+    public abstract class Dialog : Window
     {
-        private static readonly IRenderer Renderer;
-
-        static Dialog()
-        {
-            Renderer = ServicesBank.Instance.Get<IRenderer>();
-        }
+        private readonly IRenderer renderer;
+        private readonly IGameSettings gameSettings;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Dialog"/> class.
         /// </summary>
-        /// <param name="assets">The asset manager of this user interface module.</param>
-        protected Dialog(IAssets assets)
-            : base(assets)
+        /// <param name="renderer">The renderer service.</param>
+        /// <param name="mouse">The mouse service.</param>
+        /// <param name="gameSettings">The game settings service.</param>
+        protected Dialog(IRenderer renderer, IMouse mouse, IGameSettings gameSettings)
+            : base(mouse)
         {
-            this.IsVisible = false;
+            this.renderer = renderer;
+            this.gameSettings = gameSettings;
         }
-
-        /// <summary>
-        /// Gets a value indicating whether any dialog has been opened in this iteration of the
-        /// update/draw loop.
-        /// </summary>
-        public static bool IsShownInCurrentLoopIteration { get; internal set; }
 
         /// <summary>
         /// Shows the dialog.
         /// </summary>
-        public void Show()
+        public virtual void Show()
         {
-            this.X = (UserInterface.Width / 2) - (Width / 2);
-            this.Y = (UserInterface.Height / 2) - (Height / 2);
-            this.IsVisible = true;
-            Renderer.IsPaused = true;
-            IsShownInCurrentLoopIteration = true;
+            X = (gameSettings.NativeWidth / 2) - (Width / 2);
+            Y = (gameSettings.NativeHeight / 2) - (Height / 2);
+            IsVisible = true;
+            renderer.IsPaused = true;
         }
 
         /// <summary>
         /// Hides the dialog.
         /// </summary>
-        public void Hide()
+        public virtual void Hide()
         {
-            this.IsVisible = false;
-            Renderer.IsPaused = false;
+            IsVisible = false;
+            renderer.IsPaused = false;
         }
     }
 }

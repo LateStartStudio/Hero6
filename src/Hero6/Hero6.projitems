@@ -15,14 +15,25 @@
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Assets\MonoGameAssetsFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Assets\MonoGameRenderer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Assets\MonoGameWalkAreaReader.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\Campaigns\CampaignHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Campaigns\MonoGameCampaigns.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Controls\MonoGameButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Controls\MonoGameImage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Controls\MonoGameStackPanel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Controls\MonoGameWindow.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Controls\MonoGameDialog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Controls\MonoGameLabel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Controls\UserInterfaceElementExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Input\MouseExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Input\MonoGameMouse.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\UserInterfaceHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\MonoGameUserInterface.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\MonoGameUserInterfaceGenerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\MonoGameUserInterfaces.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\DependencyInjection\MonoGameServices.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\Logger\LogFourNet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\Settings\GameSettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\Settings\UserSettings.Android.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\Settings\UserSettings.Desktop.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Game.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)IXnaGameLoop.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\GameLoop\IXnaGameLoop.cs" />
   </ItemGroup>
 </Project>

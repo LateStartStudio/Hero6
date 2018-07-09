@@ -4,10 +4,9 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
-namespace LateStartStudio.Hero6
+namespace LateStartStudio.Hero6.Engine.GameLoop
 {
     using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Graphics;
 
     public interface IXnaGameLoop
     {
@@ -19,6 +18,6 @@ namespace LateStartStudio.Hero6
 
         void Update(GameTime time);
 
-        void Draw(GameTime time, SpriteBatch spriteBatch);
+        void Draw(GameTime time);
     }
 }

@@ -12,6 +12,8 @@ namespace LateStartStudio.Hero6
     using Engine.Assets;
     using Engine.Campaigns;
     using Engine.UserInterfaces;
+    using Engine.UserInterfaces.Input;
+    using Engine.UserInterfaces.SierraVga.Windows;
     using Engine.Utilities.DependencyInjection;
     using Engine.Utilities.Logger;
     using Engine.Utilities.Settings;
@@ -25,19 +27,22 @@ namespace LateStartStudio.Hero6
     {
         private readonly ILogger logger;
 
-        private UserInterfaceHandler ui;
-        private CampaignHandler campaign;
+        private MonoGameUserInterfaces ui;
+        private MonoGameCampaigns campaign;
         private SpriteBatch spriteBatch;
 
         public Game()
         {
+            Content.RootDirectory = "Content";
             ServicesBank.Instance = new MonoGameServices(Services);
-            ServicesBank.Instance.Add<IUserSettings, UserSettings>();
-            ServicesBank.Instance.Add<ILogger, LogFourNet>();
+            ServicesBank.Instance.Add<IGameSettings, GameSettings>();
+            ServicesBank.Instance.Add<IMouse, MonoGameMouse>();
+            var userSettings = ServicesBank.Instance.Make<UserSettings>(typeof(UserSettings));
+            ServicesBank.Instance.Add<IUserSettings>(userSettings);
+            this.logger = ServicesBank.Instance.Make<LogFourNet>(typeof(LogFourNet));
+            ServicesBank.Instance.Add(logger);
             ServicesBank.Instance.Add(Content);
             ServicesBank.Instance.Add<IAssetsFactory, MonoGameAssetsFactory>();
-            this.logger = ServicesBank.Instance.Get<ILogger>();
-            var userSettings = ServicesBank.Instance.Get<IUserSettings>();
 
             logger.Info($"Hero6 {GraphicsApi} v{Assembly.GetExecutingAssembly().GetName().Version} Log");
             logger.Info("Forums: http://www.hero6.org/forum/");
@@ -55,9 +60,21 @@ namespace LateStartStudio.Hero6
                 SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight
 #endif
             };
-            Graphics.DeviceCreated += GraphicsOnDeviceCreated;
+            Graphics.DeviceCreated += (s, a) =>
+            {
+                this.spriteBatch = new SpriteBatch(GraphicsDevice);
+                ServicesBank.Instance.Add(spriteBatch);
+                ServicesBank.Instance.Add<IRenderer, MonoGameRenderer>();
+                this.campaign = new MonoGameCampaigns(ServicesBank.Instance);
+                ServicesBank.Instance.Add<ICampaigns>(campaign);
+                this.ui = new MonoGameUserInterfaces(ServicesBank.Instance);
+                ServicesBank.Instance.Add<IUserInterfaces>(ui);
 
-            Content.RootDirectory = "Content";
+                logger.Info("Graphics Device Created.");
+                logger.Info($"Graphics Adapter Width {GraphicsDevice.Adapter.CurrentDisplayMode.Width}");
+                logger.Info($"Graphics Adapter Height {GraphicsDevice.Adapter.CurrentDisplayMode.Height}");
+                logger.Info($"Graphics Adapter Aspect Ratio {GraphicsDevice.Adapter.CurrentDisplayMode.AspectRatio}");
+            };
 
             logger.Info("Hero6 Game Instance Created.");
         }
@@ -98,16 +115,10 @@ namespace LateStartStudio.Hero6
             logger.Info("Initializing Hero6 game instance.");
 
             Window.Title = "Hero6";
-            this.spriteBatch = new SpriteBatch(GraphicsDevice);
-            ServicesBank.Instance.Add(spriteBatch);
-            ServicesBank.Instance.Add<IRenderer, MonoGameRenderer>();
-
-            this.SetScale();
-            this.ui = new UserInterfaceHandler(this.Content);
-            this.campaign = new CampaignHandler(this.Content, this.ui);
-
-            this.ui.Initialize();
-            this.campaign.Initialize();
+            SetScale();
+            ui.Initialize();
+            campaign.Initialize();
+            ui.Current.GetWindow<StatusBar>().IsVisible = true;
 
             base.Initialize();
 
@@ -122,8 +133,9 @@ namespace LateStartStudio.Hero6
         {
             logger.Info("Loading Hero6 game instance.");
 
-            this.ui.Load();
-            this.campaign.Load();
+            ui.Load();
+            campaign.Load();
+            base.LoadContent();
 
             logger.Info("Hero6 game instance loaded.");
         }
@@ -137,13 +149,11 @@ namespace LateStartStudio.Hero6
             logger.Info("Unloading Hero6 game instance.");
 
             Content.Unload();
-
-            this.ui.Unload();
-            this.campaign.Unload();
+            ui.Unload();
+            campaign.Unload();
+            base.UnloadContent();
 
             logger.Info("Hero6 game instance unloaded.");
-
-            base.UnloadContent();
         }
 
         /// <summary>
@@ -153,8 +163,8 @@ namespace LateStartStudio.Hero6
         /// <param name="time">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime time)
         {
-            this.ui.Update(time);
-            this.campaign.Update(time);
+            ui.Update(time);
+            campaign.Update(time);
 
             base.Update(time);
         }
@@ -165,38 +175,21 @@ namespace LateStartStudio.Hero6
         /// <param name="time">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime time)
         {
-            GraphicsDevice.Clear(Color.Transparent);
+            GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            this.spriteBatch.Begin(
-                SpriteSortMode.Deferred,
-                null,
-                null,
-                null,
-                null,
-                null,
-                Transform);
-
-            campaign.Draw(time, spriteBatch);
-            ui.Draw(time, spriteBatch);
-
-            this.spriteBatch.End();
+            spriteBatch.Begin(SpriteSortMode.Deferred, transformMatrix: Transform);
+            campaign.Draw(time);
+            ui.Draw(time);
+            spriteBatch.End();
 
             base.Draw(time);
         }
 
         private void SetScale()
         {
-            float horScaling = GraphicsDevice.PresentationParameters.BackBufferWidth / NativeGameResolution.X;
-            float verScaling = GraphicsDevice.PresentationParameters.BackBufferHeight / NativeGameResolution.Y;
+            var horScaling = GraphicsDevice.PresentationParameters.BackBufferWidth / NativeGameResolution.X;
+            var verScaling = GraphicsDevice.PresentationParameters.BackBufferHeight / NativeGameResolution.Y;
             Transform = Matrix.CreateScale(horScaling, verScaling, 1.0f);
-        }
-
-        private void GraphicsOnDeviceCreated(object sender, EventArgs eventArgs)
-        {
-            logger.Info("Graphics Device Created.");
-            logger.Info($"Graphics Adapter Width {GraphicsDevice.Adapter.CurrentDisplayMode.Width}");
-            logger.Info($"Graphics Adapter Height {GraphicsDevice.Adapter.CurrentDisplayMode.Height}");
-            logger.Info($"Graphics Adapter Aspect Ratio {GraphicsDevice.Adapter.CurrentDisplayMode.AspectRatio}");
         }
     }
 }

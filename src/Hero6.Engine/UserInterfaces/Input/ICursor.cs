@@ -1,4 +1,4 @@
-﻿// <copyright file="MouseButtonState.cs" company="Late Start Studio">
+﻿// <copyright file="ICursor.cs" company="Late Start Studio">
 // Copyright (C) Late Start Studio
 // This file is subject to the terms and conditions of the MIT license specified in the file
 // 'LICENSE.CODE.md', which is a part of this source code package.
@@ -7,18 +7,13 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
 {
     /// <summary>
-    /// State of a mouse button.
+    /// The <see cref="ICursor"/> interface.
     /// </summary>
-    public enum MouseButtonState
+    public interface ICursor
     {
         /// <summary>
-        /// Mouse button is released.
+        /// Gets the cursor source.
         /// </summary>
-        Released,
-
-        /// <summary>
-        /// Mouse button is pressed.
-        /// </summary>
-        Pressed
+        string Source { get; }
     }
 }

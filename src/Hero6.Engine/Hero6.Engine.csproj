@@ -56,6 +56,7 @@
     <Compile Include="Campaigns\AdventureGameElement.cs" />
     <Compile Include="Campaigns\Character.cs" />
     <Compile Include="Campaigns\CharacterAnimation.cs" />
+    <Compile Include="Campaigns\ICampaigns.cs" />
     <Compile Include="Campaigns\Regions\WalkArea.cs" />
     <Compile Include="Campaigns\Regions\WalkAreas.cs" />
     <Compile Include="GameLoop\DrawEventArgs.cs" />
@@ -75,28 +76,29 @@
     <Compile Include="Campaigns\Stats\StatChangedEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserInterfaces\Controls\Button.cs" />
-    <Compile Include="UserInterfaces\Controls\Dialog.cs" />
     <Compile Include="UserInterfaces\Controls\IChild.cs" />
     <Compile Include="UserInterfaces\Controls\IChildren.cs" />
-    <Compile Include="UserInterfaces\Controls\Image.cs" />
+    <Compile Include="UserInterfaces\Controls\Dialog.cs" />
     <Compile Include="UserInterfaces\Controls\Label.cs" />
+    <Compile Include="UserInterfaces\Controls\Image.cs" />
+    <Compile Include="UserInterfaces\Controls\UserInterfaceElement.cs" />
+    <Compile Include="UserInterfaces\Controls\Window.cs" />
     <Compile Include="UserInterfaces\Controls\Layout.cs" />
     <Compile Include="UserInterfaces\Controls\Orientation.cs" />
     <Compile Include="UserInterfaces\Controls\StackPanel.cs" />
     <Compile Include="UserInterfaces\Controls\TextWrapping.cs" />
-    <Compile Include="UserInterfaces\Controls\UserInterfaceElement.cs" />
-    <Compile Include="UserInterfaces\Controls\Window.cs" />
-    <Compile Include="UserInterfaces\GameInteractionEventArgs.cs" />
-    <Compile Include="UserInterfaces\Input\Cursor.cs" />
+    <Compile Include="UserInterfaces\Input\ICursor.cs" />
     <Compile Include="UserInterfaces\Input\IMouse.cs" />
-    <Compile Include="UserInterfaces\Input\Mouse.cs" />
     <Compile Include="UserInterfaces\Input\MouseButton.cs" />
-    <Compile Include="UserInterfaces\Input\MouseButtonClickEventArgs.cs" />
-    <Compile Include="UserInterfaces\Input\MouseButtonState.cs" />
+    <Compile Include="UserInterfaces\Input\MouseButtonInteraction.cs" />
+    <Compile Include="UserInterfaces\Input\MouseMove.cs" />
     <Compile Include="UserInterfaces\UserInterface.cs" />
+    <Compile Include="UserInterfaces\IUserInterfaces.cs" />
+    <Compile Include="UserInterfaces\IUserInterfaceGenerator.cs" />
     <Compile Include="Utilities\DependencyInjection\IServices.cs" />
     <Compile Include="Utilities\Logger\ILogger.cs" />
     <Compile Include="Utilities\DependencyInjection\ServicesBank.cs" />
+    <Compile Include="Utilities\Settings\IGameSettings.cs" />
     <Compile Include="Utilities\Settings\IUserSettings.cs" />
   </ItemGroup>
   <ItemGroup>

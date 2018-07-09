@@ -6,69 +6,113 @@
 
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs
 {
-    using LateStartStudio.Hero6.Engine.Assets;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Controls;
+    using System;
+    using Assets;
+    using Controls;
     using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+    using Utilities.Settings;
 
     public class Rest : Dialog
     {
-        public Rest(IAssets assets)
-            : base(assets)
+        private readonly IUserInterfaces userInterfaces;
+
+        public Rest(IUserInterfaces userInterfaces, IRenderer renderer, IMouse mouse, IGameSettings gameSettings)
+            : base(renderer, mouse, gameSettings)
         {
-            StackPanel stack = new StackPanel(assets) { Orientation = Orientation.Vertical };
+            this.userInterfaces = userInterfaces;
 
-            Button tenBtn = new Button(assets, new Label(assets) { Text = "10 minutes" });
-            tenBtn.MouseButtonUp += TenBtnOnMouseButtonUp;
+            var stack = userInterfaces.Current.UserInterfaceGenerator.MakeStackPanel(this);
+            stack.Orientation = Orientation.Vertical;
 
-            Button thirtyBtn = new Button(assets, new Label(assets) { Text = "30 minutes" });
-            thirtyBtn.MouseButtonUp += ThirtyBtnOnMouseButtonUp;
+            TenButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stack);
+            TenButton.Child = userInterfaces.Current.UserInterfaceGenerator.MakeLabel("10 minutes", TenButton);
+            TenButton.MouseButtonUp += TenBtnOnMouseButtonUp;
 
-            Button sixtyBtn = new Button(assets, new Label(assets) { Text = "60 minutes" });
-            sixtyBtn.MouseButtonUp += SixtyBtnOnMouseButtonUp;
+            ThirtyButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stack);
+            ThirtyButton.Child = userInterfaces.Current.UserInterfaceGenerator.MakeLabel("30 minutes", ThirtyButton);
+            ThirtyButton.MouseButtonUp += ThirtyBtnOnMouseButtonUp;
 
-            Button sleepBtn = new Button(assets, new Label(assets) { Text = "Sleep" });
-            sleepBtn.MouseButtonUp += SleepBtnOnMouseButtonUp;
+            SixtyButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stack);
+            SixtyButton.Child = userInterfaces.Current.UserInterfaceGenerator.MakeLabel("60 minutes", SixtyButton);
+            SixtyButton.MouseButtonUp += SixtyBtnOnMouseButtonUp;
 
-            Button cancelBtn = new Button(assets, new Label(assets) { Text = "Cancel" });
-            cancelBtn.MouseButtonUp += CancelBtnOnMouseButtonUp;
+            SleepButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stack);
+            SleepButton.Child = userInterfaces.Current.UserInterfaceGenerator.MakeLabel("Sleep", SleepButton);
+            SleepButton.MouseButtonUp += SleepBtnOnMouseButtonUp;
 
-            stack.Children.Add(new Label(assets) { Text = "Rest for how long?" });
-            stack.Children.Add(tenBtn);
-            stack.Children.Add(thirtyBtn);
-            stack.Children.Add(sixtyBtn);
-            stack.Children.Add(sleepBtn);
-            stack.Children.Add(cancelBtn);
+            CancelButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stack);
+            CancelButton.Child = userInterfaces.Current.UserInterfaceGenerator.MakeLabel("Cancel", CancelButton);
+            CancelButton.MouseButtonUp += CancelBtnOnMouseButtonUp;
+
+            stack.Children.Add(userInterfaces.Current.UserInterfaceGenerator.MakeLabel("Rest for how long", stack));
+            stack.Children.Add(TenButton);
+            stack.Children.Add(ThirtyButton);
+            stack.Children.Add(SixtyButton);
+            stack.Children.Add(SleepButton);
+            stack.Children.Add(CancelButton);
 
             Child = stack;
         }
 
-        private void TenBtnOnMouseButtonUp(object sender, MouseButtonClickEventArgs e)
+        public Button TenButton { get; }
+
+        public Button ThirtyButton { get; }
+
+        public Button SixtyButton { get; }
+
+        public Button SleepButton { get; }
+
+        public Button CancelButton { get; }
+
+        private static void OnMouseButtonLift(object s, MouseButtonInteraction e, UserInterfaceElement ui, Action action)
         {
-            Hide();
-            SierraVgaController.TextBox.Show("Work In Progress");
+            if (!ui.Intersects(e.X, e.Y))
+            {
+                return;
+            }
+
+            action();
         }
 
-        private void ThirtyBtnOnMouseButtonUp(object sender, MouseButtonClickEventArgs e)
+        private void TenBtnOnMouseButtonUp(object s, MouseButtonInteraction e)
         {
-            Hide();
-            SierraVgaController.TextBox.Show("Work In Progress");
+            OnMouseButtonLift(s, e, TenButton, () =>
+            {
+                Hide();
+                userInterfaces.Current.ShowTextBox("Work In Progress");
+            });
         }
 
-        private void SixtyBtnOnMouseButtonUp(object sender, MouseButtonClickEventArgs e)
+        private void ThirtyBtnOnMouseButtonUp(object s, MouseButtonInteraction e)
         {
-            Hide();
-            SierraVgaController.TextBox.Show("Work In Progress");
+            OnMouseButtonLift(s, e, ThirtyButton, () =>
+            {
+                Hide();
+                userInterfaces.Current.ShowTextBox("Work In Progress");
+            });
         }
 
-        private void SleepBtnOnMouseButtonUp(object sender, MouseButtonClickEventArgs e)
+        private void SixtyBtnOnMouseButtonUp(object s, MouseButtonInteraction e)
         {
-            Hide();
-            SierraVgaController.TextBox.Show("Work In Progress");
+            OnMouseButtonLift(s, e, SixtyButton, () =>
+            {
+                Hide();
+                userInterfaces.Current.ShowTextBox("Work In Progress");
+            });
         }
 
-        private void CancelBtnOnMouseButtonUp(object sender, MouseButtonClickEventArgs e)
+        private void SleepBtnOnMouseButtonUp(object s, MouseButtonInteraction e)
         {
-            Hide();
+            OnMouseButtonLift(s, e, SleepButton, () =>
+            {
+                Hide();
+                userInterfaces.Current.ShowTextBox("Work In Progress");
+            });
+        }
+
+        private void CancelBtnOnMouseButtonUp(object s, MouseButtonInteraction e)
+        {
+            OnMouseButtonLift(s, e, CancelButton, Hide);
         }
     }
 }

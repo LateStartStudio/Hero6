@@ -7,57 +7,57 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs
 {
     using System;
-
-    using LateStartStudio.Hero6.Engine.Assets;
-    using LateStartStudio.Hero6.Engine.Assets.Graphics;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Controls;
+    using Assets;
+    using Assets.Graphics;
+    using Controls;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+    using Utilities.Settings;
 
     public class TextBox : Dialog
     {
         private readonly Vector2 maxSize;
         private readonly Label label;
 
-        public TextBox(IAssets assets)
-            : base(assets)
+        public TextBox(IUserInterfaces userInterfaces, IGameSettings gameSettings, IRenderer renderer, IMouse mouse)
+            : base(renderer, mouse, gameSettings)
         {
-            this.maxSize.X = UserInterface.Width - (UserInterface.Width / 4);
-            this.maxSize.Y = UserInterface.Height - (UserInterface.Height / 4);
-            this.label = new Label(assets)
-            {
-                TextWrapping = TextWrapping.Wrap
-            };
-            this.Child = label;
+            maxSize.X = gameSettings.NativeWidth - (gameSettings.NativeWidth / 4);
+            maxSize.Y = gameSettings.NativeHeight - (gameSettings.NativeHeight / 4);
+            label = userInterfaces.Current.UserInterfaceGenerator.MakeLabel(this);
+            label.TextWrapping = TextWrapping.Wrap;
+
+            Child = label;
         }
 
-        public void Show(string text)
+        public string Text { get; set; }
+
+        public override void Show()
         {
-            Vector2 size = label.Font.MeasureString(text);
+            var size = label.Font.MeasureString(Text);
 
             int rows;
 
             if (size.X > maxSize.X)
             {
                 rows = (int)Math.Ceiling(size.X / maxSize.X);
-                this.Width = (int)maxSize.X;
+                Width = (int)maxSize.X;
             }
             else
             {
                 rows = 1;
-                this.Width = (int)size.X;
+                Width = (int)size.X;
             }
 
-            this.Height = (int)(size.Y * rows);
-            this.label.Width = Width;
-            this.label.Height = Height;
-            this.label.Text = text;
-
-            Show();
+            Height = (int)(size.Y * rows);
+            label.Width = Width;
+            label.Height = Height;
+            label.Text = Text;
+            base.Show();
         }
 
-        public new void Hide()
+        public override void Hide()
         {
-            this.label.Text = string.Empty;
-
+            label.Text = string.Empty;
             base.Hide();
         }
     }

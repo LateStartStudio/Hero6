@@ -16,6 +16,6 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         /// <summary>
         /// Gets the children.
         /// </summary>
-        List<UserInterfaceElement> Children { get; }
+        IList<UserInterfaceElement> Children { get; }
     }
 }

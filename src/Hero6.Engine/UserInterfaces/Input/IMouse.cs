@@ -6,13 +6,38 @@
 
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
 {
-    using LateStartStudio.Hero6.Engine.Assets.Graphics;
+    using System;
 
     /// <summary>
     /// Interface containing basic core functionality of the mouse unit.
     /// </summary>
     public interface IMouse
     {
+        /// <summary>
+        /// Occurs when the mouse has changed x or y position.
+        /// </summary>
+        event EventHandler<MouseMove> Move;
+
+        /// <summary>
+        /// Occurs when any mouse button is pressed down.
+        /// </summary>
+        event EventHandler<MouseButtonInteraction> ButtonPress;
+
+        /// <summary>
+        /// Occurs when any mouse button is held down.
+        /// </summary>
+        event EventHandler<MouseButtonInteraction> ButtonHold;
+
+        /// <summary>
+        /// Occurs when any mouse button is lifted up.
+        /// </summary>
+        event EventHandler<MouseButtonInteraction> ButtonLift;
+
+        /// <summary>
+        /// Gets or sets mouse cursor.
+        /// </summary>
+        ICursor Cursor { get; set; }
+
         /// <summary>
         /// Gets or sets the x coordinate of the mouse.
         /// </summary>
@@ -24,38 +49,23 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
         int Y { get; set; }
 
         /// <summary>
-        /// Gets or sets the coordinates of the mouse.
-        /// </summary>
-        Point Location { get; set; }
-
-        /// <summary>
-        /// Gets the state of the left mouse button.
-        /// </summary>
-        MouseButtonState Left { get; }
-
-        /// <summary>
-        /// Gets the state of the middle mouse button.
-        /// </summary>
-        MouseButtonState Middle { get; }
-
-        /// <summary>
-        /// Gets the state of the right mouse button.
-        /// </summary>
-        MouseButtonState Right { get; }
-
-        /// <summary>
-        /// Gets the state of extra mouse button button 1.
-        /// </summary>
-        MouseButtonState X1 { get; }
-
-        /// <summary>
-        /// Gets the state of extra mouse button button 1.
-        /// </summary>
-        MouseButtonState X2 { get; }
-
-        /// <summary>
         /// Gets the scroll wheel value.
         /// </summary>
         int ScrollWheel { get; }
+
+        /// <summary>
+        /// Center the mouse in the middle of the window.
+        /// </summary>
+        void Center();
+
+        /// <summary>
+        /// Saves a backup of the cursor.
+        /// </summary>
+        void SaveCursor();
+
+        /// <summary>
+        /// Loads the backup of the cursor.
+        /// </summary>
+        void LoadCursor();
     }
 }

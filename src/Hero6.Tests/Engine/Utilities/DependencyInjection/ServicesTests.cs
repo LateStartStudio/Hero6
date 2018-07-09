@@ -57,14 +57,14 @@ namespace LateStartStudio.Hero6.Engine.Utilities.DependencyInjection
         [Test]
         public void MakeSucceeds()
         {
-            Assert.That(services.Make<Test>(), Is.Not.Null);
+            Assert.That(services.Make<Test>(typeof(Test)), Is.Not.Null);
         }
 
         [Test]
         public void MakeSucceedsIfParameterInBank()
         {
             services.Add(0);
-            Assert.That(services.Make<TestWithConstructor>(), Is.Not.Null);
+            Assert.That(services.Make<TestWithConstructor>(typeof(TestWithConstructor)), Is.Not.Null);
         }
 
         [Test]

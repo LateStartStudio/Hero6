@@ -6,67 +6,28 @@
 
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 {
-    using System;
-    using Assets;
-    using Assets.Graphics;
-    using Utilities.DependencyInjection;
+    using Input;
 
     /// <summary>
     /// A image user interface element.
     /// </summary>
     public class Image : UserInterfaceElement
     {
-        private static readonly IRenderer Renderer;
-
-        private Texture2D image;
-
-        static Image()
-        {
-            Renderer = ServicesBank.Instance.Get<IRenderer>();
-        }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="Image"/> class.
         /// </summary>
-        /// <param name="assets">The asset manager for this user interface module.</param>
-        /// <param name="source">the source path for the texture.</param>
-        public Image(IAssets assets, string source)
-            : base(assets)
+        /// <param name="source">The source for the image.</param>
+        /// <param name="mouse">The mouse service.</param>
+        /// <param name="parent">The parent.</param>
+        protected Image(string source, IMouse mouse, UserInterfaceElement parent)
+            : base(mouse, parent)
         {
-            this.Source = source;
+            Source = source;
         }
 
         /// <summary>
         /// Gets the source path for the texture.
         /// </summary>
         public string Source { get; }
-
-        /// <inheritdoc cref="UserInterfaceElement"/>
-        protected override int DefaultWidth => image.Width;
-
-        /// <inheritdoc cref="UserInterfaceElement"/>
-        protected override int DefaultHeight => image.Height;
-
-        /// <inheritdoc />
-        protected override void InternalLoad()
-        {
-            this.image = Assets.LoadTexture2D(Source);
-        }
-
-        /// <inheritdoc />
-        protected override void InternalUnload()
-        {
-        }
-
-        /// <inheritdoc />
-        protected override void InternalUpdate(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
-        {
-        }
-
-        /// <inheritdoc />
-        protected override void InternalDraw(TimeSpan total, TimeSpan elapsed, bool isRunningSlowly)
-        {
-            Renderer.Draw(image, Location);
-        }
     }
 }
