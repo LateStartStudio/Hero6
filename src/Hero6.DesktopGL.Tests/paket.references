@@ -1,6 +1,4 @@
-log4net
-MonoGame.Framework.DesktopGL
-OptimizedPriorityQueue
+MonoGame.Framework.DesktopGL 
 NUnit
 StyleCop.Analyzers
 NSubstitute
