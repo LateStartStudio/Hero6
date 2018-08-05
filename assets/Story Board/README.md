@@ -3,6 +3,6 @@ To develop against the file, you'll need to replace your Twine Stories folder wi
 For example:
 
 ```
-mklink /D "C:\Users\\{User Name}\Documents\Twine\Stories" "C:\\{Path to repository}\assets\Story Board"
+mklink /D "C:\Users\{User Name}\Documents\Twine\Stories" "C:\{Path to repository}\assets\Story Board"
 ```
-The link should live at ```C:\Users\\{User Name}\Documents\Twine\```
+The link should live at ```C:\Users\{User Name}\Documents\Twine\```
