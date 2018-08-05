@@ -1,4 +1,4 @@
-To develop against the file, you'll need to replace your Twine Stories folder with a Symbolic Directory Link to the git repository.
+To develop against the file on Windows OS, you'll need to replace your Twine Stories folder with a Symbolic Directory Link to the git repository.
 
 For example:
 
