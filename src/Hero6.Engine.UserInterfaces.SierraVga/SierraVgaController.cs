@@ -31,11 +31,6 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
             this.mouse = mouse;
             this.renderer = renderer;
             this.UserInterfaceGenerator = userInterfaceGenerator;
-
-            mouse.Cursor = Cursor.Walk;
-            mouse.ButtonPress += MouseOnLeftButtonPress;
-            mouse.ButtonPress += MouseOnMiddleButtonPress;
-            mouse.ButtonPress += MouseOnRightButtonPress;
         }
 
         public override string Name => "Sierra VGA";
@@ -43,6 +38,15 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
         public override string Directory => "Content/Gui/Sierra Vga";
 
         public override IUserInterfaceGenerator UserInterfaceGenerator { get; }
+
+        public override void Initialize()
+        {
+            base.Initialize();
+            mouse.Cursor = Cursor.Walk;
+            mouse.ButtonPress += MouseOnLeftButtonPress;
+            mouse.ButtonPress += MouseOnMiddleButtonPress;
+            mouse.ButtonPress += MouseOnRightButtonPress;
+        }
 
         public override void ShowTextBox(string text)
         {
@@ -75,19 +79,19 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
 
                 if (mouse.Cursor == Cursor.Walk)
                 {
-                    campaigns.Current.Interact(x, y, Interaction.Move);
+                    campaigns.Interact(x, y, Interaction.Move);
                 }
                 else if (mouse.Cursor == Cursor.Look)
                 {
-                    campaigns.Current.Interact(x, y, Interaction.Eye);
+                    campaigns.Interact(x, y, Interaction.Eye);
                 }
                 else if (mouse.Cursor == Cursor.Hand)
                 {
-                    campaigns.Current.Interact(x, y, Interaction.Hand);
+                    campaigns.Interact(x, y, Interaction.Hand);
                 }
                 else if (mouse.Cursor == Cursor.Talk)
                 {
-                    campaigns.Current.Interact(x, y, Interaction.Mouth);
+                    campaigns.Interact(x, y, Interaction.Mouth);
                 }
             });
         }

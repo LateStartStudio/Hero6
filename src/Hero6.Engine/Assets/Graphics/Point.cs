@@ -53,6 +53,16 @@ namespace LateStartStudio.Hero6.Engine.Assets.Graphics
             return new Point(vector2);
         }
 
+        public static Point operator +(Point a, Point b)
+        {
+            return new Point(a.X + b.X, a.Y + b.Y);
+        }
+
+        public static Point operator -(Point a, Point b)
+        {
+            return new Point(a.X - b.X, a.Y - b.Y);
+        }
+
         /// <inheritdoc />
         public override string ToString() => $"X = {X}, Y = {Y}";
     }

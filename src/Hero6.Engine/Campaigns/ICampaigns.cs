@@ -7,6 +7,7 @@
 namespace LateStartStudio.Hero6.Engine.Campaigns
 {
     using System.Collections.Generic;
+    using LateStartStudio.Hero6.Engine.Campaigns.Characters;
 
     /// <summary>
     /// The campaigns service that holds all the campaign modules.
@@ -16,11 +17,13 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         /// <summary>
         /// Gets all the campaign modules.
         /// </summary>
-        IEnumerable<Campaign> Campaigns { get; }
+        IEnumerable<CampaignModule> Campaigns { get; }
 
         /// <summary>
         /// Gets or sets the currently active campaign module.
         /// </summary>
-        Campaign Current { get; set; }
+        CampaignModule Current { get; set; }
+
+        bool Interact(int x, int y, Interaction interaction);
     }
 }

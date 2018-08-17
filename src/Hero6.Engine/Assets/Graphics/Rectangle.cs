@@ -72,5 +72,7 @@ namespace LateStartStudio.Hero6.Engine.Assets.Graphics
         {
             return x >= this.X && x <= this.X + this.Width && y >= this.Y && y <= this.Y + this.Height;
         }
+
+        public override string ToString() => $"X = {X}, Y = {Y}, Width = {Width}, Height = {Height}";
     }
 }

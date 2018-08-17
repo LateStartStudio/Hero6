@@ -6,55 +6,60 @@
 
 namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Characters
 {
-    using System;
-    using Animations;
-    using Campaigns;
-    using InventoryItems;
-    using Localization;
+    using LateStartStudio.Hero6.Engine.Campaigns.Characters;
+    using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Animations.Characters.Llewella.Idle;
+    using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.InventoryItems;
+    using LateStartStudio.Hero6.Engine.UserInterfaces;
+    using LateStartStudio.Hero6.Localization;
 
-    public sealed class Llewella : Character
+    public class Llewella : CharacterModule
     {
-        public const string Id = "Llewella";
+        private readonly IUserInterfaces userInterfaces;
+        private readonly ICampaigns campaigns;
 
-        private bool swordReturned;
-
-        public Llewella(Campaign campaign) : base(campaign)
+        public Llewella(IUserInterfaces userInterfaces, ICampaigns campaigns)
         {
-            this.Animation = new LlewellaWalk(campaign);
-
-            this.Look += this.OnLook;
-            this.Grab += this.OnGrab;
-            this.Talk += this.OnTalk;
+            this.userInterfaces = userInterfaces;
+            this.campaigns = campaigns;
         }
 
-        private void OnGrab(object sender, EventArgs e)
+        public override string Name => "Llewella";
+
+        protected override void Initialize()
         {
-            this.Display(Strings.LlewellaGrab);
+            base.Initialize();
+
+            IdleAnimation = campaigns.Current.GetCharacterAnimation<LlewellaIdle>();
+            Look = OnLook;
+            Grab = OnGrab;
+            Talk = OnTalk;
         }
 
-        private void OnLook(object sender, EventArgs e)
+        private void OnLook()
         {
-            this.Display(Strings.LlewellaLook);
+            userInterfaces.Current.ShowTextBox(Strings.LlewellaLook);
         }
 
-        private void OnTalk(object sender, EventArgs e)
+        private void OnGrab()
         {
-            if (!this.swordReturned)
+            userInterfaces.Current.ShowTextBox(Strings.LlewellaGrab);
+        }
+
+        private void OnTalk()
+        {
+            if (HasInventoryItem<BentSword>())
             {
-                if (Campaign.Player.HasInventory(Campaign.GetInventoryItem(BentSword.Id)))
-                {
-                    this.Display(Strings.LlewellaTalk1);
-                    Campaign.Player.RemoveInventory(Campaign.GetInventoryItem(BentSword.Id));
-                    this.swordReturned = true;
-                }
-                else
-                {
-                    this.Display(Strings.LlewellaTalk2);
-                }
+                userInterfaces.Current.ShowTextBox(Strings.LlewellaTalk3);
+            }
+            else if (campaigns.Current.Player.HasInventoryItem<BentSword>())
+            {
+                userInterfaces.Current.ShowTextBox(Strings.LlewellaTalk1);
+                AddInventoryItem<BentSword>();
+                campaigns.Current.Player.RemoveInventoryItem<BentSword>();
             }
             else
             {
-                this.Display(Strings.LlewellaTalk3);
+                userInterfaces.Current.ShowTextBox(Strings.LlewellaTalk2);
             }
         }
     }

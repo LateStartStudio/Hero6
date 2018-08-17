@@ -6,37 +6,48 @@
 
 namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Characters
 {
-    using System;
-    using Animations;
-    using Campaigns;
+    using LateStartStudio.Hero6.Engine.Campaigns.Characters;
+    using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Animations.Characters.Hero.Idle;
+    using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Animations.Characters.Hero.Walk;
+    using LateStartStudio.Hero6.Engine.UserInterfaces;
     using Localization;
 
-    public sealed class Hero : PlayerCharacter
+    public sealed class Hero : CharacterModule
     {
-        public const string Id = "Hero";
+        private readonly IUserInterfaces userInterfaces;
+        private readonly ICampaigns campaigns;
 
-        public Hero(Campaign campaign) : base(campaign)
+        public Hero(IUserInterfaces userInterfaces, ICampaigns campaigns)
         {
-            this.Animation = new HeroWalk(campaign);
-
-            this.Look += this.OnLook;
-            this.Grab += this.OnGrab;
-            this.Talk += this.OnTalk;
+            this.userInterfaces = userInterfaces;
+            this.campaigns = campaigns;
         }
 
-        private void OnLook(object sender, EventArgs e)
+        public override string Name => "Hero";
+
+        protected override void Initialize()
         {
-            this.Display(Strings.HeroLook);
+            base.Initialize();
+            IdleAnimation = campaigns.Current.GetCharacterAnimation<HeroIdle>();
+            MoveAnimation = campaigns.Current.GetCharacterAnimation<HeroWalk>();
+            Look = OnLook;
+            Grab = OnGrab;
+            Talk = OnTalk;
         }
 
-        private void OnGrab(object sender, EventArgs e)
+        private void OnLook()
         {
-            this.Display(Strings.HeroGrab);
+            userInterfaces.Current.ShowTextBox(Strings.HeroLook);
         }
 
-        private void OnTalk(object sender, EventArgs e)
+        private void OnGrab()
         {
-            this.Display(Strings.HeroTalk);
+            userInterfaces.Current.ShowTextBox(Strings.HeroGrab);
+        }
+
+        private void OnTalk()
+        {
+            userInterfaces.Current.ShowTextBox(Strings.HeroTalk);
         }
     }
 }

@@ -4,12 +4,12 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions;
+
 namespace LateStartStudio.Hero6.Engine.Assets
 {
-    using Campaigns.Regions;
     using Graphics;
     using Microsoft.Xna.Framework.Content;
-
     using XnaSpriteFont = Microsoft.Xna.Framework.Graphics.SpriteFont;
     using XnaTexture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 
@@ -48,9 +48,9 @@ namespace LateStartStudio.Hero6.Engine.Assets
             return new MonoGameSpriteFont(this.content.Load<XnaSpriteFont>(id));
         }
 
-        public WalkAreas LoadWalkAreas(string id)
+        public WalkAreasModule LoadWalkAreas(string id)
         {
-            return content.Load<WalkAreas>(id);
+            return content.Load<WalkAreasModule>(id);
         }
 
         public void Unload()

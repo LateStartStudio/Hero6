@@ -4,6 +4,8 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using LateStartStudio.Hero6.Engine.GameLoop;
+
 namespace LateStartStudio.Hero6
 {
     using System;
@@ -34,15 +36,15 @@ namespace LateStartStudio.Hero6
         public Game()
         {
             Content.RootDirectory = "Content";
-            ServicesBank.Instance = new MonoGameServices(Services);
-            ServicesBank.Instance.Add<IGameSettings, GameSettings>();
-            ServicesBank.Instance.Add<IMouse, MonoGameMouse>();
-            var userSettings = ServicesBank.Instance.Make<UserSettings>(typeof(UserSettings));
-            ServicesBank.Instance.Add<IUserSettings>(userSettings);
-            this.logger = ServicesBank.Instance.Make<LogFourNet>(typeof(LogFourNet));
-            ServicesBank.Instance.Add(logger);
-            ServicesBank.Instance.Add(Content);
-            ServicesBank.Instance.Add<IAssetsFactory, MonoGameAssetsFactory>();
+            var services = new MonoGameServices(Services);
+            services.Add<IGameSettings, GameSettings>();
+            services.Add<IMouse, MonoGameMouse>();
+            var userSettings = services.Make<UserSettings>(typeof(UserSettings));
+            services.Add<IUserSettings>(userSettings);
+            this.logger = services.Make<LogFourNet>(typeof(LogFourNet));
+            services.Add(logger);
+            services.Add(Content);
+            services.Add<IAssetsFactory, MonoGameAssetsFactory>();
 
             logger.Info($"Hero6 {GraphicsApi} v{Assembly.GetExecutingAssembly().GetName().Version} Log");
             logger.Info("Forums: http://www.hero6.org/forum/");
@@ -63,12 +65,12 @@ namespace LateStartStudio.Hero6
             Graphics.DeviceCreated += (s, a) =>
             {
                 this.spriteBatch = new SpriteBatch(GraphicsDevice);
-                ServicesBank.Instance.Add(spriteBatch);
-                ServicesBank.Instance.Add<IRenderer, MonoGameRenderer>();
-                this.campaign = new MonoGameCampaigns(ServicesBank.Instance);
-                ServicesBank.Instance.Add<ICampaigns>(campaign);
-                this.ui = new MonoGameUserInterfaces(ServicesBank.Instance);
-                ServicesBank.Instance.Add<IUserInterfaces>(ui);
+                services.Add(spriteBatch);
+                services.Add<IRenderer, MonoGameRenderer>();
+                this.campaign = new MonoGameCampaigns(services);
+                services.Add<ICampaigns>(campaign);
+                this.ui = new MonoGameUserInterfaces(services);
+                services.Add<IUserInterfaces>(ui);
 
                 logger.Info("Graphics Device Created.");
                 logger.Info($"Graphics Adapter Width {GraphicsDevice.Adapter.CurrentDisplayMode.Width}");
@@ -103,6 +105,14 @@ namespace LateStartStudio.Hero6
         public static GraphicsDeviceManager Graphics { get; private set; }
 
         public static Matrix Transform { get; set; } = Matrix.Identity;
+
+        public static void Start()
+        {
+            using (var game = new Game())
+            {
+                game.Run();
+            }
+        }
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.

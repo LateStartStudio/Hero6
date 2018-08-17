@@ -24,17 +24,14 @@ namespace LateStartStudio.Hero6
         public static void Main()
         {
 #if DEBUG
-            using (Game game = new Game())
+            using (var game = new Game())
             {
                 game.Run();
             }
 #else
             try
             {
-                using (Game game = new Game())
-                {
-                    game.Run();
-                }
+                Game.Start();
             }
             catch (Exception e)
             {

@@ -46,34 +46,47 @@
     <Compile Include="Assets\IAssets.cs" />
     <Compile Include="Assets\IAssetsFactory.cs" />
     <Compile Include="Assets\IRenderer.cs" />
-    <Compile Include="Campaigns\Campaign.cs" />
     <Compile Include="Assets\Graphics\Color.cs" />
     <Compile Include="Assets\Graphics\Point.cs" />
     <Compile Include="Assets\Graphics\Rectangle.cs" />
     <Compile Include="Assets\Graphics\SpriteFont.cs" />
     <Compile Include="Assets\Graphics\Texture2D.cs" />
     <Compile Include="Assets\Graphics\Vector2.cs" />
-    <Compile Include="Campaigns\AdventureGameElement.cs" />
-    <Compile Include="Campaigns\Character.cs" />
-    <Compile Include="Campaigns\CharacterAnimation.cs" />
+    <Compile Include="Campaigns\Animations\CharacterAnimationController.cs" />
+    <Compile Include="Campaigns\Animations\CharacterAnimationModule.cs" />
+    <Compile Include="Campaigns\CampaignController.cs" />
+    <Compile Include="Campaigns\Characters\CharacterController.cs" />
+    <Compile Include="Campaigns\Characters\CharacterDirection.cs" />
+    <Compile Include="Campaigns\Characters\CharacterModule.cs" />
+    <Compile Include="Campaigns\CampaignModule.cs" />
+    <Compile Include="Campaigns\Characters\Stats\StatController.cs" />
+    <Compile Include="Campaigns\Characters\Stats\StatModule.cs" />
+    <Compile Include="Campaigns\Characters\Stats\LearningStatController.cs" />
+    <Compile Include="Campaigns\Characters\Stats\LearningStatModule.cs" />
+    <Compile Include="Campaigns\Characters\Stats\StatsController.cs" />
+    <Compile Include="Campaigns\Characters\Stats\StatsModule.cs" />
+    <Compile Include="Campaigns\GameController.cs" />
+    <Compile Include="Campaigns\GameModule.cs" />
     <Compile Include="Campaigns\ICampaigns.cs" />
-    <Compile Include="Campaigns\Regions\WalkArea.cs" />
-    <Compile Include="Campaigns\Regions\WalkAreas.cs" />
-    <Compile Include="GameLoop\DrawEventArgs.cs" />
-    <Compile Include="GameLoop\LoadEventArgs.cs" />
-    <Compile Include="GameLoop\UnloadEventArgs.cs" />
-    <Compile Include="GameLoop\UpdateEventArgs.cs" />
-    <Compile Include="Campaigns\PlayerCharacter.cs" />
-    <Compile Include="Campaigns\Regions\Hotspot.cs" />
-    <Compile Include="Campaigns\Regions\HotspotWalkingEventArgs.cs" />
-    <Compile Include="GameLoop\IGameLoop.cs" />
+    <Compile Include="Campaigns\InventoryItems\InventoryItemController.cs" />
+    <Compile Include="Campaigns\InventoryItems\InventoryItemModule.cs" />
+    <Compile Include="Campaigns\Items\ItemController.cs" />
+    <Compile Include="Campaigns\Items\ItemModule.cs" />
+    <Compile Include="Campaigns\Rooms\Regions\Hotspot.cs" />
+    <Compile Include="Campaigns\Rooms\Regions\HotspotsController.cs" />
+    <Compile Include="Campaigns\Rooms\Regions\HotspotsModule.cs" />
+    <Compile Include="Campaigns\Rooms\Regions\StandingOn.cs" />
+    <Compile Include="Campaigns\Rooms\Regions\WalkAreasController.cs" />
+    <Compile Include="Campaigns\Rooms\Regions\WalkAreasModule.cs" />
+    <Compile Include="Campaigns\Rooms\RoomController.cs" />
+    <Compile Include="Campaigns\Rooms\RoomModule.cs" />
+    <Compile Include="Campaigns\Animations\AnimationController.cs" />
+    <Compile Include="Campaigns\Animations\AnimationModule.cs" />
     <Compile Include="Campaigns\Interaction.cs" />
-    <Compile Include="Campaigns\InventoryItem.cs" />
-    <Compile Include="Campaigns\Item.cs" />
-    <Compile Include="Campaigns\Room.cs" />
-    <Compile Include="Campaigns\SpriteSheet.cs" />
-    <Compile Include="Campaigns\Stats\Stat.cs" />
-    <Compile Include="Campaigns\Stats\StatChangedEventArgs.cs" />
+    <Compile Include="ModuleController\Controller.cs" />
+    <Compile Include="ModuleController\IController.cs" />
+    <Compile Include="ModuleController\IModule.cs" />
+    <Compile Include="ModuleController\Module.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserInterfaces\Controls\Button.cs" />
     <Compile Include="UserInterfaces\Controls\IChild.cs" />
@@ -95,17 +108,9 @@
     <Compile Include="UserInterfaces\UserInterface.cs" />
     <Compile Include="UserInterfaces\IUserInterfaces.cs" />
     <Compile Include="UserInterfaces\IUserInterfaceGenerator.cs" />
-    <Compile Include="Utilities\DependencyInjection\IServices.cs" />
     <Compile Include="Utilities\Logger\ILogger.cs" />
-    <Compile Include="Utilities\DependencyInjection\ServicesBank.cs" />
     <Compile Include="Utilities\Settings\IGameSettings.cs" />
     <Compile Include="Utilities\Settings\IUserSettings.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Search\Search.csproj">
-      <Project>{5c4a5d3d-46cf-4ddd-a64d-d3043458e2d3}</Project>
-      <Name>Search</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <AdditionalFiles Include="..\stylecop.json">
@@ -121,44 +126,6 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v2.0' Or $(TargetFrameworkVersion) == 'v3.0' Or $(TargetFrameworkVersion) == 'v3.5' Or $(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.0.3')">
-      <ItemGroup>
-        <Reference Include="Priority Queue">
-          <HintPath>..\packages\OptimizedPriorityQueue\lib\net20\Priority Queue.dll</HintPath>
-          <Private>True</Private>
-          <Paket>True</Paket>
-        </Reference>
-      </ItemGroup>
-    </When>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3' Or $(TargetFrameworkVersion) == 'v4.7' Or $(TargetFrameworkVersion) == 'v4.7.1')">
-      <ItemGroup>
-        <Reference Include="Priority Queue">
-          <HintPath>..\packages\OptimizedPriorityQueue\lib\net45\Priority Queue.dll</HintPath>
-          <Private>True</Private>
-          <Paket>True</Paket>
-        </Reference>
-      </ItemGroup>
-    </When>
-    <When Condition="($(TargetFrameworkIdentifier) == 'WindowsPhoneApp') Or ($(TargetFrameworkIdentifier) == 'MonoAndroid' And ($(TargetFrameworkVersion) == 'v7.0' Or $(TargetFrameworkVersion) == 'v7.1' Or $(TargetFrameworkVersion) == 'v8.0')) Or ($(TargetFrameworkIdentifier) == 'MonoTouch') Or ($(TargetFrameworkIdentifier) == '.NETCoreApp' And ($(TargetFrameworkVersion) == 'v1.0' Or $(TargetFrameworkVersion) == 'v1.1' Or $(TargetFrameworkVersion) == 'v2.0')) Or ($(TargetFrameworkIdentifier) == '.NETStandard' And ($(TargetFrameworkVersion) == 'v1.0' Or $(TargetFrameworkVersion) == 'v1.1' Or $(TargetFrameworkVersion) == 'v1.2' Or $(TargetFrameworkVersion) == 'v1.3' Or $(TargetFrameworkVersion) == 'v1.4' Or $(TargetFrameworkVersion) == 'v1.5' Or $(TargetFrameworkVersion) == 'v1.6' Or $(TargetFrameworkVersion) == 'v2.0')) Or ($(TargetFrameworkIdentifier) == '.NETCore' And $(TargetFrameworkVersion) == 'v5.0') Or ($(TargetFrameworkIdentifier) == 'WindowsPhone' And ($(TargetFrameworkVersion) == 'v8.0' Or $(TargetFrameworkVersion) == 'v8.1')) Or ($(TargetFrameworkIdentifier) == 'Xamarin.iOS') Or ($(TargetFrameworkIdentifier) == 'Xamarin.Mac') Or ($(TargetFrameworkIdentifier) == 'Xamarin.tvOS') Or ($(TargetFrameworkIdentifier) == 'Xamarin.watchOS')">
-      <ItemGroup>
-        <Reference Include="Priority Queue">
-          <HintPath>..\packages\OptimizedPriorityQueue\lib\netstandard1.0\Priority Queue.dll</HintPath>
-          <Private>True</Private>
-          <Paket>True</Paket>
-        </Reference>
-      </ItemGroup>
-    </When>
-    <When Condition="($(TargetFrameworkIdentifier) == '.NETCore') Or ($(TargetFrameworkIdentifier) == 'MonoAndroid' And ($(TargetFrameworkVersion) == 'v1.0' Or $(TargetFrameworkVersion) == 'v2.2' Or $(TargetFrameworkVersion) == 'v2.3' Or $(TargetFrameworkVersion) == 'v4.0.3' Or $(TargetFrameworkVersion) == 'v4.1' Or $(TargetFrameworkVersion) == 'v4.2' Or $(TargetFrameworkVersion) == 'v4.3' Or $(TargetFrameworkVersion) == 'v4.4' Or $(TargetFrameworkVersion) == 'v5.0' Or $(TargetFrameworkVersion) == 'v5.1' Or $(TargetFrameworkVersion) == 'v6.0')) Or ($(TargetFrameworkProfile) == 'Profile14') Or ($(TargetFrameworkProfile) == 'Profile5') Or ($(TargetFrameworkProfile) == 'Profile37') Or ($(TargetFrameworkProfile) == 'Profile136') Or ($(TargetFrameworkProfile) == 'Profile328') Or ($(TargetFrameworkProfile) == 'Profile92') Or ($(TargetFrameworkProfile) == 'Profile225') Or ($(TargetFrameworkProfile) == 'Profile19') Or ($(TargetFrameworkProfile) == 'Profile6') Or ($(TargetFrameworkProfile) == 'Profile42') Or ($(TargetFrameworkProfile) == 'Profile147') Or ($(TargetFrameworkProfile) == 'Profile336') Or ($(TargetFrameworkProfile) == 'Profile102') Or ($(TargetFrameworkProfile) == 'Profile240') Or ($(TargetFrameworkProfile) == 'Profile24') Or ($(TargetFrameworkProfile) == 'Profile7') Or ($(TargetFrameworkProfile) == 'Profile47') Or ($(TargetFrameworkProfile) == 'Profile78') Or ($(TargetFrameworkProfile) == 'Profile158') Or ($(TargetFrameworkProfile) == 'Profile259') Or ($(TargetFrameworkProfile) == 'Profile344') Or ($(TargetFrameworkProfile) == 'Profile111') Or ($(TargetFrameworkProfile) == 'Profile255') Or ($(TargetFrameworkProfile) == 'Profile49') Or ($(TargetFrameworkProfile) == 'Profile44') Or ($(TargetFrameworkProfile) == 'Profile151') Or ($(TargetFrameworkProfile) == 'Profile31') Or ($(TargetFrameworkProfile) == 'Profile157') Or ($(TargetFrameworkProfile) == 'Profile32') Or ($(TargetFrameworkProfile) == 'Profile84') Or ($(TargetFrameworkIdentifier) == 'Silverlight' And $(TargetFrameworkVersion) == 'v5.0')">
-      <ItemGroup>
-        <Reference Include="Priority Queue">
-          <HintPath>..\packages\OptimizedPriorityQueue\lib\portable-net40+sl5+win8+wpa81+wp8\Priority Queue.dll</HintPath>
-          <Private>True</Private>
-          <Paket>True</Paket>
-        </Reference>
-      </ItemGroup>
-    </When>
-  </Choose>
   <ItemGroup>
     <Analyzer Include="..\packages\StyleCop.Analyzers\analyzers\dotnet\cs\Newtonsoft.Json.dll">
       <Paket>True</Paket>
@@ -169,5 +136,8 @@
     <Analyzer Include="..\packages\StyleCop.Analyzers\analyzers\dotnet\cs\StyleCop.Analyzers.dll">
       <Paket>True</Paket>
     </Analyzer>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Campaigns\Stats\" />
   </ItemGroup>
 </Project>

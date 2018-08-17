@@ -38,6 +38,8 @@ namespace LateStartStudio.Hero6.Engine.Utilities.DependencyInjection
 
         public void Remove<T>() => services.RemoveService(typeof(T));
 
+        public T Make<T>() => Make<T>(typeof(T));
+
         public T Make<T>(Type t)
         {
             foreach (var c in t.GetConstructors())

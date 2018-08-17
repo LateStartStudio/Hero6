@@ -8,37 +8,33 @@ namespace LateStartStudio.Hero6
 {
     using System;
     using System.Diagnostics;
-    using Engine.Utilities.DependencyInjection;
     using Engine.Utilities.Logger;
     using Eto.Forms;
     using Eto.Serialization.Xaml;
+    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
 
     public class CrashDialog : Form
     {
-        private static readonly ILogger Logger;
+        private readonly ILogger logger;
 
         private readonly Exception exception;
         private readonly LinkButton emailLink;
 
-        static CrashDialog()
+        public CrashDialog(IServices services, Exception exception)
         {
-            Logger = ServicesBank.Instance.Get<ILogger>();
-        }
-
-        public CrashDialog(Exception exception)
-        {
+            logger = services.Get<ILogger>();
             XamlReader.Load(this);
 
             this.exception = exception;
-            this.emailLink = this.FindChild<LinkButton>("EmailLink");
+            emailLink = FindChild<LinkButton>("EmailLink");
 
-            this.FindChild<LinkButton>("FilenameLink").Text = Logger.Filename;
-            this.FindChild<Label>("CrashMessage").Text = exception.Message;
+            FindChild<LinkButton>("FilenameLink").Text = logger.Filename;
+            FindChild<Label>("CrashMessage").Text = exception.Message;
         }
 
         public void FilenameLinkClick(object sender, EventArgs e)
         {
-            Process.Start(Logger.Filename);
+            Process.Start(logger.Filename);
         }
 
         public void ForumLinkClick(object sender, EventArgs e)
@@ -53,7 +49,7 @@ namespace LateStartStudio.Hero6
 
         public void EmailLinkClick(object sender, EventArgs e)
         {
-            Process.Start($"mailto:{this.emailLink.Text}?subject=Hero6 Crash&body={"Hero6 has crashed\n\n" + this.exception}");
+            Process.Start($"mailto:{emailLink.Text}?subject=Hero6 Crash&body={"Hero6 has crashed\n\n" + exception}");
         }
     }
 }

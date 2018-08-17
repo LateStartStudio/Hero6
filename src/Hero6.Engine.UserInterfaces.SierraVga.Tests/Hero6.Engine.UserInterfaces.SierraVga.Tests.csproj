@@ -48,13 +48,10 @@
   <ItemGroup>
     <Compile Include="Dialogs\ExtensionBarTests.cs" />
     <Compile Include="Dialogs\RestTests.cs" />
-    <Compile Include="MouseExtensions.cs" />
-    <Compile Include="UserInterfaceElementExtensions.cs" />
     <Compile Include="Dialogs\TextBoxTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SierraVgaServicesProvider.cs" />
     <Compile Include="SierraVgaTests.cs" />
-    <Compile Include="UserInterfacesGeneratorStub.cs" />
     <Compile Include="Windows\StatusBarTests.cs" />
     <Compile Include="Windows\VerbBarTests.cs" />
   </ItemGroup>
@@ -74,6 +71,20 @@
       </PropertyGroup>
     </When>
   </Choose>
+  <ItemGroup>
+    <ProjectReference Include="..\Hero6.Engine.UserInterfaces.SierraVga\Hero6.Engine.UserInterfaces.SierraVga.csproj">
+      <Project>{9c6a0da4-892e-45c0-afc7-b6d46f940329}</Project>
+      <Name>Hero6.Engine.UserInterfaces.SierraVga</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hero6.Engine\Hero6.Engine.csproj">
+      <Project>{0c0586a3-5a10-42ce-b609-cc80ee2cef7a}</Project>
+      <Name>Hero6.Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hero6.Tests.HelperTools\Hero6.Tests.HelperTools.csproj">
+      <Project>{afcff1eb-729c-4da5-b671-83396288dc3c}</Project>
+      <Name>Hero6.Tests.HelperTools</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3' Or $(TargetFrameworkVersion) == 'v4.7' Or $(TargetFrameworkVersion) == 'v4.7.1')">
       <ItemGroup>
@@ -201,16 +212,6 @@
     <Analyzer Include="..\packages\StyleCop.Analyzers\analyzers\dotnet\cs\StyleCop.Analyzers.dll">
       <Paket>True</Paket>
     </Analyzer>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Hero6.Engine.UserInterfaces.SierraVga\Hero6.Engine.UserInterfaces.SierraVga.csproj">
-      <Project>{9c6a0da4-892e-45c0-afc7-b6d46f940329}</Project>
-      <Name>Hero6.Engine.UserInterfaces.SierraVga</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Hero6.Engine\Hero6.Engine.csproj">
-      <Project>{0c0586a3-5a10-42ce-b609-cc80ee2cef7a}</Project>
-      <Name>Hero6.Engine</Name>
-    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETStandard' And ($(TargetFrameworkVersion) == 'v1.3' Or $(TargetFrameworkVersion) == 'v1.4' Or $(TargetFrameworkVersion) == 'v1.5')">
