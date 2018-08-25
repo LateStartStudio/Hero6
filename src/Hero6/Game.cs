@@ -4,8 +4,6 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
-using LateStartStudio.Hero6.Engine.GameLoop;
-
 namespace LateStartStudio.Hero6
 {
     using System;
@@ -27,21 +25,21 @@ namespace LateStartStudio.Hero6
     /// </summary>
     public class Game : Microsoft.Xna.Framework.Game
     {
-        private readonly ILogger logger;
+        private static ILogger logger;
 
         private MonoGameUserInterfaces ui;
         private MonoGameCampaigns campaign;
         private SpriteBatch spriteBatch;
 
-        public Game()
+        private Game()
         {
             Content.RootDirectory = "Content";
             var services = new MonoGameServices(Services);
             services.Add<IGameSettings, GameSettings>();
-            services.Add<IMouse, MonoGameMouse>();
             var userSettings = services.Make<UserSettings>(typeof(UserSettings));
             services.Add<IUserSettings>(userSettings);
-            this.logger = services.Make<LogFourNet>(typeof(LogFourNet));
+            logger = services.Make<LogFourNet>(typeof(LogFourNet));
+            services.Add<IMouse, MonoGameMouse>();
             services.Add(logger);
             services.Add(Content);
             services.Add<IAssetsFactory, MonoGameAssetsFactory>();
@@ -108,9 +106,23 @@ namespace LateStartStudio.Hero6
 
         public static void Start()
         {
-            using (var game = new Game())
+            try
             {
-                game.Run();
+                using (var game = new Game())
+                {
+                    game.Run();
+                }
+            }
+#if !DEBUG
+            catch (Exception e)
+            {
+                logger.Fatal("Hero6 has crashed, logging stack strace.", e);
+                logger.WillDeleteLogOnDispose = false;
+                new Eto.Forms.Application(Eto.Platform.Detect).Run(new CrashDialog(logger.Filename, e));
+            }
+#endif
+            finally
+            {
             }
         }
 
