@@ -49,15 +49,11 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
 
         public override int Height => currentRoom.Height;
 
+        public override CharacterController Player { get; set; }
+
         public override bool Interact(int x, int y, Interaction interaction)
         {
             return currentRoom.Interact(x, y, interaction);
-        }
-
-        public override CharacterController Player
-        {
-            get;
-            set;
         }
 
         public override AnimationController GetAnimation<T>() => Animations[typeof(T)];

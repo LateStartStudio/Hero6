@@ -61,6 +61,9 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         /// <returns>The dialog specified.</returns>
         public T GetDialog<T>() where T : Dialog => (T)Dialogs[typeof(T)];
 
+        /// <summary>
+        /// The initialize event.
+        /// </summary>
         public virtual void Initialize()
         {
         }

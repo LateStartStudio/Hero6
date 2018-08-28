@@ -34,9 +34,9 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Rooms.Albion
 
         public override string HotspotsMask => "Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Hotspots";
 
-        public Color HotspotNorthExit = new Color(255, 255, 255, 255);
+        public Color HotspotNorthExit { get; } = new Color(255, 255, 255, 255);
 
-        public Color HotspotAlbionSign = new Color(255, 0, 0, 255);
+        public Color HotspotAlbionSign { get; } = new Color(255, 0, 0, 255);
 
         protected override void Initialize()
         {

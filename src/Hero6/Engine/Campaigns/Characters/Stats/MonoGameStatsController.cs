@@ -34,11 +34,6 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Characters.Stats
             Magic = new Hero6LearningStatController(services);
         }
 
-        public override bool Interact(int x, int y, Interaction interaction)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public override int Width { get; }
 
         public override int Height { get; }
@@ -80,5 +75,10 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Characters.Stats
         public override LearningStatController Climbing { get; }
 
         public override LearningStatController Magic { get; }
+
+        public override bool Interact(int x, int y, Interaction interaction)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

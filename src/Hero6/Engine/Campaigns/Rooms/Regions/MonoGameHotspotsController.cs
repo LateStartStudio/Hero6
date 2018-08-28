@@ -30,6 +30,10 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
             this.assets = assets;
         }
 
+        public override int Width { get; }
+
+        public override int Height { get; }
+
         public override Hotspot this[Color color] => hotspots[color];
 
         public override bool Interact(int x, int y, Interaction interaction)
@@ -37,10 +41,6 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
             var pixel = buffer[y, x];
             return pixel != Color.Transparent && hotspots[pixel].Interact(x, y, interaction);
         }
-
-        public override int Width { get; }
-
-        public override int Height { get; }
 
         void IXnaGameLoop.Initialize()
         {

@@ -6,6 +6,10 @@
 
 namespace LateStartStudio.Hero6.Engine.ModuleController
 {
+    /// <summary>
+    /// Interface to the module type. This is just a helper tool to define the relationship for the controller-module.
+    /// For actual documentation refer to <see cref="Module{TController}"/>.
+    /// </summary>
     public interface IModule
     {
     }

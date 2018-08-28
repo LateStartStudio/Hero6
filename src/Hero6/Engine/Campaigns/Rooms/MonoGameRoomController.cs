@@ -18,14 +18,6 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms
     using Microsoft.Xna.Framework;
     using Point = LateStartStudio.Hero6.Engine.Assets.Graphics.Point;
 
-    public static class RoomControllerExtensions
-    {
-        public static MonoGameRoomController AsMonoGame(this RoomController room)
-        {
-            return (MonoGameRoomController)room;
-        }
-    }
-
     public class MonoGameRoomController : RoomController, IXnaGameLoop
     {
         private readonly IRenderer renderer;
@@ -131,7 +123,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms
 
         public void Update(GameTime time)
         {
-            foreach (var c in characters.ToList())
+            foreach (var c in characters)
             {
                 c.Update(time);
                 hotspots.StandingOn(c);

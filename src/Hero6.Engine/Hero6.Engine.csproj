@@ -83,6 +83,7 @@
     <Compile Include="Campaigns\Animations\AnimationController.cs" />
     <Compile Include="Campaigns\Animations\AnimationModule.cs" />
     <Compile Include="Campaigns\Interaction.cs" />
+    <Compile Include="Extensions\IEnumerableExtensions.cs" />
     <Compile Include="ModuleController\Controller.cs" />
     <Compile Include="ModuleController\IController.cs" />
     <Compile Include="ModuleController\IModule.cs" />

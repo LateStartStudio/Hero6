@@ -1,4 +1,4 @@
-﻿// <copyright file="MonoGameStatController.cs" company="Late Start Studio">
+﻿// <copyright file="Hero6LearningStatController.cs" company="Late Start Studio">
 // Copyright (C) Late Start Studio
 // This file is subject to the terms and conditions of the MIT license specified in the file
 // 'LICENSE.CODE.md', which is a part of this source code package.
@@ -53,9 +53,9 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Characters.Stats
             throw new System.NotImplementedException();
         }
 
-        public override void Increase(int value)
+        public override void Train(int factor)
         {
-            var newBuffer = Buffer + value;
+            var newBuffer = Buffer + factor;
             var statCap = campaigns.Current.StatCap;
             Buffer = TriangularReverse(newBuffer) >= statCap ? Triangular(statCap) : newBuffer;
         }

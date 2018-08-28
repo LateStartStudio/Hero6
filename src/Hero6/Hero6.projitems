@@ -29,6 +29,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Campaigns\Rooms\Regions\MonoGameHotspotsController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Campaigns\Animations\MonoGameAnimationController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Campaigns\Rooms\Regions\MonoGameWalkAreasController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Campaigns\Rooms\RoomControllerExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Controls\MonoGameButton.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Controls\MonoGameImage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Controls\MonoGameStackPanel.cs" />
