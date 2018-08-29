@@ -8,35 +8,35 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms
 {
     using System.Collections.Generic;
     using System.Linq;
-    using LateStartStudio.Hero6.Engine.Assets;
-    using LateStartStudio.Hero6.Engine.Assets.Graphics;
     using LateStartStudio.Hero6.Engine.Campaigns.Characters;
     using LateStartStudio.Hero6.Engine.Campaigns.Items;
     using LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions;
     using LateStartStudio.Hero6.Engine.GameLoop;
     using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
     using Microsoft.Xna.Framework;
-    using Point = LateStartStudio.Hero6.Engine.Assets.Graphics.Point;
+    using Microsoft.Xna.Framework.Content;
+    using Microsoft.Xna.Framework.Graphics;
 
     public class MonoGameRoomController : RoomController, IXnaGameLoop
     {
-        private readonly IRenderer renderer;
         private readonly ICampaigns campaigns;
-        private readonly IAssets assets;
+        private readonly ContentManager content;
+        private readonly SpriteBatch spriteBatch;
         private readonly List<MonoGameCharacterController> characters = new List<MonoGameCharacterController>();
         private readonly List<MonoGameItemController> items = new List<MonoGameItemController>();
         private readonly MonoGameHotspotsController hotspots;
 
         private Texture2D background;
         private MonoGameWalkAreasController walkAreas;
+        private Vector2 position;
 
-        public MonoGameRoomController(RoomModule module, IServices services, IAssets assets)
+        public MonoGameRoomController(RoomModule module, IServices services)
             : base(module)
         {
-            renderer = services.Get<IRenderer>();
             campaigns = services.Get<ICampaigns>();
-            this.assets = assets;
-            hotspots = new MonoGameHotspotsController(Module.HotspotsMask, assets);
+            content = services.Get<ContentManager>();
+            spriteBatch = services.Get<SpriteBatch>();
+            hotspots = new MonoGameHotspotsController(Module.HotspotsMask, content);
         }
 
         public override int Width => background.Width;
@@ -102,8 +102,8 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms
 
         public void Load()
         {
-            background = assets.LoadTexture2D(Module.Background);
-            walkAreas = new MonoGameWalkAreasController(assets.LoadWalkAreas(Module.WalkAreasMask));
+            background = content.Load<Texture2D>(Module.Background);
+            walkAreas = new MonoGameWalkAreasController(content.Load<WalkAreasModule>(Module.WalkAreasMask));
             walkAreas.PreInitialize();
             walkAreas.Initialize();
             walkAreas.Load();
@@ -123,7 +123,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms
 
         public void Update(GameTime time)
         {
-            foreach (var c in characters)
+            foreach (var c in characters.ToList())
             {
                 c.Update(time);
                 hotspots.StandingOn(c);
@@ -132,13 +132,15 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms
             items.ForEach(i => i.Update(time));
             walkAreas.Update(time);
             hotspots.Update(time);
+            position.X = X;
+            position.Y = Y;
         }
 
         public void Draw(GameTime time)
         {
             if (Module.IsVisible)
             {
-                renderer.Draw(background, new Point(Module.X, Module.Y));
+                spriteBatch.Draw(background, position);
             }
 
             characters.ForEach(c => c.Draw(time));

@@ -343,18 +343,18 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
         [Test]
         public void UnpauseRendererOnMouseLeave()
         {
-            services.Renderer.IsPaused = true;
+            services.GameSettings.IsPaused = true;
             services.Mouse.Leave(verbBar);
-            Assert.That(services.Renderer.IsPaused, Is.False);
+            Assert.That(services.GameSettings.IsPaused, Is.False);
         }
 
         [Test]
         public void DoNotUnpauseRendererOnMouseLeaveWhenAnyDialogVisible()
         {
             services.UserInterfaces.Current.GetDialog<TextBox>().IsVisible = true;
-            services.Renderer.IsPaused = true;
+            services.GameSettings.IsPaused = true;
             services.Mouse.Leave(verbBar);
-            Assert.That(services.Renderer.IsPaused, Is.True);
+            Assert.That(services.GameSettings.IsPaused, Is.True);
         }
 
         [Test]

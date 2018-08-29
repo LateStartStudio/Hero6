@@ -27,7 +27,6 @@ namespace LateStartStudio.Hero6.Tests.HelperTools
         {
             var label = Substitute.For<Label>(mouse, parent);
             label.Text = text;
-            label.Font = Substitute.For<SpriteFont>();
             return label;
         }
 

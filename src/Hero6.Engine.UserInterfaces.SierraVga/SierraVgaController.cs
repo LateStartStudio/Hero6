@@ -8,10 +8,10 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
 {
     using System;
     using System.Collections.Generic;
-    using Assets;
     using Campaigns;
     using Dialogs;
     using Input;
+    using LateStartStudio.Hero6.Engine.Utilities.Settings;
     using UserInterfaces.Input;
     using Windows;
 
@@ -19,25 +19,16 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
     {
         private readonly ICampaigns campaigns;
         private readonly IMouse mouse;
-        private readonly IRenderer renderer;
+        private readonly IGameSettings gameSettings;
 
-        public SierraVgaController(
-            ICampaigns campaigns,
-            IMouse mouse,
-            IRenderer renderer,
-            IUserInterfaceGenerator userInterfaceGenerator)
+        public SierraVgaController(ICampaigns campaigns, IMouse mouse, IGameSettings gameSettings)
         {
             this.campaigns = campaigns;
             this.mouse = mouse;
-            this.renderer = renderer;
-            this.UserInterfaceGenerator = userInterfaceGenerator;
+            this.gameSettings = gameSettings;
         }
 
         public override string Name => "Sierra VGA";
-
-        public override string Directory => "Content/Gui/Sierra Vga";
-
-        public override IUserInterfaceGenerator UserInterfaceGenerator { get; }
 
         public override void Initialize()
         {
@@ -152,7 +143,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
                 return;
             }
 
-            if (renderer.IsPaused)
+            if (gameSettings.IsPaused)
             {
                 return;
             }

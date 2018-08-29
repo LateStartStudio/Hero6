@@ -42,7 +42,6 @@ namespace LateStartStudio.Hero6
             services.Add<IMouse, MonoGameMouse>();
             services.Add(logger);
             services.Add(Content);
-            services.Add<IAssetsFactory, MonoGameAssetsFactory>();
 
             logger.Info($"Hero6 {GraphicsApi} v{Assembly.GetExecutingAssembly().GetName().Version} Log");
             logger.Info("Forums: http://www.hero6.org/forum/");
@@ -63,8 +62,9 @@ namespace LateStartStudio.Hero6
             Graphics.DeviceCreated += (s, a) =>
             {
                 this.spriteBatch = new SpriteBatch(GraphicsDevice);
+                services.Add(Graphics);
                 services.Add(spriteBatch);
-                services.Add<IRenderer, MonoGameRenderer>();
+                services.Add<IUserInterfaceGenerator, MonoGameUserInterfaceGenerator>();
                 this.campaign = new MonoGameCampaigns(services);
                 services.Add<ICampaigns>(campaign);
                 this.ui = new MonoGameUserInterfaces(services);

@@ -6,24 +6,25 @@
 
 namespace LateStartStudio.Hero6.Engine.Campaigns.Items
 {
-    using LateStartStudio.Hero6.Engine.Assets;
-    using LateStartStudio.Hero6.Engine.Assets.Graphics;
     using LateStartStudio.Hero6.Engine.GameLoop;
     using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
     using Microsoft.Xna.Framework;
+    using Microsoft.Xna.Framework.Content;
+    using Microsoft.Xna.Framework.Graphics;
 
     public class MonoGameItemController : ItemController, IXnaGameLoop
     {
-        private readonly IRenderer renderer;
-        private readonly IAssets assets;
+        private readonly ContentManager content;
+        private readonly SpriteBatch spriteBatch;
 
         private Texture2D sprite;
+        private Vector2 position;
 
-        public MonoGameItemController(ItemModule module, IServices services, IAssets assets)
+        public MonoGameItemController(ItemModule module, IServices services)
             : base(module)
         {
-            renderer = services.Get<IRenderer>();
-            this.assets = assets;
+            content = services.Get<ContentManager>();
+            spriteBatch = services.Get<SpriteBatch>();
         }
 
         public override int Width => sprite.Width;
@@ -62,7 +63,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Items
 
         public void Load()
         {
-            sprite = assets.LoadTexture2D(Module.Sprite);
+            sprite = content.Load<Texture2D>(Module.Sprite);
             Initialize();
         }
 
@@ -72,13 +73,15 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Items
 
         public void Update(GameTime time)
         {
+            position.X = X;
+            position.Y = Y;
         }
 
         public void Draw(GameTime time)
         {
             if (Module.IsVisible)
             {
-                renderer.Draw(sprite, new Assets.Graphics.Point(X, Y));
+                spriteBatch.Draw(sprite, position);
             }
         }
     }

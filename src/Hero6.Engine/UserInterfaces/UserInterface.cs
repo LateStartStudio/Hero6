@@ -22,16 +22,6 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         public abstract string Name { get; }
 
         /// <summary>
-        /// Gets the directory of the content.
-        /// </summary>
-        public abstract string Directory { get; }
-
-        /// <summary>
-        /// Gets the user interface generator.
-        /// </summary>
-        public abstract IUserInterfaceGenerator UserInterfaceGenerator { get; }
-
-        /// <summary>
         /// Gets the windows.
         /// </summary>
         public virtual IDictionary<Type, Window> Windows { get; } = new Dictionary<Type, Window>();
