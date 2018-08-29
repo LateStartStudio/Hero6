@@ -9,7 +9,6 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using LateStartStudio.Hero6.Engine.Assets;
     using LateStartStudio.Hero6.Engine.Campaigns.Animations;
     using LateStartStudio.Hero6.Engine.Campaigns.Characters;
     using LateStartStudio.Hero6.Engine.Campaigns.InventoryItems;
@@ -22,7 +21,6 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
     public class MonoGameCampaignController : CampaignController, IXnaGameLoop
     {
         private readonly IServices services;
-        private readonly IAssets assets;
 
         private MonoGameRoomController currentRoom;
 
@@ -30,7 +28,6 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
             : base(module)
         {
             this.services = services;
-            assets = services.Get<IAssetsFactory>().Make();
         }
 
         public IDictionary<Type, MonoGameAnimationController> Animations { get; } = new Dictionary<Type, MonoGameAnimationController>();
@@ -72,7 +69,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         {
             foreach (var type in Module.GenerateAnimations())
             {
-                Animations[type] = new MonoGameAnimationController(services.Make<AnimationModule>(type), services, assets);
+                Animations[type] = new MonoGameAnimationController(services.Make<AnimationModule>(type), services);
             }
 
             foreach (var type in Module.GenerateCharacterAnimations())
@@ -87,7 +84,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
 
             foreach (var type in Module.GenerateItems())
             {
-                Items[type] = new MonoGameItemController(services.Make<ItemModule>(type), services, assets);
+                Items[type] = new MonoGameItemController(services.Make<ItemModule>(type), services);
             }
 
             foreach (var type in Module.GenerateInventoryItems())
@@ -97,7 +94,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
 
             foreach (var type in Module.GenerateRooms())
             {
-                Rooms[type] = new MonoGameRoomController(services.Make<RoomModule>(type), services, assets);
+                Rooms[type] = new MonoGameRoomController(services.Make<RoomModule>(type), services);
             }
 
             PreInitialize();

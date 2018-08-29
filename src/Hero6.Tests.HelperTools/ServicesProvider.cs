@@ -6,7 +6,6 @@
 
 namespace LateStartStudio.Hero6.Tests.HelperTools
 {
-    using Engine.Assets;
     using Engine.Campaigns;
     using Engine.UserInterfaces;
     using Engine.UserInterfaces.Input;
@@ -19,21 +18,21 @@ namespace LateStartStudio.Hero6.Tests.HelperTools
         {
             Mouse = Substitute.For<IMouse>();
             GameSettings = Substitute.For<IGameSettings>();
-            Renderer = Substitute.For<IRenderer>();
             Campaigns = Substitute.For<ICampaigns>();
             Campaigns.Current = Substitute.For<CampaignModule>();
             UserInterfaces = Substitute.For<IUserInterfaces>();
             UserInterfaces.Current = Substitute.For<UserInterface>();
+            UserInterfaceGenerator = new UserInterfacesGeneratorStub(Mouse);
         }
 
         public IMouse Mouse { get; protected set; }
 
         public IGameSettings GameSettings { get; protected set; }
 
-        public IRenderer Renderer { get; protected set; }
-
         public ICampaigns Campaigns { get; protected set; }
 
         public IUserInterfaces UserInterfaces { get; protected set; }
+
+        public UserInterfacesGeneratorStub UserInterfaceGenerator { get; protected set; }
     }
 }

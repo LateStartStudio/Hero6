@@ -7,27 +7,27 @@
 namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
 {
     using System.Collections.Generic;
-    using LateStartStudio.Hero6.Engine.Assets;
-    using LateStartStudio.Hero6.Engine.Assets.Graphics;
     using LateStartStudio.Hero6.Engine.Campaigns.Characters;
     using LateStartStudio.Hero6.Engine.GameLoop;
     using Microsoft.Xna.Framework;
+    using Microsoft.Xna.Framework.Content;
     using Color = LateStartStudio.Hero6.Engine.Assets.Graphics.Color;
     using Point = LateStartStudio.Hero6.Engine.Assets.Graphics.Point;
+    using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 
     public class MonoGameHotspotsController : HotspotsController, IXnaGameLoop
     {
         private readonly string source;
-        private readonly IAssets assets;
+        private readonly ContentManager content;
         private readonly Dictionary<Color, MonoGameHotspot> hotspots = new Dictionary<Color, MonoGameHotspot>();
 
         private Texture2D texture;
         private Color[,] buffer;
 
-        public MonoGameHotspotsController(string source, IAssets assets)
+        public MonoGameHotspotsController(string source, ContentManager content)
         {
             this.source = source;
-            this.assets = assets;
+            this.content = content;
         }
 
         public override int Width { get; }
@@ -48,7 +48,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
 
         public void Load()
         {
-            texture = assets.LoadTexture2D(source);
+            texture = content.Load<Texture2D>(source);
             buffer = FindHotspots(texture);
             Initialize();
         }

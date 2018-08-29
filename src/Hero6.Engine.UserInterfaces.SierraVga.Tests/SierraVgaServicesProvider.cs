@@ -16,18 +16,18 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
         public SierraVgaServicesProvider()
         {
             UserInterfaces = MakeUserInterfaces();
-            UserInterfaces.Current.Dialogs.Add(typeof(Rest), new Rest(UserInterfaces, Renderer, Mouse, GameSettings));
-            UserInterfaces.Current.Dialogs.Add(typeof(TextBox), new TextBox(UserInterfaces, GameSettings, Renderer, Mouse));
-            UserInterfaces.Current.Dialogs.Add(typeof(ExtensionBar), new ExtensionBar(UserInterfaces, Renderer, Mouse, GameSettings));
-            UserInterfaces.Current.Windows.Add(typeof(StatusBar), new StatusBar(UserInterfaces, Renderer, Mouse));
-            UserInterfaces.Current.Windows.Add(typeof(VerbBar), new VerbBar(UserInterfaces, Renderer, Mouse));
+            UserInterfaces.Current.Dialogs.Add(typeof(Rest), new Rest(UserInterfaces, UserInterfaceGenerator, Mouse, GameSettings));
+            UserInterfaces.Current.Dialogs.Add(typeof(TextBox), new TextBox(UserInterfaceGenerator, GameSettings, Mouse));
+            UserInterfaces.Current.Dialogs.Add(typeof(ExtensionBar), new ExtensionBar(UserInterfaces, UserInterfaceGenerator, Mouse, GameSettings));
+            UserInterfaces.Current.Windows.Add(typeof(StatusBar), new StatusBar(UserInterfaces, UserInterfaceGenerator, Mouse, GameSettings));
+            UserInterfaces.Current.Windows.Add(typeof(VerbBar), new VerbBar(UserInterfaces, UserInterfaceGenerator, Mouse, GameSettings));
             UserInterfaces.Current.Initialize();
         }
 
         private IUserInterfaces MakeUserInterfaces()
         {
             var userInterfaces = Substitute.For<IUserInterfaces>();
-            userInterfaces.Current = new SierraVgaController(Campaigns, Mouse, Renderer, new UserInterfacesGeneratorStub(Mouse));
+            userInterfaces.Current = new SierraVgaController(Campaigns, Mouse, GameSettings);
             return userInterfaces;
         }
     }

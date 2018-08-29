@@ -7,21 +7,39 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 {
     using System;
-    using Assets;
+    using System.Text;
     using GameLoop;
     using Input;
     using Microsoft.Xna.Framework;
+    using Microsoft.Xna.Framework.Content;
+    using Microsoft.Xna.Framework.Graphics;
 
     public class MonoGameLabel : Label, IXnaGameLoop
     {
-        private readonly IAssets assets;
-        private readonly IRenderer renderer;
+        private readonly ContentManager content;
+        private readonly SpriteBatch spriteBatch;
 
-        public MonoGameLabel(IAssets assets, IRenderer renderer, IMouse mouse, UserInterfaceElement parent = null)
+        private SpriteFont font;
+        private Vector2 position;
+        private Color foreground;
+
+        public MonoGameLabel(ContentManager content, SpriteBatch spriteBatch, IMouse mouse, UserInterfaceElement parent = null)
             : base(mouse, parent)
         {
-            this.assets = assets;
-            this.renderer = renderer;
+            this.content = content;
+            this.spriteBatch = spriteBatch;
+        }
+
+        public override Assets.Graphics.Vector2 MeasureString(string text)
+        {
+            var size = font.MeasureString(text);
+            return new Assets.Graphics.Vector2(size.X, size.Y);
+        }
+
+        public override Assets.Graphics.Vector2 MeasureString(StringBuilder text)
+        {
+            var size = font.MeasureString(text);
+            return new Assets.Graphics.Vector2(size.X, size.Y);
         }
 
         public void Initialize()
@@ -30,8 +48,8 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 
         public void Load()
         {
-            Font = assets.LoadSpriteFont("Fonts/Arial_11.25_Regular");
-            var size = Font.MeasureString(Text);
+            font = content.Load<SpriteFont>("Gui/Sierra Vga/Fonts/Arial_11.25_Regular");
+            var size = font.MeasureString(Text);
             Width = (int)size.X;
             Height = (int)size.Y;
         }
@@ -42,6 +60,9 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 
         public void Update(GameTime time)
         {
+            position.X = X;
+            position.Y = Y;
+            foreground = new Color(Foreground.R, Foreground.G, Foreground.B, Foreground.A);
         }
 
         public void Draw(GameTime time)
@@ -49,10 +70,10 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
             switch (TextWrapping)
             {
                 case TextWrapping.None:
-                    renderer.DrawString(Font, Text, new Assets.Graphics.Point(X, Y), Foreground);
+                    spriteBatch.DrawString(font, Text, position, foreground);
                     break;
                 case TextWrapping.Wrap:
-                    renderer.DrawString(Font, Text, new Assets.Graphics.Point(X, Y), Foreground);
+                    spriteBatch.DrawString(font, Text, position, foreground);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

@@ -9,24 +9,29 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
     using System;
     using System.IO;
     using System.Linq;
-    using Assets;
     using Controls;
     using Input;
     using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+    using LateStartStudio.Hero6.Engine.Utilities.Settings;
 
     public class StatusBar : Window
     {
         private readonly IUserInterfaces userInterfaces;
-        private readonly IRenderer renderer;
         private readonly IMouse mouse;
+        private readonly IGameSettings gameSettings;
 
-        public StatusBar(IUserInterfaces userInterfaces, IRenderer renderer, IMouse mouse)
+        public StatusBar(
+            IUserInterfaces userInterfaces,
+            IUserInterfaceGenerator userInterfaceGenerator,
+            IMouse mouse,
+            IGameSettings gameSettings)
             : base(mouse)
         {
             this.userInterfaces = userInterfaces;
-            this.renderer = renderer;
             this.mouse = mouse;
-            Child = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Status Bar{Path.DirectorySeparatorChar}Background", this);
+            this.gameSettings = gameSettings;
+            var separator = Path.DirectorySeparatorChar;
+            Child = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Status Bar{separator}Background", this);
             MouseEnter += OnMouseEnter;
         }
 
@@ -41,7 +46,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
             userInterfaces.Current.GetWindow<VerbBar>().IsVisible = true;
             mouse.SaveCursor();
             mouse.Cursor = Cursor.Arrow;
-            renderer.IsPaused = true;
+            gameSettings.IsPaused = true;
         }
     }
 }

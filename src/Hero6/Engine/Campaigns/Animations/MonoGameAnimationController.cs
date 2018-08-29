@@ -6,29 +6,29 @@
 
 namespace LateStartStudio.Hero6.Engine.Campaigns.Animations
 {
-    using LateStartStudio.Hero6.Engine.Assets;
-    using LateStartStudio.Hero6.Engine.Assets.Graphics;
     using LateStartStudio.Hero6.Engine.GameLoop;
     using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
     using Microsoft.Xna.Framework;
+    using Microsoft.Xna.Framework.Content;
+    using Microsoft.Xna.Framework.Graphics;
 
     public class MonoGameAnimationController : AnimationController, IXnaGameLoop
     {
-        private readonly IRenderer renderer;
-        private readonly IAssets assets;
+        private readonly ContentManager content;
+        private readonly SpriteBatch spriteBatch;
 
         private Assets.Graphics.Point location;
         private int frame;
         private double elapsed;
-        private Assets.Graphics.Rectangle destination;
-        private Assets.Graphics.Rectangle source;
+        private Rectangle destination;
+        private Rectangle source;
         private Texture2D texture;
 
-        public MonoGameAnimationController(AnimationModule module, IServices services, IAssets assets)
+        public MonoGameAnimationController(AnimationModule module, IServices services)
             : base(module)
         {
-            renderer = services.Get<IRenderer>();
-            this.assets = assets;
+            content = services.Get<ContentManager>();
+            spriteBatch = services.Get<SpriteBatch>();
             location = default(Assets.Graphics.Point);
         }
 
@@ -56,7 +56,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Animations
 
         public void Load()
         {
-            texture = assets.LoadTexture2D(Module.Sprite);
+            texture = content.Load<Texture2D>(Module.Sprite);
             Initialize();
         }
 
@@ -75,15 +75,15 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Animations
                 frame = frame >= Module.Cols * Module.Rows ? 0 : frame;
             }
 
-            destination = new Assets.Graphics.Rectangle(X, Y, Width, Height);
+            destination = new Rectangle(X, Y, Width, Height);
             var frameCol = Width * (frame % Module.Cols);
             var frameRow = Height * (frame / Module.Cols);
-            source = new Assets.Graphics.Rectangle(frameCol, frameRow, Width, Height);
+            source = new Rectangle(frameCol, frameRow, Width, Height);
         }
 
         public void Draw(GameTime time)
         {
-            renderer.Draw(texture, destination, source, Assets.Graphics.Color.White);
+            spriteBatch.Draw(texture, destination, source, Color.White);
         }
     }
 }

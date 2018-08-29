@@ -7,7 +7,6 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs
 {
     using System;
-    using Assets;
     using Controls;
     using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
     using Utilities.Settings;
@@ -16,35 +15,39 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs
     {
         private readonly IUserInterfaces userInterfaces;
 
-        public Rest(IUserInterfaces userInterfaces, IRenderer renderer, IMouse mouse, IGameSettings gameSettings)
-            : base(renderer, mouse, gameSettings)
+        public Rest(
+            IUserInterfaces userInterfaces,
+            IUserInterfaceGenerator userInterfaceGenerator,
+            IMouse mouse,
+            IGameSettings gameSettings)
+            : base(mouse, gameSettings)
         {
             this.userInterfaces = userInterfaces;
 
-            var stack = userInterfaces.Current.UserInterfaceGenerator.MakeStackPanel(this);
+            var stack = userInterfaceGenerator.MakeStackPanel(this);
             stack.Orientation = Orientation.Vertical;
 
-            TenButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stack);
-            TenButton.Child = userInterfaces.Current.UserInterfaceGenerator.MakeLabel("10 minutes", TenButton);
+            TenButton = userInterfaceGenerator.MakeButton(stack);
+            TenButton.Child = userInterfaceGenerator.MakeLabel("10 minutes", TenButton);
             TenButton.MouseButtonUp += TenBtnOnMouseButtonUp;
 
-            ThirtyButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stack);
-            ThirtyButton.Child = userInterfaces.Current.UserInterfaceGenerator.MakeLabel("30 minutes", ThirtyButton);
+            ThirtyButton = userInterfaceGenerator.MakeButton(stack);
+            ThirtyButton.Child = userInterfaceGenerator.MakeLabel("30 minutes", ThirtyButton);
             ThirtyButton.MouseButtonUp += ThirtyBtnOnMouseButtonUp;
 
-            SixtyButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stack);
-            SixtyButton.Child = userInterfaces.Current.UserInterfaceGenerator.MakeLabel("60 minutes", SixtyButton);
+            SixtyButton = userInterfaceGenerator.MakeButton(stack);
+            SixtyButton.Child = userInterfaceGenerator.MakeLabel("60 minutes", SixtyButton);
             SixtyButton.MouseButtonUp += SixtyBtnOnMouseButtonUp;
 
-            SleepButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stack);
-            SleepButton.Child = userInterfaces.Current.UserInterfaceGenerator.MakeLabel("Sleep", SleepButton);
+            SleepButton = userInterfaceGenerator.MakeButton(stack);
+            SleepButton.Child = userInterfaceGenerator.MakeLabel("Sleep", SleepButton);
             SleepButton.MouseButtonUp += SleepBtnOnMouseButtonUp;
 
-            CancelButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stack);
-            CancelButton.Child = userInterfaces.Current.UserInterfaceGenerator.MakeLabel("Cancel", CancelButton);
+            CancelButton = userInterfaceGenerator.MakeButton(stack);
+            CancelButton.Child = userInterfaceGenerator.MakeLabel("Cancel", CancelButton);
             CancelButton.MouseButtonUp += CancelBtnOnMouseButtonUp;
 
-            stack.Children.Add(userInterfaces.Current.UserInterfaceGenerator.MakeLabel("Rest for how long", stack));
+            stack.Children.Add(userInterfaceGenerator.MakeLabel("Rest for how long", stack));
             stack.Children.Add(TenButton);
             stack.Children.Add(ThirtyButton);
             stack.Children.Add(SixtyButton);

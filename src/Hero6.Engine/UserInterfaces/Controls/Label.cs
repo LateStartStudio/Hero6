@@ -6,6 +6,7 @@
 
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 {
+    using System.Text;
     using Assets.Graphics;
     using Input;
 
@@ -30,11 +31,6 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         public string Text { get; set; }
 
         /// <summary>
-        /// Gets or sets the font.
-        /// </summary>
-        public SpriteFont Font { get; set; }
-
-        /// <summary>
         /// Gets or sets the foreground color.
         /// </summary>
         public Color Foreground { get; set; } = Color.Black;
@@ -43,5 +39,19 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         /// Gets or sets the text wrapping.
         /// </summary>
         public TextWrapping TextWrapping { get; set; }
+
+        /// <summary>
+        /// Calculates the size of the string in vector coordinates.
+        /// </summary>
+        /// <param name="text">The text to find the size from.</param>
+        /// <returns>The size in vector format.</returns>
+        public abstract Vector2 MeasureString(string text);
+
+        /// <summary>
+        /// Calculates the size of the string in vector coordinates.
+        /// </summary>
+        /// <param name="text">The text to find the size from.</param>
+        /// <returns>The size in vector format.</returns>
+        public abstract Vector2 MeasureString(StringBuilder text);
     }
 }

@@ -11,5 +11,7 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
         public int NativeWidth => 320;
 
         public int NativeHeight => 240;
+
+        public bool IsPaused { get; set; }
     }
 }

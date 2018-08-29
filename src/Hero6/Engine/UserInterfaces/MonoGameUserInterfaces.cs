@@ -7,10 +7,7 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces
 {
     using System.Collections.Generic;
-    using Assets;
-    using Campaigns;
     using GameLoop;
-    using Input;
     using Microsoft.Xna.Framework;
     using SierraVga;
     using Utilities.DependencyInjection;
@@ -38,13 +35,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
 
         public void Initialize()
         {
-            var campaigns = services.Get<ICampaigns>();
-            var mouse = services.Get<IMouse>();
-            var renderer = services.Get<IRenderer>();
-
-            userInterfaces.Add(new MonoGameUserInterface(
-                g => new SierraVgaController(campaigns, mouse, renderer, g),
-                services));
+            userInterfaces.Add(new MonoGameUserInterface(services.Make<SierraVgaController>(), services));
             current = userInterfaces[0];
             current.Initialize();
         }

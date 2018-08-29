@@ -6,7 +6,6 @@
 
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 {
-    using Assets;
     using Input;
     using Utilities.Settings;
 
@@ -15,19 +14,16 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
     /// </summary>
     public abstract class Dialog : Window
     {
-        private readonly IRenderer renderer;
         private readonly IGameSettings gameSettings;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Dialog"/> class.
         /// </summary>
-        /// <param name="renderer">The renderer service.</param>
         /// <param name="mouse">The mouse service.</param>
         /// <param name="gameSettings">The game settings service.</param>
-        protected Dialog(IRenderer renderer, IMouse mouse, IGameSettings gameSettings)
+        protected Dialog(IMouse mouse, IGameSettings gameSettings)
             : base(mouse)
         {
-            this.renderer = renderer;
             this.gameSettings = gameSettings;
         }
 
@@ -39,7 +35,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
             X = (gameSettings.NativeWidth / 2) - (Width / 2);
             Y = (gameSettings.NativeHeight / 2) - (Height / 2);
             IsVisible = true;
-            renderer.IsPaused = true;
+            gameSettings.IsPaused = true;
         }
 
         /// <summary>
@@ -48,7 +44,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         public virtual void Hide()
         {
             IsVisible = false;
-            renderer.IsPaused = false;
+            gameSettings.IsPaused = false;
         }
     }
 }

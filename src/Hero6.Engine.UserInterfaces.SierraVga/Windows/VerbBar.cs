@@ -9,101 +9,106 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
     using System;
     using System.IO;
     using System.Linq;
-    using Assets;
     using Controls;
     using Dialogs;
     using Input;
     using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+    using LateStartStudio.Hero6.Engine.Utilities.Settings;
 
     public class VerbBar : Window
     {
         private readonly IUserInterfaces userInterfaces;
-        private readonly IRenderer renderer;
         private readonly IMouse mouse;
+        private readonly IGameSettings gameSettings;
         private readonly StackPanel stackPanel;
 
         private readonly Image sideLeft;
         private readonly Image sideRight;
 
-        public VerbBar(IUserInterfaces userInterfaces, IRenderer renderer, IMouse mouse)
+        public VerbBar(
+            IUserInterfaces userInterfaces,
+            IUserInterfaceGenerator userInterfaceGenerator,
+            IMouse mouse,
+            IGameSettings gameSettings)
             : base(mouse)
         {
             this.userInterfaces = userInterfaces;
-            this.renderer = renderer;
             this.mouse = mouse;
+            this.gameSettings = gameSettings;
             IsVisible = false;
+            var separator = Path.DirectorySeparatorChar;
 
-            stackPanel = userInterfaces.Current.UserInterfaceGenerator.MakeStackPanel(this);
-            sideLeft = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Side Left", stackPanel);
-            sideRight = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Side Right", stackPanel);
+            stackPanel = userInterfaceGenerator.MakeStackPanel(this);
+            sideLeft = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Verb Bar{separator}Side Left", stackPanel);
+            sideRight = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Verb Bar{separator}Side Right", stackPanel);
 
-            WalkButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
-            WalkImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Walk Light", WalkButton);
-            WalkImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Walk Dark", WalkButton);
+            WalkButton = userInterfaceGenerator.MakeButton(stackPanel);
+            WalkImageBright = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Verb Bar{separator}Walk Light", WalkButton);
+            WalkImageDark = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Verb Bar{separator}Walk Dark", WalkButton);
             WalkButton.Child = WalkImageDark;
             WalkButton.MouseButtonUp += WalkBtnOnLeftMouseButtonUp;
             WalkButton.MouseEnter += WalkBtnOnMouseEnter;
             WalkButton.MouseLeave += WalkBtnOnMouseLeave;
 
-            LookButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
-            LookImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Look Light", LookButton);
-            LookImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Look Dark", LookButton);
+            LookButton = userInterfaceGenerator.MakeButton(stackPanel);
+            LookImageBright = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Verb Bar{separator}Look Light", LookButton);
+            LookImageDark = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Verb Bar{separator}Look Dark", LookButton);
             LookButton.Child = LookImageDark;
             LookButton.MouseButtonUp += LookBtnOnLeftMouseButtonUp;
             LookButton.MouseEnter += LookBtnOnMouseEnter;
             LookButton.MouseLeave += LookBtnOnMouseLeave;
 
-            HandButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
-            HandImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Hand Light", HandButton);
-            HandImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Hand Dark", HandButton);
+            HandButton = userInterfaceGenerator.MakeButton(stackPanel);
+            HandImageBright = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Verb Bar{separator}Hand Light", HandButton);
+            HandImageDark = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Verb Bar{separator}Hand Dark", HandButton);
             HandButton.Child = HandImageDark;
             HandButton.MouseButtonUp += HandBtnOnLeftMouseButtonUp;
             HandButton.MouseEnter += HandBtnOnMouseEnter;
             HandButton.MouseLeave += HandBtnOnMouseLeave;
 
-            TalkButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
-            TalkImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Talk Light", TalkButton);
-            TalkImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Talk Dark", TalkButton);
+            TalkButton = userInterfaceGenerator.MakeButton(stackPanel);
+            TalkImageBright = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Verb Bar{separator}Talk Light", TalkButton);
+            TalkImageDark = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Verb Bar{separator}Talk Dark", TalkButton);
             TalkButton.Child = TalkImageDark;
             TalkButton.MouseButtonUp += TalkBtnOnLeftMouseButtonUp;
             TalkButton.MouseEnter += TalkBtnOnMouseEnter;
             TalkButton.MouseLeave += TalkBtnOnMouseLeave;
 
-            SubMenuButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
-            SubMenuImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Sub Menu Light", SubMenuButton);
-            SubMenuImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Sub Menu Dark", SubMenuButton);
+            SubMenuButton = userInterfaceGenerator.MakeButton(stackPanel);
+            SubMenuImageBright = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Verb Bar{separator}Sub Menu Light", SubMenuButton);
+            SubMenuImageDark = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Verb Bar{separator}Sub Menu Dark", SubMenuButton);
             SubMenuButton.Child = SubMenuImageDark;
             SubMenuButton.MouseButtonUp += SubMenuBtnOnLeftMouseButtonUp;
             SubMenuButton.MouseEnter += SubMenuBtnOnMouseEnter;
             SubMenuButton.MouseLeave += SubMenuBtnOnMouseLeave;
 
-            MagicButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
-            MagicImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Magic Light", MagicButton);
-            MagicImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Magic Dark", MagicButton);
+            MagicButton = userInterfaceGenerator.MakeButton(stackPanel);
+            MagicImageBright = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Verb Bar{separator}Magic Light", MagicButton);
+            MagicImageDark = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Verb Bar{separator}Magic Dark", MagicButton);
             MagicButton.Child = MagicImageDark;
             MagicButton.MouseButtonUp += MagicBtnOnLeftMouseButtonUp;
             MagicButton.MouseEnter += MagicBtnOnMouseEnter;
             MagicButton.MouseLeave += MagicBtnOnMouseLeave;
 
-            CurrentItemButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
-            CurrentItemImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Current Item Light", CurrentItemButton);
-            CurrentItemImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Current Item Dark", CurrentItemButton);
+            CurrentItemButton = userInterfaceGenerator.MakeButton(stackPanel);
+            CurrentItemImageBright = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Verb Bar{separator}Current Item Light", CurrentItemButton);
+            CurrentItemImageDark = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Verb Bar{separator}Current Item Dark", CurrentItemButton);
             CurrentItemButton.Child = CurrentItemImageDark;
             CurrentItemButton.MouseButtonUp += CurrentItemBtnOnLeftMouseButtonUp;
             CurrentItemButton.MouseEnter += CurrentItemBtnOnMouseEnter;
             CurrentItemButton.MouseLeave += CurrentItemBtnOnMouseLeave;
 
-            InventoryButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
-            InventoryImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Inventory Light", InventoryButton);
-            InventoryImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Inventory Dark", InventoryButton);
+            InventoryButton = userInterfaceGenerator.MakeButton(stackPanel);
+            InventoryImageBright = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Verb Bar{separator}Inventory Light", InventoryButton);
+            InventoryImageDark = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Verb Bar{separator}Inventory Dark", InventoryButton);
             InventoryButton.Child = InventoryImageDark;
             InventoryButton.MouseButtonUp += InventoryBtnOnLeftMouseButtonUp;
             InventoryButton.MouseEnter += InventoryBtnOnMouseEnter;
             InventoryButton.MouseLeave += InventoryBtnOnMouseLeave;
 
-            OptionsButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
-            OptionsImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Options Light", OptionsButton);
-            OptionsImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Verb Bar{Path.DirectorySeparatorChar}Options Dark", OptionsButton);
+            OptionsButton = userInterfaceGenerator.MakeButton(stackPanel);
+            OptionsImageBright = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Verb Bar{separator}Options Light", OptionsButton);
+            OptionsImageDark = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Verb Bar{separator}Options Dark", OptionsButton);
             OptionsButton.Child = OptionsImageDark;
             OptionsButton.MouseButtonUp += OptionsBtnOnLeftMouseButtonUp;
             OptionsButton.MouseEnter += OptionsBtnOnMouseEnter;
@@ -375,7 +380,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
         {
             userInterfaces.Current.GetWindow<StatusBar>().IsVisible = true;
             userInterfaces.Current.GetWindow<VerbBar>().IsVisible = false;
-            renderer.IsPaused = userInterfaces.Current.Dialogs.Any(d => d.Value.IsVisible);
+            gameSettings.IsPaused = userInterfaces.Current.Dialogs.Any(d => d.Value.IsVisible);
             mouse.LoadCursor();
         }
     }

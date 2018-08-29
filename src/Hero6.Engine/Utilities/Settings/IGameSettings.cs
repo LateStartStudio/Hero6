@@ -20,5 +20,13 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
         /// Gets the native height of the game window.
         /// </summary>
         int NativeHeight { get; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the game should run or not.
+        /// </summary>
+        /// <value>
+        /// A value indicating whether the game should run or not.
+        /// </value>
+        bool IsPaused { get; set; }
     }
 }

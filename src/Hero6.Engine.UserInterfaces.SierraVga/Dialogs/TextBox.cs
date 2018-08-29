@@ -7,7 +7,6 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs
 {
     using System;
-    using Assets;
     using Assets.Graphics;
     using Controls;
     using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
@@ -18,12 +17,15 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs
         private readonly Vector2 maxSize;
         private readonly Label label;
 
-        public TextBox(IUserInterfaces userInterfaces, IGameSettings gameSettings, IRenderer renderer, IMouse mouse)
-            : base(renderer, mouse, gameSettings)
+        public TextBox(
+            IUserInterfaceGenerator userInterfaceGenerator,
+            IGameSettings gameSettings,
+            IMouse mouse)
+            : base(mouse, gameSettings)
         {
             maxSize.X = gameSettings.NativeWidth - (gameSettings.NativeWidth / 4);
             maxSize.Y = gameSettings.NativeHeight - (gameSettings.NativeHeight / 4);
-            label = userInterfaces.Current.UserInterfaceGenerator.MakeLabel(this);
+            label = userInterfaceGenerator.MakeLabel(this);
             label.TextWrapping = TextWrapping.Wrap;
 
             Child = label;
@@ -33,7 +35,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs
 
         public override void Show()
         {
-            var size = label.Font.MeasureString(Text);
+            var size = label.MeasureString(Text);
 
             int rows;
 
