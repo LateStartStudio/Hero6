@@ -35,7 +35,7 @@ namespace LateStartStudio.Hero6.Repository
         }
 
         [Test]
-        public void AllProjectsAreSetToDotNetLevel4Dot6Dot1()
+        public void AllProjectsAreSetToDottNetLevel4Dot6Dot1()
         {
             const string Expected = "<TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>";
 

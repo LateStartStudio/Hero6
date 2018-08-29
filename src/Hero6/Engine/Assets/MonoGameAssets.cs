@@ -6,10 +6,9 @@
 
 namespace LateStartStudio.Hero6.Engine.Assets
 {
-    using Campaigns.Regions;
     using Graphics;
+    using LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions;
     using Microsoft.Xna.Framework.Content;
-
     using XnaSpriteFont = Microsoft.Xna.Framework.Graphics.SpriteFont;
     using XnaTexture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 
@@ -25,7 +24,7 @@ namespace LateStartStudio.Hero6.Engine.Assets
         public string Directory
         {
             get { return content.RootDirectory; }
-            set { this.content.RootDirectory = value; }
+            set { content.RootDirectory = value; }
         }
 
         public void Dispose()
@@ -40,22 +39,22 @@ namespace LateStartStudio.Hero6.Engine.Assets
 
         public Texture2D LoadTexture2D(string id)
         {
-            return new MonoGameTexture2D(this.content.Load<XnaTexture2D>(id));
+            return new MonoGameTexture2D(content.Load<XnaTexture2D>(id));
         }
 
         public SpriteFont LoadSpriteFont(string id)
         {
-            return new MonoGameSpriteFont(this.content.Load<XnaSpriteFont>(id));
+            return new MonoGameSpriteFont(content.Load<XnaSpriteFont>(id));
         }
 
-        public WalkAreas LoadWalkAreas(string id)
+        public WalkAreasModule LoadWalkAreas(string id)
         {
-            return content.Load<WalkAreas>(id);
+            return content.Load<WalkAreasModule>(id);
         }
 
         public void Unload()
         {
-            this.content.Unload();
+            content.Unload();
         }
     }
 }

@@ -6,8 +6,8 @@
 
 namespace LateStartStudio.Hero6.Engine.Assets
 {
-    using Campaigns.Regions;
     using Graphics;
+    using LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions;
 
     /// <summary>
     /// An interface for the asset handler of an adventure game engine.
@@ -51,7 +51,7 @@ namespace LateStartStudio.Hero6.Engine.Assets
         /// </summary>
         /// <param name="id">The ID of the walk areas.</param>
         /// <returns>The walk areas that was loaded.</returns>
-        WalkAreas LoadWalkAreas(string id);
+        WalkAreasModule LoadWalkAreas(string id);
 
         /// <summary>
         /// Disposes all data that was loaded by this <see cref="IAssets"/> instance.

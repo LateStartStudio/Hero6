@@ -40,11 +40,26 @@
     <CodeAnalysisRuleSet>..\Hero6.NoDocumentation.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Animations\HeroWalk.cs">
-      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
-    </Compile>
-    <Compile Include="Animations\LlewellaWalk.cs" />
-    <Compile Include="RitesOfPassage.cs" />
+    <Compile Include="Animations\Characters\Hero\Idle\HeroIdle.cs" />
+    <Compile Include="Animations\Characters\Hero\Idle\HeroIdleCenterDown.cs" />
+    <Compile Include="Animations\Characters\Hero\Idle\HeroIdleCenterUp.cs" />
+    <Compile Include="Animations\Characters\Hero\Idle\HeroIdleLeftCenter.cs" />
+    <Compile Include="Animations\Characters\Hero\Idle\HeroIdleLeftDown.cs" />
+    <Compile Include="Animations\Characters\Hero\Idle\HeroIdleLeftUp.cs" />
+    <Compile Include="Animations\Characters\Hero\Idle\HeroIdleRightCenter.cs" />
+    <Compile Include="Animations\Characters\Hero\Idle\HeroIdleRightDown.cs" />
+    <Compile Include="Animations\Characters\Hero\Idle\HeroIdleRightUp.cs" />
+    <Compile Include="Animations\Characters\Hero\Walk\HeroWalk.cs" />
+    <Compile Include="Animations\Characters\Hero\Walk\HeroWalkCenterDown.cs" />
+    <Compile Include="Animations\Characters\Hero\Walk\HeroWalkCenterUp.cs" />
+    <Compile Include="Animations\Characters\Hero\Walk\HeroWalkLeftCenter.cs" />
+    <Compile Include="Animations\Characters\Hero\Walk\HeroWalkLeftDown.cs" />
+    <Compile Include="Animations\Characters\Hero\Walk\HeroWalkLeftUp.cs" />
+    <Compile Include="Animations\Characters\Hero\Walk\HeroWalkRightCenter.cs" />
+    <Compile Include="Animations\Characters\Hero\Walk\HeroWalkRightDown.cs" />
+    <Compile Include="Animations\Characters\Hero\Walk\HeroWalkRightUp.cs" />
+    <Compile Include="Animations\Characters\Llewella\Idle\LlewellaIdle.cs" />
+    <Compile Include="Animations\Characters\Llewella\Idle\LllewellaIdleCenterDown.cs" />
     <Compile Include="Characters\Hero.cs" />
     <Compile Include="Characters\Llewella.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
@@ -52,11 +67,13 @@
     <Compile Include="InventoryItems\BentSword.cs" />
     <Compile Include="Items\BentSword.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RitesOfPassageModule.cs" />
     <Compile Include="Rooms\Albion\Fountain.cs" />
     <Compile Include="Rooms\Albion\HillOverAlbion.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ServiceModel.Activities" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>

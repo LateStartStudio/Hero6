@@ -8,52 +8,45 @@ namespace LateStartStudio.Hero6
 {
     using System;
     using System.Diagnostics;
-    using Engine.Utilities.DependencyInjection;
-    using Engine.Utilities.Logger;
     using Eto.Forms;
     using Eto.Serialization.Xaml;
 
     public class CrashDialog : Form
     {
-        private static readonly ILogger Logger;
-
+        private readonly string logFilename;
         private readonly Exception exception;
         private readonly LinkButton emailLink;
 
-        static CrashDialog()
+        public CrashDialog(string logFilename, Exception exception)
         {
-            Logger = ServicesBank.Instance.Get<ILogger>();
-        }
-
-        public CrashDialog(Exception exception)
-        {
+            this.logFilename = logFilename;
             XamlReader.Load(this);
 
             this.exception = exception;
-            this.emailLink = this.FindChild<LinkButton>("EmailLink");
+            emailLink = FindChild<LinkButton>("EmailLink");
 
-            this.FindChild<LinkButton>("FilenameLink").Text = Logger.Filename;
-            this.FindChild<Label>("CrashMessage").Text = exception.Message;
+            FindChild<LinkButton>("FilenameLink").Text = logFilename;
+            FindChild<Label>("CrashMessage").Text = exception.Message;
         }
 
-        public void FilenameLinkClick(object sender, EventArgs e)
+        public void FilenameLinkClick(object s, EventArgs e)
         {
-            Process.Start(Logger.Filename);
+            Process.Start(logFilename);
         }
 
-        public void ForumLinkClick(object sender, EventArgs e)
+        public void ForumLinkClick(object s, EventArgs e)
         {
             Process.Start("http://www.hero6.org/forum/");
         }
 
-        public void BugTrackerLinkClick(object sender, EventArgs e)
+        public void BugTrackerLinkClick(object s, EventArgs e)
         {
             Process.Start("https://github.com/LateStartStudio/Hero6/issues");
         }
 
-        public void EmailLinkClick(object sender, EventArgs e)
+        public void EmailLinkClick(object s, EventArgs e)
         {
-            Process.Start($"mailto:{this.emailLink.Text}?subject=Hero6 Crash&body={"Hero6 has crashed\n\n" + this.exception}");
+            Process.Start($"mailto:{emailLink.Text}?subject=Hero6 Crash&body={"Hero6 has crashed\n\n" + exception}");
         }
     }
 }

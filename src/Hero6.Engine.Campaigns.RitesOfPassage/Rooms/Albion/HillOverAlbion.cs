@@ -6,64 +6,77 @@
 
 namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Rooms.Albion
 {
-    using System;
-    using Assets.Graphics;
-    using Campaigns;
-    using Characters;
-    using Items;
-    using Localization;
-    using Regions;
+    using LateStartStudio.Hero6.Engine.Assets.Graphics;
+    using LateStartStudio.Hero6.Engine.Campaigns.Characters;
+    using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Characters;
+    using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Items;
+    using LateStartStudio.Hero6.Engine.Campaigns.Rooms;
+    using LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions;
+    using LateStartStudio.Hero6.Engine.UserInterfaces;
+    using LateStartStudio.Hero6.Localization;
 
-    public sealed class HillOverAlbion : Room
+    public class HillOverAlbion : RoomModule
     {
-        public const string Id = "Hill Over Albion";
+        private readonly ICampaigns campaigns;
+        private readonly IUserInterfaces userInterfaces;
 
-        private static readonly Color HotspotNorthExit = new Color(255, 255, 255, 255);
-        private static readonly Color HotspotAlbionSign = new Color(255, 0, 0, 255);
-
-        public HillOverAlbion(Campaign campaign)
-            : base(
-                  campaign,
-                  "Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Background",
-                  "Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/WalkAreas",
-                  "Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Hotspots")
+        public HillOverAlbion(ICampaigns campaigns, IUserInterfaces userInterfaces)
         {
-            Character hero = Campaign.GetCharacter(Hero.Id);
-            hero.Location = new Point(250, 220);
-            this.Characters.Add(hero);
-
-            Item bentSword = Campaign.GetItem(BentSword.Id);
-            bentSword.Location = new Point(150, 170);
-            this.Items.Add(bentSword);
+            this.campaigns = campaigns;
+            this.userInterfaces = userInterfaces;
         }
 
-        protected override void InitializeEvents()
-        {
-            this.Hotspots[HotspotNorthExit].WhileStandingIn += this.OnWhileStandingInNorthExit;
+        public override string Name => "Hill Over Albion";
 
-            this.Hotspots[HotspotAlbionSign].Look += this.OnLookAlbionSign;
-            this.Hotspots[HotspotAlbionSign].Grab += this.OnGrabAlbionSign;
-            this.Hotspots[HotspotAlbionSign].Talk += this.OnTalkAlbionSign;
+        public override string Background => "Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Background";
+
+        public override string WalkAreasMask => "Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/WalkAreas";
+
+        public override string HotspotsMask => "Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Hotspots";
+
+        public Color HotspotNorthExit { get; } = new Color(255, 255, 255, 255);
+
+        public Color HotspotAlbionSign { get; } = new Color(255, 0, 0, 255);
+
+        protected override void Initialize()
+        {
+            base.Initialize();
+
+            var hero = campaigns.Current.GetCharacter<Hero>();
+            hero.X = 250;
+            hero.Y = 220;
+            hero.Face(CharacterDirection.CenterDown);
+            AddCharacter<Hero>();
+
+            var bentSword = campaigns.Current.GetItem<BentSword>();
+            bentSword.X = 150;
+            bentSword.Y = 170;
+            AddItem<BentSword>();
+
+            Hotspots[HotspotNorthExit].StandingOn = OnWhileStandingInNorthExit;
+            Hotspots[HotspotAlbionSign].Look = OnLookAlbionSign;
+            Hotspots[HotspotAlbionSign].Grab = OnGrabAlbionSign;
+            Hotspots[HotspotAlbionSign].Talk = OnTalkAlbionSign;
         }
 
-        private void OnWhileStandingInNorthExit(object sender, HotspotWalkingEventArgs e)
+        private void OnWhileStandingInNorthExit(StandingOn e)
         {
-            e.Character.ChangeRoom(Fountain.Id, 100, 210);
+            e.Character.ChangeRoom<Fountain>(100, 200, CharacterDirection.CenterUp);
         }
 
-        private void OnLookAlbionSign(object sender, EventArgs eventArgs)
+        private void OnLookAlbionSign()
         {
-            this.Display(Strings.AlbionSignLook);
+            userInterfaces.Current.ShowTextBox(Strings.AlbionSignLook);
         }
 
-        private void OnGrabAlbionSign(object sender, EventArgs eventArgs)
+        private void OnGrabAlbionSign()
         {
-            this.Display(Strings.AlbionSignGrab);
+            userInterfaces.Current.ShowTextBox(Strings.AlbionSignGrab);
         }
 
-        private void OnTalkAlbionSign(object sender, EventArgs eventArgs)
+        private void OnTalkAlbionSign()
         {
-            this.Display(Strings.AlbionSignTalk);
+            userInterfaces.Current.ShowTextBox(Strings.AlbionSignTalk);
         }
     }
 }

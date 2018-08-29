@@ -9,6 +9,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
     using Dialogs;
     using Input;
     using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+    using LateStartStudio.Hero6.Tests.HelperTools;
     using NSubstitute;
     using NUnit.Framework;
 

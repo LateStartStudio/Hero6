@@ -53,6 +53,28 @@ namespace LateStartStudio.Hero6.Engine.Assets.Graphics
             return new Point(vector2);
         }
 
+        /// <summary>
+        /// Sums the right hand point to the left hand point.
+        /// </summary>
+        /// <param name="a">Left hand point.</param>
+        /// <param name="b">Right hand point.</param>
+        /// <returns>The summed point.</returns>
+        public static Point operator +(Point a, Point b)
+        {
+            return new Point(a.X + b.X, a.Y + b.Y);
+        }
+
+        /// <summary>
+        /// Subtracts the right hand point from the left hand point.
+        /// </summary>
+        /// <param name="a">Left hand point.</param>
+        /// <param name="b">Right hand point.</param>
+        /// <returns>The subtracted point.</returns>
+        public static Point operator -(Point a, Point b)
+        {
+            return new Point(a.X - b.X, a.Y - b.Y);
+        }
+
         /// <inheritdoc />
         public override string ToString() => $"X = {X}, Y = {Y}";
     }

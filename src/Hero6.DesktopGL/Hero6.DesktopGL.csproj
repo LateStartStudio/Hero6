@@ -102,6 +102,10 @@
       <Project>{9c6a0da4-892e-45c0-afc7-b6d46f940329}</Project>
       <Name>Hero6.Engine.UserInterfaces.SierraVga</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Hero6.MonoGamePipeline\Hero6.MonoGamePipeline.csproj">
+      <Project>{43E058BB-A9A5-473F-AD4C-269239BA41E7}</Project>
+      <Name>Hero6.MonoGamePipeline</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Search\Search.csproj">
       <Project>{5c4a5d3d-46cf-4ddd-a64d-d3043458e2d3}</Project>
       <Name>Search</Name>

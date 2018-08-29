@@ -62,6 +62,13 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         public T GetDialog<T>() where T : Dialog => (T)Dialogs[typeof(T)];
 
         /// <summary>
+        /// The initialize event.
+        /// </summary>
+        public virtual void Initialize()
+        {
+        }
+
+        /// <summary>
         /// A compiled list of all the windows in this module for the engine to make.
         /// </summary>
         /// <returns>A compiled list of all the windows in this module.</returns>

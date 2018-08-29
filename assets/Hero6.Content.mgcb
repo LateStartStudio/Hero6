@@ -440,18 +440,6 @@
 /processorParam:TextureFormat=Color
 /build:Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Right Up.png
 
-#begin Campaigns/Rites of Albion/Animations/Characters/Llewella/Walk/Center Down.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campaigns/Rites of Albion/Animations/Characters/Llewella/Walk/Center Down.png
-
 #begin Campaigns/Rites of Albion/Rooms/Albion/Fountain/Background.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -665,4 +653,112 @@
 /importer:Importer
 /processor:Processor
 /build:Campaigns/Rites of Albion/Rooms/Albion/Fountain/WalkAreas.h6walkareas
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Llewella/Idle/Center Down.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Llewella/Idle/Center Down.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Center Down.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Center Down.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Center Up.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Center Up.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Left Center.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Left Center.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Left Down.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Left Down.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Left Up.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Left Up.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Right Center.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Right Center.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Right Down.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Right Down.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Right Up.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Right Up.png
 

@@ -63,8 +63,10 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
 
         public override IEnumerable<ICursor> GenerateCursors() => userInterface.GenerateCursors();
 
-        public void Initialize()
+        public override void Initialize()
         {
+            base.Initialize();
+
             foreach (var type in GenerateDialogs())
             {
                 var monoGameDialog = new MonoGameDialog(services, assets, services.Make<Dialog>(type));
@@ -81,6 +83,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
                 monoGameWindow.Initialize();
             }
 
+            userInterface.Initialize();
             mouse.AsXnaGameLoop()?.Initialize();
         }
 

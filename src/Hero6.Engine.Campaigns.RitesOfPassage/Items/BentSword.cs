@@ -6,37 +6,48 @@
 
 namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Items
 {
-    using System;
-    using Campaigns;
-    using Localization;
+    using LateStartStudio.Hero6.Engine.Campaigns.Items;
+    using LateStartStudio.Hero6.Engine.UserInterfaces;
+    using LateStartStudio.Hero6.Localization;
 
-    public class BentSword : Item
+    public class BentSword : ItemModule
     {
-        public const string Id = "Bent Sword";
+        private readonly IUserInterfaces userInterfaces;
+        private readonly ICampaigns campaigns;
 
-        public BentSword(Campaign campaign)
-            : base(campaign, "Campaigns/Rites of Albion/Sprites/Items/Bent Sword")
+        public BentSword(IUserInterfaces userInterfaces, ICampaigns campaigns)
         {
-            this.Look += this.OnLook;
-            this.Grab += this.OnGrab;
-            this.Talk += this.OnTalk;
+            this.userInterfaces = userInterfaces;
+            this.campaigns = campaigns;
         }
 
-        private void OnLook(object sender, EventArgs e)
+        public override string Name => "Bent Sword";
+
+        public override string Sprite => "Campaigns/Rites of Albion/Sprites/Items/Bent Sword";
+
+        protected override void Initialize()
         {
-            this.Display(Strings.BentSwordLook);
+            base.Initialize();
+            Look = OnLook;
+            Grab = OnGrab;
+            Talk = OnTalk;
         }
 
-        private void OnGrab(object sender, EventArgs e)
+        private void OnLook()
         {
-            this.IsVisible = false;
-            this.Display(Strings.BentSwordGrab);
-            Campaign.Player.AddInventory(Campaign.GetInventoryItem(Engine.Campaigns.RitesOfPassage.InventoryItems.BentSword.Id));
+            userInterfaces.Current.ShowTextBox(Strings.BentSwordLook);
         }
 
-        private void OnTalk(object sender, EventArgs e)
+        private void OnGrab()
         {
-            this.Display(Strings.BentSwordTalk);
+            IsVisible = false;
+            userInterfaces.Current.ShowTextBox(Strings.BentSwordGrab);
+            campaigns.Current.Player.AddInventoryItem<InventoryItems.BentSword>();
+        }
+
+        private void OnTalk()
+        {
+            userInterfaces.Current.ShowTextBox(Strings.BentSwordTalk);
         }
     }
 }

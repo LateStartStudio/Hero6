@@ -7,7 +7,7 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs
 {
     using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
-    using NSubstitute;
+    using LateStartStudio.Hero6.Tests.HelperTools;
     using NUnit.Framework;
 
     [TestFixture]

@@ -53,6 +53,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.DesktopGL.Tests", "He
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.Repository.Tests", "Hero6.Repository.Tests\Hero6.Repository.Tests.csproj", "{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.Tests.HelperTools", "Hero6.Tests.HelperTools\Hero6.Tests.HelperTools.csproj", "{AFCFF1EB-729C-4DA5-B671-83396288DC3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.Engine.Campaigns.RitesOfPassage.Tests", "Hero6.Engine.Campaigns.RitesOfPassage.Tests\Hero6.Engine.Campaigns.RitesOfPassage.Tests.csproj", "{5BD8BDF3-2B54-4228-9272-BFCC6D1AE541}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Hero6.Tests\Hero6.Tests.projitems*{33dca6ab-2df5-400a-b981-4e5b06cec36d}*SharedItemsImports = 4
@@ -171,14 +175,6 @@ Global
 		{33DCA6AB-2DF5-400A-B981-4E5B06CEC36D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{33DCA6AB-2DF5-400A-B981-4E5B06CEC36D}.Release|x86.ActiveCfg = Release|Any CPU
 		{33DCA6AB-2DF5-400A-B981-4E5B06CEC36D}.Release|x86.Build.0 = Release|Any CPU
-		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Android Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Android Debug|Any CPU.Build.0 = Debug|Any CPU
-		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Android Debug|x86.ActiveCfg = Debug|Any CPU
-		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Android Debug|x86.Build.0 = Debug|Any CPU
-		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Android Release|Any CPU.ActiveCfg = Release|Any CPU
-		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Android Release|Any CPU.Build.0 = Release|Any CPU
-		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Android Release|x86.ActiveCfg = Release|Any CPU
-		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Android Release|x86.Build.0 = Release|Any CPU
 		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -187,6 +183,22 @@ Global
 		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Release|x86.ActiveCfg = Release|Any CPU
 		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}.Release|x86.Build.0 = Release|Any CPU
+		{AFCFF1EB-729C-4DA5-B671-83396288DC3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFCFF1EB-729C-4DA5-B671-83396288DC3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFCFF1EB-729C-4DA5-B671-83396288DC3C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{AFCFF1EB-729C-4DA5-B671-83396288DC3C}.Debug|x86.Build.0 = Debug|Any CPU
+		{AFCFF1EB-729C-4DA5-B671-83396288DC3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFCFF1EB-729C-4DA5-B671-83396288DC3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFCFF1EB-729C-4DA5-B671-83396288DC3C}.Release|x86.ActiveCfg = Release|Any CPU
+		{AFCFF1EB-729C-4DA5-B671-83396288DC3C}.Release|x86.Build.0 = Release|Any CPU
+		{5BD8BDF3-2B54-4228-9272-BFCC6D1AE541}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BD8BDF3-2B54-4228-9272-BFCC6D1AE541}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BD8BDF3-2B54-4228-9272-BFCC6D1AE541}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5BD8BDF3-2B54-4228-9272-BFCC6D1AE541}.Debug|x86.Build.0 = Debug|Any CPU
+		{5BD8BDF3-2B54-4228-9272-BFCC6D1AE541}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BD8BDF3-2B54-4228-9272-BFCC6D1AE541}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BD8BDF3-2B54-4228-9272-BFCC6D1AE541}.Release|x86.ActiveCfg = Release|Any CPU
+		{5BD8BDF3-2B54-4228-9272-BFCC6D1AE541}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -208,6 +220,8 @@ Global
 		{5F12337E-314A-49E5-B4E8-542B3FEA4C74} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
 		{33DCA6AB-2DF5-400A-B981-4E5B06CEC36D} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
 		{58B0D028-63D9-4FC6-90A0-E7C1308E15E1} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
+		{AFCFF1EB-729C-4DA5-B671-83396288DC3C} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
+		{5BD8BDF3-2B54-4228-9272-BFCC6D1AE541} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D79F9E72-AE93-4A79-A968-902EC57B5900}
