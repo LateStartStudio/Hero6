@@ -7,11 +7,13 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 {
     using System;
+    using System.Drawing;
     using GameLoop;
     using Input;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
+    using Color = Microsoft.Xna.Framework.Color;
 
     public class MonoGameLabel : Label, IXnaGameLoop
     {
@@ -29,11 +31,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
             this.spriteBatch = spriteBatch;
         }
 
-        public override Tuple<double, double> MeasureString(string text)
-        {
-            var size = font.MeasureString(text);
-            return Tuple.Create((double)size.X, (double)size.Y);
-        }
+        public override PointF MeasureString(string text) => font.MeasureString(text).ToDotNet();
 
         public void Initialize()
         {

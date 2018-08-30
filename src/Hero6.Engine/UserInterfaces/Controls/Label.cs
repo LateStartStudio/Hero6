@@ -6,7 +6,6 @@
 
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 {
-    using System;
     using System.Drawing;
     using Input;
 
@@ -45,6 +44,6 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         /// </summary>
         /// <param name="text">The text to find the size from.</param>
         /// <returns>The size in vector format.</returns>
-        public abstract Tuple<double, double> MeasureString(string text);
+        public abstract PointF MeasureString(string text);
     }
 }

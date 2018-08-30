@@ -5,11 +5,14 @@
 // </copyright>
 
 using System;
+using System.Drawing;
 using LateStartStudio.Hero6.Engine.Campaigns.Characters;
 using Microsoft.Xna.Framework;
 
 public static class Vextor2Extensions
 {
+    public static PointF ToDotNet(this Vector2 vector) => new PointF(vector.X, vector.Y);
+
     public static CharacterDirection ToCharacterDirection(this Vector2 vector)
     {
         if (vector == new Vector2(0f, 1f))
