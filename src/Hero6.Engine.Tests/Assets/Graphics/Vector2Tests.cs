@@ -30,24 +30,6 @@ namespace LateStartStudio.Hero6.Engine.Assets.Graphics
         }
 
         [Test]
-        public void MakeFromPointConstructor()
-        {
-            Vector2 vector = new Vector2(new Point(1, 2));
-
-            Assert.AreEqual(1.0f, vector.X);
-            Assert.AreEqual(2.0f, vector.Y);
-        }
-
-        [Test]
-        public void MakeFromPointImplicitly()
-        {
-            Vector2 vector = new Point(1, 2);
-
-            Assert.AreEqual(1.0f, vector.X);
-            Assert.AreEqual(2.0f, vector.Y);
-        }
-
-        [Test]
         public void GetAndSet()
         {
             Vector2 vector = default(Vector2);

@@ -11,9 +11,8 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
     using LateStartStudio.Hero6.Engine.GameLoop;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
+    using Microsoft.Xna.Framework.Graphics;
     using Color = LateStartStudio.Hero6.Engine.Assets.Graphics.Color;
-    using Point = LateStartStudio.Hero6.Engine.Assets.Graphics.Point;
-    using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 
     public class MonoGameHotspotsController : HotspotsController, IXnaGameLoop
     {

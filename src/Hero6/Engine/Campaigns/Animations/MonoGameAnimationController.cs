@@ -17,7 +17,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Animations
         private readonly ContentManager content;
         private readonly SpriteBatch spriteBatch;
 
-        private Assets.Graphics.Point location;
+        private Point location;
         private int frame;
         private double elapsed;
         private Rectangle destination;
@@ -29,7 +29,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Animations
         {
             content = services.Get<ContentManager>();
             spriteBatch = services.Get<SpriteBatch>();
-            location = default(Assets.Graphics.Point);
+            location = default(Point);
         }
 
         public override int X
