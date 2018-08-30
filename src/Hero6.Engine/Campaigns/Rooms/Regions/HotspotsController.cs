@@ -6,7 +6,7 @@
 
 namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
 {
-    using LateStartStudio.Hero6.Engine.Assets.Graphics;
+    using System.Drawing;
 
     /// <summary>
     /// API for the hotspots controller.

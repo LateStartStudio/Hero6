@@ -7,12 +7,13 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 {
     using System;
-    using System.Text;
+    using System.Drawing;
     using GameLoop;
     using Input;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
+    using Color = Microsoft.Xna.Framework.Color;
 
     public class MonoGameLabel : Label, IXnaGameLoop
     {
@@ -30,17 +31,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
             this.spriteBatch = spriteBatch;
         }
 
-        public override Assets.Graphics.Vector2 MeasureString(string text)
-        {
-            var size = font.MeasureString(text);
-            return new Assets.Graphics.Vector2(size.X, size.Y);
-        }
-
-        public override Assets.Graphics.Vector2 MeasureString(StringBuilder text)
-        {
-            var size = font.MeasureString(text);
-            return new Assets.Graphics.Vector2(size.X, size.Y);
-        }
+        public override PointF MeasureString(string text) => font.MeasureString(text).ToDotNet();
 
         public void Initialize()
         {

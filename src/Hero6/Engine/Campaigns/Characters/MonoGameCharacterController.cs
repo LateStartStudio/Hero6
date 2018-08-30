@@ -22,7 +22,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Characters
         private readonly ICampaigns campaigns;
         private readonly MonoGameStatsController stats;
         private readonly List<MonoGameInventoryItemController> inventory = new List<MonoGameInventoryItemController>();
-        private readonly Queue<Assets.Graphics.Point> path = new Queue<Assets.Graphics.Point>();
+        private readonly Queue<Point> path = new Queue<Point>();
 
         private double pixelsToMove;
         private MonoGameCharacterAnimationController currentAnimation;
@@ -85,8 +85,8 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Characters
 
         public override void Walk(int x, int y)
         {
-            var from = new Assets.Graphics.Point(X, Y);
-            var to = new Assets.Graphics.Point(x, y);
+            var from = new Point(X, Y);
+            var to = new Point(x, y);
             var newPath = ((MonoGameWalkAreasController)Room.WalkAreas).GetPath(from, to);
 
             if (newPath == null)
@@ -96,6 +96,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Characters
 
             path.Clear();
             newPath.ToList().ForEach(p => path.Enqueue(p));
+            path.Dequeue(); // First is where we're already standing so discard
         }
 
         public override void Face(CharacterDirection direction)
@@ -113,42 +114,10 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Characters
 
         public override void Face(int locationX, int locationY)
         {
-            var from = new Assets.Graphics.Point(X, Y);
-            var to = new Assets.Graphics.Point(locationX, locationY);
+            var from = new Point(X, Y);
+            var to = new Point(locationX, locationY);
             var direction = to - from;
-
-            if (direction == Assets.Graphics.Vector2.Down)
-            {
-                Face(CharacterDirection.CenterDown);
-            }
-            else if (direction == Assets.Graphics.Vector2.Left)
-            {
-                Face(CharacterDirection.LeftCenter);
-            }
-            else if (direction == Assets.Graphics.Vector2.LeftDown)
-            {
-                Face(CharacterDirection.LeftDown);
-            }
-            else if (direction == Assets.Graphics.Vector2.LeftUp)
-            {
-                Face(CharacterDirection.LeftUp);
-            }
-            else if (direction == Assets.Graphics.Vector2.Right)
-            {
-                Face(CharacterDirection.RightCenter);
-            }
-            else if (direction == Assets.Graphics.Vector2.RightDown)
-            {
-                Face(CharacterDirection.RightDown);
-            }
-            else if (direction == Assets.Graphics.Vector2.RightUp)
-            {
-                Face(CharacterDirection.RightUp);
-            }
-            else if (direction == Assets.Graphics.Vector2.Up)
-            {
-                Face(CharacterDirection.CenterUp);
-            }
+            Face(direction.ToVector2().ToCharacterDirection());
         }
 
         public override void ChangeRoom<T>(int x = 0, int y = 0, CharacterDirection direction = CharacterDirection.CenterDown)

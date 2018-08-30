@@ -11,9 +11,9 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
     using LateStartStudio.Hero6.Engine.GameLoop;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
-    using Color = LateStartStudio.Hero6.Engine.Assets.Graphics.Color;
-    using Point = LateStartStudio.Hero6.Engine.Assets.Graphics.Point;
-    using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
+    using Microsoft.Xna.Framework.Graphics;
+    using Color = System.Drawing.Color;
+    using XnaColor = Microsoft.Xna.Framework.Color;
 
     public class MonoGameHotspotsController : HotspotsController, IXnaGameLoop
     {
@@ -78,14 +78,14 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
         private static Color[,] CopyTextureData(Texture2D texture)
         {
             var result = new Color[texture.Height, texture.Width];
-            var data = new Color[texture.Width * texture.Height];
+            var data = new XnaColor[texture.Width * texture.Height];
             texture.GetData(data);
 
             for (var y = 0; y < texture.Height; y++)
             {
                 for (var x = 0; x < texture.Width; x++)
                 {
-                    result[y, x] = data[(y * texture.Width) + x];
+                    result[y, x] = data[(y * texture.Width) + x].ToDotNet();
                 }
             }
 
@@ -125,25 +125,21 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
 
             public bool Interact(int x, int y, Interaction interaction)
             {
-                var pixel = new Point(x, y);
-
-                if (pixels.Contains(pixel))
+                if (pixels.Contains(new Point(x, y)))
                 {
-                    if (interaction == Interaction.Eye)
+                    switch (interaction)
                     {
-                        Look?.Invoke();
-                    }
-                    else if (interaction == Interaction.Hand)
-                    {
-                        Grab?.Invoke();
-                    }
-                    else if (interaction == Interaction.Mouth)
-                    {
-                        Talk?.Invoke();
-                    }
-                    else
-                    {
-                        return false;
+                        case Interaction.Eye:
+                            Look?.Invoke();
+                            break;
+                        case Interaction.Hand:
+                            Grab?.Invoke();
+                            break;
+                        case Interaction.Mouth:
+                            Talk?.Invoke();
+                            break;
+                        default:
+                            return false;
                     }
                 }
 

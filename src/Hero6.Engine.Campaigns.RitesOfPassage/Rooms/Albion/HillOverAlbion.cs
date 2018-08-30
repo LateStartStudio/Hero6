@@ -6,7 +6,7 @@
 
 namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Rooms.Albion
 {
-    using LateStartStudio.Hero6.Engine.Assets.Graphics;
+    using System.Drawing;
     using LateStartStudio.Hero6.Engine.Campaigns.Characters;
     using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Characters;
     using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Items;
@@ -34,9 +34,9 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Rooms.Albion
 
         public override string HotspotsMask => "Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Hotspots";
 
-        public Color HotspotNorthExit { get; } = new Color(255, 255, 255, 255);
+        public Color HotspotNorthExit { get; } = Color.FromArgb(255, 255, 255, 255);
 
-        public Color HotspotAlbionSign { get; } = new Color(255, 0, 0, 255);
+        public Color HotspotAlbionSign { get; } = Color.FromArgb(255, 255, 0, 0);
 
         protected override void Initialize()
         {

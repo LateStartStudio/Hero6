@@ -8,9 +8,9 @@ namespace LateStartStudio.Hero6.MonoGamePipeline.WalkAreas
 {
     using System.Collections.Generic;
     using System.Drawing;
-    using LateStartStudio.Hero6.Engine.Assets.Graphics;
     using LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions;
     using LateStartStudio.Search.Pathfinder;
+    using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content.Pipeline;
 
     /// <summary>
@@ -22,14 +22,14 @@ namespace LateStartStudio.Hero6.MonoGamePipeline.WalkAreas
     {
         private static readonly Vector2[] DirectionVectors =
             {
-                Vector2.LeftUp,
-                Vector2.Up,
-                Vector2.RightUp,
-                Vector2.Left,
-                Vector2.Right,
-                Vector2.LeftDown,
-                Vector2.Down,
-                Vector2.RightDown
+                new Vector2(0f, 1f),
+                new Vector2(-1f, 0f),
+                new Vector2(-1f, 1f),
+                new Vector2(-1f, -1f),
+                new Vector2(1f, 0f),
+                new Vector2(1f, 1f),
+                new Vector2(1f, -1f),
+                new Vector2(0f, -1f)
             };
 
         /// <inheritdoc />

@@ -10,7 +10,6 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
     using LateStartStudio.Hero6.Engine.GameLoop;
     using LateStartStudio.Hero6.MonoGamePipeline.WalkAreas;
     using Microsoft.Xna.Framework;
-    using Point = LateStartStudio.Hero6.Engine.Assets.Graphics.Point;
 
     public class MonoGameWalkAreasController : WalkAreasController, IXnaGameLoop
     {

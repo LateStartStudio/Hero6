@@ -37,7 +37,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         public void Load()
         {
             background = new Texture2D(graphics.GraphicsDevice, 1, 1);
-            background.SetData(new[] { inner.Background });
+            background.SetData(new[] { inner.Background.ToMonoGame() });
             inner.Child.AsXnaGameLoop()?.Load();
             inner.Width = inner.Child.Width;
             inner.Height = inner.Child.Height;
