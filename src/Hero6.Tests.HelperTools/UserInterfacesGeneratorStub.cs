@@ -6,7 +6,6 @@
 
 namespace LateStartStudio.Hero6.Tests.HelperTools
 {
-    using Engine.Assets.Graphics;
     using Engine.UserInterfaces;
     using Engine.UserInterfaces.Controls;
     using Engine.UserInterfaces.Input;

@@ -8,8 +8,8 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 {
     using System;
     using System.Collections.Generic;
+    using System.Drawing;
     using System.Linq;
-    using Assets.Graphics;
     using Input;
 
     /// <summary>
@@ -57,7 +57,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         /// <summary>
         /// Gets or sets the Background <see cref="Color"/>.
         /// </summary>
-        public Color Background { get; set; } = new Color(242, 242, 242, 255);
+        public Color Background { get; set; } = Color.FromArgb(255, 242, 242, 242);
 
         /// <summary>
         /// Gets or sets the x position.

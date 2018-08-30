@@ -41,9 +41,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Graphics\Color.cs" />
     <Compile Include="Campaigns\Animations\CharacterAnimationController.cs" />
     <Compile Include="Campaigns\Animations\CharacterAnimationModule.cs" />
     <Compile Include="Campaigns\CampaignController.cs" />

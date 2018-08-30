@@ -7,7 +7,7 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 {
     using System;
-    using Assets.Graphics;
+    using System.Drawing;
     using Input;
 
     /// <summary>

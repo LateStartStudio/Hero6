@@ -7,7 +7,7 @@
 namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage
 {
     using System.Collections.Generic;
-    using LateStartStudio.Hero6.Engine.Assets.Graphics;
+    using System.Drawing;
     using LateStartStudio.Hero6.Engine.Campaigns.Animations;
     using LateStartStudio.Hero6.Engine.Campaigns.Characters;
     using LateStartStudio.Hero6.Engine.Campaigns.InventoryItems;
