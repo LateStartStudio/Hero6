@@ -7,7 +7,6 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 {
     using System;
-    using System.Text;
     using GameLoop;
     using Input;
     using Microsoft.Xna.Framework;
@@ -30,16 +29,10 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
             this.spriteBatch = spriteBatch;
         }
 
-        public override Assets.Graphics.Vector2 MeasureString(string text)
+        public override Tuple<double, double> MeasureString(string text)
         {
             var size = font.MeasureString(text);
-            return new Assets.Graphics.Vector2(size.X, size.Y);
-        }
-
-        public override Assets.Graphics.Vector2 MeasureString(StringBuilder text)
-        {
-            var size = font.MeasureString(text);
-            return new Assets.Graphics.Vector2(size.X, size.Y);
+            return Tuple.Create((double)size.X, (double)size.Y);
         }
 
         public void Initialize()

@@ -7,14 +7,13 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs
 {
     using System;
-    using Assets.Graphics;
     using Controls;
     using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
     using Utilities.Settings;
 
     public class TextBox : Dialog
     {
-        private readonly Vector2 maxSize;
+        private readonly Tuple<double, double> maxSize;
         private readonly Label label;
 
         public TextBox(
@@ -23,8 +22,9 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs
             IMouse mouse)
             : base(mouse, gameSettings)
         {
-            maxSize.X = gameSettings.NativeWidth - (gameSettings.NativeWidth / 4);
-            maxSize.Y = gameSettings.NativeHeight - (gameSettings.NativeHeight / 4);
+            var width = gameSettings.NativeWidth - (gameSettings.NativeWidth / 4);
+            var height = gameSettings.NativeHeight - (gameSettings.NativeHeight / 4);
+            maxSize = Tuple.Create((double)width, (double)height);
             label = userInterfaceGenerator.MakeLabel(this);
             label.TextWrapping = TextWrapping.Wrap;
 
@@ -39,18 +39,18 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs
 
             int rows;
 
-            if (size.X > maxSize.X)
+            if (size.Item1 > maxSize.Item1)
             {
-                rows = (int)Math.Ceiling(size.X / maxSize.X);
-                Width = (int)maxSize.X;
+                rows = (int)Math.Ceiling(size.Item1 / maxSize.Item1);
+                Width = (int)maxSize.Item1;
             }
             else
             {
                 rows = 1;
-                Width = (int)size.X;
+                Width = (int)size.Item1;
             }
 
-            Height = (int)(size.Y * rows);
+            Height = (int)(size.Item2 * rows);
             label.Width = Width;
             label.Height = Height;
             label.Text = Text;

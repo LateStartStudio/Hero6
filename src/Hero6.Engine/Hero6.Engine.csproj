@@ -44,7 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Graphics\Color.cs" />
-    <Compile Include="Assets\Graphics\Vector2.cs" />
     <Compile Include="Campaigns\Animations\CharacterAnimationController.cs" />
     <Compile Include="Campaigns\Animations\CharacterAnimationModule.cs" />
     <Compile Include="Campaigns\CampaignController.cs" />

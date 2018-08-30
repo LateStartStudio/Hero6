@@ -6,7 +6,7 @@
 
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 {
-    using System.Text;
+    using System;
     using Assets.Graphics;
     using Input;
 
@@ -45,13 +45,6 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
         /// </summary>
         /// <param name="text">The text to find the size from.</param>
         /// <returns>The size in vector format.</returns>
-        public abstract Vector2 MeasureString(string text);
-
-        /// <summary>
-        /// Calculates the size of the string in vector coordinates.
-        /// </summary>
-        /// <param name="text">The text to find the size from.</param>
-        /// <returns>The size in vector format.</returns>
-        public abstract Vector2 MeasureString(StringBuilder text);
+        public abstract Tuple<double, double> MeasureString(string text);
     }
 }
