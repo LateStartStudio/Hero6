@@ -11,7 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Assets\MonoGameWalkAreaReader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Campaigns\Animations\MonoGameCharacterAnimationController.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\Campaigns\CampaignExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\CampaignExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Campaigns\Characters\MonoGameCharacterController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Campaigns\Characters\Stats\Hero6LearningStatController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Campaigns\Characters\Stats\Hero6StatController.cs" />
@@ -31,8 +31,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Controls\MonoGameWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Controls\MonoGameDialog.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Controls\MonoGameLabel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Controls\UserInterfaceElementExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Input\MouseExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\UserInterfaceElementExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\MouseExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Input\MonoGameMouse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\MonoGameUserInterface.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\MonoGameUserInterfaceGenerator.cs" />
