@@ -9,7 +9,6 @@ namespace LateStartStudio.Hero6
     using System;
     using System.IO;
     using System.Reflection;
-    using Engine.Assets;
     using Engine.Campaigns;
     using Engine.UserInterfaces;
     using Engine.UserInterfaces.Input;
@@ -27,6 +26,8 @@ namespace LateStartStudio.Hero6
     {
         private static ILogger logger;
 
+        private readonly GameSettings gameSettings;
+
         private MonoGameUserInterfaces ui;
         private MonoGameCampaigns campaign;
         private SpriteBatch spriteBatch;
@@ -35,7 +36,8 @@ namespace LateStartStudio.Hero6
         {
             Content.RootDirectory = "Content";
             var services = new MonoGameServices(Services);
-            services.Add<IGameSettings, GameSettings>();
+            gameSettings = new GameSettings();
+            services.Add<IGameSettings>(gameSettings);
             var userSettings = services.Make<UserSettings>(typeof(UserSettings));
             services.Add<IUserSettings>(userSettings);
             logger = services.Make<LogFourNet>(typeof(LogFourNet));
@@ -49,7 +51,7 @@ namespace LateStartStudio.Hero6
             logger.Info("E-mail: hero6lives@gmail.com");
             logger.Info("Creating Hero6 Game Instance.");
 
-            Graphics = new GraphicsDeviceManager(this)
+            var graphics = new GraphicsDeviceManager(this)
             {
                 PreferredBackBufferWidth = userSettings.WindowWidth,
                 PreferredBackBufferHeight = userSettings.WindowHeight,
@@ -59,10 +61,10 @@ namespace LateStartStudio.Hero6
                 SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight
 #endif
             };
-            Graphics.DeviceCreated += (s, a) =>
+            graphics.DeviceCreated += (s, a) =>
             {
                 this.spriteBatch = new SpriteBatch(GraphicsDevice);
-                services.Add(Graphics);
+                services.Add(graphics);
                 services.Add(spriteBatch);
                 services.Add<IUserInterfaceGenerator, MonoGameUserInterfaceGenerator>();
                 this.campaign = new MonoGameCampaigns(services);
@@ -97,10 +99,6 @@ namespace LateStartStudio.Hero6
 #endif
             }
         }
-
-        public static Vector2 NativeGameResolution { get; } = new Vector2(320, 240);
-
-        public static GraphicsDeviceManager Graphics { get; private set; }
 
         public static Matrix Transform { get; set; } = Matrix.Identity;
 
@@ -209,8 +207,8 @@ namespace LateStartStudio.Hero6
 
         private void SetScale()
         {
-            var horScaling = GraphicsDevice.PresentationParameters.BackBufferWidth / NativeGameResolution.X;
-            var verScaling = GraphicsDevice.PresentationParameters.BackBufferHeight / NativeGameResolution.Y;
+            var horScaling = GraphicsDevice.PresentationParameters.BackBufferWidth / gameSettings.NativeWidth;
+            var verScaling = GraphicsDevice.PresentationParameters.BackBufferHeight / gameSettings.NativeHeight;
             Transform = Matrix.CreateScale(horScaling, verScaling, 1.0f);
         }
     }
