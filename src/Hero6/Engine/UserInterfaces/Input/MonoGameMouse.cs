@@ -69,7 +69,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
 
         public int ScrollWheel => Mouse.GetState().ScrollWheelValue;
 
-        private static Vector3 Scale => Game.Transform.Scale;
+        private static Vector3 Scale => Game.Transform.Scale();
 
         public void Center()
         {

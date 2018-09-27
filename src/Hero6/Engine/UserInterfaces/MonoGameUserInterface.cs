@@ -106,7 +106,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
             XnaWrappedDialogs.ForEach(d => d.Draw(time));
             XnaWrappedWindows.ForEach(w => w.Draw(time));
             mouse.AsXnaGameLoop()?.Draw(time);
-            spriteBatch.Draw(Cursor, new Vector2(mouse.X, mouse.Y));
+            spriteBatch.Draw(Cursor, new Vector2(mouse.X, mouse.Y), Color.White);
         }
     }
 }

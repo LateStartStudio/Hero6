@@ -67,7 +67,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 
         public void Draw(GameTime time)
         {
-            spriteBatch.Draw(image, location);
+            spriteBatch.Draw(image, location, Color.White);
         }
     }
 }
