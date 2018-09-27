@@ -28,7 +28,6 @@ NUGET
       Microsoft.NETCore.Platforms (>= 1.1) - restriction: && (< monotouch) (< net46) (>= netstandard1.3) (< xamarinios) (< xamarinmac) (< xamarintvos) (< xamarinwatchos)
       Microsoft.NETCore.Targets (>= 1.1) - restriction: && (< monotouch) (< net46) (>= netstandard1.3) (< xamarinios) (< xamarinmac) (< xamarintvos) (< xamarinwatchos)
       System.Runtime (>= 4.3) - restriction: && (< monotouch) (< net46) (>= netstandard1.3) (< xamarinios) (< xamarinmac) (< xamarintvos) (< xamarinwatchos)
-    MonoGame.Framework.Android (3.5.1.1679)
     MonoGame.Framework.Content.Pipeline.Portable (3.2.99.1-Beta)
       MonoGame.Framework.Portable (>= 3.2.99.1-Beta)
     MonoGame.Framework.DesktopGL (3.7.0.1708)
