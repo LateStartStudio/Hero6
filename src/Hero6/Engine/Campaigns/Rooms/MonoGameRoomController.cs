@@ -140,7 +140,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms
         {
             if (Module.IsVisible)
             {
-                spriteBatch.Draw(background, position);
+                spriteBatch.Draw(background, position, Color.White);
             }
 
             characters.ForEach(c => c.Draw(time));

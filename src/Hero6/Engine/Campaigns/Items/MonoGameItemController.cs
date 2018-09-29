@@ -81,7 +81,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Items
         {
             if (Module.IsVisible)
             {
-                spriteBatch.Draw(sprite, position);
+                spriteBatch.Draw(sprite, position, Color.White);
             }
         }
     }

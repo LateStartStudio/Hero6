@@ -31,6 +31,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Controls\MonoGameWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Controls\MonoGameDialog.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Controls\MonoGameLabel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\MatrixExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\UserInterfaceElementExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\MouseExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Input\MonoGameMouse.cs" />
