@@ -75,37 +75,6 @@ EmptyKeys is a GUI development framework compatible with various game engines. I
   SOFTWARE.
 </details>
 
-#### EmptyKeys Generator
-EmptyKeys is a GUI development framework compatible with various game engines. It is licensed under the MIT license.
-
-* [Homepage](http://emptykeys.com/)
-* [Repository](https://github.com/EmptyKeys/UI_Generator)
-* [License](https://github.com/EmptyKeys/UI_Generator/blob/master/LICENSE)
-<details>
-  <summary>See License</summary>
-  The MIT License (MIT)
-
-  Copyright (c) 2016 Empty Keys, Filip Du�ek
-
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to deal
-  in the Software without restriction, including without limitation the rights
-  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in all
-  copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  SOFTWARE.
-</details>
-
 #### Eto.Forms
 Eto.Forms is a cross platform UI framework. It is licensed under the BSD-3 license.
 
@@ -544,39 +513,4 @@ OptimizedPriorityQueue is a high performant priority queue. It is licensed under
   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
-</details>
-
-#### Portable.Xaml
-Portable.Xaml is a cross platform framework for reading and writing XAML. It is licensed under the MIT-license.
-
-* [Homepage](https://github.com/cwensley/Portable.Xaml)
-* [Repository](https://github.com/cwensley/Portable.Xaml)
-* [License](https://github.com/cwensley/Portable.Xaml/blob/develop/LICENSE.txt)
-<details>
-  <summary>See License</summary>
-  The MIT X11 License covers most of the class libraries in the Mono
-  project.  Some third party libraries come from different projects, and
-  are licensed under their own terms.
-
-
-  Copyright (c) 2001, 2002, 2003 The Mono Project
-
-  Permission is hereby granted, free of charge, to any person obtaining
-  a copy of this software and associated documentation files (the
-  "Software"), to deal in the Software without restriction, including
-  without limitation the rights to use, copy, modify, merge, publish,
-  distribute, sublicense, and/or sell copies of the Software, and to
-  permit persons to whom the Software is furnished to do so, subject to
-  the following conditions:
-
-  The above copyright notice and this permission notice shall be
-  included in all copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-  LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-  OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </details>
