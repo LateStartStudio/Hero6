@@ -77,7 +77,7 @@ namespace LateStartStudio.Hero6
                             }
                         }
                     }),
-                    new StackLayoutItem()
+                    new StackLayoutItem(logfileLink)
                 }
             };
         }
