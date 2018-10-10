@@ -4,7 +4,6 @@ nuget Eto.Forms
 nuget Eto.Platform.Gtk
 nuget Eto.Platform.Gtk3
 nuget Eto.Platform.Wpf
-nuget Eto.Serialization.Xaml
 nuget log4net
 nuget MonoGame.Framework.Content.Pipeline.Portable
 nuget MonoGame.Framework.DesktopGL
@@ -13,5 +12,4 @@ nuget NUnit
 nuget NUnit.Runners
 nuget NUnit3TestAdapter
 nuget OptimizedPriorityQueue
-nuget Portable.Xaml
 nuget StyleCop.Analyzers
