@@ -108,7 +108,6 @@
   </ItemGroup>
   <Import Project="..\Hero6\Hero6.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
@@ -343,6 +342,7 @@
     </When>
   </Choose>
   <Import Project="..\packages\Eto.Forms\build\Eto.Forms.targets" Condition="Exists('..\packages\Eto.Forms\build\Eto.Forms.targets')" Label="Paket" />
+  <Import Project="..\packages\MonoGame.Content.Builder\build\MonoGame.Content.Builder.targets" Condition="Exists('..\packages\MonoGame.Content.Builder\build\MonoGame.Content.Builder.targets')" Label="Paket" />
   <Import Project="..\packages\MonoGame.Framework.DesktopGL\build\MonoGame.Framework.DesktopGL.targets" Condition="Exists('..\packages\MonoGame.Framework.DesktopGL\build\MonoGame.Framework.DesktopGL.targets')" Label="Paket" />
   <ItemGroup>
     <Analyzer Include="..\packages\StyleCop.Analyzers\analyzers\dotnet\cs\Newtonsoft.Json.dll">
