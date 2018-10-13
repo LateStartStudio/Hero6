@@ -29,25 +29,21 @@ namespace LateStartStudio.Hero6.Repository
         [Test]
         public void AllProjectsAreSetToCsharpLanguageLevel6()
         {
-            const string Expected = "<LangVersion>6</LangVersion>";
-
-            files.ForEach(f => Assert.That(File.ReadAllText(f).Contains(Expected), Is.True, f));
+            const string expected = "<LangVersion>6</LangVersion>";
+            files.ForEach(f => Assert.That(File.ReadAllText(f).Contains(expected), Is.True, f));
         }
 
         [Test]
-        public void AllProjectsAreSetToDottNetLevel4Dot6Dot1()
+        public void AllProjectsAreSetToDottNetLevel461()
         {
-            const string Expected = "<TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>";
+            const string expected1 = "<TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>";
+            const string expected2 = "<TargetFramework>net461</TargetFramework>";
 
-            foreach (string file in files)
+            foreach (var f in files)
             {
-                // Skip because target framework refers to Android SDK version
-                if (file.Contains("Hero6.Android"))
-                {
-                    continue;
-                }
-
-                Assert.That(File.ReadAllText(file).Contains(Expected), Is.True, file);
+                var content = File.ReadAllText(f);
+                var result = content.Contains(expected1) || content.Contains(expected2);
+                Assert.That(result, Is.True, f);
             }
         }
 
