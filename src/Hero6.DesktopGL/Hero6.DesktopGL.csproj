@@ -345,9 +345,6 @@
   <Import Project="..\packages\MonoGame.Content.Builder\build\MonoGame.Content.Builder.targets" Condition="Exists('..\packages\MonoGame.Content.Builder\build\MonoGame.Content.Builder.targets')" Label="Paket" />
   <Import Project="..\packages\MonoGame.Framework.DesktopGL\build\MonoGame.Framework.DesktopGL.targets" Condition="Exists('..\packages\MonoGame.Framework.DesktopGL\build\MonoGame.Framework.DesktopGL.targets')" Label="Paket" />
   <ItemGroup>
-    <Analyzer Include="..\packages\StyleCop.Analyzers\analyzers\dotnet\cs\Newtonsoft.Json.dll">
-      <Paket>True</Paket>
-    </Analyzer>
     <Analyzer Include="..\packages\StyleCop.Analyzers\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll">
       <Paket>True</Paket>
     </Analyzer>
