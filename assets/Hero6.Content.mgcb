@@ -10,9 +10,283 @@
 
 #-------------------------------- References --------------------------------#
 
-/reference:..\src\Hero6.MonoGamePipeline\bin\Hero6.MonoGamePipeline.dll
+/reference:..\src\Hero6.MonoGamePipeline\bin\net461\Hero6.MonoGamePipeline.dll
 
 #---------------------------------- Content ---------------------------------#
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Center Down.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Center Down.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Center Up.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Center Up.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Left Center.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Left Center.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Left Down.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Left Down.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Left Up.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Left Up.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Right Center.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Right Center.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Right Down.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Right Down.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Right Up.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Right Up.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Center Down.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Center Down.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Center Up.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Center Up.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Left Center.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Left Center.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Left Down.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Left Down.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Left Up.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Left Up.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Right Center.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Right Center.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Right Down.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Right Down.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Right Up.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Right Up.png
+
+#begin Campaigns/Rites of Albion/Animations/Characters/Llewella/Idle/Center Down.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Animations/Characters/Llewella/Idle/Center Down.png
+
+#begin Campaigns/Rites of Albion/Rooms/Albion/Fountain/Background.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Rooms/Albion/Fountain/Background.png
+
+#begin Campaigns/Rites of Albion/Rooms/Albion/Fountain/Hotspots.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Rooms/Albion/Fountain/Hotspots.png
+
+#begin Campaigns/Rites of Albion/Rooms/Albion/Fountain/WalkAreas.h6walkareas
+/importer:Importer
+/processor:Processor
+/build:Campaigns/Rites of Albion/Rooms/Albion/Fountain/WalkAreas.h6walkareas
+
+#begin Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Background.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Background.png
+
+#begin Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Hotspots.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Hotspots.png
+
+#begin Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/WalkAreas.h6walkareas
+/importer:Importer
+/processor:Processor
+/build:Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/WalkAreas.h6walkareas
+
+#begin Campaigns/Rites of Albion/Sprites/Items/Bent Sword.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Campaigns/Rites of Albion/Sprites/Items/Bent Sword.png
 
 #begin Gui/Sierra Vga/Cursors/Arrow.png
 /importer:TextureImporter
@@ -25,24 +299,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Gui/Sierra Vga/Cursors/Arrow.png
-
-#begin Gui/Sierra Vga/Cursors/Wait.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Gui/Sierra Vga/Cursors/Wait.png
-
-#begin Gui/Sierra Vga/Fonts/Arial_11.25_Regular.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/processorParam:TextureFormat=Compressed
-/build:Gui/Sierra Vga/Fonts/Arial_11.25_Regular.spritefont
 
 #begin Gui/Sierra Vga/Cursors/Hand.png
 /importer:TextureImporter
@@ -80,6 +336,18 @@
 /processorParam:TextureFormat=Color
 /build:Gui/Sierra Vga/Cursors/Talk.png
 
+#begin Gui/Sierra Vga/Cursors/Wait.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Gui/Sierra Vga/Cursors/Wait.png
+
 #begin Gui/Sierra Vga/Cursors/Walk.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -91,6 +359,97 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Gui/Sierra Vga/Cursors/Walk.png
+
+#begin Gui/Sierra Vga/Extension Bar/Left.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Gui/Sierra Vga/Extension Bar/Left.png
+
+#begin Gui/Sierra Vga/Extension Bar/Right.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Gui/Sierra Vga/Extension Bar/Right.png
+
+#begin Gui/Sierra Vga/Extension Bar/Run Light.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Gui/Sierra Vga/Extension Bar/Run Light.png
+
+#begin Gui/Sierra Vga/Extension Bar/Sleep Light.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Gui/Sierra Vga/Extension Bar/Sleep Light.png
+
+#begin Gui/Sierra Vga/Extension Bar/Sneak Light.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Gui/Sierra Vga/Extension Bar/Sneak Light.png
+
+#begin Gui/Sierra Vga/Extension Bar/Stats Light.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Gui/Sierra Vga/Extension Bar/Stats Light.png
+
+#begin Gui/Sierra Vga/Extension Bar/Time Light.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Gui/Sierra Vga/Extension Bar/Time Light.png
+
+#begin Gui/Sierra Vga/Fonts/Arial_11.25_Regular.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Gui/Sierra Vga/Fonts/Arial_11.25_Regular.spritefont
 
 #begin Gui/Sierra Vga/Status Bar/Background.png
 /importer:TextureImporter
@@ -344,246 +703,6 @@
 /processorParam:TextureFormat=Color
 /build:Gui/Sierra Vga/Verb Bar/Walk Light.png
 
-#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Center Down.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Center Down.png
-
-#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Center Up.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Center Up.png
-
-#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Left Center.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Left Center.png
-
-#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Left Down.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Left Down.png
-
-#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Left Up.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Left Up.png
-
-#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Right Center.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Right Center.png
-
-#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Right Down.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Right Down.png
-
-#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Right Up.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Walk/Right Up.png
-
-#begin Campaigns/Rites of Albion/Rooms/Albion/Fountain/Background.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campaigns/Rites of Albion/Rooms/Albion/Fountain/Background.png
-
-#begin Campaigns/Rites of Albion/Rooms/Albion/Fountain/Hotspots.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campaigns/Rites of Albion/Rooms/Albion/Fountain/Hotspots.png
-
-#begin Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Background.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Background.png
-
-#begin Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Hotspots.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Hotspots.png
-
-#begin Campaigns/Rites of Albion/Sprites/Items/Bent Sword.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campaigns/Rites of Albion/Sprites/Items/Bent Sword.png
-
-#begin Gui/Sierra Vga/Extension Bar/Left.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Gui/Sierra Vga/Extension Bar/Left.png
-
-#begin Gui/Sierra Vga/Extension Bar/Right.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Gui/Sierra Vga/Extension Bar/Right.png
-
-#begin Gui/Sierra Vga/Extension Bar/Run Light.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Gui/Sierra Vga/Extension Bar/Run Light.png
-
-#begin Gui/Sierra Vga/Extension Bar/Sleep Light.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Gui/Sierra Vga/Extension Bar/Sleep Light.png
-
-#begin Gui/Sierra Vga/Extension Bar/Sneak Light.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Gui/Sierra Vga/Extension Bar/Sneak Light.png
-
-#begin Gui/Sierra Vga/Extension Bar/Stats Light.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Gui/Sierra Vga/Extension Bar/Stats Light.png
-
-#begin Gui/Sierra Vga/Extension Bar/Time Light.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Gui/Sierra Vga/Extension Bar/Time Light.png
-
 #begin Gui\Sierra Vga\Extension Bar\Run Dark.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -643,122 +762,4 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Gui\Sierra Vga\Extension Bar\Time Dark.png
-
-#begin Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/WalkAreas.h6walkareas
-/importer:Importer
-/processor:Processor
-/build:Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/WalkAreas.h6walkareas
-
-#begin Campaigns/Rites of Albion/Rooms/Albion/Fountain/WalkAreas.h6walkareas
-/importer:Importer
-/processor:Processor
-/build:Campaigns/Rites of Albion/Rooms/Albion/Fountain/WalkAreas.h6walkareas
-
-#begin Campaigns/Rites of Albion/Animations/Characters/Llewella/Idle/Center Down.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campaigns/Rites of Albion/Animations/Characters/Llewella/Idle/Center Down.png
-
-#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Center Down.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Center Down.png
-
-#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Center Up.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Center Up.png
-
-#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Left Center.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Left Center.png
-
-#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Left Down.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Left Down.png
-
-#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Left Up.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Left Up.png
-
-#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Right Center.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Right Center.png
-
-#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Right Down.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Right Down.png
-
-#begin Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Right Up.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campaigns/Rites of Albion/Animations/Characters/Hero/Idle/Right Up.png
 
