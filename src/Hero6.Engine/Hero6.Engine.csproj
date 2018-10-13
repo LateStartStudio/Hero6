@@ -1,133 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0C0586A3-5A10-42CE-B609-CC80EE2CEF7A}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFramework>net461</TargetFramework>
     <RootNamespace>LateStartStudio.Hero6.Engine</RootNamespace>
-    <AssemblyName>Hero6.Engine</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Hero6.Engine.XML</DocumentationFile>
+    <Version>1.0.0</Version>
     <LangVersion>6</LangVersion>
-    <Prefer32Bit>false</Prefer32Bit>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <CodeAnalysisRuleSet>..\Hero6.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Hero6.Engine.XML</DocumentationFile>
-    <Prefer32Bit>false</Prefer32Bit>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <CodeAnalysisRuleSet>..\Hero6.ruleset</CodeAnalysisRuleSet>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\Hero6.Engine.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\Hero6.Engine.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Drawing" />
+    <AdditionalFiles Include="..\stylecop.json" Link="stylecop.json" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Campaigns\Animations\CharacterAnimationController.cs" />
-    <Compile Include="Campaigns\Animations\CharacterAnimationModule.cs" />
-    <Compile Include="Campaigns\CampaignController.cs" />
-    <Compile Include="Campaigns\Characters\CharacterController.cs" />
-    <Compile Include="Campaigns\Characters\CharacterDirection.cs" />
-    <Compile Include="Campaigns\Characters\CharacterModule.cs" />
-    <Compile Include="Campaigns\CampaignModule.cs" />
-    <Compile Include="Campaigns\Characters\Stats\StatController.cs" />
-    <Compile Include="Campaigns\Characters\Stats\StatModule.cs" />
-    <Compile Include="Campaigns\Characters\Stats\LearningStatController.cs" />
-    <Compile Include="Campaigns\Characters\Stats\LearningStatModule.cs" />
-    <Compile Include="Campaigns\Characters\Stats\StatsController.cs" />
-    <Compile Include="Campaigns\Characters\Stats\StatsModule.cs" />
-    <Compile Include="Campaigns\GameController.cs" />
-    <Compile Include="Campaigns\GameModule.cs" />
-    <Compile Include="Campaigns\ICampaigns.cs" />
-    <Compile Include="Campaigns\InventoryItems\InventoryItemController.cs" />
-    <Compile Include="Campaigns\InventoryItems\InventoryItemModule.cs" />
-    <Compile Include="Campaigns\Items\ItemController.cs" />
-    <Compile Include="Campaigns\Items\ItemModule.cs" />
-    <Compile Include="Campaigns\Rooms\Regions\Hotspot.cs" />
-    <Compile Include="Campaigns\Rooms\Regions\HotspotsController.cs" />
-    <Compile Include="Campaigns\Rooms\Regions\HotspotsModule.cs" />
-    <Compile Include="Campaigns\Rooms\Regions\StandingOn.cs" />
-    <Compile Include="Campaigns\Rooms\Regions\WalkAreasController.cs" />
-    <Compile Include="Campaigns\Rooms\Regions\WalkAreasModule.cs" />
-    <Compile Include="Campaigns\Rooms\RoomController.cs" />
-    <Compile Include="Campaigns\Rooms\RoomModule.cs" />
-    <Compile Include="Campaigns\Animations\AnimationController.cs" />
-    <Compile Include="Campaigns\Animations\AnimationModule.cs" />
-    <Compile Include="Campaigns\Interaction.cs" />
-    <Compile Include="Extensions\IEnumerableExtensions.cs" />
-    <Compile Include="ModuleController\Controller.cs" />
-    <Compile Include="ModuleController\IController.cs" />
-    <Compile Include="ModuleController\IModule.cs" />
-    <Compile Include="ModuleController\Module.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserInterfaces\Controls\Button.cs" />
-    <Compile Include="UserInterfaces\Controls\IChild.cs" />
-    <Compile Include="UserInterfaces\Controls\IChildren.cs" />
-    <Compile Include="UserInterfaces\Controls\Dialog.cs" />
-    <Compile Include="UserInterfaces\Controls\Label.cs" />
-    <Compile Include="UserInterfaces\Controls\Image.cs" />
-    <Compile Include="UserInterfaces\Controls\UserInterfaceElement.cs" />
-    <Compile Include="UserInterfaces\Controls\Window.cs" />
-    <Compile Include="UserInterfaces\Controls\Layout.cs" />
-    <Compile Include="UserInterfaces\Controls\Orientation.cs" />
-    <Compile Include="UserInterfaces\Controls\StackPanel.cs" />
-    <Compile Include="UserInterfaces\Controls\TextWrapping.cs" />
-    <Compile Include="UserInterfaces\Input\ICursor.cs" />
-    <Compile Include="UserInterfaces\Input\IMouse.cs" />
-    <Compile Include="UserInterfaces\Input\MouseButton.cs" />
-    <Compile Include="UserInterfaces\Input\MouseButtonInteraction.cs" />
-    <Compile Include="UserInterfaces\Input\MouseMove.cs" />
-    <Compile Include="UserInterfaces\UserInterface.cs" />
-    <Compile Include="UserInterfaces\IUserInterfaces.cs" />
-    <Compile Include="UserInterfaces\IUserInterfaceGenerator.cs" />
-    <Compile Include="Utilities\Logger\ILogger.cs" />
-    <Compile Include="Utilities\Settings\IGameSettings.cs" />
-    <Compile Include="Utilities\Settings\IUserSettings.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <AdditionalFiles Include="..\stylecop.json">
-      <Link>stylecop.json</Link>
-    </AdditionalFiles>
-    <None Include="paket.references" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
-  <ItemGroup>
-    <Analyzer Include="..\packages\StyleCop.Analyzers\analyzers\dotnet\cs\Newtonsoft.Json.dll">
-      <Paket>True</Paket>
-    </Analyzer>
-    <Analyzer Include="..\packages\StyleCop.Analyzers\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll">
-      <Paket>True</Paket>
-    </Analyzer>
-    <Analyzer Include="..\packages\StyleCop.Analyzers\analyzers\dotnet\cs\StyleCop.Analyzers.dll">
-      <Paket>True</Paket>
-    </Analyzer>
-  </ItemGroup>
+  <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>
