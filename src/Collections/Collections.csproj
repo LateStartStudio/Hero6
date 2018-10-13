@@ -8,14 +8,14 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>bin\Release\Collections.xml</DocumentationFile>
-	<CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>bin\Debug\Collections.xml</DocumentationFile>
-	<CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <Import Project="..\.paket\Paket.Restore.targets" />
   <ItemGroup>
     <AdditionalFiles Include="..\stylecop.json" Link="stylecop.json" />
   </ItemGroup>
+  <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>
