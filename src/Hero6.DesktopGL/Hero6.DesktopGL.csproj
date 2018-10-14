@@ -65,12 +65,12 @@
     <EmbeddedResource Include="Icon.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <MonoGameContentReference Include="..\..\assets\Hero6.Content.mgcb">
-      <Link>Content\Hero6.Content.mgcb</Link>
-    </MonoGameContentReference>
     <AdditionalFiles Include="..\stylecop.json">
       <Link>stylecop.json</Link>
     </AdditionalFiles>
+    <MonoGameContentReference Include="..\Hero6.Content\Hero6.Content.mgcb">
+      <Link>Content\Hero6.Content.mgcb</Link>
+    </MonoGameContentReference>
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
