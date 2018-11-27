@@ -17,5 +17,8 @@
   <ItemGroup>
     <AdditionalFiles Include="..\stylecop.json" Link="stylecop.json" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Search\Search.csproj" />
+  </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>
