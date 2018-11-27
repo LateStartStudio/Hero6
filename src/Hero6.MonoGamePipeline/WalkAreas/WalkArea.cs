@@ -8,9 +8,9 @@ namespace LateStartStudio.Hero6.MonoGamePipeline.WalkAreas
 {
     using System;
     using System.Collections.Generic;
+    using System.Drawing;
     using System.Linq;
     using LateStartStudio.Search.Pathfinder;
-    using Microsoft.Xna.Framework;
 
     /// <summary>
     /// Representation of a single walk area for a room. The walk area is stored to disk as a image

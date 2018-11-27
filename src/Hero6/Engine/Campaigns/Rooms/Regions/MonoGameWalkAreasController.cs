@@ -7,6 +7,7 @@
 namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
 {
     using System.Collections.Generic;
+    using System.Linq;
     using LateStartStudio.Hero6.Engine.GameLoop;
     using LateStartStudio.Hero6.MonoGamePipeline.WalkAreas;
     using Microsoft.Xna.Framework;
@@ -62,7 +63,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
                     continue;
                 }
 
-                return area.GetPath(start, end);
+                return area.GetPath(start.ToDotNet(), end.ToDotNet()).Select(p => p.ToMonoGame());
             }
 
             return null;
