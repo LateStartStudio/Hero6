@@ -36,6 +36,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms
             campaigns = services.Get<ICampaigns>();
             content = services.Get<ContentManager>();
             spriteBatch = services.Get<SpriteBatch>();
+            walkAreas = new MonoGameWalkAreasController(Module.WalkAreasMask, content);
             hotspots = new MonoGameHotspotsController(Module.HotspotsMask, content);
         }
 
