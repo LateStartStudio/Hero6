@@ -40,7 +40,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
 
         public void Load()
         {
-            walkAreas.AddRange(content.Load<IEnumerable<WalkArea>>(source));
+            walkAreas.AddRange(content.Load<List<WalkArea>>(source));
             Initialize();
         }
 

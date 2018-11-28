@@ -16,7 +16,7 @@ namespace LateStartStudio.Hero6.MonoGamePipeline.WalkAreas
     /// Binary writer for the walk areas that converts the image masks into .xnb format.
     /// </summary>
     [ContentTypeWriter]
-    public class Writer : ContentTypeWriter<IEnumerable<WalkArea>>
+    public class Writer : ContentTypeWriter<List<WalkArea>>
     {
         /// <inheritdoc />
         public override string GetRuntimeReader(TargetPlatform targetPlatform)
@@ -25,7 +25,7 @@ namespace LateStartStudio.Hero6.MonoGamePipeline.WalkAreas
         }
 
         /// <inheritdoc />
-        protected override void Write(ContentWriter output, IEnumerable<WalkArea> value)
+        protected override void Write(ContentWriter output, List<WalkArea> value)
         {
             output.Write(value.Count());
 

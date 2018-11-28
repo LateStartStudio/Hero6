@@ -11,9 +11,9 @@ namespace LateStartStudio.Hero6.Engine.Assets
     using LateStartStudio.Search.Pathfinder;
     using Microsoft.Xna.Framework.Content;
 
-    public class MonoGameWalkAreaReader : ContentTypeReader<IEnumerable<WalkArea>>
+    public class MonoGameWalkAreaReader : ContentTypeReader<List<WalkArea>>
     {
-        protected override IEnumerable<WalkArea> Read(ContentReader input, IEnumerable<WalkArea> existingInstance)
+        protected override List<WalkArea> Read(ContentReader input, List<WalkArea> existingInstance)
         {
             var walkAreasCount = input.ReadInt32();
             var areas = new List<WalkArea>(walkAreasCount);

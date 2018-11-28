@@ -18,7 +18,7 @@ namespace LateStartStudio.Hero6.MonoGamePipeline.WalkAreas
     /// mask pixel-by-pixel and converts each pixel into a node to be used with the pathfinder.
     /// </summary>
     [ContentProcessor(DisplayName = "Walk Area Processor - Hero6")]
-    public class Processor : ContentProcessor<string[], IEnumerable<WalkArea>>
+    public class Processor : ContentProcessor<string[], List<WalkArea>>
     {
         private static readonly Vector2[] DirectionVectors =
             {
@@ -33,7 +33,7 @@ namespace LateStartStudio.Hero6.MonoGamePipeline.WalkAreas
             };
 
         /// <inheritdoc />
-        public override IEnumerable<WalkArea> Process(string[] input, ContentProcessorContext context)
+        public override List<WalkArea> Process(string[] input, ContentProcessorContext context)
         {
             var areas = new List<WalkArea>();
 
