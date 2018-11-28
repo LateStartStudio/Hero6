@@ -9,17 +9,20 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
     using System.Collections.Generic;
     using System.Linq;
     using LateStartStudio.Hero6.Engine.GameLoop;
-    using LateStartStudio.Hero6.MonoGamePipeline.WalkAreas;
     using Microsoft.Xna.Framework;
+    using Microsoft.Xna.Framework.Content;
 
     public class MonoGameWalkAreasController : WalkAreasController, IXnaGameLoop
     {
-        private readonly MonoGameWalkAreasModule monoGameWalkAreasModule;
+        private readonly string source;
+        private readonly ContentManager content;
+        private readonly List<WalkArea> walkAreas = new List<WalkArea>();
 
-        public MonoGameWalkAreasController(WalkAreasModule module)
-            : base(module)
+        public MonoGameWalkAreasController(string source, ContentManager content)
+            : base()
         {
-            monoGameWalkAreasModule = (MonoGameWalkAreasModule)module;
+            this.source = source;
+            this.content = content;
         }
 
         public override int Width { get; }
@@ -37,6 +40,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
 
         public void Load()
         {
+            walkAreas.AddRange(content.Load<IEnumerable<WalkArea>>(source));
             Initialize();
         }
 
@@ -54,7 +58,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
 
         public IEnumerable<Point> GetPath(Point start, Point end)
         {
-            foreach (var area in monoGameWalkAreasModule.Areas)
+            foreach (var area in walkAreas)
             {
                 if (
                     !area.Nodes.ContainsKey((start.Y * area.Width) + start.X) ||

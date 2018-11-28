@@ -8,13 +8,12 @@ namespace LateStartStudio.Hero6.Engine.Assets
 {
     using System.Collections.Generic;
     using LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions;
-    using LateStartStudio.Hero6.MonoGamePipeline.WalkAreas;
     using LateStartStudio.Search.Pathfinder;
     using Microsoft.Xna.Framework.Content;
 
-    public class MonoGameWalkAreaReader : ContentTypeReader<WalkAreasModule>
+    public class MonoGameWalkAreaReader : ContentTypeReader<IEnumerable<WalkArea>>
     {
-        protected override WalkAreasModule Read(ContentReader input, WalkAreasModule existingInstance)
+        protected override IEnumerable<WalkArea> Read(ContentReader input, IEnumerable<WalkArea> existingInstance)
         {
             var walkAreasCount = input.ReadInt32();
             var areas = new List<WalkArea>(walkAreasCount);
@@ -46,7 +45,7 @@ namespace LateStartStudio.Hero6.Engine.Assets
                 areas.Add(new WalkArea(width, height, nodes));
             }
 
-            return new MonoGameWalkAreasModule(areas);
+            return areas;
         }
     }
 }

@@ -6,7 +6,9 @@
 
 namespace LateStartStudio.Hero6.MonoGamePipeline.WalkAreas
 {
+    using System.Collections.Generic;
     using System.Linq;
+    using LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions;
     using Microsoft.Xna.Framework.Content.Pipeline;
     using Microsoft.Xna.Framework.Content.Pipeline.Serialization.Compiler;
 
@@ -14,7 +16,7 @@ namespace LateStartStudio.Hero6.MonoGamePipeline.WalkAreas
     /// Binary writer for the walk areas that converts the image masks into .xnb format.
     /// </summary>
     [ContentTypeWriter]
-    public class Writer : ContentTypeWriter<MonoGameWalkAreasModule>
+    public class Writer : ContentTypeWriter<IEnumerable<WalkArea>>
     {
         /// <inheritdoc />
         public override string GetRuntimeReader(TargetPlatform targetPlatform)
@@ -23,11 +25,11 @@ namespace LateStartStudio.Hero6.MonoGamePipeline.WalkAreas
         }
 
         /// <inheritdoc />
-        protected override void Write(ContentWriter output, MonoGameWalkAreasModule value)
+        protected override void Write(ContentWriter output, IEnumerable<WalkArea> value)
         {
-            output.Write(value.Areas.Count());
+            output.Write(value.Count());
 
-            foreach (var area in value.Areas)
+            foreach (var area in value)
             {
                 output.Write(area.Width);
                 output.Write(area.Height);

@@ -103,7 +103,6 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms
         public void Load()
         {
             background = content.Load<Texture2D>(Module.Background);
-            walkAreas = new MonoGameWalkAreasController(content.Load<WalkAreasModule>(Module.WalkAreasMask));
             walkAreas.PreInitialize();
             walkAreas.Initialize();
             walkAreas.Load();

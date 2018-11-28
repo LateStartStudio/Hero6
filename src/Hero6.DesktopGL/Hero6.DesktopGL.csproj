@@ -97,10 +97,6 @@
       <Project>{0c0586a3-5a10-42ce-b609-cc80ee2cef7a}</Project>
       <Name>Hero6.Engine</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Hero6.MonoGamePipeline\Hero6.MonoGamePipeline.csproj">
-      <Project>{43e058bb-a9a5-473f-ad4c-269239ba41e7}</Project>
-      <Name>Hero6.MonoGamePipeline</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Search\Search.csproj">
       <Project>{5c4a5d3d-46cf-4ddd-a64d-d3043458e2d3}</Project>
       <Name>Search</Name>

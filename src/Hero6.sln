@@ -7,52 +7,55 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Application
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Campaigns", "Campaigns", "{EBCC2EA9-CA3F-4409-A052-58D4AE69E967}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.Engine.Campaigns.RitesOfPassage", "Hero6.Engine.Campaigns.RitesOfPassage\Hero6.Engine.Campaigns.RitesOfPassage.csproj", "{DE807934-27EC-43A8-831F-15371284F11F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Engine.Campaigns.RitesOfPassage", "Hero6.Engine.Campaigns.RitesOfPassage\Hero6.Engine.Campaigns.RitesOfPassage.csproj", "{DE807934-27EC-43A8-831F-15371284F11F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{C7901A1A-E22C-468F-9E9A-9A891598E7D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collections", "Collections\Collections.csproj", "{596686F9-B236-4626-9841-CBB303EA58C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Collections", "Collections\Collections.csproj", "{596686F9-B236-4626-9841-CBB303EA58C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Search", "Search\Search.csproj", "{5C4A5D3D-46CF-4DDD-A64D-D3043458E2D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Search", "Search\Search.csproj", "{5C4A5D3D-46CF-4DDD-A64D-D3043458E2D3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Hero6", "Hero6\Hero6.shproj", "{DF3851F5-AEA2-4D44-BAB1-88E63C470F30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.Engine", "Hero6.Engine\Hero6.Engine.csproj", "{0C0586A3-5A10-42CE-B609-CC80EE2CEF7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Engine", "Hero6.Engine\Hero6.Engine.csproj", "{0C0586A3-5A10-42CE-B609-CC80EE2CEF7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collections.Tests", "Collections.Tests\Collections.Tests.csproj", "{6BEE8AAC-A058-40B2-9009-76416AA682BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Collections.Tests", "Collections.Tests\Collections.Tests.csproj", "{6BEE8AAC-A058-40B2-9009-76416AA682BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Search.Tests", "Search.Tests\Search.Tests.csproj", "{18480A92-0609-481E-99AD-6C3346829573}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Search.Tests", "Search.Tests\Search.Tests.csproj", "{18480A92-0609-481E-99AD-6C3346829573}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{8FAAE2BE-CD26-4E95-94AC-B2040AA7C8BA}"
 	ProjectSection(SolutionItems) = preProject
 		paket.dependencies = paket.dependencies
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.Engine.UserInterfaces.SierraVga", "Hero6.Engine.UserInterfaces.SierraVga\Hero6.Engine.UserInterfaces.SierraVga.csproj", "{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Engine.UserInterfaces.SierraVga", "Hero6.Engine.UserInterfaces.SierraVga\Hero6.Engine.UserInterfaces.SierraVga.csproj", "{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Hero6.Tests", "Hero6.Tests\Hero6.Tests.shproj", "{B59E1A53-68B3-4D31-8B69-CEFC3D5CEBB4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GUIs", "GUIs", "{863F4FF3-CB11-4C12-B99F-AA8CB0D9787D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.Engine.Tests", "Hero6.Engine.Tests\Hero6.Engine.Tests.csproj", "{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Engine.Tests", "Hero6.Engine.Tests\Hero6.Engine.Tests.csproj", "{5CD0CA14-E1C3-4CDA-9DEA-B22CB116DEAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.MonoGamePipeline", "Hero6.MonoGamePipeline\Hero6.MonoGamePipeline.csproj", "{43E058BB-A9A5-473F-AD4C-269239BA41E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.MonoGamePipeline", "Hero6.MonoGamePipeline\Hero6.MonoGamePipeline.csproj", "{43E058BB-A9A5-473F-AD4C-269239BA41E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.Localization", "Hero6.Localization\Hero6.Localization.csproj", "{CB706FAB-954B-462D-8590-5433A63E14E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Localization", "Hero6.Localization\Hero6.Localization.csproj", "{CB706FAB-954B-462D-8590-5433A63E14E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.Engine.UserInterfaces.SierraVga.Tests", "Hero6.Engine.UserInterfaces.SierraVga.Tests\Hero6.Engine.UserInterfaces.SierraVga.Tests.csproj", "{5F12337E-314A-49E5-B4E8-542B3FEA4C74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Engine.UserInterfaces.SierraVga.Tests", "Hero6.Engine.UserInterfaces.SierraVga.Tests\Hero6.Engine.UserInterfaces.SierraVga.Tests.csproj", "{5F12337E-314A-49E5-B4E8-542B3FEA4C74}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.DesktopGL.Tests", "Hero6.DesktopGL.Tests\Hero6.DesktopGL.Tests.csproj", "{33DCA6AB-2DF5-400A-B981-4E5B06CEC36D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.Repository.Tests", "Hero6.Repository.Tests\Hero6.Repository.Tests.csproj", "{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Repository.Tests", "Hero6.Repository.Tests\Hero6.Repository.Tests.csproj", "{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.Tests.HelperTools", "Hero6.Tests.HelperTools\Hero6.Tests.HelperTools.csproj", "{AFCFF1EB-729C-4DA5-B671-83396288DC3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Tests.HelperTools", "Hero6.Tests.HelperTools\Hero6.Tests.HelperTools.csproj", "{AFCFF1EB-729C-4DA5-B671-83396288DC3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.Engine.Campaigns.RitesOfPassage.Tests", "Hero6.Engine.Campaigns.RitesOfPassage.Tests\Hero6.Engine.Campaigns.RitesOfPassage.Tests.csproj", "{5BD8BDF3-2B54-4228-9272-BFCC6D1AE541}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Engine.Campaigns.RitesOfPassage.Tests", "Hero6.Engine.Campaigns.RitesOfPassage.Tests\Hero6.Engine.Campaigns.RitesOfPassage.Tests.csproj", "{5BD8BDF3-2B54-4228-9272-BFCC6D1AE541}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.DesktopGL", "Hero6.DesktopGL\Hero6.DesktopGL.csproj", "{D1071FFB-86E1-48DD-9F84-7D84ED962434}"
+	ProjectSection(ProjectDependencies) = postProject
+		{43E058BB-A9A5-473F-AD4C-269239BA41E7} = {43E058BB-A9A5-473F-AD4C-269239BA41E7}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
