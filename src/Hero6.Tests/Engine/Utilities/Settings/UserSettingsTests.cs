@@ -31,6 +31,7 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
         {
             userSettings.IsFullScreen = isFullScreen;
             userSettings.Save();
+            userSettings = new UserSettings();
             Assert.That(userSettings.IsFullScreen, Is.EqualTo(isFullScreen));
         }
 
@@ -46,6 +47,7 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
         {
             userSettings.WindowWidth = width;
             userSettings.Save();
+            userSettings = new UserSettings();
             Assert.That(userSettings.WindowWidth, Is.EqualTo(width));
         }
 
@@ -61,6 +63,7 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
         {
             userSettings.WindowHeight = height;
             userSettings.Save();
+            userSettings = new UserSettings();
             Assert.That(userSettings.WindowHeight, Is.EqualTo(height));
         }
 
