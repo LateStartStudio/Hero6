@@ -4,6 +4,7 @@ Eto.Platform.Gtk3
 Eto.Platform.Wpf
 MonoGame.Content.Builder
 MonoGame.Framework.DesktopGL
+Newtonsoft.Json
 OptimizedPriorityQueue
 StyleCop.Analyzers
 log4net

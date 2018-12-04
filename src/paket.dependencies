@@ -9,6 +9,7 @@ nuget Microsoft.NET.Test.Sdk
 nuget MonoGame.Content.Builder
 nuget MonoGame.Framework.Content.Pipeline.Portable
 nuget MonoGame.Framework.DesktopGL
+nuget Newtonsoft.Json
 nuget NSubstitute
 nuget NUnit
 nuget NUnit.Runners
