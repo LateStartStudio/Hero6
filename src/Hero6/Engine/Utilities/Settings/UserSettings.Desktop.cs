@@ -7,35 +7,33 @@
 #if DESKTOPGL
 namespace LateStartStudio.Hero6.Engine.Utilities.Settings
 {
-    using Properties;
-
     public class UserSettings : IUserSettings
     {
-        private readonly Settings settings;
+        private readonly Properties.Settings settings;
 
         public UserSettings()
         {
-            this.settings = Settings.Default;
+            settings = Properties.Settings.Default;
             GameStartedCount++;
             Save();
         }
 
         public bool IsFullScreen
         {
-            get { return this.settings.IsFullScreen; }
-            set { this.settings.IsFullScreen = value; }
+            get { return settings.IsFullScreen; }
+            set { settings.IsFullScreen = value; }
         }
 
         public int WindowWidth
         {
-            get { return this.settings.WindowWidth; }
-            set { this.settings.WindowWidth = value; }
+            get { return settings.WindowWidth; }
+            set { settings.WindowWidth = value; }
         }
 
         public int WindowHeight
         {
-            get { return this.settings.WindowHeight; }
-            set { this.settings.WindowHeight = value; }
+            get { return settings.WindowHeight; }
+            set { settings.WindowHeight = value; }
         }
 
         public int GameStartedCount
@@ -44,10 +42,9 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
             private set { settings.GameStartedCount = value; }
         }
 
-        public void Save()
-        {
-            this.settings.Save();
-        }
+        public void Save() => settings.Save();
+
+        public void Reset() => settings.Reset();
     }
 }
 #endif
