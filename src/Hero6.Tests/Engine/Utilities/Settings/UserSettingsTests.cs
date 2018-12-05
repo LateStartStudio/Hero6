@@ -70,6 +70,7 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
         [Test]
         public void GameStartedIncrementsWhenGameStart()
         {
+            userSettings.Reset();
             Assert.That(userSettings.GameStartedCount, Is.EqualTo(1));
             userSettings = new UserSettings();
             Assert.That(userSettings.GameStartedCount, Is.EqualTo(2));

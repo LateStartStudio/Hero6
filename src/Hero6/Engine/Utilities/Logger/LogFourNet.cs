@@ -8,7 +8,9 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Logger
 {
     using System;
     using System.IO;
+    using System.Reflection;
     using log4net;
+    using log4net.Config;
     using Settings;
 
     /// <summary>
@@ -26,8 +28,10 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Logger
         {
             this.userSettings = userSettings;
             this.Filename = LogFileName;
-            this.log = LogManager.GetLogger(typeof(LogFourNet).Name);
             this.WillDeleteLogOnDispose = true;
+            this.log = LogManager.GetLogger(typeof(LogFourNet));
+            var repo = LogManager.GetRepository(Assembly.GetEntryAssembly());
+            XmlConfigurator.Configure(repo, new FileInfo("Hero6.Logger.config"));
         }
 
         /// <summary>
@@ -49,7 +53,7 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Logger
         /// <inheritdoc />
         public bool WillDeleteLogOnDispose { get; set; }
 
-        private static string LogFilesDir => $"{Game.UserFilesDir}logs{Path.DirectorySeparatorChar}";
+        private static string LogFilesDir => $"{Game.UserFilesDir}.logs{Path.DirectorySeparatorChar}";
 
         private string LogFileName => $"{LogFilesDir}Hero6-Log-{userSettings.GameStartedCount}.txt";
 
