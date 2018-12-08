@@ -34,15 +34,6 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Logger
         }
 
         [Test]
-        public void Debug() => TestLog(t => logger.Debug(t), "DEBUG", "Test 1234");
-
-        [Test]
-        public void DebugWithException()
-        {
-            TestLog((t, e) => logger.Debug(t, e), "DEBUG", "Test 1234", new NullReferenceException());
-        }
-
-        [Test]
         public void Info() => TestLog(t => logger.Info(t), "INFO", "Test 1234");
 
         [Test]
@@ -67,15 +58,6 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Logger
         public void ErrorWithException()
         {
             TestLog((t, e) => logger.Error(t, e), "ERROR", "Test 1234", new NullReferenceException());
-        }
-
-        [Test]
-        public void Fatal() => TestLog(t => logger.Fatal(t), "FATAL", "Test 1234");
-
-        [Test]
-        public void FatalWithException()
-        {
-            TestLog((t, e) => logger.Fatal(t, e), "FATAL", "Test 1234", new NullReferenceException());
         }
 
         protected abstract ILogger Make();

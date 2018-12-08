@@ -44,5 +44,10 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
         /// Save settings to system.
         /// </summary>
         void Save();
+
+        /// <summary>
+        /// Reset settings to default values.
+        /// </summary>
+        void Reset();
     }
 }

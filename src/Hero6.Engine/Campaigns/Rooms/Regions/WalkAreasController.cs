@@ -14,9 +14,8 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
         /// <summary>
         /// Makes a new instance of the walk areas controller.
         /// </summary>
-        /// <param name="module">The module for this controller.</param>
-        protected WalkAreasController(WalkAreasModule module)
-            : base(module)
+        protected WalkAreasController()
+            : base(new WalkAreasModule())
         {
         }
     }

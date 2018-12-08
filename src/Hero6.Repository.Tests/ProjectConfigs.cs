@@ -34,17 +34,16 @@ namespace LateStartStudio.Hero6.Repository
         }
 
         [Test]
-        public void AllProjectsAreSetToDottNetLevel461()
+        public void AllProjectsAreSetToSupportedTargetFrameworkVersion()
         {
-            const string expected1 = "<TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>";
-            const string expected2 = "<TargetFramework>net461</TargetFramework>";
-
-            foreach (var f in files)
+            var expected = new string[]
             {
-                var content = File.ReadAllText(f);
-                var result = content.Contains(expected1) || content.Contains(expected2);
-                Assert.That(result, Is.True, f);
-            }
+                "<TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>",
+                "<TargetFramework>netstandard2.0</TargetFramework>",
+                "<TargetFramework>netcoreapp2.0</TargetFramework>",
+            };
+
+            files.ForEach(f => Assert.That(expected.Any(e => File.ReadAllText(f).Contains(e)), Is.True, f));
         }
 
         private static List<string> GetProjectFiles(string dir)

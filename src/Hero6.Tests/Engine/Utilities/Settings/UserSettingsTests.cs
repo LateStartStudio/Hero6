@@ -14,7 +14,16 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
         private IUserSettings userSettings;
 
         [SetUp]
-        public void SetUp() => this.userSettings = new UserSettings();
+        public void SetUp() => userSettings = new UserSettings();
+
+        [TearDown]
+        public void TearDown() => userSettings.Reset();
+
+        [Test]
+        public void IsFullScreenDefaultValueIsFalse()
+        {
+            Assert.That(userSettings.IsFullScreen, Is.EqualTo(false));
+        }
 
         [TestCase(true)]
         [TestCase(false)]
@@ -22,7 +31,14 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
         {
             userSettings.IsFullScreen = isFullScreen;
             userSettings.Save();
+            userSettings = new UserSettings();
             Assert.That(userSettings.IsFullScreen, Is.EqualTo(isFullScreen));
+        }
+
+        [Test]
+        public void WindowWidthDefaultValueIs960()
+        {
+            Assert.That(userSettings.WindowWidth, Is.EqualTo(960));
         }
 
         [TestCase(5)]
@@ -31,7 +47,14 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
         {
             userSettings.WindowWidth = width;
             userSettings.Save();
+            userSettings = new UserSettings();
             Assert.That(userSettings.WindowWidth, Is.EqualTo(width));
+        }
+
+        [Test]
+        public void WindowHeightDefaultValueIs720()
+        {
+            Assert.That(userSettings.WindowHeight, Is.EqualTo(720));
         }
 
         [TestCase(5)]
@@ -40,7 +63,17 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
         {
             userSettings.WindowHeight = height;
             userSettings.Save();
+            userSettings = new UserSettings();
             Assert.That(userSettings.WindowHeight, Is.EqualTo(height));
+        }
+
+        [Test]
+        public void GameStartedIncrementsWhenGameStart()
+        {
+            userSettings.Reset();
+            Assert.That(userSettings.GameStartedCount, Is.EqualTo(1));
+            userSettings = new UserSettings();
+            Assert.That(userSettings.GameStartedCount, Is.EqualTo(2));
         }
     }
 }

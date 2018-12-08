@@ -1,13 +1,12 @@
 source https://nuget.org/api/v2
 
-nuget Eto.Forms
-nuget Eto.Platform.Gtk
-nuget Eto.Platform.Gtk3
-nuget Eto.Platform.Wpf
 nuget log4net
+nuget Microsoft.NET.Test.Sdk
 nuget MonoGame.Content.Builder
 nuget MonoGame.Framework.Content.Pipeline.Portable
 nuget MonoGame.Framework.DesktopGL
+nuget MonoGame.Framework.DesktopGL.Core
+nuget Newtonsoft.Json
 nuget NSubstitute
 nuget NUnit
 nuget NUnit.Runners

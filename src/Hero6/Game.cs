@@ -7,8 +7,8 @@
 namespace LateStartStudio.Hero6
 {
     using System;
+    using System.Diagnostics;
     using System.IO;
-    using System.Reflection;
     using Engine.Campaigns;
     using Engine.UserInterfaces;
     using Engine.UserInterfaces.Input;
@@ -16,6 +16,7 @@ namespace LateStartStudio.Hero6
     using Engine.Utilities.DependencyInjection;
     using Engine.Utilities.Logger;
     using Engine.Utilities.Settings;
+    using log4net;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
 
@@ -44,12 +45,6 @@ namespace LateStartStudio.Hero6
             services.Add<IMouse, MonoGameMouse>();
             services.Add(logger);
             services.Add(Content);
-
-            logger.Info($"Hero6 {GraphicsApi} v{Assembly.GetExecutingAssembly().GetName().Version} Log");
-            logger.Info("Forums: http://www.hero6.org/forum/");
-            logger.Info("Bug Tracker: https://github.com/LateStartStudio/Hero6/issues");
-            logger.Info("E-mail: hero6lives@gmail.com");
-            logger.Info("Creating Hero6 Game Instance.");
 
             var graphics = new GraphicsDeviceManager(this)
             {
@@ -109,14 +104,16 @@ namespace LateStartStudio.Hero6
                 using (var game = new Game())
                 {
                     game.Run();
+                    throw new Exception();
                 }
             }
 #if !DEBUG
             catch (Exception e)
             {
-                logger.Fatal("Hero6 has crashed, logging stack strace.", e);
+                logger.Error("Hero6 has crashed, logging stack strace.", e);
                 logger.WillDeleteLogOnDispose = false;
-                new Eto.Forms.Application(Eto.Platform.Detect).Run(new CrashDialog(logger.Filename, e));
+                var p = new Process { StartInfo = { UseShellExecute = true, FileName = logger.Filename } };
+                p.Start();
             }
 #endif
             finally
