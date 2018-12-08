@@ -1,7 +1,5 @@
 source https://nuget.org/api/v2
 
-nuget Eto.Forms
-nuget Eto.Platform.Gtk
 nuget log4net
 nuget Microsoft.NET.Test.Sdk
 nuget MonoGame.Content.Builder
