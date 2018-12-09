@@ -1,4 +1,6 @@
 Microsoft.NET.Test.Sdk
+NSubstitute
+NSubstitute.Analyzers.CSharp
 NUnit
 NUnit3TestAdapter
 StyleCop.Analyzers

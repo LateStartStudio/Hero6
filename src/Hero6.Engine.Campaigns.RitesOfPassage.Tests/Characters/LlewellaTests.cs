@@ -38,7 +38,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Characters
         [Test]
         public void OnTalkShowTextWhenHeroHasBentSword()
         {
-            Services.Campaigns.Current.Player.HasInventoryItem<BentSword>().Returns(true);
+            Services.CampaignController.Player.HasInventoryItem<BentSword>().Returns(true);
             Module.Talk();
             Services.UserInterfaces.Current.Received().ShowTextBox(Strings.LlewellaTalk1);
         }
