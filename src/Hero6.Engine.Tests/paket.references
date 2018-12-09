@@ -3,3 +3,4 @@ NUnit
 NUnit3TestAdapter
 StyleCop.Analyzers
 NSubstitute
+NSubstitute.Analyzers.CSharp

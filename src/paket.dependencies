@@ -8,6 +8,7 @@ nuget MonoGame.Framework.DesktopGL
 nuget MonoGame.Framework.DesktopGL.Core
 nuget Newtonsoft.Json
 nuget NSubstitute
+nuget NSubstitute.Analyzers.CSharp
 nuget NUnit
 nuget NUnit.Runners
 nuget NUnit3TestAdapter
