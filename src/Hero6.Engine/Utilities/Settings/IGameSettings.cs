@@ -6,8 +6,10 @@
 
 namespace LateStartStudio.Hero6.Engine.Utilities.Settings
 {
+    using System.Drawing;
+
     /// <summary>
-    /// A colletion of settings that are specified at design-time.
+    /// A collection of settings that are specified at design-time.
     /// </summary>
     public interface IGameSettings
     {
@@ -24,9 +26,11 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
         /// <summary>
         /// Gets or sets a value indicating whether the game should run or not.
         /// </summary>
-        /// <value>
-        /// A value indicating whether the game should run or not.
-        /// </value>
         bool IsPaused { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value the scale from the window resolution to the game resolution.
+        /// </summary>
+        PointF WindowScale { get; set; }
     }
 }

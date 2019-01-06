@@ -1,4 +1,4 @@
-﻿// <copyright file="MonoGameMouse.cs" company="Late Start Studio">
+﻿// <copyright file="Mouse.cs" company="Late Start Studio">
 // Copyright (C) Late Start Studio
 // This file is subject to the terms and conditions of the MIT license specified in the file
 // 'LICENSE.CODE.md', which is a part of this source code package.
@@ -12,33 +12,34 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Input;
     using Utilities.Settings;
-    using Game = Game;
 
-    public class MonoGameMouse : IMouse, IXnaGameLoop
+    public class Mouse : IMouse, IXnaGameLoop
     {
         private readonly IGameSettings gameSettings;
+        private readonly IMouseCore mouseCore;
         private readonly List<MouseButton> buttons;
 
         private int previousX;
         private int previousY;
         private ICursor previousCursor;
 
-        public MonoGameMouse(IGameSettings gameSettings)
+        public Mouse(IGameSettings gameSettings, IMouseCore mouseCore)
         {
             this.gameSettings = gameSettings;
+            this.mouseCore = mouseCore;
 
             var left = new MouseButton(
-                () => Mouse.GetState().LeftButton,
+                () => mouseCore.LeftButton,
                 () => ButtonPress?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Left)),
                 () => ButtonHold?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Left)),
                 () => ButtonLift?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Left)));
             var middle = new MouseButton(
-                () => Mouse.GetState().MiddleButton,
+                () => mouseCore.MiddleButton,
                 () => ButtonPress?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Middle)),
                 () => ButtonHold?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Middle)),
                 () => ButtonLift?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Middle)));
             var right = new MouseButton(
-                () => Mouse.GetState().RightButton,
+                () => mouseCore.RightButton,
                 () => ButtonPress?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Right)),
                 () => ButtonHold?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Right)),
                 () => ButtonLift?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Right)));
@@ -57,19 +58,17 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
 
         public int X
         {
-            get { return Mouse.GetState().X / (int)Scale.X; }
-            set { Mouse.SetPosition(value * (int)Scale.X, Y * (int)Scale.Y); }
+            get { return mouseCore.X / (int)gameSettings.WindowScale.X; }
+            set { mouseCore.X = (int)(value * gameSettings.WindowScale.X); }
         }
 
         public int Y
         {
-            get { return Mouse.GetState().Y / (int)Scale.Y; }
-            set { Mouse.SetPosition(X * (int)Scale.X, value * (int)Scale.Y); }
+            get { return mouseCore.Y / (int)gameSettings.WindowScale.Y; }
+            set { mouseCore.Y = (int)(value * gameSettings.WindowScale.Y); }
         }
 
-        public int ScrollWheel => Mouse.GetState().ScrollWheelValue;
-
-        private static Vector3 Scale => Game.Transform.Scale();
+        public int ScrollWheel => mouseCore.ScrollWheel;
 
         public void Center()
         {

@@ -13,6 +13,10 @@ public static class Vextor2Extensions
 {
     public static PointF ToDotNet(this Vector2 vector) => new PointF(vector.X, vector.Y);
 
+    public static PointF ToDotNet(this Vector3 vector) => new PointF(vector.X, vector.Y);
+
+    public static Vector2 ToXna(this PointF vector) => new Vector2(vector.X, vector.Y);
+
     public static CharacterDirection ToCharacterDirection(this Vector2 vector)
     {
         if (vector == new Vector2(0f, 1f))

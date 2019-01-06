@@ -1,4 +1,4 @@
-﻿// <copyright file="Game.cs" company="Late Start Studio">
+// <copyright file="Game.cs" company="Late Start Studio">
 // Copyright (C) Late Start Studio
 // This file is subject to the terms and conditions of the MIT license specified in the file
 // 'LICENSE.CODE.md', which is a part of this source code package.
@@ -32,6 +32,7 @@ namespace LateStartStudio.Hero6
         private MonoGameUserInterfaces ui;
         private MonoGameCampaigns campaign;
         private SpriteBatch spriteBatch;
+        private Matrix transform = Matrix.Identity;
 
         private Game()
         {
@@ -42,7 +43,8 @@ namespace LateStartStudio.Hero6
             var userSettings = services.Make<UserSettings>(typeof(UserSettings));
             services.Add<IUserSettings>(userSettings);
             logger = services.Make<LogFourNet>(typeof(LogFourNet));
-            services.Add<IMouse, MonoGameMouse>();
+            services.Add<IMouseCore, MouseCore>();
+            services.Add<IMouse, Mouse>();
             services.Add(logger);
             services.Add(Content);
 
@@ -58,13 +60,13 @@ namespace LateStartStudio.Hero6
             };
             graphics.DeviceCreated += (s, a) =>
             {
-                this.spriteBatch = new SpriteBatch(GraphicsDevice);
+                spriteBatch = new SpriteBatch(GraphicsDevice);
                 services.Add(graphics);
                 services.Add(spriteBatch);
                 services.Add<IUserInterfaceGenerator, MonoGameUserInterfaceGenerator>();
-                this.campaign = new MonoGameCampaigns(services);
+                campaign = new MonoGameCampaigns(services);
                 services.Add<ICampaigns>(campaign);
-                this.ui = new MonoGameUserInterfaces(services);
+                ui = new MonoGameUserInterfaces(services);
                 services.Add<IUserInterfaces>(ui);
 
                 logger.Info("Graphics Device Created.");
@@ -76,10 +78,8 @@ namespace LateStartStudio.Hero6
             logger.Info("Hero6 Game Instance Created.");
         }
 
-        public static string UserFilesDir => string.Format(
-            "{0}{1}Hero6{1}",
-            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-            Path.DirectorySeparatorChar);
+        public static string UserFilesDir =>
+            $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}/Hero6/";
 
         public static string GraphicsApi
         {
@@ -95,8 +95,6 @@ namespace LateStartStudio.Hero6
             }
         }
 
-        public static Matrix Transform { get; set; } = Matrix.Identity;
-
         public static void Start()
         {
             try
@@ -104,7 +102,6 @@ namespace LateStartStudio.Hero6
                 using (var game = new Game())
                 {
                     game.Run();
-                    throw new Exception();
                 }
             }
 #if !DEBUG
@@ -132,7 +129,7 @@ namespace LateStartStudio.Hero6
             logger.Info("Initializing Hero6 game instance.");
 
             Window.Title = "Hero6";
-            SetScale();
+            UpdateScale();
             ui.Initialize();
             campaign.Initialize();
             ui.Current.GetWindow<StatusBar>().IsVisible = true;
@@ -194,7 +191,7 @@ namespace LateStartStudio.Hero6
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Begin(SpriteSortMode.Deferred, transformMatrix: Transform);
+            spriteBatch.Begin(SpriteSortMode.Deferred, transformMatrix: transform);
             campaign.Draw(time);
             ui.Draw(time);
             spriteBatch.End();
@@ -202,11 +199,12 @@ namespace LateStartStudio.Hero6
             base.Draw(time);
         }
 
-        private void SetScale()
+        private void UpdateScale()
         {
             var horScaling = GraphicsDevice.PresentationParameters.BackBufferWidth / gameSettings.NativeWidth;
             var verScaling = GraphicsDevice.PresentationParameters.BackBufferHeight / gameSettings.NativeHeight;
-            Transform = Matrix.CreateScale(horScaling, verScaling, 1.0f);
+            transform = Matrix.CreateScale(horScaling, verScaling, 1.0f);
+            gameSettings.WindowScale = transform.Scale().ToDotNet();
         }
     }
 }

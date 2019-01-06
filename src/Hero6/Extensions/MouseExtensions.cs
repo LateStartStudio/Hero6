@@ -10,9 +10,6 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
 
     public static class MouseExtensions
     {
-        public static IXnaGameLoop AsXnaGameLoop(this IMouse mouse)
-        {
-            return mouse as IXnaGameLoop;
-        }
+        public static IXnaGameLoop AsXnaGameLoop(this IMouse mouse) => mouse as IXnaGameLoop;
     }
 }

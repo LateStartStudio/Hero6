@@ -6,6 +6,8 @@
 
 namespace LateStartStudio.Hero6.Engine.Utilities.Settings
 {
+    using System.Drawing;
+
     public class GameSettings : IGameSettings
     {
         public int NativeWidth => 320;
@@ -13,5 +15,7 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
         public int NativeHeight => 240;
 
         public bool IsPaused { get; set; }
+
+        public PointF WindowScale { get; set; }
     }
 }
