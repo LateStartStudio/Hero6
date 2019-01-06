@@ -27,23 +27,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
         {
             this.gameSettings = gameSettings;
             this.mouseCore = mouseCore;
-
-            var left = new MouseButton(
-                () => mouseCore.LeftButton,
-                () => ButtonPress?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Left)),
-                () => ButtonHold?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Left)),
-                () => ButtonLift?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Left)));
-            var middle = new MouseButton(
-                () => mouseCore.MiddleButton,
-                () => ButtonPress?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Middle)),
-                () => ButtonHold?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Middle)),
-                () => ButtonLift?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Middle)));
-            var right = new MouseButton(
-                () => mouseCore.RightButton,
-                () => ButtonPress?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Right)),
-                () => ButtonHold?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Right)),
-                () => ButtonLift?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Right)));
-            buttons = new List<MouseButton> { left, middle, right };
+            buttons = new List<MouseButton>();
         }
 
         public event EventHandler<MouseMove> Move;
@@ -88,6 +72,21 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
 
         public void Initialize()
         {
+            buttons.Add(new MouseButton(
+                () => mouseCore.LeftButton,
+                () => ButtonPress?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Left)),
+                () => ButtonHold?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Left)),
+                () => ButtonLift?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Left))));
+            buttons.Add(new MouseButton(
+                () => mouseCore.MiddleButton,
+                () => ButtonPress?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Middle)),
+                () => ButtonHold?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Middle)),
+                () => ButtonLift?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Middle))));
+            buttons.Add(new MouseButton(
+                () => mouseCore.RightButton,
+                () => ButtonPress?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Right)),
+                () => ButtonHold?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Right)),
+                () => ButtonLift?.Invoke(this, new MouseButtonInteraction(X, Y, Input.MouseButton.Right))));
         }
 
         public void Load()
