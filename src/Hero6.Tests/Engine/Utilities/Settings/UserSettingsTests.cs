@@ -11,69 +11,69 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
     [TestFixture]
     public class UserSettingsTests
     {
-        private IUserSettings userSettings;
+        // private IUserSettings userSettings;
 
-        [SetUp]
-        public void SetUp() => userSettings = new UserSettings();
+        // [SetUp]
+        // public void SetUp() => userSettings = new UserSettings();
 
-        [TearDown]
-        public void TearDown() => userSettings.Reset();
+        // [TearDown]
+        // public void TearDown() => userSettings.Reset();
 
-        [Test]
-        public void IsFullScreenDefaultValueIsFalse()
-        {
-            Assert.That(userSettings.IsFullScreen, Is.EqualTo(false));
-        }
+        // [Test]
+        // public void IsFullScreenDefaultValueIsFalse()
+        // {
+        //     Assert.That(userSettings.IsFullScreen, Is.EqualTo(false));
+        // }
 
-        [TestCase(true)]
-        [TestCase(false)]
-        public void GetAndSetIsFullScreen(bool isFullScreen)
-        {
-            userSettings.IsFullScreen = isFullScreen;
-            userSettings.Save();
-            userSettings = new UserSettings();
-            Assert.That(userSettings.IsFullScreen, Is.EqualTo(isFullScreen));
-        }
+        // [TestCase(true)]
+        // [TestCase(false)]
+        // public void GetAndSetIsFullScreen(bool isFullScreen)
+        // {
+        //     userSettings.IsFullScreen = isFullScreen;
+        //     userSettings.Save();
+        //     userSettings = new UserSettings();
+        //     Assert.That(userSettings.IsFullScreen, Is.EqualTo(isFullScreen));
+        // }
 
-        [Test]
-        public void WindowWidthDefaultValueIs960()
-        {
-            Assert.That(userSettings.WindowWidth, Is.EqualTo(960));
-        }
+        // [Test]
+        // public void WindowWidthDefaultValueIs960()
+        // {
+        //     Assert.That(userSettings.WindowWidth, Is.EqualTo(960));
+        // }
 
-        [TestCase(5)]
-        [TestCase(10)]
-        public void GetAndSetWindowWidth(int width)
-        {
-            userSettings.WindowWidth = width;
-            userSettings.Save();
-            userSettings = new UserSettings();
-            Assert.That(userSettings.WindowWidth, Is.EqualTo(width));
-        }
+        // [TestCase(5)]
+        // [TestCase(10)]
+        // public void GetAndSetWindowWidth(int width)
+        // {
+        //     userSettings.WindowWidth = width;
+        //     userSettings.Save();
+        //     userSettings = new UserSettings();
+        //     Assert.That(userSettings.WindowWidth, Is.EqualTo(width));
+        // }
 
-        [Test]
-        public void WindowHeightDefaultValueIs720()
-        {
-            Assert.That(userSettings.WindowHeight, Is.EqualTo(720));
-        }
+        // [Test]
+        // public void WindowHeightDefaultValueIs720()
+        // {
+        //     Assert.That(userSettings.WindowHeight, Is.EqualTo(720));
+        // }
 
-        [TestCase(5)]
-        [TestCase(10)]
-        public void GetAndSetWindowHeight(int height)
-        {
-            userSettings.WindowHeight = height;
-            userSettings.Save();
-            userSettings = new UserSettings();
-            Assert.That(userSettings.WindowHeight, Is.EqualTo(height));
-        }
+        // [TestCase(5)]
+        // [TestCase(10)]
+        // public void GetAndSetWindowHeight(int height)
+        // {
+        //     userSettings.WindowHeight = height;
+        //     userSettings.Save();
+        //     userSettings = new UserSettings();
+        //     Assert.That(userSettings.WindowHeight, Is.EqualTo(height));
+        // }
 
-        [Test]
-        public void GameStartedIncrementsWhenGameStart()
-        {
-            userSettings.Reset();
-            Assert.That(userSettings.GameStartedCount, Is.EqualTo(1));
-            userSettings = new UserSettings();
-            Assert.That(userSettings.GameStartedCount, Is.EqualTo(2));
-        }
+        // [Test]
+        // public void GameStartedIncrementsWhenGameStart()
+        // {
+        //     userSettings.Reset();
+        //     Assert.That(userSettings.GameStartedCount, Is.EqualTo(1));
+        //     userSettings = new UserSettings();
+        //     Assert.That(userSettings.GameStartedCount, Is.EqualTo(2));
+        // }
     }
 }

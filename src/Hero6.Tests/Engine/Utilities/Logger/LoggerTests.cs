@@ -12,95 +12,95 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Logger
 
     public abstract class LoggerTests
     {
-        private ILogger logger;
+        // private ILogger logger;
 
-        [SetUp]
-        public void SetUp() => this.logger = Make();
+        // [SetUp]
+        // public void SetUp() => this.logger = Make();
 
-        [TearDown]
-        public void TearDown() => this.logger.WillDeleteLogOnDispose = true;
+        // [TearDown]
+        // public void TearDown() => this.logger.WillDeleteLogOnDispose = true;
 
-        [Test]
-        public void GetFilename() => Assert.That(File.Exists(logger.Filename), Is.True);
+        // [Test]
+        // public void GetFilename() => Assert.That(File.Exists(logger.Filename), Is.True);
 
-        [Test]
-        public void WillDeleteLogOnDisposeIsTrueByDefault() => Assert.That(logger.WillDeleteLogOnDispose, Is.True);
+        // [Test]
+        // public void WillDeleteLogOnDisposeIsTrueByDefault() => Assert.That(logger.WillDeleteLogOnDispose, Is.True);
 
-        [Test]
-        public void GetAndSetWillDeleteLogOnDispose()
-        {
-            logger.WillDeleteLogOnDispose = false;
-            Assert.That(logger.WillDeleteLogOnDispose, Is.False);
-        }
+        // [Test]
+        // public void GetAndSetWillDeleteLogOnDispose()
+        // {
+        //     logger.WillDeleteLogOnDispose = false;
+        //     Assert.That(logger.WillDeleteLogOnDispose, Is.False);
+        // }
 
-        [Test]
-        public void Info() => TestLog(t => logger.Info(t), "INFO", "Test 1234");
+        // [Test]
+        // public void Info() => TestLog(t => logger.Info(t), "INFO", "Test 1234");
 
-        [Test]
-        public void InfoWithException()
-        {
-            TestLog((t, e) => logger.Info(t, e), "INFO", "Test 1234", new NullReferenceException());
-        }
+        // [Test]
+        // public void InfoWithException()
+        // {
+        //     TestLog((t, e) => logger.Info(t, e), "INFO", "Test 1234", new NullReferenceException());
+        // }
 
-        [Test]
-        public void Warning() => TestLog(t => logger.Warning(t), "WARN", "Test 1234");
+        // [Test]
+        // public void Warning() => TestLog(t => logger.Warning(t), "WARN", "Test 1234");
 
-        [Test]
-        public void WarningWithException()
-        {
-            TestLog((t, e) => logger.Warning(t, e), "WARN", "Test 1234", new NullReferenceException());
-        }
+        // [Test]
+        // public void WarningWithException()
+        // {
+        //     TestLog((t, e) => logger.Warning(t, e), "WARN", "Test 1234", new NullReferenceException());
+        // }
 
-        [Test]
-        public void Error() => TestLog(t => logger.Error(t), "ERROR", "Test 1234");
+        // [Test]
+        // public void Error() => TestLog(t => logger.Error(t), "ERROR", "Test 1234");
 
-        [Test]
-        public void ErrorWithException()
-        {
-            TestLog((t, e) => logger.Error(t, e), "ERROR", "Test 1234", new NullReferenceException());
-        }
+        // [Test]
+        // public void ErrorWithException()
+        // {
+        //     TestLog((t, e) => logger.Error(t, e), "ERROR", "Test 1234", new NullReferenceException());
+        // }
 
-        protected abstract ILogger Make();
+        // protected abstract ILogger Make();
 
-        private void TestLog(Action<string> log, string level, string text)
-        {
-            log(text);
-            TestLog(level, text);
-        }
+        // private void TestLog(Action<string> log, string level, string text)
+        // {
+        //     log(text);
+        //     TestLog(level, text);
+        // }
 
-        private void TestLog(Action<string, Exception> log, string level, string text, Exception e)
-        {
-            log(text, e);
-            TestLog(level, text, e);
-        }
+        // private void TestLog(Action<string, Exception> log, string level, string text, Exception e)
+        // {
+        //     log(text, e);
+        //     TestLog(level, text, e);
+        // }
 
-        private void TestLog(string level, string text, Exception e = null)
-        {
-            var content = GetLogContents();
+        // private void TestLog(string level, string text, Exception e = null)
+        // {
+        //     var content = GetLogContents();
 
-            Assert.That(content.Contains(level), Is.True);
-            Assert.That(content.Contains(text), Is.True);
+        //     Assert.That(content.Contains(level), Is.True);
+        //     Assert.That(content.Contains(text), Is.True);
 
-            if (e != null)
-            {
-                Assert.That(content.Contains(e.ToString()), Is.True);
-            }
-        }
+        //     if (e != null)
+        //     {
+        //         Assert.That(content.Contains(e.ToString()), Is.True);
+        //     }
+        // }
 
-        private string GetLogContents()
-        {
-            string result;
+        // private string GetLogContents()
+        // {
+        //     string result;
 
-            // File is open in logger so we must use streams instead of System.IO.File.Read
-            using (var f = new FileStream(logger.Filename, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-            {
-                using (var s = new StreamReader(f))
-                {
-                    result = s.ReadToEnd();
-                }
-            }
+        //     // File is open in logger so we must use streams instead of System.IO.File.Read
+        //     using (var f = new FileStream(logger.Filename, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+        //     {
+        //         using (var s = new StreamReader(f))
+        //         {
+        //             result = s.ReadToEnd();
+        //         }
+        //     }
 
-            return result;
-        }
+        //     return result;
+        // }
     }
 }
