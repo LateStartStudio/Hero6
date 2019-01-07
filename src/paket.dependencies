@@ -1,5 +1,6 @@
 source https://nuget.org/api/v2
 
+nuget Codecov
 nuget coverlet.msbuild
 nuget log4net
 nuget Microsoft.NET.Test.Sdk
