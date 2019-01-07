@@ -11,6 +11,7 @@ NUGET
       System.Reflection.Emit (>= 4.3) - restriction: && (< net35) (>= netstandard1.3)
       System.Reflection.TypeExtensions (>= 4.3) - restriction: && (< net35) (>= netstandard1.3)
       System.Xml.XmlDocument (>= 4.3) - restriction: && (< net35) (>= netstandard1.3)
+    coverlet.msbuild (2.5)
     log4net (2.0.8)
       System.AppContext (>= 4.1) - restriction: && (< net20) (>= netstandard1.3)
       System.Collections.NonGeneric (>= 4.0.1) - restriction: && (< net20) (>= netstandard1.3)

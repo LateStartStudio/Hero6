@@ -13,6 +13,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Campaigns\Animations\MonoGameCharacterAnimationController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Input\IMouseCore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Input\MouseCore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\FileWrapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\Logger\ILoggerCore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\Logger\LoggerCore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\CampaignExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Campaigns\Characters\MonoGameCharacterController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Campaigns\Characters\Stats\Hero6LearningStatController.cs" />
@@ -42,9 +45,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\MonoGameUserInterfaces.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\DependencyInjection\IServices.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\DependencyInjection\MonoGameServices.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\Logger\LogFourNet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\Logger\Logger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\Settings\GameSettings.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\Settings\UserSettings.Android.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\Settings\UserSettings.Desktop.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ColorExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\PointExtensions.cs" />

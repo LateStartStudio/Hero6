@@ -11,13 +11,16 @@ namespace LateStartStudio.Hero6.Tests.HelperTools
     using Engine.UserInterfaces.Input;
     using Engine.Utilities.Settings;
     using NSubstitute;
+    using Utilities;
 
     public class ServicesProvider
     {
         protected ServicesProvider()
         {
+            File = new FileWrapperStub();
             Mouse = Substitute.For<IMouse>();
             GameSettings = Substitute.For<IGameSettings>();
+            UserSettings = Substitute.For<IUserSettings>();
             Campaigns = Substitute.For<ICampaigns>();
             Campaigns.Current = Substitute.For<CampaignModule>();
             UserInterfaces = Substitute.For<IUserInterfaces>();
@@ -25,9 +28,13 @@ namespace LateStartStudio.Hero6.Tests.HelperTools
             UserInterfaceGenerator = new UserInterfacesGeneratorStub(Mouse);
         }
 
+        public FileWrapperStub File { get; protected set; }
+
         public IMouse Mouse { get; protected set; }
 
         public IGameSettings GameSettings { get; protected set; }
+
+        public IUserSettings UserSettings { get; protected set; }
 
         public ICampaigns Campaigns { get; protected set; }
 

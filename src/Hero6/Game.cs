@@ -13,10 +13,10 @@ namespace LateStartStudio.Hero6
     using Engine.UserInterfaces;
     using Engine.UserInterfaces.Input;
     using Engine.UserInterfaces.SierraVga.Windows;
+    using Engine.Utilities;
     using Engine.Utilities.DependencyInjection;
     using Engine.Utilities.Logger;
     using Engine.Utilities.Settings;
-    using log4net;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
 
@@ -25,7 +25,7 @@ namespace LateStartStudio.Hero6
     /// </summary>
     public class Game : Microsoft.Xna.Framework.Game
     {
-        private static ILogger logger;
+        private static Logger logger;
 
         private readonly GameSettings gameSettings;
 
@@ -39,13 +39,15 @@ namespace LateStartStudio.Hero6
             Content.RootDirectory = "Content";
             var services = new MonoGameServices(Services);
             gameSettings = new GameSettings();
+            services.Add<IFileWrapper, FileWrapper>();
             services.Add<IGameSettings>(gameSettings);
             var userSettings = services.Make<UserSettings>(typeof(UserSettings));
             services.Add<IUserSettings>(userSettings);
-            logger = services.Make<LogFourNet>(typeof(LogFourNet));
+            services.Add<ILoggerCore, LoggerCore>();
+            logger = services.Make<Logger>(typeof(Logger));
             services.Add<IMouseCore, MouseCore>();
             services.Add<IMouse, Mouse>();
-            services.Add(logger);
+            services.Add<ILogger>(logger);
             services.Add(Content);
 
             var graphics = new GraphicsDeviceManager(this)
@@ -107,7 +109,8 @@ namespace LateStartStudio.Hero6
 #if !DEBUG
             catch (Exception e)
             {
-                logger.Error("Hero6 has crashed, logging stack strace.", e);
+                logger.Error("Hero6 has crashed, logging stack trace.");
+                logger.Exception(e);
                 logger.WillDeleteLogOnDispose = false;
                 var p = new Process { StartInfo = { UseShellExecute = true, FileName = logger.Filename } };
                 p.Start();
@@ -126,6 +129,7 @@ namespace LateStartStudio.Hero6
         /// </summary>
         protected override void Initialize()
         {
+            logger.Initialize();
             logger.Info("Initializing Hero6 game instance.");
 
             Window.Title = "Hero6";

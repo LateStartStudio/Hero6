@@ -6,18 +6,22 @@
 
 namespace LateStartStudio.Hero6.Engine.Utilities.Settings
 {
+    using LateStartStudio.Hero6.Tests.HelperTools.Utilities;
     using NUnit.Framework;
 
     [TestFixture]
     public class UserSettingsTests
     {
-        private IUserSettings userSettings;
+        private FileWrapperStub file;
+        private UserSettings userSettings;
 
         [SetUp]
-        public void SetUp() => userSettings = new UserSettings();
-
-        [TearDown]
-        public void TearDown() => userSettings.Reset();
+        public void SetUp()
+        {
+            var services = new Hero6ServicesProvider();
+            file = services.File;
+            userSettings = MakeUserSettings();
+        }
 
         [Test]
         public void IsFullScreenDefaultValueIsFalse()
@@ -27,11 +31,11 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
 
         [TestCase(true)]
         [TestCase(false)]
-        public void GetAndSetIsFullScreen(bool isFullScreen)
+        public void GetAndSetIsFullScreenPersistsOnNewInstance(bool isFullScreen)
         {
             userSettings.IsFullScreen = isFullScreen;
             userSettings.Save();
-            userSettings = new UserSettings();
+            userSettings = MakeUserSettings();
             Assert.That(userSettings.IsFullScreen, Is.EqualTo(isFullScreen));
         }
 
@@ -47,7 +51,7 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
         {
             userSettings.WindowWidth = width;
             userSettings.Save();
-            userSettings = new UserSettings();
+            userSettings = MakeUserSettings();
             Assert.That(userSettings.WindowWidth, Is.EqualTo(width));
         }
 
@@ -63,17 +67,27 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
         {
             userSettings.WindowHeight = height;
             userSettings.Save();
-            userSettings = new UserSettings();
+            userSettings = MakeUserSettings();
             Assert.That(userSettings.WindowHeight, Is.EqualTo(height));
         }
 
         [Test]
-        public void GameStartedIncrementsWhenGameStart()
+        public void GameStartedIncrementsOnNewInstance()
+        {
+            Assert.That(userSettings.GameStartedCount, Is.EqualTo(1));
+            userSettings = MakeUserSettings();
+            Assert.That(userSettings.GameStartedCount, Is.EqualTo(2));
+            userSettings = MakeUserSettings();
+            Assert.That(userSettings.GameStartedCount, Is.EqualTo(3));
+        }
+
+        [Test]
+        public void ResetDeletesFile()
         {
             userSettings.Reset();
-            Assert.That(userSettings.GameStartedCount, Is.EqualTo(1));
-            userSettings = new UserSettings();
-            Assert.That(userSettings.GameStartedCount, Is.EqualTo(2));
+            Assert.That(file.DeleteInvoked, Is.True);
         }
+
+        private UserSettings MakeUserSettings() => new UserSettings(file);
     }
 }

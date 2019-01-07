@@ -7,6 +7,7 @@
 namespace LateStartStudio.Hero6
 {
     using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+    using LateStartStudio.Hero6.Engine.Utilities.Logger;
     using LateStartStudio.Hero6.Tests.HelperTools;
     using NSubstitute;
 
@@ -15,8 +16,11 @@ namespace LateStartStudio.Hero6
         public Hero6ServicesProvider()
         {
             MouseCore = Substitute.For<IMouseCore>();
+            LoggerCore = Substitute.For<ILoggerCore>();
         }
 
         public IMouseCore MouseCore { get; }
+
+        public ILoggerCore LoggerCore { get; }
     }
 }
