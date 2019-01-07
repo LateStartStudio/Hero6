@@ -11,11 +11,13 @@ namespace LateStartStudio.Hero6.Tests.HelperTools
     using Engine.UserInterfaces.Input;
     using Engine.Utilities.Settings;
     using NSubstitute;
+    using Utilities;
 
     public class ServicesProvider
     {
         protected ServicesProvider()
         {
+            File = new FileWrapperStub();
             Mouse = Substitute.For<IMouse>();
             GameSettings = Substitute.For<IGameSettings>();
             UserSettings = Substitute.For<IUserSettings>();
@@ -25,6 +27,8 @@ namespace LateStartStudio.Hero6.Tests.HelperTools
             UserInterfaces.Current = Substitute.For<UserInterface>();
             UserInterfaceGenerator = new UserInterfacesGeneratorStub(Mouse);
         }
+
+        public FileWrapperStub File { get; protected set; }
 
         public IMouse Mouse { get; protected set; }
 

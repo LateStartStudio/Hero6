@@ -13,10 +13,10 @@ namespace LateStartStudio.Hero6
     using Engine.UserInterfaces;
     using Engine.UserInterfaces.Input;
     using Engine.UserInterfaces.SierraVga.Windows;
+    using Engine.Utilities;
     using Engine.Utilities.DependencyInjection;
     using Engine.Utilities.Logger;
     using Engine.Utilities.Settings;
-    using log4net;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
 
@@ -39,6 +39,7 @@ namespace LateStartStudio.Hero6
             Content.RootDirectory = "Content";
             var services = new MonoGameServices(Services);
             gameSettings = new GameSettings();
+            services.Add<IFileWrapper, FileWrapper>();
             services.Add<IGameSettings>(gameSettings);
             var userSettings = services.Make<UserSettings>(typeof(UserSettings));
             services.Add<IUserSettings>(userSettings);
