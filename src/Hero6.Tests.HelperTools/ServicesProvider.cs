@@ -18,6 +18,7 @@ namespace LateStartStudio.Hero6.Tests.HelperTools
         {
             Mouse = Substitute.For<IMouse>();
             GameSettings = Substitute.For<IGameSettings>();
+            UserSettings = Substitute.For<IUserSettings>();
             Campaigns = Substitute.For<ICampaigns>();
             Campaigns.Current = Substitute.For<CampaignModule>();
             UserInterfaces = Substitute.For<IUserInterfaces>();
@@ -28,6 +29,8 @@ namespace LateStartStudio.Hero6.Tests.HelperTools
         public IMouse Mouse { get; protected set; }
 
         public IGameSettings GameSettings { get; protected set; }
+
+        public IUserSettings UserSettings { get; protected set; }
 
         public ICampaigns Campaigns { get; protected set; }
 

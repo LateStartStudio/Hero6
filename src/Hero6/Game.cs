@@ -25,7 +25,7 @@ namespace LateStartStudio.Hero6
     /// </summary>
     public class Game : Microsoft.Xna.Framework.Game
     {
-        private static ILogger logger;
+        private static Logger logger;
 
         private readonly GameSettings gameSettings;
 
@@ -42,10 +42,11 @@ namespace LateStartStudio.Hero6
             services.Add<IGameSettings>(gameSettings);
             var userSettings = services.Make<UserSettings>(typeof(UserSettings));
             services.Add<IUserSettings>(userSettings);
-            logger = services.Make<LogFourNet>(typeof(LogFourNet));
+            services.Add<ILoggerCore, LoggerCore>();
+            logger = services.Make<Logger>(typeof(Logger));
             services.Add<IMouseCore, MouseCore>();
             services.Add<IMouse, Mouse>();
-            services.Add(logger);
+            services.Add<ILogger>(logger);
             services.Add(Content);
 
             var graphics = new GraphicsDeviceManager(this)
@@ -126,6 +127,7 @@ namespace LateStartStudio.Hero6
         /// </summary>
         protected override void Initialize()
         {
+            logger.Initialize();
             logger.Info("Initializing Hero6 game instance.");
 
             Window.Title = "Hero6";
