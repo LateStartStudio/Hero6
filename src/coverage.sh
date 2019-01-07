@@ -17,4 +17,4 @@ dotnet test ./Hero6.DesktopGL.Tests/Hero6.DesktopGL.Tests.csproj --no-build -p:C
 
 # Report to Codecov
 dotnet test ./Hero6.DesktopGL.Tests/Hero6.DesktopGL.Tests.csproj --no-build -p:Configuration=$CONFIG -p:CollectCoverage=true -p:CoverletOutputFormat=opencover -p:CoverletOutput='../.coverage/Hero6.xml' -p:MergeWith='../.coverage/Hero6.Engine.UserInterfaces.SierraVga.json'
-./packages/Codecov/tools/codecov -f "./.coverage/Hero6.xml" -t $CODECOV_TOKEN
+./packages/Codecov/tools/codecov.exe -f "./.coverage/Hero6.xml" -t $CODECOV_TOKEN
