@@ -7,44 +7,37 @@
 namespace LateStartStudio.Hero6.Engine.Assets
 {
     using System.Collections.Generic;
-
-    using LateStartStudio.Hero6.Engine.Campaigns.Regions;
+    using LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions;
     using LateStartStudio.Search.Pathfinder;
-
     using Microsoft.Xna.Framework.Content;
 
-    using TRead = LateStartStudio.Hero6.Engine.Campaigns.Regions.WalkAreas;
-
-    public class MonoGameWalkAreaReader : ContentTypeReader<TRead>
+    public class MonoGameWalkAreaReader : ContentTypeReader<List<WalkArea>>
     {
-        protected override TRead Read(ContentReader input, TRead existingInstance)
+        protected override List<WalkArea> Read(ContentReader input, List<WalkArea> existingInstance)
         {
-            int walkAreasCount = input.ReadInt32();
-            IList<WalkArea> areas = new List<WalkArea>(walkAreasCount);
+            var walkAreasCount = input.ReadInt32();
+            var areas = new List<WalkArea>(walkAreasCount);
 
-            for (int i = 0; i < walkAreasCount; i++)
+            for (var i = 0; i < walkAreasCount; i++)
             {
-                int width = input.ReadInt32();
-                int height = input.ReadInt32();
-                int nodeCount = input.ReadInt32();
+                var width = input.ReadInt32();
+                var height = input.ReadInt32();
+                var nodeCount = input.ReadInt32();
+                var nodes = new Dictionary<int, Node>();
 
-                IDictionary<int, Node> nodes = new Dictionary<int, Node>();
-
-                for (int j = 0; j < nodeCount; j++)
+                for (var j = 0; j < nodeCount; j++)
                 {
-                    int id = input.ReadInt32();
-
+                    var id = input.ReadInt32();
                     nodes.Add(id, new Node(id));
                 }
 
-                foreach (KeyValuePair<int, Node> node in nodes)
+                foreach (var node in nodes)
                 {
-                    int childrenCount = input.ReadInt32();
+                    var childrenCount = input.ReadInt32();
 
-                    for (int k = 0; k < childrenCount; k++)
+                    for (var k = 0; k < childrenCount; k++)
                     {
-                        int id = input.ReadInt32();
-
+                        var id = input.ReadInt32();
                         nodes[node.Key].Children.Add(nodes[id]);
                     }
                 }
@@ -52,7 +45,7 @@ namespace LateStartStudio.Hero6.Engine.Assets
                 areas.Add(new WalkArea(width, height, nodes));
             }
 
-            return new TRead(areas);
+            return areas;
         }
     }
 }

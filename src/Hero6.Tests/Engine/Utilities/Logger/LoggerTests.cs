@@ -7,118 +7,101 @@
 namespace LateStartStudio.Hero6.Engine.Utilities.Logger
 {
     using System;
-    using System.IO;
+    using LateStartStudio.Hero6.Engine.Utilities.Settings;
+    using Microsoft.Xna.Framework;
+    using NSubstitute;
     using NUnit.Framework;
 
-    public abstract class LoggerTests
+    [TestFixture]
+    public class LoggerTests
     {
-        private ILogger logger;
+        private IUserSettings userSettings;
+        private ILoggerCore loggerCore;
+        private Logger logger;
 
         [SetUp]
-        public void SetUp() => this.logger = Make();
+        public void SetUp()
+        {
+            var services = new Hero6ServicesProvider();
+            userSettings = services.UserSettings;
+            loggerCore = services.LoggerCore;
+            logger = new Logger(userSettings, loggerCore);
+            logger.Initialize();
+            logger.Load();
+        }
 
         [TearDown]
-        public void TearDown() => this.logger.WillDeleteLogOnDispose = true;
+        public void TearDown() => logger.Unload();
 
-        [Test]
-        public void GetFilename() => Assert.That(File.Exists(logger.Filename), Is.True);
+        [TestCase("Test 1")]
+        [TestCase("Test 2")]
+        public void GetFilenameIsRetrievedFromCore(string filename)
+        {
+            loggerCore.Filename = filename;
+            Assert.That(logger.Filename, Is.EqualTo(filename));
+        }
 
         [Test]
         public void WillDeleteLogOnDisposeIsTrueByDefault() => Assert.That(logger.WillDeleteLogOnDispose, Is.True);
 
         [Test]
-        public void GetAndSetWillDeleteLogOnDispose()
+        public void DisposeDeletesLogWhenFlagIsTrue()
+        {
+            logger.WillDeleteLogOnDispose = true;
+            logger.Dispose();
+            loggerCore.Received().DeleteLog();
+        }
+
+        [Test]
+        public void DisposeDoesNotDeleteLogWhenFlagIsFalse()
         {
             logger.WillDeleteLogOnDispose = false;
-            Assert.That(logger.WillDeleteLogOnDispose, Is.False);
+            logger.Dispose();
+            loggerCore.DidNotReceive().DeleteLog();
+        }
+
+        [TestCase("Test 1")]
+        [TestCase("Test 2")]
+        public void InfoLogsInfoStatement(string message)
+        {
+            logger.Info(message);
+            loggerCore.Received().Info(message);
+        }
+
+        [TestCase("Test 1")]
+        [TestCase("Test 2")]
+        public void WarningLogsWarningStatement(string message)
+        {
+            logger.Warning(message);
+            loggerCore.Received().Warning(message);
+        }
+
+        [TestCase("Test 1")]
+        [TestCase("Test 2")]
+        public void ErrorLogsErrorStatement(string message)
+        {
+            logger.Error(message);
+            loggerCore.Received().Error(message);
         }
 
         [Test]
-        public void Debug() => TestLog(t => logger.Debug(t), "DEBUG", "Test 1234");
-
-        [Test]
-        public void DebugWithException()
+        public void ExceptionLogsException()
         {
-            TestLog((t, e) => logger.Debug(t, e), "DEBUG", "Test 1234", new NullReferenceException());
+            var exception = new Exception();
+            logger.Exception(exception);
+            loggerCore.Received().Exception(exception);
         }
 
         [Test]
-        public void Info() => TestLog(t => logger.Info(t), "INFO", "Test 1234");
-
-        [Test]
-        public void InfoWithException()
+        public void UpdateWithoutThrowingException()
         {
-            TestLog((t, e) => logger.Info(t, e), "INFO", "Test 1234", new NullReferenceException());
+            Assert.DoesNotThrow(() => logger.Update(new GameTime()));
         }
 
         [Test]
-        public void Warning() => TestLog(t => logger.Warning(t), "WARN", "Test 1234");
-
-        [Test]
-        public void WarningWithException()
+        public void DrawWithoutThrowingException()
         {
-            TestLog((t, e) => logger.Warning(t, e), "WARN", "Test 1234", new NullReferenceException());
-        }
-
-        [Test]
-        public void Error() => TestLog(t => logger.Error(t), "ERROR", "Test 1234");
-
-        [Test]
-        public void ErrorWithException()
-        {
-            TestLog((t, e) => logger.Error(t, e), "ERROR", "Test 1234", new NullReferenceException());
-        }
-
-        [Test]
-        public void Fatal() => TestLog(t => logger.Fatal(t), "FATAL", "Test 1234");
-
-        [Test]
-        public void FatalWithException()
-        {
-            TestLog((t, e) => logger.Fatal(t, e), "FATAL", "Test 1234", new NullReferenceException());
-        }
-
-        protected abstract ILogger Make();
-
-        private void TestLog(Action<string> log, string level, string text)
-        {
-            log(text);
-            TestLog(level, text);
-        }
-
-        private void TestLog(Action<string, Exception> log, string level, string text, Exception e)
-        {
-            log(text, e);
-            TestLog(level, text, e);
-        }
-
-        private void TestLog(string level, string text, Exception e = null)
-        {
-            var content = GetLogContents();
-
-            Assert.That(content.Contains(level), Is.True);
-            Assert.That(content.Contains(text), Is.True);
-
-            if (e != null)
-            {
-                Assert.That(content.Contains(e.ToString()), Is.True);
-            }
-        }
-
-        private string GetLogContents()
-        {
-            string result;
-
-            // File is open in logger so we must use streams instead of System.IO.File.Read
-            using (var f = new FileStream(logger.Filename, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-            {
-                using (var s = new StreamReader(f))
-                {
-                    result = s.ReadToEnd();
-                }
-            }
-
-            return result;
+            Assert.DoesNotThrow(() => logger.Draw(new GameTime()));
         }
     }
 }

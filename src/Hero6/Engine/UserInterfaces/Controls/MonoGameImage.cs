@@ -6,34 +6,34 @@
 
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 {
-    using Assets;
-    using Assets.Graphics;
     using GameLoop;
     using Input;
     using Microsoft.Xna.Framework;
+    using Microsoft.Xna.Framework.Content;
+    using Microsoft.Xna.Framework.Graphics;
     using Utilities.Logger;
-    using Point = Assets.Graphics.Point;
 
     public class MonoGameImage : Image, IXnaGameLoop
     {
-        private readonly IRenderer renderer;
         private readonly ILogger logger;
-        private readonly IAssets assets;
+        private readonly ContentManager content;
+        private readonly SpriteBatch spriteBatch;
 
         private Texture2D image;
+        private Vector2 location;
 
         public MonoGameImage(
             string source,
             IMouse mouse,
-            IRenderer renderer,
             ILogger logger,
-            IAssets assets,
+            ContentManager content,
+            SpriteBatch spriteBatch,
             UserInterfaceElement parent = null)
             : base(source, mouse, parent)
         {
-            this.renderer = renderer;
             this.logger = logger;
-            this.assets = assets;
+            this.content = content;
+            this.spriteBatch = spriteBatch;
         }
 
         public void Initialize()
@@ -42,7 +42,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 
         public void Load()
         {
-            image = assets.LoadTexture2D(Source);
+            image = content.Load<Texture2D>(Source);
             Width = image.Width;
             Height = image.Height;
         }
@@ -53,6 +53,9 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 
         public void Update(GameTime time)
         {
+            location.X = X;
+            location.Y = Y;
+
             if (image != null)
             {
                 return;
@@ -64,7 +67,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 
         public void Draw(GameTime time)
         {
-            renderer.Draw(image, new Point(X, Y));
+            spriteBatch.Draw(image, location, Color.White);
         }
     }
 }

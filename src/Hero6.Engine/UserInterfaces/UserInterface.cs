@@ -22,16 +22,6 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         public abstract string Name { get; }
 
         /// <summary>
-        /// Gets the directory of the content.
-        /// </summary>
-        public abstract string Directory { get; }
-
-        /// <summary>
-        /// Gets the user interface generator.
-        /// </summary>
-        public abstract IUserInterfaceGenerator UserInterfaceGenerator { get; }
-
-        /// <summary>
         /// Gets the windows.
         /// </summary>
         public virtual IDictionary<Type, Window> Windows { get; } = new Dictionary<Type, Window>();
@@ -60,6 +50,13 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         /// <typeparam name="T">The dialog to get.</typeparam>
         /// <returns>The dialog specified.</returns>
         public T GetDialog<T>() where T : Dialog => (T)Dialogs[typeof(T)];
+
+        /// <summary>
+        /// The initialize event.
+        /// </summary>
+        public virtual void Initialize()
+        {
+        }
 
         /// <summary>
         /// A compiled list of all the windows in this module for the engine to make.

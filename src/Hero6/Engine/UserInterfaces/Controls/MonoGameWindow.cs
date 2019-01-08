@@ -6,25 +6,24 @@
 
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 {
-    using Assets;
-    using Assets.Graphics;
     using GameLoop;
     using Microsoft.Xna.Framework;
+    using Microsoft.Xna.Framework.Graphics;
     using Utilities.DependencyInjection;
 
     public class MonoGameWindow : IXnaGameLoop
     {
-        private readonly IRenderer renderer;
-        private readonly IAssets assets;
+        private readonly GraphicsDeviceManager graphics;
+        private readonly SpriteBatch spriteBatch;
         private readonly Window inner;
 
         private Texture2D background;
-        private Assets.Graphics.Rectangle destination;
+        private Rectangle destination;
 
-        public MonoGameWindow(IServices services, IAssets assets, Window inner)
+        public MonoGameWindow(IServices services, Window inner)
         {
-            this.renderer = services.Get<IRenderer>();
-            this.assets = assets;
+            graphics = services.Get<GraphicsDeviceManager>();
+            spriteBatch = services.Get<SpriteBatch>();
             this.inner = inner;
         }
 
@@ -37,8 +36,8 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 
         public void Load()
         {
-            this.background = assets.CreateTexture2D(1, 1);
-            background.SetData(new[] { inner.Background });
+            background = new Texture2D(graphics.GraphicsDevice, 1, 1);
+            background.SetData(new[] { inner.Background.ToMonoGame() });
             inner.Child.AsXnaGameLoop()?.Load();
             inner.Width = inner.Child.Width;
             inner.Height = inner.Child.Height;
@@ -51,7 +50,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
             inner.Child.X = inner.X;
             inner.Child.Y = inner.Y;
             inner.Child.AsXnaGameLoop()?.Update(time);
-            this.destination = new Assets.Graphics.Rectangle(inner.X, inner.Y, inner.Width, inner.Height);
+            this.destination = new Rectangle(inner.X, inner.Y, inner.Width, inner.Height);
         }
 
         public void Draw(GameTime time)
@@ -61,7 +60,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
                 return;
             }
 
-            renderer.Draw(background, destination, inner.Background);
+            spriteBatch.Draw(background, destination, new Color(inner.Background.R, inner.Background.G, inner.Background.B, inner.Background.A));
             inner.Child.AsXnaGameLoop()?.Draw(time);
         }
     }

@@ -16,17 +16,17 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Input
             Source = source;
         }
 
-        public static Cursor Arrow { get; } = new Cursor("Cursors/Arrow");
+        public static Cursor Arrow { get; } = new Cursor("Gui/Sierra Vga/Cursors/Arrow");
 
-        public static Cursor Wait { get; } = new Cursor("Cursors/Wait");
+        public static Cursor Wait { get; } = new Cursor("Gui/Sierra Vga/Cursors/Wait");
 
-        public static Cursor Walk { get; } = new Cursor("Cursors/Walk");
+        public static Cursor Walk { get; } = new Cursor("Gui/Sierra Vga/Cursors/Walk");
 
-        public static Cursor Look { get; } = new Cursor("Cursors/Look");
+        public static Cursor Look { get; } = new Cursor("Gui/Sierra Vga/Cursors/Look");
 
-        public static Cursor Hand { get; } = new Cursor("Cursors/Hand");
+        public static Cursor Hand { get; } = new Cursor("Gui/Sierra Vga/Cursors/Hand");
 
-        public static Cursor Talk { get; } = new Cursor("Cursors/Talk");
+        public static Cursor Talk { get; } = new Cursor("Gui/Sierra Vga/Cursors/Talk");
 
         public string Source { get; }
 

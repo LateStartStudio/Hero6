@@ -6,59 +6,71 @@
 
 namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Rooms.Albion
 {
-    using System;
-    using Assets.Graphics;
-    using Campaigns;
-    using Characters;
-    using Localization;
-    using Regions;
+    using System.Drawing;
+    using LateStartStudio.Hero6.Engine.Campaigns.Characters;
+    using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Characters;
+    using LateStartStudio.Hero6.Engine.Campaigns.Rooms;
+    using LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions;
+    using LateStartStudio.Hero6.Engine.UserInterfaces;
+    using LateStartStudio.Hero6.Localization;
 
-    public sealed class Fountain : Room
+    public class Fountain : RoomModule
     {
-        public const string Id = "Fountain";
+        private readonly ICampaigns campaigns;
+        private readonly IUserInterfaces userInterfaces;
 
-        private static readonly Color HotspotSouthExit = new Color(255, 255, 255, 255);
-        private static readonly Color HotspotFountainSpot = new Color(255, 0, 0, 255);
-
-        public Fountain(Campaign campaign)
-            : base(
-                  campaign,
-                  "Campaigns/Rites of Albion/Rooms/Albion/Fountain/Background",
-                  "Campaigns/Rites of Albion/Rooms/Albion/Fountain/WalkAreas",
-                  "Campaigns/Rites of Albion/Rooms/Albion/Fountain/Hotspots")
+        public Fountain(ICampaigns campaigns, IUserInterfaces userInterfaces)
         {
-            Character llewella = Campaign.GetCharacter(Llewella.Id);
-            llewella.Location = new Point(200, 150);
-            this.Characters.Add(llewella);
+            this.campaigns = campaigns;
+            this.userInterfaces = userInterfaces;
         }
 
-        protected override void InitializeEvents()
-        {
-            this.Hotspots[HotspotSouthExit].WhileStandingIn += this.OnWhileStandingInSouthExit;
+        public override string Name => "Fountain";
 
-            this.Hotspots[HotspotFountainSpot].Look += this.OnLookFountain;
-            this.Hotspots[HotspotFountainSpot].Grab += this.OnGrabFountain;
-            this.Hotspots[HotspotFountainSpot].Talk += this.OnTalkFountain;
+        public override string Background => "Campaigns/Rites of Albion/Rooms/Albion/Fountain/Background";
+
+        public override string WalkAreasMask => "Campaigns/Rites of Albion/Rooms/Albion/Fountain/WalkAreas";
+
+        public override string HotspotsMask => "Campaigns/Rites of Albion/Rooms/Albion/Fountain/Hotspots";
+
+        public Color HotspotSouthExit { get; } = Color.FromArgb(255, 255, 255, 255);
+
+        public Color HotspotFountainSpot { get; } = Color.FromArgb(255, 255, 0, 0);
+
+        protected override void Initialize()
+        {
+            base.Initialize();
+
+            var llewella = campaigns.Current.GetCharacter<Llewella>();
+            llewella.X = 200;
+            llewella.Y = 150;
+            llewella.Face(CharacterDirection.CenterDown);
+            AddCharacter<Llewella>();
+
+            Hotspots[HotspotSouthExit].StandingOn = OnWhileStandingOnSouthExit;
+            Hotspots[HotspotFountainSpot].Look = OnLookFountain;
+            Hotspots[HotspotFountainSpot].Grab = OnGrabFountain;
+            Hotspots[HotspotFountainSpot].Talk = OnTalkFountain;
         }
 
-        private void OnLookFountain(object sender, EventArgs eventArgs)
+        private void OnWhileStandingOnSouthExit(StandingOn e)
         {
-            this.Display(Strings.FountainLook);
+            e.Character.ChangeRoom<HillOverAlbion>(220, 190, CharacterDirection.CenterDown);
         }
 
-        private void OnGrabFountain(object sender, EventArgs eventArgs)
+        private void OnLookFountain()
         {
-            this.Display(Strings.FountainGrab);
+            userInterfaces.Current.ShowTextBox(Strings.FountainLook);
         }
 
-        private void OnTalkFountain(object sender, EventArgs eventArgs)
+        private void OnGrabFountain()
         {
-            this.Display(Strings.FountainTalk);
+            userInterfaces.Current.ShowTextBox(Strings.FountainGrab);
         }
 
-        private void OnWhileStandingInSouthExit(object sender, HotspotWalkingEventArgs e)
+        private void OnTalkFountain()
         {
-            e.Character.ChangeRoom(HillOverAlbion.Id, 220, 190);
+            userInterfaces.Current.ShowTextBox(Strings.FountainTalk);
         }
     }
 }

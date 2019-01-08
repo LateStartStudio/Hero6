@@ -8,7 +8,6 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs
 {
     using System;
     using System.IO;
-    using Assets;
     using Controls;
     using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
     using Utilities.Settings;
@@ -17,57 +16,62 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs
     {
         private readonly IUserInterfaces userInterfaces;
 
-        public ExtensionBar(IUserInterfaces userInterfaces, IRenderer renderer, IMouse mouse, IGameSettings gameSettings)
-            : base(renderer, mouse, gameSettings)
+        public ExtensionBar(
+            IUserInterfaces userInterfaces,
+            IUserInterfaceGenerator userInterfaceGenerator,
+            IMouse mouse,
+            IGameSettings gameSettings)
+            : base(mouse, gameSettings)
         {
             this.userInterfaces = userInterfaces;
-            var stackPanel = userInterfaces.Current.UserInterfaceGenerator.MakeStackPanel(this);
+            var stackPanel = userInterfaceGenerator.MakeStackPanel(this);
+            var separator = Path.DirectorySeparatorChar;
 
-            LeftButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
-            var left = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Extension Bar{Path.DirectorySeparatorChar}Left", LeftButton);
+            LeftButton = userInterfaceGenerator.MakeButton(stackPanel);
+            var left = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Extension Bar{separator}Left", LeftButton);
             LeftButton.Child = left;
             LeftButton.MouseButtonUp += SideOnMouseButtonUp;
 
-            RightButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
-            var right = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Extension Bar{Path.DirectorySeparatorChar}Right", RightButton);
+            RightButton = userInterfaceGenerator.MakeButton(stackPanel);
+            var right = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Extension Bar{Path.DirectorySeparatorChar}Right", RightButton);
             RightButton.Child = right;
             RightButton.MouseButtonUp += SideOnMouseButtonUp;
 
-            RunButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
-            RunImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Extension Bar{Path.DirectorySeparatorChar}Run Light", RunButton);
-            RunImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Extension Bar{Path.DirectorySeparatorChar}Run Dark", RunButton);
+            RunButton = userInterfaceGenerator.MakeButton(stackPanel);
+            RunImageBright = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Extension Bar{Path.DirectorySeparatorChar}Run Light", RunButton);
+            RunImageDark = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Extension Bar{Path.DirectorySeparatorChar}Run Dark", RunButton);
             RunButton.Child = RunImageDark;
             RunButton.MouseButtonUp += RunOnMouseButtonUp;
             RunButton.MouseEnter += RunBtnOnMouseEnter;
             RunButton.MouseLeave += RunBtnOnMouseLeave;
 
-            SneakButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
-            SneakImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Extension Bar{Path.DirectorySeparatorChar}Sneak Light", SneakButton);
-            SneakImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Extension Bar{Path.DirectorySeparatorChar}Sneak Dark", SneakButton);
+            SneakButton = userInterfaceGenerator.MakeButton(stackPanel);
+            SneakImageBright = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Extension Bar{Path.DirectorySeparatorChar}Sneak Light", SneakButton);
+            SneakImageDark = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Extension Bar{Path.DirectorySeparatorChar}Sneak Dark", SneakButton);
             SneakButton.Child = SneakImageDark;
             SneakButton.MouseButtonUp += SneakOnMouseButtonUp;
             SneakButton.MouseEnter += SneakBtnOnMouseEnter;
             SneakButton.MouseLeave += SneakBtnOnMouseLeave;
 
-            SleepButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
-            SleepImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Extension Bar{Path.DirectorySeparatorChar}Sleep Light", SleepButton);
-            SleepImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Extension Bar{Path.DirectorySeparatorChar}Sleep Dark", SleepButton);
+            SleepButton = userInterfaceGenerator.MakeButton(stackPanel);
+            SleepImageBright = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Extension Bar{Path.DirectorySeparatorChar}Sleep Light", SleepButton);
+            SleepImageDark = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Extension Bar{Path.DirectorySeparatorChar}Sleep Dark", SleepButton);
             SleepButton.Child = SleepImageDark;
             SleepButton.MouseButtonUp += SleepOnMouseButtonUp;
             SleepButton.MouseEnter += SleepBtnOnMouseEnter;
             SleepButton.MouseLeave += SleepBtnOnMouseLeave;
 
-            StatsButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
-            StatsImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Extension Bar{Path.DirectorySeparatorChar}Stats Light", StatsButton);
-            StatsImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Extension Bar{Path.DirectorySeparatorChar}Stats Dark", StatsButton);
+            StatsButton = userInterfaceGenerator.MakeButton(stackPanel);
+            StatsImageBright = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Extension Bar{Path.DirectorySeparatorChar}Stats Light", StatsButton);
+            StatsImageDark = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Extension Bar{Path.DirectorySeparatorChar}Stats Dark", StatsButton);
             StatsButton.Child = StatsImageDark;
             StatsButton.MouseButtonUp += StatsOnMouseButtonUp;
             StatsButton.MouseEnter += StatsBtnOnMouseEnter;
             StatsButton.MouseLeave += StatsBtnOnMouseLeave;
 
-            TimeButton = userInterfaces.Current.UserInterfaceGenerator.MakeButton(stackPanel);
-            TimeImageBright = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Extension Bar{Path.DirectorySeparatorChar}Time Light", TimeButton);
-            TimeImageDark = userInterfaces.Current.UserInterfaceGenerator.MakeImage($"Extension Bar{Path.DirectorySeparatorChar}Time Dark", TimeButton);
+            TimeButton = userInterfaceGenerator.MakeButton(stackPanel);
+            TimeImageBright = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Extension Bar{Path.DirectorySeparatorChar}Time Light", TimeButton);
+            TimeImageDark = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Extension Bar{Path.DirectorySeparatorChar}Time Dark", TimeButton);
             TimeButton.Child = TimeImageDark;
             TimeButton.MouseButtonUp += TimeOnMouseButtonUp;
             TimeButton.MouseEnter += TimeBtnOnMouseEnter;

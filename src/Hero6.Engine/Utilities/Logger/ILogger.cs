@@ -32,32 +32,10 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Logger
         bool WillDeleteLogOnDispose { get; set; }
 
         /// <summary>
-        /// Prints a message classified Debug to the log.
-        /// </summary>
-        /// <param name="message">The message to print.</param>
-        void Debug(string message);
-
-        /// <summary>
-        /// Prints a message classified Debug to the log, including the stack trace of
-        /// the exception.
-        /// </summary>
-        /// <param name="message">The message to print.</param>
-        /// <param name="e">The exception to print.</param>
-        void Debug(string message, Exception e);
-
-        /// <summary>
         /// Prints a message classified Info to the log.
         /// </summary>
         /// <param name="message">The message to print.</param>
         void Info(string message);
-
-        /// <summary>
-        /// Prints a message classified Info to the log, including the stack trace of
-        /// the exception.
-        /// </summary>
-        /// <param name="message">The message to print.</param>
-        /// <param name="e">The exception to print.</param>
-        void Info(string message, Exception e);
 
         /// <summary>
         /// Prints a message classified Warning to the log.
@@ -66,39 +44,15 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Logger
         void Warning(string message);
 
         /// <summary>
-        /// Prints a message classified Warning to the log, including the stack trace of
-        /// the exception.
-        /// </summary>
-        /// <param name="message">The message to print.</param>
-        /// <param name="e">The exception to print.</param>
-        void Warning(string message, Exception e);
-
-        /// <summary>
         /// Prints a message classified Error to the log.
         /// </summary>
         /// <param name="message">The message to print.</param>
         void Error(string message);
 
         /// <summary>
-        /// Prints a message classified Error to the log, including the stack trace of
-        /// the exception.
+        /// Prints an exception to the log.
         /// </summary>
-        /// <param name="message">The message to print.</param>
-        /// <param name="e">The exception to print.</param>
-        void Error(string message, Exception e);
-
-        /// <summary>
-        /// Prints a message classified Fatal to the log.
-        /// </summary>
-        /// <param name="message">The message to print.</param>
-        void Fatal(string message);
-
-        /// <summary>
-        /// Prints a message classified Fatal to the log, including the stack trace of
-        /// the exception.
-        /// </summary>
-        /// <param name="message">The message to print.</param>
-        /// <param name="e">The exception to print.</param>
-        void Fatal(string message, Exception e);
+        /// <param name="exception">The exception to print.</param>
+        void Exception(Exception exception);
     }
 }

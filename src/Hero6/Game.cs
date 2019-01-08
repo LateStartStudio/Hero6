@@ -1,4 +1,4 @@
-﻿// <copyright file="Game.cs" company="Late Start Studio">
+// <copyright file="Game.cs" company="Late Start Studio">
 // Copyright (C) Late Start Studio
 // This file is subject to the terms and conditions of the MIT license specified in the file
 // 'LICENSE.CODE.md', which is a part of this source code package.
@@ -7,13 +7,13 @@
 namespace LateStartStudio.Hero6
 {
     using System;
+    using System.Diagnostics;
     using System.IO;
-    using System.Reflection;
-    using Engine.Assets;
     using Engine.Campaigns;
     using Engine.UserInterfaces;
     using Engine.UserInterfaces.Input;
     using Engine.UserInterfaces.SierraVga.Windows;
+    using Engine.Utilities;
     using Engine.Utilities.DependencyInjection;
     using Engine.Utilities.Logger;
     using Engine.Utilities.Settings;
@@ -25,32 +25,32 @@ namespace LateStartStudio.Hero6
     /// </summary>
     public class Game : Microsoft.Xna.Framework.Game
     {
-        private readonly ILogger logger;
+        private static Logger logger;
+
+        private readonly GameSettings gameSettings;
 
         private MonoGameUserInterfaces ui;
         private MonoGameCampaigns campaign;
         private SpriteBatch spriteBatch;
+        private Matrix transform = Matrix.Identity;
 
-        public Game()
+        private Game()
         {
             Content.RootDirectory = "Content";
-            ServicesBank.Instance = new MonoGameServices(Services);
-            ServicesBank.Instance.Add<IGameSettings, GameSettings>();
-            ServicesBank.Instance.Add<IMouse, MonoGameMouse>();
-            var userSettings = ServicesBank.Instance.Make<UserSettings>(typeof(UserSettings));
-            ServicesBank.Instance.Add<IUserSettings>(userSettings);
-            this.logger = ServicesBank.Instance.Make<LogFourNet>(typeof(LogFourNet));
-            ServicesBank.Instance.Add(logger);
-            ServicesBank.Instance.Add(Content);
-            ServicesBank.Instance.Add<IAssetsFactory, MonoGameAssetsFactory>();
+            var services = new MonoGameServices(Services);
+            gameSettings = new GameSettings();
+            services.Add<IFileWrapper, FileWrapper>();
+            services.Add<IGameSettings>(gameSettings);
+            var userSettings = services.Make<UserSettings>(typeof(UserSettings));
+            services.Add<IUserSettings>(userSettings);
+            services.Add<ILoggerCore, LoggerCore>();
+            logger = services.Make<Logger>(typeof(Logger));
+            services.Add<IMouseCore, MouseCore>();
+            services.Add<IMouse, Mouse>();
+            services.Add<ILogger>(logger);
+            services.Add(Content);
 
-            logger.Info($"Hero6 {GraphicsApi} v{Assembly.GetExecutingAssembly().GetName().Version} Log");
-            logger.Info("Forums: http://www.hero6.org/forum/");
-            logger.Info("Bug Tracker: https://github.com/LateStartStudio/Hero6/issues");
-            logger.Info("E-mail: hero6lives@gmail.com");
-            logger.Info("Creating Hero6 Game Instance.");
-
-            Graphics = new GraphicsDeviceManager(this)
+            var graphics = new GraphicsDeviceManager(this)
             {
                 PreferredBackBufferWidth = userSettings.WindowWidth,
                 PreferredBackBufferHeight = userSettings.WindowHeight,
@@ -60,15 +60,16 @@ namespace LateStartStudio.Hero6
                 SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight
 #endif
             };
-            Graphics.DeviceCreated += (s, a) =>
+            graphics.DeviceCreated += (s, a) =>
             {
-                this.spriteBatch = new SpriteBatch(GraphicsDevice);
-                ServicesBank.Instance.Add(spriteBatch);
-                ServicesBank.Instance.Add<IRenderer, MonoGameRenderer>();
-                this.campaign = new MonoGameCampaigns(ServicesBank.Instance);
-                ServicesBank.Instance.Add<ICampaigns>(campaign);
-                this.ui = new MonoGameUserInterfaces(ServicesBank.Instance);
-                ServicesBank.Instance.Add<IUserInterfaces>(ui);
+                spriteBatch = new SpriteBatch(GraphicsDevice);
+                services.Add(graphics);
+                services.Add(spriteBatch);
+                services.Add<IUserInterfaceGenerator, MonoGameUserInterfaceGenerator>();
+                campaign = new MonoGameCampaigns(services);
+                services.Add<ICampaigns>(campaign);
+                ui = new MonoGameUserInterfaces(services);
+                services.Add<IUserInterfaces>(ui);
 
                 logger.Info("Graphics Device Created.");
                 logger.Info($"Graphics Adapter Width {GraphicsDevice.Adapter.CurrentDisplayMode.Width}");
@@ -79,10 +80,8 @@ namespace LateStartStudio.Hero6
             logger.Info("Hero6 Game Instance Created.");
         }
 
-        public static string UserFilesDir => string.Format(
-            "{0}{1}Hero6{1}",
-            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-            Path.DirectorySeparatorChar);
+        public static string UserFilesDir =>
+            $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}/Hero6/";
 
         public static string GraphicsApi
         {
@@ -98,11 +97,29 @@ namespace LateStartStudio.Hero6
             }
         }
 
-        public static Vector2 NativeGameResolution { get; } = new Vector2(320, 240);
-
-        public static GraphicsDeviceManager Graphics { get; private set; }
-
-        public static Matrix Transform { get; set; } = Matrix.Identity;
+        public static void Start()
+        {
+            try
+            {
+                using (var game = new Game())
+                {
+                    game.Run();
+                }
+            }
+#if !DEBUG
+            catch (Exception e)
+            {
+                logger.Error("Hero6 has crashed, logging stack trace.");
+                logger.Exception(e);
+                logger.WillDeleteLogOnDispose = false;
+                var p = new Process { StartInfo = { UseShellExecute = true, FileName = logger.Filename } };
+                p.Start();
+            }
+#endif
+            finally
+            {
+            }
+        }
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -112,10 +129,11 @@ namespace LateStartStudio.Hero6
         /// </summary>
         protected override void Initialize()
         {
+            logger.Initialize();
             logger.Info("Initializing Hero6 game instance.");
 
             Window.Title = "Hero6";
-            SetScale();
+            UpdateScale();
             ui.Initialize();
             campaign.Initialize();
             ui.Current.GetWindow<StatusBar>().IsVisible = true;
@@ -177,7 +195,7 @@ namespace LateStartStudio.Hero6
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Begin(SpriteSortMode.Deferred, transformMatrix: Transform);
+            spriteBatch.Begin(SpriteSortMode.Deferred, transformMatrix: transform);
             campaign.Draw(time);
             ui.Draw(time);
             spriteBatch.End();
@@ -185,11 +203,12 @@ namespace LateStartStudio.Hero6
             base.Draw(time);
         }
 
-        private void SetScale()
+        private void UpdateScale()
         {
-            var horScaling = GraphicsDevice.PresentationParameters.BackBufferWidth / NativeGameResolution.X;
-            var verScaling = GraphicsDevice.PresentationParameters.BackBufferHeight / NativeGameResolution.Y;
-            Transform = Matrix.CreateScale(horScaling, verScaling, 1.0f);
+            var horScaling = GraphicsDevice.PresentationParameters.BackBufferWidth / gameSettings.NativeWidth;
+            var verScaling = GraphicsDevice.PresentationParameters.BackBufferHeight / gameSettings.NativeHeight;
+            transform = Matrix.CreateScale(horScaling, verScaling, 1.0f);
+            gameSettings.WindowScale = transform.Scale().ToDotNet();
         }
     }
 }

@@ -1,10 +1,7 @@
-Eto.Forms
-Eto.Platform.Gtk
-Eto.Platform.Gtk3
-Eto.Platform.Wpf
-Eto.Serialization.Xaml
+MonoGame.Content.Builder
 MonoGame.Framework.DesktopGL
+MonoGame.Framework.DesktopGL.Core
+Newtonsoft.Json
 OptimizedPriorityQueue
-Portable.Xaml
 StyleCop.Analyzers
 log4net

@@ -8,10 +8,10 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
 {
     using System;
     using System.Collections.Generic;
-    using Assets;
     using Campaigns;
     using Dialogs;
     using Input;
+    using LateStartStudio.Hero6.Engine.Utilities.Settings;
     using UserInterfaces.Input;
     using Windows;
 
@@ -19,30 +19,25 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
     {
         private readonly ICampaigns campaigns;
         private readonly IMouse mouse;
-        private readonly IRenderer renderer;
+        private readonly IGameSettings gameSettings;
 
-        public SierraVgaController(
-            ICampaigns campaigns,
-            IMouse mouse,
-            IRenderer renderer,
-            IUserInterfaceGenerator userInterfaceGenerator)
+        public SierraVgaController(ICampaigns campaigns, IMouse mouse, IGameSettings gameSettings)
         {
             this.campaigns = campaigns;
             this.mouse = mouse;
-            this.renderer = renderer;
-            this.UserInterfaceGenerator = userInterfaceGenerator;
+            this.gameSettings = gameSettings;
+        }
 
+        public override string Name => "Sierra VGA";
+
+        public override void Initialize()
+        {
+            base.Initialize();
             mouse.Cursor = Cursor.Walk;
             mouse.ButtonPress += MouseOnLeftButtonPress;
             mouse.ButtonPress += MouseOnMiddleButtonPress;
             mouse.ButtonPress += MouseOnRightButtonPress;
         }
-
-        public override string Name => "Sierra VGA";
-
-        public override string Directory => "Content/Gui/Sierra Vga";
-
-        public override IUserInterfaceGenerator UserInterfaceGenerator { get; }
 
         public override void ShowTextBox(string text)
         {
@@ -75,19 +70,19 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
 
                 if (mouse.Cursor == Cursor.Walk)
                 {
-                    campaigns.Current.Interact(x, y, Interaction.Move);
+                    campaigns.Interact(x, y, Interaction.Move);
                 }
                 else if (mouse.Cursor == Cursor.Look)
                 {
-                    campaigns.Current.Interact(x, y, Interaction.Eye);
+                    campaigns.Interact(x, y, Interaction.Eye);
                 }
                 else if (mouse.Cursor == Cursor.Hand)
                 {
-                    campaigns.Current.Interact(x, y, Interaction.Hand);
+                    campaigns.Interact(x, y, Interaction.Hand);
                 }
                 else if (mouse.Cursor == Cursor.Talk)
                 {
-                    campaigns.Current.Interact(x, y, Interaction.Mouth);
+                    campaigns.Interact(x, y, Interaction.Mouth);
                 }
             });
         }
@@ -148,7 +143,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
                 return;
             }
 
-            if (renderer.IsPaused)
+            if (gameSettings.IsPaused)
             {
                 return;
             }

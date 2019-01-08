@@ -1,10 +1,9 @@
 # [Hero6 Readme](https://github.com/LateStartStudio/Hero6/blob/master/README.md)
-[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/fold_left.svg?style=social&label=Follow%20%40Hero6)](https://twitter.com/Hero6)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![License: CC BY-NC-SA 4.0](https://licensebuttons.net/l/by-nc-sa/4.0/80x15.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/) [![Twitter](https://img.shields.io/twitter/url/https/twitter.com/fold_left.svg?style=social&label=Follow%20%40Hero6)](https://twitter.com/Hero6) [![codecov](https://codecov.io/gh/LateStartStudio/Hero6/branch/master/graph/badge.svg)](https://codecov.io/gh/LateStartStudio/Hero6)
 
 Welcome to the Hero6 project. This readme should be included in your copy of Hero6, it is also available in the [source code repository](https://github.com/LateStartStudio/Hero6). The Hero6 project started in 1999, the project was shut down and the game files released to public in 2011, until it was rebooted by a new team in 2013.
 
 * [Links](https://github.com/LateStartStudio/Hero6/blob/master/README.md#links)
-* [Sponsors](https://github.com/LateStartStudio/Hero6/blob/master/README.md#sponsors)
 * [Build](https://github.com/LateStartStudio/Hero6#build)
 * [Contribution](https://github.com/LateStartStudio/Hero6#contribution)
 * [Changelog](https://github.com/LateStartStudio/Hero6/blob/master/README.md#changelog)
@@ -12,6 +11,8 @@ Welcome to the Hero6 project. This readme should be included in your copy of Her
 
 ## Links
 * [Homepage](http://www.hero6.org/)
+* [Discord](https://discord.gg/mzPFTG)
+* [Reddit](https://www.reddit.com/r/hero6)
 * [Facebook](https://www.facebook.com/hero6)
 * [Twitter](https://twitter.com/LateStartStudio)
 * [Google+](https://plus.google.com/113761218770982404275/posts)
@@ -20,11 +21,6 @@ Welcome to the Hero6 project. This readme should be included in your copy of Her
 * [GitHub - Releases](https://github.com/LateStartStudio/Hero6/releases)
 * [Sourceforge - Historical Prototypes Download](http://sourceforge.net/projects/hero6/)
 
-## Sponsors
-
-### Advanced Installer
-The Windows Installer is made with [Advanced Installer](http://www.advancedinstaller.com/) on an open source license. Advanced Installer allowed us to create a feature complete installer in a user friendly environment with minimal effort.
-
 ## Build
 
 ### Build Status
@@ -32,68 +28,20 @@ The Windows Installer is made with [Advanced Installer](http://www.advancedinsta
 #### Official Builds
 ||Debug|Release|
 |:---|:---:|:---:|
-|**master**| - | - |
-|**Windows 7**| - | - |
-|DirectX|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_DebugBuildWindowsDX)/statusIcon)|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_Windows_DesktopGLDebug)/statusIcon)|
-|OpenGL|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_DebugBuildWindowsDX)/statusIcon)|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_DesktopGL)/statusIcon)|
-|FAKE|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_Windows_Fake)/statusIcon)|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_Windows_Fake)/statusIcon)|
-|Installer|-|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_Windows_Installer)/statusIcon)|
+|**Windows 10**|
+|OpenGL|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_Windows_DesktopGLDebug)/statusIcon)|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_DesktopGL)/statusIcon)|
 |**OS X Sierra**|
 |OpenGL|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_MacOS_DesktopGLDebug)/statusIcon)|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_ReleaseBuildDesktopGLMacX86)/statusIcon)|
-|FAKE|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_MacOS_Fake)/statusIcon)|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_MacOS_Fake)/statusIcon)|
-|**Ubuntu 16.04**|
+|**Ubuntu 18.04**|
 |OpenGL|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_Ubuntu_DesktopGLDebug)/statusIcon)|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_ReleaseBuildDesktopGLLinux)/statusIcon)|
-|FAKE|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_Ubuntu_Fake)/statusIcon)|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_Ubuntu_Fake)/statusIcon)|
 
 ### Build Instructions
-#### Windows
-##### Prerequisites
-
-* To clone the repo you will need [git](https://git-for-windows.github.io/), you will also need [git-lfs](https://git-lfs.github.com/) as we use this to store assets like graphics and audio.
-  * If you do not have git-lfs installed you will still be able to clone the repo, but all assets will be corrupt. You can verify if you have it installed with the command `git lfs`
-  * You can use git however you prefer, by bash, GUI frontends like [Git Extensions](https://gitextensions.github.io/), or whatever git support may be integrated in your IDE of choice. Just make sure that git lfs is working.
-* To build you will need an IDE with [MonoGame v3.5](http://www.monogame.net/2016/03/17/monogame-3-5/) installed. Typically, this will be Visual Studio, but you could also use [MonoDevelop/Xamarin Studio](http://www.monodevelop.com/download/). Refer to the MonoGame web pages on how to set up MonoGame with your IDE.
-  * We have setup MonoGame in our repository using donwloadable packages, however it is important that you also install MonoGame standalone as it provides the "MonoGame Pipeline" tool.  This tool is required to build assets in a format compatible across platforms.
-  * If you are not a dedicated coder or contributor to the Hero6 project and want to check out the bleeding-edge builds, you will most likely prefer MonoDevelop/Xamarin Studio. While the Visual Studio IDE takes hours to install and requires several GBs of your disk, Xamarin Studio installs in a few minutes and requires approximately 100+ MBs.
-  * [Rider EAP](https://www.jetbrains.com/rider/) has been tested and works with Hero6. However, we will not maintain this compatibility until Rider receives a public release and its conditions for use are well defined.
-  * If you want to run our unit tests and are also using Visual Studio you will need the [NUnit3 Test Adapter](https://visualstudiogallery.msdn.microsoft.com/0da0f6bd-9bb6-4ae3-87a8-537788622f2d).
-  * If you want to build the Windows installer you will need [Advanced Installer](http://www.advancedinstaller.com/) with a professional License, they also offer [Visual Studio Extensions](http://www.advancedinstaller.com/visual-studio-extension.html).
-
-##### Instructions
-
-1. [Fork the project](https://github.com/LateStartStudio/Hero6).
-2. Clone the source `git clone https://github.com/YourHero6Repository/Hero6.git`.
-3. You will need to obtain packages of 3rd party frameworks.
-   1. Navigate into the directory ".paket".
-   2. Run the command `paket.bootstrapper`. This will download the most recent and stable version of [Paket](https://fsprojects.github.io/Paket/index.html) to the same directory.
-   3. Run the command `paket restore`. In the root directory of your local repository you should now have a new folder "packages".
-4. Open "Hero6.sln" with the IDE of your choice.
-5. Set the build configuration to the platform you want to work with. We have individual Debug and Release configurations for each platform.
-   * The default "Debug" and "Release" refers to the Hero6.DesktopGL project.
-   * "WindowsDX Debug" and "WindowsDX Release" refers to the Hero6.WindowsDX project.
-   * "Android Debug" and "Android Release" refers to the Hero6.Android project.
-6. Set startup project to the project that corresponds with your configuration, "Hero6.Android", "Hero6.DesktopGL" or "Hero6.WindowsDX".
-7. Build.
-8. Run.
-
-#### Linux and OS X
-More coming.
-
-### Supported Platforms
-* Windows (DirectX)
-  * Requires a minimum of Windows 7 SP 1.
-  * [Requires Microsoft .NET Framework 4.6.1.](https://www.microsoft.com/en-us/download/details.aspx?id=49981)
-  * [Requires DirectX 9.0c.](https://www.microsoft.com/en-us/download/details.aspx?id=34429)
-* Windows (OpenGL)
-  * Requires a minimum of Windows 7 SP 1.
-  * [Requires Microsoft .NET Framework 4.6.1.](https://www.microsoft.com/en-us/download/details.aspx?id=49981)
-
-Theoretically the OpenGL Windows build should also work with Linux and OS X, but this goes unsupported and unmaintained for now. We also have a build configuration for Android but we do not maintain it.
+If you want to build the source code refer to the [Build Instructions Document](https://github.com/LateStartStudio/Hero6/blob/master/docs/BUILD-INSTRUCTIONS.md).
 
 ## Contribution
 If you are interested in contributing to Hero6 you should read our [Getting Started Document](https://drive.google.com/open?id=1glcmjqohm6e8lwjn6kgaWHrZowU0g89HtWpyoIWlvSg).
 
-If you have any general questions that are non development related about Hero6 you can reach us on our [forums](http://www.hero6.org/forum/), or [IM](http://www.hero6.org/?page_id=84). We're also available on [Facebook](https://www.facebook.com/hero6) and [Twitter](https://twitter.com/LateStartStudio).
+If you have questions you can reach out on [discord](https://discord.gg/mzPFTG) and [reddit](https://www.reddit.com/r/hero6). We're also available on [Facebook](https://www.facebook.com/hero6) and [Twitter](https://twitter.com/LateStartStudio).
 
 ## Changelog
 A changelog listing what is new and happening for each version release is at [CHANGELOG.md](https://github.com/LateStartStudio/Hero6/blob/master/docs/CHANGELOG.md).

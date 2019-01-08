@@ -29,26 +29,21 @@ namespace LateStartStudio.Hero6.Repository
         [Test]
         public void AllProjectsAreSetToCsharpLanguageLevel6()
         {
-            const string Expected = "<LangVersion>6</LangVersion>";
-
-            files.ForEach(f => Assert.That(File.ReadAllText(f).Contains(Expected), Is.True, f));
+            const string expected = "<LangVersion>6</LangVersion>";
+            files.ForEach(f => Assert.That(File.ReadAllText(f).Contains(expected), Is.True, f));
         }
 
         [Test]
-        public void AllProjectsAreSetToDotNetLevel4Dot6Dot1()
+        public void AllProjectsAreSetToSupportedTargetFrameworkVersion()
         {
-            const string Expected = "<TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>";
-
-            foreach (string file in files)
+            var expected = new string[]
             {
-                // Skip because target framework refers to Android SDK version
-                if (file.Contains("Hero6.Android"))
-                {
-                    continue;
-                }
+                "<TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>",
+                "<TargetFramework>netstandard2.0</TargetFramework>",
+                "<TargetFramework>netcoreapp2.0</TargetFramework>",
+            };
 
-                Assert.That(File.ReadAllText(file).Contains(Expected), Is.True, file);
-            }
+            files.ForEach(f => Assert.That(expected.Any(e => File.ReadAllText(f).Contains(e)), Is.True, f));
         }
 
         private static List<string> GetProjectFiles(string dir)

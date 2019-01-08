@@ -9,6 +9,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
     using Dialogs;
     using Input;
     using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+    using LateStartStudio.Hero6.Tests.HelperTools;
     using NSubstitute;
     using NUnit.Framework;
 
@@ -61,9 +62,9 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
         [Test]
         public void PauseRendererOnMouseEnter()
         {
-            services.Renderer.IsPaused = false;
+            services.GameSettings.IsPaused = false;
             services.Mouse.Enter(statusBar);
-            Assert.That(services.Renderer.IsPaused, Is.True);
+            Assert.That(services.GameSettings.IsPaused, Is.True);
         }
 
         [Test]

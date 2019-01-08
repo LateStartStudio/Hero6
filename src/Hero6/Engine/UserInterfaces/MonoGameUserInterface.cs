@@ -8,42 +8,34 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using Assets;
-    using Assets.Graphics;
     using Controls;
     using GameLoop;
     using Input;
     using Microsoft.Xna.Framework;
+    using Microsoft.Xna.Framework.Content;
+    using Microsoft.Xna.Framework.Graphics;
     using Utilities.DependencyInjection;
 
     public class MonoGameUserInterface : UserInterface, IXnaGameLoop
     {
         private readonly IServices services;
         private readonly IMouse mouse;
-        private readonly IAssets assets;
-        private readonly IRenderer renderer;
+        private readonly ContentManager content;
+        private readonly SpriteBatch spriteBatch;
         private readonly IDictionary<ICursor, Texture2D> cursors;
         private readonly UserInterface userInterface;
 
-        public MonoGameUserInterface(
-            Func<MonoGameUserInterfaceGenerator, UserInterface> userInterface,
-            IServices services)
+        public MonoGameUserInterface(UserInterface userInterface, IServices services)
         {
+            this.userInterface = userInterface;
             this.services = services;
-            this.mouse = services.Get<IMouse>();
-            this.assets = services.Get<IAssetsFactory>().Make();
-            this.renderer = services.Get<IRenderer>();
-            this.cursors = new Dictionary<ICursor, Texture2D>();
-            this.userInterface = userInterface(new MonoGameUserInterfaceGenerator(assets, services));
-            assets.Directory = this.userInterface.Directory;
+            mouse = services.Get<IMouse>();
+            content = services.Get<ContentManager>();
+            spriteBatch = services.Get<SpriteBatch>();
+            cursors = new Dictionary<ICursor, Texture2D>();
         }
 
         public override string Name => userInterface.Name;
-
-        public override string Directory => userInterface.Directory;
-
-        public override IUserInterfaceGenerator UserInterfaceGenerator => userInterface.UserInterfaceGenerator;
 
         public override IDictionary<Type, Window> Windows => userInterface.Windows;
 
@@ -63,11 +55,13 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
 
         public override IEnumerable<ICursor> GenerateCursors() => userInterface.GenerateCursors();
 
-        public void Initialize()
+        public override void Initialize()
         {
+            base.Initialize();
+
             foreach (var type in GenerateDialogs())
             {
-                var monoGameDialog = new MonoGameDialog(services, assets, services.Make<Dialog>(type));
+                var monoGameDialog = new MonoGameDialog(services, services.Make<Dialog>(type));
                 Dialogs[type] = monoGameDialog;
                 XnaWrappedDialogs.Add(monoGameDialog);
                 monoGameDialog.Initialize();
@@ -75,12 +69,13 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
 
             foreach (var type in GenerateWindows())
             {
-                var monoGameWindow = new MonoGameWindow(services, assets, services.Make<Window>(type));
+                var monoGameWindow = new MonoGameWindow(services, services.Make<Window>(type));
                 Windows[type] = monoGameWindow;
                 XnaWrappedWindows.Add(monoGameWindow);
                 monoGameWindow.Initialize();
             }
 
+            userInterface.Initialize();
             mouse.AsXnaGameLoop()?.Initialize();
         }
 
@@ -89,7 +84,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
             XnaWrappedDialogs.ForEach(d => d.Load());
             XnaWrappedWindows.ForEach(w => w.Load());
             mouse.AsXnaGameLoop()?.Load();
-            GenerateCursors().ToList().ForEach(c => cursors[c] = assets.LoadTexture2D(c.Source));
+            GenerateCursors().ForEach(c => cursors[c] = content.Load<Texture2D>(c.Source));
         }
 
         public void Unload()
@@ -111,7 +106,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
             XnaWrappedDialogs.ForEach(d => d.Draw(time));
             XnaWrappedWindows.ForEach(w => w.Draw(time));
             mouse.AsXnaGameLoop()?.Draw(time);
-            renderer.Draw(Cursor, new Assets.Graphics.Point(mouse.X, mouse.Y));
+            spriteBatch.Draw(Cursor, new Vector2(mouse.X, mouse.Y), Color.White);
         }
     }
 }

@@ -7,10 +7,6 @@
 namespace LateStartStudio.Hero6
 {
     using System;
-    using Engine.Utilities.DependencyInjection;
-    using Engine.Utilities.Logger;
-    using Eto;
-    using Eto.Forms;
 
     /// <summary>
     /// The main class.
@@ -21,30 +17,6 @@ namespace LateStartStudio.Hero6
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        public static void Main()
-        {
-#if DEBUG
-            using (Game game = new Game())
-            {
-                game.Run();
-            }
-#else
-            try
-            {
-                using (Game game = new Game())
-                {
-                    game.Run();
-                }
-            }
-            catch (Exception e)
-            {
-                var logger = ServicesBank.Instance.Get<ILogger>();
-                logger.Fatal("Hero6 has crashed, logging stack strace.", e);
-                logger.WillDeleteLogOnDispose = false;
-
-                new Application(Platform.Detect).Run(new CrashDialog(e));
-            }
-#endif
-        }
+        public static void Main() => Game.Start();
     }
 }

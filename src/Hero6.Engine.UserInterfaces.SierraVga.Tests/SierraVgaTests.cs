@@ -32,12 +32,6 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
         }
 
         [Test]
-        public void DirectoryIsCorrect()
-        {
-            Assert.That(sierraVga.Directory, Is.EqualTo("Content/Gui/Sierra Vga"));
-        }
-
-        [Test]
         public void DialogsAreNotVisibleAtStart()
         {
             sierraVga.Dialogs.Values.ToList().ForEach(d => Assert.That(d.IsVisible, Is.False, d.ToString()));
