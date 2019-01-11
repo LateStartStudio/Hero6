@@ -28,12 +28,9 @@ Welcome to the Hero6 project. This readme should be included in your copy of Her
 #### Official Builds
 ||Debug|Release|
 |:---|:---:|:---:|
-|**Windows 10**|
-|OpenGL|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_Windows_DesktopGLDebug)/statusIcon)|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_DesktopGL)/statusIcon)|
-|**OS X Sierra**|
-|OpenGL|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_MacOS_DesktopGLDebug)/statusIcon)|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_ReleaseBuildDesktopGLMacX86)/statusIcon)|
-|**Ubuntu 18.04**|
-|OpenGL|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_Ubuntu_DesktopGLDebug)/statusIcon)|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_ReleaseBuildDesktopGLLinux)/statusIcon)|
+|**Windows 10**|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_Windows_DesktopGLDebug)/statusIcon)|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_DesktopGL)/statusIcon)|
+|**OS X Sierra**|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_MacOS_DesktopGLDebug)/statusIcon)|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_ReleaseBuildDesktopGLMacX86)/statusIcon)|
+|**Ubuntu 18.04**|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_Ubuntu_DesktopGLDebug)/statusIcon)|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_ReleaseBuildDesktopGLLinux)/statusIcon)|
 
 ### Build Instructions
 If you want to build the source code refer to the [Build Instructions Document](https://github.com/LateStartStudio/Hero6/blob/master/docs/BUILD-INSTRUCTIONS.md).
