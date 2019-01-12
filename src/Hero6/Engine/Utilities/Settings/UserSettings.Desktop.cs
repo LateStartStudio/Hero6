@@ -7,6 +7,7 @@
 #if DESKTOPGL
 namespace LateStartStudio.Hero6.Engine.Utilities.Settings
 {
+    using System.IO;
     using Newtonsoft.Json;
 
     public class UserSettings : IUserSettings
@@ -31,6 +32,7 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
             }
 
             GameStartedCount++;
+
             Save();
         }
 
@@ -58,7 +60,12 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
             private set { data.GameStartedCount = value; }
         }
 
-        public void Save() => file.WriteAllText(Filename, JsonConvert.SerializeObject(data));
+        public void Save()
+        {
+            Directory.CreateDirectory(Game.UserFilesDir); // If dir already exists, does nothing
+
+            file.WriteAllText(Filename, JsonConvert.SerializeObject(data));
+        }
 
         public void Reset()
         {
