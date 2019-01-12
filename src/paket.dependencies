@@ -14,4 +14,5 @@ nuget NUnit
 nuget NUnit.Runners
 nuget NUnit3TestAdapter
 nuget OptimizedPriorityQueue
+nuget ReportGenerator
 nuget StyleCop.Analyzers
