@@ -47,7 +47,7 @@ Hero6 is built using standard [dotnet CLI commands](https://docs.microsoft.com/e
 
 #### Run game
 
-`dotnet run ./src/Hero6.sln`
+`dotnet run --project ./src/Hero6.DesktopGL/Hero6.DesktopGL.csproj`
 
 #### Run unit tests
 
