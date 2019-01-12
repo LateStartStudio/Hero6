@@ -1,22 +1,26 @@
 CONFIG=$1
-if [ -z "$CODECOV_TOKEN" ]; then
-    CODECOV_TOKEN=$2
+
+if [ -x $CONFIG ]; then
+  echo 'Missing parameter $CONFIG'
+  exit 1
 fi
 
-# Collect coverage reports
-dotnet test ./Collections.Tests/Collections.Tests.csproj --no-build -p:Configuration=$CONFIG -p:CollectCoverage=true -p:CoverletOutput='../.coverage/Collections.json'
-dotnet test ./Search.Tests/Search.Tests.csproj --no-build -p:Configuration=$CONFIG -p:CollectCoverage=true -p:CoverletOutput='../.coverage/Search.json' -p:MergeWith='../.coverage/Collections.json'
-dotnet test ./Hero6.Engine.Tests/Hero6.Engine.Tests.csproj --no-build -p:Configuration=$CONFIG -p:CollectCoverage=true -p:CoverletOutput='../.coverage/Hero6.Engine.json' -p:MergeWith='../.coverage/Search.json'
-dotnet test ./Hero6.Repository.Tests/Hero6.Repository.Tests.csproj --no-build -p:Configuration=$CONFIG -p:CollectCoverage=true -p:CoverletOutput='../.coverage/Hero6.Repository.json' -p:MergeWith='../.coverage/Hero6.Engine.json'
-dotnet test ./Hero6.Engine.Campaigns.RitesOfPassage.Tests/Hero6.Engine.Campaigns.RitesOfPassage.Tests.csproj --no-build -p:Configuration=$CONFIG -p:CollectCoverage=true -p:CoverletOutput='../.coverage/Hero6.Engine.Campaigns.RitesOfPassage.json' -p:MergeWith='../.coverage/Hero6.Repository.json'
-dotnet test ./Hero6.Engine.UserInterfaces.SierraVga.Tests/Hero6.Engine.UserInterfaces.SierraVga.Tests.csproj --no-build -p:Configuration=$CONFIG -p:CollectCoverage=true -p:CoverletOutput='../.coverage/Hero6.Engine.UserInterfaces.SierraVga.json' -p:MergeWith='../.coverage/Hero6.Engine.Campaigns.RitesOfPassage.json'
-dotnet test ./Hero6.DesktopGL.Tests/Hero6.DesktopGL.Tests.csproj --no-build -p:Configuration=$CONFIG -p:CollectCoverage=true -p:CoverletOutput='../.coverage/Hero6.json' -p:MergeWith='../.coverage/Hero6.Engine.UserInterfaces.SierraVga.json'
+make_opencover_report()
+{
+  NAME=$1
 
-# Report to TeamCity
-dotnet test ./Hero6.DesktopGL.Tests/Hero6.DesktopGL.Tests.csproj --no-build -p:Configuration=$CONFIG -p:CollectCoverage=true -p:CoverletOutputFormat=teamcity -p:MergeWith='../.coverage/Hero6.Engine.UserInterfaces.SierraVga.json'
+  dotnet test ./$NAME.Tests/$NAME.Tests.csproj --no-build -p:Configuration=$CONFIG -p:CollectCoverage=true -p:CoverletOutputFormat=opencover -p:CoverletOutput="../.coverage/opencover/${NAME}.xml"
+}
 
-# Report to Codecov
-dotnet test ./Hero6.DesktopGL.Tests/Hero6.DesktopGL.Tests.csproj --no-build -p:Configuration=$CONFIG -p:CollectCoverage=true -p:CoverletOutputFormat=opencover -p:CoverletOutput='../.coverage/Hero6.xml' -p:MergeWith='../.coverage/Hero6.Engine.UserInterfaces.SierraVga.json'
-curl -s https://codecov.io/bash > ./.coverage/codecov
-chmod +x ./.coverage/codecov
-./.coverage/codecov -f "./.coverage/Hero6.xml" -t $CODECOV_TOKEN
+echo "Collect opencover reports"
+make_opencover_report Collections
+make_opencover_report Search
+make_opencover_report Hero6.Engine
+make_opencover_report Hero6.Repository
+make_opencover_report Hero6.Engine.Campaigns.RitesOfPassage
+make_opencover_report Hero6.Engine.UserInterfaces.SierraVga
+make_opencover_report Hero6.DesktopGL
+
+echo "Make human readable coverage reports"
+dotnet ./packages/ReportGenerator/tools/netcoreapp2.0/ReportGenerator.dll "-reports:./.coverage/opencover/Hero6.DesktopGL.xml;./.coverage/opencover/Collections.xml;./.coverage/opencover/Search.xml;./.coverage/opencover/Hero6.Engine.xml;./.coverage/opencover/Hero6.Repository.xml;./.coverage/opencover/Hero6.Engine.Campaigns.RitesOfPassage.xml;./.coverage/opencover/Hero6.Engine.UserInterfaces.SierraVga.xml" "-targetdir:./.coverage/html" -reporttypes:HtmlInline_AzurePipelines
+mv ./.coverage/html/index.htm ./.coverage/html/index.html

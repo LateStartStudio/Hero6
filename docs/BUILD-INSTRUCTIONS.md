@@ -65,4 +65,4 @@ We use [Paket](https://fsprojects.github.io/Paket/) for nuget packages.
 
 #### Unit test coverage
 
-If you want to see unit test coverage refer to the [coverlet](https://github.com/tonerdo/coverlet).
+If you want to see unit test coverage run the script `./src/coverage.sh`, it will generate reports, to see open `./src/.coverage/html/index.html`.
