@@ -12,6 +12,7 @@ This section lists the copyright holders who are subject to the terms found in [
 
 * Per Olav Flaten
 * Robert Kety
+* Brian Lacy
 
 ## Writing
 

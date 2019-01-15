@@ -13,6 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Campaigns\Animations\MonoGameCharacterAnimationController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Input\IMouseCore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Input\MouseCore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\DirectoryWrapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\FileWrapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\Logger\ILoggerCore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\Logger\LoggerCore.cs" />
