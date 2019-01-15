@@ -40,6 +40,7 @@ namespace LateStartStudio.Hero6
             var services = new MonoGameServices(Services);
             gameSettings = new GameSettings();
             services.Add<IFileWrapper, FileWrapper>();
+            services.Add<IDirectoryWrapper, DirectoryWrapper>();
             services.Add<IGameSettings>(gameSettings);
             var userSettings = services.Make<UserSettings>(typeof(UserSettings));
             services.Add<IUserSettings>(userSettings);

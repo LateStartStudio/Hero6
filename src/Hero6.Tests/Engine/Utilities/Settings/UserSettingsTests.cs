@@ -4,6 +4,8 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using NSubstitute;
+
 namespace LateStartStudio.Hero6.Engine.Utilities.Settings
 {
     using LateStartStudio.Hero6.Tests.HelperTools.Utilities;
@@ -13,6 +15,7 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
     public class UserSettingsTests
     {
         private FileWrapperStub file;
+        private IDirectoryWrapper directory;
         private UserSettings userSettings;
 
         [SetUp]
@@ -20,6 +23,8 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
         {
             var services = new Hero6ServicesProvider();
             file = services.File;
+            directory = Substitute.For<IDirectoryWrapper>();
+
             userSettings = MakeUserSettings();
         }
 
@@ -88,6 +93,13 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
             Assert.That(file.DeleteInvoked, Is.True);
         }
 
-        private UserSettings MakeUserSettings() => new UserSettings(file);
+        [Test]
+        public void SaveMakesDirectory()
+        {
+            userSettings.Save();
+            directory.Received().CreateDirectory(Game.UserFilesDir);
+        }
+
+        private UserSettings MakeUserSettings() => new UserSettings(file, directory);
     }
 }

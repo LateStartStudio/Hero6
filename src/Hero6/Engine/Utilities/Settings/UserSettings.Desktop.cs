@@ -15,12 +15,14 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
         private static readonly string Filename = $"{Game.UserFilesDir}.usersettings.json";
 
         private readonly IFileWrapper file;
+        private readonly IDirectoryWrapper directory;
 
         private UserSettingsData data;
 
-        public UserSettings(IFileWrapper file)
+        public UserSettings(IFileWrapper file, IDirectoryWrapper directory)
         {
             this.file = file;
+            this.directory = directory;
 
             if (file.Exists(Filename))
             {
@@ -62,7 +64,7 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
 
         public void Save()
         {
-            Directory.CreateDirectory(Game.UserFilesDir); // If dir already exists, does nothing
+            directory.CreateDirectory(Game.UserFilesDir); // If dir already exists, does nothing
 
             file.WriteAllText(Filename, JsonConvert.SerializeObject(data));
         }
