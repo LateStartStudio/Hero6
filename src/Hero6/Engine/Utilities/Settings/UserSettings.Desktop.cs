@@ -7,7 +7,6 @@
 #if DESKTOPGL
 namespace LateStartStudio.Hero6.Engine.Utilities.Settings
 {
-    using System.IO;
     using Newtonsoft.Json;
 
     public class UserSettings : IUserSettings
@@ -64,7 +63,8 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
 
         public void Save()
         {
-            directory.CreateDirectory(Game.UserFilesDir); // If dir already exists, does nothing
+            // CreateDirectory does nothing if the directory already exists
+            directory.CreateDirectory(Game.UserFilesDir);
 
             file.WriteAllText(Filename, JsonConvert.SerializeObject(data));
         }
