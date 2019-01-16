@@ -11,12 +11,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DefineConstants>TRACE;DESKTOPGL;MONOGAME</DefineConstants>
     <DocumentationFile></DocumentationFile>
-    <CodeAnalysisRuleSet>../Hero6.NoDocumentation.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>TRACE;DESKTOPGL;MONOGAME</DefineConstants>
     <DocumentationFile></DocumentationFile>
-    <CodeAnalysisRuleSet>../Hero6.NoDocumentation.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <MonoGameContentReference Include="..\Hero6.Content\*.mgcb" />

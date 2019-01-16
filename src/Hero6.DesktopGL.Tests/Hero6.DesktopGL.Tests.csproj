@@ -9,12 +9,12 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile></DocumentationFile>
-    <CodeAnalysisRuleSet>../Hero6.NoDocumentation.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>
     <DefineConstants>TRACE;DESKTOPGL</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile></DocumentationFile>
-    <CodeAnalysisRuleSet>../Hero6.NoDocumentation.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>
     <DefineConstants>TRACE;DESKTOPGL</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
