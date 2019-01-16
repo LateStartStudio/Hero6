@@ -7,11 +7,11 @@
     <LangVersion>6</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\Hero6.Engine.xml</DocumentationFile>
+    <DocumentationFile></DocumentationFile>
     <CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\Hero6.Engine.xml</DocumentationFile>
+    <DocumentationFile></DocumentationFile>
     <CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
