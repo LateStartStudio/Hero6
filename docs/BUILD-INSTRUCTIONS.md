@@ -12,12 +12,6 @@
 
 ² Google how to install Arial on your system. We want to remove acquiring fonts as a user dependent prerequisite, but no one has taken the time to do this yet.
 
-### Optional
-
-* [MonoGame SDK v3.7](http://community.monogame.net/t/monogame-3-7-release/10971)¹
-
-¹ If you want to modify the MonoGame asset project, the SDK includes CLI and GUI tools.
-
 ## Instructions
 
 ### Clone the project
@@ -59,9 +53,13 @@ Hero6 is built using standard [dotnet CLI commands](https://docs.microsoft.com/e
 
 Make sure your IDE/text editor is compatible with [.editorconfig](https://editorconfig.org/) to make sure you're using the same text editor rules as everyone else contributing.
 
-#### Adding nuget packages
+#### Editing nuget packages
 
 We use [Paket](https://fsprojects.github.io/Paket/) for nuget packages.
+
+#### Editing MonoGame Content project
+
+If you want to edit the MonoGame Content project you'll need the CLI or GUI tools from the [MonoGame SDK v3.7](http://community.monogame.net/t/monogame-3-7-release/10971)
 
 #### Unit test coverage
 
