@@ -1,0 +1,14 @@
+# Build steps
+
+steps:
+# Pre-build the MonoGame Pipeline Extensions
+- bash: ./scripts/build-monogame-pipeline.sh $(BuildConfiguration)
+  displayName: Build MonoGame Pipeline Extensions
+
+# Build the Hero6 source code
+- task: DotNetCoreCLI@2
+  displayName: Build Hero6
+  inputs:
+    command: 'build'
+    projects: './src/Hero6.sln'
+    arguments: '-c $(BuildConfiguration)'

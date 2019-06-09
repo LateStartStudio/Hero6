@@ -1,0 +1,19 @@
+# Run Tests steps
+
+steps:
+# Run Tests
+- task: DotNetCoreCLI@2
+  displayName: Run Tests
+  inputs:
+    command: 'test'
+    projects: 'src/**/*.Tests.csproj'
+    arguments: '-c $(BuildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura'
+    nobuild: true
+
+# Publish Coverage Reports
+- task: PublishCodeCoverageResults@1
+  displayName: Publish Coverage Reports
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: 'src/**/coverage.cobertura.xml'
+    failIfCoverageEmpty: true

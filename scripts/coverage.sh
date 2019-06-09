@@ -6,29 +6,13 @@ if [ -x $CONFIG ]; then
   exit 1
 fi
 
-make_opencover_report()
-{
-  NAME=$1
-
-  dotnet test $(dirname $0)/../src/$NAME.Tests/$NAME.Tests.csproj --no-build -p:Configuration=$CONFIG -p:CollectCoverage=true -p:CoverletOutputFormat=opencover -p:CoverletOutput="../.coverage/opencover/${NAME}.xml"
-}
-
-echo "Cleaning previous coverage reports"
-rm -rf $(dirname $0)/../src/.coverage/
-
-echo "Collect opencover reports"
+echo "Collect reports"
 for PROJECT in "${PROJECTS[@]}"
 do
-  make_opencover_report $PROJECT
+  dotnet test $(dirname $0)/../src/${PROJECT}.Tests/${PROJECT}.Tests.csproj --no-build -p:Configuration=$CONFIG -p:CollectCoverage=true -p:CoverletOutputFormat=cobertura -p:CoverletOutput="../.coverage/cobertura/${PROJECT}.${CONFIG}.xml"
 done
 
 echo "Make human readable coverage reports"
-REPORTS=-reports:
-for PROJECT in "${PROJECTS[@]}"
-do
-  REPORTS=$REPORTS$(dirname $0)/../src/.coverage/opencover/$PROJECT.xml\;
-done
-dotnet $(dirname $0)/../src/packages/ReportGenerator/tools/netcoreapp2.0/ReportGenerator.dll "$REPORTS" "-targetdir:$(dirname $0)/../src/.coverage/html" -reporttypes:HTML
-mv $(dirname $0)/../src/.coverage/html/index.htm $(dirname $0)/../src/.coverage/html/index.html
+dotnet $(dirname $0)/../src/packages/ReportGenerator/tools/netcoreapp2.0/ReportGenerator.dll "-reports:$(dirname $0)/../src/.coverage/cobertura/*.xml" "-targetdir:$(dirname $0)/../src/.coverage/html" -reporttypes:HtmlInline_AzurePipelines
 
 echo "Coverage reports generated at ./src/.coverage/"
