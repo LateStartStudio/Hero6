@@ -1,3 +1,5 @@
+#!/bin/bash
+
 CONFIG=$1
 PROJECTS=(Collections Search Hero6.Engine Hero6.Repository Hero6.Engine.Campaigns.RitesOfPassage Hero6.Engine.UserInterfaces.SierraVga Hero6.DesktopGL)
 
