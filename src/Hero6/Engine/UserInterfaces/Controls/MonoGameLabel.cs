@@ -39,7 +39,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Controls
 
         public void Load()
         {
-            font = content.Load<SpriteFont>("Gui/Sierra Vga/Fonts/Arial_11.25_Regular");
+            font = content.Load<SpriteFont>("Gui/Sierra Vga/Fonts/DAYROM_11.25_Regular");
             var size = font.MeasureString(Text);
             Width = (int)size.X;
             Height = (int)size.Y;

@@ -528,12 +528,12 @@
 /processorParam:TextureFormat=Color
 /build:../../assets/Gui/Sierra Vga/Extension Bar/Time Light.png;Gui/Sierra Vga/Extension Bar/Time Light.png
 
-#begin ../../assets/Gui/Sierra Vga/Fonts/Arial_11.25_Regular.spritefont
+#begin ../../assets/Gui/Sierra Vga/Fonts/DAYROM_11.25_Regular.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
-/build:../../assets/Gui/Sierra Vga/Fonts/Arial_11.25_Regular.spritefont;Gui/Sierra Vga/Fonts/Arial_11.25_Regular.spritefont
+/build:../../assets/Gui/Sierra Vga/Fonts/DAYROM_11.25_Regular.spritefont;Gui/Sierra Vga/Fonts/DAYROM_11.25_Regular.spritefont
 
 #begin ../../assets/Gui/Sierra Vga/Status Bar/Background.png
 /importer:TextureImporter
