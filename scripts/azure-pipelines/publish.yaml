@@ -1,0 +1,21 @@
+# Publish steps
+
+# dotnet Publish
+steps:
+- task: DotNetCoreCLI@2
+  displayName: Build Publish Files
+  inputs:
+    command: 'publish'
+    publishWebProjects: false
+    projects: './src/Hero6.DesktopGL/Hero6.DesktopGL.csproj'
+    zipAfterPublish: false
+    arguments: '-c $(BuildConfiguration) -r $(Runtime)'
+    nobuild: true
+
+# Publish Hero6
+- task: PublishBuildArtifacts@1
+  displayName: Publish Hero6
+  inputs:
+    PathtoPublish: 'src/Hero6.DesktopGL/bin/Release/netcoreapp2.0/$(Runtime)/publish'
+    ArtifactName: 'Hero6_$(Agent.OS)_$(Build.DefinitionName)_$(Build.BuildNumber)'
+    publishLocation: 'Container'

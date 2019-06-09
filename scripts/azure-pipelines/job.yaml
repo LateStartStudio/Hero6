@@ -1,0 +1,21 @@
+# Job
+
+parameters:
+  name: ''
+  vmImage: ''
+  buildConfiguration: ''
+  runtime: ''
+
+jobs:
+- job: ${{ parameters.name }}
+  pool:
+    vmImage: ${{ parameters.vmImage }}
+  variables:
+    BuildConfiguration: ${{ parameters.buildConfiguration }}
+    Runtime: ${{ parameters.runtime }}
+  steps:
+  - template: install.yaml
+  - template: build.yaml
+  - template: run-tests.yaml
+  - ${{ if and(eq(parameters['buildConfiguration'], 'Release'), not(eq(variables['Build.Reason'], 'PullRequest'))) }}:
+    - template: publish.yaml

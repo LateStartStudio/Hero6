@@ -6,11 +6,8 @@
 * [git-lfs](https://git-lfs.github.com/)
 * [.NET SDK (Windows)](https://dotnet.microsoft.com/download/visual-studio-sdks) or [Mono (*nix)](https://www.mono-project.com/)¹
 * [.NET Core SDK v2.2.100](https://dotnet.microsoft.com/download/dotnet-core/2.2)
-* Arial font (*nix only)²
 
 ¹ We hope this prerequisite will not be needed in the future, but we rely on 3rd party frameworks to upgrade their tools for this to happen.
-
-² Google how to install Arial on your system. We want to remove acquiring fonts as a user dependent prerequisite, but no one has taken the time to do this yet.
 
 ## Instructions
 
