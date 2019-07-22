@@ -1,8 +1,14 @@
 # Bleeding pipeline
 
 trigger:
-- master
-- feature/*
+  branches:
+    include:
+    - master
+    - feature/*
+  paths:
+    exlude:
+    - *.md
+    - docs/*
 
 jobs:
 - template: job.yaml
