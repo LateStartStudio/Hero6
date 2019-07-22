@@ -6,6 +6,8 @@ trigger:
     - master
     - feature/*
   paths:
+    include:
+    - '*'
     exclude:
     - '*.md'
     - 'docs/*'
