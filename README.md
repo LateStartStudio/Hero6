@@ -28,9 +28,9 @@ Welcome to the Hero6 project. This readme should be included in your copy of Her
 #### Official Builds
 ||Debug|Release|
 |:---|:---:|:---:|
-|**Windows 10**|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_Windows_DesktopGLDebug)/statusIcon)|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_DesktopGL)/statusIcon)|
-|**OS X Sierra**|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_MacOS_DesktopGLDebug)/statusIcon)|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_ReleaseBuildDesktopGLMacX86)/statusIcon)|
-|**Ubuntu 18.04**|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_Ubuntu_DesktopGLDebug)/statusIcon)|![](http://build.hero6.org/app/rest/builds/buildType:(id:Hero6_ReleaseBuildDesktopGLLinux)/statusIcon)|
+|**Windows 10**|[![Build Status](https://dev.azure.com/hero6/Hero6/_apis/build/status/Bleeding?branchName=master&jobName=Windows_Debug)](https://dev.azure.com/hero6/Hero6/_build/latest?definitionId=17&branchName=master)|[![Build Status](https://dev.azure.com/hero6/Hero6/_apis/build/status/Bleeding?branchName=master&jobName=Windows_Release)](https://dev.azure.com/hero6/Hero6/_build/latest?definitionId=17&branchName=master)|
+|**OS X Sierra**|[![Build Status](https://dev.azure.com/hero6/Hero6/_apis/build/status/Bleeding?branchName=master&jobName=macOS_Mojave_Debug)](https://dev.azure.com/hero6/Hero6/_build/latest?definitionId=17&branchName=master)|[![Build Status](https://dev.azure.com/hero6/Hero6/_apis/build/status/Bleeding?branchName=master&jobName=macOS_Mojave_Release)](https://dev.azure.com/hero6/Hero6/_build/latest?definitionId=17&branchName=master)|
+|**Ubuntu 16.04**|[![Build Status](https://dev.azure.com/hero6/Hero6/_apis/build/status/Bleeding?branchName=master&jobName=Ubuntu_16_04_Debug)](https://dev.azure.com/hero6/Hero6/_build/latest?definitionId=17&branchName=master)|[![Build Status](https://dev.azure.com/hero6/Hero6/_apis/build/status/Bleeding?branchName=master&jobName=Ubuntu_16_04_Release)](https://dev.azure.com/hero6/Hero6/_build/latest?definitionId=17&branchName=master)|
 
 ### Build Instructions
 If you want to build the source code refer to the [Build Instructions Document](https://github.com/LateStartStudio/Hero6/blob/master/docs/BUILD-INSTRUCTIONS.md).

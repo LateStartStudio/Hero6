@@ -15,7 +15,7 @@
 
 If you have git and git-lfs installed and configured, simply cloning the project should be enough.
 
-`git clone https://github.com/LateStartStudio/Hero6`
+`git clone --recurse-submodules https://github.com/LateStartStudio/Hero6`
 
 ### Pre-build MonoGame Pipeline extension
 
@@ -44,20 +44,20 @@ Hero6 is built using standard [dotnet CLI commands](https://docs.microsoft.com/e
 
 `dotnet test ./src/Hero6.sln`
 
-### Other things to know
+## Other things to know
 
-#### .editorconfig
+### .editorconfig
 
 Make sure your IDE/text editor is compatible with [.editorconfig](https://editorconfig.org/) to make sure you're using the same text editor rules as everyone else contributing.
 
-#### Editing nuget packages
+### Editing nuget packages
 
 We use [Paket](https://fsprojects.github.io/Paket/) for nuget packages.
 
-#### Editing MonoGame Content project
+### Editing MonoGame Content project
 
 If you want to edit the MonoGame Content project you'll need the CLI or GUI tools from the [MonoGame SDK v3.7](http://community.monogame.net/t/monogame-3-7-release/10971)
 
-#### Unit test coverage
+### Unit test coverage
 
 If you want to see unit test coverage run the script `./src/coverage.sh`, it will generate reports, to see open `./src/.coverage/html/index.html`.
