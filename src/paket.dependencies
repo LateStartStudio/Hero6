@@ -8,7 +8,6 @@ nuget log4net
 nuget Microsoft.NET.Test.Sdk
 nuget MonoGame.Content.Builder
 nuget MonoGame.Framework.Content.Pipeline.Portable
-nuget MonoGame.Framework.DesktopGL
 nuget MonoGame.Framework.DesktopGL.Core
 nuget Newtonsoft.Json
 nuget NSubstitute

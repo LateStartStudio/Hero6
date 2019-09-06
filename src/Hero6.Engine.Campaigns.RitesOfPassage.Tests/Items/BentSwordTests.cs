@@ -6,13 +6,13 @@
 
 namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Items
 {
-    using LateStartStudio.Hero6.Engine.Campaigns.Items;
-    using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Characters;
     using LateStartStudio.Hero6.Localization;
+    using LateStartStudio.Hero6.Tests.HelperTools.Categories;
     using NSubstitute;
     using NUnit.Framework;
 
     [TestFixture]
+    [Unit]
     public class BentSwordTests : ItemTestBase<BentSword>
     {
         [Test]
@@ -41,7 +41,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Items
         public void OnGrabAddToPlayerInventory()
         {
             Module.Grab();
-            Services.CampaignController.GetCharacter<Hero>().Received().AddInventoryItem<InventoryItems.BentSword>();
+            Services.Campaigns.Current.Player.Received().AddInventoryItem<InventoryItems.BentSword>();
         }
 
         [Test]
@@ -50,5 +50,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Items
             Module.Talk();
             Services.UserInterfaces.Current.Received().ShowTextBox(Strings.BentSwordTalk);
         }
+
+        protected override BentSword MakeModule() => new BentSword(Services.UserInterfaces, Services.Campaigns);
     }
 }

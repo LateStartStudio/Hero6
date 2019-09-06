@@ -6,12 +6,16 @@
 
 namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Characters
 {
+    using LateStartStudio.Hero6.Engine.Campaigns.Animations;
+    using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Animations.Characters.Llewella.Idle;
     using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.InventoryItems;
     using LateStartStudio.Hero6.Localization;
+    using LateStartStudio.Hero6.Tests.HelperTools.Categories;
     using NSubstitute;
     using NUnit.Framework;
 
     [TestFixture]
+    [Unit]
     public class LlewellaTests : CharacterTestBase<Llewella>
     {
         [Test]
@@ -38,7 +42,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Characters
         [Test]
         public void OnTalkShowTextWhenHeroHasBentSword()
         {
-            Services.CampaignController.Player.HasInventoryItem<BentSword>().Returns(true);
+            Services.Campaigns.Current.Player.HasInventoryItem<BentSword>().Returns(true);
             Module.Talk();
             Services.UserInterfaces.Current.Received().ShowTextBox(Strings.LlewellaTalk1);
         }
@@ -46,9 +50,9 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Characters
         [Test]
         public void OnTalkPlayerLoseBentSwordWhenInPlayerInventory()
         {
-            Services.CampaignController.Player.HasInventoryItem<BentSword>().Returns(true);
+            Services.Campaigns.Current.Player.HasInventoryItem<BentSword>().Returns(true);
             Module.Talk();
-            Services.CampaignController.Player.Received().RemoveInventoryItem<BentSword>();
+            Services.Campaigns.Current.Player.Received().RemoveInventoryItem<BentSword>();
         }
 
         [Test]
@@ -57,6 +61,14 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Characters
             Controller.HasInventoryItem<BentSword>().Returns(true);
             Module.Talk();
             Services.UserInterfaces.Current.Received().ShowTextBox(Strings.LlewellaTalk3);
+        }
+
+        protected override Llewella MakeModule() => new Llewella(Services.UserInterfaces, Services.Campaigns);
+
+        protected override void PreInitialize()
+        {
+            base.PreInitialize();
+            Services.Campaigns.Current.GetCharacterAnimation<LlewellaIdle>().Returns(Substitute.For<CharacterAnimationModule>());
         }
     }
 }

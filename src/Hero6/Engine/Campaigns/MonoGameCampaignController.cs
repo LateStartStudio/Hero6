@@ -25,7 +25,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         private MonoGameRoomController currentRoom;
 
         public MonoGameCampaignController(CampaignModule module, IServices services)
-            : base(module)
+            : base(module, services)
         {
             this.services = services;
         }
@@ -42,9 +42,9 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
 
         public IDictionary<Type, MonoGameInventoryItemController> InventoryItems { get; } = new Dictionary<Type, MonoGameInventoryItemController>();
 
-        public override int Width => currentRoom.Width;
+        public override int Width => currentRoom?.Width ?? 0;
 
-        public override int Height => currentRoom.Height;
+        public override int Height => currentRoom?.Height ?? 0;
 
         public override CharacterController Player { get; set; }
 
@@ -89,7 +89,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
 
             foreach (var type in Module.GenerateInventoryItems())
             {
-                InventoryItems[type] = new MonoGameInventoryItemController(services.Make<InventoryItemModule>(type));
+                InventoryItems[type] = new MonoGameInventoryItemController(services.Make<InventoryItemModule>(type), services);
             }
 
             foreach (var type in Module.GenerateRooms())

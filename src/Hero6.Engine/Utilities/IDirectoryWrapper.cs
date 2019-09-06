@@ -11,10 +11,6 @@ namespace LateStartStudio.Hero6.Engine.Utilities
     /// </summary>
     public interface IDirectoryWrapper
     {
-#pragma warning disable CS1591
-#pragma warning disable SA1600
         void CreateDirectory(string userFilesDir);
-#pragma warning restore SA1600
-#pragma warning restore CS1591
     }
 }

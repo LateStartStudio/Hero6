@@ -6,6 +6,10 @@
 
 namespace LateStartStudio.Hero6.Engine.ModuleController
 {
+    using System;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+
     /// <summary>
     /// Controller type. This is where we write all engine logic to any game entities. Controllers communicate with
     /// modules, where we keep the game logic.
@@ -13,17 +17,29 @@ namespace LateStartStudio.Hero6.Engine.ModuleController
     /// <typeparam name="TController">The controller that corresponds to the module.</typeparam>
     /// <typeparam name="TModule">The module that corresponds to the controller.</typeparam>
     public abstract class Controller<TController, TModule> : IController
-        where TController : class, IController
-        where TModule : Module<TController>
+        where TController : Controller<TController, TModule>
+        where TModule : IModule
     {
+        private bool mouseOverOnPreviousFrame = false;
+        private bool mouseOverOnThisFrame = true;
+
         /// <summary>
         /// Makes a new <see cref="Controller{TController,TModule}"/> instance.
         /// </summary>
         /// <param name="module">The module to this controller.</param>
-        protected Controller(TModule module)
+        protected Controller(TModule module, IServices services)
         {
             Module = module;
+            var mouse = services.Get<IMouse>();
+            mouse.Move += MouseMove;
+            mouse.ButtonLift += MouseButtonLift;
         }
+
+        public event EventHandler MouseEnter;
+
+        public event EventHandler MouseLeave;
+
+        public event EventHandler<MouseButtonInteraction> MouseButtonUp;
 
         /// <summary>
         /// Gets or sets the x coordinate.
@@ -44,6 +60,8 @@ namespace LateStartStudio.Hero6.Engine.ModuleController
         /// Gets the height.
         /// </summary>
         public abstract int Height { get; }
+
+        public virtual bool IsVisible { get; set; } = true;
 
         /// <summary>
         /// Gets the module for this controller.
@@ -77,5 +95,39 @@ namespace LateStartStudio.Hero6.Engine.ModuleController
         /// <param name="y">The y coordinate.</param>
         /// <returns>True if it intersects. False if not.</returns>
         public bool Intersects(int x, int y) => x >= X && x < X + Width && y >= Y && y < Y + Height;
+
+        public void InvokeMouseEnter() => MouseEnter?.Invoke(this, EventArgs.Empty);
+
+        public void InvokeMouseLeave() => MouseLeave?.Invoke(this, EventArgs.Empty);
+
+        public void InvokeMouseButtonUp(MouseButtonInteraction e) => MouseButtonUp?.Invoke(this, e);
+
+        public override string ToString() => $"Controller: {Module.Name}";
+
+        private void MouseMove(object sender, MouseMove e)
+        {
+            if (IsVisible)
+            {
+                mouseOverOnPreviousFrame = mouseOverOnThisFrame;
+                mouseOverOnThisFrame = Intersects(e.X, e.Y);
+
+                if (mouseOverOnThisFrame && !mouseOverOnPreviousFrame)
+                {
+                    InvokeMouseEnter();
+                }
+                else if (!mouseOverOnThisFrame && mouseOverOnPreviousFrame)
+                {
+                    InvokeMouseLeave();
+                }
+            }
+        }
+
+        private void MouseButtonLift(object sender, MouseButtonInteraction e)
+        {
+            if (IsVisible && Intersects(e.X, e.Y))
+            {
+                InvokeMouseButtonUp(e);
+            }
+        }
     }
 }

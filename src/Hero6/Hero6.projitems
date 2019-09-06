@@ -11,6 +11,14 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Assets\MonoGameWalkAreaReader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Campaigns\Animations\MonoGameCharacterAnimationController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Components\ControllerRepositoryProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Components\IControllerRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Components\MonoGameButtonController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Components\MonoGameImageController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Components\MonoGameLabelController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Components\MonoGameStackPanelController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Components\MonoGameWindowController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\MonoGameUserInterfaceController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Input\IMouseCore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Input\MouseCore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\DirectoryWrapper.cs" />
@@ -31,20 +39,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Campaigns\Animations\MonoGameAnimationController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Campaigns\Rooms\Regions\MonoGameWalkAreasController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Campaigns\Rooms\RoomControllerExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Controls\MonoGameButton.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Controls\MonoGameImage.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Controls\MonoGameStackPanel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Controls\MonoGameWindow.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Controls\MonoGameDialog.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Controls\MonoGameLabel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\MatrixExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Extensions\UserInterfaceElementExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\MouseExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Input\Mouse.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\MonoGameUserInterface.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\MonoGameUserInterfaceGenerator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\MonoGameUserInterfaces.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\DependencyInjection\IServices.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\DependencyInjection\MonoGameServices.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\Logger\Logger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\Settings\GameSettings.cs" />

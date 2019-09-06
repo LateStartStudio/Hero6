@@ -25,7 +25,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Items
 
         public override string Sprite => "Campaigns/Rites of Albion/Sprites/Items/Bent Sword";
 
-        protected override void Initialize()
+        public override void Initialize()
         {
             base.Initialize();
             Look = OnLook;

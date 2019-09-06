@@ -78,7 +78,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage
             yield return typeof(InventoryItems.BentSword);
         }
 
-        protected override void Initialize()
+        public override void Initialize()
         {
             base.Initialize();
             campaigns.Current.GetCharacter<Hero>().SetAsPlayer();

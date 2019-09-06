@@ -19,7 +19,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Animations.Chara
 
         public override string Name => "Llewella Idle";
 
-        protected override void Initialize()
+        public override void Initialize()
         {
             base.Initialize();
             CenterDown = campaigns.Current.GetAnimation<LllewellaIdleCenterDown>();

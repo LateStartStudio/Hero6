@@ -31,13 +31,13 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms
         private Vector2 position;
 
         public MonoGameRoomController(RoomModule module, IServices services)
-            : base(module)
+            : base(module, services)
         {
             campaigns = services.Get<ICampaigns>();
             content = services.Get<ContentManager>();
             spriteBatch = services.Get<SpriteBatch>();
-            walkAreas = new MonoGameWalkAreasController(Module.WalkAreasMask, content);
-            hotspots = new MonoGameHotspotsController(Module.HotspotsMask, content);
+            walkAreas = new MonoGameWalkAreasController(Module.WalkAreasMask, services);
+            hotspots = new MonoGameHotspotsController(Module.HotspotsMask, services);
         }
 
         public override int Width => background.Width;
@@ -96,10 +96,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms
             return false;
         }
 
-        void IXnaGameLoop.Initialize()
-        {
-            PreInitialize();
-        }
+        void IXnaGameLoop.Initialize() => PreInitialize();
 
         public void Load()
         {

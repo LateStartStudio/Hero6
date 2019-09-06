@@ -42,14 +42,32 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
 
         public int X
         {
-            get { return mouseCore.X / (int)gameSettings.WindowScale.X; }
-            set { mouseCore.X = (int)(value * gameSettings.WindowScale.X); }
+            get
+            {
+                var x = mouseCore.X / (int)gameSettings.WindowScale.X;
+                var y = mouseCore.Y / (int)gameSettings.WindowScale.Y;
+                return IsInsideGameWindow(x, y) ? previousX : x;
+            }
+
+            set
+            {
+                mouseCore.X = (int)(value * gameSettings.WindowScale.X);
+            }
         }
 
         public int Y
         {
-            get { return mouseCore.Y / (int)gameSettings.WindowScale.Y; }
-            set { mouseCore.Y = (int)(value * gameSettings.WindowScale.Y); }
+            get
+            {
+                var x = mouseCore.X / (int)gameSettings.WindowScale.X;
+                var y = mouseCore.Y / (int)gameSettings.WindowScale.Y;
+                return IsInsideGameWindow(x, y) ? previousY : y;
+            }
+
+            set
+            {
+                mouseCore.Y = (int)(value * gameSettings.WindowScale.Y);
+            }
         }
 
         public int ScrollWheel => mouseCore.ScrollWheel;
@@ -117,6 +135,8 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
             previousX = X;
             previousY = Y;
         }
+
+        private bool IsInsideGameWindow(int x, int y) => x < 0 || x > gameSettings.NativeWidth || y < 0 || y > gameSettings.NativeHeight;
 
         private class MouseButton
         {

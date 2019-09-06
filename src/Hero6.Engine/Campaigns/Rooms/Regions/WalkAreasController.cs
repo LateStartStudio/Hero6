@@ -6,6 +6,9 @@
 
 namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
 {
+    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+
     /// <summary>
     /// API for walk areas controller.
     /// </summary>
@@ -14,8 +17,8 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
         /// <summary>
         /// Makes a new instance of the walk areas controller.
         /// </summary>
-        protected WalkAreasController()
-            : base(new WalkAreasModule())
+        protected WalkAreasController(IServices services)
+            : base(new WalkAreasModule(), services)
         {
         }
     }

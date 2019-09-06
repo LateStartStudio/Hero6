@@ -23,14 +23,9 @@ namespace LateStartStudio.Hero6.Engine.Utilities.Settings
             this.file = file;
             this.directory = directory;
 
-            if (file.Exists(Filename))
-            {
-                data = JsonConvert.DeserializeObject<UserSettingsData>(file.ReadAllText(Filename));
-            }
-            else
-            {
-                data = new UserSettingsData();
-            }
+            data = file.Exists(Filename)
+                ? JsonConvert.DeserializeObject<UserSettingsData>(file.ReadAllText(Filename))
+                : new UserSettingsData();
 
             GameStartedCount++;
 

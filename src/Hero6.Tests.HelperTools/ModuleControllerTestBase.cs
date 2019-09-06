@@ -1,0 +1,38 @@
+﻿// <copyright file="ModuleControllerTestBase.cs" company="Late Start Studio">
+// Copyright (C) Late Start Studio
+// This file is subject to the terms and conditions of the MIT license specified in the file
+// 'LICENSE.CODE.md', which is a part of this source code package.
+// </copyright>
+
+namespace LateStartStudio.Hero6.Tests.HelperTools
+{
+    using LateStartStudio.Hero6.Engine.ModuleController;
+    using NUnit.Framework;
+
+    public abstract class ModuleControllerTestBase<TModule, TController> : TestBase
+        where TController : IController
+        where TModule : IModule
+    {
+        protected TModule Module { get; private set; }
+
+        protected TController Controller { get; private set; }
+
+        [SetUp]
+        public override void SetUp()
+        {
+            base.SetUp();
+            Module = MakeModule();
+            Controller = MakeController();
+            PreInitialize();
+            Initialize();
+        }
+
+        protected abstract TModule MakeModule();
+
+        protected abstract TController MakeController();
+
+        protected virtual void PreInitialize() => Controller.PreInitialize();
+
+        protected virtual void Initialize() => Controller.Initialize();
+    }
+}

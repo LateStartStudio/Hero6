@@ -11,7 +11,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Characters.Stats
     /// <summary>
     /// API for get-set stat module.
     /// </summary>
-    public class StatModule : GameModule<StatController>
+    public class StatModule : GameModule<StatController, StatModule>
     {
         /// <summary>
         /// <see cref="Change"/> event is onvoked when <see cref="Current"/> changes.

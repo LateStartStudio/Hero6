@@ -7,6 +7,8 @@
 namespace LateStartStudio.Hero6.Engine.Campaigns
 {
     using LateStartStudio.Hero6.Engine.ModuleController;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
 
     /// <summary>
     /// API for all game enttities.
@@ -14,15 +16,15 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
     /// <typeparam name="TController">The Controlle type.</typeparam>
     /// <typeparam name="TModule">The Module type.</typeparam>
     public abstract class GameController<TController, TModule> : Controller<TController, TModule>
-        where TController : class, IController
-        where TModule : Module<TController>
+        where TController : GameController<TController, TModule>
+        where TModule : GameModule<TController, TModule>
     {
         /// <summary>
         /// Makes a new instance of the <see cref="GameController{TController,TModule}"/> class.
         /// </summary>
         /// <param name="module">The module corresponding to this controller.</param>
-        protected GameController(TModule module)
-            : base(module)
+        protected GameController(TModule module, IServices services)
+            : base(module, services)
         {
         }
 

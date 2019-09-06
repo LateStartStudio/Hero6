@@ -19,7 +19,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Animations.Chara
 
         public override string Name => "Hero Walk Animation";
 
-        protected override void Initialize()
+        public override void Initialize()
         {
             base.Initialize();
 

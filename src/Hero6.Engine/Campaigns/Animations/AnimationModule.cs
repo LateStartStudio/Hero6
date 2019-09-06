@@ -9,7 +9,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Animations
     /// <summary>
     /// Animation using a sprite sheet.
     /// </summary>
-    public abstract class AnimationModule : GameModule<AnimationController>
+    public abstract class AnimationModule : GameModule<AnimationController, AnimationModule>, IAnimationModule
     {
         /// <summary>
         /// Gets the path of the sprite sheets.

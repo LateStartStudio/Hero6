@@ -6,6 +6,8 @@
 
 namespace LateStartStudio.Hero6.Engine.Campaigns.InventoryItems
 {
+    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+
     /// <summary>
     /// API for inventory item controller.
     /// </summary>
@@ -15,7 +17,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.InventoryItems
         /// Makes a new instance of the <see cref="InventoryItemController"/> class.
         /// </summary>
         /// <param name="module">The module for this controller</param>
-        protected InventoryItemController(InventoryItemModule module) : base(module)
+        protected InventoryItemController(InventoryItemModule module, IServices services) : base(module, services)
         {
         }
     }

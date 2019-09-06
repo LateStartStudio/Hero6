@@ -44,28 +44,21 @@ namespace LateStartStudio.Hero6.Engine.Utilities.DependencyInjection
         {
             foreach (var c in t.GetConstructors())
             {
-                if (c.GetParameters().Length == 0)
+                var parameters = c.GetParameters();
+
+                if (parameters.Length == 0)
                 {
                     return (T)Activator.CreateInstance(t);
                 }
 
-                IList<object> args = new List<object>();
+                var args = parameters
+                    .Select(parameter => services.GetService(parameter.ParameterType))
+                    .TakeWhile(service => service != null)
+                    .ToArray();
 
-                foreach (var p in c.GetParameters())
+                if (args.Length == parameters.Length)
                 {
-                    var service = services.GetService(p.ParameterType);
-
-                    if (service == null)
-                    {
-                        break;
-                    }
-
-                    args.Add(service);
-                }
-
-                if (args.Count == c.GetParameters().Length)
-                {
-                    return (T)Activator.CreateInstance(t, args.ToArray());
+                    return (T)Activator.CreateInstance(t, args);
                 }
             }
 

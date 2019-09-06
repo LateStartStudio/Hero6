@@ -9,7 +9,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Items
     /// <summary>
     /// API for the item module.
     /// </summary>
-    public abstract class ItemModule : GameModule<ItemController>
+    public abstract class ItemModule : GameModule<ItemController, ItemModule>, IItemModule
     {
         /// <summary>
         /// Gets the sprite path.

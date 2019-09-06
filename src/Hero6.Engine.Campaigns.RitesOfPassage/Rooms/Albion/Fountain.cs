@@ -25,6 +25,10 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Rooms.Albion
             this.userInterfaces = userInterfaces;
         }
 
+        public static Color HotspotSouthExit { get; } = Color.FromArgb(255, 255, 255, 255);
+
+        public static Color HotspotFountainSpot { get; } = Color.FromArgb(255, 255, 0, 0);
+
         public override string Name => "Fountain";
 
         public override string Background => "Campaigns/Rites of Albion/Rooms/Albion/Fountain/Background";
@@ -33,11 +37,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Rooms.Albion
 
         public override string HotspotsMask => "Campaigns/Rites of Albion/Rooms/Albion/Fountain/Hotspots";
 
-        public Color HotspotSouthExit { get; } = Color.FromArgb(255, 255, 255, 255);
-
-        public Color HotspotFountainSpot { get; } = Color.FromArgb(255, 255, 0, 0);
-
-        protected override void Initialize()
+        public override void Initialize()
         {
             base.Initialize();
 

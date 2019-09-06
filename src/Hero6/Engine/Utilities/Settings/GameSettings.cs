@@ -7,14 +7,29 @@
 namespace LateStartStudio.Hero6.Engine.Utilities.Settings
 {
     using System.Drawing;
+    using System.Linq;
+    using LateStartStudio.Hero6.Engine.UserInterfaces;
 
     public class GameSettings : IGameSettings
     {
+        private readonly IUserInterfaces userInterfaces;
+
+        private bool isPaused = false;
+
+        public GameSettings(IUserInterfaces userInterfaces)
+        {
+            this.userInterfaces = userInterfaces;
+        }
+
         public int NativeWidth => 320;
 
         public int NativeHeight => 240;
 
-        public bool IsPaused { get; set; }
+        public bool IsPaused
+        {
+            get { return isPaused || userInterfaces.Current.Windows.Where(w => w.IsVisible && w.PauseGame).Any(); }
+            set { isPaused = value; }
+        }
 
         public PointF WindowScale { get; set; }
     }

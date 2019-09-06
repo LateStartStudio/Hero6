@@ -7,6 +7,7 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces
 {
     using System.Collections.Generic;
+    using System.Linq;
     using GameLoop;
     using Microsoft.Xna.Framework;
     using SierraVga;
@@ -15,29 +16,28 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
     public class MonoGameUserInterfaces : IUserInterfaces, IXnaGameLoop
     {
         private readonly IServices services;
-        private readonly List<MonoGameUserInterface> userInterfaces;
+        private readonly List<MonoGameUserInterfaceController> userInterfaces = new List<MonoGameUserInterfaceController>();
 
-        private MonoGameUserInterface current;
+        private MonoGameUserInterfaceController current;
 
         public MonoGameUserInterfaces(IServices services)
         {
             this.services = services;
-            userInterfaces = new List<MonoGameUserInterface>();
         }
 
-        public IEnumerable<UserInterface> UserInterfaces => userInterfaces;
+        public IEnumerable<UserInterfaceModule> UserInterfaces => userInterfaces.Select(u => u.Module);
 
-        public UserInterface Current
+        public IUserInterfaceModule Current
         {
-            get { return current; }
-            set { current = (MonoGameUserInterface)value; }
+            get { return current.Module; }
+            set { current = userInterfaces.Find(u => u.Module == value); }
         }
 
         public void Initialize()
         {
-            userInterfaces.Add(new MonoGameUserInterface(services.Make<SierraVgaController>(), services));
+            userInterfaces.Add(new MonoGameUserInterfaceController(services.Make<SierraVgaModule>(), services));
             current = userInterfaces[0];
-            current.Initialize();
+            ((IXnaGameLoop)current).Initialize();
         }
 
         public void Load() => current.Load();

@@ -9,78 +9,78 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Animations
     /// <summary>
     /// The API for the character animation module.
     /// </summary>
-    public abstract class CharacterAnimationModule : GameModule<CharacterAnimationController>
+    public abstract class CharacterAnimationModule : GameModule<CharacterAnimationController, CharacterAnimationModule>, ICharacterAnimationModule
     {
         /// <summary>
         /// Gets or sets the center down animation.
         /// </summary>
-        protected AnimationModule CenterDown
+        protected IAnimationModule CenterDown
         {
-            get { return Controller.CenterDown; }
-            set { Controller.CenterDown = value.Controller; }
+            get { return Controller.CenterDown.Module; }
+            set { Controller.CenterDown = ((AnimationModule)value).Controller; }
         }
 
         /// <summary>
         /// Gets or sets the center up animation.
         /// </summary>
-        protected AnimationModule CenterUp
+        protected IAnimationModule CenterUp
         {
-            get { return Controller.CenterUp; }
-            set { Controller.CenterUp = value.Controller; }
+            get { return Controller.CenterUp.Module; }
+            set { Controller.CenterUp = ((AnimationModule)value).Controller; }
         }
 
         /// <summary>
         /// Gets or sets the left center animation.
         /// </summary>
-        protected AnimationModule LeftCenter
+        protected IAnimationModule LeftCenter
         {
-            get { return Controller.LeftCenter; }
-            set { Controller.LeftCenter = value.Controller; }
+            get { return Controller.LeftCenter.Module; }
+            set { Controller.LeftCenter = ((AnimationModule)value).Controller; }
         }
 
         /// <summary>
         /// Gets or sets the left down animation.
         /// </summary>
-        protected AnimationModule LeftDown
+        protected IAnimationModule LeftDown
         {
-            get { return Controller.LeftDown; }
-            set { Controller.LeftDown = value.Controller; }
+            get { return Controller.LeftDown.Module; }
+            set { Controller.LeftDown = ((AnimationModule)value).Controller; }
         }
 
         /// <summary>
         /// Gets or sets the left up animation.
         /// </summary>
-        protected AnimationModule LeftUp
+        protected IAnimationModule LeftUp
         {
-            get { return Controller.LeftUp; }
-            set { Controller.LeftUp = value.Controller; }
+            get { return Controller.LeftUp.Module; }
+            set { Controller.LeftUp = ((AnimationModule)value).Controller; }
         }
 
         /// <summary>
         /// Gets or sets the right center animation.
         /// </summary>
-        protected AnimationModule RightCenter
+        protected IAnimationModule RightCenter
         {
-            get { return Controller.RightCenter; }
-            set { Controller.RightCenter = value.Controller; }
+            get { return Controller.RightCenter.Module; }
+            set { Controller.RightCenter = ((AnimationModule)value).Controller; }
         }
 
         /// <summary>
         /// Gets or sets the right down animation.
         /// </summary>
-        protected AnimationModule RightDown
+        protected IAnimationModule RightDown
         {
-            get { return Controller.RightDown; }
-            set { Controller.RightDown = value.Controller; }
+            get { return Controller.RightDown.Module; }
+            set { Controller.RightDown = ((AnimationModule)value).Controller; }
         }
 
         /// <summary>
         /// Gets or sets the right up animation.
         /// </summary>
-        protected AnimationModule RightUp
+        protected IAnimationModule RightUp
         {
-            get { return Controller.RightUp; }
-            set { Controller.RightUp = value.Controller; }
+            get { return Controller.RightUp.Module; }
+            set { Controller.RightUp = ((AnimationModule)value).Controller; }
         }
     }
 }

@@ -21,7 +21,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Items
         private Vector2 position;
 
         public MonoGameItemController(ItemModule module, IServices services)
-            : base(module)
+            : base(module, services)
         {
             content = services.Get<ContentManager>();
             spriteBatch = services.Get<SpriteBatch>();

@@ -6,6 +6,8 @@
 
 namespace LateStartStudio.Hero6.Engine.Campaigns.Items
 {
+    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+
     /// <summary>
     /// API for item controller.
     /// </summary>
@@ -15,7 +17,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Items
         /// Makes a new instance of the <see cref="ItemController"/> class.
         /// </summary>
         /// <param name="module">The module for this controller.</param>
-        protected ItemController(ItemModule module) : base(module)
+        protected ItemController(ItemModule module, IServices services) : base(module, services)
         {
         }
     }

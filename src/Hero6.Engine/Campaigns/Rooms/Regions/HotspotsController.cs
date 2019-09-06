@@ -7,6 +7,7 @@
 namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
 {
     using System.Drawing;
+    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
 
     /// <summary>
     /// API for the hotspots controller.
@@ -16,8 +17,8 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
         /// <summary>
         /// Makes a new <see cref="HotspotsController"/> instance.
         /// </summary>
-        protected HotspotsController()
-            : base(new HotspotsModule())
+        protected HotspotsController(IServices services)
+            : base(new HotspotsModule(), services)
         {
         }
 

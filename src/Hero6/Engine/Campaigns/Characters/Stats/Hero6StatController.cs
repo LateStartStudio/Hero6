@@ -16,7 +16,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Characters.Stats
 
         private int current;
 
-        public Hero6StatController(IServices services, Func<int> max)
+        public Hero6StatController(IServices services, Func<int> max) : base(services)
         {
             campaigns = services.Get<ICampaigns>();
             this.max = max;

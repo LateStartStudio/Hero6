@@ -25,7 +25,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Animations
         private Texture2D texture;
 
         public MonoGameAnimationController(AnimationModule module, IServices services)
-            : base(module)
+            : base(module, services)
         {
             content = services.Get<ContentManager>();
             spriteBatch = services.Get<SpriteBatch>();

@@ -28,7 +28,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Animations
         private MonoGameAnimationController rightUp;
 
         public MonoGameCharacterAnimationController(CharacterAnimationModule module, IServices services)
-            : base(module)
+            : base(module, services)
         {
             campaigns = services.Get<ICampaigns>();
         }

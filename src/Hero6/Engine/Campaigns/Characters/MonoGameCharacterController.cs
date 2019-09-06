@@ -30,15 +30,15 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Characters
         private MonoGameCharacterAnimationController moveAnimation;
 
         public MonoGameCharacterController(CharacterModule module, IServices services)
-            : base(module)
+            : base(module, services)
         {
             campaigns = services.Get<ICampaigns>();
             stats = new MonoGameStatsController(services);
         }
 
-        public override int Width => currentAnimation.Width;
+        public override int Width => currentAnimation?.Width ?? 0;
 
-        public override int Height => currentAnimation.Height;
+        public override int Height => currentAnimation?.Height ?? 0;
 
         public override bool IsPlayer => campaigns.Current.Player == Module;
 

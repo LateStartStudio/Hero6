@@ -6,6 +6,9 @@
 
 namespace LateStartStudio.Hero6.Engine.Campaigns.Animations
 {
+    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+
     /// <summary>
     /// API for for animation controllers.
     /// </summary>
@@ -15,7 +18,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Animations
         /// Makes an new instance of the <see cref="AnimationController"/> class.
         /// </summary>
         /// <param name="module">The module corresponding to this controller.</param>
-        protected AnimationController(AnimationModule module) : base(module)
+        protected AnimationController(AnimationModule module, IServices services) : base(module, services)
         {
         }
     }
