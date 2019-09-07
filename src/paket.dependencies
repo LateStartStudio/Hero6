@@ -3,6 +3,7 @@ storage: none
 
 nuget coverlet.msbuild
 nuget log4net
+nuget Microsoft.NETFramework.ReferenceAssemblies
 nuget Microsoft.NET.Test.Sdk
 nuget MonoGame.Content.Builder
 nuget MonoGame.Framework.Content.Pipeline.Portable
