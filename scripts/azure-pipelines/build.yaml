@@ -2,6 +2,7 @@
 
 steps:
 # Restore packages
+- bash: sudo chmod +x ./scripts/restore.sh
 - bash: ./scripts/restore.sh
   displayName: Restore Packages
 
