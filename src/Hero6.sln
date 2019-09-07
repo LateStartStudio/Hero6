@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Applications", "{887BCA83-96AC-4E83-BAF5-567626AF670B}"
 EndProject
@@ -51,6 +51,11 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Engine.Campaigns.RitesOfPassage.Tests", "Hero6.Engine.Campaigns.RitesOfPassage.Tests\Hero6.Engine.Campaigns.RitesOfPassage.Tests.csproj", "{5BD8BDF3-2B54-4228-9272-BFCC6D1AE541}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.DesktopGL", "Hero6.DesktopGL\Hero6.DesktopGL.csproj", "{D1071FFB-86E1-48DD-9F84-7D84ED962434}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B7B41CCF-49AB-4815-8B2E-C924E601A6D9} = {B7B41CCF-49AB-4815-8B2E-C924E601A6D9}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.MonoGamePipeline", "Hero6.MonoGamePipeline\Hero6.MonoGamePipeline.csproj", "{B7B41CCF-49AB-4815-8B2E-C924E601A6D9}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -186,6 +191,14 @@ Global
 		{D1071FFB-86E1-48DD-9F84-7D84ED962434}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D1071FFB-86E1-48DD-9F84-7D84ED962434}.Release|x86.ActiveCfg = Release|Any CPU
 		{D1071FFB-86E1-48DD-9F84-7D84ED962434}.Release|x86.Build.0 = Release|Any CPU
+		{B7B41CCF-49AB-4815-8B2E-C924E601A6D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7B41CCF-49AB-4815-8B2E-C924E601A6D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7B41CCF-49AB-4815-8B2E-C924E601A6D9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B7B41CCF-49AB-4815-8B2E-C924E601A6D9}.Debug|x86.Build.0 = Debug|Any CPU
+		{B7B41CCF-49AB-4815-8B2E-C924E601A6D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7B41CCF-49AB-4815-8B2E-C924E601A6D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7B41CCF-49AB-4815-8B2E-C924E601A6D9}.Release|x86.ActiveCfg = Release|Any CPU
+		{B7B41CCF-49AB-4815-8B2E-C924E601A6D9}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -208,6 +221,7 @@ Global
 		{AFCFF1EB-729C-4DA5-B671-83396288DC3C} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
 		{5BD8BDF3-2B54-4228-9272-BFCC6D1AE541} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
 		{D1071FFB-86E1-48DD-9F84-7D84ED962434} = {887BCA83-96AC-4E83-BAF5-567626AF670B}
+		{B7B41CCF-49AB-4815-8B2E-C924E601A6D9} = {C7901A1A-E22C-468F-9E9A-9A891598E7D8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D79F9E72-AE93-4A79-A968-902EC57B5900}

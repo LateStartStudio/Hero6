@@ -1,9 +1,10 @@
 # Build steps
 
 steps:
-# Pre-build the MonoGame Pipeline Extensions
-- bash: ./scripts/build-monogame-pipeline.sh $(BuildConfiguration)
-  displayName: Build MonoGame Pipeline Extensions
+# Restore packages
+- bash: dotnet restore Hero6.sln
+  displayName: Restore Packages
+  workingDirectory: './src'
 
 # Build the Hero6 source code
 - task: DotNetCoreCLI@2
