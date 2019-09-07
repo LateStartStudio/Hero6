@@ -12,4 +12,4 @@ steps:
   inputs:
     command: 'build'
     projects: './src/Hero6.sln'
-    arguments: '-c $(BuildConfiguration)'
+    arguments: '--no-restore -c $(BuildConfiguration)'
