@@ -1,13 +1,9 @@
 # Build steps
 
 steps:
-- bash: ./.paket/paket.exe restore
-  displayName: Restore Packages 1
-  workingDirectory: './src'
-
 # Restore packages
 - bash: dotnet restore Hero6.sln
-  displayName: Restore Packages 2
+  displayName: Restore Packages
   workingDirectory: './src'
 
 # Build the Hero6 MonoGame Pipeline extension
