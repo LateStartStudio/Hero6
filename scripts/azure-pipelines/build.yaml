@@ -2,9 +2,8 @@
 
 steps:
 # Restore packages
-- bash: dotnet restore Hero6.sln
+- bash: ./scripts/restore.sh
   displayName: Restore Packages
-  workingDirectory: './src'
 
 # Build the Hero6 MonoGame Pipeline extension
 - task: DotNetCoreCLI@2
