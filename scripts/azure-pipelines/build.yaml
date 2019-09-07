@@ -7,6 +7,7 @@ steps:
   workingDirectory: './src'
 
 # Build the Hero6 MonoGame Pipeline extension
+- task: DotNetCoreCLI@2
   displayName: Prebuild Hero6 MonoGamePipeline
   inputs:
     command: 'build'
