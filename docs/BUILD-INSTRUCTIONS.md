@@ -11,28 +11,19 @@
 
 ## Instructions
 
-### Clone the project
+### 1. Clone the project
 
 If you have git and git-lfs installed and configured, simply cloning the project should be enough.
 
 `git clone --recurse-submodules https://github.com/LateStartStudio/Hero6`
 
-### Pre-build MonoGame Pipeline extension
+### 2. Pre-build the MonoGame Pipeline extension
 
-Because of incompatabilities with the old .NET and .NET core(building old .NET code with the dotnet CLI on *nix systems isn't supported) so we have to pre-build the MonoGame Pipeline extensions to build our assets successfully. We hope this inconvenience is gone in the future.
+When using the dotnet CLI and building the source code we have to build this project first because we have difficulties making the dotnet CLI respect the build order. If someone knows a fix for his it would be appreciated.
 
-It should only be necessary to do this step once unless you modify the MonoGame Pipeline extensions source.
+`dotnet build ./src/Hero6.MonoGamePipeline/Hero6.MonoGamePipeline.csproj`
 
-#### Windows
-
-`dotnet build ./src/Hero6.MonoGamePipeline.sln`
-
-#### *nix systems
-
-1. `msbuild ./src/Hero6.MonoGamePipeline.sln /t:restore`
-2. `msbuild ./src/Hero6.MonoGamePipeline.sln`
-
-### Building, running, etc. the game
+### 3. Building, running, etc. the game
 
 Hero6 is built using standard [dotnet CLI commands](https://docs.microsoft.com/en-us/dotnet/core/tools/?tabs=netcore2x).
 

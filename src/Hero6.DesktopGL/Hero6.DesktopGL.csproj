@@ -22,9 +22,6 @@
     <MonoGameContentReference Include="..\Hero6.Content\*.mgcb" />
   </ItemGroup>
   <ItemGroup>
-    <MonoGameContentReference Remove="..\Hero6.Content\Hero6.Content.mgcb" />
-  </ItemGroup>
-  <ItemGroup>
     <AdditionalFiles Include="..\stylecop.json" Link="stylecop.json" />
   </ItemGroup>
   <ItemGroup>

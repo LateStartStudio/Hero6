@@ -6,6 +6,13 @@ steps:
   displayName: Restore Packages
   workingDirectory: './src'
 
+# Build the Hero6 MonoGame Pipeline extension
+  displayName: Prebuild Hero6 MonoGamePipeline
+  inputs:
+    command: 'build'
+    projects: './src/Hero6.MonoGamePipeline/Hero6.MonoGamePipeline.csproj'
+    arguments: '--no-restore -c $(BuildConfiguration)'
+
 # Build the Hero6 source code
 - task: DotNetCoreCLI@2
   displayName: Build Hero6
