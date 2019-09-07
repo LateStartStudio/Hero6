@@ -3,6 +3,7 @@
 trigger:
 - master
 - feature/*
+- fix/*
 
 jobs:
 - template: job.yaml
