@@ -10,13 +10,6 @@ schedules:
     include:
     - master
 
-schedules:
-- cron: "0 0 * * *"
-  displayName: Nightly
-  branches:
-    include:
-    - master
-
 jobs:
 - template: job.yaml
   parameters:
