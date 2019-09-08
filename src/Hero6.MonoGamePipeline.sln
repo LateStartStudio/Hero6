@@ -1,20 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{C7901A1A-E22C-468F-9E9A-9A891598E7D8}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Collections", "Collections\Collections.csproj", "{596686F9-B236-4626-9841-CBB303EA58C7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Search", "Search\Search.csproj", "{5C4A5D3D-46CF-4DDD-A64D-D3043458E2D3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Engine", "Hero6.Engine\Hero6.Engine.csproj", "{0C0586A3-5A10-42CE-B609-CC80EE2CEF7A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{8FAAE2BE-CD26-4E95-94AC-B2040AA7C8BA}"
-	ProjectSection(SolutionItems) = preProject
-		paket.dependencies = paket.dependencies
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.MonoGamePipeline", "Hero6.MonoGamePipeline\Hero6.MonoGamePipeline.csproj", "{43E058BB-A9A5-473F-AD4C-269239BA41E7}"
 EndProject
@@ -61,12 +54,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{596686F9-B236-4626-9841-CBB303EA58C7} = {C7901A1A-E22C-468F-9E9A-9A891598E7D8}
-		{5C4A5D3D-46CF-4DDD-A64D-D3043458E2D3} = {C7901A1A-E22C-468F-9E9A-9A891598E7D8}
-		{0C0586A3-5A10-42CE-B609-CC80EE2CEF7A} = {C7901A1A-E22C-468F-9E9A-9A891598E7D8}
-		{43E058BB-A9A5-473F-AD4C-269239BA41E7} = {C7901A1A-E22C-468F-9E9A-9A891598E7D8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D79F9E72-AE93-4A79-A968-902EC57B5900}
