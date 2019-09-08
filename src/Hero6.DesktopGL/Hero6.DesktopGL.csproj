@@ -27,7 +27,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hero6.Engine.Campaigns.RitesOfPassage\Hero6.Engine.Campaigns.RitesOfPassage.csproj" />
-    <ProjectReference Include="..\Hero6.Engine.UserInterfaces.SierraVga\Hero6.Engine.UserInterfaces.SierraVga.csproj" />
+    <ProjectReference Include="..\Hero6.UserInterfaces.SierraVga\Hero6.UserInterfaces.SierraVga.csproj" />
     <ProjectReference Include="..\Hero6.Engine\Hero6.Engine.csproj" />
     <ProjectReference Include="..\Search\Search.csproj" />
   </ItemGroup>

@@ -32,7 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".configs", ".configs", "{8F
 		stylecop.json = stylecop.json
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Engine.UserInterfaces.SierraVga", "Hero6.Engine.UserInterfaces.SierraVga\Hero6.Engine.UserInterfaces.SierraVga.csproj", "{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.UserInterfaces.SierraVga", "Hero6.UserInterfaces.SierraVga\Hero6.UserInterfaces.SierraVga.csproj", "{9C6A0DA4-892E-45C0-AFC7-B6D46F940329}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Hero6.Tests", "Hero6.Tests\Hero6.Tests.shproj", "{B59E1A53-68B3-4D31-8B69-CEFC3D5CEBB4}"
 EndProject
@@ -40,7 +40,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Engine.Tests", "Hero6
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Localization", "Hero6.Localization\Hero6.Localization.csproj", "{CB706FAB-954B-462D-8590-5433A63E14E6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Engine.UserInterfaces.SierraVga.Tests", "Hero6.Engine.UserInterfaces.SierraVga.Tests\Hero6.Engine.UserInterfaces.SierraVga.Tests.csproj", "{5F12337E-314A-49E5-B4E8-542B3FEA4C74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.UserInterfaces.SierraVga.Tests", "Hero6.UserInterfaces.SierraVga.Tests\Hero6.UserInterfaces.SierraVga.Tests.csproj", "{5F12337E-314A-49E5-B4E8-542B3FEA4C74}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.DesktopGL.Tests", "Hero6.DesktopGL.Tests\Hero6.DesktopGL.Tests.csproj", "{33DCA6AB-2DF5-400A-B981-4E5B06CEC36D}"
 EndProject
