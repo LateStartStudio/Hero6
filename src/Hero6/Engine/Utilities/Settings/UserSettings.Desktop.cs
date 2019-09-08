@@ -4,11 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using Newtonsoft.Json;
+
 #if DESKTOPGL
 namespace LateStartStudio.Hero6.Engine.Utilities.Settings
 {
-    using Newtonsoft.Json;
-
     public class UserSettings : IUserSettings
     {
         private static readonly string Filename = $"{Game.UserFilesDir}.usersettings.json";

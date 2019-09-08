@@ -4,11 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using LateStartStudio.Hero6.Engine.UserInterfaces;
+using NSubstitute;
+
 namespace LateStartStudio.Hero6.Tests.HelperTools
 {
-    using LateStartStudio.Hero6.Engine.UserInterfaces;
-    using NSubstitute;
-
     public abstract class UserInterfaceTestBase<TModule> : ModuleControllerTestBase<TModule, UserInterfaceController>
         where TModule : UserInterfaceModule
     {

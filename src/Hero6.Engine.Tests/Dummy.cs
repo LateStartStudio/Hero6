@@ -4,10 +4,10 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using NUnit.Framework;
+
 namespace LateStartStudio.Hero6.Engine
 {
-    using NUnit.Framework;
-
     [TestFixture]
     public class Dummy
     {

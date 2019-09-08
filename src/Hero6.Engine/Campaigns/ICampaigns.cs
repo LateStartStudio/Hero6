@@ -4,11 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Collections.Generic;
+using LateStartStudio.Hero6.Engine.Campaigns.Characters;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns
 {
-    using System.Collections.Generic;
-    using LateStartStudio.Hero6.Engine.Campaigns.Characters;
-
     /// <summary>
     /// The campaigns service that holds all the campaign modules.
     /// </summary>

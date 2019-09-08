@@ -4,10 +4,10 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns.InventoryItems
 {
-    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
-
     /// <summary>
     /// API for inventory item controller.
     /// </summary>
@@ -16,7 +16,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.InventoryItems
         /// <summary>
         /// Makes a new instance of the <see cref="InventoryItemController"/> class.
         /// </summary>
-        /// <param name="module">The module for this controller</param>
+        /// <param name="module">The module for this controller.</param>
         protected InventoryItemController(InventoryItemModule module, IServices services) : base(module, services)
         {
         }

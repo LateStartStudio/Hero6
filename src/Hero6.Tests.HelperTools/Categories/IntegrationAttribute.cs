@@ -4,13 +4,13 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+using NUnit.Framework;
+
 namespace LateStartStudio.Hero6.Tests.HelperTools.Categories
 {
-    using System;
-    using NUnit.Framework;
-
     /// <summary>
-    /// Test category for tests that has external dependencies (Databases, cloud services)
+    /// Test category for tests that has external dependencies (Databases, cloud services).
     /// </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
     public class IntegrationAttribute : CategoryAttribute

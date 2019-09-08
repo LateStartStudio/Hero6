@@ -4,14 +4,14 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using LateStartStudio.Search.Pathfinder;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Drawing;
-    using System.Linq;
-    using LateStartStudio.Search.Pathfinder;
-
     /// <summary>
     /// Representation of a single walk area for a room. The walk area is stored to disk as a image
     /// mask, and then loaded and converted to a Dictionary of pathfinder nodes.

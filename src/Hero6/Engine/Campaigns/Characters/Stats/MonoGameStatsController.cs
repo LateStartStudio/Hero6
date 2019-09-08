@@ -4,10 +4,10 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns.Characters.Stats
 {
-    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
-
     public class MonoGameStatsController : StatsController
     {
         public MonoGameStatsController(IServices services) : base(services)

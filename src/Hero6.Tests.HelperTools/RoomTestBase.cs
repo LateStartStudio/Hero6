@@ -4,13 +4,13 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using LateStartStudio.Hero6.Engine.Campaigns.Rooms;
+using LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions;
+using LateStartStudio.Hero6.Tests.HelperTools;
+using NSubstitute;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Rooms
 {
-    using LateStartStudio.Hero6.Engine.Campaigns.Rooms;
-    using LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions;
-    using LateStartStudio.Hero6.Tests.HelperTools;
-    using NSubstitute;
-
     public abstract class RoomTestBase<TModule> : ModuleControllerTestBase<TModule, RoomController>
         where TModule : RoomModule
     {

@@ -4,21 +4,20 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+using System.Collections.Generic;
+using LateStartStudio.Hero6.Engine.GameLoop;
+using LateStartStudio.Hero6.Engine.UserInterfaces.Components;
+using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs;
+using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows;
+using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
+
 namespace LateStartStudio.Hero6.Engine.UserInterfaces
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using LateStartStudio.Hero6.Engine.GameLoop;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Components;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows;
-    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
-    using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Content;
-    using Microsoft.Xna.Framework.Graphics;
-
     public class MonoGameUserInterfaceController : UserInterfaceController, IXnaGameLoop
     {
         private readonly IServices services;

@@ -4,13 +4,13 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Collections.Generic;
+using LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions;
+using LateStartStudio.Search.Pathfinder;
+using Microsoft.Xna.Framework.Content;
+
 namespace LateStartStudio.Hero6.Engine.Assets
 {
-    using System.Collections.Generic;
-    using LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions;
-    using LateStartStudio.Search.Pathfinder;
-    using Microsoft.Xna.Framework.Content;
-
     public class MonoGameWalkAreaReader : ContentTypeReader<List<WalkArea>>
     {
         protected override List<WalkArea> Read(ContentReader input, List<WalkArea> existingInstance)

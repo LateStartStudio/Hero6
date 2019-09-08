@@ -4,13 +4,12 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+using System.Linq;
+using Microsoft.Xna.Framework;
+
 namespace LateStartStudio.Hero6.Engine.Utilities.DependencyInjection
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using Microsoft.Xna.Framework;
-
     public class MonoGameServices : IServices
     {
         private readonly GameServiceContainer services;

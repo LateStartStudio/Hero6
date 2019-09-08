@@ -19,6 +19,6 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Components
         /// <summary>
         /// Vertical oriented layout.
         /// </summary>
-        Vertical
+        Vertical,
     }
 }

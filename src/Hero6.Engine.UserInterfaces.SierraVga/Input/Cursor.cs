@@ -4,11 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Collections.Generic;
+using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Input
 {
-    using System.Collections.Generic;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
-
     public class Cursor : ICursor
     {
         private Cursor(string source)

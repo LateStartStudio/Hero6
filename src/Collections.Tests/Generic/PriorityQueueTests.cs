@@ -4,11 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Collections;
+using NUnit.Framework;
+
 namespace LateStartStudio.Collections.Generic
 {
-    using System.Collections;
-    using NUnit.Framework;
-
     public abstract class PriorityQueueTests
     {
         protected IPriorityQueue<Node> PriorityQueue { get; private set; }

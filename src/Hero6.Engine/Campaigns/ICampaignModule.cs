@@ -4,17 +4,17 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+using System.Collections.Generic;
+using LateStartStudio.Hero6.Engine.Campaigns.Animations;
+using LateStartStudio.Hero6.Engine.Campaigns.Characters;
+using LateStartStudio.Hero6.Engine.Campaigns.InventoryItems;
+using LateStartStudio.Hero6.Engine.Campaigns.Items;
+using LateStartStudio.Hero6.Engine.Campaigns.Rooms;
+using LateStartStudio.Hero6.Engine.ModuleController;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns
 {
-    using System;
-    using System.Collections.Generic;
-    using LateStartStudio.Hero6.Engine.Campaigns.Animations;
-    using LateStartStudio.Hero6.Engine.Campaigns.Characters;
-    using LateStartStudio.Hero6.Engine.Campaigns.InventoryItems;
-    using LateStartStudio.Hero6.Engine.Campaigns.Items;
-    using LateStartStudio.Hero6.Engine.Campaigns.Rooms;
-    using LateStartStudio.Hero6.Engine.ModuleController;
-
     public interface ICampaignModule : IGameModule
     {
         int StatCap { get; }

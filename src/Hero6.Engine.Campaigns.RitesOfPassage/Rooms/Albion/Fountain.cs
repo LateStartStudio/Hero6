@@ -4,16 +4,16 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Drawing;
+using LateStartStudio.Hero6.Engine.Campaigns.Characters;
+using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Characters;
+using LateStartStudio.Hero6.Engine.Campaigns.Rooms;
+using LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions;
+using LateStartStudio.Hero6.Engine.UserInterfaces;
+using LateStartStudio.Hero6.Localization;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Rooms.Albion
 {
-    using System.Drawing;
-    using LateStartStudio.Hero6.Engine.Campaigns.Characters;
-    using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Characters;
-    using LateStartStudio.Hero6.Engine.Campaigns.Rooms;
-    using LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions;
-    using LateStartStudio.Hero6.Engine.UserInterfaces;
-    using LateStartStudio.Hero6.Localization;
-
     public class Fountain : RoomModule
     {
         private readonly ICampaigns campaigns;

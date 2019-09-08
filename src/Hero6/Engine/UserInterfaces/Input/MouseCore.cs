@@ -4,11 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using Microsoft.Xna.Framework.Input;
+using MouseXna = Microsoft.Xna.Framework.Input.Mouse;
+
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
 {
-    using Microsoft.Xna.Framework.Input;
-    using MouseXna = Microsoft.Xna.Framework.Input.Mouse;
-
     public class MouseCore : IMouseCore
     {
         public int X

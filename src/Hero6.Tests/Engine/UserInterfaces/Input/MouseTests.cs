@@ -4,15 +4,15 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Drawing;
+using LateStartStudio.Hero6.Engine.Utilities.Settings;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
+using NSubstitute;
+using NUnit.Framework;
+
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
 {
-    using System.Drawing;
-    using LateStartStudio.Hero6.Engine.Utilities.Settings;
-    using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Input;
-    using NSubstitute;
-    using NUnit.Framework;
-
     [TestFixture]
     public class MouseTests
     {

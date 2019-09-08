@@ -4,13 +4,13 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using NUnit.Framework;
+
 namespace LateStartStudio.Hero6.Repository
 {
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
-    using NUnit.Framework;
-
     [TestFixture]
     public class ProjectConfigs
     {

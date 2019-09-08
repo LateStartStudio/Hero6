@@ -49,6 +49,6 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Characters
         /// <summary>
         /// Right up.
         /// </summary>
-        RightUp
+        RightUp,
     }
 }

@@ -4,14 +4,14 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+using LateStartStudio.Hero6.Engine.Utilities.Logger;
+using LateStartStudio.Hero6.Engine.Utilities.Settings;
+using LateStartStudio.Hero6.Tests.HelperTools.Utilities;
+using NSubstitute;
+
 namespace LateStartStudio.Hero6
 {
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
-    using LateStartStudio.Hero6.Engine.Utilities.Logger;
-    using LateStartStudio.Hero6.Engine.Utilities.Settings;
-    using LateStartStudio.Hero6.Tests.HelperTools.Utilities;
-    using NSubstitute;
-
     public class Hero6ServicesProvider
     {
         public Hero6ServicesProvider()

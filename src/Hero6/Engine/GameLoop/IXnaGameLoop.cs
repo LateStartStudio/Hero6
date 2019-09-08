@@ -6,11 +6,10 @@
 
 using LateStartStudio.Hero6.Engine.GameLoop;
 using LateStartStudio.Hero6.Engine.ModuleController;
+using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.Engine.GameLoop
 {
-    using Microsoft.Xna.Framework;
-
     public interface IXnaGameLoop
     {
         void Initialize();

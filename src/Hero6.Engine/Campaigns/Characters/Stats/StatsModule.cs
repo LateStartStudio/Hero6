@@ -42,7 +42,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Characters.Stats
         public StatModule Sidhe => Controller.Sidhe;
 
         /// <summary>
-        /// Gets the giants stat
+        /// Gets the giants stat.
         /// </summary>
         public StatModule Giants => Controller.Giants;
 

@@ -4,15 +4,15 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Collections.Generic;
+using System.Drawing;
+using LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions;
+using LateStartStudio.Search.Pathfinder;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content.Pipeline;
+
 namespace LateStartStudio.Hero6.MonoGamePipeline.WalkAreas
 {
-    using System.Collections.Generic;
-    using System.Drawing;
-    using LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions;
-    using LateStartStudio.Search.Pathfinder;
-    using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Content.Pipeline;
-
     /// <summary>
     /// Processes walk areas from image masks to actual usable data. Iterates through each image
     /// mask pixel-by-pixel and converts each pixel into a node to be used with the pathfinder.
@@ -29,7 +29,7 @@ namespace LateStartStudio.Hero6.MonoGamePipeline.WalkAreas
                 new Vector2(1f, 0f),
                 new Vector2(1f, 1f),
                 new Vector2(1f, -1f),
-                new Vector2(0f, -1f)
+                new Vector2(0f, -1f),
             };
 
         /// <inheritdoc />

@@ -4,14 +4,14 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+using LateStartStudio.Hero6.Engine.UserInterfaces.Components;
+using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Input;
+using LateStartStudio.Hero6.Engine.Utilities.Settings;
+
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
 {
-    using System;
-    using Input;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Components;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
-    using LateStartStudio.Hero6.Engine.Utilities.Settings;
-
     public class StatusBar : WindowModule
     {
         private readonly IUserInterfaces userInterfaces;

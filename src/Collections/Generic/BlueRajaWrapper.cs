@@ -4,13 +4,13 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Priority_Queue;
+
 namespace LateStartStudio.Collections.Generic
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using Priority_Queue;
-
     /// <summary>
     /// A wrapper class that encapsulates the framework Optimized Priority Queue by BlueRaja.
     /// </summary>

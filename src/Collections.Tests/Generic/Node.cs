@@ -4,10 +4,10 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using Priority_Queue;
+
 namespace LateStartStudio.Collections.Generic
 {
-    using Priority_Queue;
-
     /// <summary>
     /// A simple Node class to use for generic tests.
     /// </summary>

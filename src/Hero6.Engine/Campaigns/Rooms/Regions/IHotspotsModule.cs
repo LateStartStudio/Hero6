@@ -4,10 +4,10 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Drawing;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
 {
-    using System.Drawing;
-
     public interface IHotspotsModule : IGameModule
     {
         Hotspot this[Color color] { get; }

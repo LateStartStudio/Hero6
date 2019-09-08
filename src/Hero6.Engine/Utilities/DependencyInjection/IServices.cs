@@ -4,10 +4,10 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+
 namespace LateStartStudio.Hero6.Engine.Utilities.DependencyInjection
 {
-    using System;
-
     /// <summary>
     /// Services to use for Dependency Injection Design Pattern. A collection of dependencies should only hold one
     /// instance of any type.

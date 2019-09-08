@@ -4,11 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Collections.Generic;
+using Priority_Queue;
+
 namespace LateStartStudio.Search.Pathfinder
 {
-    using System.Collections.Generic;
-    using Priority_Queue;
-
     /// <summary>
     /// A class representing a node in a graph.
     /// </summary>

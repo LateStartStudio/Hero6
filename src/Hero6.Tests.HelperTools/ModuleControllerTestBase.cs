@@ -4,11 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using LateStartStudio.Hero6.Engine.ModuleController;
+using NUnit.Framework;
+
 namespace LateStartStudio.Hero6.Tests.HelperTools
 {
-    using LateStartStudio.Hero6.Engine.ModuleController;
-    using NUnit.Framework;
-
     public abstract class ModuleControllerTestBase<TModule, TController> : TestBase
         where TController : IController
         where TModule : IModule

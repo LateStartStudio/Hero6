@@ -4,15 +4,15 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+using System.Collections.Generic;
+using LateStartStudio.Hero6.Engine.GameLoop;
+using LateStartStudio.Hero6.Engine.Utilities.Settings;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
+
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
 {
-    using System;
-    using System.Collections.Generic;
-    using GameLoop;
-    using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Input;
-    using Utilities.Settings;
-
     public class Mouse : IMouse, IXnaGameLoop
     {
         private readonly IGameSettings gameSettings;

@@ -4,24 +4,21 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+using System.Diagnostics;
+using LateStartStudio.Hero6.Engine.Campaigns;
+using LateStartStudio.Hero6.Engine.UserInterfaces;
+using LateStartStudio.Hero6.Engine.UserInterfaces.Components;
+using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+using LateStartStudio.Hero6.Engine.Utilities;
+using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+using LateStartStudio.Hero6.Engine.Utilities.Logger;
+using LateStartStudio.Hero6.Engine.Utilities.Settings;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+
 namespace LateStartStudio.Hero6
 {
-    using System;
-    using System.Diagnostics;
-    using System.IO;
-    using Engine.Campaigns;
-    using Engine.UserInterfaces;
-    using Engine.UserInterfaces.Input;
-    using Engine.UserInterfaces.SierraVga.Windows;
-    using Engine.Utilities;
-    using Engine.Utilities.DependencyInjection;
-    using Engine.Utilities.Logger;
-    using Engine.Utilities.Settings;
-    using LateStartStudio.Hero6.Engine.GameLoop;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Components;
-    using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Graphics;
-
     /// <summary>
     /// This is the main type for your game.
     /// </summary>

@@ -4,15 +4,15 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Collections.Generic;
+using System.Linq;
+using LateStartStudio.Hero6.Engine.GameLoop;
+using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using LateStartStudio.Hero6.Engine.GameLoop;
-    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
-    using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Content;
-
     public class MonoGameWalkAreasController : WalkAreasController, IXnaGameLoop
     {
         private readonly string source;

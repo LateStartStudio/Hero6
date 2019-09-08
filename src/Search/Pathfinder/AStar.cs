@@ -4,11 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Collections.Generic;
+using LateStartStudio.Collections.Generic;
+
 namespace LateStartStudio.Search.Pathfinder
 {
-    using System.Collections.Generic;
-    using Collections.Generic;
-
     /// <summary>
     /// A class for implementation of the A* Search algorithm.
     /// </summary>

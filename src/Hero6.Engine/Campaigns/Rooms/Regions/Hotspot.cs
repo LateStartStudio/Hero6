@@ -4,10 +4,10 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
 {
-    using System;
-
     /// <summary>
     /// Hotspots are areas defined at design-time in a room that the user can interact with in various ways.
     /// </summary>

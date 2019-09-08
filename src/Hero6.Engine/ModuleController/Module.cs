@@ -4,11 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+
 namespace LateStartStudio.Hero6.Engine.ModuleController
 {
-    using System;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
-
     /// <summary>
     /// Module type. This is where we write all game logic to any game entities. Modules communicate with
     /// controllers, where we keep the engine logic.
@@ -80,7 +80,6 @@ namespace LateStartStudio.Hero6.Engine.ModuleController
 
         /// <summary>
         /// Gets the controller for this module.
-        /// TODO <see cref="TController"/> should be internal so that module makers is unaware of controller logic
         /// </summary>
         internal TController Controller { get; private set; }
 

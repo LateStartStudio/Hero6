@@ -4,11 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+using NUnit.Framework;
+
 namespace LateStartStudio.Hero6.Engine.Utilities.DependencyInjection
 {
-    using System;
-    using NUnit.Framework;
-
     public abstract class ServicesTests
     {
         private IServices services;

@@ -4,11 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+using LateStartStudio.Hero6.Engine.UserInterfaces.Components;
+
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs
 {
-    using System;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Components;
-
     public class ExtensionBar : WindowModule
     {
         private readonly IUserInterfaces userInterfaces;

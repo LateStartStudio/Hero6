@@ -4,10 +4,10 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Drawing;
+
 namespace LateStartStudio.Hero6.Engine.Utilities.Settings
 {
-    using System.Drawing;
-
     /// <summary>
     /// A collection of settings that are specified at design-time.
     /// </summary>

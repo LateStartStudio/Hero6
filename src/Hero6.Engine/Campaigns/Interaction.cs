@@ -29,6 +29,6 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         /// <summary>
         /// Talk, ask, yell interaction.
         /// </summary>
-        Mouth
+        Mouth,
     }
 }

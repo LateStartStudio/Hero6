@@ -4,11 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using Microsoft.Xna.Framework;
+using NUnit.Framework;
+
 namespace LateStartStudio.Hero6.Engine.Utilities.DependencyInjection
 {
-    using Microsoft.Xna.Framework;
-    using NUnit.Framework;
-
     [TestFixture]
     public class MonoGameServicesTests : ServicesTests
     {

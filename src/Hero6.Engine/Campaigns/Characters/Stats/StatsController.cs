@@ -4,10 +4,10 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns.Characters.Stats
 {
-    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
-
     /// <summary>
     /// API for Stats Controller.
     /// </summary>
@@ -47,7 +47,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Characters.Stats
         public abstract StatController Sidhe { get; }
 
         /// <summary>
-        /// Gets the giants stat
+        /// Gets the giants stat.
         /// </summary>
         public abstract StatController Giants { get; }
 

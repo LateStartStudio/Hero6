@@ -4,10 +4,10 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
 {
-    using System;
-
     /// <summary>
     /// Interface containing basic core functionality of the mouse unit.
     /// </summary>

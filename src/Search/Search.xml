@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Search</name>
+    </assembly>
+    <members>
+        <member name="T:LateStartStudio.Search.Pathfinder.AStar">
+            <summary>
+            A class for implementation of the A* Search algorithm.
+            </summary>
+        </member>
+        <member name="M:LateStartStudio.Search.Pathfinder.AStar.#ctor(System.Int32,LateStartStudio.Search.Pathfinder.FindDistance,LateStartStudio.Search.Pathfinder.Heuristic)">
+            <summary>
+            Initializes a new instance of the AStar class.
+            </summary>
+            <param name="openSetCapacity">The max capacity of the open set.</param>
+            <param name="findDistance">A delegate to find the g distance.</param>
+            <param name="heuristic">A delegate to calculate the heuristic value.</param>
+        </member>
+        <member name="M:LateStartStudio.Search.Pathfinder.AStar.FindPath(LateStartStudio.Search.Pathfinder.Node,LateStartStudio.Search.Pathfinder.Node)">
+            <inheritdoc />
+        </member>
+        <member name="T:LateStartStudio.Search.Pathfinder.Dijkstra">
+            <summary>
+            A class for implementation of the Dijkstra algorithm.
+            </summary>
+        </member>
+        <member name="M:LateStartStudio.Search.Pathfinder.Dijkstra.#ctor(System.Int32,LateStartStudio.Search.Pathfinder.FindDistance)">
+            <summary>
+            Initializes a new instance of the Dijkstra class.
+            </summary>
+            <param name="openSetCapacity">The max capacity of the open set.</param>
+            <param name="findDistance">A delegate to find the g distance.</param>
+        </member>
+        <member name="M:LateStartStudio.Search.Pathfinder.Dijkstra.FindPath(LateStartStudio.Search.Pathfinder.Node,LateStartStudio.Search.Pathfinder.Node)">
+            <inheritdoc />
+        </member>
+        <member name="T:LateStartStudio.Search.Pathfinder.FindDistance">
+            <summary>
+            Find the actual distance from a node to its neighbor.
+            </summary>
+            <param name="from">The staert node.</param>
+            <param name="to">The end node, typically a neighbor.</param>
+            <returns>The distance from a node to its neighbor.</returns>
+        </member>
+        <member name="T:LateStartStudio.Search.Pathfinder.Heuristic">
+            <summary>
+            Calculates a heuristic from start node to end node.
+            </summary>
+            <param name="from">The start node.</param>
+            <param name="to">The end node.</param>
+            <returns>A numeric value representing the value of the heuristic.</returns>
+        </member>
+        <member name="T:LateStartStudio.Search.Pathfinder.IPathfinder">
+            <summary>
+            Interface to provide required functionality for a pathfinder algorithm.
+            </summary>
+        </member>
+        <member name="M:LateStartStudio.Search.Pathfinder.IPathfinder.FindPath(LateStartStudio.Search.Pathfinder.Node,LateStartStudio.Search.Pathfinder.Node)">
+            <summary>
+            Finds the path from the start node to the end node.
+            </summary>
+            <param name="start">The start node.</param>
+            <param name="end">The end node.</param>
+            <returns>
+            A list of all nodes that must be travelled from the start node to reach the end node.
+            </returns>
+        </member>
+        <member name="T:LateStartStudio.Search.Pathfinder.Node">
+            <summary>
+            A class representing a node in a graph.
+            </summary>
+        </member>
+        <member name="M:LateStartStudio.Search.Pathfinder.Node.#ctor(System.Int32,System.Boolean,LateStartStudio.Search.Pathfinder.Node,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the Node class with default values.
+            </summary>
+            <param name="id">The node ID.</param>
+            <param name="isVisited">If the node has been previously visited or not.</param>
+            <param name="parent">The parent node.</param>
+            <param name="h">The heuristic value.</param>
+            <param name="g">The total cost so far.</param>
+        </member>
+        <member name="P:LateStartStudio.Search.Pathfinder.Node.ID">
+            <summary>
+            Gets the node ID.
+            </summary>
+            <value>
+            A unique ID value.
+            </value>
+        </member>
+        <member name="P:LateStartStudio.Search.Pathfinder.Node.IsVisited">
+            <summary>
+            Gets or sets a value indicating whether if the node has bee previously visited or not.
+            </summary>
+            <value>
+            True if the node has been previously visited, false otherwise.
+            </value>
+        </member>
+        <member name="P:LateStartStudio.Search.Pathfinder.Node.Parent">
+            <summary>
+            Gets or sets the parent node.
+            </summary>
+            <value>
+            The parent node. Is null only if no parent exists.
+            </value>
+        </member>
+        <member name="P:LateStartStudio.Search.Pathfinder.Node.Children">
+            <summary>
+            Gets or sets the children nodes.
+            </summary>
+            <value>
+            The children nodes.
+            </value>
+        </member>
+        <member name="P:LateStartStudio.Search.Pathfinder.Node.F">
+            <summary>
+             Gets the total cost value of reaching this node.
+            </summary>
+            <value>
+            The total cost value.
+            </value>
+        </member>
+        <member name="P:LateStartStudio.Search.Pathfinder.Node.H">
+            <summary>
+            Gets or sets the heuristic value.
+            </summary>
+            <value>
+            The heuristic value.
+            </value>
+        </member>
+        <member name="P:LateStartStudio.Search.Pathfinder.Node.G">
+            <summary>
+            Gets or sets the total cost so far.
+            </summary>
+            <value>
+            The total cost so far.
+            </value>
+        </member>
+        <member name="M:LateStartStudio.Search.Pathfinder.Node.Equals(System.Object)">
+            <summary>
+            Equals-function. Determined by the property ID.
+            </summary>
+            <param name="obj">The other object.</param>
+            <returns>True if the object is equal. False otherwise.</returns>
+        </member>
+        <member name="M:LateStartStudio.Search.Pathfinder.Node.GetHashCode">
+            <summary>
+            GetHashCode -function. Determined by the property ID.
+            </summary>
+            <returns>The hash code.</returns>
+        </member>
+    </members>
+</doc>

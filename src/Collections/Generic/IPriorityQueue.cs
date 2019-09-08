@@ -4,11 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Collections;
+using System.Collections.Generic;
+
 namespace LateStartStudio.Collections.Generic
 {
-    using System.Collections;
-    using System.Collections.Generic;
-
     /// <summary>
     /// Represents a queue of elements ordered so that the lowest or highest ranking element
     /// is always the first in the queue.

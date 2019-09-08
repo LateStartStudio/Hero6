@@ -4,16 +4,16 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+using System.Collections.Generic;
+using LateStartStudio.Hero6.Engine.Campaigns;
+using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs;
+using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Input;
+using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows;
+
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
 {
-    using System;
-    using System.Collections.Generic;
-    using LateStartStudio.Hero6.Engine.Campaigns;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Input;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows;
-
     public class SierraVgaModule : UserInterfaceModule
     {
         private readonly IMouse mouse;

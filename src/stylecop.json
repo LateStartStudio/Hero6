@@ -15,6 +15,10 @@
         "licenseName": "MIT",
         "licenseFile": "'LICENSE.CODE.md'"
       }
+    },
+
+    "orderingRules": {
+      "usingDirectivesPlacement": "outsideNamespace"
     }
   }
 }

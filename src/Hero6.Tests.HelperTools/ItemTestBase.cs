@@ -4,13 +4,13 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using LateStartStudio.Hero6.Engine.Campaigns.Items;
+using LateStartStudio.Hero6.Tests.HelperTools;
+using LateStartStudio.Hero6.Tests.HelperTools.Utilities;
+using NSubstitute;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Items
 {
-    using LateStartStudio.Hero6.Engine.Campaigns.Items;
-    using LateStartStudio.Hero6.Tests.HelperTools;
-    using LateStartStudio.Hero6.Tests.HelperTools.Utilities;
-    using NSubstitute;
-
     public abstract class ItemTestBase<TModule> : ModuleControllerTestBase<TModule, ItemController>
         where TModule : ItemModule
     {

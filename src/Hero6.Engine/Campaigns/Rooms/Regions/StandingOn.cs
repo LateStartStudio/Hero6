@@ -4,11 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+using LateStartStudio.Hero6.Engine.Campaigns.Characters;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
 {
-    using System;
-    using LateStartStudio.Hero6.Engine.Campaigns.Characters;
-
     /// <summary>
     /// Standing On Event Args.
     /// </summary>

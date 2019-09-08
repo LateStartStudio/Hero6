@@ -4,10 +4,10 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns.Characters.Stats
 {
-    using System;
-
     /// <summary>
     /// API for get-set stat module.
     /// </summary>

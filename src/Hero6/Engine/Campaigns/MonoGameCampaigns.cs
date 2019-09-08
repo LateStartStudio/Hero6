@@ -4,15 +4,15 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Collections.Generic;
+using System.Linq;
+using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage;
+using LateStartStudio.Hero6.Engine.GameLoop;
+using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+using Microsoft.Xna.Framework;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using GameLoop;
-    using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage;
-    using Microsoft.Xna.Framework;
-    using Utilities.DependencyInjection;
-
     public class MonoGameCampaigns : ICampaigns, IXnaGameLoop
     {
         private readonly IServices services;

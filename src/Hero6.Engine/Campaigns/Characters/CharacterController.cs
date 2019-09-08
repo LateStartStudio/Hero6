@@ -4,16 +4,16 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Collections.Generic;
+using LateStartStudio.Hero6.Engine.Campaigns.Animations;
+using LateStartStudio.Hero6.Engine.Campaigns.Characters.Stats;
+using LateStartStudio.Hero6.Engine.Campaigns.InventoryItems;
+using LateStartStudio.Hero6.Engine.Campaigns.Rooms;
+using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns.Characters
 {
-    using System.Collections.Generic;
-    using LateStartStudio.Hero6.Engine.Campaigns.Animations;
-    using LateStartStudio.Hero6.Engine.Campaigns.Characters.Stats;
-    using LateStartStudio.Hero6.Engine.Campaigns.InventoryItems;
-    using LateStartStudio.Hero6.Engine.Campaigns.Rooms;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
-    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
-
     /// <summary>
     /// API for the character controller.
     /// </summary>
