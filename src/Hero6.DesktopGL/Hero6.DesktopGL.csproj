@@ -12,6 +12,8 @@
     <DefineConstants>TRACE;DESKTOPGL;MONOGAME</DefineConstants>
     <DocumentationFile></DocumentationFile>
     <CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>TRACE;DESKTOPGL;MONOGAME</DefineConstants>
