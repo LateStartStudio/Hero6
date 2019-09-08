@@ -1,5 +1,7 @@
+version 5.219.0
 source https://nuget.org/api/v2
 storage: none
+framework: auto-detect
 
 nuget coverlet.msbuild
 nuget log4net
