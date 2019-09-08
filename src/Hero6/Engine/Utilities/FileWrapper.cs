@@ -5,6 +5,7 @@
 // </copyright>
 
 using System.IO;
+using LateStartStudio.Hero6.Services.DotNetWrappers;
 
 namespace LateStartStudio.Hero6.Engine.Utilities
 {

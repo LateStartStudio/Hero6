@@ -6,6 +6,7 @@
 
 using System.Collections.Generic;
 using LateStartStudio.Hero6.Engine.Utilities;
+using LateStartStudio.Hero6.Services.DotNetWrappers;
 
 namespace LateStartStudio.Hero6.Tests.HelperTools.Utilities
 {

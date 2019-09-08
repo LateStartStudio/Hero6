@@ -6,7 +6,7 @@
 
 using NUnit.Framework;
 
-namespace LateStartStudio.Hero6.Engine
+namespace LateStartStudio.Hero6
 {
     [TestFixture]
     public class Dummy

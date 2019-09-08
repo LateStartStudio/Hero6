@@ -10,6 +10,7 @@ using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
 using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
 using LateStartStudio.Hero6.Engine.Utilities.Logger;
 using LateStartStudio.Hero6.Engine.Utilities.Settings;
+using LateStartStudio.Hero6.Services.DotNetWrappers;
 using LateStartStudio.Hero6.Tests.HelperTools.Utilities;
 using NSubstitute;
 
@@ -18,6 +19,7 @@ namespace LateStartStudio.Hero6.Tests.HelperTools
     public class FakeServices : IServicesRepository
     {
         private FileWrapperStub file;
+        private IDirectoryWrapper directory;
         private IServices services;
         private IMouse mouse;
         private ILogger logger;
@@ -27,6 +29,8 @@ namespace LateStartStudio.Hero6.Tests.HelperTools
         private IUserInterfaces userInterfaces;
 
         public FileWrapperStub File => file ?? (file = new FileWrapperStub());
+
+        public IDirectoryWrapper Directory => directory ?? (directory = Substitute.For<IDirectoryWrapper>());
 
         public IServices Services => services ?? (services = Substitute.For<IServices>());
 

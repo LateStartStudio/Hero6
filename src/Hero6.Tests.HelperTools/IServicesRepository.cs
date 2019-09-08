@@ -9,6 +9,7 @@ using LateStartStudio.Hero6.Engine.UserInterfaces;
 using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
 using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
 using LateStartStudio.Hero6.Engine.Utilities.Settings;
+using LateStartStudio.Hero6.Services.DotNetWrappers;
 using LateStartStudio.Hero6.Tests.HelperTools.Utilities;
 
 namespace LateStartStudio.Hero6.Tests.HelperTools
@@ -16,6 +17,8 @@ namespace LateStartStudio.Hero6.Tests.HelperTools
     public interface IServicesRepository
     {
         FileWrapperStub File { get; }
+
+        IDirectoryWrapper Directory { get; }
 
         IServices Services { get; }
 
