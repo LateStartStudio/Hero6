@@ -7,14 +7,14 @@
     <LangVersion>6</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>E:\Programming\LateStartStudio\Hero6\src\Hero6.Engine\Hero6.Engine.xml</DocumentationFile>
+    <DocumentationFile></DocumentationFile>
     <CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
     <WarningLevel>3</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>E:\Programming\LateStartStudio\Hero6\src\Hero6.Engine\Hero6.Engine.xml</DocumentationFile>
+    <DocumentationFile></DocumentationFile>
     <CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
