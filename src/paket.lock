@@ -85,7 +85,6 @@ NUGET
     MonoGame.Content.Builder (3.7.0.9)
     MonoGame.Framework.Content.Pipeline.Portable (3.7.1.189)
       MonoGame.Framework.Portable (>= 3.7.1.189)
-    MonoGame.Framework.DesktopGL (3.7.1.189)
     MonoGame.Framework.DesktopGL.Core (3.7.0.7)
     MonoGame.Framework.Portable (3.7.1.189)
     NETStandard.Library (2.0.1) - restriction: || (&& (== net461) (< net35) (>= netstandard2.0)) (&& (== net461) (>= netcoreapp1.0)) (== netcoreapp2.0) (== netstandard2.0)
