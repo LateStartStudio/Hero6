@@ -11,6 +11,8 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
     using LateStartStudio.Hero6.Engine.Campaigns.InventoryItems;
     using LateStartStudio.Hero6.Engine.Campaigns.Items;
     using LateStartStudio.Hero6.Engine.Campaigns.Rooms;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
 
     /// <summary>
     /// API for a campaign controller.
@@ -21,8 +23,8 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         /// Creates a new instance of the <see cref="CampaignController"/> instance.
         /// </summary>
         /// <param name="module">The module corresponding to this controller.</param>
-        protected CampaignController(CampaignModule module)
-            : base(module)
+        protected CampaignController(CampaignModule module, IServices services)
+            : base(module, services)
         {
         }
 

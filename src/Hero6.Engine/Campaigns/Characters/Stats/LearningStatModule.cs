@@ -11,7 +11,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Characters.Stats
     /// <summary>
     /// Stat that has to be learned and trained.
     /// </summary>
-    public class LearningStatModule : GameModule<LearningStatController>
+    public class LearningStatModule : GameModule<LearningStatController, LearningStatModule>
     {
         /// <summary>
         /// Invoked when <see cref="Current"/> has changed.

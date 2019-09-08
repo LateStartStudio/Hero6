@@ -18,7 +18,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
         /// Makes a new instance of the <see cref="StandingOn"/> class.
         /// </summary>
         /// <param name="character">The character that invoked the <see cref="StandingOn"/> event.</param>
-        public StandingOn(CharacterController character)
+        public StandingOn(ICharacterModule character)
         {
             Character = character;
         }
@@ -26,6 +26,6 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
         /// <summary>
         /// Gets the character.
         /// </summary>
-        public CharacterModule Character { get; }
+        public ICharacterModule Character { get; }
     }
 }

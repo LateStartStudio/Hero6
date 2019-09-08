@@ -6,10 +6,10 @@
 
 namespace LateStartStudio.Hero6.Engine.Utilities.Settings
 {
+    using LateStartStudio.Hero6.Tests.HelperTools.Utilities;
     using NSubstitute;
     using NUnit.Framework;
-    using LateStartStudio.Hero6.Tests.HelperTools.Utilities;
-    
+
     [TestFixture]
     public class UserSettingsTests
     {

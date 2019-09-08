@@ -9,6 +9,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
     using System.Collections.Generic;
     using LateStartStudio.Hero6.Engine.Campaigns.Characters;
     using LateStartStudio.Hero6.Engine.GameLoop;
+    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
@@ -24,10 +25,10 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
         private Texture2D texture;
         private Color[,] buffer;
 
-        public MonoGameHotspotsController(string source, ContentManager content)
+        public MonoGameHotspotsController(string source, IServices services) : base(services)
         {
             this.source = source;
-            this.content = content;
+            content = services.Get<ContentManager>();
         }
 
         public override int Width { get; }
@@ -71,7 +72,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
 
             if (hotspots.ContainsKey(pixel))
             {
-                hotspots[pixel].StandingOn?.Invoke(new StandingOn(character));
+                hotspots[pixel].StandingOn?.Invoke(new StandingOn(character.Module));
             }
         }
 

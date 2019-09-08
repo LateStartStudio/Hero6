@@ -15,7 +15,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Characters.Stats
 
         private int buffer;
 
-        public Hero6LearningStatController(IServices services)
+        public Hero6LearningStatController(IServices services) : base(services)
         {
             campaigns = services.Get<ICampaigns>();
         }

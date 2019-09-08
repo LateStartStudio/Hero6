@@ -25,7 +25,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Characters
 
         public override string Name => "Hero";
 
-        protected override void Initialize()
+        public override void Initialize()
         {
             base.Initialize();
             IdleAnimation = campaigns.Current.GetCharacterAnimation<HeroIdle>();

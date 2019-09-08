@@ -9,7 +9,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Characters.Stats
     /// <summary>
     /// API for Stats Module.
     /// </summary>
-    public class StatsModule : GameModule<StatsController>
+    public class StatsModule : GameModule<StatsController, StatsModule>
     {
         /// <summary>
         /// Gets the name of module.

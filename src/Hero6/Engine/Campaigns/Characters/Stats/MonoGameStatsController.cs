@@ -10,7 +10,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Characters.Stats
 
     public class MonoGameStatsController : StatsController
     {
-        public MonoGameStatsController(IServices services)
+        public MonoGameStatsController(IServices services) : base(services)
         {
             var campaigns = services.Get<ICampaigns>();
             Health = new Hero6StatController(services, () => (int)((Strength.Current * 0.4) + (Vitality.Current * 0.6)));

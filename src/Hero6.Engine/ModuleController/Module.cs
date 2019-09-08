@@ -6,14 +6,36 @@
 
 namespace LateStartStudio.Hero6.Engine.ModuleController
 {
+    using System;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+
     /// <summary>
     /// Module type. This is where we write all game logic to any game entities. Modules communicate with
     /// controllers, where we keep the engine logic.
     /// </summary>
     /// <typeparam name="TController">The controller that corresponds to the module.</typeparam>
-    public abstract class Module<TController> : IModule
-        where TController : class, IController
+    public abstract class Module<TController, TModule> : IModule
+        where TController : Controller<TController, TModule>
+        where TModule : IModule
     {
+        public event EventHandler MouseEnter
+        {
+            add { Controller.MouseEnter += value; }
+            remove { Controller.MouseEnter -= value; }
+        }
+
+        public event EventHandler MouseLeave
+        {
+            add { Controller.MouseLeave += value; }
+            remove { Controller.MouseLeave -= value; }
+        }
+
+        public event EventHandler<MouseButtonInteraction> MouseButtonUp
+        {
+            add { Controller.MouseButtonUp += value; }
+            remove { Controller.MouseButtonUp -= value; }
+        }
+
         /// <summary>
         /// Gets the module name.
         /// </summary>
@@ -50,23 +72,30 @@ namespace LateStartStudio.Hero6.Engine.ModuleController
         /// <summary>
         /// Gets or sets a value indicating whether this module is visible.
         /// </summary>
-        public bool IsVisible { get; set; } = true;
+        public virtual bool IsVisible
+        {
+            get { return Controller.IsVisible; }
+            set { Controller.IsVisible = value; }
+        }
 
         /// <summary>
         /// Gets the controller for this module.
+        /// TODO <see cref="TController"/> should be internal so that module makers is unaware of controller logic
         /// </summary>
         internal TController Controller { get; private set; }
+
+        public override string ToString() => $"Module: {Name}";
 
         /// <summary>
         /// Pre-Initialize event in the controller-module lifecycle.
         /// </summary>
         /// <param name="controller">The controller to save into this module.</param>
-        internal void PreInitialize(IController controller) => Controller = controller as TController;
+        public void PreInitialize(IController controller) => Controller = controller as TController;
 
         /// <summary>
         /// Initialize event in the controller-module lifecycle.
         /// </summary>
-        protected internal virtual void Initialize()
+        public virtual void Initialize()
         {
         }
     }

@@ -6,63 +6,45 @@
 
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
 {
-    using System.Linq;
     using Input;
     using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+    using LateStartStudio.Hero6.Tests.HelperTools;
+    using LateStartStudio.Hero6.Tests.HelperTools.Categories;
     using NSubstitute;
     using NUnit.Framework;
 
     [TestFixture]
-    public class SierraVgaTests
+    [Unit]
+    public class SierraVgaTests : UserInterfaceTestBase<SierraVgaModule>
     {
-        private SierraVgaServicesProvider services;
-        private SierraVgaController sierraVga;
-
-        [SetUp]
-        public void SetUp()
-        {
-            services = new SierraVgaServicesProvider();
-            sierraVga = services.UserInterfaces.Current as SierraVgaController;
-        }
-
         [Test]
         public void NameIsCorrect()
         {
-            Assert.That(sierraVga.Name, Is.EqualTo("Sierra VGA"));
-        }
-
-        [Test]
-        public void DialogsAreNotVisibleAtStart()
-        {
-            sierraVga.Dialogs.Values.ToList().ForEach(d => Assert.That(d.IsVisible, Is.False, d.ToString()));
-        }
-
-        [Test]
-        public void WindowsAreNotVisibleAtStart()
-        {
-            sierraVga.Windows.Values.ToList().ForEach(w => Assert.That(w.IsVisible, Is.False, w.ToString()));
+            Assert.That(Module.Name, Is.EqualTo("Sierra VGA"));
         }
 
         [Test]
         public void CursorResetToWalkOnMiddleMouseButtonPress()
         {
-            services.Mouse.Cursor = Cursor.Hand;
-            services.Mouse.ButtonPress += Raise.EventWith(new MouseButtonInteraction(0, 0, MouseButton.Middle));
-            Assert.That(services.Mouse.Cursor, Is.EqualTo(Cursor.Walk));
+            Services.Mouse.Cursor = Cursor.Hand;
+            Services.Mouse.ButtonPress += Raise.EventWith(new MouseButtonInteraction(0, 0, MouseButton.Middle));
+            Assert.That(Services.Mouse.Cursor, Is.EqualTo(Cursor.Walk));
         }
 
         [Test]
         public void CursorCyclesOnRightMouseButtonPress()
         {
-            services.Mouse.Cursor = Cursor.Walk;
-            services.Mouse.ButtonPress += Raise.EventWith(new MouseButtonInteraction(0, 0, MouseButton.Right));
-            Assert.That(services.Mouse.Cursor, Is.EqualTo(Cursor.Look));
-            services.Mouse.ButtonPress += Raise.EventWith(new MouseButtonInteraction(0, 0, MouseButton.Right));
-            Assert.That(services.Mouse.Cursor, Is.EqualTo(Cursor.Hand));
-            services.Mouse.ButtonPress += Raise.EventWith(new MouseButtonInteraction(0, 0, MouseButton.Right));
-            Assert.That(services.Mouse.Cursor, Is.EqualTo(Cursor.Talk));
-            services.Mouse.ButtonPress += Raise.EventWith(new MouseButtonInteraction(0, 0, MouseButton.Right));
-            Assert.That(services.Mouse.Cursor, Is.EqualTo(Cursor.Walk));
+            Services.Mouse.Cursor = Cursor.Walk;
+            Services.Mouse.ButtonPress += Raise.EventWith(new MouseButtonInteraction(0, 0, MouseButton.Right));
+            Assert.That(Services.Mouse.Cursor, Is.EqualTo(Cursor.Look));
+            Services.Mouse.ButtonPress += Raise.EventWith(new MouseButtonInteraction(0, 0, MouseButton.Right));
+            Assert.That(Services.Mouse.Cursor, Is.EqualTo(Cursor.Hand));
+            Services.Mouse.ButtonPress += Raise.EventWith(new MouseButtonInteraction(0, 0, MouseButton.Right));
+            Assert.That(Services.Mouse.Cursor, Is.EqualTo(Cursor.Talk));
+            Services.Mouse.ButtonPress += Raise.EventWith(new MouseButtonInteraction(0, 0, MouseButton.Right));
+            Assert.That(Services.Mouse.Cursor, Is.EqualTo(Cursor.Walk));
         }
+
+        protected override SierraVgaModule MakeModule() => new SierraVgaModule(Services.Mouse, Services.Campaigns);
     }
 }

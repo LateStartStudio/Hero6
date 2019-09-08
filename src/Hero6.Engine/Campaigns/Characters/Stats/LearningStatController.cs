@@ -7,6 +7,8 @@
 namespace LateStartStudio.Hero6.Engine.Campaigns.Characters.Stats
 {
     using System;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
 
     /// <summary>
     /// Stat that has to be learned and trained.
@@ -16,8 +18,8 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Characters.Stats
         /// <summary>
         /// Makes a new instance of the <see cref="LearningStatController"/> class.
         /// </summary>
-        protected LearningStatController()
-            : base(new LearningStatModule())
+        protected LearningStatController(IServices services)
+            : base(new LearningStatModule(), services)
         {
         }
 

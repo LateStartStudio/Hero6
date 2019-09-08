@@ -6,6 +6,8 @@
 
 namespace LateStartStudio.Hero6.Engine.Campaigns.Characters.Stats
 {
+    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+
     /// <summary>
     /// API for Stats Controller.
     /// </summary>
@@ -14,8 +16,8 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Characters.Stats
         /// <summary>
         /// Makes a new instance of the <see cref="StatController"/> class.
         /// </summary>
-        protected StatsController()
-            : base(new StatsModule())
+        protected StatsController(IServices services)
+            : base(new StatsModule(), services)
         {
         }
 

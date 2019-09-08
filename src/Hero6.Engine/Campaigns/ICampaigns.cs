@@ -22,7 +22,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
         /// <summary>
         /// Gets or sets the currently active campaign module.
         /// </summary>
-        CampaignModule Current { get; set; }
+        ICampaignModule Current { get; set; }
 
         /// <summary>
         /// Interact event, looks for modules that the user have tried interacting with.

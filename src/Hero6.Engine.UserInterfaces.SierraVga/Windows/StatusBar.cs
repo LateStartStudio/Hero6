@@ -7,46 +7,50 @@
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
 {
     using System;
-    using System.IO;
-    using System.Linq;
-    using Controls;
     using Input;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.Components;
     using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
     using LateStartStudio.Hero6.Engine.Utilities.Settings;
 
-    public class StatusBar : Window
+    public class StatusBar : WindowModule
     {
         private readonly IUserInterfaces userInterfaces;
         private readonly IMouse mouse;
         private readonly IGameSettings gameSettings;
 
-        public StatusBar(
-            IUserInterfaces userInterfaces,
-            IUserInterfaceGenerator userInterfaceGenerator,
-            IMouse mouse,
-            IGameSettings gameSettings)
-            : base(mouse)
+        public StatusBar(IUserInterfaces userInterfaces, IMouse mouse, IGameSettings gameSettings)
         {
             this.userInterfaces = userInterfaces;
             this.mouse = mouse;
             this.gameSettings = gameSettings;
-            var separator = Path.DirectorySeparatorChar;
-            Child = userInterfaceGenerator.MakeImage($"Gui{separator}Sierra Vga{separator}Status Bar{separator}Background", this);
+        }
+
+        public override string Name => "Status Bar";
+
+        public override bool IsDialog => false;
+
+        public override bool PauseGame => false;
+
+        public override void Initialize()
+        {
+            base.Initialize();
+            var background = MakeImage(this, "Gui/Sierra Vga/Status Bar/Background");
+            Child = background;
             MouseEnter += OnMouseEnter;
         }
 
         private void OnMouseEnter(object s, EventArgs e)
         {
-            if (userInterfaces.Current.Dialogs.Any(d => d.Value.IsVisible))
+            // If the game is paused it's probably because some other dialog is showing or event is happening
+            if (gameSettings.IsPaused)
             {
                 return;
             }
 
-            userInterfaces.Current.GetWindow<StatusBar>().IsVisible = false;
+            IsVisible = false;
             userInterfaces.Current.GetWindow<VerbBar>().IsVisible = true;
             mouse.SaveCursor();
             mouse.Cursor = Cursor.Arrow;
-            gameSettings.IsPaused = true;
         }
     }
 }

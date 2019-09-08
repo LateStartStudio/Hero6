@@ -10,6 +10,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms
     using LateStartStudio.Hero6.Engine.Campaigns.Characters;
     using LateStartStudio.Hero6.Engine.Campaigns.Items;
     using LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions;
+    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
 
     /// <summary>
     /// API for room controller.
@@ -20,8 +21,8 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms
         /// Makes a new <see cref="RoomController"/> instance.
         /// </summary>
         /// <param name="module">The module for this controller.</param>
-        protected RoomController(RoomModule module)
-            : base(module)
+        protected RoomController(RoomModule module, IServices services)
+            : base(module, services)
         {
         }
 

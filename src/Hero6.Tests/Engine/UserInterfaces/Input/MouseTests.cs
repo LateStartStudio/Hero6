@@ -26,6 +26,8 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
             var services = new Hero6ServicesProvider();
             gameSettings = services.GameSettings;
             gameSettings.WindowScale = new PointF(1.0f, 1.0f);
+            gameSettings.NativeWidth.Returns(320);
+            gameSettings.NativeHeight.Returns(240);
             mouseCore = services.MouseCore;
             mouse = new Mouse(gameSettings, mouseCore);
             mouse.Initialize();
@@ -57,6 +59,24 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
             Assert.That(mouse.Y, Is.EqualTo(y));
         }
 
+        [TestCase(-1, 0)]
+        [TestCase(321, 0)]
+        [TestCase(0, -1)]
+        [TestCase(0, 241)]
+        [TestCase(-1, -1)]
+        [TestCase(-1, 5)]
+        [TestCase(5, -1)]
+        public void MovingOutsideOfWindowDoesNotChangeCoords(int x, int y)
+        {
+            mouse.X = 0;
+            mouse.Y = 0;
+            mouse.Update(new GameTime());
+            mouse.X = x;
+            mouse.Y = y;
+            Assert.That(mouse.X, Is.EqualTo(0));
+            Assert.That(mouse.Y, Is.EqualTo(0));
+        }
+
         [TestCase(0)]
         [TestCase(5)]
         public void GetScrollWheel(int expected)
@@ -68,8 +88,6 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
         [Test]
         public void CenterSetsMouseCoordsToMiddleOfScreen()
         {
-            gameSettings.NativeWidth.Returns(320);
-            gameSettings.NativeHeight.Returns(240);
             mouse.Center();
             Assert.That(mouse.X, Is.EqualTo(160));
             Assert.That(mouse.Y, Is.EqualTo(120));

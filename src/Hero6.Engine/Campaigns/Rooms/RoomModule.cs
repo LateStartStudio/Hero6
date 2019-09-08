@@ -15,7 +15,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms
     /// <summary>
     /// API for room module.
     /// </summary>
-    public abstract class RoomModule : GameModule<RoomController>
+    public abstract class RoomModule : GameModule<RoomController, RoomModule>, IRoomModule
     {
         /// <summary>
         /// Gets the path to the background image.
@@ -40,7 +40,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms
         /// <summary>
         /// Gets the hotspot for this room.
         /// </summary>
-        public HotspotsModule Hotspots => Controller.Hotspots;
+        public IHotspotsModule Hotspots => Controller.Hotspots.Module;
 
         /// <summary>
         /// Adds character to this room.

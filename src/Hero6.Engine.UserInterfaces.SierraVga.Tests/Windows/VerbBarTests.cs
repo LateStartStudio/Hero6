@@ -6,172 +6,164 @@
 
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
 {
-    using Dialogs;
+    using System;
     using Input;
     using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs;
     using LateStartStudio.Hero6.Tests.HelperTools;
+    using LateStartStudio.Hero6.Tests.HelperTools.Categories;
     using NSubstitute;
     using NUnit.Framework;
 
     [TestFixture]
-    public class VerbBarTests
+    [Unit]
+    public class VerbBarTests : WindowTestBase<VerbBar>
     {
-        private SierraVgaServicesProvider services;
-        private VerbBar verbBar;
-
-        [SetUp]
-        public void SetUp()
-        {
-            services = new SierraVgaServicesProvider();
-            verbBar = services.UserInterfaces.Current.GetWindow<VerbBar>();
-            verbBar.IsVisible = true;
-        }
-
         [Test]
         public void ChangeCursorToWalkWhenLeftMouseButtonLiftOnWalkButton()
         {
-            services.Mouse.Cursor = Cursor.Arrow;
-            services.Mouse.Lift(verbBar.WalkButton, MouseButton.Left);
-            Assert.That(services.Mouse.Cursor, Is.EqualTo(Cursor.Walk));
+            Services.Mouse.Cursor = Cursor.Arrow;
+            Module.WalkButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, MouseButton.Left));
+            Assert.That(Services.Mouse.Cursor, Is.EqualTo(Cursor.Walk));
         }
 
         [TestCase(MouseButton.Middle)]
         [TestCase(MouseButton.Right)]
         public void DoNothingWhenAnyMouseButtonLiftOnWalkButtonExceptLeft(MouseButton button)
         {
-            services.Mouse.Cursor = Cursor.Arrow;
-            services.Mouse.Lift(verbBar.WalkButton, button);
-            Assert.That(services.Mouse.Cursor, Is.EqualTo(Cursor.Arrow));
+            Services.Mouse.Cursor = Cursor.Arrow;
+            Module.WalkButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, button));
+            Assert.That(Services.Mouse.Cursor, Is.EqualTo(Cursor.Arrow));
         }
 
         [Test]
         public void WalkButtonIsBrightWhenMouseEnter()
         {
-            verbBar.WalkButton.Child = verbBar.WalkImageDark;
-            services.Mouse.Enter(verbBar.WalkButton);
-            Assert.That(verbBar.WalkButton.Child, Is.EqualTo(verbBar.WalkImageBright));
+            Module.WalkButton.Child = Module.WalkImageDark;
+            Module.WalkButton.MouseEnter += Raise.EventWith(Module, EventArgs.Empty);
+            Assert.That(Module.WalkButton.Child, Is.EqualTo(Module.WalkImageBright));
         }
 
         [Test]
         public void WalkButtonIsDarkWhenMouseLeave()
         {
-            verbBar.WalkButton.Child = verbBar.WalkImageBright;
-            services.Mouse.Leave(verbBar.WalkButton);
-            Assert.That(verbBar.WalkButton.Child, Is.EqualTo(verbBar.WalkImageDark));
+            Module.WalkButton.Child = Module.WalkImageBright;
+            Module.WalkButton.MouseLeave += Raise.EventWith(Module, EventArgs.Empty);
+            Assert.That(Module.WalkButton.Child, Is.EqualTo(Module.WalkImageDark));
         }
 
         [Test]
         public void ChangeCursorToLookWhenLeftMouseButtonLiftOnLookButton()
         {
-            services.Mouse.Cursor = Cursor.Arrow;
-            services.Mouse.Lift(verbBar.LookButton, MouseButton.Left);
-            Assert.That(services.Mouse.Cursor, Is.EqualTo(Cursor.Look));
+            Services.Mouse.Cursor = Cursor.Arrow;
+            Module.LookButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, MouseButton.Left));
+            Assert.That(Services.Mouse.Cursor, Is.EqualTo(Cursor.Look));
         }
 
         [TestCase(MouseButton.Middle)]
         [TestCase(MouseButton.Right)]
         public void DoNothingWhenAnyMouseButtonLiftOnLookButtonExceptLeft(MouseButton button)
         {
-            services.Mouse.Cursor = Cursor.Arrow;
-            services.Mouse.Lift(verbBar.LookButton, button);
-            Assert.That(services.Mouse.Cursor, Is.EqualTo(Cursor.Arrow));
+            Services.Mouse.Cursor = Cursor.Arrow;
+            Module.LookButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, button));
+            Assert.That(Services.Mouse.Cursor, Is.EqualTo(Cursor.Arrow));
         }
 
         [Test]
         public void LookButtonIsBrightWhenMouseEnter()
         {
-            verbBar.LookButton.Child = verbBar.LookImageDark;
-            services.Mouse.Enter(verbBar.LookButton);
-            Assert.That(verbBar.LookButton.Child, Is.EqualTo(verbBar.LookImageBright));
+            Module.LookButton.Child = Module.LookImageDark;
+            Module.LookButton.MouseEnter += Raise.EventWith(Module, EventArgs.Empty);
+            Assert.That(Module.LookButton.Child, Is.EqualTo(Module.LookImageBright));
         }
 
         [Test]
         public void LookButtonIsDarkWhenMouseLeave()
         {
-            verbBar.LookButton.Child = verbBar.LookImageBright;
-            services.Mouse.Leave(verbBar.LookButton);
-            Assert.That(verbBar.LookButton.Child, Is.EqualTo(verbBar.LookImageDark));
+            Module.LookButton.Child = Module.LookImageBright;
+            Module.LookButton.MouseLeave += Raise.EventWith(Module, EventArgs.Empty);
+            Assert.That(Module.LookButton.Child, Is.EqualTo(Module.LookImageDark));
         }
 
         [Test]
         public void ChangeCursorToHandWhenLeftMouseButtonLiftOnHandButton()
         {
-            services.Mouse.Cursor = Cursor.Arrow;
-            services.Mouse.Lift(verbBar.HandButton, MouseButton.Left);
-            Assert.That(services.Mouse.Cursor, Is.EqualTo(Cursor.Hand));
+            Services.Mouse.Cursor = Cursor.Arrow;
+            Module.HandButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, MouseButton.Left));
+            Assert.That(Services.Mouse.Cursor, Is.EqualTo(Cursor.Hand));
         }
 
         [TestCase(MouseButton.Middle)]
         [TestCase(MouseButton.Right)]
         public void DoNothingWhenAnyMouseButtonLiftOnHandButtonExceptLeft(MouseButton button)
         {
-            services.Mouse.Cursor = Cursor.Arrow;
-            services.Mouse.Lift(verbBar.HandButton, button);
-            Assert.That(services.Mouse.Cursor, Is.EqualTo(Cursor.Arrow));
+            Services.Mouse.Cursor = Cursor.Arrow;
+            Module.HandButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, button));
+            Assert.That(Services.Mouse.Cursor, Is.EqualTo(Cursor.Arrow));
         }
 
         [Test]
         public void HandButtonIsBrightWhenMouseEnter()
         {
-            verbBar.HandButton.Child = verbBar.HandImageDark;
-            services.Mouse.Enter(verbBar.HandButton);
-            Assert.That(verbBar.HandButton.Child, Is.EqualTo(verbBar.HandImageBright));
+            Module.HandButton.Child = Module.HandImageDark;
+            Module.HandButton.MouseEnter += Raise.EventWith(Module, EventArgs.Empty);
+            Assert.That(Module.HandButton.Child, Is.EqualTo(Module.HandImageBright));
         }
 
         [Test]
         public void HandButtonIsDarkWhenMouseLeave()
         {
-            verbBar.HandButton.Child = verbBar.HandImageBright;
-            services.Mouse.Leave(verbBar.HandButton);
-            Assert.That(verbBar.HandButton.Child, Is.EqualTo(verbBar.HandImageDark));
+            Module.HandButton.Child = Module.HandImageBright;
+            Module.HandButton.MouseLeave += Raise.EventWith(Module, EventArgs.Empty);
+            Assert.That(Module.HandButton.Child, Is.EqualTo(Module.HandImageDark));
         }
 
         [Test]
         public void ChangeCursorToTalkWhenLeftMouseButtonLiftOnTalkButton()
         {
-            services.Mouse.Cursor = Cursor.Arrow;
-            services.Mouse.Lift(verbBar.TalkButton, MouseButton.Left);
-            Assert.That(services.Mouse.Cursor, Is.EqualTo(Cursor.Talk));
+            Services.Mouse.Cursor = Cursor.Arrow;
+            Module.TalkButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, MouseButton.Left));
+            Assert.That(Services.Mouse.Cursor, Is.EqualTo(Cursor.Talk));
         }
 
         [TestCase(MouseButton.Middle)]
         [TestCase(MouseButton.Right)]
         public void DoNothingWhenAnyMouseButtonLiftOnTalkButtonExceptLeft(MouseButton button)
         {
-            services.Mouse.Cursor = Cursor.Arrow;
-            services.Mouse.Lift(verbBar.TalkButton, button);
-            Assert.That(services.Mouse.Cursor, Is.EqualTo(Cursor.Arrow));
+            Services.Mouse.Cursor = Cursor.Arrow;
+            Module.TalkButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, button));
+            Assert.That(Services.Mouse.Cursor, Is.EqualTo(Cursor.Arrow));
         }
 
         [Test]
         public void TalkButtonIsBrightWhenMouseEnter()
         {
-            verbBar.TalkButton.Child = verbBar.TalkImageDark;
-            services.Mouse.Enter(verbBar.TalkButton);
-            Assert.That(verbBar.TalkButton.Child, Is.EqualTo(verbBar.TalkImageBright));
+            Module.TalkButton.Child = Module.TalkImageDark;
+            Module.TalkButton.MouseEnter += Raise.EventWith(Module, EventArgs.Empty);
+            Assert.That(Module.TalkButton.Child, Is.EqualTo(Module.TalkImageBright));
         }
 
         [Test]
         public void TalkButtonIsDarkWhenMouseLeave()
         {
-            verbBar.TalkButton.Child = verbBar.TalkImageBright;
-            services.Mouse.Leave(verbBar.TalkButton);
-            Assert.That(verbBar.TalkButton.Child, Is.EqualTo(verbBar.TalkImageDark));
+            Module.TalkButton.Child = Module.TalkImageBright;
+            Module.TalkButton.MouseLeave += Raise.EventWith(Module, EventArgs.Empty);
+            Assert.That(Module.TalkButton.Child, Is.EqualTo(Module.TalkImageDark));
         }
 
         [Test]
         public void CursorCenterWhenLeftMouseButtonLiftOnSubMenuButton()
         {
-            services.Mouse.Lift(verbBar.SubMenuButton, MouseButton.Left);
-            services.Mouse.Received().Center();
+            Module.SubMenuButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, MouseButton.Left));
+            Services.Mouse.Received().Center();
         }
 
         [Test]
         public void ShowExtensionBarWhenLeftMouseButtonLiftOnSubMenuButton()
         {
-            var extensionBar = services.UserInterfaces.Current.GetDialog<ExtensionBar>();
+            var extensionBar = Services.UserInterfaces.Current.GetWindow<ExtensionBar>();
             extensionBar.IsVisible = false;
-            services.Mouse.Lift(verbBar.SubMenuButton, MouseButton.Left);
+            Module.SubMenuButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, MouseButton.Left));
             Assert.That(extensionBar.IsVisible, Is.True);
         }
 
@@ -179,190 +171,175 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
         [TestCase(MouseButton.Right)]
         public void DoNothingWhenAnyMouseButtonLiftOnSubMenuButtonExceptLeft(MouseButton button)
         {
-            services.Mouse.Lift(verbBar.SubMenuButton, button);
-            services.Mouse.DidNotReceive().Center();
+            Module.SubMenuButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, button));
+            Services.Mouse.DidNotReceive().Center();
         }
 
         [Test]
         public void SubMenuButtonIsBrightWhenMouseEnter()
         {
-            verbBar.SubMenuButton.Child = verbBar.SubMenuImageDark;
-            services.Mouse.Enter(verbBar.SubMenuButton);
-            Assert.That(verbBar.SubMenuButton.Child, Is.EqualTo(verbBar.SubMenuImageBright));
+            Module.SubMenuButton.Child = Module.SubMenuImageDark;
+            Module.SubMenuButton.MouseEnter += Raise.EventWith(Module, EventArgs.Empty);
+            Assert.That(Module.SubMenuButton.Child, Is.EqualTo(Module.SubMenuImageBright));
         }
 
         [Test]
         public void SubMenuButtonIsDarkWhenMouseLeave()
         {
-            verbBar.SubMenuButton.Child = verbBar.SubMenuImageBright;
-            services.Mouse.Leave(verbBar.SubMenuButton);
-            Assert.That(verbBar.SubMenuButton.Child, Is.EqualTo(verbBar.SubMenuImageDark));
+            Module.SubMenuButton.Child = Module.SubMenuImageBright;
+            Module.SubMenuButton.MouseLeave += Raise.EventWith(Module, EventArgs.Empty);
+            Assert.That(Module.SubMenuButton.Child, Is.EqualTo(Module.SubMenuImageDark));
         }
 
         [Test]
         public void CursorCenterWhenLeftMouseButtonLiftOnMagicButton()
         {
-            services.Mouse.Lift(verbBar.MagicButton, MouseButton.Left);
-            services.Mouse.Received().Center();
+            Module.MagicButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, MouseButton.Left));
+            Services.Mouse.Received().Center();
         }
 
         [TestCase(MouseButton.Middle)]
         [TestCase(MouseButton.Right)]
         public void DoNothingWhenAnyMouseButtonLiftOnMagicButtonExceptLeft(MouseButton button)
         {
-            services.Mouse.Lift(verbBar.MagicButton, button);
-            services.Mouse.DidNotReceive().Center();
+            Module.MagicButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, button));
+            Services.Mouse.DidNotReceive().Center();
         }
 
         [Test]
         public void MagicButtonIsBrightWhenMouseEnter()
         {
-            verbBar.MagicButton.Child = verbBar.MagicImageDark;
-            services.Mouse.Enter(verbBar.MagicButton);
-            Assert.That(verbBar.MagicButton.Child, Is.EqualTo(verbBar.MagicImageBright));
+            Module.MagicButton.Child = Module.MagicImageDark;
+            Module.MagicButton.MouseEnter += Raise.EventWith(Module, EventArgs.Empty);
+            Assert.That(Module.MagicButton.Child, Is.EqualTo(Module.MagicImageBright));
         }
 
         [Test]
         public void MagicButtonIsDarkWhenMouseLeave()
         {
-            verbBar.MagicButton.Child = verbBar.MagicImageBright;
-            services.Mouse.Leave(verbBar.MagicButton);
-            Assert.That(verbBar.MagicButton.Child, Is.EqualTo(verbBar.MagicImageDark));
+            Module.MagicButton.Child = Module.MagicImageBright;
+            Module.MagicButton.MouseLeave += Raise.EventWith(Module, EventArgs.Empty);
+            Assert.That(Module.MagicButton.Child, Is.EqualTo(Module.MagicImageDark));
         }
 
         [Test]
         public void CursorCenterWhenLeftMouseButtonLiftOnCurrentItemButton()
         {
-            services.Mouse.Lift(verbBar.CurrentItemButton, MouseButton.Left);
-            services.Mouse.Received().Center();
+            Module.CurrentItemButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, MouseButton.Left));
+            Services.Mouse.Received().Center();
         }
 
         [TestCase(MouseButton.Middle)]
         [TestCase(MouseButton.Right)]
         public void DoNothingWhenAnyMouseButtonLiftOnCurrentItemButtonExceptLeft(MouseButton button)
         {
-            services.Mouse.Lift(verbBar.CurrentItemButton, button);
-            services.Mouse.DidNotReceive().Center();
+            Module.CurrentItemButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, button));
+            Services.Mouse.DidNotReceive().Center();
         }
 
         [Test]
         public void CurrentItemButtonIsBrightWhenMouseEnter()
         {
-            verbBar.CurrentItemButton.Child = verbBar.CurrentItemImageDark;
-            services.Mouse.Enter(verbBar.CurrentItemButton);
-            Assert.That(verbBar.CurrentItemButton.Child, Is.EqualTo(verbBar.CurrentItemImageBright));
+            Module.CurrentItemButton.Child = Module.CurrentItemImageDark;
+            Module.CurrentItemButton.MouseEnter += Raise.EventWith(Module, EventArgs.Empty);
+            Assert.That(Module.CurrentItemButton.Child, Is.EqualTo(Module.CurrentItemImageBright));
         }
 
         [Test]
         public void CurrentItemButtonIsDarkWhenMouseLeave()
         {
-            verbBar.CurrentItemButton.Child = verbBar.CurrentItemImageBright;
-            services.Mouse.Leave(verbBar.CurrentItemButton);
-            Assert.That(verbBar.CurrentItemButton.Child, Is.EqualTo(verbBar.CurrentItemImageDark));
+            Module.CurrentItemButton.Child = Module.CurrentItemImageBright;
+            Module.CurrentItemButton.MouseLeave += Raise.EventWith(Module, EventArgs.Empty);
+            Assert.That(Module.CurrentItemButton.Child, Is.EqualTo(Module.CurrentItemImageDark));
         }
 
         [Test]
         public void CursorCenterWhenLeftMouseButtonLiftOnInventoryButton()
         {
-            services.Mouse.Lift(verbBar.InventoryButton, MouseButton.Left);
-            services.Mouse.Received().Center();
+            Module.InventoryButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, MouseButton.Left));
+            Services.Mouse.Received().Center();
         }
 
         [TestCase(MouseButton.Middle)]
         [TestCase(MouseButton.Right)]
         public void DoNothingWhenAnyMouseButtonLiftOnInventoryButtonExceptLeft(MouseButton button)
         {
-            services.Mouse.Lift(verbBar.InventoryButton, button);
-            services.Mouse.DidNotReceive().Center();
+            Module.InventoryButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, button));
+            Services.Mouse.DidNotReceive().Center();
         }
 
         [Test]
         public void InventoryButtonIsBrightWhenMouseEnter()
         {
-            verbBar.InventoryButton.Child = verbBar.InventoryImageDark;
-            services.Mouse.Enter(verbBar.InventoryButton);
-            Assert.That(verbBar.InventoryButton.Child, Is.EqualTo(verbBar.InventoryImageBright));
+            Module.InventoryButton.Child = Module.InventoryImageDark;
+            Module.InventoryButton.MouseEnter += Raise.EventWith(Module, EventArgs.Empty);
+            Assert.That(Module.InventoryButton.Child, Is.EqualTo(Module.InventoryImageBright));
         }
 
         [Test]
         public void InventoryButtonIsDarkWhenMouseLeave()
         {
-            verbBar.InventoryButton.Child = verbBar.InventoryImageBright;
-            services.Mouse.Leave(verbBar.InventoryButton);
-            Assert.That(verbBar.InventoryButton.Child, Is.EqualTo(verbBar.InventoryImageDark));
+            Module.InventoryButton.Child = Module.InventoryImageBright;
+            Module.InventoryButton.MouseLeave += Raise.EventWith(Module, EventArgs.Empty);
+            Assert.That(Module.InventoryButton.Child, Is.EqualTo(Module.InventoryImageDark));
         }
 
         [Test]
         public void CursorCenterWhenLeftMouseButtonLiftOnOptionsButton()
         {
-            services.Mouse.Lift(verbBar.OptionsButton, MouseButton.Left);
-            services.Mouse.Received().Center();
+            Module.OptionsButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, MouseButton.Left));
+            Services.Mouse.Received().Center();
         }
 
         [TestCase(MouseButton.Middle)]
         [TestCase(MouseButton.Right)]
         public void DoNothingWhenAnyMouseButtonLiftOnOptionsButtonExceptLeft(MouseButton button)
         {
-            services.Mouse.Lift(verbBar.OptionsButton, button);
-            services.Mouse.DidNotReceive().Center();
+            Module.OptionsButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, button));
+            Services.Mouse.DidNotReceive().Center();
         }
 
         [Test]
         public void OptionsButtonIsBrightWhenMouseEnter()
         {
-            verbBar.OptionsButton.Child = verbBar.OptionsImageDark;
-            services.Mouse.Enter(verbBar.OptionsButton);
-            Assert.That(verbBar.OptionsButton.Child, Is.EqualTo(verbBar.OptionsImageBright));
+            Module.OptionsButton.Child = Module.OptionsImageDark;
+            Module.OptionsButton.MouseEnter += Raise.EventWith(Module, EventArgs.Empty);
+            Assert.That(Module.OptionsButton.Child, Is.EqualTo(Module.OptionsImageBright));
         }
 
         [Test]
         public void OptionsButtonIsDarkWhenMouseLeave()
         {
-            verbBar.OptionsButton.Child = verbBar.OptionsImageBright;
-            services.Mouse.Leave(verbBar.OptionsButton);
-            Assert.That(verbBar.OptionsButton.Child, Is.EqualTo(verbBar.OptionsImageDark));
+            Module.OptionsButton.Child = Module.OptionsImageBright;
+            Module.OptionsButton.MouseLeave += Raise.EventWith(Module, EventArgs.Empty);
+            Assert.That(Module.OptionsButton.Child, Is.EqualTo(Module.OptionsImageDark));
         }
 
         [Test]
         public void ShowStatusBarOnMouseLeave()
         {
-            var statusBar = services.UserInterfaces.Current.GetWindow<StatusBar>();
+            var statusBar = Services.UserInterfaces.Current.GetWindow<StatusBar>();
             statusBar.IsVisible = false;
-            services.Mouse.Leave(verbBar);
+            Controller.InvokeMouseLeave();
             Assert.That(statusBar.IsVisible, Is.True);
         }
 
         [Test]
         public void HideOnMouseLeave()
         {
-            verbBar.IsVisible = true;
-            services.Mouse.Leave(verbBar);
-            Assert.That(verbBar.IsVisible, Is.False);
-        }
-
-        [Test]
-        public void UnpauseRendererOnMouseLeave()
-        {
-            services.GameSettings.IsPaused = true;
-            services.Mouse.Leave(verbBar);
-            Assert.That(services.GameSettings.IsPaused, Is.False);
-        }
-
-        [Test]
-        public void DoNotUnpauseRendererOnMouseLeaveWhenAnyDialogVisible()
-        {
-            services.UserInterfaces.Current.GetDialog<TextBox>().IsVisible = true;
-            services.GameSettings.IsPaused = true;
-            services.Mouse.Leave(verbBar);
-            Assert.That(services.GameSettings.IsPaused, Is.True);
+            Module.IsVisible = true;
+            Controller.InvokeMouseLeave();
+            Assert.That(Module.IsVisible, Is.False);
         }
 
         [Test]
         public void LoadCursorOnMouseLeave()
         {
-            services.Mouse.DidNotReceive().LoadCursor();
-            services.Mouse.Leave(verbBar);
-            services.Mouse.Received().LoadCursor();
+            Services.Mouse.DidNotReceive().LoadCursor();
+            Controller.InvokeMouseLeave();
+            Services.Mouse.Received().LoadCursor();
         }
+
+        protected override VerbBar MakeModule() => new VerbBar(Services.UserInterfaces, Services.Mouse);
     }
 }

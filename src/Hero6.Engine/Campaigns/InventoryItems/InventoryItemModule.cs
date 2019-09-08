@@ -9,7 +9,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.InventoryItems
     /// <summary>
     /// API for inventory item.
     /// </summary>
-    public abstract class InventoryItemModule : GameModule<InventoryItemController>
+    public abstract class InventoryItemModule : GameModule<InventoryItemController, InventoryItemModule>, IInventoryItemModule
     {
     }
 }

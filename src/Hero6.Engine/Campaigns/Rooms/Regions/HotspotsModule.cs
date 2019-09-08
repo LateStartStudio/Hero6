@@ -11,7 +11,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
     /// <summary>
     /// API for the hotspots module.
     /// </summary>
-    public class HotspotsModule : GameModule<HotspotsController>
+    public class HotspotsModule : GameModule<HotspotsController, HotspotsModule>, IHotspotsModule
     {
         /// <summary>
         /// Gets the hotspots name.

@@ -16,7 +16,7 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Characters
     /// <summary>
     /// API for the character module.
     /// </summary>
-    public abstract class CharacterModule : GameModule<CharacterController>
+    public abstract class CharacterModule : GameModule<CharacterController, CharacterModule>, ICharacterModule
     {
         /// <summary>
         /// Gets a value indicating whether this character is the player character or not.
@@ -45,19 +45,19 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Characters
         /// <summary>
         /// Gets or sets the idle animation of this character.
         /// </summary>
-        public CharacterAnimationModule IdleAnimation
+        public ICharacterAnimationModule IdleAnimation
         {
-            get { return Controller.IdleAnimation; }
-            set { Controller.IdleAnimation = value.Controller; }
+            get { return Controller.IdleAnimation.Module; }
+            set { Controller.IdleAnimation = ((CharacterAnimationModule)value).Controller; }
         }
 
         /// <summary>
         /// Gets or sets the movement animation of this character.
         /// </summary>
-        public CharacterAnimationModule MoveAnimation
+        public ICharacterAnimationModule MoveAnimation
         {
-            get { return Controller.MoveAnimation; }
-            set { Controller.MoveAnimation = value.Controller; }
+            get { return Controller.MoveAnimation.Module; }
+            set { Controller.MoveAnimation = ((CharacterAnimationModule)value).Controller; }
         }
 
         /// <summary>

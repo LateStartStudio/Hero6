@@ -11,6 +11,8 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Characters
     using LateStartStudio.Hero6.Engine.Campaigns.Characters.Stats;
     using LateStartStudio.Hero6.Engine.Campaigns.InventoryItems;
     using LateStartStudio.Hero6.Engine.Campaigns.Rooms;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
 
     /// <summary>
     /// API for the character controller.
@@ -21,8 +23,8 @@ namespace LateStartStudio.Hero6.Engine.Campaigns.Characters
         /// Makes a new instance of the <see cref="CharacterController"/> class.
         /// </summary>
         /// <param name="module">The module corresponding to this character.</param>
-        protected CharacterController(CharacterModule module)
-            : base(module)
+        protected CharacterController(CharacterModule module, IServices services)
+            : base(module, services)
         {
         }
 

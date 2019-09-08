@@ -17,6 +17,8 @@ namespace LateStartStudio.Hero6
     using Engine.Utilities.DependencyInjection;
     using Engine.Utilities.Logger;
     using Engine.Utilities.Settings;
+    using LateStartStudio.Hero6.Engine.GameLoop;
+    using LateStartStudio.Hero6.Engine.UserInterfaces.Components;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
 
@@ -28,28 +30,35 @@ namespace LateStartStudio.Hero6
         private static Logger logger;
 
         private readonly GameSettings gameSettings;
+        private readonly MonoGameUserInterfaces ui;
+        private readonly MonoGameCampaigns campaign;
 
-        private MonoGameUserInterfaces ui;
-        private MonoGameCampaigns campaign;
         private SpriteBatch spriteBatch;
         private Matrix transform = Matrix.Identity;
 
         private Game()
         {
             Content.RootDirectory = "Content";
+            Window.Title = "Hero6";
             var services = new MonoGameServices(Services);
-            gameSettings = new GameSettings();
+            services.Add<IServices>(services);
             services.Add<IFileWrapper, FileWrapper>();
             services.Add<IDirectoryWrapper, DirectoryWrapper>();
-            services.Add<IGameSettings>(gameSettings);
             var userSettings = services.Make<UserSettings>(typeof(UserSettings));
             services.Add<IUserSettings>(userSettings);
             services.Add<ILoggerCore, LoggerCore>();
             logger = services.Make<Logger>(typeof(Logger));
             services.Add<IMouseCore, MouseCore>();
-            services.Add<IMouse, Mouse>();
             services.Add<ILogger>(logger);
+            services.Add<IControllerRepository, ControllerRepositoryProvider>();
             services.Add(Content);
+            campaign = services.Make<MonoGameCampaigns>();
+            services.Add<ICampaigns>(campaign);
+            ui = services.Make<MonoGameUserInterfaces>();
+            services.Add<IUserInterfaces>(ui);
+            gameSettings = new GameSettings(ui);
+            services.Add<IGameSettings>(gameSettings);
+            services.Add<IMouse, Mouse>();
 
             var graphics = new GraphicsDeviceManager(this)
             {
@@ -66,11 +75,6 @@ namespace LateStartStudio.Hero6
                 spriteBatch = new SpriteBatch(GraphicsDevice);
                 services.Add(graphics);
                 services.Add(spriteBatch);
-                services.Add<IUserInterfaceGenerator, MonoGameUserInterfaceGenerator>();
-                campaign = new MonoGameCampaigns(services);
-                services.Add<ICampaigns>(campaign);
-                ui = new MonoGameUserInterfaces(services);
-                services.Add<IUserInterfaces>(ui);
 
                 logger.Info("Graphics Device Created.");
                 logger.Info($"Graphics Adapter Width {GraphicsDevice.Adapter.CurrentDisplayMode.Width}");
@@ -133,11 +137,9 @@ namespace LateStartStudio.Hero6
             logger.Initialize();
             logger.Info("Initializing Hero6 game instance.");
 
-            Window.Title = "Hero6";
             UpdateScale();
             ui.Initialize();
             campaign.Initialize();
-            ui.Current.GetWindow<StatusBar>().IsVisible = true;
 
             base.Initialize();
 
@@ -183,7 +185,11 @@ namespace LateStartStudio.Hero6
         protected override void Update(GameTime time)
         {
             ui.Update(time);
-            campaign.Update(time);
+
+            if (!gameSettings.IsPaused)
+            {
+                campaign.Update(time);
+            }
 
             base.Update(time);
         }

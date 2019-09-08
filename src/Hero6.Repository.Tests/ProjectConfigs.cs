@@ -30,7 +30,7 @@ namespace LateStartStudio.Hero6.Repository
         public void AllProjectsAreSetToCsharpLanguageLevel6()
         {
             const string expected = "<LangVersion>6</LangVersion>";
-            files.ForEach(f => Assert.That(File.ReadAllText(f).Contains(expected), Is.True, f));
+            Assert.That(files.All(f => File.ReadAllText(f).Contains(expected)), Is.True);
         }
 
         [Test]
@@ -43,7 +43,7 @@ namespace LateStartStudio.Hero6.Repository
                 "<TargetFramework>netcoreapp2.0</TargetFramework>",
             };
 
-            files.ForEach(f => Assert.That(expected.Any(e => File.ReadAllText(f).Contains(e)), Is.True, f));
+            Assert.That(files.All(f => expected.Any(e => File.ReadAllText(f).Contains(e))), Is.True);
         }
 
         private static List<string> GetProjectFiles(string dir)

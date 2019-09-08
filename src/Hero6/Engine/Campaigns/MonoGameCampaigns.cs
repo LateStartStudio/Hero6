@@ -16,19 +16,18 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
     public class MonoGameCampaigns : ICampaigns, IXnaGameLoop
     {
         private readonly IServices services;
-        private readonly IList<MonoGameCampaignController> campaigns;
+        private readonly IList<MonoGameCampaignController> campaigns = new List<MonoGameCampaignController>();
 
         public MonoGameCampaigns(IServices services)
         {
             this.services = services;
-            this.campaigns = new List<MonoGameCampaignController>();
         }
 
         public IEnumerable<CampaignModule> Campaigns => campaigns.Select(c => c.Module);
 
-        public CampaignModule Current
+        public ICampaignModule Current
         {
-            get { return CurrentController; }
+            get { return CurrentController.Module; }
             set { CurrentController = campaigns.First(c => c.Module == value); }
         }
 

@@ -16,11 +16,11 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces
         /// <summary>
         /// Gets all the user interfaces.
         /// </summary>
-        IEnumerable<UserInterface> UserInterfaces { get; }
+        IEnumerable<UserInterfaceModule> UserInterfaces { get; }
 
         /// <summary>
         /// Gets or sets the current user interface.
         /// </summary>
-        UserInterface Current { get; set; }
+        IUserInterfaceModule Current { get; set; }
     }
 }

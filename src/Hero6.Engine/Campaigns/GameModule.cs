@@ -13,8 +13,9 @@ namespace LateStartStudio.Hero6.Engine.Campaigns
     /// API for game controller.
     /// </summary>
     /// <typeparam name="TController">The Controlle type.</typeparam>
-    public abstract class GameModule<TController> : Module<TController>
-        where TController : class, IController
+    public abstract class GameModule<TController, TModule> : Module<TController, TModule>
+        where TController : GameController<TController, TModule>
+        where TModule : GameModule<TController, TModule>
     {
         /// <summary>
         /// Gets or sets the look event.
