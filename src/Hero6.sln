@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hero6", "Hero6", "{887BCA83-96AC-4E83-BAF5-567626AF670B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Engine.Campaigns.RitesOfPassage", "Hero6.Engine.Campaigns.RitesOfPassage\Hero6.Engine.Campaigns.RitesOfPassage.csproj", "{DE807934-27EC-43A8-831F-15371284F11F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Campaigns.RitesOfPassage", "Hero6.Campaigns.RitesOfPassage\Hero6.Campaigns.RitesOfPassage.csproj", "{DE807934-27EC-43A8-831F-15371284F11F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{C7901A1A-E22C-468F-9E9A-9A891598E7D8}"
 EndProject
@@ -48,7 +48,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Repository.Tests", "H
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Tests.HelperTools", "Hero6.Tests.HelperTools\Hero6.Tests.HelperTools.csproj", "{AFCFF1EB-729C-4DA5-B671-83396288DC3C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Engine.Campaigns.RitesOfPassage.Tests", "Hero6.Engine.Campaigns.RitesOfPassage.Tests\Hero6.Engine.Campaigns.RitesOfPassage.Tests.csproj", "{5BD8BDF3-2B54-4228-9272-BFCC6D1AE541}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Campaigns.RitesOfPassage.Tests", "Hero6.Campaigns.RitesOfPassage.Tests\Hero6.Campaigns.RitesOfPassage.Tests.csproj", "{5BD8BDF3-2B54-4228-9272-BFCC6D1AE541}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.DesktopGL", "Hero6.DesktopGL\Hero6.DesktopGL.csproj", "{D1071FFB-86E1-48DD-9F84-7D84ED962434}"
 EndProject

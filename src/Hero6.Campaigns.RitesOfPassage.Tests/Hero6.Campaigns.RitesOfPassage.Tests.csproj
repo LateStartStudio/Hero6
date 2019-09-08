@@ -1,44 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <RootNamespace>LateStartStudio.Hero6</RootNamespace>
-    <AssemblyName>Hero6</AssemblyName>
-    <ApplicationIcon>Icon.ico</ApplicationIcon>
+    <RootNamespace>LateStartStudio.Hero6.Campaigns.RitesOfPassage</RootNamespace>
+    <Version>1.0.0</Version>
     <LangVersion>6</LangVersion>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DefineConstants>TRACE;DESKTOPGL;MONOGAME</DefineConstants>
     <DocumentationFile></DocumentationFile>
     <CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
-    <NoWarn>1701;1702</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>TRACE;DESKTOPGL;MONOGAME</DefineConstants>
     <DocumentationFile></DocumentationFile>
     <CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>
-    <NoWarn>1701;1702</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <AdditionalFiles Include="..\stylecop.json" Link="stylecop.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hero6.Campaigns.RitesOfPassage\Hero6.Campaigns.RitesOfPassage.csproj" />
-    <ProjectReference Include="..\Hero6.UserInterfaces.SierraVga\Hero6.UserInterfaces.SierraVga.csproj" />
-    <ProjectReference Include="..\Hero6.Engine\Hero6.Engine.csproj" />
-    <ProjectReference Include="..\Search\Search.csproj" />
+    <ProjectReference Include="..\Hero6.Tests.HelperTools\Hero6.Tests.HelperTools.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <MonoGameContentReference Include="..\Hero6.Content\Hero6.Content.mgcb" Link="Content\Hero6.Content.mgcb" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="Hero6.Logger.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <Import Project="..\Hero6\Hero6.projitems" Label="Shared" />
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>
