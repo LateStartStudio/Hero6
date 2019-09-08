@@ -12,4 +12,4 @@ steps:
   displayName: Install dotnet SDK
   inputs:
     packageType: 'sdk'
-    version: '2.2.100'
+    version: '2.2.401'
