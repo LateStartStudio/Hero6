@@ -4,10 +4,10 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using LateStartStudio.Hero6.Engine.Campaigns.InventoryItems;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.InventoryItems
 {
-    using LateStartStudio.Hero6.Engine.Campaigns.InventoryItems;
-
     public sealed class BentSword : InventoryItemModule
     {
         public override string Name => "Bent Sword";

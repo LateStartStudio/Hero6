@@ -4,14 +4,14 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+
 namespace LateStartStudio.Hero6.Engine.ModuleController
 {
-    using System;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
-
     /// <summary>
     /// Interface to the module type. This is just a helper tool to define the relationship for the controller-module.
-    /// For actual documentation refer to <see cref="Module{TController}"/>.
+    /// For actual documentation refer to <see cref="Module{TController, TModule}"/>.
     /// </summary>
     public interface IModule
     {

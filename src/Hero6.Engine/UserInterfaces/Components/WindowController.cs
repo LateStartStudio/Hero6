@@ -4,11 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+using LateStartStudio.Hero6.Engine.Utilities.Settings;
+
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Components
 {
-    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
-    using LateStartStudio.Hero6.Engine.Utilities.Settings;
-
     public abstract class WindowController : ComponentController<WindowController, IWindowModule>
     {
         private readonly IGameSettings gameSettings;

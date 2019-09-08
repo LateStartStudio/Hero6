@@ -4,10 +4,10 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Collections.Generic;
+
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Components
 {
-    using System.Collections.Generic;
-
     public class StackPanelModule : ComponentModule<StackPanelController, IStackPanelModule>, IStackPanelModule
     {
         public override string Name => "Stack Panel";

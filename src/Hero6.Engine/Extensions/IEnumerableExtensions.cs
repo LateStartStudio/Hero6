@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 
 /// <summary>
-/// Extensions on <see cref="IEnumerable{T}"/>
+/// Extensions on <see cref="IEnumerable{T}"/>.
 /// </summary>
 public static class IEnumerableExtensions
 {
@@ -16,9 +16,9 @@ public static class IEnumerableExtensions
     /// Helper function to avoid calling ToList().ForEach for every time we want a single line
     /// foreach. Not calling ToList() can save some performance.
     /// </summary>
-    /// <typeparam name="T">Generics</typeparam>
-    /// <param name="enumerable">The collection</param>
-    /// <param name="action">Action to perform</param>
+    /// <typeparam name="T">Generics.</typeparam>
+    /// <param name="enumerable">The collection.</param>
+    /// <param name="action">Action to perform.</param>
     public static void ForEach<T>(this IEnumerable<T> enumerable, Action<T> action)
     {
         foreach (var e in enumerable)

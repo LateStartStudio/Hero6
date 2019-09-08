@@ -4,12 +4,12 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+using System.Collections.Generic;
+using NUnit.Framework;
+
 namespace LateStartStudio.Search.Pathfinder
 {
-    using System;
-    using System.Collections.Generic;
-    using NUnit.Framework;
-
     [TestFixture]
     public abstract class PathfinderTests
     {
@@ -22,7 +22,7 @@ namespace LateStartStudio.Search.Pathfinder
             { 1, 0 },
             { -1, 1 },
             { 0, 1 },
-            { 1, 1 }
+            { 1, 1 },
         };
 
         private Node[,] graph;
@@ -40,7 +40,7 @@ namespace LateStartStudio.Search.Pathfinder
         /// B = Blocked Node
         ///
         /// Start = 2, 2
-        /// End = 0, 0
+        /// End = 0, 0.
         /// </summary>
         [Test]
         public void FindPathNoValid()
@@ -51,7 +51,7 @@ namespace LateStartStudio.Search.Pathfinder
                 { 'O', 'B', 'B', 'B', 'O' },
                 { 'O', 'B', 'O', 'B', 'O' },
                 { 'O', 'B', 'B', 'B', 'O' },
-                { 'O', 'O', 'O', 'O', 'O' }
+                { 'O', 'O', 'O', 'O', 'O' },
             };
 
             this.GenerateGraph(map);
@@ -64,7 +64,7 @@ namespace LateStartStudio.Search.Pathfinder
         /// B = Blocked Node
         ///
         /// Start = 4, 4
-        /// End = 0, 0
+        /// End = 0, 0.
         /// </summary>
         [Test]
         public void FindPathSimpleDiag()
@@ -75,19 +75,21 @@ namespace LateStartStudio.Search.Pathfinder
                 { 'O', 'O', 'O', 'O', 'O' },
                 { 'O', 'O', 'O', 'O', 'O' },
                 { 'O', 'O', 'O', 'O', 'O' },
-                { 'O', 'O', 'O', 'O', 'O' }
+                { 'O', 'O', 'O', 'O', 'O' },
             };
 
-            this.GenerateGraph(map);
+            GenerateGraph(map);
 
-            IList<Node> expected = new List<Node>();
-            expected.Add(this.graph[4, 4]);
-            expected.Add(this.graph[3, 3]);
-            expected.Add(this.graph[2, 2]);
-            expected.Add(this.graph[1, 1]);
-            expected.Add(this.graph[0, 0]);
+            IList<Node> expected = new List<Node>
+            {
+                graph[4, 4],
+                graph[3, 3],
+                graph[2, 2],
+                graph[1, 1],
+                graph[0, 0],
+            };
 
-            IList<Node> actual = this.Pathfinder.FindPath(this.graph[4, 4], this.graph[0, 0]);
+            IList<Node> actual = Pathfinder.FindPath(graph[4, 4], graph[0, 0]);
 
             Assert.AreEqual(expected, actual);
         }

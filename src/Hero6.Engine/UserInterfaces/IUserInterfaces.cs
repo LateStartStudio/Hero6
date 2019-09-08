@@ -4,10 +4,10 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Collections.Generic;
+
 namespace LateStartStudio.Hero6.Engine.UserInterfaces
 {
-    using System.Collections.Generic;
-
     /// <summary>
     /// The User Interfaces service the holds all user interfaces.
     /// </summary>

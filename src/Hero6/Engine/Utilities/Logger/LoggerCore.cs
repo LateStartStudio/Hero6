@@ -4,14 +4,14 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+using System.IO;
+using System.Reflection;
+using log4net;
+using log4net.Config;
+
 namespace LateStartStudio.Hero6.Engine.Utilities.Logger
 {
-    using System;
-    using System.IO;
-    using System.Reflection;
-    using log4net;
-    using log4net.Config;
-
     public class LoggerCore : ILoggerCore
     {
         private readonly ILog logger;

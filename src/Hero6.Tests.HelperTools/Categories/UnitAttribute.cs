@@ -4,11 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+using NUnit.Framework;
+
 namespace LateStartStudio.Hero6.Tests.HelperTools.Categories
 {
-    using System;
-    using NUnit.Framework;
-
     /// <summary>
     /// Test category for tests where all dependencies are mocked.
     /// </summary>

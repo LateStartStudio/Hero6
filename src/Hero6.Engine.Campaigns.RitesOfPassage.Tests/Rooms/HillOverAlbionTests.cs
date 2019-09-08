@@ -4,18 +4,18 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using LateStartStudio.Hero6.Engine.Campaigns.Characters;
+using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Characters;
+using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Items;
+using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Rooms.Albion;
+using LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions;
+using LateStartStudio.Hero6.Localization;
+using LateStartStudio.Hero6.Tests.HelperTools.Categories;
+using NSubstitute;
+using NUnit.Framework;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Rooms
 {
-    using LateStartStudio.Hero6.Engine.Campaigns.Characters;
-    using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Characters;
-    using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Items;
-    using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Rooms.Albion;
-    using LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions;
-    using LateStartStudio.Hero6.Localization;
-    using LateStartStudio.Hero6.Tests.HelperTools.Categories;
-    using NSubstitute;
-    using NUnit.Framework;
-
     [TestFixture]
     [Unit]
     public class HillOverAlbionTests : RoomTestBase<HillOverAlbion>

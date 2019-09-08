@@ -4,10 +4,10 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Collections.Generic;
+
 namespace LateStartStudio.Search.Pathfinder
 {
-    using System.Collections.Generic;
-
     /// <summary>
     /// Find the actual distance from a node to its neighbor.
     /// </summary>

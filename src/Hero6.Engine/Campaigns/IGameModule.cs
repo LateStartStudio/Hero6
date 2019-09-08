@@ -4,11 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+using LateStartStudio.Hero6.Engine.ModuleController;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns
 {
-    using System;
-    using LateStartStudio.Hero6.Engine.ModuleController;
-
     public interface IGameModule : IModule
     {
         Action Look { get; }

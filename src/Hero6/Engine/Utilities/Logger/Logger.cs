@@ -4,16 +4,15 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+using System.IO;
+using System.Reflection;
+using LateStartStudio.Hero6.Engine.GameLoop;
+using LateStartStudio.Hero6.Engine.Utilities.Settings;
+using Microsoft.Xna.Framework;
+
 namespace LateStartStudio.Hero6.Engine.Utilities.Logger
 {
-    using System;
-    using System.IO;
-    using System.Reflection;
-    using LateStartStudio.Hero6.Engine.GameLoop;
-    using LateStartStudio.Hero6.Engine.Utilities.Settings;
-    using Microsoft.Xna.Framework;
-    using Game = LateStartStudio.Hero6.Game;
-
     public class Logger : ILogger, IXnaGameLoop, IDisposable
     {
         private readonly IUserSettings userSettings;

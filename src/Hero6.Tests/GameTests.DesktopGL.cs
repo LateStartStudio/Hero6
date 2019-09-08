@@ -4,11 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using NUnit.Framework;
+
 #if DESKTOPGL
 namespace LateStartStudio.Hero6
 {
-    using NUnit.Framework;
-
     public partial class GameTests
     {
         partial void GraphicsApiGetPlatform()

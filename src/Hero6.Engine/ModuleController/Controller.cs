@@ -4,12 +4,12 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+
 namespace LateStartStudio.Hero6.Engine.ModuleController
 {
-    using System;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
-    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
-
     /// <summary>
     /// Controller type. This is where we write all engine logic to any game entities. Controllers communicate with
     /// modules, where we keep the game logic.

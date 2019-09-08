@@ -4,11 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Drawing;
+using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
 {
-    using System.Drawing;
-    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
-
     /// <summary>
     /// API for the hotspots controller.
     /// </summary>

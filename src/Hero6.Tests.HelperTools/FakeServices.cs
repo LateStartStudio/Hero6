@@ -4,17 +4,17 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using LateStartStudio.Hero6.Engine.Campaigns;
+using LateStartStudio.Hero6.Engine.UserInterfaces;
+using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+using LateStartStudio.Hero6.Engine.Utilities.Logger;
+using LateStartStudio.Hero6.Engine.Utilities.Settings;
+using LateStartStudio.Hero6.Tests.HelperTools.Utilities;
+using NSubstitute;
+
 namespace LateStartStudio.Hero6.Tests.HelperTools
 {
-    using Engine.Campaigns;
-    using Engine.UserInterfaces;
-    using Engine.UserInterfaces.Input;
-    using Engine.Utilities.Settings;
-    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
-    using LateStartStudio.Hero6.Engine.Utilities.Logger;
-    using NSubstitute;
-    using Utilities;
-
     public class FakeServices : IServicesRepository
     {
         private FileWrapperStub file;

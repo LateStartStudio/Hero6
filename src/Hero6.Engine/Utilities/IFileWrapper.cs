@@ -7,7 +7,7 @@
 namespace LateStartStudio.Hero6.Engine.Utilities
 {
     /// <summary>
-    /// Wrapper around System.IO.File for easier testing
+    /// Wrapper around System.IO.File for easier testing.
     /// </summary>
     public interface IFileWrapper
     {

@@ -4,14 +4,14 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using LateStartStudio.Hero6.Engine.GameLoop;
+using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns.Items
 {
-    using LateStartStudio.Hero6.Engine.GameLoop;
-    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
-    using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Content;
-    using Microsoft.Xna.Framework.Graphics;
-
     public class MonoGameItemController : ItemController, IXnaGameLoop
     {
         private readonly ContentManager content;

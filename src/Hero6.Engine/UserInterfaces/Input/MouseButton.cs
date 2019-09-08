@@ -24,6 +24,6 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Input
         /// <summary>
         /// Right mouse button.
         /// </summary>
-        Right
+        Right,
     }
 }

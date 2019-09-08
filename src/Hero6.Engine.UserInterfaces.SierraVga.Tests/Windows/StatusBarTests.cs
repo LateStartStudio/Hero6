@@ -4,14 +4,14 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Input;
+using LateStartStudio.Hero6.Tests.HelperTools;
+using LateStartStudio.Hero6.Tests.HelperTools.Categories;
+using NSubstitute;
+using NUnit.Framework;
+
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
 {
-    using Input;
-    using LateStartStudio.Hero6.Tests.HelperTools;
-    using LateStartStudio.Hero6.Tests.HelperTools.Categories;
-    using NSubstitute;
-    using NUnit.Framework;
-
     [TestFixture]
     [Unit]
     public class StatusBarTests : WindowTestBase<StatusBar>

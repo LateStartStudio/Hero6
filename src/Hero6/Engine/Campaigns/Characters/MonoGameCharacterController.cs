@@ -4,19 +4,19 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Collections.Generic;
+using System.Linq;
+using LateStartStudio.Hero6.Engine.Campaigns.Animations;
+using LateStartStudio.Hero6.Engine.Campaigns.Characters.Stats;
+using LateStartStudio.Hero6.Engine.Campaigns.InventoryItems;
+using LateStartStudio.Hero6.Engine.Campaigns.Rooms;
+using LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions;
+using LateStartStudio.Hero6.Engine.GameLoop;
+using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+using Microsoft.Xna.Framework;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns.Characters
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using LateStartStudio.Hero6.Engine.Campaigns.Animations;
-    using LateStartStudio.Hero6.Engine.Campaigns.Characters.Stats;
-    using LateStartStudio.Hero6.Engine.Campaigns.InventoryItems;
-    using LateStartStudio.Hero6.Engine.Campaigns.Rooms;
-    using LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions;
-    using LateStartStudio.Hero6.Engine.GameLoop;
-    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
-    using Microsoft.Xna.Framework;
-
     public class MonoGameCharacterController : CharacterController, IXnaGameLoop
     {
         private readonly ICampaigns campaigns;

@@ -4,14 +4,14 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+using System.Collections.Generic;
+using LateStartStudio.Hero6.Engine.ModuleController;
+using LateStartStudio.Hero6.Engine.UserInterfaces.Components;
+using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+
 namespace LateStartStudio.Hero6.Engine.UserInterfaces
 {
-    using System;
-    using System.Collections.Generic;
-    using LateStartStudio.Hero6.Engine.ModuleController;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Components;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
-
     public abstract class UserInterfaceModule : Module<UserInterfaceController, UserInterfaceModule>, IUserInterfaceModule
     {
         public IEnumerable<WindowController> Windows => Controller.Windows;

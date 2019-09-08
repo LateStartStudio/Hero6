@@ -4,22 +4,22 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Collections.Generic;
+using System.Linq;
+using LateStartStudio.Hero6.Engine.GameLoop;
+using LateStartStudio.Hero6.Engine.ModuleController;
+using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+using Microsoft.Xna.Framework;
+
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Components
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using LateStartStudio.Hero6.Engine.GameLoop;
-    using LateStartStudio.Hero6.Engine.ModuleController;
-    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
-    using Microsoft.Xna.Framework;
-
     public class MonoGameStackPanelController : StackPanelController, IXnaGameLoop
     {
         private readonly IControllerRepository controllerRepository;
         private readonly List<IComponent> children = new List<IComponent>();
 
         /// <summary>
-        ///  Temp hack to get around that children aren't loaded until the first update tick
+        ///  Temp hack to get around that children aren't loaded until the first update tick.
         /// </summary>
         private bool childrenLoadedHack = false;
 

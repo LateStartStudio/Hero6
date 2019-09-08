@@ -4,15 +4,15 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using LateStartStudio.Hero6.Engine.Campaigns;
+using LateStartStudio.Hero6.Engine.UserInterfaces;
+using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+using LateStartStudio.Hero6.Engine.Utilities.Settings;
+using LateStartStudio.Hero6.Tests.HelperTools.Utilities;
+
 namespace LateStartStudio.Hero6.Tests.HelperTools
 {
-    using LateStartStudio.Hero6.Engine.Campaigns;
-    using LateStartStudio.Hero6.Engine.UserInterfaces;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
-    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
-    using LateStartStudio.Hero6.Engine.Utilities.Settings;
-    using LateStartStudio.Hero6.Tests.HelperTools.Utilities;
-
     public interface IServicesRepository
     {
         FileWrapperStub File { get; }

@@ -4,17 +4,17 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+using System.Collections.Generic;
+using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Animations.Characters.Hero.Idle;
+using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Animations.Characters.Hero.Walk;
+using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Animations.Characters.Llewella.Idle;
+using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Characters;
+using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Items;
+using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Rooms.Albion;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage
 {
-    using System;
-    using System.Collections.Generic;
-    using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Animations.Characters.Hero.Idle;
-    using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Animations.Characters.Hero.Walk;
-    using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Animations.Characters.Llewella.Idle;
-    using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Characters;
-    using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Items;
-    using LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Rooms.Albion;
-
     public class RitesOfPassageModule : CampaignModule
     {
         private readonly ICampaigns campaigns;

@@ -4,13 +4,13 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using LateStartStudio.Hero6.Engine.GameLoop;
+using LateStartStudio.Hero6.Engine.ModuleController;
+using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+using Microsoft.Xna.Framework;
+
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Components
 {
-    using LateStartStudio.Hero6.Engine.GameLoop;
-    using LateStartStudio.Hero6.Engine.ModuleController;
-    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
-    using Microsoft.Xna.Framework;
-
     public class MonoGameButtonController : ButtonController, IXnaGameLoop
     {
         private readonly IControllerRepository controllerRepository;

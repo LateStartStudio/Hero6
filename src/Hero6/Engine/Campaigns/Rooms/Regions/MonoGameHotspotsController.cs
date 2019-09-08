@@ -4,18 +4,18 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Collections.Generic;
+using LateStartStudio.Hero6.Engine.Campaigns.Characters;
+using LateStartStudio.Hero6.Engine.GameLoop;
+using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
+using Color = System.Drawing.Color;
+using XnaColor = Microsoft.Xna.Framework.Color;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions
 {
-    using System.Collections.Generic;
-    using LateStartStudio.Hero6.Engine.Campaigns.Characters;
-    using LateStartStudio.Hero6.Engine.GameLoop;
-    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
-    using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Content;
-    using Microsoft.Xna.Framework.Graphics;
-    using Color = System.Drawing.Color;
-    using XnaColor = Microsoft.Xna.Framework.Color;
-
     public class MonoGameHotspotsController : HotspotsController, IXnaGameLoop
     {
         private readonly string source;

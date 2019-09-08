@@ -4,14 +4,14 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Collections.Generic;
+using System.Linq;
+using LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions;
+using Microsoft.Xna.Framework.Content.Pipeline;
+using Microsoft.Xna.Framework.Content.Pipeline.Serialization.Compiler;
+
 namespace LateStartStudio.Hero6.MonoGamePipeline.WalkAreas
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using LateStartStudio.Hero6.Engine.Campaigns.Rooms.Regions;
-    using Microsoft.Xna.Framework.Content.Pipeline;
-    using Microsoft.Xna.Framework.Content.Pipeline.Serialization.Compiler;
-
     /// <summary>
     /// Binary writer for the walk areas that converts the image masks into .xnb format.
     /// </summary>

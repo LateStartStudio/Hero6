@@ -4,10 +4,10 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using LateStartStudio.Hero6.Engine.Campaigns.Animations;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Animations.Characters.Llewella.Idle
 {
-    using LateStartStudio.Hero6.Engine.Campaigns.Animations;
-
     public class LlewellaIdle : CharacterAnimationModule
     {
         private readonly ICampaigns campaigns;

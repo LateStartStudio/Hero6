@@ -4,11 +4,10 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns.Animations
 {
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
-    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
-
     /// <summary>
     /// API for for animation controllers.
     /// </summary>

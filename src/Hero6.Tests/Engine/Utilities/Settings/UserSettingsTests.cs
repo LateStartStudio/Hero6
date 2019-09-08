@@ -4,12 +4,12 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using LateStartStudio.Hero6.Tests.HelperTools.Utilities;
+using NSubstitute;
+using NUnit.Framework;
+
 namespace LateStartStudio.Hero6.Engine.Utilities.Settings
 {
-    using LateStartStudio.Hero6.Tests.HelperTools.Utilities;
-    using NSubstitute;
-    using NUnit.Framework;
-
     [TestFixture]
     public class UserSettingsTests
     {

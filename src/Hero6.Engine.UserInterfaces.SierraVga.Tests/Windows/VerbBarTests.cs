@@ -4,17 +4,17 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs;
+using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Input;
+using LateStartStudio.Hero6.Tests.HelperTools;
+using LateStartStudio.Hero6.Tests.HelperTools.Categories;
+using NSubstitute;
+using NUnit.Framework;
+
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
 {
-    using System;
-    using Input;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs;
-    using LateStartStudio.Hero6.Tests.HelperTools;
-    using LateStartStudio.Hero6.Tests.HelperTools.Categories;
-    using NSubstitute;
-    using NUnit.Framework;
-
     [TestFixture]
     [Unit]
     public class VerbBarTests : WindowTestBase<VerbBar>

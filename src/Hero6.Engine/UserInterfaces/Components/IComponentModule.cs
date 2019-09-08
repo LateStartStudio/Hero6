@@ -4,11 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Drawing;
+using LateStartStudio.Hero6.Engine.ModuleController;
+
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Components
 {
-    using System.Drawing;
-    using LateStartStudio.Hero6.Engine.ModuleController;
-
     public interface IComponentModule : IModule, IComponent
     {
         Color Background { get; set; }

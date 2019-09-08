@@ -4,12 +4,12 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Drawing;
+using System.Linq;
+using LateStartStudio.Hero6.Engine.UserInterfaces;
+
 namespace LateStartStudio.Hero6.Engine.Utilities.Settings
 {
-    using System.Drawing;
-    using System.Linq;
-    using LateStartStudio.Hero6.Engine.UserInterfaces;
-
     public class GameSettings : IGameSettings
     {
         private readonly IUserInterfaces userInterfaces;

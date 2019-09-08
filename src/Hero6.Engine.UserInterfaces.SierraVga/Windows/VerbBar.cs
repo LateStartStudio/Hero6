@@ -4,14 +4,14 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+using LateStartStudio.Hero6.Engine.UserInterfaces.Components;
+using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs;
+using LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Input;
+
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
 {
-    using System;
-    using Dialogs;
-    using Input;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Components;
-    using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
-
     public class VerbBar : WindowModule
     {
         private readonly IUserInterfaces userInterfaces;

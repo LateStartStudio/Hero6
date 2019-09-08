@@ -4,11 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.IO;
+using Microsoft.Xna.Framework.Content.Pipeline;
+
 namespace LateStartStudio.Hero6.MonoGamePipeline.WalkAreas
 {
-    using System.IO;
-    using Microsoft.Xna.Framework.Content.Pipeline;
-
     /// <summary>
     /// Imports walk areas to the content pipeline builder. Walk areas are stored in the source
     /// code as multiple image masks(.png), and they're all loaded by a master file(.h6walkareas)

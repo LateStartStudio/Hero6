@@ -4,11 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Collections.Generic;
+using LateStartStudio.Hero6.Engine.Utilities;
+
 namespace LateStartStudio.Hero6.Tests.HelperTools.Utilities
 {
-    using System.Collections.Generic;
-    using LateStartStudio.Hero6.Engine.Utilities;
-
     public class FileWrapperStub : IFileWrapper
     {
         private readonly Dictionary<string, string> files = new Dictionary<string, string>();

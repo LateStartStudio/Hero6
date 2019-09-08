@@ -4,14 +4,14 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Collections.Generic;
+using LateStartStudio.Hero6.Engine.Campaigns.Animations;
+using LateStartStudio.Hero6.Engine.Campaigns.Characters.Stats;
+using LateStartStudio.Hero6.Engine.Campaigns.InventoryItems;
+using LateStartStudio.Hero6.Engine.Campaigns.Rooms;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns.Characters
 {
-    using System.Collections.Generic;
-    using LateStartStudio.Hero6.Engine.Campaigns.Animations;
-    using LateStartStudio.Hero6.Engine.Campaigns.Characters.Stats;
-    using LateStartStudio.Hero6.Engine.Campaigns.InventoryItems;
-    using LateStartStudio.Hero6.Engine.Campaigns.Rooms;
-
     public interface ICharacterModule : IGameModule
     {
         bool IsPlayer { get; }

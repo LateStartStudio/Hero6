@@ -4,11 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
+using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns.Characters.Stats
 {
-    using System;
-    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
-
     public class Hero6StatController : StatController
     {
         private readonly ICampaigns campaigns;

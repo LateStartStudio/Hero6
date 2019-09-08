@@ -4,12 +4,12 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using LateStartStudio.Hero6.Engine.Campaigns.Items;
+using LateStartStudio.Hero6.Engine.UserInterfaces;
+using LateStartStudio.Hero6.Localization;
+
 namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Items
 {
-    using LateStartStudio.Hero6.Engine.Campaigns.Items;
-    using LateStartStudio.Hero6.Engine.UserInterfaces;
-    using LateStartStudio.Hero6.Localization;
-
     public class BentSword : ItemModule
     {
         private readonly IUserInterfaces userInterfaces;

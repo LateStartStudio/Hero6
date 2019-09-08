@@ -4,10 +4,10 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.IO;
+
 namespace LateStartStudio.Hero6.Engine.Utilities
 {
-    using System.IO;
-
     public class DirectoryWrapper : IDirectoryWrapper
     {
         public void CreateDirectory(string path) => Directory.CreateDirectory(path);

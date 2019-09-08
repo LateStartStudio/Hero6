@@ -4,15 +4,13 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Collections.Generic;
+using LateStartStudio.Hero6.Engine.ModuleController;
+
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Components
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
-    using LateStartStudio.Hero6.Engine.ModuleController;
-
     /// <summary>
-    /// Helper to get controller from modules
+    /// Helper to get controller from modules.
     /// </summary>
     public interface IControllerRepository
     {

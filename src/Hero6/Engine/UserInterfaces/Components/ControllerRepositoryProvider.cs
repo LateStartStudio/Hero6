@@ -4,11 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Collections.Generic;
+using LateStartStudio.Hero6.Engine.ModuleController;
+
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Components
 {
-    using System.Collections.Generic;
-    using LateStartStudio.Hero6.Engine.ModuleController;
-
     public class ControllerRepositoryProvider : IControllerRepository
     {
         private readonly Dictionary<IModule, IController> labels = new Dictionary<IModule, IController>();

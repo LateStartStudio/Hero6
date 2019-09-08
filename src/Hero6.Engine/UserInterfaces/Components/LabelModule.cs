@@ -4,10 +4,10 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System.Drawing;
+
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Components
 {
-    using System.Drawing;
-
     public class LabelModule : ComponentModule<LabelController, ILabelModule>, ILabelModule
     {
         public override string Name => "Label Module";

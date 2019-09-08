@@ -4,10 +4,10 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.Components
 {
-    using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
-
     public abstract class ButtonController : ComponentController<ButtonController, IButtonModule>
     {
         protected ButtonController(IButtonModule module, IServices services) : base(module, services)

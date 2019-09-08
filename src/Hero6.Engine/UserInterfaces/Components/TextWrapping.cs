@@ -19,6 +19,6 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.Components
         /// <summary>
         /// Standard text wrapping.
         /// </summary>
-        Wrap
+        Wrap,
     }
 }
