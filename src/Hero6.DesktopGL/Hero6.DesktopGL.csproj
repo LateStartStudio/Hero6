@@ -6,7 +6,6 @@
     <RootNamespace>LateStartStudio.Hero6</RootNamespace>
     <AssemblyName>Hero6</AssemblyName>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
-    <LangVersion>6</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DefineConstants>TRACE;DESKTOPGL;MONOGAME</DefineConstants>

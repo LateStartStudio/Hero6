@@ -20,17 +20,14 @@ namespace LateStartStudio.Hero6.Repository
         public void SetUp()
         {
             string currentDir = System.AppDomain.CurrentDomain.BaseDirectory;
-            string dir = new DirectoryInfo(currentDir).Parent.Parent.Parent.FullName;
-            this.files = GetProjectFiles(dir);
-
-            Assume.That(files.Count, Is.GreaterThan(0), "No .csproj files was found.");
+            string dir = new DirectoryInfo(currentDir).Parent.Parent.Parent.Parent.FullName;
+            files = GetProjectFiles(dir);
         }
 
         [Test]
-        public void AllProjectsAreSetToCsharpLanguageLevel6()
+        public void FindsAllProjects()
         {
-            const string expected = "<LangVersion>6</LangVersion>";
-            Assert.That(files.All(f => File.ReadAllText(f).Contains(expected)), Is.True);
+            Assert.That(files.Count, Is.EqualTo(16));
         }
 
         [Test]
@@ -38,12 +35,12 @@ namespace LateStartStudio.Hero6.Repository
         {
             var expected = new string[]
             {
-                "<TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>",
+                "<TargetFramework>net461</TargetFramework>",
                 "<TargetFramework>netstandard2.0</TargetFramework>",
                 "<TargetFramework>netcoreapp2.0</TargetFramework>",
             };
 
-            Assert.That(files.All(f => expected.Any(e => File.ReadAllText(f).Contains(e))), Is.True);
+            files.ForEach(f => Assert.That(expected.Any(e => File.ReadAllText(f).Contains(e)), Is.True, f));
         }
 
         private static List<string> GetProjectFiles(string dir)
