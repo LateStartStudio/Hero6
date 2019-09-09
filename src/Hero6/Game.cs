@@ -113,7 +113,7 @@ namespace LateStartStudio.Hero6
                 logger.Error("Hero6 has crashed, logging stack trace.");
                 logger.Exception(e);
                 logger.WillDeleteLogOnDispose = false;
-                var p = new Process { StartInfo = { UseShellExecute = true, FileName = logger.Filename } };
+                var p = new System.Diagnostics.Process { StartInfo = { UseShellExecute = true, FileName = logger.Filename } };
                 p.Start();
             }
 #endif
