@@ -9,13 +9,16 @@
     <Import_RootNamespace>LateStartStudio.Hero6</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\UserInterfaces\Input\MouseTests.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\Settings\UserSettingsTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\UserInterfaces\Input\Mouse\MouseTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Settings\UserSettingsTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameTests.DesktopGL.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\DependencyInjection\MonoGameServicesTests.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\DependencyInjection\ServicesTests.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\Logger\LoggerTests.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Hero6ServicesProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\DependencyInjection\MonoGameServicesTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ServicesTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Logger\LoggerTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Hero6ServicesProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Services\UserInterfaces\Input\Mouse\" />
   </ItemGroup>
 </Project>

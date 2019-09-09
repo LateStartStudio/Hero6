@@ -6,7 +6,7 @@
 
 using System;
 using System.Drawing;
-using LateStartStudio.Hero6.Engine.Campaigns.Characters;
+using LateStartStudio.Hero6.ModuleController.Campaigns.Characters;
 using Microsoft.Xna.Framework;
 
 public static class Vextor2Extensions

@@ -10,7 +10,7 @@
 
 #-------------------------------- References --------------------------------#
 
-/reference:..\Hero6.MonoGamePipeline\bin\net461\Hero6.MonoGamePipeline.dll
+/reference:..\Hero6.MonoGame.Pipeline\bin\net461\Hero6.MonoGame.Pipeline.dll
 
 #---------------------------------- Content ---------------------------------#
 

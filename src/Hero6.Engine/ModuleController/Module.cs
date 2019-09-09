@@ -5,9 +5,9 @@
 // </copyright>
 
 using System;
-using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
+using LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse;
 
-namespace LateStartStudio.Hero6.Engine.ModuleController
+namespace LateStartStudio.Hero6.ModuleController
 {
     /// <summary>
     /// Module type. This is where we write all game logic to any game entities. Modules communicate with

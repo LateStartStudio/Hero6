@@ -19,11 +19,13 @@ public static class IEnumerableExtensions
     /// <typeparam name="T">Generics.</typeparam>
     /// <param name="enumerable">The collection.</param>
     /// <param name="action">Action to perform.</param>
-    public static void ForEach<T>(this IEnumerable<T> enumerable, Action<T> action)
+    public static IEnumerable<T> ForEach<T>(this IEnumerable<T> enumerable, Action<T> action)
     {
         foreach (var e in enumerable)
         {
             action(e);
         }
+
+        return enumerable;
     }
 }

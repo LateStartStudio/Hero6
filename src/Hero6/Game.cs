@@ -5,15 +5,14 @@
 // </copyright>
 
 using System;
-using System.Diagnostics;
-using LateStartStudio.Hero6.Engine.Campaigns;
-using LateStartStudio.Hero6.Engine.UserInterfaces;
-using LateStartStudio.Hero6.Engine.UserInterfaces.Components;
-using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
-using LateStartStudio.Hero6.Engine.Utilities;
-using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
-using LateStartStudio.Hero6.Engine.Utilities.Logger;
-using LateStartStudio.Hero6.Engine.Utilities.Settings;
+using LateStartStudio.Hero6.Services.Campaigns;
+using LateStartStudio.Hero6.Services.ControllerRepository;
+using LateStartStudio.Hero6.Services.DependencyInjection;
+using LateStartStudio.Hero6.Services.DotNetWrappers;
+using LateStartStudio.Hero6.Services.Logger;
+using LateStartStudio.Hero6.Services.Settings;
+using LateStartStudio.Hero6.Services.UserInterfaces;
+using LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -37,8 +36,8 @@ namespace LateStartStudio.Hero6
         {
             Content.RootDirectory = "Content";
             Window.Title = "Hero6";
-            var services = new MonoGameServices(Services);
-            services.Add<IServices>(services);
+            var services = new MonoGameServiceLocator(Services);
+            services.Add<IServiceLocator>(services);
             services.Add<IFileWrapper, FileWrapper>();
             services.Add<IDirectoryWrapper, DirectoryWrapper>();
             var userSettings = services.Make<UserSettings>(typeof(UserSettings));
@@ -114,7 +113,7 @@ namespace LateStartStudio.Hero6
                 logger.Error("Hero6 has crashed, logging stack trace.");
                 logger.Exception(e);
                 logger.WillDeleteLogOnDispose = false;
-                var p = new Process { StartInfo = { UseShellExecute = true, FileName = logger.Filename } };
+                var p = new System.Diagnostics.Process { StartInfo = { UseShellExecute = true, FileName = logger.Filename } };
                 p.Start();
             }
 #endif

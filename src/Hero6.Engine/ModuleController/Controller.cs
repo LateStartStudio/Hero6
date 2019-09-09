@@ -5,10 +5,10 @@
 // </copyright>
 
 using System;
-using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
-using LateStartStudio.Hero6.Engine.Utilities.DependencyInjection;
+using LateStartStudio.Hero6.Services.DependencyInjection;
+using LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse;
 
-namespace LateStartStudio.Hero6.Engine.ModuleController
+namespace LateStartStudio.Hero6.ModuleController
 {
     /// <summary>
     /// Controller type. This is where we write all engine logic to any game entities. Controllers communicate with
@@ -27,7 +27,7 @@ namespace LateStartStudio.Hero6.Engine.ModuleController
         /// Makes a new <see cref="Controller{TController,TModule}"/> instance.
         /// </summary>
         /// <param name="module">The module to this controller.</param>
-        protected Controller(TModule module, IServices services)
+        protected Controller(TModule module, IServiceLocator services)
         {
             Module = module;
             var mouse = services.Get<IMouse>();
