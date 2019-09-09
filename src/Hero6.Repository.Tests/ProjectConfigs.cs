@@ -31,13 +31,6 @@ namespace LateStartStudio.Hero6.Repository
         }
 
         [Test]
-        public void AllProjectsAreSetToCsharpLanguageLevel6()
-        {
-            const string expected = "<LangVersion>6</LangVersion>";
-            Assert.That(files.All(f => File.ReadAllText(f).Contains(expected)), Is.True);
-        }
-
-        [Test]
         public void AllProjectsAreSetToSupportedTargetFrameworkVersion()
         {
             var expected = new string[]
