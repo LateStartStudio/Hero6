@@ -19,6 +19,28 @@ namespace LateStartStudio.Hero6.Tests.Categories
             Services = MakeServices();
         }
 
-        protected virtual IServicesRepository MakeServices() => new FakeServices();
+        protected IServicesRepository MakeServices()
+        {
+            var type = GetType();
+
+            if (type.GetCustomAttributes(typeof(UnitAttribute), true).Length > 0)
+            {
+                return new FakeServices();
+            }
+            else if (type.GetCustomAttributes(typeof(ComponentAttribute), true).Length > 0)
+            {
+                Assert.Fail("Services for component tests hasn't been setup yet");
+            }
+            else if (type.GetCustomAttributes(typeof(IntegrationAttribute), true).Length > 0)
+            {
+                Assert.Fail("Services for integration tests hasn't been setup yet");
+            }
+            else
+            {
+                Assert.Fail("Could not find category attribute on test class. Did you remember to set it?");
+            }
+
+            return null;
+        }
     }
 }
