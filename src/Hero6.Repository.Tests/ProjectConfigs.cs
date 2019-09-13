@@ -43,6 +43,12 @@ namespace LateStartStudio.Hero6.Repository
             files.ForEach(f => Assert.That(expected.Any(e => File.ReadAllText(f).Contains(e)), Is.True, f));
         }
 
+        [Test]
+        public void AllProjectsHaveWerrorEnabled()
+        {
+            files.ForEach(f => Assert.That(File.ReadAllText(f).Contains("<TreatWarningsAsErrors>true</TreatWarningsAsErrors>"), Is.True, f));
+        }
+
         private static List<string> GetProjectFiles(string dir)
         {
             List<string> files = Directory.EnumerateFiles(dir).Where(file => file.EndsWith(".csproj")).ToList();
