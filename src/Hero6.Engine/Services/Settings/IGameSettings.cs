@@ -23,6 +23,8 @@ namespace LateStartStudio.Hero6.Services.Settings
         /// </summary>
         int NativeHeight { get; }
 
+        string UserFilesDir { get; }
+
         /// <summary>
         /// Gets or sets a value indicating whether the game should run or not.
         /// </summary>

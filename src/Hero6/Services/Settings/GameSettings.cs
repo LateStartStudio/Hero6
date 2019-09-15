@@ -4,6 +4,7 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
 using System.Drawing;
 using System.Linq;
 using LateStartStudio.Hero6.Services.UserInterfaces;
@@ -24,6 +25,8 @@ namespace LateStartStudio.Hero6.Services.Settings
         public int NativeWidth => 320;
 
         public int NativeHeight => 240;
+
+        public string UserFilesDir => $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}/Hero6/";
 
         public bool IsPaused
         {

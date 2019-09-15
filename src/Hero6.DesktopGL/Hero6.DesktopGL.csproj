@@ -33,11 +33,6 @@
   <ItemGroup>
     <MonoGameContentReference Include="..\Hero6.Content\Hero6.Content.mgcb" Link="Content\Hero6.Content.mgcb" />
   </ItemGroup>
-  <ItemGroup>
-    <None Update="Hero6.Logger.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
   <Import Project="..\Hero6\Hero6.projitems" Label="Shared" />
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

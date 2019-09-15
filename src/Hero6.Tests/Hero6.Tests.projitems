@@ -12,7 +12,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\UserInterfaces\Input\Mouse\MouseTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Settings\UserSettingsTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameTests.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)GameTests.DesktopGL.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\DependencyInjection\MonoGameServicesTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\ServicesTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Logger\LoggerTests.cs" />

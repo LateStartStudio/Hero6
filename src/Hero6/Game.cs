@@ -10,6 +10,7 @@ using LateStartStudio.Hero6.Services.ControllerRepository;
 using LateStartStudio.Hero6.Services.DependencyInjection;
 using LateStartStudio.Hero6.Services.DotNetWrappers;
 using LateStartStudio.Hero6.Services.Logger;
+using LateStartStudio.Hero6.Services.PlatformInfo;
 using LateStartStudio.Hero6.Services.Settings;
 using LateStartStudio.Hero6.Services.UserInterfaces;
 using LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse;
@@ -37,9 +38,14 @@ namespace LateStartStudio.Hero6
             Content.RootDirectory = "Content";
             Window.Title = "Hero6";
             var services = new MonoGameServiceLocator(Services);
+            services.Add<IPlatformInfo, PlatformInfo>();
             services.Add<IServiceLocator>(services);
             services.Add<IFileWrapper, FileWrapper>();
             services.Add<IDirectoryWrapper, DirectoryWrapper>();
+            ui = services.Make<MonoGameUserInterfaces>();
+            services.Add<IUserInterfaces>(ui);
+            gameSettings = new GameSettings(ui);
+            services.Add<IGameSettings>(gameSettings);
             var userSettings = services.Make<UserSettings>(typeof(UserSettings));
             services.Add<IUserSettings>(userSettings);
             services.Add<ILoggerCore, LoggerCore>();
@@ -50,10 +56,6 @@ namespace LateStartStudio.Hero6
             services.Add(Content);
             campaign = services.Make<MonoGameCampaigns>();
             services.Add<ICampaigns>(campaign);
-            ui = services.Make<MonoGameUserInterfaces>();
-            services.Add<IUserInterfaces>(ui);
-            gameSettings = new GameSettings(ui);
-            services.Add<IGameSettings>(gameSettings);
             services.Add<IMouse, Mouse>();
 
             var graphics = new GraphicsDeviceManager(this)
@@ -79,23 +81,6 @@ namespace LateStartStudio.Hero6
             };
 
             logger.Info("Hero6 Game Instance Created.");
-        }
-
-        public static string UserFilesDir =>
-            $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}/Hero6/";
-
-        public static string GraphicsApi
-        {
-            get
-            {
-#if DESKTOPGL
-                return "DesktopGL";
-#elif ANDROID
-                return "Android";
-#else
-                return "Invalid project config";
-#endif
-            }
         }
 
         public static void Start()

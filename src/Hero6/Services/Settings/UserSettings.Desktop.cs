@@ -12,17 +12,17 @@ namespace LateStartStudio.Hero6.Services.Settings
 {
     public class UserSettings : IUserSettings
     {
-        private static readonly string Filename = $"{Game.UserFilesDir}.usersettings.json";
-
         private readonly IFileWrapper file;
         private readonly IDirectoryWrapper directory;
+        private readonly IGameSettings gameSettings;
 
         private UserSettingsData data;
 
-        public UserSettings(IFileWrapper file, IDirectoryWrapper directory)
+        public UserSettings(IFileWrapper file, IDirectoryWrapper directory, IGameSettings gameSettings)
         {
             this.file = file;
             this.directory = directory;
+            this.gameSettings = gameSettings;
 
             data = file.Exists(Filename)
                 ? JsonConvert.DeserializeObject<UserSettingsData>(file.ReadAllText(Filename))
@@ -57,10 +57,12 @@ namespace LateStartStudio.Hero6.Services.Settings
             private set { data.GameStartedCount = value; }
         }
 
+        private string Filename => $"{gameSettings.UserFilesDir}.usersettings.json";
+
         public void Save()
         {
             // CreateDirectory does nothing if the directory already exists
-            directory.CreateDirectory(Game.UserFilesDir);
+            directory.CreateDirectory(gameSettings.UserFilesDir);
 
             file.WriteAllText(Filename, JsonConvert.SerializeObject(data));
         }

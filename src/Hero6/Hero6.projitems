@@ -9,7 +9,6 @@
     <Import_RootNamespace>LateStartStudio.Hero6</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)MonoGame\Pipeline\WalkAreas\MonoGameWalkAreaReader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ModuleController\Campaigns\Animations\MonoGameCharacterAnimationController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ModuleController\UserInterfaces\Components\MonoGameButtonController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ModuleController\UserInterfaces\Components\MonoGameImageController.cs" />
@@ -17,12 +16,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)ModuleController\UserInterfaces\Components\MonoGameStackPanelController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ModuleController\UserInterfaces\Components\MonoGameWindowController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ModuleController\UserInterfaces\MonoGameUserInterfaceController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MonoGame\Pipeline\WalkAreas\MonoGameWalkAreaReader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\PlatformInfo\PlatformInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\UserInterfaces\Input\Mouse\IMouseCore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\UserInterfaces\Input\Mouse\MouseCore.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\DotNetWrappers\DirectoryWrapper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\DotNetWrappers\FileWrapper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\Logger\ILoggerCore.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\Logger\LoggerCore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\CampaignExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ModuleController\Campaigns\Characters\MonoGameCharacterController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ModuleController\Campaigns\Characters\Stats\Hero6LearningStatController.cs" />
@@ -42,20 +39,15 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\UserInterfaces\Input\Mouse\Mouse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\UserInterfaces\MonoGameUserInterfaces.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\DependencyInjection\MonoGameServiceLocator.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\Logger\Logger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Settings\GameSettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Settings\UserSettings.Desktop.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ColorExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\PointExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\Vextor2Extensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Game.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)MonoGame\GameLoop\IXnaGameLoop.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)MonoGame\" />
-    <Folder Include="$(MSBuildThisFileDirectory)MonoGame\" />
     <Folder Include="$(MSBuildThisFileDirectory)ModuleController\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Services\DotNetWrappers\" />
     <Folder Include="$(MSBuildThisFileDirectory)Services\Campaigns\" />
     <Folder Include="$(MSBuildThisFileDirectory)Services\UserInterfaces\Input\Mouse\" />
   </ItemGroup>

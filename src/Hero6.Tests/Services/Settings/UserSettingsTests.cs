@@ -15,6 +15,7 @@ namespace LateStartStudio.Hero6.Services.Settings
     {
         private FileWrapperStub file;
         private IDirectoryWrapper directory;
+        private IGameSettings gameSettings;
         private UserSettings userSettings;
 
         [SetUp]
@@ -22,7 +23,8 @@ namespace LateStartStudio.Hero6.Services.Settings
         {
             var services = new Hero6ServicesProvider();
             file = services.File;
-            directory = Substitute.For<IDirectoryWrapper>();
+            directory = services.Directory;
+            gameSettings = services.GameSettings;
 
             userSettings = MakeUserSettings();
         }
@@ -95,10 +97,11 @@ namespace LateStartStudio.Hero6.Services.Settings
         [Test]
         public void SaveMakesDirectory()
         {
+            gameSettings.UserFilesDir.Returns("test");
             userSettings.Save();
-            directory.Received().CreateDirectory(Game.UserFilesDir);
+            directory.Received().CreateDirectory("test");
         }
 
-        private UserSettings MakeUserSettings() => new UserSettings(file, directory);
+        private UserSettings MakeUserSettings() => new UserSettings(file, directory, gameSettings);
     }
 }

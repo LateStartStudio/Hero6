@@ -17,6 +17,9 @@ namespace LateStartStudio.Hero6
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        public static void Main() => Game.Start();
+        public static void Main()
+        {
+            Game.Start();
+        }
     }
 }
