@@ -12,7 +12,6 @@
     <MonoGameContentReference Include="..\Hero6.Content\Hero6.Content.mgcb" Link="Content\Hero6.Content.mgcb" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)ModuleController\Campaigns\Animations\MonoGameCharacterAnimationController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ModuleController\UserInterfaces\Components\MonoGameButtonController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ModuleController\UserInterfaces\Components\MonoGameImageController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ModuleController\UserInterfaces\Components\MonoGameLabelController.cs" />
@@ -20,25 +19,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)ModuleController\UserInterfaces\Components\MonoGameWindowController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ModuleController\UserInterfaces\MonoGameUserInterfaceController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MonoGame\Pipeline\WalkAreas\MonoGameWalkAreaReader.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\Campaigns\MonoGameCampaigns.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\PlatformInfo\PlatformInfo.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Extensions\CampaignExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ModuleController\Campaigns\Characters\MonoGameCharacterController.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ModuleController\Campaigns\Characters\Stats\Hero6LearningStatController.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ModuleController\Campaigns\Characters\Stats\Hero6StatController.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ModuleController\Campaigns\Characters\Stats\MonoGameStatsController.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ModuleController\Campaigns\InventoryItems\MonoGameInventoryItemController.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ModuleController\Campaigns\Items\MonoGameItemController.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ModuleController\Campaigns\MonoGameCampaignController.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ModuleController\Campaigns\Rooms\MonoGameRoomController.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ModuleController\Campaigns\Rooms\Regions\MonoGameHotspotsController.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ModuleController\Campaigns\Animations\MonoGameAnimationController.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ModuleController\Campaigns\Rooms\Regions\MonoGameWalkAreasController.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ModuleController\Campaigns\Rooms\RoomControllerExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MonoGame\Game.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\UserInterfaces\MonoGameUserInterfaces.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)ModuleController\" />
   </ItemGroup>
 </Project>

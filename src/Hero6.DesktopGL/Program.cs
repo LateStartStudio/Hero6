@@ -5,6 +5,7 @@
 // </copyright>
 
 using System;
+using LateStartStudio.Hero6.Campaigns.RitesOfPassage;
 using LateStartStudio.Hero6.MonoGame;
 
 namespace LateStartStudio.Hero6
@@ -20,7 +21,11 @@ namespace LateStartStudio.Hero6
         [STAThread]
         public static void Main()
         {
-            Game.Start();
+            Game.Start(g =>
+            {
+                g.Campaigns.Add<RitesOfPassageModule>();
+                g.Run();
+            });
         }
     }
 }

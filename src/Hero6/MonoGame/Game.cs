@@ -28,7 +28,7 @@ namespace LateStartStudio.Hero6.MonoGame
 
         private readonly GameSettings gameSettings;
         private readonly MonoGameUserInterfaces ui;
-        private readonly MonoGameCampaigns campaign;
+        private readonly MonoGameCampaigns campaigns;
 
         private SpriteBatch spriteBatch;
         private Matrix transform = Matrix.Identity;
@@ -54,8 +54,8 @@ namespace LateStartStudio.Hero6.MonoGame
             services.Add<ILogger>(logger);
             services.Add<IControllerRepository, ControllerRepositoryProvider>();
             services.Add(Content);
-            campaign = services.Make<MonoGameCampaigns>();
-            services.Add<ICampaigns>(campaign);
+            campaigns = services.Make<MonoGameCampaigns>();
+            services.Add<ICampaigns>(campaigns);
             services.Add<IMouse, Mouse>();
 
             var graphics = new GraphicsDeviceManager(this)
@@ -83,13 +83,15 @@ namespace LateStartStudio.Hero6.MonoGame
             logger.Info("Hero6 Game Instance Created.");
         }
 
-        public static void Start()
+        public ICampaigns Campaigns => campaigns;
+
+        public static void Start(Action<Game> onStart)
         {
             try
             {
                 using (var game = new Game())
                 {
-                    game.Run();
+                    onStart(game);
                 }
             }
 #if !DEBUG
@@ -120,7 +122,7 @@ namespace LateStartStudio.Hero6.MonoGame
 
             UpdateScale();
             ui.Initialize();
-            campaign.Initialize();
+            campaigns.Initialize();
 
             base.Initialize();
 
@@ -136,7 +138,7 @@ namespace LateStartStudio.Hero6.MonoGame
             logger.Info("Loading Hero6 game instance.");
 
             ui.Load();
-            campaign.Load();
+            campaigns.Load();
             base.LoadContent();
 
             logger.Info("Hero6 game instance loaded.");
@@ -152,7 +154,7 @@ namespace LateStartStudio.Hero6.MonoGame
 
             Content.Unload();
             ui.Unload();
-            campaign.Unload();
+            campaigns.Unload();
             base.UnloadContent();
 
             logger.Info("Hero6 game instance unloaded.");
@@ -169,7 +171,7 @@ namespace LateStartStudio.Hero6.MonoGame
 
             if (!gameSettings.IsPaused)
             {
-                campaign.Update(time);
+                campaigns.Update(time);
             }
 
             base.Update(time);
@@ -184,7 +186,7 @@ namespace LateStartStudio.Hero6.MonoGame
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin(SpriteSortMode.Deferred, transformMatrix: transform);
-            campaign.Draw(time);
+            campaigns.Draw(time);
             ui.Draw(time);
             spriteBatch.End();
 
