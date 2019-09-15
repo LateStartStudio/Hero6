@@ -9,6 +9,9 @@
     <Import_RootNamespace>LateStartStudio.Hero6</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <MonoGameContentReference Include="..\Hero6.Content\Hero6.Content.mgcb" Link="Content\Hero6.Content.mgcb" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)ModuleController\Campaigns\Animations\MonoGameCharacterAnimationController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ModuleController\UserInterfaces\Components\MonoGameButtonController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ModuleController\UserInterfaces\Components\MonoGameImageController.cs" />
