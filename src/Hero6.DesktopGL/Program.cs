@@ -5,6 +5,7 @@
 // </copyright>
 
 using System;
+using LateStartStudio.Hero6.MonoGame;
 
 namespace LateStartStudio.Hero6
 {

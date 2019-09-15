@@ -17,7 +17,7 @@ using LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace LateStartStudio.Hero6
+namespace LateStartStudio.Hero6.MonoGame
 {
     /// <summary>
     /// This is the main type for your game.
