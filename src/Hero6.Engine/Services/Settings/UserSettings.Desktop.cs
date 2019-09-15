@@ -7,7 +7,6 @@
 using LateStartStudio.Hero6.Services.DotNetWrappers;
 using Newtonsoft.Json;
 
-#if DESKTOPGL
 namespace LateStartStudio.Hero6.Services.Settings
 {
     public class UserSettings : IUserSettings
@@ -86,4 +85,3 @@ namespace LateStartStudio.Hero6.Services.Settings
         }
     }
 }
-#endif
