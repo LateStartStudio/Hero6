@@ -22,5 +22,10 @@
   <ItemGroup>
     <ProjectReference Include="..\Search\Search.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="Hero6.Logger.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

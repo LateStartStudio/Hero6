@@ -19,7 +19,5 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
         public abstract IEnumerable<WindowController> Windows { get; }
 
         public abstract WindowController GetWindow<T>() where T : IWindowModule;
-
-        public abstract void ShowTextBox(string text);
     }
 }

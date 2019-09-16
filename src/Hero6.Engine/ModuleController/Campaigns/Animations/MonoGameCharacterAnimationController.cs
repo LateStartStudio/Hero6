@@ -81,49 +81,49 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Animations
             }
         }
 
-        protected override AnimationController CenterDown
+        protected internal override AnimationController CenterDown
         {
             get { return centerDown; }
             set { centerDown = campaigns.AsMonoGame().CurrentController.Animations[value.Module.GetType()]; }
         }
 
-        protected override AnimationController CenterUp
+        protected internal override AnimationController CenterUp
         {
             get { return centerUp; }
             set { centerUp = campaigns.AsMonoGame().CurrentController.Animations[value.Module.GetType()]; }
         }
 
-        protected override AnimationController LeftCenter
+        protected internal override AnimationController LeftCenter
         {
             get { return leftCenter; }
             set { leftCenter = campaigns.AsMonoGame().CurrentController.Animations[value.Module.GetType()]; }
         }
 
-        protected override AnimationController LeftDown
+        protected internal override AnimationController LeftDown
         {
             get { return leftDown; }
             set { leftDown = campaigns.AsMonoGame().CurrentController.Animations[value.Module.GetType()]; }
         }
 
-        protected override AnimationController LeftUp
+        protected internal override AnimationController LeftUp
         {
             get { return leftUp; }
             set { leftUp = campaigns.AsMonoGame().CurrentController.Animations[value.Module.GetType()]; }
         }
 
-        protected override AnimationController RightCenter
+        protected internal override AnimationController RightCenter
         {
             get { return rightCenter; }
             set { rightCenter = campaigns.AsMonoGame().CurrentController.Animations[value.Module.GetType()]; }
         }
 
-        protected override AnimationController RightDown
+        protected internal override AnimationController RightDown
         {
             get { return rightDown; }
             set { rightDown = campaigns.AsMonoGame().CurrentController.Animations[value.Module.GetType()]; }
         }
 
-        protected override AnimationController RightUp
+        protected internal override AnimationController RightUp
         {
             get { return rightUp; }
             set { rightUp = campaigns.AsMonoGame().CurrentController.Animations[value.Module.GetType()]; }

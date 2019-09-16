@@ -5,6 +5,7 @@
 // </copyright>
 
 using System;
+using LateStartStudio.Hero6.Services.PlatformInfo;
 using LateStartStudio.Hero6.Services.Settings;
 using Microsoft.Xna.Framework;
 using NSubstitute;
@@ -16,7 +17,9 @@ namespace LateStartStudio.Hero6.Services.Logger
     public class LoggerTests
     {
         private IUserSettings userSettings;
+        private IGameSettings gameSettings;
         private ILoggerCore loggerCore;
+        private IPlatformInfo platformInfo;
         private Logger logger;
 
         [SetUp]
@@ -24,8 +27,10 @@ namespace LateStartStudio.Hero6.Services.Logger
         {
             var services = new Hero6ServicesProvider();
             userSettings = services.UserSettings;
+            gameSettings = services.GameSettings;
             loggerCore = services.LoggerCore;
-            logger = new Logger(userSettings, loggerCore);
+            platformInfo = services.PlatformInfo;
+            logger = new Logger(userSettings, gameSettings, loggerCore, platformInfo);
             logger.Initialize();
             logger.Load();
         }

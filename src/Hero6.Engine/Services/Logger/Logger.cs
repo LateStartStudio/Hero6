@@ -8,6 +8,7 @@ using System;
 using System.IO;
 using System.Reflection;
 using LateStartStudio.Hero6.MonoGame.GameLoop;
+using LateStartStudio.Hero6.Services.PlatformInfo;
 using LateStartStudio.Hero6.Services.Settings;
 using Microsoft.Xna.Framework;
 
@@ -16,12 +17,16 @@ namespace LateStartStudio.Hero6.Services.Logger
     public class Logger : ILogger, IXnaGameLoop, IDisposable
     {
         private readonly IUserSettings userSettings;
+        private readonly IGameSettings gameSettings;
         private readonly ILoggerCore loggerCore;
+        private readonly IPlatformInfo platformInfo;
 
-        public Logger(IUserSettings userSettings, ILoggerCore loggerCore)
+        public Logger(IUserSettings userSettings, IGameSettings gameSettings, ILoggerCore loggerCore, IPlatformInfo platformInfo)
         {
             this.userSettings = userSettings;
+            this.gameSettings = gameSettings;
             this.loggerCore = loggerCore;
+            this.platformInfo = platformInfo;
             Filename = LogFileName;
             WillDeleteLogOnDispose = true;
         }
@@ -39,7 +44,7 @@ namespace LateStartStudio.Hero6.Services.Logger
 
         public bool WillDeleteLogOnDispose { get; set; }
 
-        private static string LogFilesDir => $"{Game.UserFilesDir}.logs{Path.DirectorySeparatorChar}";
+        private string LogFilesDir => $"{gameSettings.UserFilesDir}.logs{Path.DirectorySeparatorChar}";
 
         private string LogFileName => $"{LogFilesDir}Hero6-Log-{userSettings.GameStartedCount}.txt";
 
@@ -64,7 +69,7 @@ namespace LateStartStudio.Hero6.Services.Logger
             loggerCore.Configure();
 
             Info("This is the Hero6 log, if you're seeing this file it's most likely because Hero6 has crashed. Provide this file when you report the crash.");
-            Info($"Hero6 {Game.GraphicsApi} v{Assembly.GetExecutingAssembly().GetName().Version} Log");
+            Info($"Hero6 {platformInfo.Platform} v{Assembly.GetExecutingAssembly().GetName().Version} Log");
             Info("Forums: http://www.hero6.org/forum/");
             Info("Bug Tracker: https://github.com/LateStartStudio/Hero6/issues");
             Info("E-mail: hero6lives@gmail.com");

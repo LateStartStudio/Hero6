@@ -5,10 +5,12 @@
 // </copyright>
 
 using LateStartStudio.Hero6.ModuleController.UserInterfaces;
+using LateStartStudio.Hero6.ModuleController.UserInterfaces.Components;
 using LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse;
 using LateStartStudio.Hero6.Tests.Categories;
 using LateStartStudio.Hero6.UserInterfaces.SierraVga;
 using LateStartStudio.Hero6.UserInterfaces.SierraVga.Input;
+using LateStartStudio.Hero6.UserInterfaces.SierraVga.Windows;
 using NSubstitute;
 using NUnit.Framework;
 
@@ -47,5 +49,12 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
         }
 
         protected override SierraVgaModule MakeModule() => new SierraVgaModule(Services.Mouse, Services.Campaigns);
+
+        protected override void PreInitialize()
+        {
+            base.PreInitialize();
+            var controller = Substitute.For<WindowController>(Substitute.For<IWindowModule>(), Services.Services);
+            Controller.GetWindow<StatusBar>().Returns(controller);
+        }
     }
 }

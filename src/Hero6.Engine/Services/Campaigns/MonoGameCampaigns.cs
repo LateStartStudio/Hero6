@@ -6,8 +6,6 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using LateStartStudio.Hero6.Campaigns.RitesOfPassage;
-using LateStartStudio.Hero6.Engine.Campaigns;
 using LateStartStudio.Hero6.ModuleController.Campaigns;
 using LateStartStudio.Hero6.MonoGame.GameLoop;
 using LateStartStudio.Hero6.Services.DependencyInjection;
@@ -35,11 +33,12 @@ namespace LateStartStudio.Hero6.Services.Campaigns
 
         public MonoGameCampaignController CurrentController { get; set; }
 
+        public void Add<T>() where T : CampaignModule => campaigns.Add(new MonoGameCampaignController(services.Make<T>(), services));
+
         public bool Interact(int x, int y, Interaction interaction) => CurrentController.Interact(x, y, interaction);
 
         public void Initialize()
         {
-            campaigns.Add(new MonoGameCampaignController(services.Make<RitesOfPassageModule>(), services));
             CurrentController = campaigns[0];
             ((IXnaGameLoop)CurrentController).Initialize();
         }
