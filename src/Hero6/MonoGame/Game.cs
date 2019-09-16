@@ -78,12 +78,17 @@ namespace LateStartStudio.Hero6.MonoGame
                 logger.Info($"Graphics Adapter Width {GraphicsDevice.Adapter.CurrentDisplayMode.Width}");
                 logger.Info($"Graphics Adapter Height {GraphicsDevice.Adapter.CurrentDisplayMode.Height}");
                 logger.Info($"Graphics Adapter Aspect Ratio {GraphicsDevice.Adapter.CurrentDisplayMode.AspectRatio}");
+                GraphicsDeviceCreated?.Invoke(s, a);
             };
 
             logger.Info("Hero6 Game Instance Created.");
         }
 
+        public event EventHandler<EventArgs> GraphicsDeviceCreated;
+
         public ICampaigns Campaigns => campaigns;
+
+        public IUserInterfaces UserInterfaces => ui;
 
         public static void Start(Action<Game> onStart)
         {

@@ -13,7 +13,6 @@ using LateStartStudio.Hero6.Services.ControllerRepository;
 using LateStartStudio.Hero6.Services.DependencyInjection;
 using LateStartStudio.Hero6.Services.UserInterfaces;
 using LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse;
-using LateStartStudio.Hero6.UserInterfaces.SierraVga.Windows;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -50,13 +49,6 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
 
         public override WindowController GetWindow<T>() => WindowsAsDict[typeof(T)];
 
-        public override void ShowTextBox(string text)
-        {
-            var textBox = (TextBox)userInterfaces.Current.GetWindow<TextBox>();
-            textBox.Text = text;
-            textBox.IsVisible = true;
-        }
-
         void IXnaGameLoop.Initialize()
         {
             PreInitialize();
@@ -64,7 +56,6 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
             controllerRepository.Controllers.ForEach(c => c.ToXnaGameLoop().Initialize());
             WindowsAsDict.Values.ForEach(w => w.PreInitialize());
             WindowsAsDict.Values.ForEach(w => ((IXnaGameLoop)w).Initialize());
-            GetWindow<StatusBar>().IsVisible = true;
             Initialize();
             mouse.AsXnaGameLoop()?.Initialize();
         }

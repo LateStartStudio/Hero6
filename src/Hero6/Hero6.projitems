@@ -12,15 +12,8 @@
     <MonoGameContentReference Include="..\Hero6.Content\Hero6.Content.mgcb" Link="Content\Hero6.Content.mgcb" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)ModuleController\UserInterfaces\Components\MonoGameButtonController.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ModuleController\UserInterfaces\Components\MonoGameImageController.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ModuleController\UserInterfaces\Components\MonoGameLabelController.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ModuleController\UserInterfaces\Components\MonoGameStackPanelController.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ModuleController\UserInterfaces\Components\MonoGameWindowController.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ModuleController\UserInterfaces\MonoGameUserInterfaceController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MonoGame\Game.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MonoGame\Pipeline\WalkAreas\MonoGameWalkAreaReader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\PlatformInfo\PlatformInfo.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)MonoGame\Game.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\UserInterfaces\MonoGameUserInterfaces.cs" />
   </ItemGroup>
 </Project>

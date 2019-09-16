@@ -42,10 +42,18 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga
         public override void Initialize()
         {
             base.Initialize();
+            GetWindow<StatusBar>().IsVisible = true;
             mouse.Cursor = Cursor.Walk;
             mouse.ButtonPress += MouseOnLeftButtonPress;
             mouse.ButtonPress += MouseOnMiddleButtonPress;
             mouse.ButtonPress += MouseOnRightButtonPress;
+        }
+
+        public override void ShowTextBox(string text)
+        {
+            var textBox = (TextBox)GetWindow<TextBox>();
+            textBox.Text = text;
+            textBox.IsVisible = true;
         }
 
         private void MouseOnLeftButtonPress(object s, MouseButtonInteraction e)

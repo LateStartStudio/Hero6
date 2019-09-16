@@ -9,7 +9,6 @@ using System.Linq;
 using LateStartStudio.Hero6.ModuleController.UserInterfaces;
 using LateStartStudio.Hero6.MonoGame.GameLoop;
 using LateStartStudio.Hero6.Services.DependencyInjection;
-using LateStartStudio.Hero6.UserInterfaces.SierraVga;
 using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.Services.UserInterfaces
@@ -34,9 +33,10 @@ namespace LateStartStudio.Hero6.Services.UserInterfaces
             set { current = userInterfaces.Find(u => u.Module == value); }
         }
 
+        public void Add<T>() where T : UserInterfaceModule => userInterfaces.Add(new MonoGameUserInterfaceController(services.Make<T>(), services));
+
         public void Initialize()
         {
-            userInterfaces.Add(new MonoGameUserInterfaceController(services.Make<SierraVgaModule>(), services));
             current = userInterfaces[0];
             ((IXnaGameLoop)current).Initialize();
         }
