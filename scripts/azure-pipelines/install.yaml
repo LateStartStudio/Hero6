@@ -1,6 +1,10 @@
 # Install steps
 
 steps:
+# git lfs pull
+- bash: cd assets && git lfs pull
+  displayName: git lfs pull
+
 # Install dotnet SDK
 - task: UseDotNet@2
   displayName: Install dotnet SDK
