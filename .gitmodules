@@ -1,3 +1,6 @@
 [submodule "docs/wiki"]
 	path = docs/wiki
 	url = https://github.com/LateStartStudio/Hero6.wiki.git
+[submodule "assets"]
+	path = assets
+	url = https://github.com/LateStartStudio/Hero6-Assets.git
