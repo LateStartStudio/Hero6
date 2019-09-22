@@ -4,7 +4,6 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
-using System;
 using System.Collections.Generic;
 using LateStartStudio.Hero6.ModuleController.Campaigns;
 using LateStartStudio.Hero6.ModuleController.UserInterfaces;
@@ -27,15 +26,6 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga
         }
 
         public override string Name => "Sierra VGA";
-
-        public override IEnumerable<Type> GenerateWindows()
-        {
-            yield return typeof(StatusBar);
-            yield return typeof(VerbBar);
-            yield return typeof(Rest);
-            yield return typeof(TextBox);
-            yield return typeof(ExtensionBar);
-        }
 
         public override IEnumerable<ICursor> GenerateCursors() => Cursor.GenerateCursors();
 

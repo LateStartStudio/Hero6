@@ -4,7 +4,6 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
-using System;
 using System.Collections.Generic;
 using LateStartStudio.Hero6.ModuleController.UserInterfaces.Components;
 using LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse;
@@ -18,8 +17,6 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
         public abstract void ShowTextBox(string text);
 
         public IWindowModule GetWindow<T>() where T : IWindowModule => Controller.GetWindow<T>().Module;
-
-        public abstract IEnumerable<Type> GenerateWindows();
 
         public abstract IEnumerable<ICursor> GenerateCursors();
     }

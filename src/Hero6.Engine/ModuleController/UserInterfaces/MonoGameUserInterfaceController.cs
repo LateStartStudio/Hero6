@@ -6,12 +6,12 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using LateStartStudio.Hero6.Engine.UserInterfaces.Input;
 using LateStartStudio.Hero6.ModuleController.UserInterfaces.Components;
 using LateStartStudio.Hero6.MonoGame.GameLoop;
 using LateStartStudio.Hero6.Services.ControllerRepository;
 using LateStartStudio.Hero6.Services.DependencyInjection;
-using LateStartStudio.Hero6.Services.UserInterfaces;
 using LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -26,7 +26,6 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
         private readonly IControllerRepository controllerRepository;
         private readonly ContentManager content;
         private readonly SpriteBatch spriteBatch;
-        private readonly IUserInterfaces userInterfaces;
         private readonly Dictionary<ICursor, Texture2D> cursors = new Dictionary<ICursor, Texture2D>();
 
         public MonoGameUserInterfaceController(UserInterfaceModule module, IServiceLocator services) : base(module, services)
@@ -36,7 +35,6 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
             controllerRepository = services.Get<IControllerRepository>();
             content = services.Get<ContentManager>();
             spriteBatch = services.Get<SpriteBatch>();
-            userInterfaces = services.Get<IUserInterfaces>();
         }
 
         public override int Width { get; }
@@ -52,7 +50,7 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
         void IXnaGameLoop.Initialize()
         {
             PreInitialize();
-            Module.GenerateWindows().ForEach(w => WindowsAsDict.Add(w, new MonoGameWindowController(services.Make<WindowModule>(w), services)));
+            GenerateWindows().ForEach(w => WindowsAsDict.Add(w, new MonoGameWindowController(services.Make<WindowModule>(w), services)));
             controllerRepository.Controllers.ForEach(c => c.ToXnaGameLoop().Initialize());
             WindowsAsDict.Values.ForEach(w => w.PreInitialize());
             WindowsAsDict.Values.ForEach(w => ((IXnaGameLoop)w).Initialize());
@@ -87,5 +85,9 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
             mouse.AsXnaGameLoop()?.Draw(time);
             spriteBatch.Draw(cursors[mouse.Cursor], new Vector2(mouse.X, mouse.Y), Color.White);
         }
+
+        private IEnumerable<Type> GenerateWindows() => Module.GetType().Assembly.GetTypes()
+            .Where(t => t.BaseType == typeof(WindowModule))
+            .Where(t => t.GetCustomAttributes(typeof(Hero6IgnoreAttribute), true).Length == 0);
     }
 }
