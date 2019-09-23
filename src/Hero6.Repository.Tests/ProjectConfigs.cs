@@ -37,7 +37,7 @@ namespace LateStartStudio.Hero6.Repository
             {
                 "<TargetFramework>net461</TargetFramework>",
                 "<TargetFramework>netstandard2.0</TargetFramework>",
-                "<TargetFramework>netcoreapp2.0</TargetFramework>",
+                "<TargetFramework>netcoreapp3.0</TargetFramework>",
             };
 
             files.ForEach(f => Assert.That(expected.Any(e => File.ReadAllText(f).Contains(e)), Is.True, f));
