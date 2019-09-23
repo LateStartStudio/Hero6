@@ -7,7 +7,7 @@ steps:
 
 # Install dotnet SDK
 - task: UseDotNet@2
-  displayName: Install dotnet SDK
   inputs:
     packageType: 'sdk'
-    version: '2.2.401'
+    useGlobalJson: true
+    workingDirectory: './src'
