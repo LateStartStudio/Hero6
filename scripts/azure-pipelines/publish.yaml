@@ -16,6 +16,6 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: Publish Hero6
   inputs:
-    PathtoPublish: 'src/Hero6.DesktopGL/bin/Release/netcoreapp2.0/$(Runtime)/publish'
+    PathtoPublish: 'src/Hero6.DesktopGL/bin/Release/netcoreapp3.0/$(Runtime)/publish'
     ArtifactName: 'Hero6_$(Agent.OS)_$(Build.DefinitionName)_$(Build.BuildNumber)'
     publishLocation: 'Container'
