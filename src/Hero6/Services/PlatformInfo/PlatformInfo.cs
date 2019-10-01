@@ -14,7 +14,7 @@ namespace LateStartStudio.Hero6.Services.PlatformInfo
         {
             get
             {
-#if DESKTOPGL
+#if DESKTOP
                 return Platform.Desktop;
 #elif ANDROID
                 return Platform.Android
