@@ -11,3 +11,7 @@ steps:
     packageType: 'sdk'
     useGlobalJson: true
     workingDirectory: './src'
+
+# Install Paket
+- bash: dotnet tool install paket -g
+  displayName: Install Paket
