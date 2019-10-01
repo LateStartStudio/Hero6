@@ -23,15 +23,15 @@ namespace LateStartStudio.Hero6.Tests.Categories
         {
             var type = GetType();
 
-            if (type.GetCustomAttributes(typeof(UnitAttribute), true).Length > 0)
+            if (type.GetCustomAttributes(typeof(UnitCategoryAttribute), true).Length > 0)
             {
                 return new FakeServices();
             }
-            else if (type.GetCustomAttributes(typeof(ComponentAttribute), true).Length > 0)
+            else if (type.GetCustomAttributes(typeof(ComponentCategoryAttribute), true).Length > 0)
             {
                 Assert.Fail("Services for component tests hasn't been setup yet");
             }
-            else if (type.GetCustomAttributes(typeof(IntegrationAttribute), true).Length > 0)
+            else if (type.GetCustomAttributes(typeof(IntegrationCategoryAttribute), true).Length > 0)
             {
                 Assert.Fail("Services for integration tests hasn't been setup yet");
             }

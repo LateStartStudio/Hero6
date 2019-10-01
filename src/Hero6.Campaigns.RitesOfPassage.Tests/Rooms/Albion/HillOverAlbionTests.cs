@@ -17,7 +17,7 @@ using NUnit.Framework;
 namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Rooms.Albion
 {
     [TestFixture]
-    [Unit]
+    [UnitCategory]
     public class HillOverAlbionTests : RoomTestBase<HillOverAlbion>
     {
         [Test]

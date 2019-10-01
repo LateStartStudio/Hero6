@@ -13,7 +13,7 @@ using NUnit.Framework;
 namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Items
 {
     [TestFixture]
-    [Unit]
+    [UnitCategory]
     public class BentSwordTests : ItemTestBase<BentSword>
     {
         [Test]

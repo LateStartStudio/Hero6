@@ -16,7 +16,7 @@ using NUnit.Framework;
 namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Characters
 {
     [TestFixture]
-    [Unit]
+    [UnitCategory]
     public class LlewellaTests : CharacterTestBase<Llewella>
     {
         [Test]
