@@ -6,6 +6,7 @@
 * [git-lfs](https://git-lfs.github.com/)
 * [.NET SDK (Windows)](https://dotnet.microsoft.com/download/visual-studio-sdks) or [Mono (*nix)](https://www.mono-project.com/)¹
 * [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core/2.2) ([Get the version listed here](https://github.com/LateStartStudio/Hero6/blob/master/src/global.json))
+* [Paket](https://www.nuget.org/packages/Paket/)
 
 ¹ We hope this prerequisite will not be needed in the future, but we rely on 3rd party frameworks to upgrade their tools for this to happen.
 
