@@ -5,103 +5,89 @@
 // </copyright>
 
 using LateStartStudio.Hero6.Services.DotNetWrappers;
+using LateStartStudio.Hero6.Tests.Categories;
 using NSubstitute;
 using NUnit.Framework;
 
 namespace LateStartStudio.Hero6.Services.Settings
 {
     [TestFixture]
-    public class UserSettingsTests
+    [UnitCategory]
+    public class UserSettingsTests : ServiceTestBase<IUserSettings>
     {
-        private FileWrapperStub file;
-        private IDirectoryWrapper directory;
-        private IGameSettings gameSettings;
-        private UserSettings userSettings;
-
-        [SetUp]
-        public void SetUp()
-        {
-            var services = new Hero6ServicesProvider();
-            file = services.File;
-            directory = services.Directory;
-            gameSettings = services.GameSettings;
-
-            userSettings = MakeUserSettings();
-        }
-
         [Test]
         public void IsFullScreenDefaultValueIsFalse()
         {
-            Assert.That(userSettings.IsFullScreen, Is.EqualTo(false));
+            Assert.That(Service.IsFullScreen, Is.EqualTo(false));
         }
 
         [TestCase(true)]
         [TestCase(false)]
         public void GetAndSetIsFullScreenPersistsOnNewInstance(bool isFullScreen)
         {
-            userSettings.IsFullScreen = isFullScreen;
-            userSettings.Save();
-            userSettings = MakeUserSettings();
-            Assert.That(userSettings.IsFullScreen, Is.EqualTo(isFullScreen));
+            Service.IsFullScreen = isFullScreen;
+            Service.Save();
+            Service = MakeService();
+            Assert.That(Service.IsFullScreen, Is.EqualTo(isFullScreen));
         }
 
         [Test]
         public void WindowWidthDefaultValueIs960()
         {
-            Assert.That(userSettings.WindowWidth, Is.EqualTo(960));
+            Assert.That(Service.WindowWidth, Is.EqualTo(960));
         }
 
         [TestCase(5)]
         [TestCase(10)]
         public void GetAndSetWindowWidth(int width)
         {
-            userSettings.WindowWidth = width;
-            userSettings.Save();
-            userSettings = MakeUserSettings();
-            Assert.That(userSettings.WindowWidth, Is.EqualTo(width));
+            Service.WindowWidth = width;
+            Service.Save();
+            Service = MakeService();
+            Assert.That(Service.WindowWidth, Is.EqualTo(width));
         }
 
         [Test]
         public void WindowHeightDefaultValueIs720()
         {
-            Assert.That(userSettings.WindowHeight, Is.EqualTo(720));
+            Assert.That(Service.WindowHeight, Is.EqualTo(720));
         }
 
         [TestCase(5)]
         [TestCase(10)]
         public void GetAndSetWindowHeight(int height)
         {
-            userSettings.WindowHeight = height;
-            userSettings.Save();
-            userSettings = MakeUserSettings();
-            Assert.That(userSettings.WindowHeight, Is.EqualTo(height));
+            Service.WindowHeight = height;
+            Service.Save();
+            Service = MakeService();
+            Assert.That(Service.WindowHeight, Is.EqualTo(height));
         }
 
         [Test]
         public void GameStartedIncrementsOnNewInstance()
         {
-            Assert.That(userSettings.GameStartedCount, Is.EqualTo(1));
-            userSettings = MakeUserSettings();
-            Assert.That(userSettings.GameStartedCount, Is.EqualTo(2));
-            userSettings = MakeUserSettings();
-            Assert.That(userSettings.GameStartedCount, Is.EqualTo(3));
+            Assert.That(Service.GameStartedCount, Is.EqualTo(1));
+            Service = MakeService();
+            Assert.That(Service.GameStartedCount, Is.EqualTo(2));
+            Service = MakeService();
+            Assert.That(Service.GameStartedCount, Is.EqualTo(3));
         }
 
         [Test]
         public void ResetDeletesFile()
         {
-            userSettings.Reset();
-            Assert.That(file.DeleteInvoked, Is.True);
+            Service.Reset();
+            Assert.That(Services.File.DeleteInvoked, Is.True);
         }
 
         [Test]
         public void SaveMakesDirectory()
         {
-            gameSettings.UserFilesDir.Returns("test");
-            userSettings.Save();
-            directory.Received().CreateDirectory("test");
+            Services.GameSettings.UserFilesDir.Returns("test");
+            Service.Save();
+            Services.Directory.Received().CreateDirectory("test");
         }
 
-        private UserSettings MakeUserSettings() => new UserSettings(file, directory, gameSettings);
+        protected override IUserSettings MakeService() => new UserSettings(Services.File, Services.Directory, Services.GameSettings);
     }
 }

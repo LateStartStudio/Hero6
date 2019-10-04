@@ -12,7 +12,7 @@ namespace LateStartStudio.Hero6.Services
 {
     public abstract class ServiceTestBase<TService> : TestBase
     {
-        protected TService Service { get; private set; }
+        protected TService Service { get; set; }
 
         protected IXnaGameLoop IXnaGameLoop => Service as IXnaGameLoop;
 
