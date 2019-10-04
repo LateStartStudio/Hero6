@@ -20,13 +20,6 @@ namespace LateStartStudio.Hero6.Services
         {
         }
 
-        [SetUp]
-        public override void SetUp()
-        {
-            base.SetUp();
-            Service.Add<ITest, Test>();
-        }
-
         [Test]
         public void AddDuplicateThrowsException() => Assert.Throws<ArgumentException>(() => Service.Add<ITest, Test>());
 
@@ -80,6 +73,12 @@ namespace LateStartStudio.Hero6.Services
         }
 
         protected override IServiceLocator MakeService() => new MonoGameServiceLocator(new GameServiceContainer());
+
+        protected override void Initialize()
+        {
+            base.Initialize();
+            Service.Add<ITest, Test>();
+        }
 
         private class Test : ITest
         {
