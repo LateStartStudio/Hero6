@@ -16,6 +16,7 @@ namespace LateStartStudio.Hero6.Services
         [SetUp]
         public override void SetUp()
         {
+            base.SetUp();
             Service = MakeService();
         }
 
