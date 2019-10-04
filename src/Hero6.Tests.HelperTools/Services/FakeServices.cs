@@ -10,6 +10,7 @@ using LateStartStudio.Hero6.Services.Campaigns;
 using LateStartStudio.Hero6.Services.DependencyInjection;
 using LateStartStudio.Hero6.Services.DotNetWrappers;
 using LateStartStudio.Hero6.Services.Logger;
+using LateStartStudio.Hero6.Services.PlatformInfo;
 using LateStartStudio.Hero6.Services.Settings;
 using LateStartStudio.Hero6.Services.UserInterfaces;
 using LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse;
@@ -23,9 +24,12 @@ namespace LateStartStudio.Hero6.Services
         private IDirectoryWrapper directory;
         private IServiceLocator services;
         private IMouse mouse;
+        private IMouseCore mouseCore;
         private ILogger logger;
+        private ILoggerCore loggerCore;
         private IGameSettings gameSettings;
         private IUserSettings userSettings;
+        private IPlatformInfo platformInfo;
         private ICampaigns campaigns;
         private IUserInterfaces userInterfaces;
 
@@ -37,11 +41,17 @@ namespace LateStartStudio.Hero6.Services
 
         public IMouse Mouse => mouse ?? (mouse = Substitute.For<IMouse>());
 
+        public IMouseCore MouseCore => mouseCore ?? (mouseCore = Substitute.For<IMouseCore>());
+
         public ILogger Logger => logger ?? (logger = Substitute.For<ILogger>());
+
+        public ILoggerCore LoggerCore => loggerCore ?? (loggerCore = Substitute.For<ILoggerCore>());
 
         public IGameSettings GameSettings => gameSettings ?? (gameSettings = Substitute.For<IGameSettings>());
 
         public IUserSettings UserSettings => userSettings ?? (userSettings = Substitute.For<IUserSettings>());
+
+        public IPlatformInfo PlatformInfo => platformInfo ?? (platformInfo = Substitute.For<IPlatformInfo>());
 
         public ICampaigns Campaigns
         {

@@ -21,6 +21,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hero6.Engine\Hero6.Engine.csproj" />
+    <ProjectReference Include="..\Hero6.Tests.HelperTools\Hero6.Tests.HelperTools.csproj" />
   </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

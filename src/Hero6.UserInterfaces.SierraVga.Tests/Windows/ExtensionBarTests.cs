@@ -14,7 +14,7 @@ using NUnit.Framework;
 namespace LateStartStudio.Hero6.UserInterfaces.SierraVga.Windows
 {
     [TestFixture]
-    [Unit]
+    [UnitCategory]
     public class ExtensionBarTests : WindowTestBase<ExtensionBar>
     {
         [Test]

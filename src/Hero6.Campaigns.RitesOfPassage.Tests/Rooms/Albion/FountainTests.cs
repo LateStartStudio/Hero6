@@ -16,7 +16,7 @@ using NUnit.Framework;
 namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Rooms.Albion
 {
     [TestFixture]
-    [Unit]
+    [UnitCategory]
     public class FountainTests : RoomTestBase<Fountain>
     {
         [Test]

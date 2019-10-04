@@ -42,7 +42,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Localization", "Hero6
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.UserInterfaces.SierraVga.Tests", "Hero6.UserInterfaces.SierraVga.Tests\Hero6.UserInterfaces.SierraVga.Tests.csproj", "{5F12337E-314A-49E5-B4E8-542B3FEA4C74}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.DesktopGL.Tests", "Hero6.DesktopGL.Tests\Hero6.DesktopGL.Tests.csproj", "{33DCA6AB-2DF5-400A-B981-4E5B06CEC36D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Desktop.Tests", "Hero6.Desktop.Tests\Hero6.Desktop.Tests.csproj", "{33DCA6AB-2DF5-400A-B981-4E5B06CEC36D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Repository.Tests", "Hero6.Repository.Tests\Hero6.Repository.Tests.csproj", "{58B0D028-63D9-4FC6-90A0-E7C1308E15E1}"
 EndProject
@@ -50,9 +50,28 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Tests.HelperTools", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Campaigns.RitesOfPassage.Tests", "Hero6.Campaigns.RitesOfPassage.Tests\Hero6.Campaigns.RitesOfPassage.Tests.csproj", "{5BD8BDF3-2B54-4228-9272-BFCC6D1AE541}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.DesktopGL", "Hero6.DesktopGL\Hero6.DesktopGL.csproj", "{D1071FFB-86E1-48DD-9F84-7D84ED962434}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Desktop", "Hero6.Desktop\Hero6.Desktop.csproj", "{D1071FFB-86E1-48DD-9F84-7D84ED962434}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hero6 Engine", "Hero6 Engine", "{2937997A-C105-4911-90ED-1458D86A3D87}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".scripts", ".scripts", "{F6DAB1F9-6741-4246-8B78-1CDDA0F447C8}"
+	ProjectSection(SolutionItems) = preProject
+		..\scripts\build-monogame-pipeline.sh = ..\scripts\build-monogame-pipeline.sh
+		..\scripts\coverage.sh = ..\scripts\coverage.sh
+		..\scripts\run-hero6.sh = ..\scripts\run-hero6.sh
+		..\scripts\run-tests.sh = ..\scripts\run-tests.sh
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "azure-pipelines", "azure-pipelines", "{FD983D91-82AF-44DA-B456-315A61E1A38B}"
+	ProjectSection(SolutionItems) = preProject
+		..\scripts\azure-pipelines\bleeding.yaml = ..\scripts\azure-pipelines\bleeding.yaml
+		..\scripts\azure-pipelines\build.yaml = ..\scripts\azure-pipelines\build.yaml
+		..\scripts\azure-pipelines\install.yaml = ..\scripts\azure-pipelines\install.yaml
+		..\scripts\azure-pipelines\job.yaml = ..\scripts\azure-pipelines\job.yaml
+		..\scripts\azure-pipelines\nightly.yaml = ..\scripts\azure-pipelines\nightly.yaml
+		..\scripts\azure-pipelines\publish.yaml = ..\scripts\azure-pipelines\publish.yaml
+		..\scripts\azure-pipelines\run-tests.yaml = ..\scripts\azure-pipelines\run-tests.yaml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -210,6 +229,7 @@ Global
 		{AFCFF1EB-729C-4DA5-B671-83396288DC3C} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
 		{5BD8BDF3-2B54-4228-9272-BFCC6D1AE541} = {CB9FBBED-6835-4C03-AC4B-60ED8763AFC9}
 		{D1071FFB-86E1-48DD-9F84-7D84ED962434} = {887BCA83-96AC-4E83-BAF5-567626AF670B}
+		{FD983D91-82AF-44DA-B456-315A61E1A38B} = {F6DAB1F9-6741-4246-8B78-1CDDA0F447C8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D79F9E72-AE93-4A79-A968-902EC57B5900}

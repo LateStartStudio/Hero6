@@ -14,7 +14,7 @@ using NUnit.Framework;
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Dialogs
 {
     [TestFixture]
-    [Unit]
+    [UnitCategory]
     public class TextBoxTests : WindowTestBase<TextBox>
     {
         [TestCase(MouseButton.Left)]

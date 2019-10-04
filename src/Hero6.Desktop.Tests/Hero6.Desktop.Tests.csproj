@@ -9,20 +9,20 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile></DocumentationFile>
     <CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>
-    <DefineConstants>TRACE;DESKTOPGL</DefineConstants>
+    <DefineConstants>TRACE;DESKTOP</DefineConstants>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile></DocumentationFile>
     <CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>
-    <DefineConstants>TRACE;DESKTOPGL</DefineConstants>
+    <DefineConstants>TRACE;DESKTOP</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <AdditionalFiles Include="..\stylecop.json" Link="stylecop.json" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Hero6.DesktopGL\Hero6.DesktopGL.csproj" />
+    <ProjectReference Include="..\Hero6.Desktop\Hero6.Desktop.csproj" />
     <ProjectReference Include="..\Hero6.Tests.HelperTools\Hero6.Tests.HelperTools.csproj" />
   </ItemGroup>
   <Import Project="..\Hero6.Tests\Hero6.Tests.projitems" Label="Shared" />

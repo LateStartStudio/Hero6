@@ -1,4 +1,4 @@
-﻿// <copyright file="UnitAttribute.cs" company="Late Start Studio">
+﻿// <copyright file="UnitCategoryAttribute.cs" company="Late Start Studio">
 // Copyright (C) Late Start Studio
 // This file is subject to the terms and conditions of the MIT license specified in the file
 // 'LICENSE.CODE.md', which is a part of this source code package.
@@ -13,7 +13,7 @@ namespace LateStartStudio.Hero6.Tests.Categories
     /// Test category for tests where all dependencies are mocked.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
-    public class UnitAttribute : CategoryAttribute
+    public class UnitCategoryAttribute : CategoryAttribute
     {
     }
 }

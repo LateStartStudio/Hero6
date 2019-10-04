@@ -16,7 +16,7 @@ using NUnit.Framework;
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
 {
     [TestFixture]
-    [Unit]
+    [UnitCategory]
     public class VerbBarTests : WindowTestBase<VerbBar>
     {
         [Test]

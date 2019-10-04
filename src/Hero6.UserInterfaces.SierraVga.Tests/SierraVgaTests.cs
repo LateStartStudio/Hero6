@@ -17,7 +17,7 @@ using NUnit.Framework;
 namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
 {
     [TestFixture]
-    [Unit]
+    [UnitCategory]
     public class SierraVgaTests : UserInterfaceTestBase<SierraVgaModule>
     {
         [Test]
