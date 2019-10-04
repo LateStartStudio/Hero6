@@ -21,13 +21,23 @@ namespace LateStartStudio.Hero6.Services
         {
             base.SetUp();
             Service = MakeService();
-            IXnaGameLoop?.Initialize();
-            IXnaGameLoop?.Load();
+            PreInitialize();
+            Initialize();
         }
 
         [TearDown]
         public virtual void TearDown() => IXnaGameLoop?.Unload();
 
         protected abstract TService MakeService();
+
+        protected override void PreInitialize()
+        {
+        }
+
+        protected override void Initialize()
+        {
+            IXnaGameLoop?.Initialize();
+            IXnaGameLoop?.Load();
+        }
     }
 }

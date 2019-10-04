@@ -24,6 +24,7 @@ namespace LateStartStudio.Hero6.Services
         private IDirectoryWrapper directory;
         private IServiceLocator services;
         private IMouse mouse;
+        private IMouseCore mouseCore;
         private ILogger logger;
         private ILoggerCore loggerCore;
         private IGameSettings gameSettings;
@@ -39,6 +40,8 @@ namespace LateStartStudio.Hero6.Services
         public IServiceLocator Services => services ?? (services = Substitute.For<IServiceLocator>());
 
         public IMouse Mouse => mouse ?? (mouse = Substitute.For<IMouse>());
+
+        public IMouseCore MouseCore => mouseCore ?? (mouseCore = Substitute.For<IMouseCore>());
 
         public ILogger Logger => logger ?? (logger = Substitute.For<ILogger>());
 

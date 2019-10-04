@@ -25,6 +25,8 @@ namespace LateStartStudio.Hero6.Services
 
         IMouse Mouse { get; }
 
+        IMouseCore MouseCore { get; }
+
         ILogger Logger { get; }
 
         ILoggerCore LoggerCore { get; }

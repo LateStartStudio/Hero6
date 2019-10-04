@@ -42,5 +42,9 @@ namespace LateStartStudio.Hero6.Tests.Categories
 
             return null;
         }
+
+        protected abstract void PreInitialize();
+
+        protected abstract void Initialize();
     }
 }

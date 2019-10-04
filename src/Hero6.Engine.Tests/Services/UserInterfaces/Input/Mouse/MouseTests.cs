@@ -5,7 +5,7 @@
 // </copyright>
 
 using System.Drawing;
-using LateStartStudio.Hero6.Services.Settings;
+using LateStartStudio.Hero6.Tests.Categories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using NSubstitute;
@@ -14,38 +14,18 @@ using NUnit.Framework;
 namespace LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse
 {
     [TestFixture]
-    public class MouseTests
+    [UnitCategory]
+    public class MouseTests : ServiceTestBase<IMouse>
     {
-        private IGameSettings gameSettings;
-        private IMouseCore mouseCore;
-        private Mouse mouse;
-
-        [SetUp]
-        public void SetUp()
-        {
-            var services = new Hero6ServicesProvider();
-            gameSettings = services.GameSettings;
-            gameSettings.WindowScale = new PointF(1.0f, 1.0f);
-            gameSettings.NativeWidth.Returns(320);
-            gameSettings.NativeHeight.Returns(240);
-            mouseCore = services.MouseCore;
-            mouse = new Mouse(gameSettings, mouseCore);
-            mouse.Initialize();
-            mouse.Load();
-        }
-
-        [TearDown]
-        public void TearDown() => mouse.Unload();
-
         [TestCase(0, 1.0f)]
         [TestCase(5, 1.0f)]
         [TestCase(0, 2.0f)]
         [TestCase(5, 2.0f)]
         public void GetAndSetX(int expected, float scaleX)
         {
-            gameSettings.WindowScale = new PointF(scaleX, 1.0f);
-            mouse.X = expected;
-            Assert.That(mouse.X, Is.EqualTo(expected));
+            Services.GameSettings.WindowScale = new PointF(scaleX, 1.0f);
+            Service.X = expected;
+            Assert.That(Service.X, Is.EqualTo(expected));
         }
 
         [TestCase(0, 1.0f)]
@@ -54,9 +34,9 @@ namespace LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse
         [TestCase(5, 2.0f)]
         public void GetAndSetY(int y, float scaleY)
         {
-            gameSettings.WindowScale = new PointF(1.0f, scaleY);
-            mouse.Y = y;
-            Assert.That(mouse.Y, Is.EqualTo(y));
+            Services.GameSettings.WindowScale = new PointF(1.0f, scaleY);
+            Service.Y = y;
+            Assert.That(Service.Y, Is.EqualTo(y));
         }
 
         [TestCase(-1, 0)]
@@ -68,50 +48,50 @@ namespace LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse
         [TestCase(5, -1)]
         public void MovingOutsideOfWindowDoesNotChangeCoords(int x, int y)
         {
-            mouse.X = 0;
-            mouse.Y = 0;
-            mouse.Update(new GameTime());
-            mouse.X = x;
-            mouse.Y = y;
-            Assert.That(mouse.X, Is.EqualTo(0));
-            Assert.That(mouse.Y, Is.EqualTo(0));
+            Service.X = 0;
+            Service.Y = 0;
+            IXnaGameLoop.Update(new GameTime());
+            Service.X = x;
+            Service.Y = y;
+            Assert.That(Service.X, Is.EqualTo(0));
+            Assert.That(Service.Y, Is.EqualTo(0));
         }
 
         [TestCase(0)]
         [TestCase(5)]
         public void GetScrollWheel(int expected)
         {
-            mouseCore.ScrollWheel.Returns(expected);
-            Assert.That(mouse.ScrollWheel, Is.EqualTo(expected));
+            Services.MouseCore.ScrollWheel.Returns(expected);
+            Assert.That(Service.ScrollWheel, Is.EqualTo(expected));
         }
 
         [Test]
         public void CenterSetsMouseCoordsToMiddleOfScreen()
         {
-            mouse.Center();
-            Assert.That(mouse.X, Is.EqualTo(160));
-            Assert.That(mouse.Y, Is.EqualTo(120));
+            Service.Center();
+            Assert.That(Service.X, Is.EqualTo(160));
+            Assert.That(Service.Y, Is.EqualTo(120));
         }
 
         [Test]
         public void LoadCursorSetsCursorToSavedCursor()
         {
             var expected = Substitute.For<ICursor>();
-            mouse.Cursor = expected;
-            mouse.SaveCursor();
-            mouse.Cursor = Substitute.For<ICursor>();
-            mouse.LoadCursor();
-            Assert.That(mouse.Cursor, Is.SameAs(expected));
+            Service.Cursor = expected;
+            Service.SaveCursor();
+            Service.Cursor = Substitute.For<ICursor>();
+            Service.LoadCursor();
+            Assert.That(Service.Cursor, Is.SameAs(expected));
         }
 
         [Test]
         public void UpdateInvokesMoveWhenPositionChanged()
         {
             var wasMoved = false;
-            mouse.Move += (s, m) => wasMoved = true;
-            mouse.Update(new GameTime());
-            mouse.X = 1;
-            mouse.Update(new GameTime());
+            Service.Move += (s, m) => wasMoved = true;
+            IXnaGameLoop.Update(new GameTime());
+            Service.X = 1;
+            IXnaGameLoop.Update(new GameTime());
             Assert.That(wasMoved, Is.True);
         }
 
@@ -119,11 +99,11 @@ namespace LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse
         public void UpdateInvokesLeftButtonPress()
         {
             var wasPressed = false;
-            mouse.ButtonPress += (s, i) => wasPressed = true;
-            mouseCore.LeftButton.Returns(ButtonState.Released);
-            mouse.Update(new GameTime());
-            mouseCore.LeftButton.Returns(ButtonState.Pressed);
-            mouse.Update(new GameTime());
+            Service.ButtonPress += (s, i) => wasPressed = true;
+            Services.MouseCore.LeftButton.Returns(ButtonState.Released);
+            IXnaGameLoop.Update(new GameTime());
+            Services.MouseCore.LeftButton.Returns(ButtonState.Pressed);
+            IXnaGameLoop.Update(new GameTime());
             Assert.That(wasPressed, Is.True);
         }
 
@@ -131,11 +111,11 @@ namespace LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse
         public void UpdateInvokesMiddleButtonPress()
         {
             var wasPressed = false;
-            mouse.ButtonPress += (s, i) => wasPressed = true;
-            mouseCore.MiddleButton.Returns(ButtonState.Released);
-            mouse.Update(new GameTime());
-            mouseCore.MiddleButton.Returns(ButtonState.Pressed);
-            mouse.Update(new GameTime());
+            Service.ButtonPress += (s, i) => wasPressed = true;
+            Services.MouseCore.MiddleButton.Returns(ButtonState.Released);
+            IXnaGameLoop.Update(new GameTime());
+            Services.MouseCore.MiddleButton.Returns(ButtonState.Pressed);
+            IXnaGameLoop.Update(new GameTime());
             Assert.That(wasPressed, Is.True);
         }
 
@@ -143,11 +123,11 @@ namespace LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse
         public void UpdateInvokesRightButtonPress()
         {
             var wasPressed = false;
-            mouse.ButtonPress += (s, i) => wasPressed = true;
-            mouseCore.RightButton.Returns(ButtonState.Released);
-            mouse.Update(new GameTime());
-            mouseCore.RightButton.Returns(ButtonState.Pressed);
-            mouse.Update(new GameTime());
+            Service.ButtonPress += (s, i) => wasPressed = true;
+            Services.MouseCore.RightButton.Returns(ButtonState.Released);
+            IXnaGameLoop.Update(new GameTime());
+            Services.MouseCore.RightButton.Returns(ButtonState.Pressed);
+            IXnaGameLoop.Update(new GameTime());
             Assert.That(wasPressed, Is.True);
         }
 
@@ -155,11 +135,11 @@ namespace LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse
         public void UpdateInvokesLeftButtonHold()
         {
             var wasHeld = false;
-            mouse.ButtonHold += (s, i) => wasHeld = true;
-            mouseCore.LeftButton.Returns(ButtonState.Pressed);
-            mouse.Update(new GameTime());
-            mouseCore.LeftButton.Returns(ButtonState.Pressed);
-            mouse.Update(new GameTime());
+            Service.ButtonHold += (s, i) => wasHeld = true;
+            Services.MouseCore.LeftButton.Returns(ButtonState.Pressed);
+            IXnaGameLoop.Update(new GameTime());
+            Services.MouseCore.LeftButton.Returns(ButtonState.Pressed);
+            IXnaGameLoop.Update(new GameTime());
             Assert.That(wasHeld, Is.True);
         }
 
@@ -167,11 +147,11 @@ namespace LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse
         public void UpdateInvokesMiddleButtonHold()
         {
             var wasHeld = false;
-            mouse.ButtonHold += (s, i) => wasHeld = true;
-            mouseCore.MiddleButton.Returns(ButtonState.Pressed);
-            mouse.Update(new GameTime());
-            mouseCore.MiddleButton.Returns(ButtonState.Pressed);
-            mouse.Update(new GameTime());
+            Service.ButtonHold += (s, i) => wasHeld = true;
+            Services.MouseCore.MiddleButton.Returns(ButtonState.Pressed);
+            IXnaGameLoop.Update(new GameTime());
+            Services.MouseCore.MiddleButton.Returns(ButtonState.Pressed);
+            IXnaGameLoop.Update(new GameTime());
             Assert.That(wasHeld, Is.True);
         }
 
@@ -179,11 +159,11 @@ namespace LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse
         public void UpdateInvokesRightButtonHold()
         {
             var wasHeld = false;
-            mouse.ButtonHold += (s, i) => wasHeld = true;
-            mouseCore.RightButton.Returns(ButtonState.Pressed);
-            mouse.Update(new GameTime());
-            mouseCore.RightButton.Returns(ButtonState.Pressed);
-            mouse.Update(new GameTime());
+            Service.ButtonHold += (s, i) => wasHeld = true;
+            Services.MouseCore.RightButton.Returns(ButtonState.Pressed);
+            IXnaGameLoop.Update(new GameTime());
+            Services.MouseCore.RightButton.Returns(ButtonState.Pressed);
+            IXnaGameLoop.Update(new GameTime());
             Assert.That(wasHeld, Is.True);
         }
 
@@ -191,11 +171,11 @@ namespace LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse
         public void UpdateInvokesLeftButtonLift()
         {
             var wasLifted = false;
-            mouse.ButtonLift += (s, i) => wasLifted = true;
-            mouseCore.LeftButton.Returns(ButtonState.Pressed);
-            mouse.Update(new GameTime());
-            mouseCore.LeftButton.Returns(ButtonState.Released);
-            mouse.Update(new GameTime());
+            Service.ButtonLift += (s, i) => wasLifted = true;
+            Services.MouseCore.LeftButton.Returns(ButtonState.Pressed);
+            IXnaGameLoop.Update(new GameTime());
+            Services.MouseCore.LeftButton.Returns(ButtonState.Released);
+            IXnaGameLoop.Update(new GameTime());
             Assert.That(wasLifted, Is.True);
         }
 
@@ -203,11 +183,11 @@ namespace LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse
         public void UpdateInvokesMiddleButtonLift()
         {
             var wasLifted = false;
-            mouse.ButtonLift += (s, i) => wasLifted = true;
-            mouseCore.MiddleButton.Returns(ButtonState.Pressed);
-            mouse.Update(new GameTime());
-            mouseCore.MiddleButton.Returns(ButtonState.Released);
-            mouse.Update(new GameTime());
+            Service.ButtonLift += (s, i) => wasLifted = true;
+            Services.MouseCore.MiddleButton.Returns(ButtonState.Pressed);
+            IXnaGameLoop.Update(new GameTime());
+            Services.MouseCore.MiddleButton.Returns(ButtonState.Released);
+            IXnaGameLoop.Update(new GameTime());
             Assert.That(wasLifted, Is.True);
         }
 
@@ -215,15 +195,25 @@ namespace LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse
         public void UpdateInvokesRightButtonLift()
         {
             var wasLifted = false;
-            mouse.ButtonLift += (s, i) => wasLifted = true;
-            mouseCore.RightButton.Returns(ButtonState.Pressed);
-            mouse.Update(new GameTime());
-            mouseCore.RightButton.Returns(ButtonState.Released);
-            mouse.Update(new GameTime());
+            Service.ButtonLift += (s, i) => wasLifted = true;
+            Services.MouseCore.RightButton.Returns(ButtonState.Pressed);
+            IXnaGameLoop.Update(new GameTime());
+            Services.MouseCore.RightButton.Returns(ButtonState.Released);
+            IXnaGameLoop.Update(new GameTime());
             Assert.That(wasLifted, Is.True);
         }
 
         [Test]
-        public void DrawDoesNotThrowException() => Assert.DoesNotThrow(() => mouse.Draw(new GameTime()));
+        public void DrawDoesNotThrowException() => Assert.DoesNotThrow(() => IXnaGameLoop.Draw(new GameTime()));
+
+        protected override IMouse MakeService() => new Mouse(Services.GameSettings, Services.MouseCore);
+
+        protected override void PreInitialize()
+        {
+            base.PreInitialize();
+            Services.GameSettings.WindowScale = new PointF(1.0f, 1.0f);
+            Services.GameSettings.NativeWidth.Returns(320);
+            Services.GameSettings.NativeHeight.Returns(240);
+        }
     }
 }
