@@ -1,8 +1,10 @@
 version 5.219.0
-source https://nuget.org/api/v2
 storage: none
 framework: auto-detect
 
+source https://nuget.org/api/v2
+
+nuget BenchmarkDotNet
 nuget coverlet.msbuild
 nuget log4net
 nuget Microsoft.NET.Test.Sdk
