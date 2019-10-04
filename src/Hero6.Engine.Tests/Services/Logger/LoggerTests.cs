@@ -5,8 +5,7 @@
 // </copyright>
 
 using System;
-using LateStartStudio.Hero6.Services.PlatformInfo;
-using LateStartStudio.Hero6.Services.Settings;
+using LateStartStudio.Hero6.Tests.Categories;
 using Microsoft.Xna.Framework;
 using NSubstitute;
 using NUnit.Framework;
@@ -14,99 +13,83 @@ using NUnit.Framework;
 namespace LateStartStudio.Hero6.Services.Logger
 {
     [TestFixture]
-    public class LoggerTests
+    [UnitCategory]
+    public class LoggerTests : ServiceTestBase<ILogger>
     {
-        private IUserSettings userSettings;
-        private IGameSettings gameSettings;
-        private ILoggerCore loggerCore;
-        private IPlatformInfo platformInfo;
-        private Logger logger;
-
-        [SetUp]
-        public void SetUp()
-        {
-            var services = new Hero6ServicesProvider();
-            userSettings = services.UserSettings;
-            gameSettings = services.GameSettings;
-            loggerCore = services.LoggerCore;
-            platformInfo = services.PlatformInfo;
-            logger = new Logger(userSettings, gameSettings, loggerCore, platformInfo);
-            logger.Initialize();
-            logger.Load();
-        }
-
-        [TearDown]
-        public void TearDown() => logger.Unload();
-
         [TestCase("Test 1")]
         [TestCase("Test 2")]
         public void GetFilenameIsRetrievedFromCore(string filename)
         {
-            loggerCore.Filename = filename;
-            Assert.That(logger.Filename, Is.EqualTo(filename));
+            Services.LoggerCore.Filename = filename;
+            Assert.That(Service.Filename, Is.EqualTo(filename));
         }
 
         [Test]
-        public void WillDeleteLogOnDisposeIsTrueByDefault() => Assert.That(logger.WillDeleteLogOnDispose, Is.True);
+        public void WillDeleteLogOnDisposeIsTrueByDefault() => Assert.That(Service.WillDeleteLogOnDispose, Is.True);
 
         [Test]
         public void DisposeDeletesLogWhenFlagIsTrue()
         {
-            logger.WillDeleteLogOnDispose = true;
-            logger.Dispose();
-            loggerCore.Received().DeleteLog();
+            Service.WillDeleteLogOnDispose = true;
+            ((IDisposable)Service).Dispose();
+            Services.LoggerCore.Received().DeleteLog();
         }
 
         [Test]
         public void DisposeDoesNotDeleteLogWhenFlagIsFalse()
         {
-            logger.WillDeleteLogOnDispose = false;
-            logger.Dispose();
-            loggerCore.DidNotReceive().DeleteLog();
+            Service.WillDeleteLogOnDispose = false;
+            ((IDisposable)Service).Dispose();
+            Services.LoggerCore.DidNotReceive().DeleteLog();
         }
 
         [TestCase("Test 1")]
         [TestCase("Test 2")]
         public void InfoLogsInfoStatement(string message)
         {
-            logger.Info(message);
-            loggerCore.Received().Info(message);
+            Service.Info(message);
+            Services.LoggerCore.Received().Info(message);
         }
 
         [TestCase("Test 1")]
         [TestCase("Test 2")]
         public void WarningLogsWarningStatement(string message)
         {
-            logger.Warning(message);
-            loggerCore.Received().Warning(message);
+            Service.Warning(message);
+            Services.LoggerCore.Received().Warning(message);
         }
 
         [TestCase("Test 1")]
         [TestCase("Test 2")]
         public void ErrorLogsErrorStatement(string message)
         {
-            logger.Error(message);
-            loggerCore.Received().Error(message);
+            Service.Error(message);
+            Services.LoggerCore.Received().Error(message);
         }
 
         [Test]
         public void ExceptionLogsException()
         {
             var exception = new Exception();
-            logger.Exception(exception);
-            loggerCore.Received().Exception(exception);
+            Service.Exception(exception);
+            Services.LoggerCore.Received().Exception(exception);
         }
 
         [Test]
         public void UpdateWithoutThrowingException()
         {
-            Assert.DoesNotThrow(() => logger.Update(new GameTime()));
+            Assert.DoesNotThrow(() => IXnaGameLoop.Update(new GameTime()));
         }
 
         [Test]
         public void DrawWithoutThrowingException()
         {
-            Assert.DoesNotThrow(() => logger.Draw(new GameTime()));
+            Assert.DoesNotThrow(() => IXnaGameLoop.Draw(new GameTime()));
+        }
+
+        protected override ILogger MakeService()
+        {
+            return new Logger(Services.UserSettings, Services.GameSettings, Services.LoggerCore, Services.PlatformInfo);
         }
     }
 }

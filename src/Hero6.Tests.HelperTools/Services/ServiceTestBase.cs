@@ -4,6 +4,7 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using LateStartStudio.Hero6.MonoGame.GameLoop;
 using LateStartStudio.Hero6.Tests.Categories;
 using NUnit.Framework;
 
@@ -13,12 +14,19 @@ namespace LateStartStudio.Hero6.Services
     {
         protected TService Service { get; private set; }
 
+        protected IXnaGameLoop IXnaGameLoop => Service as IXnaGameLoop;
+
         [SetUp]
         public override void SetUp()
         {
             base.SetUp();
             Service = MakeService();
+            IXnaGameLoop?.Initialize();
+            IXnaGameLoop?.Load();
         }
+
+        [TearDown]
+        public virtual void TearDown() => IXnaGameLoop?.Unload();
 
         protected abstract TService MakeService();
     }
