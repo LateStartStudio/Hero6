@@ -90,6 +90,8 @@ namespace LateStartStudio.Hero6.MonoGame
 
         public IUserInterfaces UserInterfaces => ui;
 
+        public ILogger Logger => logger;
+
         public static void Start(Action<Game> onStart)
         {
             try

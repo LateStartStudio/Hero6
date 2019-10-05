@@ -6,9 +6,14 @@
     <SharedGUID>3ee7c8eb-e03e-40cb-b471-4836cc17f7c6</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Hero6.Benchmarks</Import_RootNamespace>
+    <Import_RootNamespace>LateStartStudio.Hero6</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Program.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MonoGame\GameBenchmarks.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Benchmarks\Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)MonoGame\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Benchmarks\" />
   </ItemGroup>
 </Project>
