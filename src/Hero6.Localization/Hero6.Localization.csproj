@@ -5,19 +5,6 @@
     <RootNamespace>LateStartStudio.Hero6.Localization</RootNamespace>
     <Version>1.0.0</Version>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile></DocumentationFile>
-    <CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <WarningsAsErrors />
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile></DocumentationFile>
-    <CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <ItemGroup>
-    <AdditionalFiles Include="..\stylecop.json" Link="stylecop.json" />
-  </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\assets\Locales\Strings.Designer.cs" Link="Strings.Designer.cs">
 	  <DesignTime>True</DesignTime>

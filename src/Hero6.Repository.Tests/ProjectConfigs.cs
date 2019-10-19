@@ -15,6 +15,7 @@ namespace LateStartStudio.Hero6.Repository
     public class ProjectConfigs
     {
         private List<string> files = new List<string>();
+        private string props;
 
         [SetUp]
         public void SetUp()
@@ -22,6 +23,7 @@ namespace LateStartStudio.Hero6.Repository
             string currentDir = System.AppDomain.CurrentDomain.BaseDirectory;
             string dir = new DirectoryInfo(currentDir).Parent.Parent.Parent.Parent.FullName;
             files = GetProjectFiles(dir);
+            props = File.ReadAllText("../../../../Directory.Build.props");
         }
 
         [Test]
@@ -46,7 +48,20 @@ namespace LateStartStudio.Hero6.Repository
         [Test]
         public void AllProjectsHaveWerrorEnabled()
         {
-            files.ForEach(f => Assert.That(File.ReadAllText(f).Contains("<TreatWarningsAsErrors>true</TreatWarningsAsErrors>"), Is.True, f));
+            files.ForEach(f => Assert.That(File.ReadAllText(f).Contains("<TreatWarningsAsErrors>true</TreatWarningsAsErrors>"), Is.False, f));
+            Assert.That(props.Contains("<TreatWarningsAsErrors>true</TreatWarningsAsErrors>"), Is.True);
+        }
+
+        [Test]
+        public void AllProjectsHaveStylecopConfigured()
+        {
+            files.ForEach(f =>
+            {
+                Assert.That(File.ReadAllText(f).Contains("stylecop.json"), Is.False, f);
+                Assert.That(File.ReadAllText(f).Contains("Hero6.ruleset"), Is.False, f);
+            });
+            Assert.That(props.Contains("<AdditionalFiles Include=\"../stylecop.json\" Link=\"stylecop.json\" />"), Is.True);
+            Assert.That(props.Contains("<CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>"), Is.True);
         }
 
         private static List<string> GetProjectFiles(string dir)
