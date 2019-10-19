@@ -26,6 +26,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".configs", ".configs", "{8FAAE2BE-CD26-4E95-94AC-B2040AA7C8BA}"
 	ProjectSection(SolutionItems) = preProject
 		..\.editorconfig = ..\.editorconfig
+		Directory.Build.props = Directory.Build.props
 		global.json = global.json
 		Hero6.ruleset = Hero6.ruleset
 		paket.dependencies = paket.dependencies
@@ -79,7 +80,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Desktop.Benchmarks", 
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Hero6.Benchmarks", "Hero6.Benchmarks\Hero6.Benchmarks.shproj", "{3EE7C8EB-E03E-40CB-B471-4836CC17F7C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hero6.Engine.Benchmarks", "Hero6.Engine.Benchmarks\Hero6.Engine.Benchmarks.csproj", "{D1C0BE60-E32E-412C-AA31-C1B8C2F62D1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Engine.Benchmarks", "Hero6.Engine.Benchmarks\Hero6.Engine.Benchmarks.csproj", "{D1C0BE60-E32E-412C-AA31-C1B8C2F62D1F}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution

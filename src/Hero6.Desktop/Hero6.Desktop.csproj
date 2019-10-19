@@ -8,22 +8,11 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DefineConstants>TRACE;DESKTOP;MONOGAME</DefineConstants>
-    <DocumentationFile></DocumentationFile>
-    <CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <WarningsAsErrors />
-    <NoWarn>1701;1702</NoWarn>
+    <DefineConstants>TRACE;MONOGAME</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>TRACE;DESKTOP;MONOGAME</DefineConstants>
-    <DocumentationFile></DocumentationFile>
-    <CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>
-    <NoWarn>1701;1702</NoWarn>
+    <DefineConstants>TRACE;DEBUG;MONOGAME</DefineConstants>
   </PropertyGroup>
-  <ItemGroup>
-    <AdditionalFiles Include="..\stylecop.json" Link="stylecop.json" />
-  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hero6.Campaigns.RitesOfPassage\Hero6.Campaigns.RitesOfPassage.csproj" />
     <ProjectReference Include="..\Hero6.UserInterfaces.SierraVga\Hero6.UserInterfaces.SierraVga.csproj" />

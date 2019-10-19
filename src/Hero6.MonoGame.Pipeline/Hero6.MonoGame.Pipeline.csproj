@@ -6,22 +6,8 @@
     <Version>1.0.0</Version>
     <ApplicationIcon />
     <Win32Resource />
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Hero6.MonoGamePipeline.xml</DocumentationFile>
-    <CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>
-    <OutputPath>bin\</OutputPath>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <WarningsAsErrors />
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Hero6.MonoGamePipeline.xml</DocumentationFile>
-    <CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>
     <OutputPath>bin\</OutputPath>
   </PropertyGroup>
-  <ItemGroup>
-    <AdditionalFiles Include="..\stylecop.json" Link="stylecop.json" />
-  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hero6.Engine\Hero6.Engine.csproj" />
     <ProjectReference Include="..\Search\Search.csproj" />
