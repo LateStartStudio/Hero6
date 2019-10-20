@@ -8,10 +8,10 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DefineConstants>TRACE;MONOGAME</DefineConstants>
+    <DefineConstants>TRACE;DESKTOP;MONOGAME</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>TRACE;DEBUG;MONOGAME</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;DESKTOP;MONOGAME</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hero6.Campaigns.RitesOfPassage\Hero6.Campaigns.RitesOfPassage.csproj" />
