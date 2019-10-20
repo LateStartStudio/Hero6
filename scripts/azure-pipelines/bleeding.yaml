@@ -12,6 +12,10 @@ trigger:
     exclude:
     - docs/*
 
+pr:
+  paths:
+    exclude:
+    - docs/*
 
 jobs:
 - template: job.yaml
