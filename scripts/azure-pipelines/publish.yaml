@@ -7,7 +7,7 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: false
-    projects: './src/Hero6.DesktopGL/Hero6.DesktopGL.csproj'
+    projects: './src/Hero6.Desktop/Hero6.Desktop.csproj'
     zipAfterPublish: false
     arguments: '-c $(BuildConfiguration) -r $(Runtime)'
     nobuild: true
@@ -16,6 +16,6 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: Publish Hero6
   inputs:
-    PathtoPublish: 'src/Hero6.DesktopGL/bin/Release/netcoreapp3.0/$(Runtime)/publish'
+    PathtoPublish: 'src/Hero6.Desktop/bin/Release/netcoreapp3.0/$(Runtime)/publish'
     ArtifactName: 'Hero6_$(Agent.OS)_$(Build.DefinitionName)_$(Build.BuildNumber)'
     publishLocation: 'Container'
