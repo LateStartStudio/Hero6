@@ -7,9 +7,15 @@ trigger:
     - feature/*
     - fix/*
   paths:
+    include:
+    - '*'
     exclude:
     - docs/*
 
+pr:
+  paths:
+    exclude:
+    - docs/*
 
 jobs:
 - template: job.yaml
