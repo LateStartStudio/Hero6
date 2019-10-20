@@ -47,3 +47,8 @@ indent_size = 2
 [*.xeto]
 indent_style = space
 indent_size = 2
+
+# Yaml files
+[*.yaml]
+indent_style = space
+indent_size = 2
