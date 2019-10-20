@@ -9,6 +9,7 @@ schedules:
   branches:
     include:
     - master
+  always: true
 
 jobs:
 - template: job.yaml
