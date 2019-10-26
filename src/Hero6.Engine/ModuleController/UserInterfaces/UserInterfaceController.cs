@@ -6,6 +6,7 @@
 
 using System.Collections.Generic;
 using LateStartStudio.Hero6.ModuleController.UserInterfaces.Components;
+using LateStartStudio.Hero6.ModuleController.UserInterfaces.Input.Mouse;
 using LateStartStudio.Hero6.Services.DependencyInjection;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
@@ -19,5 +20,7 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
         public abstract IEnumerable<WindowController> Windows { get; }
 
         public abstract WindowController GetWindow<T>() where T : IWindowModule;
+
+        public abstract CursorController GetCursor<T>() where T : ICursorModule;
     }
 }

@@ -6,9 +6,11 @@
 
 using System;
 using LateStartStudio.Hero6.ModuleController.UserInterfaces.Components;
+using LateStartStudio.Hero6.ModuleController.UserInterfaces.Input.Mouse;
 using LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse;
 using LateStartStudio.Hero6.Tests.Categories;
 using LateStartStudio.Hero6.UserInterfaces.SierraVga.Input;
+using LateStartStudio.Hero6.UserInterfaces.SierraVga.Input.Mouse;
 using LateStartStudio.Hero6.UserInterfaces.SierraVga.Windows;
 using NSubstitute;
 using NUnit.Framework;
@@ -22,18 +24,19 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
         [Test]
         public void ChangeCursorToWalkWhenLeftMouseButtonLiftOnWalkButton()
         {
-            Services.Mouse.Cursor = Cursor.Arrow;
+            var expected = Substitute.For<ICursorModule>();
+            Services.UserInterfaces.Current.GetCursor<Walk>().Returns(expected);
             Module.WalkButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, MouseButton.Left));
-            Assert.That(Services.Mouse.Cursor, Is.EqualTo(Cursor.Walk));
+            Services.Mouse.Received().Cursor = expected;
         }
 
         [TestCase(MouseButton.Middle)]
         [TestCase(MouseButton.Right)]
         public void DoNothingWhenAnyMouseButtonLiftOnWalkButtonExceptLeft(MouseButton button)
         {
-            Services.Mouse.Cursor = Cursor.Arrow;
             Module.WalkButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, button));
-            Assert.That(Services.Mouse.Cursor, Is.EqualTo(Cursor.Arrow));
+            Services.Mouse.DidNotReceive().Cursor = Arg.Any<ICursorModule>();
+            Services.Mouse.DidNotReceive().SaveCursor();
         }
 
         [Test]
@@ -55,18 +58,19 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
         [Test]
         public void ChangeCursorToLookWhenLeftMouseButtonLiftOnLookButton()
         {
-            Services.Mouse.Cursor = Cursor.Arrow;
+            var expected = Substitute.For<ICursorModule>();
+            Services.UserInterfaces.Current.GetCursor<Look>().Returns(expected);
             Module.LookButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, MouseButton.Left));
-            Assert.That(Services.Mouse.Cursor, Is.EqualTo(Cursor.Look));
+            Services.Mouse.Received().Cursor = expected;
         }
 
         [TestCase(MouseButton.Middle)]
         [TestCase(MouseButton.Right)]
         public void DoNothingWhenAnyMouseButtonLiftOnLookButtonExceptLeft(MouseButton button)
         {
-            Services.Mouse.Cursor = Cursor.Arrow;
-            Module.LookButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, button));
-            Assert.That(Services.Mouse.Cursor, Is.EqualTo(Cursor.Arrow));
+            Module.WalkButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, button));
+            Services.Mouse.DidNotReceive().Cursor = Arg.Any<ICursorModule>();
+            Services.Mouse.DidNotReceive().SaveCursor();
         }
 
         [Test]
@@ -88,18 +92,19 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
         [Test]
         public void ChangeCursorToHandWhenLeftMouseButtonLiftOnHandButton()
         {
-            Services.Mouse.Cursor = Cursor.Arrow;
+            var expected = Substitute.For<ICursorModule>();
+            Services.UserInterfaces.Current.GetCursor<Hand>().Returns(expected);
             Module.HandButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, MouseButton.Left));
-            Assert.That(Services.Mouse.Cursor, Is.EqualTo(Cursor.Hand));
+            Services.Mouse.Received().Cursor = expected;
         }
 
         [TestCase(MouseButton.Middle)]
         [TestCase(MouseButton.Right)]
         public void DoNothingWhenAnyMouseButtonLiftOnHandButtonExceptLeft(MouseButton button)
         {
-            Services.Mouse.Cursor = Cursor.Arrow;
-            Module.HandButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, button));
-            Assert.That(Services.Mouse.Cursor, Is.EqualTo(Cursor.Arrow));
+            Module.WalkButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, button));
+            Services.Mouse.DidNotReceive().Cursor = Arg.Any<ICursorModule>();
+            Services.Mouse.DidNotReceive().SaveCursor();
         }
 
         [Test]
@@ -121,18 +126,19 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
         [Test]
         public void ChangeCursorToTalkWhenLeftMouseButtonLiftOnTalkButton()
         {
-            Services.Mouse.Cursor = Cursor.Arrow;
+            var expected = Substitute.For<ICursorModule>();
+            Services.UserInterfaces.Current.GetCursor<Talk>().Returns(expected);
             Module.TalkButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, MouseButton.Left));
-            Assert.That(Services.Mouse.Cursor, Is.EqualTo(Cursor.Talk));
+            Services.Mouse.Received().Cursor = expected;
         }
 
         [TestCase(MouseButton.Middle)]
         [TestCase(MouseButton.Right)]
         public void DoNothingWhenAnyMouseButtonLiftOnTalkButtonExceptLeft(MouseButton button)
         {
-            Services.Mouse.Cursor = Cursor.Arrow;
-            Module.TalkButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, button));
-            Assert.That(Services.Mouse.Cursor, Is.EqualTo(Cursor.Arrow));
+            Module.WalkButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, button));
+            Services.Mouse.DidNotReceive().Cursor = Arg.Any<ICursorModule>();
+            Services.Mouse.DidNotReceive().SaveCursor();
         }
 
         [Test]

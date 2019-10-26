@@ -5,6 +5,7 @@
 // </copyright>
 
 using System.Drawing;
+using LateStartStudio.Hero6.ModuleController.UserInterfaces.Input.Mouse;
 using LateStartStudio.Hero6.Tests.Categories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
@@ -15,7 +16,7 @@ namespace LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse
 {
     [TestFixture]
     [UnitCategory]
-    public class MouseTests : ServiceTestBase<IMouse>
+    public class MouseTests : ServiceTestBase<Mouse>
     {
         [TestCase(0, 1.0f)]
         [TestCase(5, 1.0f)]
@@ -76,10 +77,10 @@ namespace LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse
         [Test]
         public void LoadCursorSetsCursorToSavedCursor()
         {
-            var expected = Substitute.For<ICursor>();
+            var expected = Substitute.For<ICursorModule>();
             Service.Cursor = expected;
             Service.SaveCursor();
-            Service.Cursor = Substitute.For<ICursor>();
+            Service.Cursor = Substitute.For<ICursorModule>();
             Service.LoadCursor();
             Assert.That(Service.Cursor, Is.SameAs(expected));
         }
@@ -206,7 +207,7 @@ namespace LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse
         [Test]
         public void DrawDoesNotThrowException() => Assert.DoesNotThrow(() => IXnaGameLoop.Draw(new GameTime()));
 
-        protected override IMouse MakeService() => new Mouse(Services.GameSettings, Services.MouseCore);
+        protected override Mouse MakeService() => new Mouse(Services.GameSettings, Services.MouseCore);
 
         protected override void PreInitialize()
         {

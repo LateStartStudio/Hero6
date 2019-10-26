@@ -5,6 +5,7 @@
 // </copyright>
 
 using System;
+using LateStartStudio.Hero6.ModuleController.UserInterfaces.Input.Mouse;
 
 namespace LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse
 {
@@ -36,7 +37,7 @@ namespace LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse
         /// <summary>
         /// Gets or sets mouse cursor.
         /// </summary>
-        ICursor Cursor { get; set; }
+        ICursorModule Cursor { get; set; }
 
         /// <summary>
         /// Gets or sets the x coordinate of the mouse.
