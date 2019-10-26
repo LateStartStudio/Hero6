@@ -6,8 +6,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using LateStartStudio.Hero6.Attributes;
 using LateStartStudio.Hero6.ModuleController.UserInterfaces.Components;
 using LateStartStudio.Hero6.ModuleController.UserInterfaces.Input.Mouse;
 using LateStartStudio.Hero6.MonoGame.GameLoop;
@@ -85,9 +83,5 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
             WindowsAsDict.Values.ForEach(w => w.Draw(time));
             mouse.AsXnaGameLoop()?.Draw(time);
         }
-
-        private IEnumerable<Type> FindModules<T>() where T : IModule => Module.GetType().Assembly.GetTypes()
-            .Where(t => t.BaseType == typeof(T))
-            .Where(t => t.GetCustomAttributes(typeof(IgnoreAttribute), true).Length == 0);
     }
 }
