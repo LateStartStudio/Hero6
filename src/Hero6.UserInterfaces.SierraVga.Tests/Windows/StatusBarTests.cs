@@ -5,8 +5,9 @@
 // </copyright>
 
 using LateStartStudio.Hero6.ModuleController.UserInterfaces.Components;
+using LateStartStudio.Hero6.ModuleController.UserInterfaces.Input.Mouse;
 using LateStartStudio.Hero6.Tests.Categories;
-using LateStartStudio.Hero6.UserInterfaces.SierraVga.Input;
+using LateStartStudio.Hero6.UserInterfaces.SierraVga.Input.Mouse;
 using LateStartStudio.Hero6.UserInterfaces.SierraVga.Windows;
 using NSubstitute;
 using NUnit.Framework;
@@ -44,9 +45,10 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
         [Test]
         public void ChangesCursorToArrowOnMouseEnter()
         {
-            Services.Mouse.Cursor = Cursor.Walk;
+            var expected = Substitute.For<ICursorModule>();
+            Services.UserInterfaces.Current.GetCursor<Arrow>().Returns(expected);
             Controller.InvokeMouseEnter();
-            Assert.That(Services.Mouse.Cursor, Is.EqualTo(Cursor.Arrow));
+            Services.Mouse.Received().Cursor = expected;
         }
 
         [Test]

@@ -4,8 +4,6 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
-using System;
-using System.Collections.Generic;
 using LateStartStudio.Hero6.ModuleController.Campaigns.Animations;
 using LateStartStudio.Hero6.ModuleController.Campaigns.Characters;
 using LateStartStudio.Hero6.ModuleController.Campaigns.InventoryItems;
@@ -31,17 +29,5 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns
         IInventoryItemModule GetInventoryItem<T>() where T : InventoryItemModule;
 
         IRoomModule GetRoom<T>() where T : RoomModule;
-
-        IEnumerable<Type> GenerateAnimations();
-
-        IEnumerable<Type> GenerateCharacterAnimations();
-
-        IEnumerable<Type> GenerateRooms();
-
-        IEnumerable<Type> GenerateCharacters();
-
-        IEnumerable<Type> GenerateItems();
-
-        IEnumerable<Type> GenerateInventoryItems();
     }
 }

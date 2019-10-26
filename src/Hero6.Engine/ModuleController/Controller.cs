@@ -5,6 +5,9 @@
 // </copyright>
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using LateStartStudio.Hero6.Attributes;
 using LateStartStudio.Hero6.Services.DependencyInjection;
 using LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse;
 
@@ -103,6 +106,10 @@ namespace LateStartStudio.Hero6.ModuleController
         public void InvokeMouseButtonUp(MouseButtonInteraction e) => MouseButtonUp?.Invoke(this, e);
 
         public override string ToString() => $"Controller: {Module.Name}";
+
+        protected IEnumerable<Type> FindModules<T>() where T : IModule => Module.GetType().Assembly.GetTypes()
+            .Where(t => t.BaseType == typeof(T))
+            .Where(t => t.GetCustomAttributes(typeof(IgnoreAttribute), true).Length == 0);
 
         private void MouseMove(object sender, MouseMove e)
         {

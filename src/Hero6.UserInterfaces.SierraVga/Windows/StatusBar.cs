@@ -9,7 +9,7 @@ using LateStartStudio.Hero6.ModuleController.UserInterfaces.Components;
 using LateStartStudio.Hero6.Services.Settings;
 using LateStartStudio.Hero6.Services.UserInterfaces;
 using LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse;
-using LateStartStudio.Hero6.UserInterfaces.SierraVga.Input;
+using LateStartStudio.Hero6.UserInterfaces.SierraVga.Input.Mouse;
 
 namespace LateStartStudio.Hero6.UserInterfaces.SierraVga.Windows
 {
@@ -51,7 +51,7 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga.Windows
             IsVisible = false;
             userInterfaces.Current.GetWindow<VerbBar>().IsVisible = true;
             mouse.SaveCursor();
-            mouse.Cursor = Cursor.Arrow;
+            mouse.Cursor = userInterfaces.Current.GetCursor<Arrow>();
         }
     }
 }

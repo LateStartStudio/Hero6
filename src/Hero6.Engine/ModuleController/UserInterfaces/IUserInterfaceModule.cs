@@ -4,10 +4,9 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
-using System;
 using System.Collections.Generic;
 using LateStartStudio.Hero6.ModuleController.UserInterfaces.Components;
-using LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse;
+using LateStartStudio.Hero6.ModuleController.UserInterfaces.Input.Mouse;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
 {
@@ -19,8 +18,6 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
 
         IWindowModule GetWindow<T>() where T : IWindowModule;
 
-        IEnumerable<Type> GenerateWindows();
-
-        IEnumerable<ICursor> GenerateCursors();
+        ICursorModule GetCursor<T>() where T : ICursorModule;
     }
 }

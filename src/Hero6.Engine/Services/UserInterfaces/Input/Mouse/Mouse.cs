@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using LateStartStudio.Hero6.ModuleController.UserInterfaces.Input.Mouse;
 using LateStartStudio.Hero6.MonoGame.GameLoop;
 using LateStartStudio.Hero6.Services.Settings;
 using Microsoft.Xna.Framework;
@@ -21,7 +22,7 @@ namespace LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse
 
         private int previousX;
         private int previousY;
-        private ICursor previousCursor;
+        private ICursorModule previousCursor;
 
         public Mouse(IGameSettings gameSettings, IMouseCore mouseCore)
         {
@@ -37,7 +38,7 @@ namespace LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse
 
         public event EventHandler<MouseButtonInteraction> ButtonLift;
 
-        public ICursor Cursor { get; set; }
+        public ICursorModule Cursor { get; set; }
 
         public int X
         {
@@ -118,10 +119,12 @@ namespace LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse
         {
             UpdatePosition();
             buttons.ForEach(b => b.Update(time));
+            Cursor?.AsXnaGameLoop()?.Update(time);
         }
 
         public void Draw(GameTime time)
         {
+            Cursor?.AsXnaGameLoop()?.Draw(time);
         }
 
         private void UpdatePosition()

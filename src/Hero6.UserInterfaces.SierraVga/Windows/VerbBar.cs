@@ -6,9 +6,10 @@
 
 using System;
 using LateStartStudio.Hero6.ModuleController.UserInterfaces.Components;
+using LateStartStudio.Hero6.ModuleController.UserInterfaces.Input.Mouse;
 using LateStartStudio.Hero6.Services.UserInterfaces;
 using LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse;
-using LateStartStudio.Hero6.UserInterfaces.SierraVga.Input;
+using LateStartStudio.Hero6.UserInterfaces.SierraVga.Input.Mouse;
 
 namespace LateStartStudio.Hero6.UserInterfaces.SierraVga.Windows
 {
@@ -178,7 +179,7 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga.Windows
                 return;
             }
 
-            ChangeMouseCursor(Cursor.Walk);
+            ChangeMouseCursor(userInterfaces.Current.GetCursor<Walk>());
         }
 
         private void WalkBtnOnMouseEnter(object sender, EventArgs eventArgs)
@@ -198,7 +199,7 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga.Windows
                 return;
             }
 
-            ChangeMouseCursor(Cursor.Look);
+            ChangeMouseCursor(userInterfaces.Current.GetCursor<Look>());
         }
 
         private void LookBtnOnMouseEnter(object sender, EventArgs eventArgs)
@@ -218,7 +219,7 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga.Windows
                 return;
             }
 
-            ChangeMouseCursor(Cursor.Hand);
+            ChangeMouseCursor(userInterfaces.Current.GetCursor<Hand>());
         }
 
         private void HandBtnOnMouseEnter(object sender, EventArgs eventArgs)
@@ -238,7 +239,7 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga.Windows
                 return;
             }
 
-            ChangeMouseCursor(Cursor.Talk);
+            ChangeMouseCursor(userInterfaces.Current.GetCursor<Talk>());
         }
 
         private void TalkBtnOnMouseEnter(object sender, EventArgs eventArgs)
@@ -356,7 +357,7 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga.Windows
             OptionsButton.Child = OptionsImageDark;
         }
 
-        private void ChangeMouseCursor(ICursor cursor)
+        private void ChangeMouseCursor(ICursorModule cursor)
         {
             mouse.Cursor = cursor;
             mouse.SaveCursor();

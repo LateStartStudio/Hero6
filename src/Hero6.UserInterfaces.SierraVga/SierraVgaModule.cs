@@ -4,13 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
-using System;
-using System.Collections.Generic;
 using LateStartStudio.Hero6.ModuleController.Campaigns;
 using LateStartStudio.Hero6.ModuleController.UserInterfaces;
 using LateStartStudio.Hero6.Services.Campaigns;
 using LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse;
-using LateStartStudio.Hero6.UserInterfaces.SierraVga.Input;
+using LateStartStudio.Hero6.UserInterfaces.SierraVga.Input.Mouse;
 using LateStartStudio.Hero6.UserInterfaces.SierraVga.Windows;
 
 namespace LateStartStudio.Hero6.UserInterfaces.SierraVga
@@ -28,22 +26,11 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga
 
         public override string Name => "Sierra VGA";
 
-        public override IEnumerable<Type> GenerateWindows()
-        {
-            yield return typeof(StatusBar);
-            yield return typeof(VerbBar);
-            yield return typeof(Rest);
-            yield return typeof(TextBox);
-            yield return typeof(ExtensionBar);
-        }
-
-        public override IEnumerable<ICursor> GenerateCursors() => Cursor.GenerateCursors();
-
         public override void Initialize()
         {
             base.Initialize();
             GetWindow<StatusBar>().IsVisible = true;
-            mouse.Cursor = Cursor.Walk;
+            mouse.Cursor = GetCursor<Walk>();
             mouse.ButtonPress += MouseOnLeftButtonPress;
             mouse.ButtonPress += MouseOnMiddleButtonPress;
             mouse.ButtonPress += MouseOnRightButtonPress;
@@ -60,19 +47,19 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga
         {
             if (e.Button == MouseButton.Left)
             {
-                if (mouse.Cursor == Cursor.Walk)
+                if (mouse.Cursor.Equals<Walk>())
                 {
                     campaigns.Interact(mouse.X, mouse.Y, Interaction.Move);
                 }
-                else if (mouse.Cursor == Cursor.Look)
+                else if (mouse.Cursor.Equals<Look>())
                 {
                     campaigns.Interact(mouse.X, mouse.Y, Interaction.Eye);
                 }
-                else if (mouse.Cursor == Cursor.Hand)
+                else if (mouse.Cursor.Equals<Hand>())
                 {
                     campaigns.Interact(mouse.X, mouse.Y, Interaction.Hand);
                 }
-                else if (mouse.Cursor == Cursor.Talk)
+                else if (mouse.Cursor.Equals<Talk>())
                 {
                     campaigns.Interact(mouse.X, mouse.Y, Interaction.Mouth);
                 }
@@ -83,7 +70,7 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga
         {
             if (e.Button == MouseButton.Middle)
             {
-                mouse.Cursor = Cursor.Walk;
+                mouse.Cursor = GetCursor<Walk>();
             }
         }
 
@@ -91,21 +78,23 @@ namespace LateStartStudio.Hero6.UserInterfaces.SierraVga
         {
             if (e.Button == MouseButton.Right)
             {
-                if (mouse.Cursor == Cursor.Walk)
+                var cursor = mouse.Cursor;
+
+                if (cursor.Equals<Walk>())
                 {
-                    mouse.Cursor = Cursor.Look;
+                    mouse.Cursor = GetCursor<Look>();
                 }
-                else if (mouse.Cursor == Cursor.Look)
+                else if (cursor.Equals<Look>())
                 {
-                    mouse.Cursor = Cursor.Hand;
+                    mouse.Cursor = GetCursor<Hand>();
                 }
-                else if (mouse.Cursor == Cursor.Hand)
+                else if (cursor.Equals<Hand>())
                 {
-                    mouse.Cursor = Cursor.Talk;
+                    mouse.Cursor = GetCursor<Talk>();
                 }
-                else if (mouse.Cursor == Cursor.Talk)
+                else if (cursor.Equals<Talk>())
                 {
-                    mouse.Cursor = Cursor.Walk;
+                    mouse.Cursor = GetCursor<Walk>();
                 }
             }
         }
