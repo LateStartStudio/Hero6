@@ -69,71 +69,48 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns
 
         void IXnaGameLoop.Initialize()
         {
-            foreach (var type in Module.GenerateAnimations())
-            {
-                Animations[type] = new MonoGameAnimationController(services.Make<AnimationModule>(type), services);
-            }
-
-            foreach (var type in Module.GenerateCharacterAnimations())
-            {
-                CharacterAnimations[type] = new MonoGameCharacterAnimationController(services.Make<CharacterAnimationModule>(type), services);
-            }
-
-            foreach (var type in Module.GenerateCharacters())
-            {
-                Characters[type] = new MonoGameCharacterController(services.Make<CharacterModule>(type), services);
-            }
-
-            foreach (var type in Module.GenerateItems())
-            {
-                Items[type] = new MonoGameItemController(services.Make<ItemModule>(type), services);
-            }
-
-            foreach (var type in Module.GenerateInventoryItems())
-            {
-                InventoryItems[type] = new MonoGameInventoryItemController(services.Make<InventoryItemModule>(type), services);
-            }
-
-            foreach (var type in Module.GenerateRooms())
-            {
-                Rooms[type] = new MonoGameRoomController(services.Make<RoomModule>(type), services);
-            }
+            FindModules<AnimationModule>().ForEach(a => Animations.Add(a, new MonoGameAnimationController(services.Make<AnimationModule>(a), services)));
+            FindModules<CharacterAnimationModule>().ForEach(a => CharacterAnimations.Add(a, new MonoGameCharacterAnimationController(services.Make<CharacterAnimationModule>(a), services)));
+            FindModules<CharacterModule>().ForEach(a => Characters.Add(a, new MonoGameCharacterController(services.Make<CharacterModule>(a), services)));
+            FindModules<ItemModule>().ForEach(a => Items.Add(a, new MonoGameItemController(services.Make<ItemModule>(a), services)));
+            FindModules<InventoryItemModule>().ForEach(a => InventoryItems.Add(a, new MonoGameInventoryItemController(services.Make<InventoryItemModule>(a), services)));
+            FindModules<RoomModule>().ForEach(a => Rooms.Add(a, new MonoGameRoomController(services.Make<RoomModule>(a), services)));
 
             PreInitialize();
-            Animations.Values.ToList().ForEach(a => a.PreInitialize());
-            CharacterAnimations.Values.ToList().ForEach(c => c.PreInitialize());
-            Characters.Values.ToList().ForEach(c => c.PreInitialize());
-            Items.Values.ToList().ForEach(i => i.PreInitialize());
-            InventoryItems.Values.ToList().ForEach(i => i.PreInitialize());
-            Rooms.Values.ToList().ForEach(r => r.PreInitialize());
+            Animations.Values.ForEach(a => a.PreInitialize());
+            CharacterAnimations.Values.ForEach(c => c.PreInitialize());
+            Characters.Values.ForEach(c => c.PreInitialize());
+            Items.Values.ForEach(i => i.PreInitialize());
+            InventoryItems.Values.ForEach(i => i.PreInitialize());
+            Rooms.Values.ForEach(r => r.PreInitialize());
 
-            Animations.Values.Select(a => a as IXnaGameLoop).ToList().ForEach(a => a.Initialize());
-            CharacterAnimations.Values.Select(c => c as IXnaGameLoop).ToList().ForEach(c => c.Initialize());
-            Characters.Values.Select(c => c as IXnaGameLoop).ToList().ForEach(c => c.Initialize());
-            Items.Values.Select(i => i as IXnaGameLoop).ToList().ForEach(i => i.Initialize());
-            InventoryItems.Values.Select(i => i as IXnaGameLoop).ToList().ForEach(i => i.Initialize());
-            Rooms.Values.Select(r => r as IXnaGameLoop).ToList().ForEach(r => r.Initialize());
+            Animations.Values.Select(a => a as IXnaGameLoop).ForEach(a => a.Initialize());
+            CharacterAnimations.Values.Select(c => c as IXnaGameLoop).ForEach(c => c.Initialize());
+            Characters.Values.Select(c => c as IXnaGameLoop).ForEach(c => c.Initialize());
+            Items.Values.Select(i => i as IXnaGameLoop).ForEach(i => i.Initialize());
+            InventoryItems.Values.Select(i => i as IXnaGameLoop).ForEach(i => i.Initialize());
+            Rooms.Values.Select(r => r as IXnaGameLoop).ForEach(r => r.Initialize());
         }
 
         public void Load()
         {
-            Animations.Values.ToList().ForEach(a => a.Load());
-            CharacterAnimations.Values.ToList().ForEach(c => c.Load());
-            Characters.Values.ToList().ForEach(c => c.Load());
-            Items.Values.ToList().ForEach(i => i.Load());
-            InventoryItems.Values.ToList().ForEach(i => i.Load());
-            Rooms.Values.ToList().ForEach(r => r.Load());
+            Animations.Values.ForEach(a => a.Load());
+            CharacterAnimations.Values.ForEach(c => c.Load());
+            Characters.Values.ForEach(c => c.Load());
+            Items.Values.ForEach(i => i.Load());
+            InventoryItems.Values.ForEach(i => i.Load());
+            Rooms.Values.ForEach(r => r.Load());
             Initialize();
         }
 
         public void Unload()
         {
-            Animations.Values.ToList().ForEach(a => a.Unload());
-            CharacterAnimations.Values.ToList().ForEach(c => c.Unload());
-            Rooms.Values.ToList().ForEach(r => r.Unload());
-            Characters.Values.ToList().ForEach(c => c.Unload());
-            Items.Values.ToList().ForEach(i => i.Unload());
-            InventoryItems.Values.ToList().ForEach(i => i.Unload());
+            Animations.Values.ForEach(a => a.Unload());
+            CharacterAnimations.Values.ForEach(c => c.Unload());
+            Rooms.Values.ForEach(r => r.Unload());
+            Characters.Values.ForEach(c => c.Unload());
+            Items.Values.ForEach(i => i.Unload());
+            InventoryItems.Values.ForEach(i => i.Unload());
         }
 
         public void Update(GameTime time)

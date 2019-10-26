@@ -4,8 +4,6 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
-using System;
-using System.Collections.Generic;
 using LateStartStudio.Hero6.ModuleController.Campaigns.Animations;
 using LateStartStudio.Hero6.ModuleController.Campaigns.Characters;
 using LateStartStudio.Hero6.ModuleController.Campaigns.InventoryItems;
@@ -74,41 +72,5 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns
         /// <typeparam name="T">The room specified by type.</typeparam>
         /// <returns>The room.</returns>
         public IRoomModule GetRoom<T>() where T : RoomModule => Controller.GetRoom<T>().Module;
-
-        /// <summary>
-        /// Generate a list of animation types.
-        /// </summary>
-        /// <returns>A list of animation types.</returns>
-        public abstract IEnumerable<Type> GenerateAnimations();
-
-        /// <summary>
-        /// Generate a list of characater animation types.
-        /// </summary>
-        /// <returns>A list of character animation types.</returns>
-        public abstract IEnumerable<Type> GenerateCharacterAnimations();
-
-        /// <summary>
-        /// Generate a list of room types.
-        /// </summary>
-        /// <returns>A list of room types.</returns>
-        public abstract IEnumerable<Type> GenerateRooms();
-
-        /// <summary>
-        /// Generate a list of character types.
-        /// </summary>
-        /// <returns>A list of character types.</returns>
-        public abstract IEnumerable<Type> GenerateCharacters();
-
-        /// <summary>
-        /// Generate a list of item types.
-        /// </summary>
-        /// <returns>A list of item types.</returns>
-        public abstract IEnumerable<Type> GenerateItems();
-
-        /// <summary>
-        /// Generate a list of inventory item types.
-        /// </summary>
-        /// <returns>A list of inventory item types.</returns>
-        public abstract IEnumerable<Type> GenerateInventoryItems();
     }
 }
