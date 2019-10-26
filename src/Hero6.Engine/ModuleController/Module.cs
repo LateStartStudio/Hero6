@@ -15,7 +15,7 @@ namespace LateStartStudio.Hero6.ModuleController
     /// </summary>
     /// <typeparam name="TController">The controller that corresponds to the module.</typeparam>
     public abstract class Module<TController, TModule> : IModule
-        where TController : Controller<TController, TModule>
+        where TController : IController
         where TModule : IModule
     {
         public event EventHandler MouseEnter
@@ -89,7 +89,7 @@ namespace LateStartStudio.Hero6.ModuleController
         /// Pre-Initialize event in the controller-module lifecycle.
         /// </summary>
         /// <param name="controller">The controller to save into this module.</param>
-        public void PreInitialize(IController controller) => Controller = controller as TController;
+        public void PreInitialize(IController controller) => Controller = (TController)controller;
 
         /// <summary>
         /// Initialize event in the controller-module lifecycle.
