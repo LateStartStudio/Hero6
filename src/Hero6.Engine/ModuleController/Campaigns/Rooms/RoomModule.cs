@@ -15,7 +15,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms
     /// <summary>
     /// API for room module.
     /// </summary>
-    public abstract class RoomModule : GameModule<RoomController, RoomModule>, IRoomModule
+    public abstract class RoomModule : GameModule<RoomController, IRoomModule>, IRoomModule
     {
         /// <summary>
         /// Gets the path to the background image.

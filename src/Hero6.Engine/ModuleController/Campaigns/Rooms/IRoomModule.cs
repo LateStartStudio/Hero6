@@ -11,7 +11,7 @@ using LateStartStudio.Hero6.ModuleController.Campaigns.Rooms.Regions;
 
 namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms
 {
-    public interface IRoomModule
+    public interface IRoomModule : IGameModule
     {
         string Background { get; }
 

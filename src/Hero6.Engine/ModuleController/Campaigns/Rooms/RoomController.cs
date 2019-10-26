@@ -15,7 +15,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms
     /// <summary>
     /// API for room controller.
     /// </summary>
-    public abstract class RoomController : GameController<RoomController, RoomModule>
+    public abstract class RoomController : GameController<RoomController, IRoomModule>
     {
         /// <summary>
         /// Makes a new <see cref="RoomController"/> instance.
