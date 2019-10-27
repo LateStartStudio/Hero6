@@ -1,119 +1,106 @@
-﻿// <copyright file="StatsController.cs" company="Late Start Studio">
+﻿// <copyright file="IStatsModule.cs" company="Late Start Studio">
 // Copyright (C) Late Start Studio
 // This file is subject to the terms and conditions of the MIT license specified in the file
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
-using LateStartStudio.Hero6.Services.DependencyInjection;
-
 namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters.Stats
 {
-    /// <summary>
-    /// API for Stats Controller.
-    /// </summary>
-    public abstract class StatsController : GameController<StatsController, IStatsModule>
+    public interface IStatsModule : IGameModule
     {
-        /// <summary>
-        /// Makes a new instance of the <see cref="StatController"/> class.
-        /// </summary>
-        protected StatsController(IServiceLocator services)
-            : base(new StatsModule(), services)
-        {
-        }
-
         /// <summary>
         /// Gets the health stat.
         /// </summary>
-        public abstract StatController Health { get; }
+        IStatModule Health { get; }
 
         /// <summary>
         /// Gets the stamina stat.
         /// </summary>
-        public abstract StatController Stamina { get; }
+        IStatModule Stamina { get; }
 
         /// <summary>
         /// Gets the mana stat.
         /// </summary>
-        public abstract StatController Mana { get; }
+        IStatModule Mana { get; }
 
         /// <summary>
         /// Gets the humans stat.
         /// </summary>
-        public abstract StatController Humans { get; }
+        IStatModule Humans { get; }
 
         /// <summary>
         /// Gets the sidhe stat.
         /// </summary>
-        public abstract StatController Sidhe { get; }
+        IStatModule Sidhe { get; }
 
         /// <summary>
         /// Gets the giants stat.
         /// </summary>
-        public abstract StatController Giants { get; }
+        IStatModule Giants { get; }
 
         /// <summary>
         /// Gets the strength stat.
         /// </summary>
-        public abstract LearningStatController Strength { get; }
+        ILearningStatModule Strength { get; }
 
         /// <summary>
         /// Gets the intelligence stat.
         /// </summary>
-        public abstract LearningStatController Intelligence { get; }
+        ILearningStatModule Intelligence { get; }
 
         /// <summary>
         /// Gets the agility stat.
         /// </summary>
-        public abstract LearningStatController Agility { get; }
+        ILearningStatModule Agility { get; }
 
         /// <summary>
         /// Gets the vitality stat.
         /// </summary>
-        public abstract LearningStatController Vitality { get; }
+        ILearningStatModule Vitality { get; }
 
         /// <summary>
         /// Gets the luck stat.
         /// </summary>
-        public abstract LearningStatController Luck { get; }
+        ILearningStatModule Luck { get; }
 
         /// <summary>
         /// Gets the weapon use stat.
         /// </summary>
-        public abstract LearningStatController WeaponUse { get; }
+        ILearningStatModule WeaponUse { get; }
 
         /// <summary>
         /// Gets the parry stat.
         /// </summary>
-        public abstract LearningStatController Parry { get; }
+        ILearningStatModule Parry { get; }
 
         /// <summary>
         /// Gets the dodge stat.
         /// </summary>
-        public abstract LearningStatController Dodge { get; }
+        ILearningStatModule Dodge { get; }
 
         /// <summary>
         /// Gets the stealth stat.
         /// </summary>
-        public abstract LearningStatController Stealth { get; }
+        ILearningStatModule Stealth { get; }
 
         /// <summary>
         /// Gets the lock picking.
         /// </summary>
-        public abstract LearningStatController LockPicking { get; }
+        ILearningStatModule LockPicking { get; }
 
         /// <summary>
         /// Gets the throwing stat.
         /// </summary>
-        public abstract LearningStatController Throwing { get; }
+        ILearningStatModule Throwing { get; }
 
         /// <summary>
         /// Gets the climbing stat.
         /// </summary>
-        public abstract LearningStatController Climbing { get; }
+        ILearningStatModule Climbing { get; }
 
         /// <summary>
         /// Gets the magic stat.
         /// </summary>
-        public abstract LearningStatController Magic { get; }
+        ILearningStatModule Magic { get; }
     }
 }

@@ -10,7 +10,7 @@ using LateStartStudio.Hero6.ModuleController.UserInterfaces.Input.Mouse;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
 {
-    public abstract class UserInterfaceModule : Module<UserInterfaceController, UserInterfaceModule>, IUserInterfaceModule
+    public abstract class UserInterfaceModule : Module<UserInterfaceController, IUserInterfaceModule>, IUserInterfaceModule
     {
         public IEnumerable<WindowController> Windows => Controller.Windows;
 

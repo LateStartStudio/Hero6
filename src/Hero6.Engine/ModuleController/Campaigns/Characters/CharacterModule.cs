@@ -16,7 +16,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters
     /// <summary>
     /// API for the character module.
     /// </summary>
-    public abstract class CharacterModule : GameModule<CharacterController, CharacterModule>, ICharacterModule
+    public abstract class CharacterModule : GameModule<CharacterController, ICharacterModule>, ICharacterModule
     {
         /// <summary>
         /// Gets a value indicating whether this character is the player character or not.
@@ -35,12 +35,12 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters
         /// <summary>
         /// Gets the room this character is in.
         /// </summary>
-        public RoomModule Room => Controller.Room;
+        public IRoomModule Room => Controller.Room.Module;
 
         /// <summary>
         /// Gets the stats for this character.
         /// </summary>
-        public StatsModule Stats => Controller.Stats;
+        public IStatsModule Stats => Controller.Stats.Module;
 
         /// <summary>
         /// Gets or sets the idle animation of this character.
@@ -63,26 +63,26 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters
         /// <summary>
         /// Gets the inventory of this character.
         /// </summary>
-        public IEnumerable<InventoryItemModule> Inventory => Controller.Inventory.Select(i => i.Module);
+        public IEnumerable<IInventoryItemModule> Inventory => Controller.Inventory.Select(i => i.Module);
 
         /// <summary>
         /// Adds inventory item to this character's inventory.
         /// </summary>
         /// <typeparam name="T">The inventory item.</typeparam>
-        public void AddInventoryItem<T>() where T : InventoryItemModule => Controller.AddInventoryItem<T>();
+        public void AddInventoryItem<T>() where T : IInventoryItemModule => Controller.AddInventoryItem<T>();
 
         /// <summary>
         /// Removes inventory item to this character's inventory.
         /// </summary>
         /// <typeparam name="T">the inventory item.</typeparam>
-        public void RemoveInventoryItem<T>() where T : InventoryItemModule => Controller.RemoveInventoryItem<T>();
+        public void RemoveInventoryItem<T>() where T : IInventoryItemModule => Controller.RemoveInventoryItem<T>();
 
         /// <summary>
         /// Checks if the character has inventory item.
         /// </summary>
         /// <typeparam name="T">The inventory item.</typeparam>
         /// <returns>True if the character has the inventory item. False if not.</returns>
-        public bool HasInventoryItem<T>() where T : InventoryItemModule => Controller.HasInventoryItem<T>();
+        public bool HasInventoryItem<T>() where T : IInventoryItemModule => Controller.HasInventoryItem<T>();
 
         /// <summary>
         /// Make the character walk to the input coordinates.
@@ -111,7 +111,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters
         /// <param name="x">The x coordinate the character should spawn on.</param>
         /// <param name="y">The y coordinate the character should spawn on.</param>
         /// <param name="direction">The direction the character should be facing on spwan.</param>
-        public void ChangeRoom<T>(int x = 0, int y = 0, CharacterDirection direction = CharacterDirection.CenterDown) where T : RoomModule
+        public void ChangeRoom<T>(int x = 0, int y = 0, CharacterDirection direction = CharacterDirection.CenterDown) where T : IRoomModule
         {
             Controller.ChangeRoom<T>(x, y, direction);
         }

@@ -9,7 +9,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Animations
     /// <summary>
     /// The API for the character animation module.
     /// </summary>
-    public abstract class CharacterAnimationModule : GameModule<CharacterAnimationController, CharacterAnimationModule>, ICharacterAnimationModule
+    public abstract class CharacterAnimationModule : GameModule<CharacterAnimationController, ICharacterAnimationModule>, ICharacterAnimationModule
     {
         /// <summary>
         /// Gets or sets the center down animation.

@@ -18,21 +18,21 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters
 
         int Speed { get; set; }
 
-        RoomModule Room { get; }
+        IRoomModule Room { get; }
 
-        StatsModule Stats { get; }
+        IStatsModule Stats { get; }
 
         ICharacterAnimationModule IdleAnimation { get; set; }
 
         ICharacterAnimationModule MoveAnimation { get; set; }
 
-        IEnumerable<InventoryItemModule> Inventory { get; }
+        IEnumerable<IInventoryItemModule> Inventory { get; }
 
-        void AddInventoryItem<T>() where T : InventoryItemModule;
+        void AddInventoryItem<T>() where T : IInventoryItemModule;
 
-        void RemoveInventoryItem<T>() where T : InventoryItemModule;
+        void RemoveInventoryItem<T>() where T : IInventoryItemModule;
 
-        bool HasInventoryItem<T>() where T : InventoryItemModule;
+        bool HasInventoryItem<T>() where T : IInventoryItemModule;
 
         void Walk(int x, int y);
 
@@ -40,7 +40,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters
 
         void Face(int locationX, int locationY);
 
-        void ChangeRoom<T>(int x = 0, int y = 0, CharacterDirection direction = CharacterDirection.CenterDown) where T : RoomModule;
+        void ChangeRoom<T>(int x = 0, int y = 0, CharacterDirection direction = CharacterDirection.CenterDown) where T : IRoomModule;
 
         void SetAsPlayer();
     }

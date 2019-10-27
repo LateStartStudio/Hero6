@@ -11,9 +11,9 @@ using LateStartStudio.Hero6.Services.DependencyInjection;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
 {
-    public abstract class UserInterfaceController : Controller<UserInterfaceController, UserInterfaceModule>
+    public abstract class UserInterfaceController : Controller<UserInterfaceController, IUserInterfaceModule>
     {
-        protected UserInterfaceController(UserInterfaceModule module, IServiceLocator services) : base(module, services)
+        protected UserInterfaceController(IUserInterfaceModule module, IServiceLocator services) : base(module, services)
         {
         }
 

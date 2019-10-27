@@ -19,12 +19,12 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms
 
         string HotspotsMask { get; }
 
-        IEnumerable<CharacterModule> Characters { get; }
+        IEnumerable<ICharacterModule> Characters { get; }
 
         IHotspotsModule Hotspots { get; }
 
-        void AddCharacter<T>() where T : CharacterModule;
+        void AddCharacter<T>() where T : ICharacterModule;
 
-        void AddItem<T>() where T : ItemModule;
+        void AddItem<T>() where T : IItemModule;
     }
 }

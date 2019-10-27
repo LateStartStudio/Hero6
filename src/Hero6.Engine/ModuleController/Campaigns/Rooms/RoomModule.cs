@@ -35,7 +35,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms
         /// <summary>
         /// Gets the characters in this room.
         /// </summary>
-        public IEnumerable<CharacterModule> Characters => Controller.Characters.Select(c => c.Module);
+        public IEnumerable<ICharacterModule> Characters => Controller.Characters.Select(c => c.Module);
 
         /// <summary>
         /// Gets the hotspot for this room.
@@ -46,12 +46,12 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms
         /// Adds character to this room.
         /// </summary>
         /// <typeparam name="T">Character by type.</typeparam>
-        public void AddCharacter<T>() where T : CharacterModule => Controller.AddCharacter<T>();
+        public void AddCharacter<T>() where T : ICharacterModule => Controller.AddCharacter<T>();
 
         /// <summary>
         /// Adds item to this room.
         /// </summary>
         /// <typeparam name="T">Item by type.</typeparam>
-        public void AddItem<T>() where T : ItemModule => Controller.AddItem<T>();
+        public void AddItem<T>() where T : IItemModule => Controller.AddItem<T>();
     }
 }

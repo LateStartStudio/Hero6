@@ -26,7 +26,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns
 
         private MonoGameRoomController currentRoom;
 
-        public MonoGameCampaignController(CampaignModule module, IServiceLocator services)
+        public MonoGameCampaignController(ICampaignModule module, IServiceLocator services)
             : base(module, services)
         {
             this.services = services;

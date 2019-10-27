@@ -9,7 +9,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms.Regions
     /// <summary>
     /// API for walk areas module.
     /// </summary>
-    public class WalkAreasModule : GameModule<WalkAreasController, WalkAreasModule>
+    public class WalkAreasModule : GameModule<WalkAreasController, IWalkAreasModule>, IWalkAreasModule
     {
         /// <summary>
         /// Gets the walk areas name.

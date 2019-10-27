@@ -11,13 +11,13 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Animations
     /// <summary>
     /// The API for the character animation controller.
     /// </summary>
-    public abstract class CharacterAnimationController : GameController<CharacterAnimationController, CharacterAnimationModule>
+    public abstract class CharacterAnimationController : GameController<CharacterAnimationController, ICharacterAnimationModule>
     {
         /// <summary>
         /// Creates a new instance of the <see cref="CharacterAnimationController"/> class.
         /// </summary>
         /// <param name="module">The module corresponding to this controller.</param>
-        protected CharacterAnimationController(CharacterAnimationModule module, IServiceLocator services)
+        protected CharacterAnimationController(ICharacterAnimationModule module, IServiceLocator services)
             : base(module, services)
         {
         }

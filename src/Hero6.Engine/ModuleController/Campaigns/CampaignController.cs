@@ -16,13 +16,13 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns
     /// <summary>
     /// API for a campaign controller.
     /// </summary>
-    public abstract class CampaignController : GameController<CampaignController, CampaignModule>
+    public abstract class CampaignController : GameController<CampaignController, ICampaignModule>
     {
         /// <summary>
         /// Creates a new instance of the <see cref="CampaignController"/> instance.
         /// </summary>
         /// <param name="module">The module corresponding to this controller.</param>
-        protected CampaignController(CampaignModule module, IServiceLocator services)
+        protected CampaignController(ICampaignModule module, IServiceLocator services)
             : base(module, services)
         {
         }

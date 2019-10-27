@@ -22,7 +22,7 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
         private readonly IMouse mouse;
         private readonly IControllerRepository controllerRepository;
 
-        public MonoGameUserInterfaceController(UserInterfaceModule module, IServiceLocator services) : base(module, services)
+        public MonoGameUserInterfaceController(IUserInterfaceModule module, IServiceLocator services) : base(module, services)
         {
             this.services = services;
             mouse = services.Get<IMouse>();

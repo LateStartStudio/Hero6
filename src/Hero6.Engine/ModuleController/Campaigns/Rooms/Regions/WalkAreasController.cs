@@ -11,7 +11,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms.Regions
     /// <summary>
     /// API for walk areas controller.
     /// </summary>
-    public abstract class WalkAreasController : GameController<WalkAreasController, WalkAreasModule>
+    public abstract class WalkAreasController : GameController<WalkAreasController, IWalkAreasModule>
     {
         /// <summary>
         /// Makes a new instance of the walk areas controller.

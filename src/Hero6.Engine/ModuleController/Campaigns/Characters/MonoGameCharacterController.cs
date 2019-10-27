@@ -31,7 +31,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters
         private MonoGameCharacterAnimationController idleAnimation;
         private MonoGameCharacterAnimationController moveAnimation;
 
-        public MonoGameCharacterController(CharacterModule module, IServiceLocator services)
+        public MonoGameCharacterController(ICharacterModule module, IServiceLocator services)
             : base(module, services)
         {
             campaigns = services.Get<ICampaigns>();
@@ -129,8 +129,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters
             Y = y;
             Face(direction);
             Room.AsMonoGame().RemoveCharacter(this);
-            var nextRoom = campaigns.AsMonoGame().Current.GetRoom<T>().GetType();
-            campaigns.AsMonoGame().CurrentController.Rooms[nextRoom].AsMonoGame().AddCharacter(this);
+            campaigns.AsMonoGame().CurrentController.Rooms[typeof(T)].AsMonoGame().AddCharacter(this);
         }
 
         public override void SetAsPlayer() => campaigns.Current.Player = Module;

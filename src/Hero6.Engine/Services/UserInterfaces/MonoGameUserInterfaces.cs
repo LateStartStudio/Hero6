@@ -25,7 +25,7 @@ namespace LateStartStudio.Hero6.Services.UserInterfaces
             this.services = services;
         }
 
-        public IEnumerable<UserInterfaceModule> UserInterfaces => userInterfaces.Select(u => u.Module);
+        public IEnumerable<IUserInterfaceModule> UserInterfaces => userInterfaces.Select(u => u.Module);
 
         public IUserInterfaceModule Current
         {
@@ -33,7 +33,7 @@ namespace LateStartStudio.Hero6.Services.UserInterfaces
             set { current = userInterfaces.Find(u => u.Module == value); }
         }
 
-        public void Add<T>() where T : UserInterfaceModule => userInterfaces.Add(new MonoGameUserInterfaceController(services.Make<T>(), services));
+        public void Add<T>() where T : IUserInterfaceModule => userInterfaces.Add(new MonoGameUserInterfaceController(services.Make<T>(), services));
 
         public void Initialize()
         {

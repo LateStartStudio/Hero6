@@ -23,7 +23,7 @@ namespace LateStartStudio.Hero6.Services.Campaigns
             this.services = services;
         }
 
-        public IEnumerable<CampaignModule> Campaigns => campaigns.Select(c => c.Module);
+        public IEnumerable<ICampaignModule> Campaigns => campaigns.Select(c => c.Module);
 
         public ICampaignModule Current
         {
@@ -33,7 +33,7 @@ namespace LateStartStudio.Hero6.Services.Campaigns
 
         public MonoGameCampaignController CurrentController { get; set; }
 
-        public void Add<T>() where T : CampaignModule => campaigns.Add(new MonoGameCampaignController(services.Make<T>(), services));
+        public void Add<T>() where T : ICampaignModule => campaigns.Add(new MonoGameCampaignController(services.Make<T>(), services));
 
         public bool Interact(int x, int y, Interaction interaction) => CurrentController.Interact(x, y, interaction);
 
