@@ -15,7 +15,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms
     /// <summary>
     /// API for room module.
     /// </summary>
-    public abstract class RoomModule : GameModule<RoomController, IRoomModule>, IRoomModule
+    public abstract class RoomModule : GameModule<IRoomController, IRoomModule>, IRoomModule
     {
         /// <summary>
         /// Gets the path to the background image.
@@ -47,6 +47,10 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms
         /// </summary>
         /// <typeparam name="T">Character by type.</typeparam>
         public void AddCharacter<T>() where T : ICharacterModule => Controller.AddCharacter<T>();
+
+        public void RemoveCharacter<T>() where T : ICharacterModule => Controller.RemoveCharacter<T>();
+
+        public void RemoveCharacter(ICharacterModule character) => Controller.RemoveCharacter(character);
 
         /// <summary>
         /// Adds item to this room.

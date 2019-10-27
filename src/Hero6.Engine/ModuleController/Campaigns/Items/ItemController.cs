@@ -11,7 +11,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Items
     /// <summary>
     /// API for item controller.
     /// </summary>
-    public abstract class ItemController : GameController<ItemController, IItemModule>
+    public abstract class ItemController : GameController<IItemController, IItemModule>, IItemController
     {
         /// <summary>
         /// Makes a new instance of the <see cref="ItemController"/> class.

@@ -48,7 +48,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns
 
         public override int Height => currentRoom?.Height ?? 0;
 
-        public override CharacterController Player { get; set; }
+        public override ICharacterController Player { get; set; }
 
         public override bool Interact(int x, int y, Interaction interaction)
         {

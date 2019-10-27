@@ -16,7 +16,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters
     /// <summary>
     /// API for the character controller.
     /// </summary>
-    public abstract class CharacterController : GameController<CharacterController, ICharacterModule>
+    public abstract class CharacterController : GameController<ICharacterController, ICharacterModule>, ICharacterController
     {
         /// <summary>
         /// Makes a new instance of the <see cref="CharacterController"/> class.
@@ -40,27 +40,27 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters
         /// <summary>
         /// Gets the room this character is in.
         /// </summary>
-        public abstract RoomController Room { get; }
+        public abstract IRoomController Room { get; }
 
         /// <summary>
         /// Gets the stats for this character.
         /// </summary>
-        public abstract StatsController Stats { get; }
+        public abstract IStatsController Stats { get; }
 
         /// <summary>
         /// Gets or sets the idle animation of this character.
         /// </summary>
-        public abstract CharacterAnimationController IdleAnimation { get; set; }
+        public abstract ICharacterAnimationController IdleAnimation { get; set; }
 
         /// <summary>
         /// Gets or sets the movement animation of this character.
         /// </summary>
-        public abstract CharacterAnimationController MoveAnimation { get; set; }
+        public abstract ICharacterAnimationController MoveAnimation { get; set; }
 
         /// <summary>
         /// Gets the inventory of this character.
         /// </summary>
-        public abstract IEnumerable<InventoryItemController> Inventory { get; }
+        public abstract IEnumerable<IInventoryItemController> Inventory { get; }
 
         /// <summary>
         /// Adds inventory item to this character's inventory.

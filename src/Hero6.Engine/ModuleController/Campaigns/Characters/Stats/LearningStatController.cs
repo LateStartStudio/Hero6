@@ -12,7 +12,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters.Stats
     /// <summary>
     /// Stat that has to be learned and trained.
     /// </summary>
-    public abstract class LearningStatController : GameController<LearningStatController, ILearningStatModule>
+    public abstract class LearningStatController : GameController<ILearningStatController, ILearningStatModule>, ILearningStatController
     {
         /// <summary>
         /// Makes a new instance of the <see cref="LearningStatController"/> class.

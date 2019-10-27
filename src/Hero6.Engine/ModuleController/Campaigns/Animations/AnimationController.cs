@@ -11,7 +11,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Animations
     /// <summary>
     /// API for for animation controllers.
     /// </summary>
-    public abstract class AnimationController : GameController<AnimationController, IAnimationModule>
+    public abstract class AnimationController : GameController<IAnimationController, IAnimationModule>, IAnimationController
     {
         /// <summary>
         /// Makes an new instance of the <see cref="AnimationController"/> class.

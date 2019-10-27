@@ -11,7 +11,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Animations
     /// <summary>
     /// The API for the character animation controller.
     /// </summary>
-    public abstract class CharacterAnimationController : GameController<CharacterAnimationController, ICharacterAnimationModule>
+    public abstract class CharacterAnimationController : GameController<ICharacterAnimationController, ICharacterAnimationModule>, ICharacterAnimationController
     {
         /// <summary>
         /// Creates a new instance of the <see cref="CharacterAnimationController"/> class.
@@ -25,41 +25,41 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Animations
         /// <summary>
         /// Gets or sets the center down animation.
         /// </summary>
-        protected internal abstract AnimationController CenterDown { get; set; }
+        public abstract IAnimationController CenterDown { get; set; }
 
         /// <summary>
         /// Gets or sets the center up animation.
         /// </summary>
-        protected internal abstract AnimationController CenterUp { get; set; }
+        public abstract IAnimationController CenterUp { get; set; }
 
         /// <summary>
         /// Gets or sets the left center animation.
         /// </summary>
-        protected internal abstract AnimationController LeftCenter { get; set; }
+        public abstract IAnimationController LeftCenter { get; set; }
 
         /// <summary>
         /// Gets or sets the left down animation.
         /// </summary>
-        protected internal abstract AnimationController LeftDown { get; set; }
+        public abstract IAnimationController LeftDown { get; set; }
 
         /// <summary>
         /// Gets or sets the left up animation.
         /// </summary>
-        protected internal abstract AnimationController LeftUp { get; set; }
+        public abstract IAnimationController LeftUp { get; set; }
 
         /// <summary>
         /// Gets or sets the right center animation.
         /// </summary>
-        protected internal abstract AnimationController RightCenter { get; set; }
+        public abstract IAnimationController RightCenter { get; set; }
 
         /// <summary>
         /// Gets or sets the right down animation.
         /// </summary>
-        protected internal abstract AnimationController RightDown { get; set; }
+        public abstract IAnimationController RightDown { get; set; }
 
         /// <summary>
         /// Gets or sets the right up animation.
         /// </summary>
-        protected internal abstract AnimationController RightUp { get; set; }
+        public abstract IAnimationController RightUp { get; set; }
     }
 }

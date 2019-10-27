@@ -12,7 +12,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters.Stats
     /// <summary>
     /// API for get-set stat controller.
     /// </summary>
-    public abstract class StatController : GameController<StatController, IStatModule>
+    public abstract class StatController : GameController<IStatController, IStatModule>, IStatController
     {
         /// <summary>
         /// Makes a new instance of the <see cref="StatController"/>.

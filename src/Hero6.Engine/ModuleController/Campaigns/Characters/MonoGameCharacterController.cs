@@ -46,7 +46,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters
 
         public override int Speed { get; set; } = 60;
 
-        public override RoomController Room
+        public override IRoomController Room
         {
             get
             {
@@ -54,21 +54,21 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters
             }
         }
 
-        public override StatsController Stats => stats;
+        public override IStatsController Stats => stats;
 
-        public override CharacterAnimationController IdleAnimation
+        public override ICharacterAnimationController IdleAnimation
         {
             get { return idleAnimation; }
             set { idleAnimation = campaigns.AsMonoGame().CurrentController.CharacterAnimations[value.Module.GetType()]; }
         }
 
-        public override CharacterAnimationController MoveAnimation
+        public override ICharacterAnimationController MoveAnimation
         {
             get { return moveAnimation; }
             set { moveAnimation = campaigns.AsMonoGame().CurrentController.CharacterAnimations[value.Module.GetType()]; }
         }
 
-        public override IEnumerable<InventoryItemController> Inventory => inventory;
+        public override IEnumerable<IInventoryItemController> Inventory => inventory;
 
         public override void AddInventoryItem<T>()
         {
@@ -128,7 +128,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters
             X = x;
             Y = y;
             Face(direction);
-            Room.AsMonoGame().RemoveCharacter(this);
+            Room.RemoveCharacter(Module);
             campaigns.AsMonoGame().CurrentController.Rooms[typeof(T)].AsMonoGame().AddCharacter(this);
         }
 

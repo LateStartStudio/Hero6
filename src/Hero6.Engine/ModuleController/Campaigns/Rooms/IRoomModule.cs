@@ -25,6 +25,18 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms
 
         void AddCharacter<T>() where T : ICharacterModule;
 
+        /// <summary>
+        /// Removes character from this room.
+        /// </summary>
+        /// <typeparam name="T">Character by type.</typeparam>
+        void RemoveCharacter<T>() where T : ICharacterModule;
+
+        /// <summary>
+        /// Removes character from this room.
+        /// </summary>
+        /// <param name="character">Character to remove.</param>
+        void RemoveCharacter(ICharacterModule character);
+
         void AddItem<T>() where T : IItemModule;
     }
 }
