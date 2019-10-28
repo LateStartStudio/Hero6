@@ -7,9 +7,12 @@
 using System.Drawing;
 using XnaColor = Microsoft.Xna.Framework.Color;
 
-public static class ColorExtensions
+namespace LateStartStudio.Hero6.Extensions
 {
-    public static Color ToDotNet(this XnaColor color) => Color.FromArgb(color.A, color.R, color.G, color.B);
+    public static class ColorExtensions
+    {
+        public static Color ToDotNet(this XnaColor color) => Color.FromArgb(color.A, color.R, color.G, color.B);
 
-    public static XnaColor ToMonoGame(this Color color) => new XnaColor(color.R, color.G, color.B, color.A);
+        public static XnaColor ToMonoGame(this Color color) => new XnaColor(color.R, color.G, color.B, color.A);
+    }
 }

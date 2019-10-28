@@ -5,6 +5,7 @@
 // </copyright>
 
 using System;
+using LateStartStudio.Hero6.Extensions;
 using LateStartStudio.Hero6.Services.Campaigns;
 using LateStartStudio.Hero6.Services.ControllerRepository;
 using LateStartStudio.Hero6.Services.DependencyInjection;

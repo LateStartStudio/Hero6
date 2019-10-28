@@ -6,7 +6,10 @@
 
 using Microsoft.Xna.Framework;
 
-public static class MatrixExtensions
+namespace LateStartStudio.Hero6.Extensions
 {
-    public static Vector3 Scale(this Matrix matrix) => new Vector3(matrix.M11, matrix.M22, matrix.M33);
+    public static class MatrixExtensions
+    {
+        public static Vector3 Scale(this Matrix matrix) => new Vector3(matrix.M11, matrix.M22, matrix.M33);
+    }
 }

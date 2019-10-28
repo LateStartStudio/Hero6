@@ -5,6 +5,7 @@
 // </copyright>
 
 using System.Collections.Generic;
+using LateStartStudio.Hero6.Extensions;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
 {

@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using LateStartStudio.Hero6.Extensions;
 using LateStartStudio.Hero6.ModuleController.UserInterfaces.Components;
 using LateStartStudio.Hero6.ModuleController.UserInterfaces.Input.Mouse;
 using LateStartStudio.Hero6.MonoGame.GameLoop;
@@ -47,7 +48,12 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
         void IXnaGameLoop.Initialize()
         {
             PreInitialize();
-            FindModules<WindowModule>().ForEach(w => WindowsAsDict.Add(w, new MonoGameWindowController(services.Make<WindowModule>(w), services)));
+            var test = FindModules<WindowModule>().ToArray();
+            FindModules<WindowModule>()
+                .ForEach(w =>
+                {
+                    WindowsAsDict.Add(w, new MonoGameWindowController(services.Make<WindowModule>(w), services));
+                });
             FindModules<CursorModule>().ForEach(c => CursorsAsDict.Add(c, new MonoGameCursorController(services.Make<CursorModule>(c), services)));
             controllerRepository.Controllers.ForEach(c => c.ToXnaGameLoop().Initialize());
             WindowsAsDict.Values.ForEach(w => w.PreInitialize());
