@@ -72,7 +72,7 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
 
         private IController ChildToController => controllerRepository[Module.Child];
 
-        public override ImageController MakeImage(IComponent parent, string source)
+        public override IImageController MakeImage(IComponent parent, string source)
         {
             var image = new MonoGameImageController(new ImageModule(), source, services);
             image.PreInitialize();
@@ -81,7 +81,7 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
             return image;
         }
 
-        public override StackPanelController MakeStackPanel(IComponent parent)
+        public override IStackPanelController MakeStackPanel(IComponent parent)
         {
             var stackPanel = new MonoGameStackPanelController(new StackPanelModule(), services);
             stackPanel.PreInitialize();
@@ -90,7 +90,7 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
             return stackPanel;
         }
 
-        public override ButtonController MakeButton(IComponent parent)
+        public override IButtonController MakeButton(IComponent parent)
         {
             var button = new MonoGameButtonController(new ButtonModule(), services);
             button.PreInitialize();
@@ -99,7 +99,7 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
             return button;
         }
 
-        public override LabelController MakeLabel(IComponent parent, string text)
+        public override ILabelController MakeLabel(IComponent parent, string text)
         {
             var label = new MonoGameLabelController(new LabelModule(), services);
             label.PreInitialize();

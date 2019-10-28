@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using LateStartStudio.Hero6.ModuleController.UserInterfaces.Components;
 using LateStartStudio.Hero6.ModuleController.UserInterfaces.Input.Mouse;
 using LateStartStudio.Hero6.MonoGame.GameLoop;
@@ -33,15 +34,15 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
 
         public override int Height { get; }
 
-        public override IEnumerable<WindowController> Windows => WindowsAsDict.Values;
+        public override IEnumerable<IWindowController> Windows => WindowsAsDict.Values;
 
         public Dictionary<Type, MonoGameWindowController> WindowsAsDict { get; } = new Dictionary<Type, MonoGameWindowController>();
 
         public Dictionary<Type, MonoGameCursorController> CursorsAsDict { get; } = new Dictionary<Type, MonoGameCursorController>();
 
-        public override WindowController GetWindow<T>() => WindowsAsDict[typeof(T)];
+        public override IWindowController GetWindow<T>() => WindowsAsDict[typeof(T)];
 
-        public override CursorController GetCursor<T>() => CursorsAsDict[typeof(T)];
+        public override ICursorController GetCursor<T>() => CursorsAsDict[typeof(T)];
 
         void IXnaGameLoop.Initialize()
         {

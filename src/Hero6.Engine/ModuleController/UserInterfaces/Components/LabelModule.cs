@@ -8,7 +8,7 @@ using System.Drawing;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
 {
-    public class LabelModule : ComponentModule<LabelController, ILabelModule>, ILabelModule
+    public class LabelModule : ComponentModule<ILabelController, ILabelModule>, ILabelModule
     {
         public override string Name => "Label Module";
 

@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
 {
-    public class StackPanelModule : ComponentModule<StackPanelController, IStackPanelModule>, IStackPanelModule
+    public class StackPanelModule : ComponentModule<IStackPanelController, IStackPanelModule>, IStackPanelModule
     {
         public override string Name => "Stack Panel";
 

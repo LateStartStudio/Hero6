@@ -1,4 +1,4 @@
-﻿// <copyright file="IUserInterfaceModule.cs" company="Late Start Studio">
+﻿// <copyright file="IUserInterfaceController.cs" company="Late Start Studio">
 // Copyright (C) Late Start Studio
 // This file is subject to the terms and conditions of the MIT license specified in the file
 // 'LICENSE.CODE.md', which is a part of this source code package.
@@ -10,14 +10,12 @@ using LateStartStudio.Hero6.ModuleController.UserInterfaces.Input.Mouse;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
 {
-    public interface IUserInterfaceModule : IModule
+    public interface IUserInterfaceController : IController
     {
         IEnumerable<IWindowController> Windows { get; }
 
-        void ShowTextBox(string text);
+        IWindowController GetWindow<T>() where T : IWindowModule;
 
-        IWindowModule GetWindow<T>() where T : IWindowModule;
-
-        ICursorModule GetCursor<T>() where T : ICursorModule;
+        ICursorController GetCursor<T>() where T : ICursorModule;
     }
 }

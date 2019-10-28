@@ -6,7 +6,7 @@
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
 {
-    public abstract class WindowModule : ComponentModule<WindowController, IWindowModule>, IWindowModule
+    public abstract class WindowModule : ComponentModule<IWindowController, IWindowModule>, IWindowModule
     {
         public IComponent Child { get; set; }
 

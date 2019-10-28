@@ -9,7 +9,7 @@ using LateStartStudio.Hero6.Services.Settings;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
 {
-    public abstract class WindowController : ComponentController<WindowController, IWindowModule>
+    public abstract class WindowController : ComponentController<IWindowController, IWindowModule>, IWindowController
     {
         private readonly IGameSettings gameSettings;
 
@@ -39,12 +39,12 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
 
         public bool PauseGame => Module.PauseGame;
 
-        public abstract ImageController MakeImage(IComponent parent, string source);
+        public abstract IImageController MakeImage(IComponent parent, string source);
 
-        public abstract StackPanelController MakeStackPanel(IComponent parent);
+        public abstract IStackPanelController MakeStackPanel(IComponent parent);
 
-        public abstract ButtonController MakeButton(IComponent parent);
+        public abstract IButtonController MakeButton(IComponent parent);
 
-        public abstract LabelController MakeLabel(IComponent parent, string text);
+        public abstract ILabelController MakeLabel(IComponent parent, string text);
     }
 }

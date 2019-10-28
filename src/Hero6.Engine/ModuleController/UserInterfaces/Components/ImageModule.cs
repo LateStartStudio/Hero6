@@ -6,7 +6,7 @@
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
 {
-    public class ImageModule : ComponentModule<ImageController, IImageModule>, IImageModule
+    public class ImageModule : ComponentModule<IImageController, IImageModule>, IImageModule
     {
         public override string Name => "Image Module";
 

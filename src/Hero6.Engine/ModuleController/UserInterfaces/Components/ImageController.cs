@@ -8,9 +8,9 @@ using LateStartStudio.Hero6.Services.DependencyInjection;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
 {
-    public abstract class ImageController : ComponentController<ImageController, IImageModule>
+    public abstract class ImageController : ComponentController<IImageController, IImageModule>, IImageController
     {
-        public ImageController(IImageModule module, string source, IServiceLocator services) : base(module, services)
+        protected ImageController(IImageModule module, string source, IServiceLocator services) : base(module, services)
         {
             Source = source;
         }

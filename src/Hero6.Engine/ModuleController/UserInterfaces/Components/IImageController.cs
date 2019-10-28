@@ -1,4 +1,4 @@
-﻿// <copyright file="ButtonModule.cs" company="Late Start Studio">
+﻿// <copyright file="IImageController.cs" company="Late Start Studio">
 // Copyright (C) Late Start Studio
 // This file is subject to the terms and conditions of the MIT license specified in the file
 // 'LICENSE.CODE.md', which is a part of this source code package.
@@ -6,10 +6,10 @@
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
 {
-    public class ButtonModule : ComponentModule<IButtonController, IButtonModule>, IButtonModule
+    public interface IImageController : IComponentController
     {
-        public override string Name => "Image";
+        IImageModule Module { get; }
 
-        public IComponent Child { get; set; }
+        string Source { get; }
     }
 }
