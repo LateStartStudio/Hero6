@@ -49,11 +49,7 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
         {
             PreInitialize();
             var test = FindModules<WindowModule>().ToArray();
-            FindModules<WindowModule>()
-                .ForEach(w =>
-                {
-                    WindowsAsDict.Add(w, new MonoGameWindowController(services.Make<WindowModule>(w), services));
-                });
+            FindModules<WindowModule>().ForEach(w => WindowsAsDict.Add(w, new MonoGameWindowController(services.Make<WindowModule>(w), services)));
             FindModules<CursorModule>().ForEach(c => CursorsAsDict.Add(c, new MonoGameCursorController(services.Make<CursorModule>(c), services)));
             controllerRepository.Controllers.ForEach(c => c.ToXnaGameLoop().Initialize());
             WindowsAsDict.Values.ForEach(w => w.PreInitialize());
