@@ -6,10 +6,13 @@
 
 using LateStartStudio.Hero6.ModuleController.Campaigns.Rooms;
 
-public static class RoomControllerExtensions
+namespace LateStartStudio.Hero6.Extensions
 {
-    public static MonoGameRoomController AsMonoGame(this RoomController room)
+    public static class RoomControllerExtensions
     {
-        return (MonoGameRoomController)room;
+        public static MonoGameRoomController AsMonoGame(this RoomController room)
+        {
+            return (MonoGameRoomController)room;
+        }
     }
 }

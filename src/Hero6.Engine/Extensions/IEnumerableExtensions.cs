@@ -7,25 +7,28 @@
 using System;
 using System.Collections.Generic;
 
-/// <summary>
-/// Extensions on <see cref="IEnumerable{T}"/>.
-/// </summary>
-public static class IEnumerableExtensions
+namespace LateStartStudio.Hero6.Extensions
 {
     /// <summary>
-    /// Helper function to avoid calling ToList().ForEach for every time we want a single line
-    /// foreach. Not calling ToList() can save some performance.
+    /// Extensions on <see cref="IEnumerable{T}"/>.
     /// </summary>
-    /// <typeparam name="T">Generics.</typeparam>
-    /// <param name="enumerable">The collection.</param>
-    /// <param name="action">Action to perform.</param>
-    public static IEnumerable<T> ForEach<T>(this IEnumerable<T> enumerable, Action<T> action)
+    public static class IEnumerableExtensions
     {
-        foreach (var e in enumerable)
+        /// <summary>
+        /// Helper function to avoid calling ToList().ForEach for every time we want a single line
+        /// foreach. Not calling ToList() can save some performance.
+        /// </summary>
+        /// <typeparam name="T">Generics.</typeparam>
+        /// <param name="enumerable">The collection.</param>
+        /// <param name="action">Action to perform.</param>
+        public static IEnumerable<T> ForEach<T>(this IEnumerable<T> enumerable, Action<T> action)
         {
-            action(e);
-        }
+            foreach (var e in enumerable)
+            {
+                action(e);
+            }
 
-        return enumerable;
+            return enumerable;
+        }
     }
 }

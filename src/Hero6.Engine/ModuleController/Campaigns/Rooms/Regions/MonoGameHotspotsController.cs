@@ -5,6 +5,7 @@
 // </copyright>
 
 using System.Collections.Generic;
+using LateStartStudio.Hero6.Extensions;
 using LateStartStudio.Hero6.ModuleController.Campaigns.Characters;
 using LateStartStudio.Hero6.MonoGame.GameLoop;
 using LateStartStudio.Hero6.Services.DependencyInjection;

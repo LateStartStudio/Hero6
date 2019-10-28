@@ -7,7 +7,10 @@
 using LateStartStudio.Hero6.MonoGame.GameLoop;
 using LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse;
 
-public static class MouseExtensions
+namespace LateStartStudio.Hero6.Extensions
 {
-    public static IXnaGameLoop AsXnaGameLoop(this IMouse mouse) => mouse as IXnaGameLoop;
+    public static class MouseExtensions
+    {
+        public static IXnaGameLoop AsXnaGameLoop(this IMouse mouse) => mouse as IXnaGameLoop;
+    }
 }

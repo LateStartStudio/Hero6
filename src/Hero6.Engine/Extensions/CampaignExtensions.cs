@@ -6,7 +6,10 @@
 
 using LateStartStudio.Hero6.Services.Campaigns;
 
-public static class CampaignExtensions
+namespace LateStartStudio.Hero6.Extensions
 {
-    public static MonoGameCampaigns AsMonoGame(this ICampaigns campaigns) => (MonoGameCampaigns)campaigns;
+    public static class CampaignExtensions
+    {
+        public static MonoGameCampaigns AsMonoGame(this ICampaigns campaigns) => (MonoGameCampaigns)campaigns;
+    }
 }

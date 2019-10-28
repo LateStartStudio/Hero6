@@ -6,6 +6,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using LateStartStudio.Hero6.Extensions;
 using LateStartStudio.Hero6.ModuleController.Campaigns.Characters;
 using LateStartStudio.Hero6.ModuleController.Campaigns.Characters.Items;
 using LateStartStudio.Hero6.ModuleController.Campaigns.Rooms.Regions;

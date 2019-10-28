@@ -6,6 +6,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using LateStartStudio.Hero6.Extensions;
 using LateStartStudio.Hero6.MonoGame.GameLoop;
 using LateStartStudio.Hero6.Services.DependencyInjection;
 using Microsoft.Xna.Framework;
