@@ -8,7 +8,7 @@ using LateStartStudio.Hero6.Services.DependencyInjection;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
 {
-    public abstract class ButtonController : ComponentController<ButtonController, IButtonModule>
+    public abstract class ButtonController : ComponentController<IButtonController, IButtonModule>, IButtonController
     {
         protected ButtonController(IButtonModule module, IServiceLocator services) : base(module, services)
         {

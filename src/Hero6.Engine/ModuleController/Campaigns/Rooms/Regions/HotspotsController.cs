@@ -12,7 +12,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms.Regions
     /// <summary>
     /// API for the hotspots controller.
     /// </summary>
-    public abstract class HotspotsController : GameController<HotspotsController, HotspotsModule>
+    public abstract class HotspotsController : GameController<IHotspotsController, IHotspotsModule>, IHotspotsController
     {
         /// <summary>
         /// Makes a new <see cref="HotspotsController"/> instance.

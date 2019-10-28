@@ -21,7 +21,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters.Items
         private Texture2D sprite;
         private Vector2 position;
 
-        public MonoGameItemController(ItemModule module, IServiceLocator services)
+        public MonoGameItemController(IItemModule module, IServiceLocator services)
             : base(module, services)
         {
             content = services.Get<ContentManager>();

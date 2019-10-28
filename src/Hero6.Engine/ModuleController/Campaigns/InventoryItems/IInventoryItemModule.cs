@@ -6,7 +6,7 @@
 
 namespace LateStartStudio.Hero6.ModuleController.Campaigns.InventoryItems
 {
-    public interface IInventoryItemModule
+    public interface IInventoryItemModule : IGameModule
     {
     }
 }

@@ -9,7 +9,7 @@ using System.Drawing;
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
 {
     public abstract class ComponentModule<TController, TModule> : Module<TController, TModule>, IComponentModule
-        where TController : ComponentController<TController, TModule>
+        where TController : IController
         where TModule : IComponentModule
     {
         public IComponent Parent { get; set; }

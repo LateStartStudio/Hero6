@@ -13,7 +13,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters.InventoryI
 {
     public class MonoGameInventoryItemController : InventoryItemController, IXnaGameLoop
     {
-        public MonoGameInventoryItemController(InventoryItemModule module, IServiceLocator services)
+        public MonoGameInventoryItemController(IInventoryItemModule module, IServiceLocator services)
             : base(module, services)
         {
         }

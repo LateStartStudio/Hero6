@@ -45,11 +45,11 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms
 
         public override int Height => background.Height;
 
-        public override IEnumerable<CharacterController> Characters => characters;
+        public override IEnumerable<ICharacterController> Characters => characters;
 
-        public override WalkAreasController WalkAreas => walkAreas;
+        public override IWalkAreasController WalkAreas => walkAreas;
 
-        public override HotspotsController Hotspots => hotspots;
+        public override IHotspotsController Hotspots => hotspots;
 
         public override void AddCharacter<T>()
         {
@@ -60,6 +60,10 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms
         {
             characters.Add(character);
         }
+
+        public override void RemoveCharacter<T>() => characters.Where(c => c.GetType() == typeof(T));
+
+        public override void RemoveCharacter(ICharacterModule character) => RemoveCharacter((MonoGameCharacterController)((CharacterModule)character).Controller);
 
         public void RemoveCharacter(MonoGameCharacterController character)
         {

@@ -17,14 +17,14 @@ namespace LateStartStudio.Hero6.Services.Campaigns
         /// <summary>
         /// Gets all the campaign modules.
         /// </summary>
-        IEnumerable<CampaignModule> Campaigns { get; }
+        IEnumerable<ICampaignModule> Campaigns { get; }
 
         /// <summary>
         /// Gets or sets the currently active campaign module.
         /// </summary>
         ICampaignModule Current { get; set; }
 
-        void Add<T>() where T : CampaignModule;
+        void Add<T>() where T : ICampaignModule;
 
         /// <summary>
         /// Interact event, looks for modules that the user have tried interacting with.

@@ -16,13 +16,13 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns
     /// <summary>
     /// API for a campaign controller.
     /// </summary>
-    public abstract class CampaignController : GameController<CampaignController, CampaignModule>
+    public abstract class CampaignController : GameController<ICampaignController, ICampaignModule>, ICampaignController
     {
         /// <summary>
         /// Creates a new instance of the <see cref="CampaignController"/> instance.
         /// </summary>
         /// <param name="module">The module corresponding to this controller.</param>
-        protected CampaignController(CampaignModule module, IServiceLocator services)
+        protected CampaignController(ICampaignModule module, IServiceLocator services)
             : base(module, services)
         {
         }
@@ -30,7 +30,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns
         /// <summary>
         /// Gets or sets the player character of this campaign.
         /// </summary>
-        public abstract CharacterController Player { get; set; }
+        public abstract ICharacterController Player { get; set; }
 
         /// <summary>
         /// Gets any animation from this campaign.

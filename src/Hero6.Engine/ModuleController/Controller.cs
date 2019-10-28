@@ -20,7 +20,7 @@ namespace LateStartStudio.Hero6.ModuleController
     /// <typeparam name="TController">The controller that corresponds to the module.</typeparam>
     /// <typeparam name="TModule">The module that corresponds to the controller.</typeparam>
     public abstract class Controller<TController, TModule> : IController
-        where TController : Controller<TController, TModule>
+        where TController : IController
         where TModule : IModule
     {
         private bool mouseOverOnPreviousFrame = false;

@@ -15,7 +15,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns
     /// <summary>
     /// API for a campaign module.
     /// </summary>
-    public abstract class CampaignModule : GameModule<CampaignController, CampaignModule>, ICampaignModule
+    public abstract class CampaignModule : GameModule<ICampaignController, ICampaignModule>, ICampaignModule
     {
         /// <summary>
         /// Gets the stat cap for this campaign.

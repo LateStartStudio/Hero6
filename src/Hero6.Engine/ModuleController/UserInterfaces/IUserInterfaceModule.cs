@@ -12,7 +12,7 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
 {
     public interface IUserInterfaceModule : IModule
     {
-        IEnumerable<WindowController> Windows { get; }
+        IEnumerable<IWindowController> Windows { get; }
 
         void ShowTextBox(string text);
 

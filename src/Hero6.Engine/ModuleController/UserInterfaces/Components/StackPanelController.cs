@@ -9,7 +9,7 @@ using LateStartStudio.Hero6.Services.DependencyInjection;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
 {
-    public abstract class StackPanelController : ComponentController<StackPanelController, IStackPanelModule>
+    public abstract class StackPanelController : ComponentController<IStackPanelController, IStackPanelModule>, IStackPanelController
     {
         protected StackPanelController(IStackPanelModule module, IServiceLocator services) : base(module, services)
         {

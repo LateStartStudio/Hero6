@@ -24,7 +24,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Animations
         private Rectangle source;
         private Texture2D texture;
 
-        public MonoGameAnimationController(AnimationModule module, IServiceLocator services)
+        public MonoGameAnimationController(IAnimationModule module, IServiceLocator services)
             : base(module, services)
         {
             content = services.Get<ContentManager>();

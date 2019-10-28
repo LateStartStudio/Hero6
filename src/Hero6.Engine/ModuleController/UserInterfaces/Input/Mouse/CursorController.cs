@@ -8,7 +8,7 @@ using LateStartStudio.Hero6.Services.DependencyInjection;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Input.Mouse
 {
-    public abstract class CursorController : Controller<CursorController, ICursorModule>
+    public abstract class CursorController : Controller<ICursorController, ICursorModule>, ICursorController
     {
         protected CursorController(ICursorModule module, IServiceLocator services) : base(module, services)
         {

@@ -9,7 +9,7 @@ using LateStartStudio.Hero6.Services.DependencyInjection;
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
 {
     public abstract class ComponentController<TController, TModule> : Controller<TController, TModule>
-        where TController : ComponentController<TController, TModule>
+        where TController : IController
         where TModule : IComponentModule
     {
         protected ComponentController(TModule module, IServiceLocator services)

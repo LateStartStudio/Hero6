@@ -11,16 +11,16 @@ using LateStartStudio.Hero6.Services.DependencyInjection;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
 {
-    public abstract class UserInterfaceController : Controller<UserInterfaceController, UserInterfaceModule>
+    public abstract class UserInterfaceController : Controller<IUserInterfaceController, IUserInterfaceModule>, IUserInterfaceController
     {
-        protected UserInterfaceController(UserInterfaceModule module, IServiceLocator services) : base(module, services)
+        protected UserInterfaceController(IUserInterfaceModule module, IServiceLocator services) : base(module, services)
         {
         }
 
-        public abstract IEnumerable<WindowController> Windows { get; }
+        public abstract IEnumerable<IWindowController> Windows { get; }
 
-        public abstract WindowController GetWindow<T>() where T : IWindowModule;
+        public abstract IWindowController GetWindow<T>() where T : IWindowModule;
 
-        public abstract CursorController GetCursor<T>() where T : ICursorModule;
+        public abstract ICursorController GetCursor<T>() where T : ICursorModule;
     }
 }

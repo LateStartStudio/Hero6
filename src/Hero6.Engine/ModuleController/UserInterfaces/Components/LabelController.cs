@@ -8,7 +8,7 @@ using LateStartStudio.Hero6.Services.DependencyInjection;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
 {
-    public abstract class LabelController : ComponentController<LabelController, ILabelModule>
+    public abstract class LabelController : ComponentController<ILabelController, ILabelModule>, ILabelController
     {
         protected LabelController(ILabelModule module, IServiceLocator services) : base(module, services)
         {

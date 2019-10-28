@@ -6,7 +6,7 @@
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Input.Mouse
 {
-    public abstract class CursorModule : Module<CursorController, ICursorModule>, ICursorModule
+    public abstract class CursorModule : Module<ICursorController, ICursorModule>, ICursorModule
     {
         public abstract string Source { get; }
 

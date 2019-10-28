@@ -13,9 +13,9 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns
     /// </summary>
     /// <typeparam name="TController">The Controlle type.</typeparam>
     /// <typeparam name="TModule">The Module type.</typeparam>
-    public abstract class GameController<TController, TModule> : Controller<TController, TModule>
-        where TController : GameController<TController, TModule>
-        where TModule : GameModule<TController, TModule>
+    public abstract class GameController<TController, TModule> : Controller<TController, TModule>, IGameController
+        where TController : IGameController
+        where TModule : IGameModule
     {
         /// <summary>
         /// Makes a new instance of the <see cref="GameController{TController,TModule}"/> class.

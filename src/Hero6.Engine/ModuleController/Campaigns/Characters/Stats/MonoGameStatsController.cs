@@ -39,43 +39,43 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters.Stats
 
         public override int Height { get; }
 
-        public override StatController Health { get; }
+        public override IStatController Health { get; }
 
-        public override StatController Stamina { get; }
+        public override IStatController Stamina { get; }
 
-        public override StatController Mana { get; }
+        public override IStatController Mana { get; }
 
-        public override StatController Humans { get; }
+        public override IStatController Humans { get; }
 
-        public override StatController Sidhe { get; }
+        public override IStatController Sidhe { get; }
 
-        public override StatController Giants { get; }
+        public override IStatController Giants { get; }
 
-        public override LearningStatController Strength { get; }
+        public override ILearningStatController Strength { get; }
 
-        public override LearningStatController Intelligence { get; }
+        public override ILearningStatController Intelligence { get; }
 
-        public override LearningStatController Agility { get; }
+        public override ILearningStatController Agility { get; }
 
-        public override LearningStatController Vitality { get; }
+        public override ILearningStatController Vitality { get; }
 
-        public override LearningStatController Luck { get; }
+        public override ILearningStatController Luck { get; }
 
-        public override LearningStatController WeaponUse { get; }
+        public override ILearningStatController WeaponUse { get; }
 
-        public override LearningStatController Parry { get; }
+        public override ILearningStatController Parry { get; }
 
-        public override LearningStatController Dodge { get; }
+        public override ILearningStatController Dodge { get; }
 
-        public override LearningStatController Stealth { get; }
+        public override ILearningStatController Stealth { get; }
 
-        public override LearningStatController LockPicking { get; }
+        public override ILearningStatController LockPicking { get; }
 
-        public override LearningStatController Throwing { get; }
+        public override ILearningStatController Throwing { get; }
 
-        public override LearningStatController Climbing { get; }
+        public override ILearningStatController Climbing { get; }
 
-        public override LearningStatController Magic { get; }
+        public override ILearningStatController Magic { get; }
 
         public override bool Interact(int x, int y, Interaction interaction)
         {
