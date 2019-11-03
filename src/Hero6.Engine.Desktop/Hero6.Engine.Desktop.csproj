@@ -13,5 +13,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <Import Project="..\Hero6.Engine\Hero6.Engine.projitems" Label="Shared" />
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

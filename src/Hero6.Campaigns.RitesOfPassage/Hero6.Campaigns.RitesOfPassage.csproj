@@ -6,7 +6,7 @@
     <Version>1.0.0</Version>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Hero6.Engine\Hero6.Engine.csproj" />
+    <ProjectReference Include="..\Hero6.Engine.Desktop\Hero6.Engine.Desktop.csproj" />
     <ProjectReference Include="..\Hero6.Localization\Hero6.Localization.csproj" />
   </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />

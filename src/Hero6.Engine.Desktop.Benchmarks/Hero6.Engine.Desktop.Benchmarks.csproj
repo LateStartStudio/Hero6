@@ -7,9 +7,11 @@
     <StartupObject>LateStartStudio.Hero6.Benchmarks.Program</StartupObject>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Hero6.Engine\Hero6.Engine.csproj" />
-  </ItemGroup>
+  <Import Project="..\Hero6.Engine.Benchmarks\Hero6.Engine.Benchmarks.projitems" Label="Shared" />
 
   <Import Project="..\.paket\Paket.Restore.targets" />
+
+  <ItemGroup>
+    <ProjectReference Include="..\Hero6.Engine.Desktop\Hero6.Engine.Desktop.csproj" />
+  </ItemGroup>
 </Project>

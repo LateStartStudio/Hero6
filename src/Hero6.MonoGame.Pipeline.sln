@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Collections", "Collections\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Search", "Search\Search.csproj", "{5C4A5D3D-46CF-4DDD-A64D-D3043458E2D3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Engine", "Hero6.Engine\Hero6.Engine.csproj", "{0C0586A3-5A10-42CE-B609-CC80EE2CEF7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Engine.Desktop", "Hero6.Engine.Desktop\Hero6.Engine.Desktop.csproj", "{0C0586A3-5A10-42CE-B609-CC80EE2CEF7A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.MonoGame.Pipeline", "Hero6.MonoGame.Pipeline\Hero6.MonoGame.Pipeline.csproj", "{43E058BB-A9A5-473F-AD4C-269239BA41E7}"
 EndProject
