@@ -7,6 +7,7 @@
 using System;
 using LateStartStudio.Hero6.Services.Campaigns;
 using LateStartStudio.Hero6.Services.DependencyInjection;
+using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters.Stats
 {
@@ -48,6 +49,22 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters.Stats
         public override bool Interact(int x, int y, Interaction interaction)
         {
             throw new System.NotImplementedException();
+        }
+
+        public override void Load()
+        {
+        }
+
+        public override void Unload()
+        {
+        }
+
+        public override void Update(GameTime time)
+        {
+        }
+
+        public override void Draw(GameTime time)
+        {
         }
     }
 }

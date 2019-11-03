@@ -17,7 +17,7 @@ using XnaColor = Microsoft.Xna.Framework.Color;
 
 namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms.Regions
 {
-    public class MonoGameHotspotsController : HotspotsController, IXnaGameLoop
+    public class MonoGameHotspotsController : HotspotsController
     {
         private readonly string source;
         private readonly ContentManager content;
@@ -44,26 +44,21 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms.Regions
             return pixel != Color.Transparent && hotspots[pixel].Interact(x, y, interaction);
         }
 
-        void IXnaGameLoop.Initialize()
-        {
-        }
-
-        public void Load()
+        public override void Load()
         {
             texture = content.Load<Texture2D>(source);
             buffer = FindHotspots(texture);
-            Initialize();
         }
 
-        public void Unload()
+        public override void Unload()
         {
         }
 
-        public void Update(GameTime time)
+        public override void Update(GameTime time)
         {
         }
 
-        public void Draw(GameTime time)
+        public override void Draw(GameTime time)
         {
         }
 

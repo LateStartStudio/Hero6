@@ -326,7 +326,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
         {
             var statusBar = Services.UserInterfaces.Current.GetWindow<StatusBar>();
             statusBar.IsVisible = false;
-            Controller.InvokeMouseLeave();
+            Module.MouseLeave += Raise.EventWith(Module, EventArgs.Empty);
             Assert.That(statusBar.IsVisible, Is.True);
         }
 
@@ -334,7 +334,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
         public void HideOnMouseLeave()
         {
             Module.IsVisible = true;
-            Controller.InvokeMouseLeave();
+            Module.MouseLeave += Raise.EventWith(Module, EventArgs.Empty);
             Assert.That(Module.IsVisible, Is.False);
         }
 
@@ -342,7 +342,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
         public void LoadCursorOnMouseLeave()
         {
             Services.Mouse.DidNotReceive().LoadCursor();
-            Controller.InvokeMouseLeave();
+            Module.MouseLeave += Raise.EventWith(Module, EventArgs.Empty);
             Services.Mouse.Received().LoadCursor();
         }
 

@@ -4,7 +4,6 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
-using LateStartStudio.Hero6.MonoGame.GameLoop;
 using LateStartStudio.Hero6.Services.DependencyInjection;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -12,7 +11,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace LateStartStudio.Hero6.ModuleController.Campaigns.Animations
 {
-    public class MonoGameAnimationController : AnimationController, IXnaGameLoop
+    public class MonoGameAnimationController : AnimationController
     {
         private readonly ContentManager content;
         private readonly SpriteBatch spriteBatch;
@@ -29,7 +28,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Animations
         {
             content = services.Get<ContentManager>();
             spriteBatch = services.Get<SpriteBatch>();
-            location = default(Point);
+            location = default;
         }
 
         public override int X
@@ -50,21 +49,16 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Animations
 
         public override bool Interact(int x, int y, Interaction interaction) => Intersects(x, y);
 
-        void IXnaGameLoop.Initialize()
-        {
-        }
-
-        public void Load()
+        public override void Load()
         {
             texture = content.Load<Texture2D>(Module.Sprite);
-            Initialize();
         }
 
-        public void Unload()
+        public override void Unload()
         {
         }
 
-        public void Update(GameTime time)
+        public override void Update(GameTime time)
         {
             elapsed += time.ElapsedGameTime.TotalSeconds;
 
@@ -81,7 +75,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Animations
             source = new Rectangle(frameCol, frameRow, Width, Height);
         }
 
-        public void Draw(GameTime time)
+        public override void Draw(GameTime time)
         {
             spriteBatch.Draw(texture, destination, source, Color.White);
         }

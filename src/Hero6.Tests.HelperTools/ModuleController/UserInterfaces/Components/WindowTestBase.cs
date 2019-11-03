@@ -8,10 +8,10 @@ using NSubstitute;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
 {
-    public abstract class WindowTestBase<TModule> : ModuleControllerTestBase<TModule, WindowController>
+    public abstract class WindowTestBase<TModule> : ModuleControllerTestBase<TModule, IWindowController>
         where TModule : WindowModule
     {
-        protected override WindowController MakeController() => Substitute.For<WindowController>(Module, Services.Services);
+        protected override IWindowController MakeController() => Substitute.For<IWindowController>();
 
         protected override void PreInitialize()
         {

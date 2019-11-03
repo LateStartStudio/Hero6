@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Input.Mouse
 {
-    public class MonoGameCursorController : CursorController, IXnaGameLoop
+    public class MonoGameCursorController : CursorController
     {
         private readonly ContentManager content;
         private readonly SpriteBatch spriteBatch;
@@ -32,22 +32,18 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Input.Mouse
 
         public override int Height => cursor.Height;
 
-        void IXnaGameLoop.Initialize()
+        public override void Load() => cursor = content.Load<Texture2D>(Module.Source);
+
+        public override void Unload()
         {
         }
 
-        public void Load() => cursor = content.Load<Texture2D>(Module.Source);
-
-        public void Unload()
-        {
-        }
-
-        public void Update(GameTime time)
+        public override void Update(GameTime time)
         {
             X = mouse.X;
             Y = mouse.Y;
         }
 
-        public void Draw(GameTime time) => spriteBatch.Draw(cursor, new Vector2(X, Y), Color.White);
+        public override void Draw(GameTime time) => spriteBatch.Draw(cursor, new Vector2(X, Y), Color.White);
     }
 }

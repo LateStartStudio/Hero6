@@ -7,6 +7,7 @@
 using System;
 using LateStartStudio.Hero6.Services.Campaigns;
 using LateStartStudio.Hero6.Services.DependencyInjection;
+using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters.Stats
 {
@@ -59,6 +60,22 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters.Stats
             var newBuffer = Buffer + factor;
             var statCap = campaigns.Current.StatCap;
             Buffer = TriangularReverse(newBuffer) >= statCap ? Triangular(statCap) : newBuffer;
+        }
+
+        public override void Load()
+        {
+        }
+
+        public override void Unload()
+        {
+        }
+
+        public override void Update(GameTime time)
+        {
+        }
+
+        public override void Draw(GameTime time)
+        {
         }
 
         /// <summary>

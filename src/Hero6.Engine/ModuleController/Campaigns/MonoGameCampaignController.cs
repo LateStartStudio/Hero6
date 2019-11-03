@@ -21,7 +21,7 @@ using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.ModuleController.Campaigns
 {
-    public class MonoGameCampaignController : CampaignController, IXnaGameLoop
+    public class MonoGameCampaignController : CampaignController
     {
         private readonly IServiceLocator services;
 
@@ -68,7 +68,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns
 
         public override RoomController GetRoom<T>() => Rooms[typeof(T)];
 
-        void IXnaGameLoop.Initialize()
+        public override void Initialize()
         {
             FindModules<AnimationModule>().ForEach(a => Animations.Add(a, new MonoGameAnimationController(services.Make<AnimationModule>(a), services)));
             FindModules<CharacterAnimationModule>().ForEach(a => CharacterAnimations.Add(a, new MonoGameCharacterAnimationController(services.Make<CharacterAnimationModule>(a), services)));
@@ -91,9 +91,11 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns
             Items.Values.Select(i => i as IXnaGameLoop).ForEach(i => i.Initialize());
             InventoryItems.Values.Select(i => i as IXnaGameLoop).ForEach(i => i.Initialize());
             Rooms.Values.Select(r => r as IXnaGameLoop).ForEach(r => r.Initialize());
+
+            base.Initialize();
         }
 
-        public void Load()
+        public override void Load()
         {
             Animations.Values.ForEach(a => a.Load());
             CharacterAnimations.Values.ForEach(c => c.Load());
@@ -101,10 +103,9 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns
             Items.Values.ForEach(i => i.Load());
             InventoryItems.Values.ForEach(i => i.Load());
             Rooms.Values.ForEach(r => r.Load());
-            Initialize();
         }
 
-        public void Unload()
+        public override void Unload()
         {
             Animations.Values.ForEach(a => a.Unload());
             CharacterAnimations.Values.ForEach(c => c.Unload());
@@ -114,13 +115,13 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns
             InventoryItems.Values.ForEach(i => i.Unload());
         }
 
-        public void Update(GameTime time)
+        public override void Update(GameTime time)
         {
             currentRoom = Rooms.Values.Single(r => r.Characters.Any(c => c.IsPlayer));
             currentRoom.Update(time);
         }
 
-        public void Draw(GameTime time)
+        public override void Draw(GameTime time)
         {
             currentRoom.Draw(time);
         }

@@ -14,7 +14,7 @@ using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
 {
-    public class MonoGameStackPanelController : StackPanelController, IXnaGameLoop
+    public class MonoGameStackPanelController : StackPanelController
     {
         private readonly IControllerRepository controllerRepository;
         private readonly List<IComponent> children = new List<IComponent>();
@@ -69,19 +69,13 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
 
         public override void Add(IComponent child) => children.Add(child);
 
-        void IXnaGameLoop.Initialize()
-        {
-            PreInitialize();
-            Initialize();
-        }
-
-        public void Load()
+        public override void Load()
         {
         }
 
-        public void Unload() => ChildrenToLoop.ForEach(c => c.ToXnaGameLoop().Unload());
+        public override void Unload() => ChildrenToLoop.ForEach(c => c.ToXnaGameLoop().Unload());
 
-        public void Update(GameTime time)
+        public override void Update(GameTime time)
         {
             // This is a hacky workaround that needs to be fixed if you didnt notice ಠ_ಠ
             if (!childrenLoadedHack)
@@ -99,7 +93,7 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
             });
         }
 
-        public void Draw(GameTime time)
+        public override void Draw(GameTime time)
         {
             if (IsVisible)
             {

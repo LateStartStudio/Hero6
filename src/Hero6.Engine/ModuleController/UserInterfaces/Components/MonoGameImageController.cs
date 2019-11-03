@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
 {
-    public class MonoGameImageController : ImageController, IXnaGameLoop
+    public class MonoGameImageController : ImageController
     {
         private readonly ContentManager content;
         private readonly SpriteBatch spriteBatch;
@@ -43,21 +43,17 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
 
         public override int Height => image?.Height ?? 0;
 
-        void IXnaGameLoop.Initialize()
+        public override void Load() => image = content.Load<Texture2D>(Source);
+
+        public override void Unload()
         {
         }
 
-        public void Load() => image = content.Load<Texture2D>(Source);
-
-        public void Unload()
+        public override void Update(GameTime time)
         {
         }
 
-        public void Update(GameTime time)
-        {
-        }
-
-        public void Draw(GameTime time)
+        public override void Draw(GameTime time)
         {
             if (IsVisible)
             {

@@ -8,8 +8,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using LateStartStudio.Hero6.Attributes;
+using LateStartStudio.Hero6.MonoGame.GameLoop;
 using LateStartStudio.Hero6.Services.DependencyInjection;
 using LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse;
+using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.ModuleController
 {
@@ -19,7 +21,7 @@ namespace LateStartStudio.Hero6.ModuleController
     /// </summary>
     /// <typeparam name="TController">The controller that corresponds to the module.</typeparam>
     /// <typeparam name="TModule">The module that corresponds to the controller.</typeparam>
-    public abstract class Controller<TController, TModule> : IController
+    public abstract class Controller<TController, TModule> : IController, IXnaGameLoop
         where TController : IController
         where TModule : IModule
     {
@@ -89,7 +91,17 @@ namespace LateStartStudio.Hero6.ModuleController
         /// <summary>
         /// Initialize event in the controller-module lifecycle.
         /// </summary>
-        public void Initialize() => Module.Initialize();
+        public virtual void Initialize() => Module.Initialize();
+
+        void IXnaGameLoop.Initialize() => Initialize();
+
+        public abstract void Load();
+
+        public abstract void Unload();
+
+        public abstract void Update(GameTime time);
+
+        public abstract void Draw(GameTime time);
 
         /// <summary>
         /// Checks if the coordinates intersects with this controller.

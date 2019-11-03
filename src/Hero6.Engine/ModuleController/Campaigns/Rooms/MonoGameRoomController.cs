@@ -19,7 +19,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms
 {
-    public class MonoGameRoomController : RoomController, IXnaGameLoop
+    public class MonoGameRoomController : RoomController
     {
         private readonly ICampaigns campaigns;
         private readonly ContentManager content;
@@ -102,21 +102,23 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms
             return false;
         }
 
-        void IXnaGameLoop.Initialize() => PreInitialize();
-
-        public void Load()
+        public override void Initialize()
         {
-            background = content.Load<Texture2D>(Module.Background);
             walkAreas.PreInitialize();
-            walkAreas.Initialize();
-            walkAreas.Load();
             hotspots.PreInitialize();
+            walkAreas.Initialize();
             hotspots.Initialize();
-            hotspots.Load();
-            Initialize();
         }
 
-        public void Unload()
+        public override void Load()
+        {
+            background = content.Load<Texture2D>(Module.Background);
+            walkAreas.Load();
+            hotspots.Load();
+            base.Initialize(); // Run base initialize here so it doesn't crash referencing room regions
+        }
+
+        public override void Unload()
         {
             characters.ForEach(c => c.Unload());
             items.ForEach(i => i.Unload());
@@ -124,9 +126,9 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms
             hotspots.Unload();
         }
 
-        public void Update(GameTime time)
+        public override void Update(GameTime time)
         {
-            foreach (var c in characters.ToList())
+            foreach (var c in characters.ToArray())
             {
                 c.Update(time);
                 hotspots.StandingOn(c);
@@ -139,7 +141,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms
             position.Y = Y;
         }
 
-        public void Draw(GameTime time)
+        public override void Draw(GameTime time)
         {
             if (Module.IsVisible)
             {

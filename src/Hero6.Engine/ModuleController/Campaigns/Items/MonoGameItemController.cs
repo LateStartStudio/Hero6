@@ -5,7 +5,6 @@
 // </copyright>
 
 using LateStartStudio.Hero6.ModuleController.Campaigns.Items;
-using LateStartStudio.Hero6.MonoGame.GameLoop;
 using LateStartStudio.Hero6.Services.DependencyInjection;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -13,7 +12,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters.Items
 {
-    public class MonoGameItemController : ItemController, IXnaGameLoop
+    public class MonoGameItemController : ItemController
     {
         private readonly ContentManager content;
         private readonly SpriteBatch spriteBatch;
@@ -58,27 +57,22 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters.Items
             return false;
         }
 
-        void IXnaGameLoop.Initialize()
-        {
-        }
-
-        public void Load()
+        public override void Load()
         {
             sprite = content.Load<Texture2D>(Module.Sprite);
-            Initialize();
         }
 
-        public void Unload()
+        public override void Unload()
         {
         }
 
-        public void Update(GameTime time)
+        public override void Update(GameTime time)
         {
             position.X = X;
             position.Y = Y;
         }
 
-        public void Draw(GameTime time)
+        public override void Draw(GameTime time)
         {
             if (Module.IsVisible)
             {

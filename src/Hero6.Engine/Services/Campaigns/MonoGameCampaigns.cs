@@ -40,7 +40,7 @@ namespace LateStartStudio.Hero6.Services.Campaigns
         public void Initialize()
         {
             CurrentController = campaigns[0];
-            ((IXnaGameLoop)CurrentController).Initialize();
+            CurrentController.Initialize();
         }
 
         public void Load() => CurrentController.Load();

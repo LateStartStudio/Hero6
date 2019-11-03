@@ -9,10 +9,10 @@ using NSubstitute;
 
 namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms
 {
-    public abstract class RoomTestBase<TModule> : ModuleControllerTestBase<TModule, RoomController>
-        where TModule : RoomModule
+    public abstract class RoomTestBase<TModule> : ModuleControllerTestBase<TModule, IRoomController>
+        where TModule : IRoomModule
     {
-        protected override RoomController MakeController()
+        protected override IRoomController MakeController()
         {
             var controller = Substitute.For<RoomController>(Module, Services.Services);
             var hotspotsController = Substitute.For<HotspotsController>(Services.Services);
