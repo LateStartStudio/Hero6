@@ -5,37 +5,96 @@
 // </copyright>
 
 using System;
+using LateStartStudio.Hero6.Services.Campaigns;
 using LateStartStudio.Hero6.Services.DependencyInjection;
+using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters.Stats
 {
     /// <summary>
     /// Stat that has to be learned and trained.
     /// </summary>
-    public abstract class LearningStatController : GameController<ILearningStatController, ILearningStatModule>, ILearningStatController
+    public class LearningStatController : GameController<ILearningStatController, ILearningStatModule>, ILearningStatController
     {
+        private readonly ICampaigns campaigns;
+
+        private int buffer;
+
         /// <summary>
         /// Makes a new instance of the <see cref="LearningStatController"/> class.
         /// </summary>
-        protected LearningStatController(IServiceLocator services)
+        public LearningStatController(IServiceLocator services)
             : base(new LearningStatModule(), services)
+        {
+            campaigns = services.Get<ICampaigns>();
+        }
+
+        public event EventHandler<EventArgs> Change;
+
+        public override int Width { get; }
+
+        public override int Height { get; }
+
+        public int Current => TriangularReverse(Buffer);
+
+        private int Buffer
+        {
+            get
+            {
+                return buffer;
+            }
+
+            set
+            {
+                var oldStat = Current;
+                buffer = value;
+                var newStat = Current;
+
+                if (oldStat != newStat)
+                {
+                    Change?.Invoke(this, EventArgs.Empty);
+                }
+            }
+        }
+
+        public override bool Interact(int x, int y, Interaction interaction)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Train(int factor)
+        {
+            var newBuffer = Buffer + factor;
+            var statCap = campaigns.Current.StatCap;
+            Buffer = TriangularReverse(newBuffer) >= statCap ? Triangular(statCap) : newBuffer;
+        }
+
+        public override void Load()
+        {
+        }
+
+        public override void Unload()
+        {
+        }
+
+        public override void Update(GameTime time)
+        {
+        }
+
+        public override void Draw(GameTime time)
         {
         }
 
         /// <summary>
-        /// Invoked when <see cref="Current"/> has changed.
+        /// https://en.wikipedia.org/wiki/Triangular_number.
         /// </summary>
-        public abstract event EventHandler<EventArgs> Change;
+        /// <returns></returns>
+        private static int Triangular(int n) => (n * (n + 1)) / 2;
 
         /// <summary>
-        /// Gets the current stat.
+        /// https://en.wikipedia.org/wiki/Triangular_number.
         /// </summary>
-        public abstract int Current { get; }
-
-        /// <summary>
-        /// Trains the current stat. The formula/algorithm to how it is trained depends on implementation.
-        /// </summary>
-        /// <param name="factor">The factor for how it should be trained.</param>
-        public abstract void Train(int factor);
+        /// <returns></returns>
+        private int TriangularReverse(int n) => (int)(Math.Sqrt((8.0 + n) + 1.0) / 2.0);
     }
 }

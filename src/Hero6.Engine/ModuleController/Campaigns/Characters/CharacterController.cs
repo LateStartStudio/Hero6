@@ -5,114 +5,213 @@
 // </copyright>
 
 using System.Collections.Generic;
+using System.Linq;
+using LateStartStudio.Hero6.Extensions;
 using LateStartStudio.Hero6.ModuleController.Campaigns.Animations;
 using LateStartStudio.Hero6.ModuleController.Campaigns.Characters.Stats;
 using LateStartStudio.Hero6.ModuleController.Campaigns.InventoryItems;
 using LateStartStudio.Hero6.ModuleController.Campaigns.Rooms;
+using LateStartStudio.Hero6.ModuleController.Campaigns.Rooms.Regions;
+using LateStartStudio.Hero6.Services.Campaigns;
 using LateStartStudio.Hero6.Services.DependencyInjection;
+using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters
 {
     /// <summary>
     /// API for the character controller.
     /// </summary>
-    public abstract class CharacterController : GameController<ICharacterController, ICharacterModule>, ICharacterController
+    public class CharacterController : GameController<ICharacterController, ICharacterModule>, ICharacterController
     {
+        private readonly ICampaigns campaigns;
+        private readonly StatsController stats;
+        private readonly List<InventoryItemController> inventory = new List<InventoryItemController>();
+        private readonly Queue<Point> path = new Queue<Point>();
+
+        private double pixelsToMove;
+        private CharacterAnimationController currentAnimation;
+        private CharacterAnimationController idleAnimation;
+        private CharacterAnimationController moveAnimation;
+
         /// <summary>
         /// Makes a new instance of the <see cref="CharacterController"/> class.
         /// </summary>
         /// <param name="module">The module corresponding to this character.</param>
-        protected CharacterController(ICharacterModule module, IServiceLocator services)
+        public CharacterController(ICharacterModule module, IServiceLocator services)
             : base(module, services)
+        {
+            campaigns = services.Get<ICampaigns>();
+            stats = new StatsController(services);
+        }
+
+        public override int Width => currentAnimation?.Width ?? 0;
+
+        public override int Height => currentAnimation?.Height ?? 0;
+
+        public bool IsPlayer => campaigns.Current.Player == Module;
+
+        public int Speed { get; set; } = 60;
+
+        public IRoomController Room
+        {
+            get
+            {
+                return campaigns.AsMonoGame().CurrentController.Rooms.Values.Single(r => r.Characters.Contains(this));
+            }
+        }
+
+        public IStatsController Stats => stats;
+
+        public ICharacterAnimationController IdleAnimation
+        {
+            get { return idleAnimation; }
+            set { idleAnimation = campaigns.AsMonoGame().CurrentController.CharacterAnimations[value.Module.GetType()]; }
+        }
+
+        public ICharacterAnimationController MoveAnimation
+        {
+            get { return moveAnimation; }
+            set { moveAnimation = campaigns.AsMonoGame().CurrentController.CharacterAnimations[value.Module.GetType()]; }
+        }
+
+        public IEnumerable<IInventoryItemController> Inventory => inventory;
+
+        public void AddInventoryItem<T>() where T : IInventoryItemModule
+        {
+            inventory.Add(campaigns.AsMonoGame().CurrentController.InventoryItems[typeof(T)]);
+        }
+
+        public void RemoveInventoryItem<T>() where T : IInventoryItemModule
+        {
+            inventory.Remove(campaigns.AsMonoGame().CurrentController.InventoryItems[typeof(T)]);
+        }
+
+        public bool HasInventoryItem<T>() where T : IInventoryItemModule
+        {
+            return inventory.Contains(campaigns.AsMonoGame().CurrentController.InventoryItems[typeof(T)]);
+        }
+
+        public void Walk(int x, int y)
+        {
+            var from = new Point(X, Y);
+            var to = new Point(x, y);
+            var newPath = ((WalkAreasController)Room.WalkAreas).GetPath(from, to);
+
+            if (newPath == null)
+            {
+                return;
+            }
+
+            path.Clear();
+            newPath.ForEach(p => path.Enqueue(p));
+            path.Dequeue(); // First is where we're already standing so discard
+        }
+
+        public void Face(CharacterDirection direction)
+        {
+            if (idleAnimation != null)
+            {
+                idleAnimation.Direction = direction;
+            }
+
+            if (moveAnimation != null)
+            {
+                moveAnimation.Direction = direction;
+            }
+        }
+
+        public void Face(int locationX, int locationY)
+        {
+            var from = new Point(X, Y);
+            var to = new Point(locationX, locationY);
+            var direction = to - from;
+            Face(direction.ToVector2().ToCharacterDirection());
+        }
+
+        public void ChangeRoom<T>(int x = 0, int y = 0, CharacterDirection direction = CharacterDirection.CenterDown) where T : IRoomModule
+        {
+            path.Clear();
+            X = x;
+            Y = y;
+            Face(direction);
+            Room.RemoveCharacter(Module);
+            campaigns.AsMonoGame().CurrentController.Rooms[typeof(T)].AddCharacter(this);
+        }
+
+        public void SetAsPlayer() => campaigns.Current.Player = Module;
+
+        public override bool Interact(int x, int y, Interaction interaction)
+        {
+            if (currentAnimation.Interact(x, y, interaction))
+            {
+                switch (interaction)
+                {
+                    case Interaction.Eye:
+                        Module.Look?.Invoke();
+                        break;
+                    case Interaction.Mouth:
+                        Module.Talk?.Invoke();
+                        break;
+                    case Interaction.Hand:
+                        Module.Grab?.Invoke();
+                        break;
+                    case Interaction.Move:
+                    default:
+                        return false;
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public override void Load()
         {
         }
 
-        /// <summary>
-        /// Gets a value indicating whether this character is the player character or not.
-        /// </summary>
-        public abstract bool IsPlayer { get; }
+        public override void Unload()
+        {
+        }
 
-        /// <summary>
-        /// Gets or sets a value indicating the movement speed of this character.
-        /// </summary>
-        public abstract int Speed { get; set; }
+        public override void Update(GameTime time)
+        {
+            Move(time);
+            currentAnimation = path.Count > 0 ? moveAnimation : idleAnimation;
+            currentAnimation.X = X;
+            currentAnimation.Y = Y;
+            currentAnimation.Update(time);
+        }
 
-        /// <summary>
-        /// Gets the room this character is in.
-        /// </summary>
-        public abstract IRoomController Room { get; }
+        public override void Draw(GameTime time)
+        {
+            currentAnimation.Draw(time);
+        }
 
-        /// <summary>
-        /// Gets the stats for this character.
-        /// </summary>
-        public abstract IStatsController Stats { get; }
+        private void Move(GameTime time)
+        {
+            if (path.Count == 0)
+            {
+                return;
+            }
 
-        /// <summary>
-        /// Gets or sets the idle animation of this character.
-        /// </summary>
-        public abstract ICharacterAnimationController IdleAnimation { get; set; }
+            pixelsToMove += Speed * time.ElapsedGameTime.TotalSeconds;
+            var pixelsToMoveFloor = (int)pixelsToMove;
+            pixelsToMove -= pixelsToMoveFloor;
 
-        /// <summary>
-        /// Gets or sets the movement animation of this character.
-        /// </summary>
-        public abstract ICharacterAnimationController MoveAnimation { get; set; }
+            for (var i = 0; i < pixelsToMoveFloor; i++)
+            {
+                var newLocation = path.Dequeue();
+                Face(newLocation.X, newLocation.Y);
+                X = newLocation.X;
+                Y = newLocation.Y;
 
-        /// <summary>
-        /// Gets the inventory of this character.
-        /// </summary>
-        public abstract IEnumerable<IInventoryItemController> Inventory { get; }
-
-        /// <summary>
-        /// Adds inventory item to this character's inventory.
-        /// </summary>
-        /// <typeparam name="T">The inventory item.</typeparam>
-        public abstract void AddInventoryItem<T>() where T : IInventoryItemModule;
-
-        /// <summary>
-        /// Removes inventory item to this character's inventory.
-        /// </summary>
-        /// <typeparam name="T">the inventory item.</typeparam>
-        public abstract void RemoveInventoryItem<T>() where T : IInventoryItemModule;
-
-        /// <summary>
-        /// Checks if the character has inventory item.
-        /// </summary>
-        /// <typeparam name="T">The inventory item.</typeparam>
-        /// <returns>True if the character has the inventory item. False if not.</returns>
-        public abstract bool HasInventoryItem<T>() where T : IInventoryItemModule;
-
-        /// <summary>
-        /// Make the character walk to the input coordinates.
-        /// </summary>
-        /// <param name="x">The x coordinate to walk to.</param>
-        /// <param name="y">The y coordinate to walk to.</param>
-        public abstract void Walk(int x, int y);
-
-        /// <summary>
-        /// Face towards the specified direciton.
-        /// </summary>
-        /// <param name="direction">The direction to face.</param>
-        public abstract void Face(CharacterDirection direction);
-
-        /// <summary>
-        /// Face towards the coordinate.
-        /// </summary>
-        /// <param name="locationX">The x coordinate to face.</param>
-        /// <param name="locationY">The y coordiante to face.</param>
-        public abstract void Face(int locationX, int locationY);
-
-        /// <summary>
-        /// Change the room for this character.
-        /// </summary>
-        /// <typeparam name="T">The room.</typeparam>
-        /// <param name="x">The x coordinate the character should spawn on.</param>
-        /// <param name="y">The y coordinate the character should spawn on.</param>
-        /// <param name="direction">The direction the character should be facing on spwan.</param>
-        public abstract void ChangeRoom<T>(int x = 0, int y = 0, CharacterDirection direction = CharacterDirection.CenterDown) where T : IRoomModule;
-
-        /// <summary>
-        /// Set this character as the player character of the campaign.
-        /// </summary>
-        public abstract void SetAsPlayer();
+                if (path.Count == 0)
+                {
+                    pixelsToMove = 0.0;
+                    break;
+                }
+            }
+        }
     }
 }
