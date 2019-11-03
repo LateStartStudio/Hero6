@@ -16,7 +16,7 @@ namespace LateStartStudio.Hero6.Services.Campaigns
     public class MonoGameCampaigns : ICampaigns, IXnaGameLoop
     {
         private readonly IServiceLocator services;
-        private readonly IList<MonoGameCampaignController> campaigns = new List<MonoGameCampaignController>();
+        private readonly IList<CampaignController> campaigns = new List<CampaignController>();
 
         public MonoGameCampaigns(IServiceLocator services)
         {
@@ -31,9 +31,9 @@ namespace LateStartStudio.Hero6.Services.Campaigns
             set { CurrentController = campaigns.First(c => c.Module == value); }
         }
 
-        public MonoGameCampaignController CurrentController { get; set; }
+        public CampaignController CurrentController { get; set; }
 
-        public void Add<T>() where T : ICampaignModule => campaigns.Add(new MonoGameCampaignController(services.Make<T>(), services));
+        public void Add<T>() where T : ICampaignModule => campaigns.Add(new CampaignController(services.Make<T>(), services));
 
         public bool Interact(int x, int y, Interaction interaction) => CurrentController.Interact(x, y, interaction);
 

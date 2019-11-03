@@ -5,36 +5,73 @@
 // </copyright>
 
 using System;
+using LateStartStudio.Hero6.Services.Campaigns;
 using LateStartStudio.Hero6.Services.DependencyInjection;
+using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters.Stats
 {
     /// <summary>
     /// API for get-set stat controller.
     /// </summary>
-    public abstract class StatController : GameController<IStatController, IStatModule>, IStatController
+    public class StatController : GameController<IStatController, IStatModule>, IStatController
     {
+        private readonly ICampaigns campaigns;
+        private readonly Func<int> max;
+
+        private int current;
+
         /// <summary>
         /// Makes a new instance of the <see cref="StatController"/>.
         /// </summary>
-        protected StatController(IServiceLocator services)
+        public StatController(IServiceLocator services, Func<int> max)
             : base(new StatModule(), services)
+        {
+            campaigns = services.Get<ICampaigns>();
+            this.max = max;
+        }
+
+        public event EventHandler<EventArgs> Change;
+
+        public override int Width { get; }
+
+        public override int Height { get; }
+
+        public int Current
+        {
+            get
+            {
+                return current;
+            }
+
+            set
+            {
+                current = value > campaigns.Current.StatCap ? campaigns.Current.StatCap : value;
+                Change?.Invoke(this, EventArgs.Empty);
+            }
+        }
+
+        public int Max => max();
+
+        public override bool Interact(int x, int y, Interaction interaction)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void Load()
         {
         }
 
-        /// <summary>
-        /// <see cref="Change"/> event is onvoked when <see cref="Current"/> changes.
-        /// </summary>
-        public abstract event EventHandler<EventArgs> Change;
+        public override void Unload()
+        {
+        }
 
-        /// <summary>
-        /// Gets or sets the current stat.
-        /// </summary>
-        public abstract int Current { get; set; }
+        public override void Update(GameTime time)
+        {
+        }
 
-        /// <summary>
-        /// Gets he max stat that <see cref="Current"/> shouldn't exceed.
-        /// </summary>
-        public abstract int Max { get; }
+        public override void Draw(GameTime time)
+        {
+        }
     }
 }

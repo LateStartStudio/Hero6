@@ -11,6 +11,6 @@ namespace LateStartStudio.Hero6.Extensions
 {
     public static class MouseCursorExtensions
     {
-        public static IXnaGameLoop AsXnaGameLoop(this ICursorModule cursor) => (MonoGameCursorController)((CursorModule)cursor).Controller;
+        public static IXnaGameLoop AsXnaGameLoop(this ICursorModule cursor) => (CursorController)((CursorModule)cursor).Controller;
     }
 }

@@ -16,9 +16,9 @@ namespace LateStartStudio.Hero6.Services.UserInterfaces
     public class MonoGameUserInterfaces : IUserInterfaces, IXnaGameLoop
     {
         private readonly IServiceLocator services;
-        private readonly List<MonoGameUserInterfaceController> userInterfaces = new List<MonoGameUserInterfaceController>();
+        private readonly List<UserInterfaceController> userInterfaces = new List<UserInterfaceController>();
 
-        private MonoGameUserInterfaceController current;
+        private UserInterfaceController current;
 
         public MonoGameUserInterfaces(IServiceLocator services)
         {
@@ -33,12 +33,12 @@ namespace LateStartStudio.Hero6.Services.UserInterfaces
             set { current = userInterfaces.Find(u => u.Module == value); }
         }
 
-        public void Add<T>() where T : IUserInterfaceModule => userInterfaces.Add(new MonoGameUserInterfaceController(services.Make<T>(), services));
+        public void Add<T>() where T : IUserInterfaceModule => userInterfaces.Add(new UserInterfaceController(services.Make<T>(), services));
 
         public void Initialize()
         {
             current = userInterfaces[0];
-            ((IXnaGameLoop)current).Initialize();
+            current.Initialize();
         }
 
         public void Load() => current.Load();
