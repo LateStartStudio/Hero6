@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
 {
-    public class MonoGameWindowController : WindowController, IXnaGameLoop
+    public class MonoGameWindowController : WindowController
     {
         private readonly IServiceLocator services;
         private readonly IControllerRepository controllerRepository;
@@ -110,30 +110,23 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
             return label;
         }
 
-        void IXnaGameLoop.Initialize()
-        {
-            var test = Module;
-            PreInitialize();
-            Initialize();
-        }
-
-        public void Load()
+        public override void Load()
         {
             background = new Texture2D(graphicsDeviceManager.GraphicsDevice, 1, 1);
             background.SetData(new[] { Module.Background.ToMonoGame() });
         }
 
-        public void Unload()
+        public override void Unload()
         {
         }
 
-        public void Update(GameTime time)
+        public override void Update(GameTime time)
         {
             ChildToController.ToXnaGameLoop().Update(time);
             destination = new Rectangle(X, Y, Width, Height);
         }
 
-        public void Draw(GameTime time)
+        public override void Draw(GameTime time)
         {
             if (IsVisible)
             {

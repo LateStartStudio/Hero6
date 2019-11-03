@@ -13,14 +13,13 @@ using LateStartStudio.Hero6.ModuleController.Campaigns.Characters.Stats;
 using LateStartStudio.Hero6.ModuleController.Campaigns.InventoryItems;
 using LateStartStudio.Hero6.ModuleController.Campaigns.Rooms;
 using LateStartStudio.Hero6.ModuleController.Campaigns.Rooms.Regions;
-using LateStartStudio.Hero6.MonoGame.GameLoop;
 using LateStartStudio.Hero6.Services.Campaigns;
 using LateStartStudio.Hero6.Services.DependencyInjection;
 using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters
 {
-    public class MonoGameCharacterController : CharacterController, IXnaGameLoop
+    public class MonoGameCharacterController : CharacterController
     {
         private readonly ICampaigns campaigns;
         private readonly MonoGameStatsController stats;
@@ -161,20 +160,15 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters
             return false;
         }
 
-        void IXnaGameLoop.Initialize()
+        public override void Load()
         {
         }
 
-        public void Load()
-        {
-            Initialize();
-        }
-
-        public void Unload()
+        public override void Unload()
         {
         }
 
-        public void Update(GameTime time)
+        public override void Update(GameTime time)
         {
             Move(time);
             currentAnimation = path.Count > 0 ? moveAnimation : idleAnimation;
@@ -183,7 +177,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters
             currentAnimation.Update(time);
         }
 
-        public void Draw(GameTime time)
+        public override void Draw(GameTime time)
         {
             currentAnimation.Draw(time);
         }

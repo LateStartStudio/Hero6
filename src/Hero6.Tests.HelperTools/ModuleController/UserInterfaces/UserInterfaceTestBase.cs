@@ -8,9 +8,9 @@ using NSubstitute;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
 {
-    public abstract class UserInterfaceTestBase<TModule> : ModuleControllerTestBase<TModule, UserInterfaceController>
+    public abstract class UserInterfaceTestBase<TModule> : ModuleControllerTestBase<TModule, IUserInterfaceController>
         where TModule : UserInterfaceModule
     {
-        protected override UserInterfaceController MakeController() => Substitute.For<UserInterfaceController>(Module, Services.Services);
+        protected override IUserInterfaceController MakeController() => Substitute.For<IUserInterfaceController>();
     }
 }

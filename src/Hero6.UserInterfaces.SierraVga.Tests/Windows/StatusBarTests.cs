@@ -4,6 +4,7 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
 using LateStartStudio.Hero6.ModuleController.UserInterfaces.Components;
 using LateStartStudio.Hero6.ModuleController.UserInterfaces.Input.Mouse;
 using LateStartStudio.Hero6.Tests.Categories;
@@ -22,14 +23,14 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
         public void OnMouseEnterDoesNothingIfAnyDialogIsVisible()
         {
             Services.GameSettings.IsPaused.Returns(true);
-            Controller.InvokeMouseEnter();
+            Module.MouseEnter += Raise.EventWith(Module, EventArgs.Empty);
             Assert.That(Module.IsVisible, Is.True);
         }
 
         [Test]
         public void HideStatusBarOnMouseEnter()
         {
-            Controller.InvokeMouseEnter();
+            Module.MouseEnter += Raise.EventWith(Module, EventArgs.Empty);
             Assert.That(Module.IsVisible, Is.False);
         }
 
@@ -38,7 +39,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
         {
             var verbBar = Services.UserInterfaces.Current.GetWindow<VerbBar>();
             verbBar.IsVisible = false;
-            Controller.InvokeMouseEnter();
+            Module.MouseEnter += Raise.EventWith(Module, EventArgs.Empty);
             Assert.That(verbBar.IsVisible, Is.True);
         }
 
@@ -47,14 +48,14 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
         {
             var expected = Substitute.For<ICursorModule>();
             Services.UserInterfaces.Current.GetCursor<Arrow>().Returns(expected);
-            Controller.InvokeMouseEnter();
+            Module.MouseEnter += Raise.EventWith(Module, EventArgs.Empty);
             Services.Mouse.Received().Cursor = expected;
         }
 
         [Test]
         public void SaveCursorOnMouseEnter()
         {
-            Controller.InvokeMouseEnter();
+            Module.MouseEnter += Raise.EventWith(Module, EventArgs.Empty);
             Services.Mouse.Received().SaveCursor();
         }
 

@@ -7,14 +7,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using LateStartStudio.Hero6.Extensions;
-using LateStartStudio.Hero6.MonoGame.GameLoop;
 using LateStartStudio.Hero6.Services.DependencyInjection;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
 namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms.Regions
 {
-    public class MonoGameWalkAreasController : WalkAreasController, IXnaGameLoop
+    public class MonoGameWalkAreasController : WalkAreasController
     {
         private readonly string source;
         private readonly ContentManager content;
@@ -35,25 +34,20 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms.Regions
             throw new System.NotImplementedException("Walk areas are invisible to the user and should not be interacted with");
         }
 
-        void IXnaGameLoop.Initialize()
-        {
-        }
-
-        public void Load()
+        public override void Load()
         {
             walkAreas.AddRange(content.Load<List<WalkArea>>(source));
-            Initialize();
         }
 
-        public void Unload()
+        public override void Unload()
         {
         }
 
-        public void Update(GameTime time)
+        public override void Update(GameTime time)
         {
         }
 
-        public void Draw(GameTime time)
+        public override void Draw(GameTime time)
         {
         }
 

@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters.InventoryItems
 {
-    public class MonoGameInventoryItemController : InventoryItemController, IXnaGameLoop
+    public class MonoGameInventoryItemController : InventoryItemController
     {
         public MonoGameInventoryItemController(IInventoryItemModule module, IServiceLocator services)
             : base(module, services)
@@ -27,24 +27,19 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters.InventoryI
             throw new System.NotImplementedException();
         }
 
-        void IXnaGameLoop.Initialize()
+        public override void Load()
         {
         }
 
-        public void Load()
-        {
-            Initialize();
-        }
-
-        public void Unload()
+        public override void Unload()
         {
         }
 
-        public void Update(GameTime time)
+        public override void Update(GameTime time)
         {
         }
 
-        public void Draw(GameTime time)
+        public override void Draw(GameTime time)
         {
         }
     }

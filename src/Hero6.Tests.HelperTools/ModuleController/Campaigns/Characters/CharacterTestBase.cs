@@ -8,9 +8,9 @@ using NSubstitute;
 
 namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters
 {
-    public abstract class CharacterTestBase<TModule> : ModuleControllerTestBase<TModule, CharacterController>
+    public abstract class CharacterTestBase<TModule> : ModuleControllerTestBase<TModule, ICharacterController>
         where TModule : CharacterModule
     {
-        protected override CharacterController MakeController() => Substitute.For<CharacterController>(Module, Services.Services);
+        protected override ICharacterController MakeController() => Substitute.For<ICharacterController>();
     }
 }

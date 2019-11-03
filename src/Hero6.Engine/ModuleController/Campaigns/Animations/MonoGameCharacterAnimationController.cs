@@ -7,14 +7,13 @@
 using System;
 using LateStartStudio.Hero6.Extensions;
 using LateStartStudio.Hero6.ModuleController.Campaigns.Characters;
-using LateStartStudio.Hero6.MonoGame.GameLoop;
 using LateStartStudio.Hero6.Services.Campaigns;
 using LateStartStudio.Hero6.Services.DependencyInjection;
 using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.ModuleController.Campaigns.Animations
 {
-    public class MonoGameCharacterAnimationController : CharacterAnimationController, IXnaGameLoop
+    public class MonoGameCharacterAnimationController : CharacterAnimationController
     {
         private readonly ICampaigns campaigns;
 
@@ -132,27 +131,22 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Animations
 
         public override bool Interact(int x, int y, Interaction interaction) => current.Interact(x, y, interaction);
 
-        void IXnaGameLoop.Initialize()
+        public override void Load()
         {
         }
 
-        public void Load()
-        {
-            Initialize();
-        }
-
-        public void Unload()
+        public override void Unload()
         {
         }
 
-        public void Update(GameTime time)
+        public override void Update(GameTime time)
         {
             current.X = X;
             current.Y = Y;
             current.Update(time);
         }
 
-        public void Draw(GameTime time)
+        public override void Draw(GameTime time)
         {
             current.Draw(time);
         }

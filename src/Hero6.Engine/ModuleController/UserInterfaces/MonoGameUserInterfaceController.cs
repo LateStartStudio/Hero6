@@ -18,7 +18,7 @@ using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
 {
-    public class MonoGameUserInterfaceController : UserInterfaceController, IXnaGameLoop
+    public class MonoGameUserInterfaceController : UserInterfaceController
     {
         private readonly IServiceLocator services;
         private readonly IMouse mouse;
@@ -45,10 +45,9 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
 
         public override ICursorController GetCursor<T>() => CursorsAsDict[typeof(T)];
 
-        void IXnaGameLoop.Initialize()
+        public override void Initialize()
         {
             PreInitialize();
-            var test = FindModules<WindowModule>().ToArray();
             FindModules<WindowModule>().ForEach(w => WindowsAsDict.Add(w, new MonoGameWindowController(services.Make<WindowModule>(w), services)));
             FindModules<CursorModule>().ForEach(c => CursorsAsDict.Add(c, new MonoGameCursorController(services.Make<CursorModule>(c), services)));
             controllerRepository.Controllers.ForEach(c => c.ToXnaGameLoop().Initialize());
@@ -56,11 +55,11 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
             CursorsAsDict.Values.ForEach(c => c.PreInitialize());
             WindowsAsDict.Values.ForEach(w => ((IXnaGameLoop)w).Initialize());
             CursorsAsDict.Values.ForEach(c => ((IXnaGameLoop)c).Initialize());
-            Initialize();
+            base.Initialize();
             mouse.AsXnaGameLoop()?.Initialize();
         }
 
-        public void Load()
+        public override void Load()
         {
             controllerRepository.Controllers.ForEach(c => c.ToXnaGameLoop().Load());
             WindowsAsDict.Values.ForEach(w => w.Load());
@@ -68,20 +67,20 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
             mouse.AsXnaGameLoop()?.Load();
         }
 
-        public void Unload()
+        public override void Unload()
         {
             controllerRepository.Controllers.ForEach(c => c.ToXnaGameLoop().Unload());
             WindowsAsDict.Values.ForEach(w => w.Unload());
             mouse.AsXnaGameLoop()?.Unload();
         }
 
-        public void Update(GameTime time)
+        public override void Update(GameTime time)
         {
             WindowsAsDict.Values.ForEach(w => w.Update(time));
             mouse.AsXnaGameLoop()?.Update(time);
         }
 
-        public void Draw(GameTime time)
+        public override void Draw(GameTime time)
         {
             WindowsAsDict.Values.ForEach(w => w.Draw(time));
             mouse.AsXnaGameLoop()?.Draw(time);

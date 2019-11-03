@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
 {
-    public class MonoGameLabelController : LabelController, IXnaGameLoop
+    public class MonoGameLabelController : LabelController
     {
         private readonly ContentManager content;
         private readonly SpriteBatch spriteBatch;
@@ -58,25 +58,25 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
             }
         }
 
-        void IXnaGameLoop.Initialize()
+        public override void Initialize()
         {
         }
 
-        public void Load()
+        public override void Load()
         {
             font = content.Load<SpriteFont>("Gui/Sierra Vga/Fonts/DAYROM_11.25_Regular");
             size = font.MeasureString(Module.Text);
         }
 
-        public void Unload()
+        public override void Unload()
         {
         }
 
-        public void Update(GameTime time)
+        public override void Update(GameTime time)
         {
         }
 
-        public void Draw(GameTime time)
+        public override void Draw(GameTime time)
         {
             if (IsVisible)
             {

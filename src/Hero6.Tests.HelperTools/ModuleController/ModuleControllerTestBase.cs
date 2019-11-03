@@ -31,8 +31,8 @@ namespace LateStartStudio.Hero6.ModuleController
 
         protected abstract TController MakeController();
 
-        protected override void PreInitialize() => Controller.PreInitialize();
+        protected override void PreInitialize() => Module.PreInitialize(Controller);
 
-        protected override void Initialize() => Controller.Initialize();
+        protected override void Initialize() => Module.Initialize();
     }
 }

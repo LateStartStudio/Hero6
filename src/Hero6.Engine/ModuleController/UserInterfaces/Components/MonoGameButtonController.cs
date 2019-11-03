@@ -4,14 +4,13 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
-using LateStartStudio.Hero6.MonoGame.GameLoop;
 using LateStartStudio.Hero6.Services.ControllerRepository;
 using LateStartStudio.Hero6.Services.DependencyInjection;
 using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
 {
-    public class MonoGameButtonController : ButtonController, IXnaGameLoop
+    public class MonoGameButtonController : ButtonController
     {
         private readonly IControllerRepository controllerRepository;
 
@@ -26,20 +25,24 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
 
         private IController ChildAsController => controllerRepository[Module.Child];
 
-        void IXnaGameLoop.Initialize() => ChildAsController.ToXnaGameLoop().Initialize();
+        public override void Initialize()
+        {
+            ChildAsController.ToXnaGameLoop().Initialize();
+            base.Initialize();
+        }
 
-        public void Load() => ChildAsController.ToXnaGameLoop().Load();
+        public override void Load() => ChildAsController.ToXnaGameLoop().Load();
 
-        public void Unload() => ChildAsController.ToXnaGameLoop().Unload();
+        public override void Unload() => ChildAsController.ToXnaGameLoop().Unload();
 
-        public void Update(GameTime time)
+        public override void Update(GameTime time)
         {
             ChildAsController.ToXnaGameLoop().Update(time);
             Module.Child.X = X;
             Module.Child.Y = Y;
         }
 
-        public void Draw(GameTime time)
+        public override void Draw(GameTime time)
         {
             if (IsVisible)
             {
