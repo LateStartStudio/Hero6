@@ -13,5 +13,5 @@ steps:
     workingDirectory: './src'
 
 # Install Paket
-- bash: dotnet tool install paket -g
+- bash: dotnet tool install --global Paket --version 5.236.2
   displayName: Install Paket
