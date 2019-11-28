@@ -2,7 +2,7 @@ version 5.236.2
 storage: none
 framework: auto-detect
 
-source https://nuget.org/api/v2
+source https://api.nuget.org/v3/index.json
 
 nuget BenchmarkDotNet
 nuget coverlet.msbuild
