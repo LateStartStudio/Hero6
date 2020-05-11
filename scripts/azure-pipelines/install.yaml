@@ -12,6 +12,7 @@ steps:
     useGlobalJson: true
     workingDirectory: './src'
 
-# Install Paket
-- bash: dotnet tool install --global Paket --version 5.236.2
-  displayName: Install Paket
+# Install dotnet tools
+- bash: dotnet tool restore
+  workingDirectory: './src'
+  displayName: Install Tools
