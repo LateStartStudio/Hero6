@@ -1,4 +1,3 @@
-coverlet.msbuild
 Microsoft.NET.Test.Sdk
 NSubstitute
 NSubstitute.Analyzers.CSharp

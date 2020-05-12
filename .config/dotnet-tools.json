@@ -7,6 +7,18 @@
       "commands": [
         "paket"
       ]
+    },
+    "coverlet.console": {
+      "version": "1.7.1",
+      "commands": [
+        "coverlet"
+      ]
+    },
+    "dotnet-reportgenerator-globaltool": {
+      "version": "4.5.8",
+      "commands": [
+        "reportgenerator"
+      ]
     }
   }
 }
