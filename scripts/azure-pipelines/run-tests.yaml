@@ -7,13 +7,17 @@ steps:
   inputs:
     command: 'test'
     projects: 'src/**/*.Tests.csproj'
-    arguments: '-c $(BuildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura'
+    arguments: '-c $(BuildConfiguration)'
     nobuild: true
+
+# Gather Coverage Reports
+- bash: ./scripts/coverage.sh $(BuildConfiguration)
+  displayName: Gather Coverage Reports
 
 # Publish Coverage Reports
 - task: PublishCodeCoverageResults@1
   displayName: Publish Coverage Reports
   inputs:
     codeCoverageTool: 'Cobertura'
-    summaryFileLocation: 'src/**/coverage.cobertura.xml'
+    summaryFileLocation: 'src/.coverage/cobertura/*.xml'
     failIfCoverageEmpty: true
