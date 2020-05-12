@@ -11,10 +11,10 @@ fi
 echo "Collect reports"
 for PROJECT in "${PROJECTS[@]}"
 do
-  dotnet coverlet $(dirname $0)/../src/${PROJECT}.Tests/bin/${CONFIG}/*/${PROJECT}.Tests.dll --target "dotnet" --targetargs "test $(dirname $0)/../src/${PROJECT}.Tests/${PROJECT}.Tests.csproj --no-build" --output "$(dirname $0)/../src/.coverage/cobertura/${PROJECT}.${CONFIG}.xml" --format cobertura
+  dotnet coverlet $(dirname $0)/../src/${PROJECT}.Tests/bin/$CONFIG/*/${PROJECT}.Tests.dll --target "dotnet" --targetargs "test $(dirname $0)/../src/${PROJECT}.Tests/${PROJECT}.Tests.csproj --configuration ${CONFIG} --no-build" --output "$(dirname $0)/../src/.coverage/cobertura/${CONFIG}/${PROJECT}.xml" --format cobertura
 done
 
 echo "Make human readable coverage reports"
-dotnet reportgenerator "-reports:$(dirname $0)/../src/.coverage/cobertura/*.xml" "-targetdir:$(dirname $0)/../src/.coverage/html" -reporttypes:HtmlInline_AzurePipelines
+dotnet reportgenerator "-reports:$(dirname $0)/../src/.coverage/cobertura/${CONFIG}/*.xml" "-targetdir:$(dirname $0)/../src/.coverage/html/${CONFIG}" -reporttypes:HtmlInline_AzurePipelines
 
 echo "Coverage reports generated at ./src/.coverage/"

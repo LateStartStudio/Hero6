@@ -19,5 +19,5 @@ steps:
   displayName: Publish Coverage Reports
   inputs:
     codeCoverageTool: 'Cobertura'
-    summaryFileLocation: 'src/.coverage/cobertura/*.xml'
+    summaryFileLocation: 'src/.coverage/cobertura/$(BuildConfiguration)/*.xml'
     failIfCoverageEmpty: true
