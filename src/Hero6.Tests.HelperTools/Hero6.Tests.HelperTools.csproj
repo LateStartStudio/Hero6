@@ -6,8 +6,8 @@
     <Version>1.0.0</Version>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
-  <Import Project="..\.paket\Paket.Restore.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Hero6.Engine.Desktop\Hero6.Engine.Desktop.csproj" />
   </ItemGroup>
+  <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

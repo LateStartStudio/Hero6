@@ -5,7 +5,6 @@ framework: auto-detect
 source https://api.nuget.org/v3/index.json
 
 nuget BenchmarkDotNet
-nuget coverlet.msbuild
 nuget log4net
 nuget Microsoft.NET.Test.Sdk
 nuget MonoGame.Content.Builder
@@ -18,5 +17,4 @@ nuget NUnit
 nuget NUnit.Runners
 nuget NUnit3TestAdapter
 nuget OptimizedPriorityQueue
-nuget ReportGenerator
 nuget StyleCop.Analyzers
