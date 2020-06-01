@@ -14,5 +14,4 @@ steps:
 
 # Install dotnet tools
 - bash: dotnet tool restore
-  workingDirectory: './src'
   displayName: Install Tools
