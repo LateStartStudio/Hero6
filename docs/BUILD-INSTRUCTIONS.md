@@ -21,7 +21,7 @@ If you have git and git-lfs installed and configured, simply cloning the project
 
 You will need tools like paket to work with the source code.
 
-`cd src && dotnet tool restore`
+`dotnet tool restore`
 
 ### Pre-build MonoGame Pipeline extension
 
