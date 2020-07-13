@@ -35,7 +35,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
         public void DoNothingWhenAnyMouseButtonLiftOnWalkButtonExceptLeft(MouseButton button)
         {
             Module.WalkButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, button));
-            Services.Mouse.DidNotReceive().Cursor = Arg.Any<ICursorModule>();
+            Services.Mouse.DidNotReceive().Cursor = Substitute.For<ICursorModule>();
             Services.Mouse.DidNotReceive().SaveCursor();
         }
 
@@ -69,7 +69,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
         public void DoNothingWhenAnyMouseButtonLiftOnLookButtonExceptLeft(MouseButton button)
         {
             Module.WalkButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, button));
-            Services.Mouse.DidNotReceive().Cursor = Arg.Any<ICursorModule>();
+            Services.Mouse.DidNotReceive().Cursor = Substitute.For<ICursorModule>();
             Services.Mouse.DidNotReceive().SaveCursor();
         }
 
@@ -103,7 +103,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
         public void DoNothingWhenAnyMouseButtonLiftOnHandButtonExceptLeft(MouseButton button)
         {
             Module.WalkButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, button));
-            Services.Mouse.DidNotReceive().Cursor = Arg.Any<ICursorModule>();
+            Services.Mouse.DidNotReceive().Cursor = Substitute.For<ICursorModule>();
             Services.Mouse.DidNotReceive().SaveCursor();
         }
 
@@ -137,7 +137,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga.Windows
         public void DoNothingWhenAnyMouseButtonLiftOnTalkButtonExceptLeft(MouseButton button)
         {
             Module.WalkButton.MouseButtonUp += Raise.EventWith(Module, new MouseButtonInteraction(0, 0, button));
-            Services.Mouse.DidNotReceive().Cursor = Arg.Any<ICursorModule>();
+            Services.Mouse.DidNotReceive().Cursor = Substitute.For<ICursorModule>();
             Services.Mouse.DidNotReceive().SaveCursor();
         }
 
