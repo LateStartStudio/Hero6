@@ -28,15 +28,15 @@ jobs:
 
 - template: job.yaml
   parameters:
-    name: Ubuntu_16_04_Debug
-    vmImage: 'ubuntu-16.04'
+    name: Ubuntu_Debug
+    vmImage: 'ubuntu-18.04'
     buildConfiguration: Debug
     runtime: linux-x64
 
 - template: job.yaml
   parameters:
-    name: Ubuntu_16_04_Release
-    vmImage: 'ubuntu-16.04'
+    name: Ubuntu_Release
+    vmImage: 'ubuntu-18.04'
     buildConfiguration: Release
     runtime: linux-x64
 
