@@ -19,6 +19,24 @@
       "commands": [
         "reportgenerator"
       ]
+    },
+    "dotnet-mgcb": {
+      "version": "3.8.0.1641",
+      "commands": [
+        "mgcb"
+      ]
+    },
+    "dotnet-mgcb-editor": {
+      "version": "3.8.0.1641",
+      "commands": [
+        "mgcb-editor"
+      ]
+    },
+    "dotnet-mgfxc": {
+      "version": "3.8.0.1641",
+      "commands": [
+        "mgfxc"
+      ]
     }
   }
 }

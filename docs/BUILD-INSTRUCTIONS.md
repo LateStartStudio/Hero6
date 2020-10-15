@@ -62,7 +62,7 @@ We use [Paket](https://fsprojects.github.io/Paket/) for nuget packages.
 
 ### Editing MonoGame Content project
 
-If you want to edit the MonoGame Content project you'll need the CLI or GUI tools from the [MonoGame SDK v3.7](http://community.monogame.net/t/monogame-3-7-release/10971)
+[Refer to the documentation](https://docs.monogame.net/articles/tools/tools.html)
 
 ### Unit test coverage
 
