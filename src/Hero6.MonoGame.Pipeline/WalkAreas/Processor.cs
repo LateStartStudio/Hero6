@@ -5,11 +5,12 @@
 // </copyright>
 
 using System.Collections.Generic;
-using System.Drawing;
 using LateStartStudio.Hero6.ModuleController.Campaigns.Rooms.Regions;
 using LateStartStudio.Search.Pathfinder;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content.Pipeline;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
 
 namespace LateStartStudio.Hero6.MonoGame.Pipeline.WalkAreas
 {
@@ -39,14 +40,16 @@ namespace LateStartStudio.Hero6.MonoGame.Pipeline.WalkAreas
 
             foreach (var file in input)
             {
-                var bmp = new Bitmap(Image.FromFile(file));
-                areas.Add(new WalkArea(bmp.Width, bmp.Height, GetNodesFromMap(bmp)));
+                using (var img = Image.Load<Rgba32>(file))
+                {
+                    areas.Add(new WalkArea(img.Width, img.Height, GetNodesFromMap(img)));
+                }
             }
 
             return areas;
         }
 
-        private static IDictionary<int, Node> GetNodesFromMap(Bitmap input)
+        private static IDictionary<int, Node> GetNodesFromMap(Image<Rgba32> input)
         {
             var nodes = new Dictionary<int, Node>();
 
@@ -54,7 +57,7 @@ namespace LateStartStudio.Hero6.MonoGame.Pipeline.WalkAreas
             {
                 for (var x = 0; x < input.Width; x++)
                 {
-                    if (input.GetPixel(x, y).A == 0)
+                    if (input[x, y].A == 0)
                     {
                         continue;
                     }

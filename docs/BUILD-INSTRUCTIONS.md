@@ -4,10 +4,7 @@
 
 * [git](https://git-scm.com/)
 * [git-lfs](https://git-lfs.github.com/)
-* [.NET SDK (Windows)](https://dotnet.microsoft.com/download/visual-studio-sdks) or [Mono (*nix)](https://www.mono-project.com/)¹
 * [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core/2.2) ([Get the version listed here](https://github.com/LateStartStudio/Hero6/blob/master/src/global.json))
-
-¹ We hope this prerequisite will not be needed in the future, but we rely on 3rd party frameworks to upgrade their tools for this to happen.
 
 ## Instructions
 
@@ -25,18 +22,9 @@ You will need tools like paket to work with the source code.
 
 ### Pre-build MonoGame Pipeline extension
 
-Because of incompatabilities with the old .NET and .NET core(building old .NET code with the dotnet CLI on *nix systems isn't supported) so we have to pre-build the MonoGame Pipeline extensions to build our assets successfully. We hope this inconvenience is gone in the future.
-
 It should only be necessary to do this step once unless you modify the MonoGame Pipeline extensions source.
 
-#### Windows
-
 `dotnet build ./src/Hero6.MonoGamePipeline.sln`
-
-#### *nix systems
-
-1. `msbuild ./src/Hero6.MonoGamePipeline.sln /t:restore`
-2. `msbuild ./src/Hero6.MonoGamePipeline.sln`
 
 ### Building, running, etc. the game
 
@@ -62,7 +50,7 @@ We use [Paket](https://fsprojects.github.io/Paket/) for nuget packages.
 
 ### Editing MonoGame Content project
 
-If you want to edit the MonoGame Content project you'll need the CLI or GUI tools from the [MonoGame SDK v3.7](http://community.monogame.net/t/monogame-3-7-release/10971)
+[Refer to the documentation](https://docs.monogame.net/articles/tools/tools.html)
 
 ### Unit test coverage
 

@@ -10,7 +10,8 @@
 
 #-------------------------------- References --------------------------------#
 
-/reference:..\Hero6.MonoGame.Pipeline\bin\net461\Hero6.MonoGame.Pipeline.dll
+/reference:..\Hero6.MonoGame.Pipeline\bin\Debug\netstandard2.0\Hero6.MonoGame.Pipeline.dll
+/reference:..\Hero6.MonoGame.Pipeline\bin\Release\netstandard2.0\Hero6.MonoGame.Pipeline.dll
 
 #---------------------------------- Content ---------------------------------#
 
@@ -255,8 +256,8 @@
 /build:../../assets/Campaigns/Rites of Albion/Rooms/Albion/Fountain/Walk Area 001.png;Campaigns/Rites of Albion/Rooms/Albion/Fountain/Walk Area 001.png
 
 #begin ../../assets/Campaigns/Rites of Albion/Rooms/Albion/Fountain/WalkAreas.h6walkareas
-/importer:
-/processor:
+/importer:Importer
+/processor:Processor
 /build:../../assets/Campaigns/Rites of Albion/Rooms/Albion/Fountain/WalkAreas.h6walkareas;Campaigns/Rites of Albion/Rooms/Albion/Fountain/WalkAreas.h6walkareas
 
 #begin ../../assets/Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Background.png
@@ -296,8 +297,8 @@
 /build:../../assets/Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Walk Area 001.png;Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Walk Area 001.png
 
 #begin ../../assets/Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/WalkAreas.h6walkareas
-/importer:
-/processor:
+/importer:Importer
+/processor:Processor
 /build:../../assets/Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/WalkAreas.h6walkareas;Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/WalkAreas.h6walkareas
 
 #begin ../../assets/Campaigns/Rites of Albion/Sprites/Items/Bent Sword.png

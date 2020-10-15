@@ -37,7 +37,6 @@ namespace LateStartStudio.Hero6.Repository
         {
             var expected = new string[]
             {
-                "<TargetFramework>net461</TargetFramework>",
                 "<TargetFramework>netstandard2.0</TargetFramework>",
                 "<TargetFramework>netcoreapp3.0</TargetFramework>",
             };

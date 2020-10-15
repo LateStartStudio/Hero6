@@ -1,3 +1,5 @@
-MonoGame.Framework.Content.Pipeline.Portable
+MonoGame.Framework.Content.Pipeline
+MonoGame.Framework.DesktopGL
 OptimizedPriorityQueue
 StyleCop.Analyzers
+SixLabors.ImageSharp

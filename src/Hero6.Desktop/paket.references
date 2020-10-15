@@ -1,4 +1,4 @@
-MonoGame.Content.Builder
-MonoGame.Framework.DesktopGL.Core
+MonoGame.Content.Builder.Task
+MonoGame.Framework.DesktopGL
 OptimizedPriorityQueue
 StyleCop.Analyzers
