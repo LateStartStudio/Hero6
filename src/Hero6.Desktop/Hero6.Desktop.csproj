@@ -6,6 +6,8 @@
     <RootNamespace>LateStartStudio.Hero6</RootNamespace>
     <AssemblyName>Hero6</AssemblyName>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
+    <PublishReadyToRun>false</PublishReadyToRun>
+    <TieredCompilation>false</TieredCompilation>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DefineConstants>TRACE;DESKTOP;MONOGAME</DefineConstants>
@@ -13,6 +15,20 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>TRACE;DEBUG;DESKTOP;MONOGAME</DefineConstants>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Icon.ico" />
+    <None Remove="Icon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icon.ico" />
+    <EmbeddedResource Include="Icon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <MonoGameContentReference Update="..\Hero6.Content\Hero6.Content.mgcb" Link="Hero6.Content.mgcb" />
+  </ItemGroup>
+  <ItemGroup>
+    <TrimmerRootAssembly Include="Microsoft.Xna.Framework.Content.ContentTypeReader" Visible="false" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hero6.Campaigns.RitesOfPassage\Hero6.Campaigns.RitesOfPassage.csproj" />
     <ProjectReference Include="..\Hero6.Engine.Desktop\Hero6.Engine.Desktop.csproj" />

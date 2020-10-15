@@ -1,15 +1,14 @@
 version 5.236.2
 storage: none
 framework: auto-detect
-
 source https://api.nuget.org/v3/index.json
 
 nuget BenchmarkDotNet
 nuget log4net
 nuget Microsoft.NET.Test.Sdk
-nuget MonoGame.Content.Builder
-nuget MonoGame.Framework.Content.Pipeline.Portable
-nuget MonoGame.Framework.DesktopGL.Core
+nuget MonoGame.Content.Builder.Task
+nuget MonoGame.Framework.Content.Pipeline copy_local: true
+nuget MonoGame.Framework.DesktopGL
 nuget Newtonsoft.Json
 nuget NSubstitute
 nuget NSubstitute.Analyzers.CSharp
@@ -17,4 +16,5 @@ nuget NUnit
 nuget NUnit.Runners
 nuget NUnit3TestAdapter
 nuget OptimizedPriorityQueue
+nuget SixLabors.ImageSharp
 nuget StyleCop.Analyzers
