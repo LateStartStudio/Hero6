@@ -46,17 +46,16 @@ jobs:
     buildConfiguration: Release
     runtime: linux-x64
 
-# MacOS is broken until agents have Mono6
-# - template: job.yaml
-#   parameters:
-#     name: macOS_Mojave_Debug
-#     vmImage: 'macOS-10.14'
-#     buildConfiguration: Debug
-#     runtime: osx-x64
+- template: job.yaml
+  parameters:
+    name: macOS_Mojave_Debug
+    vmImage: 'macOS-10.14'
+    buildConfiguration: Debug
+    runtime: osx-x64
 
-# - template: job.yaml
-#   parameters:
-#     name: macOS_Mojave_Release
-#     vmImage: 'macOS-10.14'
-#     buildConfiguration: Release
-#     runtime: osx-x64
+- template: job.yaml
+  parameters:
+    name: macOS_Mojave_Release
+    vmImage: 'macOS-10.14'
+    buildConfiguration: Release
+    runtime: osx-x64

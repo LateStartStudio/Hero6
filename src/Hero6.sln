@@ -53,10 +53,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hero6 Engine", "Hero6 Engin
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".scripts", ".scripts", "{F6DAB1F9-6741-4246-8B78-1CDDA0F447C8}"
 	ProjectSection(SolutionItems) = preProject
-		..\scripts\build-monogame-pipeline.sh = ..\scripts\build-monogame-pipeline.sh
 		..\scripts\coverage.sh = ..\scripts\coverage.sh
-		..\scripts\run-hero6.sh = ..\scripts\run-hero6.sh
-		..\scripts\run-tests.sh = ..\scripts\run-tests.sh
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "azure-pipelines", "azure-pipelines", "{FD983D91-82AF-44DA-B456-315A61E1A38B}"
