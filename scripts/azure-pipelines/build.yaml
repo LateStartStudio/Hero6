@@ -5,10 +5,8 @@ steps:
 - task: DotNetCoreCLI@2
   displayName: Restore Packages
   inputs:
-    command: 'custom'
-    custom: 'paket'
-    arguments: 'restore'
-    workingDirectory: 'src/'
+    command: 'restore'
+    projects: './src/Hero6.sln'
 
 # Pre-build the MonoGame Pipeline Extensions
 - task: DotNetCoreCLI@2
