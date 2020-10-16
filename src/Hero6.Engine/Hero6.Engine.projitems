@@ -116,6 +116,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ModuleController\UserInterfaces\UserInterfaceController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ModuleController\UserInterfaces\UserInterfaceModule.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MonoGame\GameLoop\IXnaGameLoop.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MonoGame\Pipeline\WalkAreas\MonoGameWalkAreaReader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Campaigns\ICampaigns.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Campaigns\MonoGameCampaigns.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\ControllerRepository\ControllerRepositoryProvider.cs" />

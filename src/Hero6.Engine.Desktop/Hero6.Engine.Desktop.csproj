@@ -4,6 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>LateStartStudio.Hero6</RootNamespace>
     <Version>1.0.0</Version>
+    <AssemblyName>Hero6.Engine</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Search\Search.csproj" />
