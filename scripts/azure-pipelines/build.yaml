@@ -8,6 +8,7 @@ steps:
     command: 'custom'
     custom: 'paket'
     arguments: 'restore'
+    workingDirectory: 'src/'
 
 # Pre-build the MonoGame Pipeline Extensions
 - task: DotNetCoreCLI@2
