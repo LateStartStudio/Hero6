@@ -6,7 +6,8 @@ steps:
   displayName: Restore Packages
   inputs:
     command: 'custom'
-    arguments: 'paket restore'
+    custom: 'paket'
+    arguments: 'restore'
 
 # Pre-build the MonoGame Pipeline Extensions
 - task: DotNetCoreCLI@2
