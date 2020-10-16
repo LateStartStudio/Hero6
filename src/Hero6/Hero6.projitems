@@ -11,8 +11,4 @@
   <ItemGroup>
     <MonoGameContentReference Include="..\Hero6.Content\Hero6.Content.mgcb" Link="Content\Hero6.Content.mgcb" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)MonoGame\Game.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\PlatformInfo\PlatformInfo.cs" />
-  </ItemGroup>
 </Project>
