@@ -1,13 +1,29 @@
 # Build steps
 
 steps:
+# Restore packages
+- task: DotNetCoreCLI@2
+  displayName: Restore Packages
+  inputs:
+    command: 'restore'
+    projects: './src/Hero6.sln'
+
 # Pre-build the MonoGame Pipeline Extensions
 - task: DotNetCoreCLI@2
   displayName: Build MonoGame Pipeline Extensions
   inputs:
     command: 'build'
-    projects: './src/Hero6.MonoGame.Pipeline.sln'
-    arguments: '-c $(BuildConfiguration)'
+    projects: './src/Hero6.MonoGame.Pipeline/Hero6.MonoGame.Pipeline.csproj'
+    arguments: '-c $(BuildConfiguration) --no-restore'
+
+# Build assets
+- task: DotNetCoreCLI@2
+  displayName: Build Assets
+  inputs:
+    command: 'custom'
+    custom: 'mgcb'
+    arguments: '/@:Hero6.Content.mgcb /platform:DesktopGL'
+    workingDirectory: 'src/Hero6.Content'
 
 # Build the Hero6 source code
 - task: DotNetCoreCLI@2
@@ -15,4 +31,4 @@ steps:
   inputs:
     command: 'build'
     projects: './src/Hero6.sln'
-    arguments: '-c $(BuildConfiguration)'
+    arguments: '-c $(BuildConfiguration) --no-restore'

@@ -53,10 +53,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hero6 Engine", "Hero6 Engin
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".scripts", ".scripts", "{F6DAB1F9-6741-4246-8B78-1CDDA0F447C8}"
 	ProjectSection(SolutionItems) = preProject
-		..\scripts\build-monogame-pipeline.sh = ..\scripts\build-monogame-pipeline.sh
 		..\scripts\coverage.sh = ..\scripts\coverage.sh
-		..\scripts\run-hero6.sh = ..\scripts\run-hero6.sh
-		..\scripts\run-tests.sh = ..\scripts\run-tests.sh
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "azure-pipelines", "azure-pipelines", "{FD983D91-82AF-44DA-B456-315A61E1A38B}"
@@ -84,16 +81,24 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Hero6.Engine.Tests", "Hero6
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Hero6.Engine.Benchmarks", "Hero6.Engine.Benchmarks\Hero6.Engine.Benchmarks.shproj", "{538D77D8-5ACF-409B-9727-4E840CD692F1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hero6 MonoGame Pipeline Extensions", "Hero6 MonoGame Pipeline Extensions", "{726777D3-3131-466B-ACD8-533E414C9700}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.MonoGame.Pipeline", "Hero6.MonoGame.Pipeline\Hero6.MonoGame.Pipeline.csproj", "{31AB5C74-F842-4666-AAB8-04EE0BBE907C}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Hero6.Tests\Hero6.Tests.projitems*{33dca6ab-2df5-400a-b981-4e5b06cec36d}*SharedItemsImports = 4
+		Hero6.Engine\Hero6.Engine.projitems*{0c0586a3-5a10-42ce-b609-cc80ee2cef7a}*SharedItemsImports = 5
+		Hero6.Tests\Hero6.Tests.projitems*{33dca6ab-2df5-400a-b981-4e5b06cec36d}*SharedItemsImports = 5
 		Hero6.Benchmarks\Hero6.Benchmarks.projitems*{3ee7c8eb-e03e-40cb-b471-4836cc17f7c6}*SharedItemsImports = 13
 		Hero6.Engine.Tests\Hero6.Engine.Tests.projitems*{4f1e3941-9bb3-412e-9f68-a4f959d460b8}*SharedItemsImports = 13
 		Hero6.Engine.Benchmarks\Hero6.Engine.Benchmarks.projitems*{538d77d8-5acf-409b-9727-4e840cd692f1}*SharedItemsImports = 13
 		Hero6.Tests\Hero6.Tests.projitems*{b59e1a53-68b3-4d31-8b69-cefc3d5cebb4}*SharedItemsImports = 13
-		Hero6\Hero6.projitems*{d1071ffb-86e1-48dd-9f84-7d84ed962434}*SharedItemsImports = 4
+		Hero6.Benchmarks\Hero6.Benchmarks.projitems*{ce5d600b-828b-4c8d-88bb-68488d19f825}*SharedItemsImports = 5
+		Hero6\Hero6.projitems*{d1071ffb-86e1-48dd-9f84-7d84ed962434}*SharedItemsImports = 5
+		Hero6.Engine.Benchmarks\Hero6.Engine.Benchmarks.projitems*{d1c0be60-e32e-412c-aa31-c1b8c2f62d1f}*SharedItemsImports = 5
 		Hero6.Engine\Hero6.Engine.projitems*{df1a4b43-e0e1-4d31-9d52-03101f99f593}*SharedItemsImports = 13
 		Hero6\Hero6.projitems*{df3851f5-aea2-4d44-bab1-88e63c470f30}*SharedItemsImports = 13
+		Hero6.Engine.Tests\Hero6.Engine.Tests.projitems*{e346d4ea-a08b-457d-8c23-4b27ab111667}*SharedItemsImports = 5
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -238,6 +243,14 @@ Global
 		{E346D4EA-A08B-457D-8C23-4B27AB111667}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E346D4EA-A08B-457D-8C23-4B27AB111667}.Release|x86.ActiveCfg = Release|Any CPU
 		{E346D4EA-A08B-457D-8C23-4B27AB111667}.Release|x86.Build.0 = Release|Any CPU
+		{31AB5C74-F842-4666-AAB8-04EE0BBE907C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31AB5C74-F842-4666-AAB8-04EE0BBE907C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31AB5C74-F842-4666-AAB8-04EE0BBE907C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{31AB5C74-F842-4666-AAB8-04EE0BBE907C}.Debug|x86.Build.0 = Debug|Any CPU
+		{31AB5C74-F842-4666-AAB8-04EE0BBE907C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31AB5C74-F842-4666-AAB8-04EE0BBE907C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31AB5C74-F842-4666-AAB8-04EE0BBE907C}.Release|x86.ActiveCfg = Release|Any CPU
+		{31AB5C74-F842-4666-AAB8-04EE0BBE907C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -267,6 +280,7 @@ Global
 		{E346D4EA-A08B-457D-8C23-4B27AB111667} = {2937997A-C105-4911-90ED-1458D86A3D87}
 		{4F1E3941-9BB3-412E-9F68-A4F959D460B8} = {2937997A-C105-4911-90ED-1458D86A3D87}
 		{538D77D8-5ACF-409B-9727-4E840CD692F1} = {2937997A-C105-4911-90ED-1458D86A3D87}
+		{31AB5C74-F842-4666-AAB8-04EE0BBE907C} = {726777D3-3131-466B-ACD8-533E414C9700}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D79F9E72-AE93-4A79-A968-902EC57B5900}

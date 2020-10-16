@@ -24,7 +24,7 @@ You will need tools like paket to work with the source code.
 
 It should only be necessary to do this step once unless you modify the MonoGame Pipeline extensions source.
 
-`dotnet build ./src/Hero6.MonoGamePipeline.sln`
+`dotnet build ./src/Hero6.MonoGame.Pipeline/Hero6.MonoGame.Pipeline.csproj`
 
 ### Building, running, etc. the game
 
