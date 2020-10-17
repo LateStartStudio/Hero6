@@ -1,4 +1,4 @@
-﻿// <copyright file="Importer.cs" company="Late Start Studio">
+﻿// <copyright file="Hero6WalkAreaImporter.cs" company="Late Start Studio">
 // Copyright (C) Late Start Studio
 // This file is subject to the terms and conditions of the MIT license specified in the file
 // 'LICENSE.CODE.md', which is a part of this source code package.
@@ -17,8 +17,8 @@ namespace LateStartStudio.Hero6.MonoGame.Pipeline.WalkAreas
     [ContentImporter(
         ".h6walkareas",
         DisplayName = "Walk Area Importer - Hero6",
-        DefaultProcessor = nameof(Processor))]
-    public class Importer : ContentImporter<string[]>
+        DefaultProcessor = nameof(Hero6WalkAreaProcessor))]
+    public class Hero6WalkAreaImporter : ContentImporter<string[]>
     {
         /// <inheritdoc />
         public override string[] Import(string filename, ContentImporterContext context)
