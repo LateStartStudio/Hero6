@@ -1,4 +1,4 @@
-﻿// <copyright file="Processor.cs" company="Late Start Studio">
+﻿// <copyright file="Hero6WalkAreaProcessor.cs" company="Late Start Studio">
 // Copyright (C) Late Start Studio
 // This file is subject to the terms and conditions of the MIT license specified in the file
 // 'LICENSE.CODE.md', which is a part of this source code package.
@@ -19,7 +19,7 @@ namespace LateStartStudio.Hero6.MonoGame.Pipeline.WalkAreas
     /// mask pixel-by-pixel and converts each pixel into a node to be used with the pathfinder.
     /// </summary>
     [ContentProcessor(DisplayName = "Walk Area Processor - Hero6")]
-    public class Processor : ContentProcessor<string[], List<WalkArea>>
+    public class Hero6WalkAreaProcessor : ContentProcessor<string[], List<WalkArea>>
     {
         private static readonly Vector2[] DirectionVectors =
             {

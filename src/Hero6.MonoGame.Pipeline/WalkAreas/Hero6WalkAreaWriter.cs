@@ -1,4 +1,4 @@
-﻿// <copyright file="Writer.cs" company="Late Start Studio">
+﻿// <copyright file="Hero6WalkAreaWriter.cs" company="Late Start Studio">
 // Copyright (C) Late Start Studio
 // This file is subject to the terms and conditions of the MIT license specified in the file
 // 'LICENSE.CODE.md', which is a part of this source code package.
@@ -16,13 +16,10 @@ namespace LateStartStudio.Hero6.MonoGame.Pipeline.WalkAreas
     /// Binary writer for the walk areas that converts the image masks into .xnb format.
     /// </summary>
     [ContentTypeWriter]
-    public class Writer : ContentTypeWriter<List<WalkArea>>
+    public class Hero6WalkAreaWriter : ContentTypeWriter<List<WalkArea>>
     {
         /// <inheritdoc />
-        public override string GetRuntimeReader(TargetPlatform targetPlatform)
-        {
-            return "LateStartStudio.Hero6.MonoGame.Pipeline.WalkAreas.MonoGameWalkAreaReader, Hero6";
-        }
+        public override string GetRuntimeReader(TargetPlatform targetPlatform) => $"{typeof(Hero6WalkAreaReader).FullName}, Hero6.Engine";
 
         /// <inheritdoc />
         protected override void Write(ContentWriter output, List<WalkArea> value)

@@ -256,8 +256,8 @@
 /build:../../assets/Campaigns/Rites of Albion/Rooms/Albion/Fountain/Walk Area 001.png;Campaigns/Rites of Albion/Rooms/Albion/Fountain/Walk Area 001.png
 
 #begin ../../assets/Campaigns/Rites of Albion/Rooms/Albion/Fountain/WalkAreas.h6walkareas
-/importer:Importer
-/processor:Processor
+/importer:Hero6WalkAreaImporter
+/processor:Hero6WalkAreaProcessor
 /build:../../assets/Campaigns/Rites of Albion/Rooms/Albion/Fountain/WalkAreas.h6walkareas;Campaigns/Rites of Albion/Rooms/Albion/Fountain/WalkAreas.h6walkareas
 
 #begin ../../assets/Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Background.png
@@ -297,8 +297,8 @@
 /build:../../assets/Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Walk Area 001.png;Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/Walk Area 001.png
 
 #begin ../../assets/Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/WalkAreas.h6walkareas
-/importer:Importer
-/processor:Processor
+/importer:Hero6WalkAreaImporter
+/processor:Hero6WalkAreaProcessor
 /build:../../assets/Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/WalkAreas.h6walkareas;Campaigns/Rites of Albion/Rooms/Albion/Hill Over Albion/WalkAreas.h6walkareas
 
 #begin ../../assets/Campaigns/Rites of Albion/Sprites/Items/Bent Sword.png

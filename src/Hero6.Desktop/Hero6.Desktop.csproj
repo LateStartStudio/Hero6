@@ -27,9 +27,6 @@
     <MonoGameContentReference Update="..\Hero6.Content\Hero6.Content.mgcb" Link="Hero6.Content.mgcb" />
   </ItemGroup>
   <ItemGroup>
-    <TrimmerRootAssembly Include="Microsoft.Xna.Framework.Content.ContentTypeReader" Visible="false" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Hero6.Campaigns.RitesOfPassage\Hero6.Campaigns.RitesOfPassage.csproj" />
     <ProjectReference Include="..\Hero6.Engine.Desktop\Hero6.Engine.Desktop.csproj" />
     <ProjectReference Include="..\Hero6.UserInterfaces.SierraVga\Hero6.UserInterfaces.SierraVga.csproj" />

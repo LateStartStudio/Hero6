@@ -115,7 +115,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)ModuleController\UserInterfaces\IUserInterfaceModule.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ModuleController\UserInterfaces\UserInterfaceController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ModuleController\UserInterfaces\UserInterfaceModule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MonoGame\Game.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MonoGame\GameLoop\IXnaGameLoop.cs" />
+    <Compile Include="..\Hero6.Engine\MonoGame\Pipeline\WalkAreas\Hero6WalkAreaReader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Campaigns\ICampaigns.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Campaigns\MonoGameCampaigns.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\ControllerRepository\ControllerRepositoryProvider.cs" />
@@ -132,6 +134,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\Logger\LoggerCore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\PlatformInfo\IPlatformInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\PlatformInfo\Platform.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\PlatformInfo\PlatformInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Settings\GameSettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Settings\IGameSettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Settings\IUserSettings.cs" />
