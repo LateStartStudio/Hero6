@@ -117,6 +117,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)ModuleController\UserInterfaces\UserInterfaceModule.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MonoGame\Game.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MonoGame\GameLoop\IXnaGameLoop.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MonoGame\Pipeline\WalkAreas\Hero6WalkAreaImporter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MonoGame\Pipeline\WalkAreas\Hero6WalkAreaProcessor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MonoGame\Pipeline\WalkAreas\Hero6WalkAreaWriter.cs" />
     <Compile Include="..\Hero6.Engine\MonoGame\Pipeline\WalkAreas\Hero6WalkAreaReader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Campaigns\ICampaigns.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Campaigns\MonoGameCampaigns.cs" />

@@ -10,8 +10,8 @@
 
 #-------------------------------- References --------------------------------#
 
-/reference:..\Hero6.MonoGame.Pipeline\bin\Debug\netstandard2.0\Hero6.MonoGame.Pipeline.dll
-/reference:..\Hero6.MonoGame.Pipeline\bin\Release\netstandard2.0\Hero6.MonoGame.Pipeline.dll
+/reference:..\Hero6.Engine.Desktop\bin\Debug\netstandard2.0\Hero6.Engine.dll
+/reference:..\Hero6.Engine.Desktop\bin\Release\netstandard2.0\Hero6.Engine.dll
 
 #---------------------------------- Content ---------------------------------#
 

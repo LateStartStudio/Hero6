@@ -1,4 +1,7 @@
+MonoGame.Framework.Content.Pipeline
 MonoGame.Framework.DesktopGL
 Newtonsoft.Json
+OptimizedPriorityQueue
+SixLabors.ImageSharp
 StyleCop.Analyzers
 log4net
