@@ -19,7 +19,11 @@ namespace LateStartStudio.Hero6.MonoGame.Pipeline.WalkAreas
     public class Hero6WalkAreaWriter : ContentTypeWriter<List<WalkArea>>
     {
         /// <inheritdoc />
-        public override string GetRuntimeReader(TargetPlatform targetPlatform) => $"{typeof(Hero6WalkAreaReader).FullName}, Hero6.Engine";
+        public override string GetRuntimeReader(TargetPlatform targetPlatform)
+        {
+            var type = typeof(Hero6WalkAreaReader);
+            return $"{type.FullName}, {type.Assembly.GetName().Name}";
+        }
 
         /// <inheritdoc />
         protected override void Write(ContentWriter output, List<WalkArea> value)

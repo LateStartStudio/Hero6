@@ -81,10 +81,6 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Hero6.Engine.Tests", "Hero6
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Hero6.Engine.Benchmarks", "Hero6.Engine.Benchmarks\Hero6.Engine.Benchmarks.shproj", "{538D77D8-5ACF-409B-9727-4E840CD692F1}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hero6 MonoGame Pipeline Extensions", "Hero6 MonoGame Pipeline Extensions", "{726777D3-3131-466B-ACD8-533E414C9700}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.MonoGame.Pipeline", "Hero6.MonoGame.Pipeline\Hero6.MonoGame.Pipeline.csproj", "{31AB5C74-F842-4666-AAB8-04EE0BBE907C}"
-EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Hero6.Engine\Hero6.Engine.projitems*{0c0586a3-5a10-42ce-b609-cc80ee2cef7a}*SharedItemsImports = 5
@@ -243,14 +239,6 @@ Global
 		{E346D4EA-A08B-457D-8C23-4B27AB111667}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E346D4EA-A08B-457D-8C23-4B27AB111667}.Release|x86.ActiveCfg = Release|Any CPU
 		{E346D4EA-A08B-457D-8C23-4B27AB111667}.Release|x86.Build.0 = Release|Any CPU
-		{31AB5C74-F842-4666-AAB8-04EE0BBE907C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{31AB5C74-F842-4666-AAB8-04EE0BBE907C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{31AB5C74-F842-4666-AAB8-04EE0BBE907C}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{31AB5C74-F842-4666-AAB8-04EE0BBE907C}.Debug|x86.Build.0 = Debug|Any CPU
-		{31AB5C74-F842-4666-AAB8-04EE0BBE907C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{31AB5C74-F842-4666-AAB8-04EE0BBE907C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{31AB5C74-F842-4666-AAB8-04EE0BBE907C}.Release|x86.ActiveCfg = Release|Any CPU
-		{31AB5C74-F842-4666-AAB8-04EE0BBE907C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -280,7 +268,6 @@ Global
 		{E346D4EA-A08B-457D-8C23-4B27AB111667} = {2937997A-C105-4911-90ED-1458D86A3D87}
 		{4F1E3941-9BB3-412E-9F68-A4F959D460B8} = {2937997A-C105-4911-90ED-1458D86A3D87}
 		{538D77D8-5ACF-409B-9727-4E840CD692F1} = {2937997A-C105-4911-90ED-1458D86A3D87}
-		{31AB5C74-F842-4666-AAB8-04EE0BBE907C} = {726777D3-3131-466B-ACD8-533E414C9700}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D79F9E72-AE93-4A79-A968-902EC57B5900}

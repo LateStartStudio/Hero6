@@ -8,12 +8,12 @@ steps:
     command: 'restore'
     projects: './src/Hero6.sln'
 
-# Pre-build the MonoGame Pipeline Extensions
+# Build the Hero6 engine
 - task: DotNetCoreCLI@2
-  displayName: Build MonoGame Pipeline Extensions
+  displayName: Build the Hero6 Engine
   inputs:
     command: 'build'
-    projects: './src/Hero6.MonoGame.Pipeline/Hero6.MonoGame.Pipeline.csproj'
+    projects: './src/Hero6.Engine.Desktop/Hero6.Engine.Desktop.csproj'
     arguments: '-c $(BuildConfiguration) --no-restore'
 
 # Build assets
