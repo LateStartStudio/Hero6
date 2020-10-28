@@ -20,9 +20,9 @@ You will need tools like paket to work with the source code.
 
 `dotnet tool restore`
 
-### Pre-build MonoGame Pipeline extension
+### Pre-build Hero6 Engine
 
-It should only be necessary to do this step once unless you modify the MonoGame Pipeline extensions source.
+The asset builder needs this.
 
 `dotnet build ./src/Hero6.MonoGame.Pipeline/Hero6.MonoGame.Pipeline.csproj`
 
