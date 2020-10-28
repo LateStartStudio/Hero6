@@ -10,7 +10,7 @@ steps:
 
 # Build the Hero6 engine
 - task: DotNetCoreCLI@2
-  displayName: Build MonoGame Pipeline Extensions
+  displayName: Build the Hero6 Engine
   inputs:
     command: 'build'
     projects: './src/Hero6.Engine.Desktop/Hero6.Engine.Desktop.csproj'

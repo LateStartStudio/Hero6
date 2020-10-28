@@ -29,7 +29,7 @@ namespace LateStartStudio.Hero6.Repository
         [Test]
         public void FindsAllProjects()
         {
-            Assert.That(files.Count, Is.EqualTo(18));
+            Assert.That(files.Count, Is.EqualTo(17));
         }
 
         [Test]
