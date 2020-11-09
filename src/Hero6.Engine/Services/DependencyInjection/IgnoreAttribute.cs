@@ -6,7 +6,7 @@
 
 using System;
 
-namespace LateStartStudio.Hero6.Attributes
+namespace LateStartStudio.Hero6.Services.DependencyInjection
 {
     /// <summary>
     /// Use this attribute to make the Hero6 Engine ignore this class or field when generating modules.
