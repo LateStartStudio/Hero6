@@ -72,6 +72,12 @@ namespace LateStartStudio.Hero6.Services
             Assert.Throws<ArgumentException>(() => Service.Add<TestWithConstructor>());
         }
 
+        [Test]
+        public void MakeReturnsNullIfIgnoredType()
+        {
+            Assert.That(Service.Make<TestWithIgnore>(), Is.Null);
+        }
+
         protected override IServiceLocator MakeService() => new MonoGameServiceLocator(new GameServiceContainer());
 
         protected override void Initialize()
@@ -89,6 +95,11 @@ namespace LateStartStudio.Hero6.Services
             public TestWithConstructor(int test)
             {
             }
+        }
+
+        [DependencyInjection.Ignore]
+        private class TestWithIgnore
+        {
         }
     }
 }

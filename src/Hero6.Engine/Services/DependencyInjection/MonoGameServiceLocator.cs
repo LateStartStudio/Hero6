@@ -41,6 +41,11 @@ namespace LateStartStudio.Hero6.Services.DependencyInjection
 
         public T Make<T>(Type t)
         {
+            if (t.GetCustomAttributes(typeof(IgnoreAttribute), true).Any())
+            {
+                return default;
+            }
+
             foreach (var c in t.GetConstructors())
             {
                 var parameters = c.GetParameters();
