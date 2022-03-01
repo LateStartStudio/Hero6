@@ -9,7 +9,7 @@
     <Import_RootNamespace>Hero6.Engine</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Extensions\HostBuilderExtensions.cs" />
+    <Compile Include="..\Hero6.Engine\Hero6EngineConfiguration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\DependencyInjection\IgnoreAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\CampaignExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ColorExtensions.cs" />
@@ -121,6 +121,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)MonoGame\Pipeline\WalkAreas\Hero6WalkAreaImporter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MonoGame\Pipeline\WalkAreas\Hero6WalkAreaProcessor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MonoGame\Pipeline\WalkAreas\Hero6WalkAreaWriter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Logger\FileLoggerHostedService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Logger\FileLoggerSettings.cs" />
     <Compile Include="..\Hero6.Engine\MonoGame\Pipeline\WalkAreas\Hero6WalkAreaReader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Campaigns\ICampaigns.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Campaigns\MonoGameCampaigns.cs" />
@@ -132,10 +134,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\DotNetWrappers\FileWrapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\DotNetWrappers\IDirectoryWrapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\DotNetWrappers\IFileWrapper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\Logger\ILogger.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\Logger\ILoggerCore.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\Logger\Logger.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\Logger\LoggerCore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\PlatformInfo\IPlatformInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\PlatformInfo\Platform.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\PlatformInfo\PlatformInfo.cs" />

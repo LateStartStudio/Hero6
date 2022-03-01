@@ -5,12 +5,12 @@ strategy: min // Newest version of many packages are incompatible with netcore a
 source https://api.nuget.org/v3/index.json
 
 nuget BenchmarkDotNet
-nuget log4net
 nuget Microsoft.NET.Test.Sdk
 nuget MonoGame.Content.Builder.Task
 nuget MonoGame.Framework.Content.Pipeline copy_local: true
 nuget MonoGame.Framework.DesktopGL
 nuget Newtonsoft.Json
+nuget NLog.Extensions.Logging
 nuget NSubstitute
 nuget NSubstitute.Analyzers.CSharp
 nuget NUnit
