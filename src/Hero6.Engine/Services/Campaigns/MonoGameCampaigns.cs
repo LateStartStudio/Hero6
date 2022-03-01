@@ -4,21 +4,22 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using LateStartStudio.Hero6.ModuleController.Campaigns;
 using LateStartStudio.Hero6.MonoGame.GameLoop;
-using LateStartStudio.Hero6.Services.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.Services.Campaigns
 {
     public class MonoGameCampaigns : ICampaigns, IXnaGameLoop
     {
-        private readonly IServiceLocator services;
+        private readonly IServiceProvider services;
         private readonly IList<CampaignController> campaigns = new List<CampaignController>();
 
-        public MonoGameCampaigns(IServiceLocator services)
+        public MonoGameCampaigns(IServiceProvider services)
         {
             this.services = services;
         }
@@ -33,7 +34,7 @@ namespace LateStartStudio.Hero6.Services.Campaigns
 
         public CampaignController CurrentController { get; set; }
 
-        public void Add<T>() where T : ICampaignModule => campaigns.Add(new CampaignController(services.Make<T>(), services));
+        public void Add(ICampaignModule module) => campaigns.Add(new CampaignController(module, services));
 
         public bool Interact(int x, int y, Interaction interaction) => CurrentController.Interact(x, y, interaction);
 

@@ -8,7 +8,7 @@ using System;
 using LateStartStudio.Hero6.Extensions;
 using LateStartStudio.Hero6.ModuleController.Campaigns.Characters;
 using LateStartStudio.Hero6.Services.Campaigns;
-using LateStartStudio.Hero6.Services.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.ModuleController.Campaigns.Animations
@@ -35,10 +35,10 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Animations
         /// Creates a new instance of the <see cref="CharacterAnimationController"/> class.
         /// </summary>
         /// <param name="module">The module corresponding to this controller.</param>
-        public CharacterAnimationController(ICharacterAnimationModule module, IServiceLocator services)
+        public CharacterAnimationController(ICharacterAnimationModule module, IServiceProvider services)
             : base(module, services)
         {
-            campaigns = services.Get<ICampaigns>();
+            campaigns = services.GetService<ICampaigns>();
         }
 
         public override int Width => current.Width;

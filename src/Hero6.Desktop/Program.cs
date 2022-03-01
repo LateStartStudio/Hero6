@@ -5,9 +5,11 @@
 // </copyright>
 
 using System;
+using System.Threading.Tasks;
+using Hero6.Engine.Extensions;
 using LateStartStudio.Hero6.Campaigns.RitesOfPassage;
-using LateStartStudio.Hero6.MonoGame;
 using LateStartStudio.Hero6.UserInterfaces.SierraVga;
+using Microsoft.Extensions.Hosting;
 
 namespace LateStartStudio.Hero6
 {
@@ -20,18 +22,16 @@ namespace LateStartStudio.Hero6
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        public static void Main()
+        public static async Task Main(string[] args)
         {
-            Game.Start(g =>
-            {
-                g.GraphicsDeviceCreated += (s, a) =>
-                {
-                    g.Campaigns.Add<RitesOfPassageModule>();
-                    g.UserInterfaces.Add<SierraVgaModule>();
-                };
-
-                g.Run();
-            });
+            using IHost host = CreateHostBuilder(args).Build();
+            await host.RunAsync();
         }
+
+        public static IHostBuilder CreateHostBuilder(string[] args) => Host
+            .CreateDefaultBuilder(args)
+            .ConfigureHero6Engine()
+            .ConfigureHero6RitesOfPassage()
+            .ConfigureHero6SierraVgaGui();
     }
 }

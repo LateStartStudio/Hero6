@@ -4,8 +4,9 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
 using LateStartStudio.Hero6.Extensions;
-using LateStartStudio.Hero6.Services.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -22,10 +23,10 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
         private Vector2 size;
         private string text;
 
-        public LabelController(ILabelModule module, IServiceLocator services) : base(module, services)
+        public LabelController(ILabelModule module, IServiceProvider services) : base(module, services)
         {
-            content = services.Get<ContentManager>();
-            spriteBatch = services.Get<SpriteBatch>();
+            content = services.GetService<ContentManager>();
+            spriteBatch = services.GetService<SpriteBatch>();
         }
 
         public override int X

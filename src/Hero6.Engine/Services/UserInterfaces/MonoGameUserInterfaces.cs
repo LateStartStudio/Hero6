@@ -4,23 +4,23 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using LateStartStudio.Hero6.ModuleController.UserInterfaces;
 using LateStartStudio.Hero6.MonoGame.GameLoop;
-using LateStartStudio.Hero6.Services.DependencyInjection;
 using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.Services.UserInterfaces
 {
     public class MonoGameUserInterfaces : IUserInterfaces, IXnaGameLoop
     {
-        private readonly IServiceLocator services;
+        private readonly IServiceProvider services;
         private readonly List<UserInterfaceController> userInterfaces = new List<UserInterfaceController>();
 
         private UserInterfaceController current;
 
-        public MonoGameUserInterfaces(IServiceLocator services)
+        public MonoGameUserInterfaces(IServiceProvider services)
         {
             this.services = services;
         }
@@ -33,7 +33,7 @@ namespace LateStartStudio.Hero6.Services.UserInterfaces
             set { current = userInterfaces.Find(u => u.Module == value); }
         }
 
-        public void Add<T>() where T : IUserInterfaceModule => userInterfaces.Add(new UserInterfaceController(services.Make<T>(), services));
+        public void Add(IUserInterfaceModule module) => userInterfaces.Add(new UserInterfaceController(module, services));
 
         public void Initialize()
         {

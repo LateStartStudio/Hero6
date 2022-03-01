@@ -13,7 +13,7 @@ using LateStartStudio.Hero6.ModuleController.Campaigns.Characters;
 using LateStartStudio.Hero6.ModuleController.Campaigns.InventoryItems;
 using LateStartStudio.Hero6.ModuleController.Campaigns.Items;
 using LateStartStudio.Hero6.ModuleController.Campaigns.Rooms;
-using LateStartStudio.Hero6.Services.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.ModuleController.Campaigns
@@ -23,7 +23,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns
     /// </summary>
     public class CampaignController : GameController<ICampaignController, ICampaignModule>, ICampaignController
     {
-        private readonly IServiceLocator services;
+        private readonly IServiceProvider services;
 
         private RoomController currentRoom;
 
@@ -31,7 +31,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns
         /// Creates a new instance of the <see cref="CampaignController"/> instance.
         /// </summary>
         /// <param name="module">The module corresponding to this controller.</param>
-        public CampaignController(ICampaignModule module, IServiceLocator services)
+        public CampaignController(ICampaignModule module, IServiceProvider services)
             : base(module, services)
         {
             this.services = services;
@@ -74,12 +74,12 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns
 
         public override void Initialize()
         {
-            FindModules<AnimationModule>().ForEach(a => Animations.Add(a, new AnimationController(services.Make<AnimationModule>(a), services)));
-            FindModules<CharacterAnimationModule>().ForEach(a => CharacterAnimations.Add(a, new CharacterAnimationController(services.Make<CharacterAnimationModule>(a), services)));
-            FindModules<CharacterModule>().ForEach(a => Characters.Add(a, new CharacterController(services.Make<CharacterModule>(a), services)));
-            FindModules<ItemModule>().ForEach(a => Items.Add(a, new ItemController(services.Make<ItemModule>(a), services)));
-            FindModules<InventoryItemModule>().ForEach(a => InventoryItems.Add(a, new InventoryItemController(services.Make<InventoryItemModule>(a), services)));
-            FindModules<RoomModule>().ForEach(a => Rooms.Add(a, new RoomController(services.Make<RoomModule>(a), services)));
+            FindModules<AnimationModule>().ForEach(a => Animations.Add(a, new AnimationController((AnimationModule)services.GetService(a), services)));
+            FindModules<CharacterAnimationModule>().ForEach(a => CharacterAnimations.Add(a, new CharacterAnimationController((CharacterAnimationModule)services.GetService(a), services)));
+            FindModules<CharacterModule>().ForEach(a => Characters.Add(a, new CharacterController((CharacterModule)services.GetService(a), services)));
+            FindModules<ItemModule>().ForEach(a => Items.Add(a, new ItemController((ItemModule)services.GetService(a), services)));
+            FindModules<InventoryItemModule>().ForEach(a => InventoryItems.Add(a, new InventoryItemController((InventoryItemModule)services.GetService(a), services)));
+            FindModules<RoomModule>().ForEach(a => Rooms.Add(a, new RoomController((RoomModule)services.GetService(a), services)));
 
             PreInitialize();
             Animations.Values.ForEach(a => a.PreInitialize());

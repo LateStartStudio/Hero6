@@ -4,8 +4,9 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
 using LateStartStudio.Hero6.Services.ControllerRepository;
-using LateStartStudio.Hero6.Services.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
@@ -14,9 +15,9 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
     {
         private readonly IControllerRepository controllerRepository;
 
-        public ButtonController(IButtonModule module, IServiceLocator services) : base(module, services)
+        public ButtonController(IButtonModule module, IServiceProvider services) : base(module, services)
         {
-            controllerRepository = services.Get<IControllerRepository>();
+            controllerRepository = services.GetService<IControllerRepository>();
         }
 
         public override int Width => Module.Child.Width;

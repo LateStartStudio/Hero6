@@ -4,6 +4,7 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using LateStartStudio.Hero6.Extensions;
@@ -13,7 +14,7 @@ using LateStartStudio.Hero6.ModuleController.Campaigns.InventoryItems;
 using LateStartStudio.Hero6.ModuleController.Campaigns.Rooms;
 using LateStartStudio.Hero6.ModuleController.Campaigns.Rooms.Regions;
 using LateStartStudio.Hero6.Services.Campaigns;
-using LateStartStudio.Hero6.Services.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters
@@ -37,10 +38,10 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters
         /// Makes a new instance of the <see cref="CharacterController"/> class.
         /// </summary>
         /// <param name="module">The module corresponding to this character.</param>
-        public CharacterController(ICharacterModule module, IServiceLocator services)
+        public CharacterController(ICharacterModule module, IServiceProvider services)
             : base(module, services)
         {
-            campaigns = services.Get<ICampaigns>();
+            campaigns = services.GetService<ICampaigns>();
             stats = new StatsController(services);
         }
 

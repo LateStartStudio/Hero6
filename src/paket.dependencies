@@ -1,6 +1,7 @@
 version 5.236.2
 storage: none
 framework: auto-detect
+strategy: min // Newest version of many packages are incompatible with netcore apps
 source https://api.nuget.org/v3/index.json
 
 nuget BenchmarkDotNet
@@ -18,3 +19,6 @@ nuget NUnit3TestAdapter
 nuget OptimizedPriorityQueue
 nuget SixLabors.ImageSharp
 nuget StyleCop.Analyzers
+// Locking to v5.x because 6.x creates compilation errors on netcore apps
+nuget Microsoft.Extensions.Hosting 5.0.0
+nuget System.Diagnostics.EventLog 5.0.1 // Transitive dependency to Microsoft.Extensions.Hosting

@@ -4,7 +4,7 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
-using LateStartStudio.Hero6.Services.DependencyInjection;
+using System;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
 {
@@ -12,7 +12,7 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
         where TController : IController
         where TModule : IComponentModule
     {
-        protected ComponentController(TModule module, IServiceLocator services)
+        protected ComponentController(TModule module, IServiceProvider services)
             : base(module, services)
         {
         }

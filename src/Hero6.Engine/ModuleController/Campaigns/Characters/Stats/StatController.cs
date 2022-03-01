@@ -6,7 +6,7 @@
 
 using System;
 using LateStartStudio.Hero6.Services.Campaigns;
-using LateStartStudio.Hero6.Services.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters.Stats
@@ -24,10 +24,10 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters.Stats
         /// <summary>
         /// Makes a new instance of the <see cref="StatController"/>.
         /// </summary>
-        public StatController(IServiceLocator services, Func<int> max)
+        public StatController(IServiceProvider services, Func<int> max)
             : base(new StatModule(), services)
         {
-            campaigns = services.Get<ICampaigns>();
+            campaigns = services.GetService<ICampaigns>();
             this.max = max;
         }
 

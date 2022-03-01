@@ -9,6 +9,7 @@
     <Import_RootNamespace>Hero6.Engine</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\HostBuilderExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\DependencyInjection\IgnoreAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\CampaignExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ColorExtensions.cs" />

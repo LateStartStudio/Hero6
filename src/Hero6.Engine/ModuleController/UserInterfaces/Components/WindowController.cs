@@ -4,10 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
 using LateStartStudio.Hero6.Extensions;
 using LateStartStudio.Hero6.Services.ControllerRepository;
-using LateStartStudio.Hero6.Services.DependencyInjection;
 using LateStartStudio.Hero6.Services.Settings;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -15,7 +16,7 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
 {
     public class WindowController : ComponentController<IWindowController, IWindowModule>, IWindowController
     {
-        private readonly IServiceLocator services;
+        private readonly IServiceProvider services;
         private readonly IGameSettings gameSettings;
         private readonly IControllerRepository controllerRepository;
         private readonly SpriteBatch spriteBatch;
@@ -24,13 +25,13 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
         private Texture2D background;
         private Rectangle destination;
 
-        public WindowController(IWindowModule module, IServiceLocator services) : base(module, services)
+        public WindowController(IWindowModule module, IServiceProvider services) : base(module, services)
         {
             this.services = services;
-            gameSettings = services.Get<IGameSettings>();
-            controllerRepository = services.Get<IControllerRepository>();
-            spriteBatch = services.Get<SpriteBatch>();
-            graphicsDeviceManager = services.Get<GraphicsDeviceManager>();
+            gameSettings = services.GetService<IGameSettings>();
+            controllerRepository = services.GetService<IControllerRepository>();
+            spriteBatch = services.GetService<SpriteBatch>();
+            graphicsDeviceManager = services.GetService<GraphicsDeviceManager>();
         }
 
         public override int X

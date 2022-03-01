@@ -4,17 +4,17 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
-using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using LateStartStudio.Hero6.Extensions;
+using LateStartStudio.Hero6.ModuleController.Campaigns;
+using LateStartStudio.Hero6.ModuleController.UserInterfaces;
 using LateStartStudio.Hero6.Services.Campaigns;
-using LateStartStudio.Hero6.Services.ControllerRepository;
-using LateStartStudio.Hero6.Services.DependencyInjection;
-using LateStartStudio.Hero6.Services.DotNetWrappers;
-using LateStartStudio.Hero6.Services.Logger;
-using LateStartStudio.Hero6.Services.PlatformInfo;
 using LateStartStudio.Hero6.Services.Settings;
 using LateStartStudio.Hero6.Services.UserInterfaces;
-using LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -23,98 +23,93 @@ namespace LateStartStudio.Hero6.MonoGame
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class Game : Microsoft.Xna.Framework.Game
+    public class Game : Microsoft.Xna.Framework.Game, IHostedService
     {
-        private static Logger logger;
-
-        private readonly GameSettings gameSettings;
+        private readonly ILogger logger;
+        private readonly IGameSettings gameSettings;
         private readonly MonoGameUserInterfaces ui;
+        private readonly IEnumerable<IUserInterfaceModule> userInterfaceModules;
         private readonly MonoGameCampaigns campaigns;
+        private readonly IEnumerable<ICampaignModule> campaignModules;
 
-        private SpriteBatch spriteBatch;
         private Matrix transform = Matrix.Identity;
 
-        private Game()
+        public Game(
+            ILogger<Game> logger,
+            IGameSettings gameSettings,
+            IUserSettings userSettings,
+            IUserInterfaces ui,
+            IEnumerable<IUserInterfaceModule> userInterfaceModules,
+            ICampaigns campaigns,
+            IEnumerable<ICampaignModule> campaignModules)
         {
+            this.logger = logger;
+            this.gameSettings = gameSettings;
+            this.ui = (MonoGameUserInterfaces)ui;
+            this.userInterfaceModules = userInterfaceModules;
+            this.campaigns = (MonoGameCampaigns)campaigns;
+            this.campaignModules = campaignModules;
+
             Content.RootDirectory = "Content";
             Window.Title = "Hero6";
-            var services = new MonoGameServiceLocator(Services);
-            services.Add<IPlatformInfo, PlatformInfo>();
-            services.Add<IServiceLocator>(services);
-            services.Add<IFileWrapper, FileWrapper>();
-            services.Add<IDirectoryWrapper, DirectoryWrapper>();
-            ui = services.Make<MonoGameUserInterfaces>();
-            services.Add<IUserInterfaces>(ui);
-            gameSettings = new GameSettings(ui);
-            services.Add<IGameSettings>(gameSettings);
-            var userSettings = services.Make<UserSettings>(typeof(UserSettings));
-            services.Add<IUserSettings>(userSettings);
-            services.Add<ILoggerCore, LoggerCore>();
-            logger = services.Make<Logger>(typeof(Logger));
-            services.Add<IMouseCore, MouseCore>();
-            services.Add<ILogger>(logger);
-            services.Add<IControllerRepository, ControllerRepositoryProvider>();
-            services.Add(Content);
-            campaigns = services.Make<MonoGameCampaigns>();
-            services.Add<ICampaigns>(campaigns);
-            services.Add<IMouse, Mouse>();
-
-            var graphics = new GraphicsDeviceManager(this)
+            GraphicsDeviceManager = new GraphicsDeviceManager(this);
+            GraphicsDeviceManager.DeviceCreated += (s, a) =>
             {
-                PreferredBackBufferWidth = userSettings.WindowWidth,
-                PreferredBackBufferHeight = userSettings.WindowHeight,
-                IsFullScreen = userSettings.IsFullScreen,
-                GraphicsProfile = GraphicsProfile.Reach,
+                SpriteBatch = new SpriteBatch(GraphicsDevice);
+
+                GraphicsDeviceManager.PreferredBackBufferWidth = userSettings.WindowWidth;
+                GraphicsDeviceManager.PreferredBackBufferHeight = userSettings.WindowHeight;
+                GraphicsDeviceManager.IsFullScreen = userSettings.IsFullScreen;
+                GraphicsDeviceManager.GraphicsProfile = GraphicsProfile.Reach;
 #if ANDROID
-                SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight
+                GraphicsDeviceManager.SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight;
 #endif
-            };
-            graphics.DeviceCreated += (s, a) =>
-            {
-                spriteBatch = new SpriteBatch(GraphicsDevice);
-                services.Add(graphics);
-                services.Add(spriteBatch);
+                GraphicsDeviceManager.ApplyChanges();
 
-                logger.Info("Graphics Device Created.");
-                logger.Info($"Graphics Adapter Width {GraphicsDevice.Adapter.CurrentDisplayMode.Width}");
-                logger.Info($"Graphics Adapter Height {GraphicsDevice.Adapter.CurrentDisplayMode.Height}");
-                logger.Info($"Graphics Adapter Aspect Ratio {GraphicsDevice.Adapter.CurrentDisplayMode.AspectRatio}");
-                GraphicsDeviceCreated?.Invoke(s, a);
+                logger.LogInformation("Graphics Device Created.");
+                logger.LogInformation($"Graphics Adapter Width {GraphicsDevice.Adapter.CurrentDisplayMode.Width}");
+                logger.LogInformation($"Graphics Adapter Height {GraphicsDevice.Adapter.CurrentDisplayMode.Height}");
+                logger.LogInformation($"Graphics Adapter Aspect Ratio {GraphicsDevice.Adapter.CurrentDisplayMode.AspectRatio}");
             };
-
-            logger.Info("Hero6 Game Instance Created.");
         }
 
-        public event EventHandler<EventArgs> GraphicsDeviceCreated;
+        public GraphicsDeviceManager GraphicsDeviceManager { get; private set; }
 
-        public ICampaigns Campaigns => campaigns;
+        public SpriteBatch SpriteBatch { get; private set; }
 
-        public IUserInterfaces UserInterfaces => ui;
-
-        public ILogger Logger => logger;
-
-        public static void Start(Action<Game> onStart)
+        public Task StartAsync(CancellationToken cancellationToken)
         {
             try
             {
-                using (var game = new Game())
-                {
-                    onStart(game);
-                }
+                userInterfaceModules.ForEach(m => ui.Add(m));
+                campaignModules.ForEach(m => campaigns.Add(m));
+
+                Run();
             }
-#if !DEBUG
-            catch (Exception e)
-            {
-                logger.Error("Hero6 has crashed, logging stack trace.");
-                logger.Exception(e);
-                logger.WillDeleteLogOnDispose = false;
-                var p = new System.Diagnostics.Process { StartInfo = { UseShellExecute = true, FileName = logger.Filename } };
-                p.Start();
-            }
-#endif
+
+// TODO This block needs a logger which is compatible with Microsoft.Logging and dumping log to file
+// which comes later
+////#if !DEBUG
+////            catch (Exception e)
+////            {
+////                logger.Error("Hero6 has crashed, logging stack trace.");
+////                logger.Exception(e);
+////                logger.WillDeleteLogOnDispose = false;
+////                var p = new System.Diagnostics.Process { StartInfo = { UseShellExecute = true, FileName = logger.Filename } };
+////                p.Start();
+////            }
+////#endif
             finally
             {
             }
+
+            return Task.CompletedTask;
+        }
+
+        public Task StopAsync(CancellationToken cancellationToken)
+        {
+            Dispose();
+            return Task.CompletedTask;
         }
 
         /// <summary>
@@ -125,8 +120,7 @@ namespace LateStartStudio.Hero6.MonoGame
         /// </summary>
         protected override void Initialize()
         {
-            logger.Initialize();
-            logger.Info("Initializing Hero6 game instance.");
+            logger.LogInformation("Initializing Hero6 game instance.");
 
             UpdateScale();
             ui.Initialize();
@@ -134,7 +128,7 @@ namespace LateStartStudio.Hero6.MonoGame
 
             base.Initialize();
 
-            logger.Info("Hero6 game instance initialized.");
+            logger.LogInformation("Hero6 game instance initialized.");
         }
 
         /// <summary>
@@ -143,13 +137,13 @@ namespace LateStartStudio.Hero6.MonoGame
         /// </summary>
         protected override void LoadContent()
         {
-            logger.Info("Loading Hero6 game instance.");
+            logger.LogInformation("Loading Hero6 game instance.");
 
             ui.Load();
             campaigns.Load();
             base.LoadContent();
 
-            logger.Info("Hero6 game instance loaded.");
+            logger.LogInformation("Hero6 game instance loaded.");
         }
 
         /// <summary>
@@ -158,14 +152,14 @@ namespace LateStartStudio.Hero6.MonoGame
         /// </summary>
         protected override void UnloadContent()
         {
-            logger.Info("Unloading Hero6 game instance.");
+            logger.LogInformation("Unloading Hero6 game instance.");
 
             Content.Unload();
             ui.Unload();
             campaigns.Unload();
             base.UnloadContent();
 
-            logger.Info("Hero6 game instance unloaded.");
+            logger.LogInformation("Hero6 game instance unloaded.");
         }
 
         /// <summary>
@@ -193,10 +187,10 @@ namespace LateStartStudio.Hero6.MonoGame
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Begin(SpriteSortMode.Deferred, transformMatrix: transform);
+            SpriteBatch.Begin(SpriteSortMode.Deferred, transformMatrix: transform);
             campaigns.Draw(time);
             ui.Draw(time);
-            spriteBatch.End();
+            SpriteBatch.End();
 
             base.Draw(time);
         }

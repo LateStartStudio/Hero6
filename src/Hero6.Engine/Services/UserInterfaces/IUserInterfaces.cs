@@ -24,6 +24,6 @@ namespace LateStartStudio.Hero6.Services.UserInterfaces
         /// </summary>
         IUserInterfaceModule Current { get; set; }
 
-        void Add<T>() where T : IUserInterfaceModule;
+        void Add(IUserInterfaceModule module);
     }
 }

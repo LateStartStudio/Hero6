@@ -5,3 +5,4 @@ OptimizedPriorityQueue
 SixLabors.ImageSharp
 StyleCop.Analyzers
 log4net
+Microsoft.Extensions.Hosting

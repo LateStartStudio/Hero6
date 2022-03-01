@@ -8,8 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using LateStartStudio.Hero6.MonoGame.GameLoop;
-using LateStartStudio.Hero6.Services.DependencyInjection;
 using LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.ModuleController
@@ -31,10 +31,10 @@ namespace LateStartStudio.Hero6.ModuleController
         /// Makes a new <see cref="Controller{TController,TModule}"/> instance.
         /// </summary>
         /// <param name="module">The module to this controller.</param>
-        protected Controller(TModule module, IServiceLocator services)
+        protected Controller(TModule module, IServiceProvider services)
         {
             Module = module;
-            var mouse = services.Get<IMouse>();
+            var mouse = services.GetService<IMouse>();
             mouse.Move += MouseMove;
             mouse.ButtonLift += MouseButtonLift;
         }
