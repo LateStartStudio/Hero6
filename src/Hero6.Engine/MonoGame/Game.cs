@@ -4,16 +4,10 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 using LateStartStudio.Hero6.Extensions;
-using LateStartStudio.Hero6.ModuleController.Campaigns;
-using LateStartStudio.Hero6.ModuleController.UserInterfaces;
 using LateStartStudio.Hero6.Services.Campaigns;
 using LateStartStudio.Hero6.Services.Settings;
 using LateStartStudio.Hero6.Services.UserInterfaces;
-using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -23,14 +17,12 @@ namespace LateStartStudio.Hero6.MonoGame
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class Game : Microsoft.Xna.Framework.Game, IHostedService
+    public class Game : Microsoft.Xna.Framework.Game
     {
         private readonly ILogger logger;
         private readonly IGameSettings gameSettings;
         private readonly MonoGameUserInterfaces ui;
-        private readonly IEnumerable<IUserInterfaceModule> userInterfaceModules;
         private readonly MonoGameCampaigns campaigns;
-        private readonly IEnumerable<ICampaignModule> campaignModules;
 
         private Matrix transform = Matrix.Identity;
 
@@ -38,17 +30,13 @@ namespace LateStartStudio.Hero6.MonoGame
             ILogger<Game> logger,
             IGameSettings gameSettings,
             IUserSettings userSettings,
-            IUserInterfaces ui,
-            IEnumerable<IUserInterfaceModule> userInterfaceModules,
-            ICampaigns campaigns,
-            IEnumerable<ICampaignModule> campaignModules)
+            MonoGameUserInterfaces ui,
+            MonoGameCampaigns campaigns)
         {
             this.logger = logger;
             this.gameSettings = gameSettings;
-            this.ui = (MonoGameUserInterfaces)ui;
-            this.userInterfaceModules = userInterfaceModules;
-            this.campaigns = (MonoGameCampaigns)campaigns;
-            this.campaignModules = campaignModules;
+            this.ui = ui;
+            this.campaigns = campaigns;
 
             Content.RootDirectory = "Content";
             Window.Title = "Hero6";
@@ -76,41 +64,6 @@ namespace LateStartStudio.Hero6.MonoGame
         public GraphicsDeviceManager GraphicsDeviceManager { get; private set; }
 
         public SpriteBatch SpriteBatch { get; private set; }
-
-        public Task StartAsync(CancellationToken cancellationToken)
-        {
-            try
-            {
-                userInterfaceModules.ForEach(m => ui.Add(m));
-                campaignModules.ForEach(m => campaigns.Add(m));
-
-                Run();
-            }
-
-// TODO This block needs a logger which is compatible with Microsoft.Logging and dumping log to file
-// which comes later
-////#if !DEBUG
-////            catch (Exception e)
-////            {
-////                logger.Error("Hero6 has crashed, logging stack trace.");
-////                logger.Exception(e);
-////                logger.WillDeleteLogOnDispose = false;
-////                var p = new System.Diagnostics.Process { StartInfo = { UseShellExecute = true, FileName = logger.Filename } };
-////                p.Start();
-////            }
-////#endif
-            finally
-            {
-            }
-
-            return Task.CompletedTask;
-        }
-
-        public Task StopAsync(CancellationToken cancellationToken)
-        {
-            Dispose();
-            return Task.CompletedTask;
-        }
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.

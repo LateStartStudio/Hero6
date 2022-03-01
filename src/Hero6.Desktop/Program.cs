@@ -6,8 +6,8 @@
 
 using System;
 using System.Threading.Tasks;
-using Hero6.Engine.Extensions;
 using LateStartStudio.Hero6.Campaigns.RitesOfPassage;
+using LateStartStudio.Hero6.Engine.Extensions;
 using LateStartStudio.Hero6.UserInterfaces.SierraVga;
 using Microsoft.Extensions.Hosting;
 
@@ -25,7 +25,7 @@ namespace LateStartStudio.Hero6
         public static async Task Main(string[] args)
         {
             using IHost host = CreateHostBuilder(args).Build();
-            await host.RunAsync();
+            await host.RunGameAsync();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) => Host
