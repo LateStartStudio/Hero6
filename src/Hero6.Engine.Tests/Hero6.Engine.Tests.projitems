@@ -9,8 +9,6 @@
     <Import_RootNamespace>Hero6.Engine.Tests</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Services\DependencyInjection\ServiceLocatorTests.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\Logger\LoggerTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Settings\UserSettingsTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\UserInterfaces\Input\Mouse\MouseTests.cs" />
   </ItemGroup>
