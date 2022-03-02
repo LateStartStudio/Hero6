@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29209.62
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hero6", "Hero6", "{887BCA83-96AC-4E83-BAF5-567626AF670B}"
 EndProject
@@ -67,31 +67,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "azure-pipelines", "azure-pi
 		..\scripts\azure-pipelines\run-tests.yaml = ..\scripts\azure-pipelines\run-tests.yaml
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Desktop.Benchmarks", "Hero6.Desktop.Benchmarks\Hero6.Desktop.Benchmarks.csproj", "{CE5D600B-828B-4C8D-88BB-68488D19F825}"
-EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Hero6.Benchmarks", "Hero6.Benchmarks\Hero6.Benchmarks.shproj", "{3EE7C8EB-E03E-40CB-B471-4836CC17F7C6}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Engine.Desktop.Benchmarks", "Hero6.Engine.Desktop.Benchmarks\Hero6.Engine.Desktop.Benchmarks.csproj", "{D1C0BE60-E32E-412C-AA31-C1B8C2F62D1F}"
-EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Hero6.Engine", "Hero6.Engine\Hero6.Engine.shproj", "{DF1A4B43-E0E1-4D31-9D52-03101F99F593}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hero6.Engine.Desktop.Tests", "Hero6.Engine.Desktop.Tests\Hero6.Engine.Desktop.Tests.csproj", "{E346D4EA-A08B-457D-8C23-4B27AB111667}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Hero6.Engine.Tests", "Hero6.Engine.Tests\Hero6.Engine.Tests.shproj", "{4F1E3941-9BB3-412E-9F68-A4F959D460B8}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Hero6.Engine.Benchmarks", "Hero6.Engine.Benchmarks\Hero6.Engine.Benchmarks.shproj", "{538D77D8-5ACF-409B-9727-4E840CD692F1}"
-EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Hero6.Engine\Hero6.Engine.projitems*{0c0586a3-5a10-42ce-b609-cc80ee2cef7a}*SharedItemsImports = 5
 		Hero6.Tests\Hero6.Tests.projitems*{33dca6ab-2df5-400a-b981-4e5b06cec36d}*SharedItemsImports = 5
-		Hero6.Benchmarks\Hero6.Benchmarks.projitems*{3ee7c8eb-e03e-40cb-b471-4836cc17f7c6}*SharedItemsImports = 13
 		Hero6.Engine.Tests\Hero6.Engine.Tests.projitems*{4f1e3941-9bb3-412e-9f68-a4f959d460b8}*SharedItemsImports = 13
-		Hero6.Engine.Benchmarks\Hero6.Engine.Benchmarks.projitems*{538d77d8-5acf-409b-9727-4e840cd692f1}*SharedItemsImports = 13
 		Hero6.Tests\Hero6.Tests.projitems*{b59e1a53-68b3-4d31-8b69-cefc3d5cebb4}*SharedItemsImports = 13
-		Hero6.Benchmarks\Hero6.Benchmarks.projitems*{ce5d600b-828b-4c8d-88bb-68488d19f825}*SharedItemsImports = 5
 		Hero6\Hero6.projitems*{d1071ffb-86e1-48dd-9f84-7d84ed962434}*SharedItemsImports = 5
-		Hero6.Engine.Benchmarks\Hero6.Engine.Benchmarks.projitems*{d1c0be60-e32e-412c-aa31-c1b8c2f62d1f}*SharedItemsImports = 5
 		Hero6.Engine\Hero6.Engine.projitems*{df1a4b43-e0e1-4d31-9d52-03101f99f593}*SharedItemsImports = 13
 		Hero6\Hero6.projitems*{df3851f5-aea2-4d44-bab1-88e63c470f30}*SharedItemsImports = 13
 		Hero6.Engine.Tests\Hero6.Engine.Tests.projitems*{e346d4ea-a08b-457d-8c23-4b27ab111667}*SharedItemsImports = 5
@@ -215,22 +203,6 @@ Global
 		{D1071FFB-86E1-48DD-9F84-7D84ED962434}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D1071FFB-86E1-48DD-9F84-7D84ED962434}.Release|x86.ActiveCfg = Release|Any CPU
 		{D1071FFB-86E1-48DD-9F84-7D84ED962434}.Release|x86.Build.0 = Release|Any CPU
-		{CE5D600B-828B-4C8D-88BB-68488D19F825}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CE5D600B-828B-4C8D-88BB-68488D19F825}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CE5D600B-828B-4C8D-88BB-68488D19F825}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{CE5D600B-828B-4C8D-88BB-68488D19F825}.Debug|x86.Build.0 = Debug|Any CPU
-		{CE5D600B-828B-4C8D-88BB-68488D19F825}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CE5D600B-828B-4C8D-88BB-68488D19F825}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CE5D600B-828B-4C8D-88BB-68488D19F825}.Release|x86.ActiveCfg = Release|Any CPU
-		{CE5D600B-828B-4C8D-88BB-68488D19F825}.Release|x86.Build.0 = Release|Any CPU
-		{D1C0BE60-E32E-412C-AA31-C1B8C2F62D1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D1C0BE60-E32E-412C-AA31-C1B8C2F62D1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D1C0BE60-E32E-412C-AA31-C1B8C2F62D1F}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{D1C0BE60-E32E-412C-AA31-C1B8C2F62D1F}.Debug|x86.Build.0 = Debug|Any CPU
-		{D1C0BE60-E32E-412C-AA31-C1B8C2F62D1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D1C0BE60-E32E-412C-AA31-C1B8C2F62D1F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D1C0BE60-E32E-412C-AA31-C1B8C2F62D1F}.Release|x86.ActiveCfg = Release|Any CPU
-		{D1C0BE60-E32E-412C-AA31-C1B8C2F62D1F}.Release|x86.Build.0 = Release|Any CPU
 		{E346D4EA-A08B-457D-8C23-4B27AB111667}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E346D4EA-A08B-457D-8C23-4B27AB111667}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E346D4EA-A08B-457D-8C23-4B27AB111667}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -261,13 +233,9 @@ Global
 		{5BD8BDF3-2B54-4228-9272-BFCC6D1AE541} = {887BCA83-96AC-4E83-BAF5-567626AF670B}
 		{D1071FFB-86E1-48DD-9F84-7D84ED962434} = {887BCA83-96AC-4E83-BAF5-567626AF670B}
 		{FD983D91-82AF-44DA-B456-315A61E1A38B} = {F6DAB1F9-6741-4246-8B78-1CDDA0F447C8}
-		{CE5D600B-828B-4C8D-88BB-68488D19F825} = {887BCA83-96AC-4E83-BAF5-567626AF670B}
-		{3EE7C8EB-E03E-40CB-B471-4836CC17F7C6} = {887BCA83-96AC-4E83-BAF5-567626AF670B}
-		{D1C0BE60-E32E-412C-AA31-C1B8C2F62D1F} = {2937997A-C105-4911-90ED-1458D86A3D87}
 		{DF1A4B43-E0E1-4D31-9D52-03101F99F593} = {2937997A-C105-4911-90ED-1458D86A3D87}
 		{E346D4EA-A08B-457D-8C23-4B27AB111667} = {2937997A-C105-4911-90ED-1458D86A3D87}
 		{4F1E3941-9BB3-412E-9F68-A4F959D460B8} = {2937997A-C105-4911-90ED-1458D86A3D87}
-		{538D77D8-5ACF-409B-9727-4E840CD692F1} = {2937997A-C105-4911-90ED-1458D86A3D87}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D79F9E72-AE93-4A79-A968-902EC57B5900}
