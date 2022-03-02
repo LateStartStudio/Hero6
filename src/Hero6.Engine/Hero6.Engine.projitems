@@ -128,8 +128,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\Campaigns\MonoGameCampaigns.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\ControllerRepository\ControllerRepositoryProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\ControllerRepository\IControllerRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\DependencyInjection\IServiceLocator.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\DependencyInjection\MonoGameServiceLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\DotNetWrappers\DirectoryWrapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\DotNetWrappers\FileWrapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\DotNetWrappers\IDirectoryWrapper.cs" />
