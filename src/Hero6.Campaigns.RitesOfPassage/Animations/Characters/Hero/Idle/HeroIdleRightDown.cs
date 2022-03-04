@@ -6,7 +6,7 @@
 
 using LateStartStudio.Hero6.ModuleController.Campaigns.Animations;
 
-namespace LateStartStudio.Hero6.Engine.Campaigns.RitesOfPassage.Animations.Characters.Hero.Idle
+namespace LateStartStudio.Hero6.Campaigns.RitesOfPassage.Animations.Characters.Hero.Idle
 {
     public class HeroIdleRightDown : AnimationModule
     {

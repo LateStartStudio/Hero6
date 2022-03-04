@@ -4,6 +4,7 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using LateStartStudio.Hero6.Extensions;
@@ -11,7 +12,7 @@ using LateStartStudio.Hero6.ModuleController.Campaigns.Characters;
 using LateStartStudio.Hero6.ModuleController.Campaigns.Items;
 using LateStartStudio.Hero6.ModuleController.Campaigns.Rooms.Regions;
 using LateStartStudio.Hero6.Services.Campaigns;
-using LateStartStudio.Hero6.Services.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -38,12 +39,12 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms
         /// Makes a new <see cref="RoomController"/> instance.
         /// </summary>
         /// <param name="module">The module for this controller.</param>
-        public RoomController(IRoomModule module, IServiceLocator services)
+        public RoomController(IRoomModule module, IServiceProvider services)
             : base(module, services)
         {
-            campaigns = services.Get<ICampaigns>();
-            content = services.Get<ContentManager>();
-            spriteBatch = services.Get<SpriteBatch>();
+            campaigns = services.GetService<ICampaigns>();
+            content = services.GetService<ContentManager>();
+            spriteBatch = services.GetService<SpriteBatch>();
             walkAreas = new WalkAreasController(Module.WalkAreasMask, services);
             hotspots = new HotspotsController(Module.HotspotsMask, services);
         }

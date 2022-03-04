@@ -4,8 +4,9 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
-using LateStartStudio.Hero6.Services.DependencyInjection;
+using System;
 using LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -20,11 +21,11 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Input.Mouse
 
         private Texture2D cursor;
 
-        public CursorController(ICursorModule module, IServiceLocator services) : base(module, services)
+        public CursorController(ICursorModule module, IServiceProvider services) : base(module, services)
         {
-            content = services.Get<ContentManager>();
-            spriteBatch = services.Get<SpriteBatch>();
-            mouse = services.Get<IMouse>();
+            content = services.GetService<ContentManager>();
+            spriteBatch = services.GetService<SpriteBatch>();
+            mouse = services.GetService<IMouse>();
         }
 
         public override int Width => cursor.Width;

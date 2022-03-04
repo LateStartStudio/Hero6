@@ -4,7 +4,8 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
-using LateStartStudio.Hero6.Services.DependencyInjection;
+using System;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -26,10 +27,10 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Items
         /// Makes a new instance of the <see cref="ItemController"/> class.
         /// </summary>
         /// <param name="module">The module for this controller.</param>
-        public ItemController(IItemModule module, IServiceLocator services) : base(module, services)
+        public ItemController(IItemModule module, IServiceProvider services) : base(module, services)
         {
-            content = services.Get<ContentManager>();
-            spriteBatch = services.Get<SpriteBatch>();
+            content = services.GetService<ContentManager>();
+            spriteBatch = services.GetService<SpriteBatch>();
         }
 
         public override int Width => sprite.Width;

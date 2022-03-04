@@ -4,10 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using LateStartStudio.Hero6.Extensions;
-using LateStartStudio.Hero6.Services.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
@@ -25,11 +26,11 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms.Regions
         /// <summary>
         /// Makes a new instance of the walk areas controller.
         /// </summary>
-        public WalkAreasController(string source, IServiceLocator services)
+        public WalkAreasController(string source, IServiceProvider services)
             : base(new WalkAreasModule(), services)
         {
             this.source = source;
-            this.content = services.Get<ContentManager>();
+            this.content = services.GetService<ContentManager>();
         }
 
         public override int Width { get; }

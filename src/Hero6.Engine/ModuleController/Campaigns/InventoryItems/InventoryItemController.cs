@@ -4,7 +4,7 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
-using LateStartStudio.Hero6.Services.DependencyInjection;
+using System;
 using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.ModuleController.Campaigns.InventoryItems
@@ -18,7 +18,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.InventoryItems
         /// Makes a new instance of the <see cref="InventoryItemController"/> class.
         /// </summary>
         /// <param name="module">The module for this controller.</param>
-        public InventoryItemController(IInventoryItemModule module, IServiceLocator services) : base(module, services)
+        public InventoryItemController(IInventoryItemModule module, IServiceProvider services) : base(module, services)
         {
         }
 

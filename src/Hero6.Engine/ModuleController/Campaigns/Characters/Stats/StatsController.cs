@@ -4,8 +4,9 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
 using LateStartStudio.Hero6.Services.Campaigns;
-using LateStartStudio.Hero6.Services.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters.Stats
@@ -18,10 +19,10 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters.Stats
         /// <summary>
         /// Makes a new instance of the <see cref="StatController"/> class.
         /// </summary>
-        public StatsController(IServiceLocator services)
+        public StatsController(IServiceProvider services)
             : base(new StatsModule(), services)
         {
-            var campaigns = services.Get<ICampaigns>();
+            var campaigns = services.GetService<ICampaigns>();
             Health = new StatController(services, () => (int)((Strength.Current * 0.4) + (Vitality.Current * 0.6)));
             Stamina = new StatController(services, () => (int)((Vitality.Current * 0.4) + (Agility.Current * 0.6)));
             Mana = new StatController(services, () => Magic.Current > 0 ? (int)((Intelligence.Current * 0.4) + (Magic.Current * 0.6)) : 0);

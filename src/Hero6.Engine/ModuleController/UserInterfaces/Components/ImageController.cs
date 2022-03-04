@@ -4,7 +4,8 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
-using LateStartStudio.Hero6.Services.DependencyInjection;
+using System;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -19,11 +20,11 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
         private Texture2D image;
         private Vector2 position;
 
-        public ImageController(IImageModule module, string source, IServiceLocator services) : base(module, services)
+        public ImageController(IImageModule module, string source, IServiceProvider services) : base(module, services)
         {
             Source = source;
-            content = services.Get<ContentManager>();
-            spriteBatch = services.Get<SpriteBatch>();
+            content = services.GetService<ContentManager>();
+            spriteBatch = services.GetService<SpriteBatch>();
         }
 
         public string Source { get; }

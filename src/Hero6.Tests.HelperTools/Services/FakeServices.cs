@@ -4,12 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
 using LateStartStudio.Hero6.ModuleController.Campaigns;
 using LateStartStudio.Hero6.ModuleController.UserInterfaces;
 using LateStartStudio.Hero6.Services.Campaigns;
-using LateStartStudio.Hero6.Services.DependencyInjection;
 using LateStartStudio.Hero6.Services.DotNetWrappers;
-using LateStartStudio.Hero6.Services.Logger;
 using LateStartStudio.Hero6.Services.PlatformInfo;
 using LateStartStudio.Hero6.Services.Settings;
 using LateStartStudio.Hero6.Services.UserInterfaces;
@@ -20,67 +19,96 @@ namespace LateStartStudio.Hero6.Services
 {
     public class FakeServices : IServicesRepository
     {
-        private FileWrapperStub file;
-        private IDirectoryWrapper directory;
-        private IServiceLocator services;
-        private IMouse mouse;
-        private IMouseCore mouseCore;
-        private ILogger logger;
-        private ILoggerCore loggerCore;
-        private IGameSettings gameSettings;
-        private IUserSettings userSettings;
-        private IPlatformInfo platformInfo;
-        private ICampaigns campaigns;
-        private IUserInterfaces userInterfaces;
+        private readonly Lazy<FileWrapperStub> file;
+        private readonly Lazy<IDirectoryWrapper> directory;
+        private readonly Lazy<IMouse> mouse;
+        private readonly Lazy<IMouseCore> mouseCore;
+        private readonly Lazy<IGameSettings> gameSettings;
+        private readonly Lazy<IUserSettings> userSettings;
+        private readonly Lazy<IPlatformInfo> platformInfo;
+        private readonly Lazy<ICampaigns> campaigns;
+        private readonly Lazy<IUserInterfaces> userInterfaces;
+        private readonly Lazy<IServiceProvider> services;
 
-        public FileWrapperStub File => file ?? (file = new FileWrapperStub());
-
-        public IDirectoryWrapper Directory => directory ?? (directory = Substitute.For<IDirectoryWrapper>());
-
-        public IServiceLocator Services => services ?? (services = Substitute.For<IServiceLocator>());
-
-        public IMouse Mouse => mouse ?? (mouse = Substitute.For<IMouse>());
-
-        public IMouseCore MouseCore => mouseCore ?? (mouseCore = Substitute.For<IMouseCore>());
-
-        public ILogger Logger => logger ?? (logger = Substitute.For<ILogger>());
-
-        public ILoggerCore LoggerCore => loggerCore ?? (loggerCore = Substitute.For<ILoggerCore>());
-
-        public IGameSettings GameSettings => gameSettings ?? (gameSettings = Substitute.For<IGameSettings>());
-
-        public IUserSettings UserSettings => userSettings ?? (userSettings = Substitute.For<IUserSettings>());
-
-        public IPlatformInfo PlatformInfo => platformInfo ?? (platformInfo = Substitute.For<IPlatformInfo>());
-
-        public ICampaigns Campaigns
+        public FakeServices()
         {
-            get
-            {
-                if (campaigns == null)
-                {
-                    campaigns = Substitute.For<ICampaigns>();
-                    var module = Substitute.For<ICampaignModule>();
-                    campaigns.Current.Returns(module);
-                }
+            file = new Lazy<FileWrapperStub>(() => new FileWrapperStub());
+            directory = new Lazy<IDirectoryWrapper>(() => Substitute.For<IDirectoryWrapper>());
+            mouse = new Lazy<IMouse>(() => Substitute.For<IMouse>());
+            mouseCore = new Lazy<IMouseCore>(() => Substitute.For<IMouseCore>());
+            gameSettings = new Lazy<IGameSettings>(() => Substitute.For<IGameSettings>());
+            userSettings = new Lazy<IUserSettings>(() => Substitute.For<IUserSettings>());
+            platformInfo = new Lazy<IPlatformInfo>(() => Substitute.For<IPlatformInfo>());
 
+            campaigns = new Lazy<ICampaigns>(() =>
+            {
+                var campaigns = Substitute.For<ICampaigns>();
+                var module = Substitute.For<ICampaignModule>();
+                campaigns.Current.Returns(module);
                 return campaigns;
-            }
-        }
+            });
 
-        public IUserInterfaces UserInterfaces
-        {
-            get
+            userInterfaces = new Lazy<IUserInterfaces>(() =>
             {
-                if (userInterfaces == null)
-                {
-                    userInterfaces = Substitute.For<IUserInterfaces>();
-                    var module = Substitute.For<IUserInterfaceModule>();
-                    userInterfaces.Current.Returns(module);
-                }
-
+                var userInterfaces = Substitute.For<IUserInterfaces>();
+                var module = Substitute.For<IUserInterfaceModule>();
+                userInterfaces.Current.Returns(module);
                 return userInterfaces;
-            }
+            });
+
+            services = new Lazy<IServiceProvider>(() =>
+            {
+                var services = Substitute.For<IServiceProvider>();
+
+                var resolvedFileWrapper = File;
+                services.GetService(typeof(IFileWrapper)).Returns(resolvedFileWrapper);
+
+                var resolvedDirectoryWrapper = Directory;
+                services.GetService(typeof(IDirectoryWrapper)).Returns(resolvedDirectoryWrapper);
+
+                var resolvedMouse = Mouse;
+                services.GetService(typeof(IMouse)).Returns(resolvedMouse);
+
+                var resolvedMouseCore = MouseCore;
+                services.GetService(typeof(IMouseCore)).Returns(resolvedMouseCore);
+
+                var resolvedGameSettings = GameSettings;
+                services.GetService(typeof(IGameSettings)).Returns(resolvedGameSettings);
+
+                var resolvedUserSettings = UserSettings;
+                services.GetService(typeof(IUserSettings)).Returns(resolvedUserSettings);
+
+                var resolvedPlatformIno = PlatformInfo;
+                services.GetService(typeof(IPlatformInfo)).Returns(resolvedPlatformIno);
+
+                var resolvedCampaigns = Campaigns;
+                services.GetService(typeof(ICampaigns)).Returns(resolvedCampaigns);
+
+                var resolvedUserInterfaces = UserInterfaces;
+                services.GetService(typeof(IUserInterfaces)).Returns(resolvedUserInterfaces);
+
+                return services;
+            });
         }
+
+        public FileWrapperStub File => file.Value;
+
+        public IDirectoryWrapper Directory => directory.Value;
+
+        public IServiceProvider Services => services.Value;
+
+        public IMouse Mouse => mouse.Value;
+
+        public IMouseCore MouseCore => mouseCore.Value;
+
+        public IGameSettings GameSettings => gameSettings.Value;
+
+        public IUserSettings UserSettings => userSettings.Value;
+
+        public IPlatformInfo PlatformInfo => platformInfo.Value;
+
+        public ICampaigns Campaigns => campaigns.Value;
+
+        public IUserInterfaces UserInterfaces => userInterfaces.Value;
     }
 }

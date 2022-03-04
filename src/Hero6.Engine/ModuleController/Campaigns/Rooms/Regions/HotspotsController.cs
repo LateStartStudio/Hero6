@@ -4,10 +4,11 @@
 // 'LICENSE.CODE.md', which is a part of this source code package.
 // </copyright>
 
+using System;
 using System.Collections.Generic;
 using LateStartStudio.Hero6.Extensions;
 using LateStartStudio.Hero6.ModuleController.Campaigns.Characters;
-using LateStartStudio.Hero6.Services.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -31,10 +32,10 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms.Regions
         /// <summary>
         /// Makes a new <see cref="HotspotsController"/> instance.
         /// </summary>
-        public HotspotsController(string source, IServiceLocator services) : base(new HotspotsModule(), services)
+        public HotspotsController(string source, IServiceProvider services) : base(new HotspotsModule(), services)
         {
             this.source = source;
-            content = services.Get<ContentManager>();
+            content = services.GetService<ContentManager>();
         }
 
         public override int Width { get; }

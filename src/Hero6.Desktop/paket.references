@@ -2,3 +2,4 @@ MonoGame.Content.Builder.Task
 MonoGame.Framework.DesktopGL
 OptimizedPriorityQueue
 StyleCop.Analyzers
+Microsoft.Extensions.Hosting

@@ -10,23 +10,23 @@ using LateStartStudio.Hero6.Extensions;
 using LateStartStudio.Hero6.ModuleController.UserInterfaces.Components;
 using LateStartStudio.Hero6.ModuleController.UserInterfaces.Input.Mouse;
 using LateStartStudio.Hero6.Services.ControllerRepository;
-using LateStartStudio.Hero6.Services.DependencyInjection;
 using LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
 {
     public class UserInterfaceController : Controller<IUserInterfaceController, IUserInterfaceModule>, IUserInterfaceController
     {
-        private readonly IServiceLocator services;
+        private readonly IServiceProvider services;
         private readonly IMouse mouse;
         private readonly IControllerRepository controllerRepository;
 
-        public UserInterfaceController(IUserInterfaceModule module, IServiceLocator services) : base(module, services)
+        public UserInterfaceController(IUserInterfaceModule module, IServiceProvider services) : base(module, services)
         {
             this.services = services;
-            mouse = services.Get<IMouse>();
-            controllerRepository = services.Get<IControllerRepository>();
+            mouse = services.GetService<IMouse>();
+            controllerRepository = services.GetService<IControllerRepository>();
         }
 
         public override int Width { get; }
@@ -46,8 +46,8 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
         public override void Initialize()
         {
             PreInitialize();
-            FindModules<WindowModule>().ForEach(w => WindowsAsDict.Add(w, new WindowController(services.Make<WindowModule>(w), services)));
-            FindModules<CursorModule>().ForEach(c => CursorsAsDict.Add(c, new CursorController(services.Make<CursorModule>(c), services)));
+            FindModules<WindowModule>().ForEach(w => WindowsAsDict.Add(w, new WindowController((WindowModule)services.GetService(w), services)));
+            FindModules<CursorModule>().ForEach(c => CursorsAsDict.Add(c, new CursorController((CursorModule)services.GetService(c), services)));
             controllerRepository.Controllers.ForEach(c => c.Initialize());
             WindowsAsDict.Values.ForEach(w => w.PreInitialize());
             CursorsAsDict.Values.ForEach(c => c.PreInitialize());
