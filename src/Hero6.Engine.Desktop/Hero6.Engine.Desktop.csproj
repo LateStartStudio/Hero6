@@ -17,11 +17,6 @@
     <ProjectReference Include="..\Search\Search.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="Hero6.Logger.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <TrimmerRootAssembly Include="Microsoft.Xna.Framework.Content.ContentTypeReader" Visible="false" />
   </ItemGroup>
   <Import Project="..\Hero6.Engine\Hero6.Engine.projitems" Label="Shared" />
