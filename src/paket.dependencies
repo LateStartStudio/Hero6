@@ -1,9 +1,10 @@
 version 5.236.2
 storage: none
 framework: auto-detect
-strategy: min // Newest version of many packages are incompatible with netcore apps
+strategy: min
 source https://api.nuget.org/v3/index.json
 
+nuget Microsoft.CodeAnalysis.CSharp
 nuget Microsoft.NET.Test.Sdk
 nuget MonoGame.Content.Builder.Task
 nuget MonoGame.Framework.Content.Pipeline copy_local: true

@@ -1,4 +1,4 @@
-﻿// <copyright file="Program.cs" company="Late Start Studio">
+// <copyright file="Program.cs" company="Late Start Studio">
 // Copyright (C) Late Start Studio
 // This file is subject to the terms and conditions of the MIT license specified in the file
 // 'LICENSE.CODE.md', which is a part of this source code package.
@@ -6,9 +6,7 @@
 
 using System;
 using System.Threading.Tasks;
-using LateStartStudio.Hero6.Campaigns.RitesOfPassage;
 using LateStartStudio.Hero6.Engine.Extensions;
-using LateStartStudio.Hero6.UserInterfaces.SierraVga;
 using Microsoft.Extensions.Hosting;
 
 namespace LateStartStudio.Hero6
@@ -31,7 +29,7 @@ namespace LateStartStudio.Hero6
         public static IHostBuilder CreateHostBuilder(string[] args) => Host
             .CreateDefaultBuilder(args)
             .ConfigureHero6Engine()
-            .ConfigureHero6RitesOfPassage()
-            .ConfigureHero6SierraVgaGui();
+            .ConfigureHero6CampaignsRitesOfPassage()
+            .ConfigureHero6UserInterfacesSierraVga();
     }
 }
