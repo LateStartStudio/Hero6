@@ -5,8 +5,18 @@ steps:
 - bash: cd assets && git lfs install && git lfs pull
   displayName: git lfs pull
 
+# Install dotnet SDK for MGCB (MonoGame Content Builder)
+# MGCB requires an extremely specific SDK installed for some reason (probably a bug/oversight)
+- task: UseDotNet@2
+  displayName: Install dotnet SDK for MGCB
+  inputs:
+    packageType: 'sdk'
+    version: 3.1.301
+    workingDirectory: './src'
+
 # Install dotnet SDK
 - task: UseDotNet@2
+  displayName: Install dotnet SDK for Hero6
   inputs:
     packageType: 'sdk'
     useGlobalJson: true
