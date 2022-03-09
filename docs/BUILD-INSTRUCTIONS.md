@@ -5,6 +5,7 @@
 * [git](https://git-scm.com/)
 * [git-lfs](https://git-lfs.github.com/)
 * [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core/2.2) ([Get the version listed here](https://github.com/LateStartStudio/Hero6/blob/master/src/global.json))
+* [.NET Core SDK 3.1.301](https://github.com/dotnet/core/blob/main/release-notes/3.1/3.1.5/3.1.301-download.md), this version needs to be installed alongside with whatever SDK version we use for main development. Reason is that the MGCB requires a specific dotnet version, this is probably a bug that will be resolved in the future.
 
 ## Instructions
 
@@ -20,11 +21,13 @@ You will need tools like paket to work with the source code.
 
 `dotnet tool restore`
 
+You can then run any dotnet tools according to official [documentation](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools).
+
 ### Pre-build Hero6 Engine
 
 The asset builder needs this.
 
-`dotnet build ./src/Hero6.MonoGame.Pipeline/Hero6.MonoGame.Pipeline.csproj`
+`dotnet build ./src/Hero6.Engine.Desktop`
 
 ### Building, running, etc. the game
 
@@ -32,7 +35,7 @@ Hero6 is built using standard [dotnet CLI commands](https://docs.microsoft.com/e
 
 #### Run game
 
-`dotnet run --project ./src/Hero6.DesktopGL/Hero6.DesktopGL.csproj`
+`dotnet run --project ./src/Hero6.Desktop/Hero6.Desktop.csproj`
 
 #### Run unit tests
 
