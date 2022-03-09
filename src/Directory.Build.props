@@ -1,9 +1,12 @@
 <Project>
   <PropertyGroup>
     <CodeAnalysisRuleSet>../Hero6.ruleset</CodeAnalysisRuleSet>
+    <!-- We use netcoreapp3.0 however it has hit EOL, but also we can't upgrade so easily right now, disable check to remove noise -->
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>DEBUG</DefineConstants>
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
