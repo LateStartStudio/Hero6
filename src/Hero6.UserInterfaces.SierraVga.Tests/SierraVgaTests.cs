@@ -10,7 +10,6 @@ using LateStartStudio.Hero6.ModuleController.UserInterfaces.Input.Mouse;
 using LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse;
 using LateStartStudio.Hero6.Tests.Categories;
 using LateStartStudio.Hero6.UserInterfaces.SierraVga;
-using LateStartStudio.Hero6.UserInterfaces.SierraVga.Input;
 using LateStartStudio.Hero6.UserInterfaces.SierraVga.Input.Mouse;
 using LateStartStudio.Hero6.UserInterfaces.SierraVga.Windows;
 using NSubstitute;
@@ -32,7 +31,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
         public void CursorResetToWalkOnMiddleMouseButtonPress()
         {
             var expected = Substitute.For<ICursorModule>();
-            var controller = Substitute.For<CursorController>(expected, Services.Services);
+            var controller = Substitute.For<CursorController>(expected, Services.Services, Services.Mouse, null, null);
             Controller.GetCursor<Walk>().Returns(controller);
             Services.Mouse.ButtonPress += Raise.EventWith(new MouseButtonInteraction(0, 0, MouseButton.Middle));
             Services.Mouse.Received().Cursor = expected;
@@ -55,9 +54,9 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
         protected override void PreInitialize()
         {
             base.PreInitialize();
-            var statusBar = Substitute.For<WindowController>(Substitute.For<IWindowModule>(), Services.Services);
+            var statusBar = Substitute.For<WindowController>(Substitute.For<IWindowModule>(), Services.Services, Services.GameSettings, null, null, null);
             Controller.GetWindow<StatusBar>().Returns(statusBar);
-            var walk = Substitute.For<CursorController>(Substitute.For<ICursorModule>(), Services.Services);
+            var walk = Substitute.For<CursorController>(Substitute.For<ICursorModule>(), Services.Services, Services.Mouse, null, null);
             Controller.GetCursor<Walk>().Returns(walk);
         }
 
@@ -66,7 +65,7 @@ namespace LateStartStudio.Hero6.Engine.UserInterfaces.SierraVga
             where TAfter : class, ICursorModule
         {
             Services.Mouse.Cursor.Equals<TBefore>().Returns(true);
-            var after = Substitute.For<CursorController>(Substitute.For<ICursorModule>(), Services.Services);
+            var after = Substitute.For<CursorController>(Substitute.For<ICursorModule>(), Services.Services, Services.Mouse, null, null);
             Controller.GetCursor<TAfter>().Returns(after);
             Services.Mouse.ButtonPress += Raise.EventWith(new MouseButtonInteraction(0, 0, MouseButton.Right));
             Assert.That(Services.Mouse.Cursor, Is.EqualTo(after.Module));
