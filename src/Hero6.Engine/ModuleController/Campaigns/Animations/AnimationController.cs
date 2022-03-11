@@ -5,7 +5,6 @@
 // </copyright>
 
 using System;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -20,7 +19,7 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Animations
         private readonly ContentManager content;
         private readonly SpriteBatch spriteBatch;
 
-        private Point location;
+        private Point location = default;
         private int frame;
         private double elapsed;
         private Rectangle destination;
@@ -31,11 +30,11 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Animations
         /// Makes an new instance of the <see cref="AnimationController"/> class.
         /// </summary>
         /// <param name="module">The module corresponding to this controller.</param>
-        public AnimationController(IAnimationModule module, IServiceProvider services) : base(module, services)
+        public AnimationController(IAnimationModule module, IServiceProvider services, ContentManager content, SpriteBatch spriteBatch)
+            : base(module, services)
         {
-            content = services.GetService<ContentManager>();
-            spriteBatch = services.GetService<SpriteBatch>();
-            location = default;
+            this.content = content;
+            this.spriteBatch = spriteBatch;
         }
 
         public override int X

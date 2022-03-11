@@ -19,29 +19,35 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters.Stats
         /// <summary>
         /// Makes a new instance of the <see cref="StatController"/> class.
         /// </summary>
-        public StatsController(IServiceProvider services)
+        public StatsController(IServiceProvider services, ICampaigns campaigns)
             : base(new StatsModule(), services)
         {
-            var campaigns = services.GetService<ICampaigns>();
-            Health = new StatController(services, () => (int)((Strength.Current * 0.4) + (Vitality.Current * 0.6)));
-            Stamina = new StatController(services, () => (int)((Vitality.Current * 0.4) + (Agility.Current * 0.6)));
-            Mana = new StatController(services, () => Magic.Current > 0 ? (int)((Intelligence.Current * 0.4) + (Magic.Current * 0.6)) : 0);
-            Humans = new StatController(services, () => campaigns.Current.StatCap);
-            Sidhe = new StatController(services, () => campaigns.Current.StatCap);
-            Giants = new StatController(services, () => campaigns.Current.StatCap);
-            Strength = new LearningStatController(services);
-            Intelligence = new LearningStatController(services);
-            Agility = new LearningStatController(services);
-            Vitality = new LearningStatController(services);
-            Luck = new LearningStatController(services);
-            WeaponUse = new LearningStatController(services);
-            Parry = new LearningStatController(services);
-            Dodge = new LearningStatController(services);
-            Stealth = new LearningStatController(services);
-            LockPicking = new LearningStatController(services);
-            Throwing = new LearningStatController(services);
-            Climbing = new LearningStatController(services);
-            Magic = new LearningStatController(services);
+            Func<int> healthMax = () => (int)((Strength.Current * 0.4) + (Vitality.Current * 0.6));
+            Health = ActivatorUtilities.CreateInstance<StatController>(services, healthMax);
+            Func<int> staminaMax = () => (int)((Vitality.Current * 0.4) + (Agility.Current * 0.6));
+            Stamina = ActivatorUtilities.CreateInstance<StatController>(services, staminaMax);
+            Func<int> manaMax = () => Magic.Current > 0 ? (int)((Intelligence.Current * 0.4) + (Magic.Current * 0.6)) : 0;
+            Mana = ActivatorUtilities.CreateInstance<StatController>(services, manaMax);
+            Func<int> humansMax = () => campaigns.Current.StatCap;
+            Humans = ActivatorUtilities.CreateInstance<StatController>(services, humansMax);
+            Func<int> sidheMax = () => campaigns.Current.StatCap;
+            Sidhe = ActivatorUtilities.CreateInstance<StatController>(services, sidheMax);
+            Func<int> giantsMax = () => campaigns.Current.StatCap;
+            Giants = ActivatorUtilities.CreateInstance<StatController>(services, giantsMax);
+
+            Strength = ActivatorUtilities.CreateInstance<LearningStatController>(services);
+            Intelligence = ActivatorUtilities.CreateInstance<LearningStatController>(services);
+            Agility = ActivatorUtilities.CreateInstance<LearningStatController>(services);
+            Vitality = ActivatorUtilities.CreateInstance<LearningStatController>(services);
+            Luck = ActivatorUtilities.CreateInstance<LearningStatController>(services);
+            WeaponUse = ActivatorUtilities.CreateInstance<LearningStatController>(services);
+            Parry = ActivatorUtilities.CreateInstance<LearningStatController>(services);
+            Dodge = ActivatorUtilities.CreateInstance<LearningStatController>(services);
+            Stealth = ActivatorUtilities.CreateInstance<LearningStatController>(services);
+            LockPicking = ActivatorUtilities.CreateInstance<LearningStatController>(services);
+            Throwing = ActivatorUtilities.CreateInstance<LearningStatController>(services);
+            Climbing = ActivatorUtilities.CreateInstance<LearningStatController>(services);
+            Magic = ActivatorUtilities.CreateInstance<LearningStatController>(services);
         }
 
         public override int Width { get; }

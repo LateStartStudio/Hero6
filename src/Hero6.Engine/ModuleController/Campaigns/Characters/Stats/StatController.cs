@@ -24,10 +24,10 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters.Stats
         /// <summary>
         /// Makes a new instance of the <see cref="StatController"/>.
         /// </summary>
-        public StatController(IServiceProvider services, Func<int> max)
+        public StatController(IServiceProvider services, ICampaigns campaigns, Func<int> max)
             : base(new StatModule(), services)
         {
-            campaigns = services.GetService<ICampaigns>();
+            this.campaigns = campaigns;
             this.max = max;
         }
 

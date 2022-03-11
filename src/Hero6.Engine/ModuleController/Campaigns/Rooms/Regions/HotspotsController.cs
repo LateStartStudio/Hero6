@@ -8,7 +8,6 @@ using System;
 using System.Collections.Generic;
 using LateStartStudio.Hero6.Extensions;
 using LateStartStudio.Hero6.ModuleController.Campaigns.Characters;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -32,10 +31,10 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms.Regions
         /// <summary>
         /// Makes a new <see cref="HotspotsController"/> instance.
         /// </summary>
-        public HotspotsController(string source, IServiceProvider services) : base(new HotspotsModule(), services)
+        public HotspotsController(string source, IServiceProvider services, ContentManager content) : base(new HotspotsModule(), services)
         {
             this.source = source;
-            content = services.GetService<ContentManager>();
+            this.content = content;
         }
 
         public override int Width { get; }

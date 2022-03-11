@@ -6,7 +6,6 @@
 
 using System;
 using LateStartStudio.Hero6.Services.Campaigns;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters.Stats
@@ -23,10 +22,10 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters.Stats
         /// <summary>
         /// Makes a new instance of the <see cref="LearningStatController"/> class.
         /// </summary>
-        public LearningStatController(IServiceProvider services)
+        public LearningStatController(IServiceProvider services, ICampaigns campaigns)
             : base(new LearningStatModule(), services)
         {
-            campaigns = services.GetService<ICampaigns>();
+            this.campaigns = campaigns;
         }
 
         public event EventHandler<EventArgs> Change;

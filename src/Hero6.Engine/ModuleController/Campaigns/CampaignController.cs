@@ -74,12 +74,12 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns
 
         public override void Initialize()
         {
-            FindModules<AnimationModule>().ForEach(a => Animations.Add(a, new AnimationController((AnimationModule)services.GetService(a), services)));
-            FindModules<CharacterAnimationModule>().ForEach(a => CharacterAnimations.Add(a, new CharacterAnimationController((CharacterAnimationModule)services.GetService(a), services)));
-            FindModules<CharacterModule>().ForEach(a => Characters.Add(a, new CharacterController((CharacterModule)services.GetService(a), services)));
-            FindModules<ItemModule>().ForEach(a => Items.Add(a, new ItemController((ItemModule)services.GetService(a), services)));
-            FindModules<InventoryItemModule>().ForEach(a => InventoryItems.Add(a, new InventoryItemController((InventoryItemModule)services.GetService(a), services)));
-            FindModules<RoomModule>().ForEach(a => Rooms.Add(a, new RoomController((RoomModule)services.GetService(a), services)));
+            FindModules<AnimationModule>().ForEach(a => Animations.Add(a, ActivatorUtilities.CreateInstance<AnimationController>(services, (AnimationModule)services.GetService(a))));
+            FindModules<CharacterAnimationModule>().ForEach(a => CharacterAnimations.Add(a, ActivatorUtilities.CreateInstance<CharacterAnimationController>(services, (CharacterAnimationModule)services.GetService(a))));
+            FindModules<CharacterModule>().ForEach(a => Characters.Add(a, ActivatorUtilities.CreateInstance<CharacterController>(services, (CharacterModule)services.GetService(a))));
+            FindModules<ItemModule>().ForEach(a => Items.Add(a, ActivatorUtilities.CreateInstance<ItemController>(services, (ItemModule)services.GetService(a))));
+            FindModules<InventoryItemModule>().ForEach(a => InventoryItems.Add(a, ActivatorUtilities.CreateInstance<InventoryItemController>(services, (InventoryItemModule)services.GetService(a))));
+            FindModules<RoomModule>().ForEach(a => Rooms.Add(a, ActivatorUtilities.CreateInstance<RoomController>(services, (RoomModule)services.GetService(a))));
 
             PreInitialize();
             Animations.Values.ForEach(a => a.PreInitialize());

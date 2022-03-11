@@ -14,7 +14,6 @@ using LateStartStudio.Hero6.ModuleController.Campaigns.InventoryItems;
 using LateStartStudio.Hero6.ModuleController.Campaigns.Rooms;
 using LateStartStudio.Hero6.ModuleController.Campaigns.Rooms.Regions;
 using LateStartStudio.Hero6.Services.Campaigns;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters
@@ -38,11 +37,11 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Characters
         /// Makes a new instance of the <see cref="CharacterController"/> class.
         /// </summary>
         /// <param name="module">The module corresponding to this character.</param>
-        public CharacterController(ICharacterModule module, IServiceProvider services)
+        public CharacterController(ICharacterModule module, IServiceProvider services, ICampaigns campaigns, StatsController stats)
             : base(module, services)
         {
-            campaigns = services.GetService<ICampaigns>();
-            stats = new StatsController(services);
+            this.campaigns = campaigns;
+            this.stats = stats;
         }
 
         public override int Width => currentAnimation?.Width ?? 0;
