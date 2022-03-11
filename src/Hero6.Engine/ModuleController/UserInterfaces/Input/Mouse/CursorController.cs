@@ -6,7 +6,6 @@
 
 using System;
 using LateStartStudio.Hero6.Services.UserInterfaces.Input.Mouse;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -15,17 +14,22 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Input.Mouse
 {
     public class CursorController : Controller<ICursorController, ICursorModule>, ICursorController
     {
+        private readonly IMouse mouse;
         private readonly ContentManager content;
         private readonly SpriteBatch spriteBatch;
-        private readonly IMouse mouse;
 
         private Texture2D cursor;
 
-        public CursorController(ICursorModule module, IServiceProvider services) : base(module, services)
+        public CursorController(
+            ICursorModule module,
+            IServiceProvider services,
+            IMouse mouse,
+            ContentManager content,
+            SpriteBatch spriteBatch) : base(module, services)
         {
-            content = services.GetService<ContentManager>();
-            spriteBatch = services.GetService<SpriteBatch>();
-            mouse = services.GetService<IMouse>();
+            this.mouse = mouse;
+            this.content = content;
+            this.spriteBatch = spriteBatch;
         }
 
         public override int Width => cursor.Width;

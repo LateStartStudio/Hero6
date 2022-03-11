@@ -8,7 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using LateStartStudio.Hero6.Extensions;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
@@ -26,11 +25,11 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms.Regions
         /// <summary>
         /// Makes a new instance of the walk areas controller.
         /// </summary>
-        public WalkAreasController(string source, IServiceProvider services)
+        public WalkAreasController(string source, IServiceProvider services, ContentManager content)
             : base(new WalkAreasModule(), services)
         {
             this.source = source;
-            this.content = services.GetService<ContentManager>();
+            this.content = content;
         }
 
         public override int Width { get; }

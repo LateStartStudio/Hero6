@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using LateStartStudio.Hero6.ModuleController.UserInterfaces;
 using LateStartStudio.Hero6.MonoGame.GameLoop;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Xna.Framework;
 
 namespace LateStartStudio.Hero6.Services.UserInterfaces
@@ -33,7 +34,7 @@ namespace LateStartStudio.Hero6.Services.UserInterfaces
             set { current = userInterfaces.Find(u => u.Module == value); }
         }
 
-        public void Add(IUserInterfaceModule module) => userInterfaces.Add(new UserInterfaceController(module, services));
+        public void Add(IUserInterfaceModule module) => userInterfaces.Add(ActivatorUtilities.CreateInstance<UserInterfaceController>(services, module));
 
         public void Initialize()
         {

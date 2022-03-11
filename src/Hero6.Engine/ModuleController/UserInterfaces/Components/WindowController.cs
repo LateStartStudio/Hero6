@@ -8,7 +8,6 @@ using System;
 using LateStartStudio.Hero6.Extensions;
 using LateStartStudio.Hero6.Services.ControllerRepository;
 using LateStartStudio.Hero6.Services.Settings;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -25,13 +24,19 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces.Components
         private Texture2D background;
         private Rectangle destination;
 
-        public WindowController(IWindowModule module, IServiceProvider services) : base(module, services)
+        public WindowController(
+            IWindowModule module,
+            IServiceProvider services,
+            IGameSettings gameSettings,
+            IControllerRepository controllerRepository,
+            SpriteBatch spriteBatch,
+            GraphicsDeviceManager graphicsDeviceManager) : base(module, services)
         {
             this.services = services;
-            gameSettings = services.GetService<IGameSettings>();
-            controllerRepository = services.GetService<IControllerRepository>();
-            spriteBatch = services.GetService<SpriteBatch>();
-            graphicsDeviceManager = services.GetService<GraphicsDeviceManager>();
+            this.gameSettings = gameSettings;
+            this.controllerRepository = controllerRepository;
+            this.spriteBatch = spriteBatch;
+            this.graphicsDeviceManager = graphicsDeviceManager;
         }
 
         public override int X

@@ -22,11 +22,12 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
         private readonly IMouse mouse;
         private readonly IControllerRepository controllerRepository;
 
-        public UserInterfaceController(IUserInterfaceModule module, IServiceProvider services) : base(module, services)
+        public UserInterfaceController(IUserInterfaceModule module, IServiceProvider services, IMouse mouse, IControllerRepository controllerRepository)
+            : base(module, services)
         {
             this.services = services;
-            mouse = services.GetService<IMouse>();
-            controllerRepository = services.GetService<IControllerRepository>();
+            this.mouse = mouse;
+            this.controllerRepository = controllerRepository;
         }
 
         public override int Width { get; }
@@ -46,8 +47,8 @@ namespace LateStartStudio.Hero6.ModuleController.UserInterfaces
         public override void Initialize()
         {
             PreInitialize();
-            FindModules<WindowModule>().ForEach(w => WindowsAsDict.Add(w, new WindowController((WindowModule)services.GetService(w), services)));
-            FindModules<CursorModule>().ForEach(c => CursorsAsDict.Add(c, new CursorController((CursorModule)services.GetService(c), services)));
+            FindModules<WindowModule>().ForEach(w => WindowsAsDict.Add(w, ActivatorUtilities.CreateInstance<WindowController>(services, (WindowModule)services.GetService(w))));
+            FindModules<CursorModule>().ForEach(c => CursorsAsDict.Add(c, ActivatorUtilities.CreateInstance<CursorController>(services, (CursorModule)services.GetService(c))));
             controllerRepository.Controllers.ForEach(c => c.Initialize());
             WindowsAsDict.Values.ForEach(w => w.PreInitialize());
             CursorsAsDict.Values.ForEach(c => c.PreInitialize());

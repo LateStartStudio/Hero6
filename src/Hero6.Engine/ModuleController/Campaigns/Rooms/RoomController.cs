@@ -39,14 +39,14 @@ namespace LateStartStudio.Hero6.ModuleController.Campaigns.Rooms
         /// Makes a new <see cref="RoomController"/> instance.
         /// </summary>
         /// <param name="module">The module for this controller.</param>
-        public RoomController(IRoomModule module, IServiceProvider services)
+        public RoomController(IRoomModule module, IServiceProvider services, ICampaigns campaigns, ContentManager content, SpriteBatch spriteBatch)
             : base(module, services)
         {
-            campaigns = services.GetService<ICampaigns>();
-            content = services.GetService<ContentManager>();
-            spriteBatch = services.GetService<SpriteBatch>();
-            walkAreas = new WalkAreasController(Module.WalkAreasMask, services);
-            hotspots = new HotspotsController(Module.HotspotsMask, services);
+            this.campaigns = campaigns;
+            this.content = content;
+            this.spriteBatch = spriteBatch;
+            walkAreas = ActivatorUtilities.CreateInstance<WalkAreasController>(services, Module.WalkAreasMask);
+            hotspots = ActivatorUtilities.CreateInstance<HotspotsController>(services, Module.HotspotsMask);
         }
 
         public override int Width => background.Width;
